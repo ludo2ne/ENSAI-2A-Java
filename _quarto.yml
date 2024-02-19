@@ -1,0 +1,38 @@
+
+project:
+  type: website
+  render:
+    - "**/*.qmd"
+
+website:
+  title: "Java"
+  navbar:
+    background: "#447099"
+    left:
+      - href: index.qmd
+        text: Home
+      - text: TP
+        menu: 
+          - href: doc/tp/tp1.qmd
+            text: "TP n°1"
+    right:
+      - icon: github
+        href: https://github.com/ludo2ne/ENSAI-2A-Java
+        target: "_blank"
+  page-footer:
+    right: |
+      Website built with [Quarto](https://quarto.org/){.external target="_blank"} <br>
+      [Code source](https://github.com/ludo2ne/ENSAI-2A-Java){.external target="_blank"}
+  repo-url: https://github.com/ludo2ne/ENSAI-2A-Java
+  repo-branch: main
+  reader-mode: true
+
+format:
+  html:
+    theme: 
+      dark: solar
+      light: cosmo
+    css: styles.css
+
+
+

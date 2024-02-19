@@ -1,0 +1,165 @@
+---
+title: "Java - TP1"
+description: "Classes, objets, attributs et méthodes en Python"
+author: "Ludovic Deneuville"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+## Java en quelques mots
+
+- langage orienté objet
+- compilé en bytecode puis exécuté par la JVM
+  - fichier.java :arrow_right: *compilation* fichier.class :arrow_right: *éxécution* :arrow_right: *run*
+  - compiler : `javac fichier.java`
+  - éxécuter : `java fichier`
+- points-virgules pour terminer les déclarations 
+- accolades pour délimiter les blocs de code
+- Fortement typé statiquement
+  - vous devez déclarer le type de chaque variable
+  - ces types sont vérifiés à la compilation
+- Conventions de nommage : utilisation du `CamelCase`
+  - classe : première lettre MAJUSCULE, ex : VeloElectrique
+  - méthodes et variables : première lettre minuscule, ex : ajouterPanier()
+  
+  
+```{.java}
+class HelloWorld {
+    public static void main(String[] args) { 
+        String message = "Hello World!"; 
+        System.out.println(message);
+    }
+}
+```
+
+## Introduction
+
+:::::: {.callout-tip title="Conseil"}
+- [ ] Sur votre disque `P:`, créez un dossier `Java`, puis à l'intérieur, créez un dossier `TP1`
+- [ ] Sur Moodle, téléchargez le sujet et le code de départ : JavaTP1.zip
+  - [ ] Enregistrez ces fichiers dans votre dossier *TP1*
+  - [ ] Dézippez le fichier *JavaTP1.zip*
+:::
+
+
+
+- [ ] Ouvrez `Visual Studio Code`
+  - File > Open Folder 
+    - Allez dans le dossier *JavaTP1*
+    - Un clic sur *array_project *, ensuite `Sélectionner un dossier`
+  - Ouvrez un terminal (Terminal > New)
+
+Lisez le code du fichier `ArrayListExample.java`
+
+- compilez le fichier : `javac -d bin ./src/edu/ensai/ArrayListExample.java`
+- éxécutez le programme : `java -cp bin edu.ensai.ArrayListExample`
+
+#### i++ et ++i
+
+```{.java}
+    int n = 10;
+    System.out.println(n++);
+    System.out.println(n);
+    n = 10;
+    System.out.println(++n);
+    System.out.println(n);
+```
+
+#### Commandes Powershell
+
+| Commande                    | Description                                             |
+|-----------------------------|---------------------------------------------------------|
+| `cd [directory]`            | Change le répertoire de travail                         |
+| `cd P:`                     | Aller dans le lecteur *P:*                              |
+| `cd ..`                     | Retour dans le dossier parent                           |
+| `dir`                       | Liste le contenu du répertoire courant                  |
+| `tree /F`                   | Visualiser l'arborscence                                |
+| `mkdir [directory]`         | Crée un nouveau répertoire                              |
+| `del [file]`                | Supprime un fichier                                     |
+| `copy [source] [dest]`      | Copie un fichier ou un répertoire                       |
+| `move [source] [dest]`      | Déplace un fichier ou un répertoire                     |
+| `cat [file]`                | Affiche le contenu d'un fichier                         |
+
+
+
+## Exercices
+
+### Exercice 1
+
+- [ ] File > Open Folder 
+- [ ] Allez dans le dossier *JavaTP1*
+- [ ] Un clic sur *car_project *, ensuite `Sélectionner un dossier`
+
+
+### Exercice 2
+
+- [ ] File > Open Folder 
+- [ ] Allez dans le dossier *JavaTP1*
+- [ ] Un clic sur *domino_project*, ensuite `Sélectionner un dossier`
+
+
+## Une classe
+
+```{.java}
+/**
+ * A Student
+ */
+public class Student {
+    // Attributs
+    private String name;
+    private int age;
+
+    /**
+     * Constructor
+     */
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getters et Setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age > 0) {
+            this.age = age;
+        } else {
+            System.out.println("L'âge doit être supérieur à zéro.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    /**
+     * Main method
+     */
+    public static void main(String[] args) {
+
+        // Création d'un objet Student
+        Student student = new Student("John Doe", 20);
+        System.out.println(student);
+    }
+}
+```
