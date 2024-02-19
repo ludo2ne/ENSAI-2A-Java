@@ -55,7 +55,7 @@ class HelloWorld {
     - Un clic sur *array_project *, ensuite `Sélectionner un dossier`
   - Ouvrez un terminal (Terminal > New)
 
-Lisez le code du fichier `ArrayListExample.java`
+Lisez le code du fichier *ArrayListExample.java*
 
 - compilez le fichier : `javac -d bin ./src/edu/ensai/ArrayListExample.java`
 - éxécutez le programme : `java -cp bin edu.ensai.ArrayListExample`
