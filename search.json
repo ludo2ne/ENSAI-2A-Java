@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Java",
+    "section": "",
+    "text": "TP1 : Classes, Objects, Attributes, Methods"
+  },
+  {
+    "objectID": "index.html#tp",
+    "href": "index.html#tp",
+    "title": "Java",
+    "section": "",
+    "text": "TP1 : Classes, Objects, Attributes, Methods"
+  },
+  {
+    "objectID": "doc/tp/tp1.html",
+    "href": "doc/tp/tp1.html",
+    "title": "Java - TP1",
+    "section": "",
+    "text": "langage orienté objet\ncompilé en bytecode puis exécuté par la JVM\n\nfichier.java ➡️ compilation fichier.class ➡️ éxécution ➡️ run\ncompiler : javac fichier.java\néxécuter : java fichier\n\npoints-virgules pour terminer les déclarations\naccolades pour délimiter les blocs de code\nFortement typé statiquement\n\nvous devez déclarer le type de chaque variable\nces types sont vérifiés à la compilation\n\nConventions de nommage : utilisation du CamelCase\n\nclasse : première lettre MAJUSCULE, ex : VeloElectrique\nméthodes et variables : première lettre minuscule, ex : ajouterPanier()\n\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\"; \n        System.out.println(message);\n    }\n}"
+  },
+  {
+    "objectID": "doc/tp/tp1.html#java-en-quelques-mots",
+    "href": "doc/tp/tp1.html#java-en-quelques-mots",
+    "title": "Java - TP1",
+    "section": "",
+    "text": "langage orienté objet\ncompilé en bytecode puis exécuté par la JVM\n\nfichier.java ➡️ compilation fichier.class ➡️ éxécution ➡️ run\ncompiler : javac fichier.java\néxécuter : java fichier\n\npoints-virgules pour terminer les déclarations\naccolades pour délimiter les blocs de code\nFortement typé statiquement\n\nvous devez déclarer le type de chaque variable\nces types sont vérifiés à la compilation\n\nConventions de nommage : utilisation du CamelCase\n\nclasse : première lettre MAJUSCULE, ex : VeloElectrique\nméthodes et variables : première lettre minuscule, ex : ajouterPanier()\n\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\"; \n        System.out.println(message);\n    }\n}"
+  },
+  {
+    "objectID": "doc/tp/tp1.html#introduction",
+    "href": "doc/tp/tp1.html#introduction",
+    "title": "Java - TP1",
+    "section": "2 Introduction",
+    "text": "2 Introduction\n\n\n\n\n\n\nConseil\n\n\n\n\nSur votre disque P:, créez un dossier Java, puis à l’intérieur, créez un dossier TP1\nSur Moodle, téléchargez le sujet et le code de départ : JavaTP1.zip\n\nEnregistrez ces fichiers dans votre dossier TP1\nDézippez le fichier JavaTP1.zip\n\n\n\n\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\n\nAllez dans le dossier JavaTP1\nUn clic sur array_project , ensuite Sélectionner un dossier\n\nOuvrez un terminal (Terminal &gt; New)\n\n\nLisez le code du fichier ArrayListExample.java\n\ncompilez le fichier : javac -d bin ./src/edu/ensai/ArrayListExample.java\néxécutez le programme : java -cp bin edu.ensai.ArrayListExample\n\n\ni++ et ++i\n    int n = 10;\n    System.out.println(n++);\n    System.out.println(n);\n    n = 10;\n    System.out.println(++n);\n    System.out.println(n);\n\n\nCommandes Powershell\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ncd [directory]\nChange le répertoire de travail\n\n\ncd P:\nAller dans le lecteur P:\n\n\ncd ..\nRetour dans le dossier parent\n\n\ndir\nListe le contenu du répertoire courant\n\n\ntree /F\nVisualiser l’arborscence\n\n\nmkdir [directory]\nCrée un nouveau répertoire\n\n\ndel [file]\nSupprime un fichier\n\n\ncopy [source] [dest]\nCopie un fichier ou un répertoire\n\n\nmove [source] [dest]\nDéplace un fichier ou un répertoire\n\n\ncat [file]\nAffiche le contenu d’un fichier"
+  },
+  {
+    "objectID": "doc/tp/tp1.html#exercices",
+    "href": "doc/tp/tp1.html#exercices",
+    "title": "Java - TP1",
+    "section": "3 Exercices",
+    "text": "3 Exercices\n\n3.1 Exercice 1\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP1\nUn clic sur car_project , ensuite Sélectionner un dossier\n\n\n\n3.2 Exercice 2\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP1\nUn clic sur domino_project, ensuite Sélectionner un dossier"
+  },
+  {
+    "objectID": "doc/tp/tp1.html#une-classe",
+    "href": "doc/tp/tp1.html#une-classe",
+    "title": "Java - TP1",
+    "section": "4 Une classe",
+    "text": "4 Une classe\n/**\n * A Student\n */\npublic class Student {\n    // Attributs\n    private String name;\n    private int age;\n\n    /**\n     * Constructor\n     */\n    public Student(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n\n    // Getters et Setters\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public int getAge() {\n        return age;\n    }\n\n    public void setAge(int age) {\n        if (age &gt; 0) {\n            this.age = age;\n        } else {\n            System.out.println(\"L'âge doit être supérieur à zéro.\");\n        }\n    }\n\n    @Override\n    public String toString() {\n        return \"Student{\" +\n                \"name='\" + name + '\\'' +\n                \", age=\" + age +\n                '}';\n    }\n\n    /**\n     * Main method\n     */\n    public static void main(String[] args) {\n\n        // Création d'un objet Student\n        Student student = new Student(\"John Doe\", 20);\n        System.out.println(student);\n    }\n}"
+  }
+]
