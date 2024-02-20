@@ -15,6 +15,8 @@ website:
         menu: 
           - href: doc/tp/tp1.qmd
             text: "TP n°1"
+          - href: doc/tp/tp2.qmd
+            text: "TP n°2"
     right:
       - icon: github
         href: https://github.com/ludo2ne/ENSAI-2A-Java

@@ -1,0 +1,234 @@
+---
+title: "Java - TP2"
+description: "Full-Fledged Object Oriented Programming"
+author: "Ludovic Deneuville"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+## Rappels sur Java
+
+- Langage orienté objet
+- Compilé en bytecode puis exécuté par la JVM
+  - fichier.java :arrow_right: *compilation* :arrow_right: fichier.class :arrow_right: *éxécution* :arrow_right: *run*
+  - compiler : `javac fichier.java`
+  - éxécuter : `java fichier`
+- Points-virgules pour terminer les déclarations 
+- Accolades pour délimiter les blocs de code
+- Fortement typé statiquement
+  - vous devez déclarer le type de chaque variable
+  - ces types sont vérifiés à la compilation
+- Conventions de nommage : utilisation du `CamelCase`
+  - classe : première lettre MAJUSCULE, ex : VeloElectrique
+  - méthodes et variables : première lettre minuscule, ex : ajouterPanier()
+  
+## Introduction
+
+:::::: {.callout-tip title="Conseil"}
+- [ ] Sur votre disque `P:`, créez un dossier `Java`, puis à l'intérieur, créez un dossier `TP2`
+- [ ] Sur Moodle, téléchargez le sujet et le code de départ : JavaTP2.zip
+  - [ ] Enregistrez ces fichiers dans votre dossier *TP2*
+  - [ ] Dézippez le fichier *JavaTP2.zip*
+:::
+
+
+- [ ] Ouvrez `Visual Studio Code`
+  - File > Open Folder 
+    - Allez dans le dossier *JavaTP2*
+    - Un clic sur *array_project *, ensuite `Sélectionner un dossier`
+  - Ouvrez un terminal (Terminal > New)
+
+## Exercices
+
+### Exercice 1
+
+- [ ] File > Open Folder 
+- [ ] Allez dans le dossier *JavaTP2*
+- [ ] Un clic sur *car_project *, ensuite `Sélectionner un dossier`
+
+
+### Exercice 2
+
+- [ ] File > Open Folder 
+- [ ] Allez dans le dossier *JavaTP2*
+- [ ] Un clic sur *domino_project*, ensuite `Sélectionner un dossier`
+
+
+## Exemple de classe
+
+```{.java}
+import java.util.ArrayList;
+
+/**
+ * Represents a student
+ * Attributes : name, age, and a list of notes.
+ */
+public class Student {
+    private String name;
+    private int age;
+    private ArrayList<Double> notes;
+
+    /**
+     * Constructs a new Student object with the given name and age.
+     * @param name The name of the student.
+     * @param age The age of the student.
+     */
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+        this.notes = new ArrayList<>();     // empty list
+    }
+
+    // -------------------------------------------------------
+    // Getters and Setters (to access private attributes)
+    // -------------------------------------------------------
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * Sets the age of the student.
+     * @param age The age to set. It should be greater than zero.
+     * @throws IllegalArgumentException if the provided age is not greater than zero.
+     */
+    public void setAge(int age) {
+        if (age <= 0) {
+            throw new IllegalArgumentException("Age must be greater than zero.");
+        }
+        this.age = age;
+    }
+    
+    // -------------------------------------------------------
+    // Methods
+    // -------------------------------------------------------
+
+    /**
+     * @return A string representation of the Student object.
+     */
+    @Override
+    public String toString() {
+        return "Student(" +
+                "name='" + this.name + '\'' +
+                ", age=" + this.age +
+                ')';
+    }
+
+    /**
+     * Adds a note to the student's list of notes.
+     * @param note The note to be added.
+     */
+    public void addNote(double note) {
+        this.notes.add(note);
+    }
+
+    /**
+     * Computes the average note of the student.
+     * @return The average note of the student.
+     * @throws ArithmeticException if there are no notes present.
+     */
+    public double computeAverage() {
+        if (this.notes.isEmpty()) {
+            throw new ArithmeticException("Cannot compute average. No notes available.");
+        }
+
+        double sum = 0.0;
+        for (double note : this.notes) {
+            sum += note;
+        }
+        return sum / this.notes.size();
+    }
+
+
+    /**
+     * Main method
+     */
+    public static void main(String[] args) {
+        Student student = new Student("Eva", 20);
+        student.addNote(17.5);
+        student.addNote(12.0);
+        student.addNote(20.0);
+        
+        System.out.println(student);
+        System.out.println("Average Note: " + student.computeAverage());
+    }
+}
+```
+
+
+## Modèle de classe
+
+```{.java}
+/**
+ * Represents a ...
+ */
+public class ClassName {
+    private String attribute1;
+    private int attribute2;
+
+    /**
+     * Constructs a new ...
+     * @param parameter1 parameter1_description
+     * @param parameter2 parameter2_description
+     */
+    public ClassName(String parameter1, int parameter2) {
+        this.attribute1 = parameter1;
+        this.attribute2 = parameter2;
+    }
+
+
+    // -------------------------------------------------------
+    // Methods
+    // -------------------------------------------------------
+
+    /**
+     * No parameter, return void
+     */
+    public void print_attribute1() {
+        System.out.println(this.attribute1);
+    }
+    
+    /**
+     * Increment value of attribute2
+     * A parameter, return void
+     * @param increment increment
+     */
+    public void increment_attribute2(int increment) {
+        this.attribute2 += increment;
+    }
+    
+    /**
+     * Checks if attribute2 is odd.
+     *
+     * @return true if attribute2 is odd, false otherwise.
+     */
+    public boolean isAttribute2Odd() {
+        return attribute2 % 2 != 0;
+    }
+
+
+    /**
+     * Main method
+     */
+    public static void main(String[] args) {
+
+        ClassName c = new ClassName("", 0);
+        c.increment_attribute2(5);
+        System.out.println(c.isAttribute2Odd());
+    }
+}
+```

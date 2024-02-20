@@ -1,6 +1,6 @@
 ---
 title: "Java - TP1"
-description: "Classes, objets, attributs et méthodes en Python"
+description: "Classes, Objects, Attributes, Methods"
 author: "Ludovic Deneuville"
 format:
   html:
@@ -14,13 +14,13 @@ number-depth: 3
 
 ## Java en quelques mots
 
-- langage orienté objet
-- compilé en bytecode puis exécuté par la JVM
-  - fichier.java :arrow_right: *compilation* fichier.class :arrow_right: *éxécution* :arrow_right: *run*
+- Langage orienté objet
+- Compilé en bytecode puis exécuté par la JVM
+  - fichier.java :arrow_right: *compilation* :arrow_right: fichier.class :arrow_right: *éxécution* :arrow_right: *run*
   - compiler : `javac fichier.java`
   - éxécuter : `java fichier`
-- points-virgules pour terminer les déclarations 
-- accolades pour délimiter les blocs de code
+- Points-virgules pour terminer les déclarations 
+- Accolades pour délimiter les blocs de code
 - Fortement typé statiquement
   - vous devez déclarer le type de chaque variable
   - ces types sont vérifiés à la compilation
@@ -123,7 +123,11 @@ public class Student {
         this.age = age;
     }
 
+
+    // -------------------------------------------------------
     // Getters et Setters
+    // -------------------------------------------------------
+
     public String getName() {
         return name;
     }
@@ -143,6 +147,10 @@ public class Student {
             System.out.println("L'âge doit être supérieur à zéro.");
         }
     }
+    
+    // -------------------------------------------------------
+    // Methods
+    // -------------------------------------------------------
 
     @Override
     public String toString() {
