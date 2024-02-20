@@ -16,7 +16,7 @@ number-depth: 3
 
 - Langage orienté objet
 - Compilé en bytecode puis exécuté par la JVM
-  - fichier.java :arrow_right: *compilation* :arrow_right: fichier.class :arrow_right: *éxécution* :arrow_right: *run*
+  - fichier.java (dossier *src*) :arrow_right: *compilation* :arrow_right: fichier.class (dossier *bin*) :arrow_right: *éxécution* :arrow_right: *run*
   - compiler : `javac fichier.java`
   - éxécuter : `java fichier`
 - Points-virgules pour terminer les déclarations 
@@ -27,7 +27,23 @@ number-depth: 3
 - Conventions de nommage : utilisation du `CamelCase`
   - classe : première lettre MAJUSCULE, ex : VeloElectrique
   - méthodes et variables : première lettre minuscule, ex : ajouterPanier()
-  
+
+
+## Datalab
+
+Il est possible de faire le TP soit sur la VM, soit sur le datalab
+
+- [ ] Connectez-vous sur le [datalab](https://datalab.sspcloud.fr/){target="_blank"}
+- [ ] Lancez le service [Java avec VScode](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} puis suivez les instructions
+- [ ] Ouvrez un terminal (CTRL + ù)
+  - [ ] Dans le terminal, collez `git clone https://github.com/i-yamane/JavaOOP-Practical-2.git`
+- [ ] File > Open Folder > */home/onyxia/work/JavaOOP-Practical-2/*
+- [ ] Ouvrez à nouveau un terminal
+  - [ ] Positionnez-vous dans le bon dossier : `cd JavaOOP-Practical-2`
+  - [ ] Compilez le *Main* : `javac -d bin -sourcepath src ./src/Main.java`
+  - [ ] Exéctuez le programme : `java -classpath bin Main`
+
+
 ## Introduction
 
 :::::: {.callout-tip title="Conseil"}
