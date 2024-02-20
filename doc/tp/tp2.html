@@ -174,14 +174,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#rappels-sur-java" id="toc-rappels-sur-java" class="nav-link active" data-scroll-target="#rappels-sur-java"><span class="header-section-number">1</span> Rappels sur Java</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2</span> Introduction</a></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">3</span> Exercices</a>
+  <li><a href="#datalab" id="toc-datalab" class="nav-link" data-scroll-target="#datalab"><span class="header-section-number">2</span> Datalab</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">3</span> Introduction</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a>
   <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">3.1</span> Exercice 1</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">3.2</span> Exercice 2</a></li>
+  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">4.1</span> Exercice 1</a></li>
+  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">4.2</span> Exercice 2</a></li>
   </ul></li>
-  <li><a href="#exemple-de-classe" id="toc-exemple-de-classe" class="nav-link" data-scroll-target="#exemple-de-classe"><span class="header-section-number">4</span> Exemple de classe</a></li>
-  <li><a href="#modèle-de-classe" id="toc-modèle-de-classe" class="nav-link" data-scroll-target="#modèle-de-classe"><span class="header-section-number">5</span> Modèle de classe</a></li>
+  <li><a href="#exemple-de-classe" id="toc-exemple-de-classe" class="nav-link" data-scroll-target="#exemple-de-classe"><span class="header-section-number">5</span> Exemple de classe</a></li>
+  <li><a href="#modèle-de-classe" id="toc-modèle-de-classe" class="nav-link" data-scroll-target="#modèle-de-classe"><span class="header-section-number">6</span> Modèle de classe</a></li>
   </ul>
 </nav>
 </nav>
@@ -228,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Langage orienté objet</li>
 <li>Compilé en bytecode puis exécuté par la JVM
 <ul>
-<li>fichier.java <span class="emoji" data-emoji="arrow_right">➡️</span> <em>compilation</em> <span class="emoji" data-emoji="arrow_right">➡️</span> fichier.class <span class="emoji" data-emoji="arrow_right">➡️</span> <em>éxécution</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>run</em></li>
+<li>fichier.java (dossier <em>src</em>) <span class="emoji" data-emoji="arrow_right">➡️</span> <em>compilation</em> <span class="emoji" data-emoji="arrow_right">➡️</span> fichier.class (dossier <em>bin</em>) <span class="emoji" data-emoji="arrow_right">➡️</span> <em>éxécution</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>run</em></li>
 <li>compiler : <code>javac fichier.java</code></li>
 <li>éxécuter : <code>java fichier</code></li>
 </ul></li>
@@ -246,8 +247,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="introduction" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2</span> Introduction</h2>
+<section id="datalab" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="datalab"><span class="header-section-number">2</span> Datalab</h2>
+<p>Il est possible de faire le TP soit sur la VM, soit sur le datalab</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Connectez-vous sur le <a href="https://datalab.sspcloud.fr/" target="_blank">datalab</a></label></li>
+<li><label><input type="checkbox">Lancez le service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">Java avec VScode</a> puis suivez les instructions</label></li>
+<li><label><input type="checkbox">Ouvrez un terminal (CTRL + ù)</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Dans le terminal, collez <code>git clone https://github.com/i-yamane/JavaOOP-Practical-2.git</code></label></li>
+</ul></li>
+<li><label><input type="checkbox">File &gt; Open Folder &gt; <em>/home/onyxia/work/JavaOOP-Practical-2/</em></label></li>
+<li><label><input type="checkbox">Ouvrez à nouveau un terminal</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Positionnez-vous dans le bon dossier : <code>cd JavaOOP-Practical-2</code></label></li>
+<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src ./src/Main.java</code></label></li>
+<li><label><input type="checkbox">Exéctuez le programme : <code>java -classpath bin Main</code></label></li>
+</ul></li>
+</ul>
+</section>
+<section id="introduction" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3</span> Introduction</h2>
 <div class="callout callout-style-default callout-tip callout-titled" title="Conseil">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -280,18 +300,18 @@ Conseil
 </ul></li>
 </ul>
 </section>
-<section id="exercices" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="exercices"><span class="header-section-number">3</span> Exercices</h2>
-<section id="exercice-1" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">3.1</span> Exercice 1</h3>
+<section id="exercices" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="exercices"><span class="header-section-number">4</span> Exercices</h2>
+<section id="exercice-1" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">4.1</span> Exercice 1</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">File &gt; Open Folder</label></li>
 <li><label><input type="checkbox">Allez dans le dossier <em>JavaTP2</em></label></li>
 <li><label><input type="checkbox">Un clic sur <em>car_project </em>, ensuite <code>Sélectionner un dossier</code></label></li>
 </ul>
 </section>
-<section id="exercice-2" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">3.2</span> Exercice 2</h3>
+<section id="exercice-2" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">4.2</span> Exercice 2</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">File &gt; Open Folder</label></li>
 <li><label><input type="checkbox">Allez dans le dossier <em>JavaTP2</em></label></li>
@@ -299,8 +319,8 @@ Conseil
 </ul>
 </section>
 </section>
-<section id="exemple-de-classe" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="exemple-de-classe"><span class="header-section-number">4</span> Exemple de classe</h2>
+<section id="exemple-de-classe" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="exemple-de-classe"><span class="header-section-number">5</span> Exemple de classe</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
@@ -406,8 +426,8 @@ Conseil
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="modèle-de-classe" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="modèle-de-classe"><span class="header-section-number">5</span> Modèle de classe</h2>
+<section id="modèle-de-classe" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="modèle-de-classe"><span class="header-section-number">6</span> Modèle de classe</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Represents a <span class="co">...</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
