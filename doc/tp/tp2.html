@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -104,6 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -175,11 +178,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#rappels-sur-java" id="toc-rappels-sur-java" class="nav-link active" data-scroll-target="#rappels-sur-java"><span class="header-section-number">1</span> Rappels sur Java</a></li>
   <li><a href="#datalab" id="toc-datalab" class="nav-link" data-scroll-target="#datalab"><span class="header-section-number">2</span> Datalab</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">3</span> Introduction</a></li>
+  <li><a href="#vm" id="toc-vm" class="nav-link" data-scroll-target="#vm"><span class="header-section-number">3</span> VM</a></li>
   <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a>
   <ul class="collapse">
   <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">4.1</span> Exercice 1</a></li>
   <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">4.2</span> Exercice 2</a></li>
+  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">4.3</span> Exercice 3</a></li>
+  <li><a href="#exercice-4" id="toc-exercice-4" class="nav-link" data-scroll-target="#exercice-4"><span class="header-section-number">4.4</span> Exercice 4</a></li>
   </ul></li>
   <li><a href="#exemple-de-classe" id="toc-exemple-de-classe" class="nav-link" data-scroll-target="#exemple-de-classe"><span class="header-section-number">5</span> Exemple de classe</a></li>
   <li><a href="#modèle-de-classe" id="toc-modèle-de-classe" class="nav-link" data-scroll-target="#modèle-de-classe"><span class="header-section-number">6</span> Modèle de classe</a></li>
@@ -266,37 +271,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="introduction" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3</span> Introduction</h2>
-<div class="callout callout-style-default callout-tip callout-titled" title="Conseil">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Conseil
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul class="task-list">
-<li><label><input type="checkbox">Sur votre disque <code>P:</code>, créez un dossier <code>Java</code>, puis à l’intérieur, créez un dossier <code>TP2</code></label></li>
-<li><label><input type="checkbox">Sur Moodle, téléchargez le sujet et le code de départ : JavaTP2.zip</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Enregistrez ces fichiers dans votre dossier <em>TP2</em></label></li>
-<li><label><input type="checkbox">Dézippez le fichier <em>JavaTP2.zip</em></label></li>
-</ul></li>
-</ul>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <code>Visual Studio Code</code></label>
+<section id="vm" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="vm"><span class="header-section-number">3</span> VM</h2>
 <ul>
-<li>File &gt; Open Folder
-<ul>
-<li>Allez dans le dossier <em>JavaTP2</em></li>
-<li>Un clic sur <em>array_project </em>, ensuite <code>Sélectionner un dossier</code></li>
+<li>Sur votre disque <code>P:</code>,
+<ul class="task-list">
+<li><label><input type="checkbox">créez un dossier <code>Java</code>,</label></li>
+<li><label><input type="checkbox">à l’intérieur, créez un dossier <code>TP2</code></label></li>
 </ul></li>
-<li>Ouvrez un terminal (Terminal &gt; New)</li>
+<li><label><input type="checkbox">Clic droit &gt; Ouvrir Git Bash</label>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>git clone https://github.com/i-yamane/JavaOOP-Practical-2.git</code></label></li>
+</ul></li>
+<li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
+<ul class="task-list">
+<li><label><input type="checkbox">File &gt; Open Folder</label></li>
+<li><label><input type="checkbox">Allez dans le dossier <em>TP2</em></label></li>
+<li><label><input type="checkbox">Un clic sur <em>JavaOOP-Practical-2</em>, ensuite <code>Sélectionner un dossier</code></label></li>
+<li><label><input type="checkbox">Ouvrez un terminal (CTRL+ù)</label></li>
 </ul></li>
 </ul>
 </section>
@@ -305,17 +297,107 @@ Conseil
 <section id="exercice-1" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">4.1</span> Exercice 1</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Allez dans le dossier <em>JavaTP2</em></label></li>
-<li><label><input type="checkbox">Un clic sur <em>car_project </em>, ensuite <code>Sélectionner un dossier</code></label></li>
+<li><label><input type="checkbox">Compilez puis exécutez le Main</label>
+<ul>
+<li><code>javac -d bin -sourcepath src .\src\Main.java</code></li>
+<li><code>java -classpath bin Main</code></li>
+</ul></li>
+<li><label><input type="checkbox">Rangez les fichiers dans les bons dossiers</label>
+<ul>
+<li><label><input type="checkbox">Mettez à jour les imports</label></li>
+<li><code>javac -d bin -sourcepath src .\src\edu\ensai\pokemon\main\Main.java</code></li>
+<li><code>java -cp bin edu.ensai.pokemon.main.Main</code></li>
+</ul></li>
 </ul>
 </section>
 <section id="exercice-2" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">4.2</span> Exercice 2</h3>
+<ul>
+<li>Pour tous les attributs
 <ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Allez dans le dossier <em>JavaTP2</em></label></li>
-<li><label><input type="checkbox">Un clic sur <em>domino_project</em>, ensuite <code>Sélectionner un dossier</code></label></li>
+<li><label><input type="checkbox">public <span class="emoji" data-emoji="arrow_right">➡️</span> private</label></li>
+<li><label><input type="checkbox">Créez Getter et Setters</label></li>
+<li><label><input type="checkbox">Adaptez et corrigez le <em>Main.java</em></label></li>
+</ul></li>
+</ul>
+</section>
+<section id="exercice-3" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">4.3</span> Exercice 3</h3>
+<ul>
+<li><label><input type="checkbox">Commencer par bien faire le diagramme UML</label></li>
+<li>Héritage, classe abstraite <span class="emoji" data-emoji="arrow_right">➡️</span> comme en Python</li>
+<li>Implémentation
+<ul>
+<li>En Java, il n’y a pas d’Héritage multiple</li>
+<li>Permet de forcer les classes à implémenter des méthodes</li>
+<li>Possible d’implémenter plusieurs interfaces</li>
+</ul></li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+    class Item {
+        + name: String
+        + price: int
+        + isPermanent(): boolean
+        + isSingleUse(): boolean
+        + isUnusable(): boolean
+    }
+
+    class SingleUseItem {
+        - alreadyUsed: bool
+        + consume()
+    }
+
+
+    class Potion {
+        - hp_gain: int
+    }
+
+    class Sweet {
+        - xp_gain: int
+        + use(): int
+    }
+    
+    class Healer{
+        &lt;&lt;interface&gt;&gt;
+        + heal()
+    }
+
+    Item &lt;|-- SingleUseItem
+    Item &lt;|-- PermanentItem
+
+    SingleUseItem &lt;|-- Potion
+    SingleUseItem &lt;|-- Sweet
+    
+    Potion ..|&gt; Healer : implements
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-4" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="exercice-4"><span class="header-section-number">4.4</span> Exercice 4</h3>
+<ul>
+<li>Paramétrage pour utiliser la commande <code>javadoc</code>
+<ul>
+<li>Lancez les 2 commandes suivantes dans votre terminal powershell
+<ul>
+<li><code>$env:JAVA_HOME = "C:\Program Files\Java\jdk-11.0.11"</code></li>
+<li><code>$env:PATH += ";$env:JAVA_HOME\bin"</code></li>
+</ul></li>
+<li>Elles permettent de dire où est installée le programme <em>javadoc</em></li>
+</ul></li>
+<li><label><input type="checkbox">Générez la javadoc</label>
+<ul>
+<li><code>javadoc -d doc -sourcepath src -subpackages edu.ensai.pokemon</code></li>
+</ul></li>
+<li><label><input type="checkbox">Dans votre dossier, ouvrez dans <em>doc/index.html</em></label></li>
 </ul>
 </section>
 </section>
@@ -714,6 +796,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ludo2ne\.github\.io\/ENSAI-2A-Java\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -748,7 +848,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

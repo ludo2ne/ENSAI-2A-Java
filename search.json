@@ -70,18 +70,18 @@
     "text": "2 Datalab\nIl est possible de faire le TP soit sur la VM, soit sur le datalab\n\nConnectez-vous sur le datalab\nLancez le service Java avec VScode puis suivez les instructions\nOuvrez un terminal (CTRL + ù)\n\nDans le terminal, collez git clone https://github.com/i-yamane/JavaOOP-Practical-2.git\n\nFile &gt; Open Folder &gt; /home/onyxia/work/JavaOOP-Practical-2/\nOuvrez à nouveau un terminal\n\nPositionnez-vous dans le bon dossier : cd JavaOOP-Practical-2\nCompilez le Main : javac -d bin -sourcepath src ./src/Main.java\nExéctuez le programme : java -classpath bin Main"
   },
   {
-    "objectID": "doc/tp/tp2.html#introduction",
-    "href": "doc/tp/tp2.html#introduction",
+    "objectID": "doc/tp/tp2.html#vm",
+    "href": "doc/tp/tp2.html#vm",
     "title": "Java - TP2",
-    "section": "3 Introduction",
-    "text": "3 Introduction\n\n\n\n\n\n\nConseil\n\n\n\n\nSur votre disque P:, créez un dossier Java, puis à l’intérieur, créez un dossier TP2\nSur Moodle, téléchargez le sujet et le code de départ : JavaTP2.zip\n\nEnregistrez ces fichiers dans votre dossier TP2\nDézippez le fichier JavaTP2.zip\n\n\n\n\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\n\nAllez dans le dossier JavaTP2\nUn clic sur array_project , ensuite Sélectionner un dossier\n\nOuvrez un terminal (Terminal &gt; New)"
+    "section": "3 VM",
+    "text": "3 VM\n\nSur votre disque P:,\n\ncréez un dossier Java,\nà l’intérieur, créez un dossier TP2\n\nClic droit &gt; Ouvrir Git Bash\n\ngit clone https://github.com/i-yamane/JavaOOP-Practical-2.git\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nAllez dans le dossier TP2\nUn clic sur JavaOOP-Practical-2, ensuite Sélectionner un dossier\nOuvrez un terminal (CTRL+ù)"
   },
   {
     "objectID": "doc/tp/tp2.html#exercices",
     "href": "doc/tp/tp2.html#exercices",
     "title": "Java - TP2",
     "section": "4 Exercices",
-    "text": "4 Exercices\n\n4.1 Exercice 1\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP2\nUn clic sur car_project , ensuite Sélectionner un dossier\n\n\n\n4.2 Exercice 2\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP2\nUn clic sur domino_project, ensuite Sélectionner un dossier"
+    "text": "4 Exercices\n\n4.1 Exercice 1\n\nCompilez puis exécutez le Main\n\njavac -d bin -sourcepath src .\\src\\Main.java\njava -classpath bin Main\n\nRangez les fichiers dans les bons dossiers\n\nMettez à jour les imports\njavac -d bin -sourcepath src .\\src\\edu\\ensai\\pokemon\\main\\Main.java\njava -cp bin edu.ensai.pokemon.main.Main\n\n\n\n\n4.2 Exercice 2\n\nPour tous les attributs\n\npublic ➡️ private\nCréez Getter et Setters\nAdaptez et corrigez le Main.java\n\n\n\n\n4.3 Exercice 3\n\nCommencer par bien faire le diagramme UML\nHéritage, classe abstraite ➡️ comme en Python\nImplémentation\n\nEn Java, il n’y a pas d’Héritage multiple\nPermet de forcer les classes à implémenter des méthodes\nPossible d’implémenter plusieurs interfaces\n\n\n\n\n\n\n\nclassDiagram\n    class Item {\n        + name: String\n        + price: int\n        + isPermanent(): boolean\n        + isSingleUse(): boolean\n        + isUnusable(): boolean\n    }\n\n    class SingleUseItem {\n        - alreadyUsed: bool\n        + consume()\n    }\n\n\n    class Potion {\n        - hp_gain: int\n    }\n\n    class Sweet {\n        - xp_gain: int\n        + use(): int\n    }\n    \n    class Healer{\n        &lt;&lt;interface&gt;&gt;\n        + heal()\n    }\n\n    Item &lt;|-- SingleUseItem\n    Item &lt;|-- PermanentItem\n\n    SingleUseItem &lt;|-- Potion\n    SingleUseItem &lt;|-- Sweet\n    \n    Potion ..|&gt; Healer : implements\n\n\n\n\n\n\n\n\n4.4 Exercice 4\n\nParamétrage pour utiliser la commande javadoc\n\nLancez les 2 commandes suivantes dans votre terminal powershell\n\n$env:JAVA_HOME = \"C:\\Program Files\\Java\\jdk-11.0.11\"\n$env:PATH += \";$env:JAVA_HOME\\bin\"\n\nElles permettent de dire où est installée le programme javadoc\n\nGénérez la javadoc\n\njavadoc -d doc -sourcepath src -subpackages edu.ensai.pokemon\n\nDans votre dossier, ouvrez dans doc/index.html"
   },
   {
     "objectID": "doc/tp/tp2.html#exemple-de-classe",
