@@ -44,36 +44,99 @@ Il est possible de faire le TP soit sur la VM, soit sur le datalab
   - [ ] Exéctuez le programme : `java -classpath bin Main`
 
 
-## Introduction
+## VM
 
-:::::: {.callout-tip title="Conseil"}
-- [ ] Sur votre disque `P:`, créez un dossier `Java`, puis à l'intérieur, créez un dossier `TP2`
-- [ ] Sur Moodle, téléchargez le sujet et le code de départ : JavaTP2.zip
-  - [ ] Enregistrez ces fichiers dans votre dossier *TP2*
-  - [ ] Dézippez le fichier *JavaTP2.zip*
-:::
-
-
-- [ ] Ouvrez `Visual Studio Code`
-  - File > Open Folder 
-    - Allez dans le dossier *JavaTP2*
-    - Un clic sur *array_project *, ensuite `Sélectionner un dossier`
-  - Ouvrez un terminal (Terminal > New)
+- Sur votre disque `P:`, 
+  - [ ] créez un dossier `Java`, 
+  - [ ] à l'intérieur, créez un dossier `TP2`
+- [ ] Clic droit > Ouvrir Git Bash
+  - [ ] `git clone https://github.com/i-yamane/JavaOOP-Practical-2.git`
+- [ ] Ouvrez Visual Studio Code
+  - [ ] File > Open Folder
+  - [ ] Allez dans le dossier *TP2*
+  - [ ] Un clic sur *JavaOOP-Practical-2*, ensuite `Sélectionner un dossier`
+  - [ ] Ouvrez un terminal (CTRL+ù)
 
 ## Exercices
 
 ### Exercice 1
 
-- [ ] File > Open Folder 
-- [ ] Allez dans le dossier *JavaTP2*
-- [ ] Un clic sur *car_project *, ensuite `Sélectionner un dossier`
-
+- [ ] Compilez puis exécutez le Main
+  - `javac -d bin -sourcepath src .\src\Main.java`
+  - `java -classpath bin Main`
+- [ ] Rangez les fichiers dans les bons dossiers
+  - [ ] Mettez à jour les imports
+  - `javac -d bin -sourcepath src .\src\edu\ensai\pokemon\main\Main.java`
+  - `java -cp bin edu.ensai.pokemon.main.Main`
 
 ### Exercice 2
 
-- [ ] File > Open Folder 
-- [ ] Allez dans le dossier *JavaTP2*
-- [ ] Un clic sur *domino_project*, ensuite `Sélectionner un dossier`
+- Pour tous les attributs
+  - [ ] public :arrow_right: private
+  - [ ] Créez Getter et Setters
+  - [ ] Adaptez et corrigez le *Main.java*
+
+
+### Exercice 3
+
+- [ ] Commencer par bien faire le diagramme UML
+- Héritage, classe abstraite :arrow_right: comme en Python
+- Implémentation
+  - En Java, il n'y a pas d'Héritage multiple
+  - Permet de forcer les classes à implémenter des méthodes
+  - Possible d'implémenter plusieurs interfaces
+
+
+
+```{mermaid}
+classDiagram
+    class Item {
+        + name: String
+        + price: int
+        + isPermanent(): boolean
+        + isSingleUse(): boolean
+        + isUnusable(): boolean
+    }
+
+    class SingleUseItem {
+        - alreadyUsed: bool
+        + consume()
+    }
+
+
+    class Potion {
+        - hp_gain: int
+    }
+
+    class Sweet {
+        - xp_gain: int
+        + use(): int
+    }
+    
+    class Healer{
+        <<interface>>
+        + heal()
+    }
+
+    Item <|-- SingleUseItem
+    Item <|-- PermanentItem
+
+    SingleUseItem <|-- Potion
+    SingleUseItem <|-- Sweet
+    
+    Potion ..|> Healer : implements
+```
+
+### Exercice 4
+
+- Paramétrage pour utiliser la commande `javadoc`
+  - Lancez les 2 commandes suivantes dans votre terminal powershell
+    - `$env:JAVA_HOME = "C:\Program Files\Java\jdk-11.0.11"`
+    - `$env:PATH += ";$env:JAVA_HOME\bin"`
+  - Elles permettent de dire où est installée le programme *javadoc*
+- [ ] Générez la javadoc
+  - `javadoc -d doc -sourcepath src -subpackages edu.ensai.pokemon`
+- [ ] Dans votre dossier, ouvrez dans *doc/index.html*
 
 
 ## Exemple de classe
