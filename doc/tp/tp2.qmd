@@ -38,6 +38,7 @@ Il est possible de faire le TP soit sur la VM, soit sur le datalab
 - [ ] Ouvrez un terminal (CTRL + ù)
   - [ ] Dans le terminal, collez `git clone https://github.com/i-yamane/JavaOOP-Practical-2.git`
 - [ ] File > Open Folder > */home/onyxia/work/JavaOOP-Practical-2/*
+  - :warning: important d'ouvrir le bon dossier !
 - [ ] Ouvrez à nouveau un terminal
   - [ ] Positionnez-vous dans le bon dossier : `cd JavaOOP-Practical-2`
   - [ ] Compilez le *Main* : `javac -d bin -sourcepath src ./src/Main.java`
@@ -79,53 +80,13 @@ Il est possible de faire le TP soit sur la VM, soit sur le datalab
 
 ### Exercice 3
 
-- [ ] Commencer par bien faire le diagramme UML
+- [ ] Commencez par bien faire le diagramme UML
 - Héritage, classe abstraite :arrow_right: comme en Python
 - Implémentation
   - En Java, il n'y a pas d'Héritage multiple
   - Permet de forcer les classes à implémenter des méthodes
   - Possible d'implémenter plusieurs interfaces
 
-
-
-```{mermaid}
-classDiagram
-    class Item {
-        + name: String
-        + price: int
-        + isPermanent(): boolean
-        + isSingleUse(): boolean
-        + isUnusable(): boolean
-    }
-
-    class SingleUseItem {
-        - alreadyUsed: bool
-        + consume()
-    }
-
-
-    class Potion {
-        - hp_gain: int
-    }
-
-    class Sweet {
-        - xp_gain: int
-        + use(): int
-    }
-    
-    class Healer{
-        <<interface>>
-        + heal()
-    }
-
-    Item <|-- SingleUseItem
-    Item <|-- PermanentItem
-
-    SingleUseItem <|-- Potion
-    SingleUseItem <|-- Sweet
-    
-    Potion ..|> Healer : implements
-```
 
 ### Exercice 4
 
@@ -137,6 +98,9 @@ classDiagram
 - [ ] Générez la javadoc
   - `javadoc -d doc -sourcepath src -subpackages edu.ensai.pokemon`
 - [ ] Dans votre dossier, ouvrez dans *doc/index.html*
+  - pour ceux sur le [Datalab]{.underline} :
+    - [ ] Clic droit sur le dossier *doc*
+    - [ ] Download
 
 
 ## Exemple de classe
@@ -310,4 +274,47 @@ public class ClassName {
         System.out.println(c.isAttribute2Odd());
     }
 }
+```
+
+
+
+
+
+```{mermaid}
+classDiagram
+    class Item {
+        + name: String
+        + price: int
+        + isPermanent(): boolean
+        + isSingleUse(): boolean
+        + isUnusable(): boolean
+    }
+
+    class SingleUseItem {
+        - alreadyUsed: bool
+        + consume()
+    }
+
+
+    class Potion {
+        - hp_gain: int
+    }
+
+    class Sweet {
+        - xp_gain: int
+        + use(): int
+    }
+    
+    class Healer{
+        <<interface>>
+        + heal()
+    }
+
+    Item <|-- SingleUseItem
+    Item <|-- PermanentItem
+
+    SingleUseItem <|-- Potion
+    SingleUseItem <|-- Sweet
+    
+    Potion ..|> Healer : implements
 ```
