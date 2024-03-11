@@ -262,7 +262,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul class="task-list">
 <li><label><input type="checkbox">Dans le terminal, collez <code>git clone https://github.com/i-yamane/JavaOOP-Practical-2.git</code></label></li>
 </ul></li>
-<li><label><input type="checkbox">File &gt; Open Folder &gt; <em>/home/onyxia/work/JavaOOP-Practical-2/</em></label></li>
+<li><label><input type="checkbox">File &gt; Open Folder &gt; <em>/home/onyxia/work/JavaOOP-Practical-2/</em></label>
+<ul>
+<li><span class="emoji" data-emoji="warning">⚠️</span> important d’ouvrir le bon dossier !</li>
+</ul></li>
 <li><label><input type="checkbox">Ouvrez à nouveau un terminal</label>
 <ul class="task-list">
 <li><label><input type="checkbox">Positionnez-vous dans le bon dossier : <code>cd JavaOOP-Practical-2</code></label></li>
@@ -324,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercice-3" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">4.3</span> Exercice 3</h3>
 <ul>
-<li><label><input type="checkbox">Commencer par bien faire le diagramme UML</label></li>
+<li><label><input type="checkbox">Commencez par bien faire le diagramme UML</label></li>
 <li>Héritage, classe abstraite <span class="emoji" data-emoji="arrow_right">➡️</span> comme en Python</li>
 <li>Implémentation
 <ul>
@@ -333,53 +336,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Possible d’implémenter plusieurs interfaces</li>
 </ul></li>
 </ul>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">classDiagram
-    class Item {
-        + name: String
-        + price: int
-        + isPermanent(): boolean
-        + isSingleUse(): boolean
-        + isUnusable(): boolean
-    }
-
-    class SingleUseItem {
-        - alreadyUsed: bool
-        + consume()
-    }
-
-
-    class Potion {
-        - hp_gain: int
-    }
-
-    class Sweet {
-        - xp_gain: int
-        + use(): int
-    }
-    
-    class Healer{
-        &lt;&lt;interface&gt;&gt;
-        + heal()
-    }
-
-    Item &lt;|-- SingleUseItem
-    Item &lt;|-- PermanentItem
-
-    SingleUseItem &lt;|-- Potion
-    SingleUseItem &lt;|-- Sweet
-    
-    Potion ..|&gt; Healer : implements
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 </section>
 <section id="exercice-4" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="exercice-4"><span class="header-section-number">4.4</span> Exercice 4</h3>
@@ -397,7 +353,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>javadoc -d doc -sourcepath src -subpackages edu.ensai.pokemon</code></li>
 </ul></li>
-<li><label><input type="checkbox">Dans votre dossier, ouvrez dans <em>doc/index.html</em></label></li>
+<li><label><input type="checkbox">Dans votre dossier, ouvrez dans <em>doc/index.html</em></label>
+<ul>
+<li>pour ceux sur le <u>Datalab</u> :
+<ul class="task-list">
+<li><label><input type="checkbox">Clic droit sur le dossier <em>doc</em></label></li>
+<li><label><input type="checkbox">Download</label></li>
+</ul></li>
+</ul></li>
 </ul>
 </section>
 </section>
@@ -568,6 +531,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>c<span class="op">.</span><span class="fu">isAttribute2Odd</span><span class="op">());</span></span>
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+    class Item {
+        + name: String
+        + price: int
+        + isPermanent(): boolean
+        + isSingleUse(): boolean
+        + isUnusable(): boolean
+    }
+
+    class SingleUseItem {
+        - alreadyUsed: bool
+        + consume()
+    }
+
+
+    class Potion {
+        - hp_gain: int
+    }
+
+    class Sweet {
+        - xp_gain: int
+        + use(): int
+    }
+    
+    class Healer{
+        &lt;&lt;interface&gt;&gt;
+        + heal()
+    }
+
+    Item &lt;|-- SingleUseItem
+    Item &lt;|-- PermanentItem
+
+    SingleUseItem &lt;|-- Potion
+    SingleUseItem &lt;|-- Sweet
+    
+    Potion ..|&gt; Healer : implements
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 </section>
