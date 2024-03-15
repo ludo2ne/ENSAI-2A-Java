@@ -11,3 +11,4 @@ from: markdown+emoji
 
 - [TP1](doc/tp/tp1.qmd) : Classes, Objects, Attributes, Methods
 - [TP2](doc/tp/tp2.qmd) : Full-Fledged Object Oriented Programming
+- [TP3](doc/tp/tp3.qmd)  : Enums, Containers, Exceptions
