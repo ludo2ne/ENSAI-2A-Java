@@ -192,16 +192,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link" data-scroll-target="#avant-de-commencer"><span class="header-section-number">2</span> Avant de commencer</a></li>
   <li><a href="#datalab" id="toc-datalab" class="nav-link" data-scroll-target="#datalab"><span class="header-section-number">3</span> Datalab</a></li>
   <li><a href="#vm" id="toc-vm" class="nav-link" data-scroll-target="#vm"><span class="header-section-number">4</span> VM</a></li>
-  <li><a href="#vm-et-datalab" id="toc-vm-et-datalab" class="nav-link" data-scroll-target="#vm-et-datalab"><span class="header-section-number">5</span> VM et Datalab</a></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a>
   <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">6.1</span> Exercice 1</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">6.2</span> Exercice 2</a></li>
-  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">6.3</span> Exercice 3</a></li>
-  <li><a href="#exercice-4" id="toc-exercice-4" class="nav-link" data-scroll-target="#exercice-4"><span class="header-section-number">6.4</span> Exercice 4</a></li>
+  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">5.1</span> Exercice 1</a></li>
+  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">5.2</span> Exercice 2</a></li>
+  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">5.3</span> Exercice 3</a></li>
+  <li><a href="#exercice-4" id="toc-exercice-4" class="nav-link" data-scroll-target="#exercice-4"><span class="header-section-number">5.4</span> Exercice 4</a></li>
   </ul></li>
-  <li><a href="#exemple-de-classe" id="toc-exemple-de-classe" class="nav-link" data-scroll-target="#exemple-de-classe"><span class="header-section-number">7</span> Exemple de classe</a></li>
-  <li><a href="#modèle-de-classe" id="toc-modèle-de-classe" class="nav-link" data-scroll-target="#modèle-de-classe"><span class="header-section-number">8</span> Modèle de classe</a></li>
+  <li><a href="#exemple-de-classe" id="toc-exemple-de-classe" class="nav-link" data-scroll-target="#exemple-de-classe"><span class="header-section-number">6</span> Exemple de classe</a></li>
+  <li><a href="#modèle-de-classe" id="toc-modèle-de-classe" class="nav-link" data-scroll-target="#modèle-de-classe"><span class="header-section-number">7</span> Modèle de classe</a></li>
   </ul>
 </nav>
 </nav>
@@ -498,6 +497,7 @@ Caution
 <ul class="task-list">
 <li><label><input type="checkbox">créez un dossier <code>Java</code>,</label></li>
 <li><label><input type="checkbox">à l’intérieur, créez un dossier <code>TP3</code></label></li>
+<li><label><input type="checkbox">Ouvrez et enregistrez le <a href="https://foad-moodle.ensai.fr/pluginfile.php/21983/mod_resource/content/7/TP3.pdf" target="_blank">sujet</a></label></li>
 </ul></li>
 <li><label><input type="checkbox">Récupérez le dépôt sur <a href="https://foad-moodle.ensai.fr/mod/resource/view.php?id=9944" target="_blank">Moodle</a></label></li>
 </ul>
@@ -508,10 +508,23 @@ Caution
 <ul class="task-list">
 <li><label><input type="checkbox">Connectez-vous sur le <a href="https://datalab.sspcloud.fr/" target="_blank">datalab</a></label></li>
 <li><label><input type="checkbox">Lancez le service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">Java avec VScode</a> puis suivez les instructions</label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="construction">🚧</span> Upload + Unzip repo JavaTP3-base</label></li>
+<li><label><input type="checkbox">Dans <em>l’explorer</em> à gauche &gt; clic droit &gt; Upload</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Chargez le fichier <code>JavaTP3-base.zip</code></label></li>
+</ul></li>
+<li><label><input type="checkbox">Ouvrez un terminal</label>
+<ul class="task-list">
+<li><label><input type="checkbox">rentrez <code>unzip JavaTP3-base.zip</code> pour extraire les fichiers</label></li>
+</ul></li>
 <li><label><input type="checkbox">File &gt; Open Folder &gt; <em>/home/onyxia/work/JavaTP3-base/</em></label>
 <ul>
 <li><span class="emoji" data-emoji="warning">⚠️</span> important d’ouvrir le bon dossier !</li>
+</ul></li>
+<li><label><input type="checkbox">Ouvrez un terminal (CTRL+ù)</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Positionnez-vous dans le bon dossier : <code>cd JavaTP3-base</code></label></li>
+<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src ./src/edu/ensai/pokemon/main/Main.java</code></label></li>
+<li><label><input type="checkbox">Exéctuez le programme : <code>java -cp bin edu.ensai.pokemon.main.Main</code></label></li>
 </ul></li>
 </ul>
 </section>
@@ -521,48 +534,38 @@ Caution
 <li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
 <ul class="task-list">
 <li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Allez dans le dossier <em>TP2</em></label></li>
+<li><label><input type="checkbox">Allez dans le dossier <em>TP3</em></label></li>
 <li><label><input type="checkbox">Un clic sur <em>JavaTP3-base</em>, ensuite <code>Sélectionner un dossier</code></label></li>
 </ul></li>
-</ul>
-</section>
-<section id="vm-et-datalab" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="vm-et-datalab"><span class="header-section-number">5</span> VM et Datalab</h2>
-<ul class="task-list">
 <li><label><input type="checkbox">Ouvrez un terminal (CTRL+ù)</label>
 <ul class="task-list">
 <li><label><input type="checkbox">Positionnez-vous dans le bon dossier : <code>cd JavaTP3-base</code></label></li>
-<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src ./src/Main.java</code></label></li>
-<li><label><input type="checkbox">Exéctuez le programme : <code>java -classpath bin Main</code></label></li>
+<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src .\src\edu\ensai\pokemon\main\Main.java</code></label></li>
+<li><label><input type="checkbox">Exéctuez le programme : <code>java -cp bin edu.ensai.pokemon.main.Main</code></label></li>
 </ul></li>
 </ul>
 </section>
-<section id="exercices" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="exercices"><span class="header-section-number">6</span> Exercices</h2>
-<section id="exercice-1" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">6.1</span> Exercice 1</h3>
+<section id="exercices" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="exercices"><span class="header-section-number">5</span> Exercices</h2>
+<section id="exercice-1" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">5.1</span> Exercice 1</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Compilez puis exécutez le Main</label>
-<ul>
-<li><code>javac -d bin -sourcepath src .\src\edu\ensai\pokemon\main\Main.java</code></li>
-<li><code>java -cp bin edu.ensai.pokemon.main.Main</code></li>
-</ul></li>
 <li><label><input type="checkbox">Transformez la classe <em>Species</em> en Enum</label></li>
 <li><label><input type="checkbox">Adaptez le code du <em>Main</em></label></li>
 </ul>
 </section>
-<section id="exercice-2" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">6.2</span> Exercice 2</h3>
+<section id="exercice-2" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">5.2</span> Exercice 2</h3>
 </section>
-<section id="exercice-3" class="level3" data-number="6.3">
-<h3 data-number="6.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">6.3</span> Exercice 3</h3>
+<section id="exercice-3" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">5.3</span> Exercice 3</h3>
 </section>
-<section id="exercice-4" class="level3" data-number="6.4">
-<h3 data-number="6.4" class="anchored" data-anchor-id="exercice-4"><span class="header-section-number">6.4</span> Exercice 4</h3>
+<section id="exercice-4" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="exercice-4"><span class="header-section-number">5.4</span> Exercice 4</h3>
 </section>
 </section>
-<section id="exemple-de-classe" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="exemple-de-classe"><span class="header-section-number">7</span> Exemple de classe</h2>
+<section id="exemple-de-classe" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="exemple-de-classe"><span class="header-section-number">6</span> Exemple de classe</h2>
 <div class="sourceCode" id="cb12"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
@@ -668,8 +671,8 @@ Caution
 <span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="modèle-de-classe" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="modèle-de-classe"><span class="header-section-number">8</span> Modèle de classe</h2>
+<section id="modèle-de-classe" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="modèle-de-classe"><span class="header-section-number">7</span> Modèle de classe</h2>
 <div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Represents a <span class="co">...</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
