@@ -281,7 +281,14 @@ Il est possible de faire le TP soit sur la VM, soit sur le datalab
 
 ### Exercice 2
 
+- Player est un singleton, on ne peut en créer qu'une seule instance
+- [ ] Classe Inventory
+- [ ] Ajouter à Player un attribut de type Inventory
+- [ ] Dans le main, appeler l'instance de Player
+  - [ ] Créer et ajouter un objet à l'inventaire
+  - [ ] Afficher le montant total de l'inventaire
 
+https://refactoring.guru/fr/replace-inheritance-with-delegation
 
 ### Exercice 3
 
