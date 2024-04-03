@@ -181,20 +181,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rappels" id="toc-rappels" class="nav-link active" data-scroll-target="#rappels"><span class="header-section-number">1</span> Rappels</a></li>
-  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link" data-scroll-target="#avant-de-commencer"><span class="header-section-number">2</span> Avant de commencer</a></li>
-  <li><a href="#datalab" id="toc-datalab" class="nav-link" data-scroll-target="#datalab"><span class="header-section-number">3</span> Datalab</a></li>
-  <li><a href="#vm" id="toc-vm" class="nav-link" data-scroll-target="#vm"><span class="header-section-number">4</span> VM</a></li>
-  <li><a href="#tests-unitaires" id="toc-tests-unitaires" class="nav-link" data-scroll-target="#tests-unitaires"><span class="header-section-number">5</span> Tests unitaires</a>
+  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link active" data-scroll-target="#avant-de-commencer"><span class="header-section-number">1</span> Avant de commencer</a></li>
+  <li><a href="#datalab" id="toc-datalab" class="nav-link" data-scroll-target="#datalab"><span class="header-section-number">2</span> Datalab</a></li>
+  <li><a href="#vm" id="toc-vm" class="nav-link" data-scroll-target="#vm"><span class="header-section-number">3</span> VM</a></li>
+  <li><a href="#tests-unitaires" id="toc-tests-unitaires" class="nav-link" data-scroll-target="#tests-unitaires"><span class="header-section-number">4</span> Tests unitaires</a>
   <ul class="collapse">
-  <li><a href="#bonnes-pratiques" id="toc-bonnes-pratiques" class="nav-link" data-scroll-target="#bonnes-pratiques"><span class="header-section-number">5.1</span> Bonnes pratiques</a></li>
-  <li><a href="#un-exemple-avec-junit" id="toc-un-exemple-avec-junit" class="nav-link" data-scroll-target="#un-exemple-avec-junit"><span class="header-section-number">5.2</span> Un exemple avec JUnit</a></li>
+  <li><a href="#bonnes-pratiques" id="toc-bonnes-pratiques" class="nav-link" data-scroll-target="#bonnes-pratiques"><span class="header-section-number">4.1</span> Bonnes pratiques</a></li>
+  <li><a href="#un-exemple-avec-junit" id="toc-un-exemple-avec-junit" class="nav-link" data-scroll-target="#un-exemple-avec-junit"><span class="header-section-number">4.2</span> Un exemple avec JUnit</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a>
   <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">6.1</span> Exercice 1</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">6.2</span> Exercice 2</a></li>
-  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">6.3</span> Exercice 3</a></li>
+  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">5.1</span> Exercice 1</a></li>
+  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">5.2</span> Exercice 2</a></li>
+  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">5.3</span> Exercice 3</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -236,23 +235,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="rappels" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="rappels"><span class="header-section-number">1</span> Rappels</h2>
-</section>
-<section id="avant-de-commencer" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="avant-de-commencer"><span class="header-section-number">2</span> Avant de commencer</h2>
+<section id="avant-de-commencer" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="avant-de-commencer"><span class="header-section-number">1</span> Avant de commencer</h2>
 <ul>
-<li>Sur votre disque <code>P:</code>,
-<ul class="task-list">
-<li><label><input type="checkbox">créez un dossier <code>Java</code>,</label></li>
+<li>Sur votre disque <code>P:</code>, créez un dossier <code>Java</code>,</li>
 <li><label><input type="checkbox">à l’intérieur, créez un dossier <code>TP4</code></label></li>
 <li><label><input type="checkbox">Ouvrez et enregistrez le <a href="https://foad-moodle.ensai.fr/pluginfile.php/22185/mod_resource/content/10/TP4.pdf" target="_blank">sujet</a></label></li>
-</ul></li>
 <li><label><input type="checkbox">Récupérez le dépôt sur <a href="https://foad-moodle.ensai.fr/mod/resource/view.php?id=10130" target="_blank">Moodle</a></label></li>
 </ul>
 </section>
-<section id="datalab" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="datalab"><span class="header-section-number">3</span> Datalab</h2>
+<section id="datalab" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="datalab"><span class="header-section-number">2</span> Datalab</h2>
 <p>Il est possible de faire le TP soit sur la VM, soit sur le datalab</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Connectez-vous sur le <a href="https://datalab.sspcloud.fr/" target="_blank">datalab</a></label></li>
@@ -270,18 +263,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><span class="emoji" data-emoji="warning">⚠️</span> important d’ouvrir le bon dossier !</li>
 </ul></li>
 </ul>
-<p>Ne pas faire :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez un terminal (CTRL+ù)</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Positionnez-vous dans le bon dossier : <code>cd JavaTP4-unit-test-base</code></label></li>
-</ul></li>
-<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src ./src/edu/ensai/pokemon/main/Main.java</code></label></li>
-<li><label><input type="checkbox">Exéctuez le programme : <code>java -cp bin edu.ensai.pokemon.main.Main</code></label></li>
-</ul>
 </section>
-<section id="vm" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="vm"><span class="header-section-number">4</span> VM</h2>
+<section id="vm" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="vm"><span class="header-section-number">3</span> VM</h2>
 <ul class="task-list">
 <li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
 <ul class="task-list">
@@ -290,20 +274,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><label><input type="checkbox">Un clic sur <em>JavaTP4-unit-test-base</em>, ensuite <code>Sélectionner un dossier</code></label></li>
 </ul></li>
 </ul>
-<p>Ne pas faire :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez un terminal (CTRL+ù)</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Positionnez-vous dans le bon dossier : <code>cd JavaTP4-unit-test-base</code></label></li>
-</ul></li>
-<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src .\src\main\java\fr\ensai\java\tp4\main\Main.java</code></label></li>
-<li><label><input type="checkbox">Exéctuez le programme : <code>java -cp bin edu.ensai.pokemon.main.Main</code></label></li>
-</ul>
 </section>
-<section id="tests-unitaires" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="tests-unitaires"><span class="header-section-number">5</span> Tests unitaires</h2>
-<section id="bonnes-pratiques" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="bonnes-pratiques"><span class="header-section-number">5.1</span> Bonnes pratiques</h3>
+<section id="tests-unitaires" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="tests-unitaires"><span class="header-section-number">4</span> Tests unitaires</h2>
+<section id="bonnes-pratiques" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="bonnes-pratiques"><span class="header-section-number">4.1</span> Bonnes pratiques</h3>
 <ul>
 <li><strong>Tests indépendants</strong> : Chaque test devrait être indépendant des autres tests. Assurez-vous que l’exécution d’un test ne dépend pas du résultat d’un autre test.</li>
 <li><strong>Clarté et lisibilité</strong> : Écrivez des noms de méthodes de test descriptifs pour indiquer clairement ce qui est testé. Utilisez des noms qui décrivent le comportement attendu.</li>
@@ -317,8 +292,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Exécution régulière des tests</strong> : Exécutez vos tests régulièrement pour vous assurer qu’ils restent valides au fil du temps, en particulier après des modifications du code source.</li>
 </ul>
 </section>
-<section id="un-exemple-avec-junit" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="un-exemple-avec-junit"><span class="header-section-number">5.2</span> Un exemple avec JUnit</h3>
+<section id="un-exemple-avec-junit" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="un-exemple-avec-junit"><span class="header-section-number">4.2</span> Un exemple avec JUnit</h3>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>frac.java</strong></pre>
@@ -426,10 +401,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="exercices" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="exercices"><span class="header-section-number">6</span> Exercices</h2>
-<section id="exercice-1" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">6.1</span> Exercice 1</h3>
+<section id="exercices" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="exercices"><span class="header-section-number">5</span> Exercices</h2>
+<section id="exercice-1" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">5.1</span> Exercice 1</h3>
 <p>Des tests unitaires ont déjà été écrits</p>
 <ul class="task-list">
 <li><label><input type="checkbox">dans VSCode à gauche, cliquez sur l’icone en forme de fiole</label>
@@ -451,15 +426,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="exercice-2" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">6.2</span> Exercice 2</h3>
+<section id="exercice-2" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">5.2</span> Exercice 2</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">créez la classe <code>InventoryTest</code> et écrivez les TU de la méthode <em>add()</em></label></li>
 <li><label><input type="checkbox">créez la classe <code>SingleUseItemTest</code></label></li>
 </ul>
 </section>
-<section id="exercice-3" class="level3" data-number="6.3">
-<h3 data-number="6.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">6.3</span> Exercice 3</h3>
+<section id="exercice-3" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">5.3</span> Exercice 3</h3>
 <p>Rappels sur les interfaces :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">créez une Interface <code>Coordinates</code> contenant les méthodes communes</label></li>
