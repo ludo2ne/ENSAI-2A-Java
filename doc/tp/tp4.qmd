@@ -110,8 +110,15 @@ public class FracTest {
 
     @Test
     public void testEstValideOK() {
+
+        //GIVEN
         Frac frac1 = new Frac(1, 2);
-        Assert.assertTrue(frac1.est_valide());
+
+        //WHEN
+        boolean res = frac1.est_valide();
+
+        //THEN
+        Assert.assertTrue(res);
     }
     
     public void testEstValideEchec() {
