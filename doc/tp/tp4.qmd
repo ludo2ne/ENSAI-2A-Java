@@ -181,8 +181,18 @@ public class FracTest {
         Assert.assertEquals("1/2", frac1.toString());
     }
 }
-
 ```
+
+### Lancer les tests manuellement
+
+- Ouvrir un terminal *bash*
+- Compliler tous les tests
+  - `javac -cp .:lib/*:src/test/java:src/main/java -d bin src/test/java/fr/ensai/java/tp4/core/*.java`
+  - en ajoutant manuellement au classpath (-cp ...) les dossiers *lib*, *main* et *test* 
+- Exécuter une classe de tests
+  - `java -cp .:bin:lib/* org.junit.runner.JUnitCore fr.ensai.java.tp4.core.LevelTest`
+  - en ajoutant au classpath *bin* et *lib*
+
 
 
 ## Exercices
