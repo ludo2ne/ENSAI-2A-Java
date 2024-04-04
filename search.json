@@ -172,7 +172,7 @@
     "href": "doc/tp/tp4.html#datalab",
     "title": "Java - TP4",
     "section": "2 Datalab",
-    "text": "2 Datalab\nIl est possible de faire le TP soit sur la VM, soit sur le datalab\n\nConnectez-vous sur le datalab\nLancez le service Java avec VScode puis suivez les instructions\nDans l’explorer à gauche &gt; clic droit &gt; Upload\n\nChargez le fichier JavaTP4-unit-test-base\n\nOuvrez un terminal\n\nrentrez unzip JavaTP4-unit-test-base pour extraire les fichiers\n\nFile &gt; Open Folder &gt; /home/onyxia/work/JavaTP4-unit-test-base/\n\n⚠️ important d’ouvrir le bon dossier !"
+    "text": "2 Datalab\nIl est possible de faire le TP soit sur la VM, soit sur le datalab\n\nConnectez-vous sur le datalab\nLancez le service Java avec VScode puis suivez les instructions\nDans l’explorer à gauche &gt; clic droit &gt; Upload\n\nChargez le fichier JavaTP4-unit-test-base\n\nOuvrez un terminal\n\nrentrez unzip JavaTP4-unit-test-base pour extraire les fichiers\n\nFile &gt; Open Folder &gt; /home/onyxia/work/JavaTP4-unit-test-base/\n\n⚠️ important d’ouvrir le bon dossier !\n\n\nRemplacez le contenu du fichier .vscode/settings.json par :\n{\n    \"java.project.sourcePaths\": [\n        \"src/main/java\",\n        \"src/test/java\"\n    ],\n    \"java.project.referencedLibraries\": [\n        \"lib/**/*.jar\"\n    ]\n}"
   },
   {
     "objectID": "doc/tp/tp4.html#vm",
