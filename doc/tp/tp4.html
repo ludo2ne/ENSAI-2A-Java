@@ -188,6 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#bonnes-pratiques" id="toc-bonnes-pratiques" class="nav-link" data-scroll-target="#bonnes-pratiques"><span class="header-section-number">4.1</span> Bonnes pratiques</a></li>
   <li><a href="#un-exemple-avec-junit" id="toc-un-exemple-avec-junit" class="nav-link" data-scroll-target="#un-exemple-avec-junit"><span class="header-section-number">4.2</span> Un exemple avec JUnit</a></li>
+  <li><a href="#lancer-les-tests-manuellement" id="toc-lancer-les-tests-manuellement" class="nav-link" data-scroll-target="#lancer-les-tests-manuellement"><span class="header-section-number">4.3</span> Lancer les tests manuellement</a></li>
   </ul></li>
   <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a>
   <ul class="collapse">
@@ -414,6 +415,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="lancer-les-tests-manuellement" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="lancer-les-tests-manuellement"><span class="header-section-number">4.3</span> Lancer les tests manuellement</h3>
+<ul>
+<li>Ouvrir un terminal <em>bash</em></li>
+<li>Compliler tous les tests
+<ul>
+<li><code>javac -cp .:lib/*:src/test/java:src/main/java -d bin src/test/java/fr/ensai/java/tp4/core/*.java</code></li>
+<li>en ajoutant manuellement au classpath (-cp …) les dossiers <em>lib</em>, <em>main</em> et <em>test</em></li>
+</ul></li>
+<li>Exécuter une classe de tests
+<ul>
+<li><code>java -cp .:bin:lib/* org.junit.runner.JUnitCore fr.ensai.java.tp4.core.LevelTest</code></li>
+<li>en ajoutant au classpath <em>bin</em> et <em>lib</em></li>
+</ul></li>
+</ul>
 </section>
 </section>
 <section id="exercices" class="level2" data-number="5">
