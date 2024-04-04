@@ -42,7 +42,7 @@ Il est possible de faire le TP soit sur la VM, soit sur le datalab
 - [ ] Ouvrez à nouveau un terminal
   - [ ] Positionnez-vous dans le bon dossier : `cd JavaOOP-Practical-2`
   - [ ] Compilez le *Main* : `javac -d bin -sourcepath src ./src/Main.java`
-  - [ ] Exéctuez le programme : `java -classpath bin Main`
+  - [ ] Exécutez le programme : `java -classpath bin Main`
 
 
 ## VM

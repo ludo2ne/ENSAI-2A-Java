@@ -160,7 +160,7 @@ public class Frac {
         if (this.denom == 0){
             throw new ArithmeticException("Division par zéro");
         }
-        return this.num  / this.denom;      
+        return this.num / this.denom;      
     }
 }
 ```
@@ -257,7 +257,7 @@ Il est possible de faire le TP soit sur la VM, soit sur le datalab
 - [ ] Ouvrez  un terminal (CTRL+ù)  
   - [ ] Positionnez-vous dans le bon dossier : `cd JavaTP3-base`
   - [ ] Compilez le *Main* : `javac -d bin -sourcepath src ./src/edu/ensai/pokemon/main/Main.java`
-  - [ ] Exéctuez le programme : `java -cp bin edu.ensai.pokemon.main.Main`
+  - [ ] Exécutez le programme : `java -cp bin edu.ensai.pokemon.main.Main`
 
 
 ## VM
@@ -269,7 +269,7 @@ Il est possible de faire le TP soit sur la VM, soit sur le datalab
 - [ ] Ouvrez  un terminal (CTRL+ù)  
   - [ ] Positionnez-vous dans le bon dossier : `cd JavaTP3-base`
   - [ ] Compilez le *Main* : `javac -d bin -sourcepath src .\src\edu\ensai\pokemon\main\Main.java`
-  - [ ] Exéctuez le programme : `java -cp bin edu.ensai.pokemon.main.Main`
+  - [ ] Exécutez le programme : `java -cp bin edu.ensai.pokemon.main.Main`
 
 
 ## Exercices
