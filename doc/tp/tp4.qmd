@@ -33,6 +33,20 @@ Il est possible de faire le TP soit sur la VM, soit sur le datalab
 - [ ] File > Open Folder > */home/onyxia/work/JavaTP4-unit-test-base/*
   - :warning: important d'ouvrir le bon dossier !
 
+Remplacez le contenu du fichier `.vscode/settings.json` par :
+
+```{.json}
+{
+    "java.project.sourcePaths": [
+        "src/main/java",
+        "src/test/java"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
+```
+
 
 ## VM
 
