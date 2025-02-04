@@ -105,6 +105,258 @@
     "text": "4 Une classe\n/**\n * A Student\n */\npublic class Student {\n    // Attributs\n    private String name;\n    private int age;\n\n    /**\n     * Constructor\n     */\n    public Student(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n\n\n    // -------------------------------------------------------\n    // Getters et Setters\n    // -------------------------------------------------------\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public int getAge() {\n        return age;\n    }\n\n    public void setAge(int age) {\n        if (age &gt; 0) {\n            this.age = age;\n        } else {\n            System.out.println(\"L'âge doit être supérieur à zéro.\");\n        }\n    }\n    \n    // -------------------------------------------------------\n    // Methods\n    // -------------------------------------------------------\n\n    @Override\n    public String toString() {\n        return \"Student{\" +\n                \"name='\" + name + '\\'' +\n                \", age=\" + age +\n                '}';\n    }\n\n    /**\n     * Main method\n     */\n    public static void main(String[] args) {\n\n        // Création d'un objet Student\n        Student student = new Student(\"John Doe\", 20);\n        System.out.println(student);\n    }\n}"
   },
   {
+    "objectID": "doc/cours/collections.html#maps",
+    "href": "doc/cours/collections.html#maps",
+    "title": "Collections",
+    "section": "Maps",
+    "text": "Maps"
+  },
+  {
+    "objectID": "doc/cours/collections.html#sets",
+    "href": "doc/cours/collections.html#sets",
+    "title": "Collections",
+    "section": "Sets",
+    "text": "Sets"
+  },
+  {
+    "objectID": "doc/cours/collections-slides.html#lists",
+    "href": "doc/cours/collections-slides.html#lists",
+    "title": "Collections",
+    "section": "Lists",
+    "text": "Lists"
+  },
+  {
+    "objectID": "doc/cours/collections-slides.html#maps",
+    "href": "doc/cours/collections-slides.html#maps",
+    "title": "Collections",
+    "section": "Maps",
+    "text": "Maps"
+  },
+  {
+    "objectID": "doc/cours/collections-slides.html#sets",
+    "href": "doc/cours/collections-slides.html#sets",
+    "title": "Collections",
+    "section": "Sets",
+    "text": "Sets"
+  },
+  {
+    "objectID": "doc/cours/classes.html",
+    "href": "doc/cours/classes.html",
+    "title": "Java Classes",
+    "section": "",
+    "text": "https://www.w3schools.com/java/java_oop.asp"
+  },
+  {
+    "objectID": "doc/cours/classes.html#encapsulation",
+    "href": "doc/cours/classes.html#encapsulation",
+    "title": "Java Classes",
+    "section": "Encapsulation",
+    "text": "Encapsulation"
+  },
+  {
+    "objectID": "doc/cours/classes.html#constructors",
+    "href": "doc/cours/classes.html#constructors",
+    "title": "Java Classes",
+    "section": "Constructors",
+    "text": "Constructors"
+  },
+  {
+    "objectID": "doc/cours/classes.html#inheritance",
+    "href": "doc/cours/classes.html#inheritance",
+    "title": "Java Classes",
+    "section": "Inheritance",
+    "text": "Inheritance"
+  },
+  {
+    "objectID": "doc/cours/classes.html#abstract",
+    "href": "doc/cours/classes.html#abstract",
+    "title": "Java Classes",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "doc/cours/classes.html#polymorphism",
+    "href": "doc/cours/classes.html#polymorphism",
+    "title": "Java Classes",
+    "section": "Polymorphism",
+    "text": "Polymorphism"
+  },
+  {
+    "objectID": "doc/cours/classes.html#main",
+    "href": "doc/cours/classes.html#main",
+    "title": "Java Classes",
+    "section": "Main",
+    "text": "Main"
+  },
+  {
+    "objectID": "doc/cours/classes.html#enum",
+    "href": "doc/cours/classes.html#enum",
+    "title": "Java Classes",
+    "section": "Enum",
+    "text": "Enum"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#encapsulation",
+    "href": "doc/cours/classes-slides.html#encapsulation",
+    "title": "Java Classes",
+    "section": "Encapsulation",
+    "text": "Encapsulation"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#constructors",
+    "href": "doc/cours/classes-slides.html#constructors",
+    "title": "Java Classes",
+    "section": "Constructors",
+    "text": "Constructors"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#inheritance",
+    "href": "doc/cours/classes-slides.html#inheritance",
+    "title": "Java Classes",
+    "section": "Inheritance",
+    "text": "Inheritance"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#abstract",
+    "href": "doc/cours/classes-slides.html#abstract",
+    "title": "Java Classes",
+    "section": "Abstract",
+    "text": "Abstract"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#polymorphism",
+    "href": "doc/cours/classes-slides.html#polymorphism",
+    "title": "Java Classes",
+    "section": "Polymorphism",
+    "text": "Polymorphism"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#main",
+    "href": "doc/cours/classes-slides.html#main",
+    "title": "Java Classes",
+    "section": "Main",
+    "text": "Main"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#enum",
+    "href": "doc/cours/classes-slides.html#enum",
+    "title": "Java Classes",
+    "section": "Enum",
+    "text": "Enum"
+  },
+  {
+    "objectID": "doc/cours/code-slides.html#hello-world",
+    "href": "doc/cours/code-slides.html#hello-world",
+    "title": "Java Basics",
+    "section": "Hello World",
+    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile : javac HelloWord.java\n\ncreate HelloWord.class\n\nrun : java HelloWord\n\n\n\nyou only write .java files"
+  },
+  {
+    "objectID": "doc/cours/code-slides.html#syntax",
+    "href": "doc/cours/code-slides.html#syntax",
+    "title": "Java Basics",
+    "section": "Syntax",
+    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }"
+  },
+  {
+    "objectID": "doc/cours/code.html",
+    "href": "doc/cours/code.html",
+    "title": "Java Basics",
+    "section": "",
+    "text": "HelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile : javac HelloWord.java\n\ncreate HelloWord.class\n\nrun : java HelloWord\n\n\n\nyou only write .java files"
+  },
+  {
+    "objectID": "doc/cours/code.html#hello-world",
+    "href": "doc/cours/code.html#hello-world",
+    "title": "Java Basics",
+    "section": "",
+    "text": "HelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile : javac HelloWord.java\n\ncreate HelloWord.class\n\nrun : java HelloWord\n\n\n\nyou only write .java files"
+  },
+  {
+    "objectID": "doc/cours/code.html#syntax",
+    "href": "doc/cours/code.html#syntax",
+    "title": "Java Basics",
+    "section": "Syntax",
+    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\n\n\nJava Naming Conventions\n\nClasses : PascalCase\nVariables, Methods : camelCase\nconstants : UPPER_CASE_WITH_UNDERSCORES\npackages : Lowercase, dot-separated (package com.example.utils;)\n\n\n\nVariables and Data Types\nint age = 25;\ndouble price = 9.99;\nboolean isJavaFun = true;\nchar grade = 'A';\nString name = \"John\";\n\n\nString\n\nnot a primitive data type\nString is a Class\nimmutable : Any modification creates a new string in memory\n\n\n\n\n\nBoolean\ntrue && !false || false\n\n\nPrint\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\"); : adds a new line\nSystem.out ➡️ Standard output stream\n\n\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n\nSwitch\nint day = 3;\n\nswitch (day) {\n    case 1:\n        System.out.println(\"Monday\");\n        break;\n    case 2:\n        System.out.println(\"Tuesday\");\n        break;\n    default:\n        System.out.println(\"Invalid day\");\n}\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization : i = 0\ncondition : i &lt; 5\nupdate : i++\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num : numbers) {\n    System.out.println(num);\n}\n\n\nWhile\nint i = 0;\nwhile (i &lt; 5) {\n    System.out.println(\"Iteration: \" + i);\n    i++;\n}\n\n\nFunction\npublic int add(int a, int b) {\n    return a + b;\n}"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#introduction-to-java",
+    "href": "doc/cours/intro-slides.html#introduction-to-java",
+    "title": "Introduction",
+    "section": "Introduction to Java",
+    "text": "Introduction to Java\n\n6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nbased on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#objectives",
+    "href": "doc/cours/intro-slides.html#objectives",
+    "title": "Introduction",
+    "section": "Objectives",
+    "text": "Objectives"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#tp",
+    "href": "doc/cours/intro-slides.html#tp",
+    "title": "Introduction",
+    "section": "TP",
+    "text": "TP"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#evaluation",
+    "href": "doc/cours/intro-slides.html#evaluation",
+    "title": "Introduction",
+    "section": "Evaluation",
+    "text": "Evaluation"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#why-java",
+    "href": "doc/cours/intro-slides.html#why-java",
+    "title": "Introduction",
+    "section": "Why Java",
+    "text": "Why Java"
+  },
+  {
+    "objectID": "doc/cours/intro.html",
+    "href": "doc/cours/intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nbased on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
+  },
+  {
+    "objectID": "doc/cours/intro.html#introduction-to-java",
+    "href": "doc/cours/intro.html#introduction-to-java",
+    "title": "Introduction",
+    "section": "",
+    "text": "6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nbased on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
+  },
+  {
+    "objectID": "doc/cours/intro.html#objectives",
+    "href": "doc/cours/intro.html#objectives",
+    "title": "Introduction",
+    "section": "Objectives",
+    "text": "Objectives"
+  },
+  {
+    "objectID": "doc/cours/intro.html#tp",
+    "href": "doc/cours/intro.html#tp",
+    "title": "Introduction",
+    "section": "TP",
+    "text": "TP"
+  },
+  {
+    "objectID": "doc/cours/intro.html#evaluation",
+    "href": "doc/cours/intro.html#evaluation",
+    "title": "Introduction",
+    "section": "Evaluation",
+    "text": "Evaluation"
+  },
+  {
+    "objectID": "doc/cours/intro.html#why-java",
+    "href": "doc/cours/intro.html#why-java",
+    "title": "Introduction",
+    "section": "Why Java",
+    "text": "Why Java\n\nHistory\n\nCreated in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)\n\n\n\nFacebook story\n2009 Oracle\n\n\n\n\nPopular / Mature\n\nWidely used in all sectors\nBack-end\nHeavily object-oriented\n\n\n\nPortability\n\nCompiled to bytecode\nRuns on any machine with a JVM\n“Write Once, Run Anywhere”\n\n\nWORA : desktop, servers, smartphones\n\n\n\nRobust / Secure\n\nAutomatic memory management\nStrong Static Typing\nCompile-Time Checks\n\n\n\nJava Vs Python\n\n\n\n\n\n\n\n\nCriterion\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping : int x = 10; vs x = 10\nInterpreted : exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
+  },
+  {
     "objectID": "doc/tp/tp2.html",
     "href": "doc/tp/tp2.html",
     "title": "Java - TP2",
