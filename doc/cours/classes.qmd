@@ -1,0 +1,39 @@
+---
+title: "Java Classes"
+description: "[Slides](classes-slides.html)"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+  revealjs:
+    theme: moon
+    footer: "[Home](../../index.html) --- [Classes](classes.html)"
+    slide-number: c/t                    ## collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: classes-slides.html
+from: markdown+emoji
+lightbox: true
+---
+
+
+https://www.w3schools.com/java/java_oop.asp
+
+## Encapsulation
+
+
+## Constructors
+
+
+## Inheritance
+
+## Abstract
+
+## Polymorphism
+
+
+## Main
+
+## Enum

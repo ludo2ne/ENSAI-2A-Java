@@ -1,0 +1,104 @@
+---
+title: "Introduction"
+description: "[Slides](intro-slides.html)"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+  revealjs:
+    theme: moon
+    footer: "[Home](../../index.html) --- [Introduction](intro.html)"
+    slide-number: c/t                    ## collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: intro-slides.html
+from: markdown+emoji
+lightbox: true
+---
+
+
+## Introduction to Java
+
+- 6h CM
+- 12h TP
+- `ludovic.deneuville@ensai.fr`
+- office 161
+- based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt
+
+
+
+## Objectives
+
+
+
+## TP
+
+
+
+
+## Evaluation
+
+
+
+## Why Java
+
+### History
+
+- Created in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)
+
+
+:::{.notes}
+- Facebook story
+- 2009 Oracle
+:::
+
+### Popular / Mature
+
+- Widely used in all sectors
+- Back-end
+- Heavily object-oriented
+
+
+
+### Portability
+
+- Compiled to bytecode
+- Runs on any machine with a JVM
+- "Write Once, Run Anywhere"
+
+:::{.notes}
+WORA : desktop, servers, smartphones
+:::
+
+### Robust / Secure
+
+- Automatic memory management
+- Strong Static Typing
+- Compile-Time Checks
+
+
+### Java Vs Python
+
+| **Criterion**     | **Java**                    | **Python**                 |  
+|-------------------|-----------------------------|----------------------------|  
+| **Typing**        | Strongly typed, static      | Strongly typed, dynamic    |  
+| **Compilation**   | Compiled into bytecode      | Interpreted                |  
+| **Performance**   | Very fast                   | Slower                     |  
+| **Syntax**        | Verbose, requires `{}`      | Concise, uses indentation  |  
+| **Paradigm**      | Object-oriented             | Multi-paradigm             |  
+| **Ecosystem**     | Huge (Spring, Hibernate...) | Large (Django, Flask, Pandas...) |  
+
+
+:::{.notes}
+- Typing : `int x = 10;` vs `x = 10`
+- Interpreted : exécution à la volée
+- Multi-paradigm (objet, fonctionnel, impératif)
+:::
+
+
+
+
+
+

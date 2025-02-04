@@ -11,6 +11,16 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - text: Lessons
+        menu: 
+          - href: doc/cours/intro.qmd
+            text: "Introduction"
+          - href: doc/cours/code.qmd
+            text: "Java Bascis"
+          - href: doc/cours/classes.qmd
+            text: "Classes"
+          - href: doc/cours/collections.qmd
+            text: "Collections"
       - text: TP
         menu: 
           - href: doc/tp/tp1.qmd

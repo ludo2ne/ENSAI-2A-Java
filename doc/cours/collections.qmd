@@ -1,0 +1,29 @@
+---
+title: "Collections"
+description: "[Slides](collections-slides.html)"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+  revealjs:
+    theme: moon
+    footer: "[Home](../../index.html) --- [title: Collections](collections.html)"
+    slide-number: c/t                    ## collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: collections-slides.html
+from: markdown+emoji
+lightbox: true
+---
+
+## Lists 
+
+
+## Maps
+
+
+## Sets
+
+

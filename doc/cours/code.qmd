@@ -1,0 +1,158 @@
+---
+title: "Java Basics"
+description: "[Slides](code-slides.html)"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+  revealjs:
+    theme: moon
+    footer: "[Home](../../index.html) --- [Java Basics](code.html)"
+    slide-number: c/t                    ## collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: code-slides.html
+from: markdown+emoji
+lightbox: true
+---
+
+
+## Hello World
+
+```{.java filename="HelloWord.java"}
+class HelloWorld {
+public static void main(String[] args) { 
+    String message = "Hello World!";
+    System.out.println(message);
+    }
+}
+```
+
+- compile : `javac HelloWord.java`
+  - create *HelloWord.class*
+- run : `java HelloWord`
+
+:::{.notes}
+- you only write .java files
+:::
+
+## Syntax
+
+- A Line of code ends with a semicolon `;`
+- Blocs are delimited with curly braces: `{ }`
+
+### Java Naming Conventions
+
+- Classes : PascalCase 
+- Variables, Methods : camelCase
+- constants : UPPER_CASE_WITH_UNDERSCORES 
+- packages : Lowercase, dot-separated (package com.example.utils;)
+
+
+### Variables and Data Types
+
+```{.java}
+int age = 25;
+double price = 9.99;
+boolean isJavaFun = true;
+char grade = 'A';
+String name = "John";
+```
+
+:::{.notes}
+- String
+  - not a primitive data type
+  - String is a Class
+  - immutable : Any modification creates a new string in memory
+:::
+
+### Boolean 
+
+true && !false || false
+
+### Print
+
+- `System.out.print("Hello");`
+- `System.out.println("Hello");` : adds a new line
+- System.out :arrow_right: Standard output stream
+
+
+
+### if-else
+
+```{.java}
+int number = 10;
+
+if (number > 0) {
+    System.out.println("Positive number");
+} else if (number < 0) {
+    System.out.println("Negative number");
+} else {
+    System.out.println("Zero");
+}
+```
+
+### Switch
+
+```{.java}
+int day = 3;
+
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+}
+```
+
+
+
+### For
+
+```{.java}
+for (int i = 0; i < 5; i++) {
+    System.out.println("Iteration: " + i);
+}
+```
+
+- initialization : i = 0
+- condition : i < 5
+- update : i++
+
+
+### For each
+
+- Iterating through arrays, lists
+
+```{.java}
+int[] numbers = {1, 2, 3, 4};
+
+for (int num : numbers) {
+    System.out.println(num);
+}
+```
+
+### While
+
+
+```{.java}
+int i = 0;
+while (i < 5) {
+    System.out.println("Iteration: " + i);
+    i++;
+}
+```
+
+### Function
+
+```{.java}
+public int add(int a, int b) {
+    return a + b;
+}
+```
