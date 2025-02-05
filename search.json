@@ -4,14 +4,21 @@
     "href": "index.html",
     "title": "Java",
     "section": "",
-    "text": "TP1 : Classes, Objects, Attributes, Methods\nTP2 : Full-Fledged Object Oriented Programming\nTP3 : Enums, Containers, Exceptions\nTP4 : Unit Tests, OOP\n\nQuelques ressources utiles :\n\nZeste de savoir - Apprenez à programmer en Java"
+    "text": "TP1 : Classes, Objects, Attributes, Methods\nTP2 : Full-Fledged Object Oriented Programming\nTP3 : Enums, Containers, Exceptions\nTP4 : Unit Tests, OOP"
   },
   {
     "objectID": "index.html#tp",
     "href": "index.html#tp",
     "title": "Java",
     "section": "",
-    "text": "TP1 : Classes, Objects, Attributes, Methods\nTP2 : Full-Fledged Object Oriented Programming\nTP3 : Enums, Containers, Exceptions\nTP4 : Unit Tests, OOP\n\nQuelques ressources utiles :\n\nZeste de savoir - Apprenez à programmer en Java"
+    "text": "TP1 : Classes, Objects, Attributes, Methods\nTP2 : Full-Fledged Object Oriented Programming\nTP3 : Enums, Containers, Exceptions\nTP4 : Unit Tests, OOP"
+  },
+  {
+    "objectID": "index.html#bibliography",
+    "href": "index.html#bibliography",
+    "title": "Java",
+    "section": "Bibliography",
+    "text": "Bibliography\n\nJava Tutorial, w3schools\n\n\nFR\n\nDéveloppons en Java, Jean-Michel DOUDOUX\nApprenez à programmer en Java, Zeste de savoir"
   },
   {
     "objectID": "doc/tp/tp3.html",
@@ -74,35 +81,42 @@
     "href": "doc/tp/tp1.html",
     "title": "Java - TP1",
     "section": "",
-    "text": "Langage orienté objet\nCompilé en bytecode puis exécuté par la JVM\n\nfichier.java ➡️ compilation ➡️ fichier.class ➡️ éxécution ➡️ run\ncompiler : javac fichier.java\néxécuter : java fichier\n\nPoints-virgules pour terminer les déclarations\nAccolades pour délimiter les blocs de code\nFortement typé statiquement\n\nvous devez déclarer le type de chaque variable\nces types sont vérifiés à la compilation\n\nConventions de nommage : utilisation du CamelCase\n\nclasse : première lettre MAJUSCULE, ex : VeloElectrique\nméthodes et variables : première lettre minuscule, ex : ajouterPanier()\n\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\"; \n        System.out.println(message);\n    }\n}"
+    "text": "Décoder un mot de passe haché à 6 chiffres"
+  },
+  {
+    "objectID": "doc/tp/tp1.html#exercices-pratiques",
+    "href": "doc/tp/tp1.html#exercices-pratiques",
+    "title": "Java - TP1",
+    "section": "",
+    "text": "Décoder un mot de passe haché à 6 chiffres"
   },
   {
     "objectID": "doc/tp/tp1.html#java-en-quelques-mots",
     "href": "doc/tp/tp1.html#java-en-quelques-mots",
     "title": "Java - TP1",
-    "section": "",
-    "text": "Langage orienté objet\nCompilé en bytecode puis exécuté par la JVM\n\nfichier.java ➡️ compilation ➡️ fichier.class ➡️ éxécution ➡️ run\ncompiler : javac fichier.java\néxécuter : java fichier\n\nPoints-virgules pour terminer les déclarations\nAccolades pour délimiter les blocs de code\nFortement typé statiquement\n\nvous devez déclarer le type de chaque variable\nces types sont vérifiés à la compilation\n\nConventions de nommage : utilisation du CamelCase\n\nclasse : première lettre MAJUSCULE, ex : VeloElectrique\nméthodes et variables : première lettre minuscule, ex : ajouterPanier()\n\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\"; \n        System.out.println(message);\n    }\n}"
+    "section": "1.1 Java en quelques mots",
+    "text": "1.1 Java en quelques mots\n\nLangage orienté objet\nCompilé en bytecode puis exécuté par la JVM\n\nfichier.java ➡️ compilation ➡️ fichier.class ➡️ éxécution ➡️ run\ncompiler : javac fichier.java\néxécuter : java fichier\n\nPoints-virgules pour terminer les déclarations\nAccolades pour délimiter les blocs de code\nFortement typé statiquement\n\nvous devez déclarer le type de chaque variable\nces types sont vérifiés à la compilation\n\nConventions de nommage : utilisation du CamelCase\n\nclasse : première lettre MAJUSCULE, ex : VeloElectrique\nméthodes et variables : première lettre minuscule, ex : ajouterPanier()\n\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\"; \n        System.out.println(message);\n    }\n}"
   },
   {
     "objectID": "doc/tp/tp1.html#introduction",
     "href": "doc/tp/tp1.html#introduction",
     "title": "Java - TP1",
-    "section": "2 Introduction",
-    "text": "2 Introduction\n\n\n\n\n\n\nConseil\n\n\n\n\nSur votre disque P:, créez un dossier Java, puis à l’intérieur, créez un dossier TP1\nSur Moodle, téléchargez le sujet et le code de départ : JavaTP1.zip\n\nEnregistrez ces fichiers dans votre dossier TP1\nDézippez le fichier JavaTP1.zip\n\n\n\n\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\n\nAllez dans le dossier JavaTP1\nUn clic sur array_project , ensuite Sélectionner un dossier\n\nOuvrez un terminal (Terminal &gt; New)\n\n\nLisez le code du fichier ArrayListExample.java\n\ncompilez le fichier : javac -d bin ./src/edu/ensai/ArrayListExample.java\néxécutez le programme : java -cp bin edu.ensai.ArrayListExample\n\n\ni++ et ++i\n    int n = 10;\n    System.out.println(n++);\n    System.out.println(n);\n    n = 10;\n    System.out.println(++n);\n    System.out.println(n);\n\n\nCommandes Powershell\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ncd [directory]\nChange le répertoire de travail\n\n\ncd P:\nAller dans le lecteur P:\n\n\ncd ..\nRetour dans le dossier parent\n\n\ndir\nListe le contenu du répertoire courant\n\n\ntree /F\nVisualiser l’arborscence\n\n\nmkdir [directory]\nCrée un nouveau répertoire\n\n\ndel [file]\nSupprime un fichier\n\n\ncopy [source] [dest]\nCopie un fichier ou un répertoire\n\n\nmove [source] [dest]\nDéplace un fichier ou un répertoire\n\n\ncat [file]\nAffiche le contenu d’un fichier"
+    "section": "1.2 Introduction",
+    "text": "1.2 Introduction\n\n\n\n\n\n\nConseil\n\n\n\n\nSur votre disque P:, créez un dossier Java, puis à l’intérieur, créez un dossier TP1\nSur Moodle, téléchargez le sujet et le code de départ : JavaTP1.zip\n\nEnregistrez ces fichiers dans votre dossier TP1\nDézippez le fichier JavaTP1.zip\n\n\n\n\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\n\nAllez dans le dossier JavaTP1\nUn clic sur array_project , ensuite Sélectionner un dossier\n\nOuvrez un terminal (Terminal &gt; New)\n\n\nLisez le code du fichier ArrayListExample.java\n\ncompilez le fichier : javac -d bin ./src/edu/ensai/ArrayListExample.java\néxécutez le programme : java -cp bin edu.ensai.ArrayListExample\n\n\ni++ et ++i\n    int n = 10;\n    System.out.println(n++);\n    System.out.println(n);\n    n = 10;\n    System.out.println(++n);\n    System.out.println(n);\n\n\nCommandes Powershell\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ncd [directory]\nChange le répertoire de travail\n\n\ncd P:\nAller dans le lecteur P:\n\n\ncd ..\nRetour dans le dossier parent\n\n\ndir\nListe le contenu du répertoire courant\n\n\ntree /F\nVisualiser l’arborscence\n\n\nmkdir [directory]\nCrée un nouveau répertoire\n\n\ndel [file]\nSupprime un fichier\n\n\ncopy [source] [dest]\nCopie un fichier ou un répertoire\n\n\nmove [source] [dest]\nDéplace un fichier ou un répertoire\n\n\ncat [file]\nAffiche le contenu d’un fichier"
   },
   {
     "objectID": "doc/tp/tp1.html#exercices",
     "href": "doc/tp/tp1.html#exercices",
     "title": "Java - TP1",
-    "section": "3 Exercices",
-    "text": "3 Exercices\n\n3.1 Exercice 1\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP1\nUn clic sur car_project , ensuite Sélectionner un dossier\n\n\n\n3.2 Exercice 2\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP1\nUn clic sur domino_project, ensuite Sélectionner un dossier"
+    "section": "1.3 Exercices",
+    "text": "1.3 Exercices\n\n1.3.1 Exercice 1\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP1\nUn clic sur car_project , ensuite Sélectionner un dossier\n\n\n\n1.3.2 Exercice 2\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP1\nUn clic sur domino_project, ensuite Sélectionner un dossier"
   },
   {
     "objectID": "doc/tp/tp1.html#une-classe",
     "href": "doc/tp/tp1.html#une-classe",
     "title": "Java - TP1",
-    "section": "4 Une classe",
-    "text": "4 Une classe\n/**\n * A Student\n */\npublic class Student {\n    // Attributs\n    private String name;\n    private int age;\n\n    /**\n     * Constructor\n     */\n    public Student(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n\n\n    // -------------------------------------------------------\n    // Getters et Setters\n    // -------------------------------------------------------\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public int getAge() {\n        return age;\n    }\n\n    public void setAge(int age) {\n        if (age &gt; 0) {\n            this.age = age;\n        } else {\n            System.out.println(\"L'âge doit être supérieur à zéro.\");\n        }\n    }\n    \n    // -------------------------------------------------------\n    // Methods\n    // -------------------------------------------------------\n\n    @Override\n    public String toString() {\n        return \"Student{\" +\n                \"name='\" + name + '\\'' +\n                \", age=\" + age +\n                '}';\n    }\n\n    /**\n     * Main method\n     */\n    public static void main(String[] args) {\n\n        // Création d'un objet Student\n        Student student = new Student(\"John Doe\", 20);\n        System.out.println(student);\n    }\n}"
+    "section": "1.4 Une classe",
+    "text": "1.4 Une classe\n/**\n * A Student\n */\npublic class Student {\n    // Attributs\n    private String name;\n    private int age;\n\n    /**\n     * Constructor\n     */\n    public Student(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n\n\n    // -------------------------------------------------------\n    // Getters et Setters\n    // -------------------------------------------------------\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public int getAge() {\n        return age;\n    }\n\n    public void setAge(int age) {\n        if (age &gt; 0) {\n            this.age = age;\n        } else {\n            System.out.println(\"L'âge doit être supérieur à zéro.\");\n        }\n    }\n    \n    // -------------------------------------------------------\n    // Methods\n    // -------------------------------------------------------\n\n    @Override\n    public String toString() {\n        return \"Student{\" +\n                \"name='\" + name + '\\'' +\n                \", age=\" + age +\n                '}';\n    }\n\n    /**\n     * Main method\n     */\n    public static void main(String[] args) {\n\n        // Création d'un objet Student\n        Student student = new Student(\"John Doe\", 20);\n        System.out.println(student);\n    }\n}"
   },
   {
     "objectID": "doc/cours/collections.html#maps",
@@ -144,35 +158,56 @@
     "href": "doc/cours/classes.html",
     "title": "Java Classes",
     "section": "",
-    "text": "https://www.w3schools.com/java/java_oop.asp"
+    "text": "final\nstatic\n\nhttps://www.w3schools.com/java/java_oop.asp"
   },
   {
-    "objectID": "doc/cours/classes.html#encapsulation",
-    "href": "doc/cours/classes.html#encapsulation",
+    "objectID": "doc/cours/classes.html#todo",
+    "href": "doc/cours/classes.html#todo",
     "title": "Java Classes",
-    "section": "Encapsulation",
-    "text": "Encapsulation"
+    "section": "",
+    "text": "final\nstatic\n\nhttps://www.w3schools.com/java/java_oop.asp"
   },
   {
-    "objectID": "doc/cours/classes.html#constructors",
-    "href": "doc/cours/classes.html#constructors",
+    "objectID": "doc/cours/classes.html#oop-principles",
+    "href": "doc/cours/classes.html#oop-principles",
     "title": "Java Classes",
-    "section": "Constructors",
-    "text": "Constructors"
+    "section": "OOP Principles",
+    "text": "OOP Principles\n\n\nEncapsulation\nInheritance\nPolymorphism\n\n\n\n\nEncapsulation: Bundling data and methods together\nInheritance: Deriving new classes from existing ones\nPolymorphism: One interface, multiple behaviors"
+  },
+  {
+    "objectID": "doc/cours/classes.html#a-class",
+    "href": "doc/cours/classes.html#a-class",
+    "title": "Java Classes",
+    "section": "A class 🚲",
+    "text": "A class 🚲\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n    // Method\n    public void accelerate(int increment) {\n        if (increment &gt; 0) {\n            this.speed += increment;\n        }\n    }\n\n    // Getter\n    public int getSpeed() {\n        return this.speed;\n    }\n}"
+  },
+  {
+    "objectID": "doc/cours/classes.html#attributes",
+    "href": "doc/cours/classes.html#attributes",
+    "title": "Java Classes",
+    "section": "Attributes",
+    "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n\n\nstatic: class attribute"
+  },
+  {
+    "objectID": "doc/cours/classes.html#constructor",
+    "href": "doc/cours/classes.html#constructor",
+    "title": "Java Classes",
+    "section": "Constructor",
+    "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n\nthis : Refers to the current object\n\n\nCreate a Bike Object\nBike greenBike = new Bike(\"Green\", true);\n\nBike: type of the variable\ngreenBike: name of the variable\nnew: Memory allocation\nBike(…): constructor call\n\n\n\nJava only uses positional arguments\nYou can create several constructors\n\n\n\n\nDefault Constructor\n\nIf no constructor is provided\n\nBike myBike = new Bike();\n\ncolor: null\npannierRacks: false\n\n\n\nError if another constructor is provided\n\n\n\n\nCall a method\nBike greenBike = new Bike(\"Green\", true);"
+  },
+  {
+    "objectID": "doc/cours/classes.html#main-method",
+    "href": "doc/cours/classes.html#main-method",
+    "title": "Java Classes",
+    "section": "Main method",
+    "text": "Main method\n\nEntry point\nGenerally in a class called Main\n\npublic static void main(String[] args) {\n    // Program logic here\n}\n\n\npublic : Makes the method accessible from anywhere (required for JVM to call it)\nstatic : Allows calling the method without creating an instance of the class.\nvoid : The method does not return any value.\nmain The method name that JVM looks for to start execution.\nString[] args Array of command-line arguments passed when running the program"
   },
   {
     "objectID": "doc/cours/classes.html#inheritance",
     "href": "doc/cours/classes.html#inheritance",
     "title": "Java Classes",
     "section": "Inheritance",
-    "text": "Inheritance"
-  },
-  {
-    "objectID": "doc/cours/classes.html#abstract",
-    "href": "doc/cours/classes.html#abstract",
-    "title": "Java Classes",
-    "section": "Abstract",
-    "text": "Abstract"
+    "text": "Inheritance\n\nParent class\n\n\nVehicle.java\n\npublic class Vehicle {\n    private String color;\n    private int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n\n\nSubclass\n\nextends: inherit\nsuper(): constructor of the parent class\nsuper.foo(): method foo() of the parent class\n\n\n\nBike.java\n\nimport Vehicle;\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n\n\nAbstract\n\nabstract classes: cannot be instantiated\nabstract methods: Declared without implementation, must be overridden by subclasses\n\n\n\nVehicle.java\n\npublic abstract class Vehicle {\n    private String color;\n    private int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n    public abstract void honk();  // abstract method to be implemented in subsclasses\n\n    public void accelerate(int increment) {\n        this.speed += increment;\n    }\n\n\n\nIs it possible to create a final abstract class?\nPrivate abstract method?\n\n\n\n\nOverride method\n\n\nBike.java\n\nimport Vehicle;\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n    @Override\n    public abstract void honk(){\n        System.out.println(\"Dring\")\n    }\n\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n\n\nOverride final method?"
   },
   {
     "objectID": "doc/cours/classes.html#polymorphism",
@@ -182,11 +217,11 @@
     "text": "Polymorphism"
   },
   {
-    "objectID": "doc/cours/classes.html#main",
-    "href": "doc/cours/classes.html#main",
+    "objectID": "doc/cours/classes.html#javadoc",
+    "href": "doc/cours/classes.html#javadoc",
     "title": "Java Classes",
-    "section": "Main",
-    "text": "Main"
+    "section": "JavaDoc",
+    "text": "JavaDoc"
   },
   {
     "objectID": "doc/cours/classes.html#enum",
@@ -196,18 +231,46 @@
     "text": "Enum"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#encapsulation",
-    "href": "doc/cours/classes-slides.html#encapsulation",
+    "objectID": "doc/cours/classes-slides.html#todo",
+    "href": "doc/cours/classes-slides.html#todo",
     "title": "Java Classes",
-    "section": "Encapsulation",
-    "text": "Encapsulation"
+    "section": "Todo 🚧",
+    "text": "Todo 🚧\n\nfinal\nstatic\n\nhttps://www.w3schools.com/java/java_oop.asp"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#constructors",
-    "href": "doc/cours/classes-slides.html#constructors",
+    "objectID": "doc/cours/classes-slides.html#oop-principles",
+    "href": "doc/cours/classes-slides.html#oop-principles",
     "title": "Java Classes",
-    "section": "Constructors",
-    "text": "Constructors"
+    "section": "OOP Principles",
+    "text": "OOP Principles\n\n\nEncapsulation\nInheritance\nPolymorphism\n\n\n\n\nEncapsulation: Bundling data and methods together\nInheritance: Deriving new classes from existing ones\nPolymorphism: One interface, multiple behaviors"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#a-class",
+    "href": "doc/cours/classes-slides.html#a-class",
+    "title": "Java Classes",
+    "section": "A class 🚲",
+    "text": "A class 🚲\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n    // Method\n    public void accelerate(int increment) {\n        if (increment &gt; 0) {\n            this.speed += increment;\n        }\n    }\n\n    // Getter\n    public int getSpeed() {\n        return this.speed;\n    }\n}"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#attributes",
+    "href": "doc/cours/classes-slides.html#attributes",
+    "title": "Java Classes",
+    "section": "Attributes",
+    "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n\n\nstatic: class attribute"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#constructor",
+    "href": "doc/cours/classes-slides.html#constructor",
+    "title": "Java Classes",
+    "section": "Constructor",
+    "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n\nthis : Refers to the current object"
+  },
+  {
+    "objectID": "doc/cours/classes-slides.html#main-method",
+    "href": "doc/cours/classes-slides.html#main-method",
+    "title": "Java Classes",
+    "section": "Main method",
+    "text": "Main method\n\nEntry point\nGenerally in a class called Main\n\npublic static void main(String[] args) {\n    // Program logic here\n}\n\n\npublic : Makes the method accessible from anywhere (required for JVM to call it)\nstatic : Allows calling the method without creating an instance of the class.\nvoid : The method does not return any value.\nmain The method name that JVM looks for to start execution.\nString[] args Array of command-line arguments passed when running the program"
   },
   {
     "objectID": "doc/cours/classes-slides.html#inheritance",
@@ -217,13 +280,6 @@
     "text": "Inheritance"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#abstract",
-    "href": "doc/cours/classes-slides.html#abstract",
-    "title": "Java Classes",
-    "section": "Abstract",
-    "text": "Abstract"
-  },
-  {
     "objectID": "doc/cours/classes-slides.html#polymorphism",
     "href": "doc/cours/classes-slides.html#polymorphism",
     "title": "Java Classes",
@@ -231,11 +287,11 @@
     "text": "Polymorphism"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#main",
-    "href": "doc/cours/classes-slides.html#main",
+    "objectID": "doc/cours/classes-slides.html#javadoc",
+    "href": "doc/cours/classes-slides.html#javadoc",
     "title": "Java Classes",
-    "section": "Main",
-    "text": "Main"
+    "section": "JavaDoc",
+    "text": "JavaDoc"
   },
   {
     "objectID": "doc/cours/classes-slides.html#enum",
@@ -249,35 +305,105 @@
     "href": "doc/cours/code-slides.html#hello-world",
     "title": "Java Basics",
     "section": "Hello World",
-    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile : javac HelloWord.java\n\ncreate HelloWord.class\n\nrun : java HelloWord\n\n\n\nyou only write .java files"
+    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate HelloWord.class\n\nrun: java HelloWord\n\n\n\nyou only write .java files"
   },
   {
     "objectID": "doc/cours/code-slides.html#syntax",
     "href": "doc/cours/code-slides.html#syntax",
     "title": "Java Basics",
     "section": "Syntax",
-    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }"
+    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n//: one line\n/* multi-lines */"
+  },
+  {
+    "objectID": "doc/cours/code-slides.html#variables-and-data-types",
+    "href": "doc/cours/code-slides.html#variables-and-data-types",
+    "title": "Java Basics",
+    "section": "Variables and Data Types",
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';\nString name = \"Léa\";\n\n\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
+  },
+  {
+    "objectID": "doc/cours/code-slides.html#print",
+    "href": "doc/cours/code-slides.html#print",
+    "title": "Java Basics",
+    "section": "Print",
+    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");: adds a new line\nSystem.out ➡️ Standard output stream"
+  },
+  {
+    "objectID": "doc/cours/code-slides.html#structures",
+    "href": "doc/cours/code-slides.html#structures",
+    "title": "Java Basics",
+    "section": "Structures",
+    "text": "Structures"
+  },
+  {
+    "objectID": "doc/cours/code-slides.html#function",
+    "href": "doc/cours/code-slides.html#function",
+    "title": "Java Basics",
+    "section": "Function",
+    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)"
+  },
+  {
+    "objectID": "doc/cours/code-slides.html#various",
+    "href": "doc/cours/code-slides.html#various",
+    "title": "Java Basics",
+    "section": "Various",
+    "text": "Various\n\nincrement: i++"
   },
   {
     "objectID": "doc/cours/code.html",
     "href": "doc/cours/code.html",
     "title": "Java Basics",
     "section": "",
-    "text": "HelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile : javac HelloWord.java\n\ncreate HelloWord.class\n\nrun : java HelloWord\n\n\n\nyou only write .java files"
+    "text": "HelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate HelloWord.class\n\nrun: java HelloWord\n\n\n\nyou only write .java files"
   },
   {
     "objectID": "doc/cours/code.html#hello-world",
     "href": "doc/cours/code.html#hello-world",
     "title": "Java Basics",
     "section": "",
-    "text": "HelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile : javac HelloWord.java\n\ncreate HelloWord.class\n\nrun : java HelloWord\n\n\n\nyou only write .java files"
+    "text": "HelloWord.java\n\nclass HelloWorld {\npublic static void main(String[] args) { \n    String message = \"Hello World!\";\n    System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate HelloWord.class\n\nrun: java HelloWord\n\n\n\nyou only write .java files"
   },
   {
     "objectID": "doc/cours/code.html#syntax",
     "href": "doc/cours/code.html#syntax",
     "title": "Java Basics",
     "section": "Syntax",
-    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\n\n\nJava Naming Conventions\n\nClasses : PascalCase\nVariables, Methods : camelCase\nconstants : UPPER_CASE_WITH_UNDERSCORES\npackages : Lowercase, dot-separated (package com.example.utils;)\n\n\n\nVariables and Data Types\nint age = 25;\ndouble price = 9.99;\nboolean isJavaFun = true;\nchar grade = 'A';\nString name = \"John\";\n\n\nString\n\nnot a primitive data type\nString is a Class\nimmutable : Any modification creates a new string in memory\n\n\n\n\n\nBoolean\ntrue && !false || false\n\n\nPrint\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\"); : adds a new line\nSystem.out ➡️ Standard output stream\n\n\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n\nSwitch\nint day = 3;\n\nswitch (day) {\n    case 1:\n        System.out.println(\"Monday\");\n        break;\n    case 2:\n        System.out.println(\"Tuesday\");\n        break;\n    default:\n        System.out.println(\"Invalid day\");\n}\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization : i = 0\ncondition : i &lt; 5\nupdate : i++\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num : numbers) {\n    System.out.println(num);\n}\n\n\nWhile\nint i = 0;\nwhile (i &lt; 5) {\n    System.out.println(\"Iteration: \" + i);\n    i++;\n}\n\n\nFunction\npublic int add(int a, int b) {\n    return a + b;\n}"
+    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n//: one line\n/* multi-lines */\n\n\n\nNaming Conventions\n\nClasses: PascalCase\nVariables, Methods: camelCase\nconstants: UPPER_CASE_WITH_UNDERSCORES\npackages: Lowercase, dot-separated (package com.example.utils;)"
+  },
+  {
+    "objectID": "doc/cours/code.html#variables-and-data-types",
+    "href": "doc/cours/code.html#variables-and-data-types",
+    "title": "Java Basics",
+    "section": "Variables and Data Types",
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';\nString name = \"Léa\";\n\n\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\ntrue && !false || false;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString myString = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\nmyString.length();\nmyString.charAt(0);          // Get character at index 0\nmyString.contains(\"va\");\nmyString.toLowerCase();      // also toUpperCase\nmyString.endsWith(\"Java\");   // also startsWith\n\nmyString.equals(\"Java\");     // Use equals to compare, not ==\nOthers: replace(), split()"
+  },
+  {
+    "objectID": "doc/cours/code.html#print",
+    "href": "doc/cours/code.html#print",
+    "title": "Java Basics",
+    "section": "Print",
+    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");: adds a new line\nSystem.out ➡️ Standard output stream"
+  },
+  {
+    "objectID": "doc/cours/code.html#structures",
+    "href": "doc/cours/code.html#structures",
+    "title": "Java Basics",
+    "section": "Structures",
+    "text": "Structures\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n\nTernary Operator\n\nShorter alternative to if-else\n\nString status = (number &gt; 0) ? \"Positive\": \"Negative\";\n\n\nSwitch\nint day = 2;\n\nswitch (day) {\n    case 1:\n        System.out.println(\"Monday\");\n        break;\n    case 2:\n        System.out.println(\"Tuesday\");\n        break;\n    default:\n        System.out.println(\"Invalid day\");\n}\n\n\nbreak is very important\n\n\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization: i = 0\ncondition: i &lt; 5\nupdate: i++\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num: numbers) {\n    System.out.println(num);\n}\n\n\nWhile\nint i = 0;\nwhile (i &lt; 5) {\n    System.out.println(\"Iteration: \" + i);\n    i++;\n}\n\nchecked after each iteration\ndo { ...\n} while { ... }"
+  },
+  {
+    "objectID": "doc/cours/code.html#function",
+    "href": "doc/cours/code.html#function",
+    "title": "Java Basics",
+    "section": "Function",
+    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)\n\n\nVoid\n\nIndicate that a method does not return any value\n\npublic void printIsOdd(int n) {\n    System.out.println(n % 2 != 0);\n}\n\n\nAccess Modifiers\nMethods and Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
+  },
+  {
+    "objectID": "doc/cours/code.html#various",
+    "href": "doc/cours/code.html#various",
+    "title": "Java Basics",
+    "section": "Various",
+    "text": "Various\n\nincrement: i++"
   },
   {
     "objectID": "doc/cours/intro-slides.html#introduction-to-java",
@@ -313,6 +439,27 @@
     "title": "Introduction",
     "section": "Why Java",
     "text": "Why Java"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#compiler",
+    "href": "doc/cours/intro-slides.html#compiler",
+    "title": "Introduction",
+    "section": "Compiler",
+    "text": "Compiler\n\nTransform java code into bytecode\nDetects syntax and type errors\nOptimization\njavac MyClass.java ➡️ MyClass.class"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#jvm",
+    "href": "doc/cours/intro-slides.html#jvm",
+    "title": "Introduction",
+    "section": "JVM",
+    "text": "JVM\n\n\n\n\n\n\n\nDefinition\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\n\n\njava MyClass"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#java-vs-python",
+    "href": "doc/cours/intro-slides.html#java-vs-python",
+    "title": "Introduction",
+    "section": "Java Vs Python",
+    "text": "Java Vs Python\n\n\n\n\n\n\n\n\nCriterion\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping: int x = 10; vs x = 10\nInterpreted: exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
   },
   {
     "objectID": "doc/cours/intro.html",
@@ -354,7 +501,28 @@
     "href": "doc/cours/intro.html#why-java",
     "title": "Introduction",
     "section": "Why Java",
-    "text": "Why Java\n\nHistory\n\nCreated in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)\n\n\n\nFacebook story\n2009 Oracle\n\n\n\n\nPopular / Mature\n\nWidely used in all sectors\nBack-end\nHeavily object-oriented\n\n\n\nPortability\n\nCompiled to bytecode\nRuns on any machine with a JVM\n“Write Once, Run Anywhere”\n\n\nWORA : desktop, servers, smartphones\n\n\n\nRobust / Secure\n\nAutomatic memory management\nStrong Static Typing\nCompile-Time Checks\n\n\n\nJava Vs Python\n\n\n\n\n\n\n\n\nCriterion\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping : int x = 10; vs x = 10\nInterpreted : exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
+    "text": "Why Java\n\nHistory\n\nCreated in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)\n\n\n\nFacebook story\n2009 Oracle\n\n\n\n\nPopular / Mature\n\nWidely used in all sectors\nBack-end\nHeavily object-oriented\n\n\n\nPortability\n\nCompiled to bytecode\nRuns on any machine with a JVM\n“Write Once, Run Anywhere”\n\n\nWORA: desktop, servers, smartphones\n\n\n\nRobust / Secure\n\nAutomatic memory management\nStrong Static Typing\nCompile-Time Checks"
+  },
+  {
+    "objectID": "doc/cours/intro.html#compiler",
+    "href": "doc/cours/intro.html#compiler",
+    "title": "Introduction",
+    "section": "Compiler",
+    "text": "Compiler\n\nTransform java code into bytecode\nDetects syntax and type errors\nOptimization\njavac MyClass.java ➡️ MyClass.class"
+  },
+  {
+    "objectID": "doc/cours/intro.html#jvm",
+    "href": "doc/cours/intro.html#jvm",
+    "title": "Introduction",
+    "section": "JVM",
+    "text": "JVM\n\n\n\n\n\n\nDefinition\n\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\njava MyClass\n\n\nJVM, JDK, JRE\n\nJRE: Java Runtime Environment\nJDK: Java Development Kit\n\n\n\n\nComponent\nPurpose\n\n\n\n\nJVM\nRuns Java bytecode\n\n\nJRE\nContains JVM + libraries to run Java apps\n\n\nJDK\nIncludes JRE + compiler + development tools"
+  },
+  {
+    "objectID": "doc/cours/intro.html#java-vs-python",
+    "href": "doc/cours/intro.html#java-vs-python",
+    "title": "Introduction",
+    "section": "Java Vs Python",
+    "text": "Java Vs Python\n\n\n\n\n\n\n\n\nCriterion\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping: int x = 10; vs x = 10\nInterpreted: exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
   },
   {
     "objectID": "doc/tp/tp2.html",

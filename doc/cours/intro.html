@@ -175,6 +175,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#tp" id="toc-tp" class="nav-link" data-scroll-target="#tp">TP</a></li>
   <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
   <li><a href="#why-java" id="toc-why-java" class="nav-link" data-scroll-target="#why-java">Why Java</a></li>
+  <li><a href="#compiler" id="toc-compiler" class="nav-link" data-scroll-target="#compiler">Compiler</a></li>
+  <li><a href="#jvm" id="toc-jvm" class="nav-link" data-scroll-target="#jvm">JVM</a></li>
+  <li><a href="#java-vs-python" id="toc-java-vs-python" class="nav-link" data-scroll-target="#java-vs-python">Java Vs Python</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="intro-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
@@ -264,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 <li>“Write Once, Run Anywhere”</li>
 </ul>
 <div class="notes">
-<p>WORA : desktop, servers, smartphones</p>
+<p>WORA: desktop, servers, smartphones</p>
 </div>
 </section>
 <section id="robust-secure" class="level3">
@@ -275,8 +278,72 @@ ul.task-list li input[type="checkbox"] {
 <li>Compile-Time Checks</li>
 </ul>
 </section>
-<section id="java-vs-python" class="level3">
-<h3 class="anchored" data-anchor-id="java-vs-python">Java Vs Python</h3>
+</section>
+<section id="compiler" class="level2">
+<h2 class="anchored" data-anchor-id="compiler">Compiler</h2>
+<ul>
+<li>Transform java code into bytecode</li>
+<li>Detects syntax and type errors</li>
+<li>Optimization</li>
+<li><code>javac MyClass.java</code> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>MyClass.class</em></li>
+</ul>
+</section>
+<section id="jvm" class="level2">
+<h2 class="anchored" data-anchor-id="jvm">JVM</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.</p>
+<p>The JVM :</p>
+<ul>
+<li>Executes bytecode</li>
+<li>Interacts with OS</li>
+<li>Manages Memory (Garbage Collection)</li>
+</ul>
+</div>
+</div>
+<ul>
+<li><code>java MyClass</code></li>
+</ul>
+<section id="jvm-jdk-jre" class="level3">
+<h3 class="anchored" data-anchor-id="jvm-jdk-jre">JVM, JDK, JRE</h3>
+<ul>
+<li>JRE: Java Runtime Environment</li>
+<li>JDK: Java Development Kit</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>JVM</strong></td>
+<td>Runs Java bytecode</td>
+</tr>
+<tr class="even">
+<td><strong>JRE</strong></td>
+<td>Contains JVM + libraries to run Java apps</td>
+</tr>
+<tr class="odd">
+<td><strong>JDK</strong></td>
+<td>Includes JRE + compiler + development tools</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="java-vs-python" class="level2">
+<h2 class="anchored" data-anchor-id="java-vs-python">Java Vs Python</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -325,14 +392,13 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <div class="notes">
 <ul>
-<li>Typing : <code>int x = 10;</code> vs <code>x = 10</code></li>
-<li>Interpreted : exécution à la volée</li>
+<li>Typing: <code>int x = 10;</code> vs <code>x = 10</code></li>
+<li>Interpreted: exécution à la volée</li>
 <li>Multi-paradigm (objet, fonctionnel, impératif)</li>
 </ul>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
