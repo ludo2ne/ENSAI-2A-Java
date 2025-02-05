@@ -12,6 +12,15 @@ number-sections: true
 number-depth: 3
 ---
 
+## Exercices pratiques
+
+- Décoder un mot de passe haché à 6 chiffres
+
+
+
+
+# Old
+
 ## Java en quelques mots
 
 - Langage orienté objet

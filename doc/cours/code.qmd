@@ -30,9 +30,9 @@ public static void main(String[] args) {
 }
 ```
 
-- compile : `javac HelloWord.java`
+- compile: `javac HelloWord.java`
   - create *HelloWord.class*
-- run : `java HelloWord`
+- run: `java HelloWord`
 
 :::{.notes}
 - you only write .java files
@@ -42,43 +42,79 @@ public static void main(String[] args) {
 
 - A Line of code ends with a semicolon `;`
 - Blocs are delimited with curly braces: `{ }`
+- Comments
+  - `//`: one line
+  - `/*` multi-lines `*/`
 
-### Java Naming Conventions
+### Naming Conventions
 
-- Classes : PascalCase 
-- Variables, Methods : camelCase
-- constants : UPPER_CASE_WITH_UNDERSCORES 
-- packages : Lowercase, dot-separated (package com.example.utils;)
+- Classes: PascalCase 
+- Variables, Methods: camelCase
+- constants: UPPER_CASE_WITH_UNDERSCORES
+- packages: Lowercase, dot-separated (package com.example.utils;)
 
 
-### Variables and Data Types
+## Variables and Data Types
 
 ```{.java}
 int age = 25;
-double price = 9.99;
+final double PI = 3.14;        // final : Immutable
+
 boolean isJavaFun = true;
+
 char grade = 'A';
-String name = "John";
+String name = "Léa";
 ```
 
 :::{.notes}
 - String
   - not a primitive data type
   - String is a Class
-  - immutable : Any modification creates a new string in memory
+  - immutable: Any modification creates a new string in memory
 :::
 
-### Boolean 
+### Boolean
 
-true && !false || false
+```{.java}
+boolean isJavaFun = true;
+boolean hasBrother = false;
 
-### Print
+boolean isFast = 20 > 15;
+
+true && !false || false;
+```
+
+::: {.notes}
+- lowercase booleans
+- No need for `== true`
+:::
+
+### String
+
+```{.java}
+String myString = "Java";
+String fullName = "Alain" + " " + "Philippe";   // concat
+
+myString.length();
+myString.charAt(0);          // Get character at index 0
+myString.contains("va");
+myString.toLowerCase();      // also toUpperCase
+myString.endsWith("Java");   // also startsWith
+
+myString.equals("Java");     // Use equals to compare, not ==
+```
+
+Others: *replace()*, *split()*
+
+
+## Print
 
 - `System.out.print("Hello");`
-- `System.out.println("Hello");` : adds a new line
+- `System.out.println("Hello");`: adds a new line
 - System.out :arrow_right: Standard output stream
 
 
+## Structures
 
 ### if-else
 
@@ -94,10 +130,18 @@ if (number > 0) {
 }
 ```
 
+### Ternary Operator
+
+- Shorter alternative to *if-else*
+
+```{.java}
+String status = (number > 0) ? "Positive": "Negative";
+```
+
 ### Switch
 
 ```{.java}
-int day = 3;
+int day = 2;
 
 switch (day) {
     case 1:
@@ -111,6 +155,9 @@ switch (day) {
 }
 ```
 
+::: {.notes}
+- break is very important
+:::
 
 
 ### For
@@ -121,9 +168,9 @@ for (int i = 0; i < 5; i++) {
 }
 ```
 
-- initialization : i = 0
-- condition : i < 5
-- update : i++
+- initialization: i = 0
+- condition: i < 5
+- update: i++
 
 
 ### For each
@@ -133,7 +180,7 @@ for (int i = 0; i < 5; i++) {
 ```{.java}
 int[] numbers = {1, 2, 3, 4};
 
-for (int num : numbers) {
+for (int num: numbers) {
     System.out.println(num);
 }
 ```
@@ -149,10 +196,52 @@ while (i < 5) {
 }
 ```
 
-### Function
+:::{.notes}
+checked after each iteration
+
+```{.java}
+do { ...
+} while { ... }
+```
+:::
+
+## Function
 
 ```{.java}
 public int add(int a, int b) {
     return a + b;
 }
 ```
+
+- Access modifier: *public*
+- Return type: *int*
+- Method name: *add*
+- Parameters: *(int a, int b)*
+
+
+### Void
+
+- Indicate that a method does not return any value
+
+```{.java}
+public void printIsOdd(int n) {
+    System.out.println(n % 2 != 0);
+}
+```
+
+
+### Access Modifiers
+
+Methods and Attributes Accessiblility
+
+| Modifier                | Same Class | Same Package | Subclasses  |  Everywhere   |
+|-------------------------|------------|--------------|-------------|---------------|
+| public                  | ✅         | ✅          | ✅          | ✅           |
+| protected               | ✅         | ✅          | ✅          | ❌           |
+| *default* (no modifier) | ✅         | ✅          | ❌          | ❌           |
+| private                 | ✅         | ❌          | ❌          | ❌           |
+
+
+## Various
+
+- increment: `i++`

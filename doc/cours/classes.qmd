@@ -18,22 +18,245 @@ from: markdown+emoji
 lightbox: true
 ---
 
+## Todo :construction:
+
+- final
+- static
 
 https://www.w3schools.com/java/java_oop.asp
 
-## Encapsulation
+
+## OOP Principles
+
+::: {.fragment}
+- Encapsulation
+- Inheritance
+- Polymorphism
+:::
+
+::: {.notes}
+- Encapsulation: Bundling data and methods together
+- Inheritance: Deriving new classes from existing ones
+- Polymorphism: One interface, multiple behaviors
+:::
 
 
-## Constructors
+## A class :bike:
+
+```{.java filename="Bike.java"}
+public class Bike {
+    // Attributes
+    private String color;
+    private int speed;
+    private boolean pannierRacks;
+
+    // Constructor
+    public Bike(String color, boolean pannierRacks) {
+        this.color = color;
+        this.speed = 0;
+        this.pannierRacks = pannierRacks;
+    }
+
+    // Method
+    public void accelerate(int increment) {
+        if (increment > 0) {
+            this.speed += increment;
+        }
+    }
+
+    // Getter
+    public int getSpeed() {
+        return this.speed;
+    }
+}
+```
+
+## Attributes
+
+```{.java filename="Bike.java"}
+public class Bike {
+    // Attributes
+    private String color;
+    private int speed;
+    private boolean pannierRacks;
+
+    private static int nbBikes = 0;
+```
+
+- static: class attribute
+
+## Constructor
+
+```{.java filename="Bike.java"}
+public class Bike {
+    public Bike(String color, boolean pannierRacks) {
+        this.color = color;
+        this.speed = 0;
+        this.pannierRacks = pannierRacks;
+    }
+```
+
+- `this` : Refers to the current object
+
+
+### Create a Bike Object
+
+```{.java}
+Bike greenBike = new Bike("Green", true);
+```
+
+- *Bike*: type of the variable 
+- *greenBike*: name of the variable
+- *new*: Memory allocation
+- *Bike(...)*: constructor call
+
+:::{.notes}
+- Java only uses positional arguments
+- You can create several constructors
+:::
+
+
+### Default Constructor
+
+- If no constructor is provided
+
+```{.java}
+Bike myBike = new Bike();
+```
+
+- color: *null*
+- pannierRacks: *false*
+
+:::{.notes}
+- Error if another constructor is provided
+:::
+
+### Call a method
+
+```{.java}
+Bike greenBike = new Bike("Green", true);
+```
+
+
+
+## Main method
+
+- Entry point
+- Generally in a class called *Main*
+
+```{.java}
+public static void main(String[] args) {
+    // Program logic here
+}
+```
+
+
+::: {.notes}
+- public :	Makes the method accessible from anywhere (required for JVM to call it)
+- static :	Allows calling the method without creating an instance of the class.
+- void :	The method does not return any value.
+- main	The method name that JVM looks for to start execution.
+- String[] args	Array of command-line arguments passed when running the program
+:::
+
 
 
 ## Inheritance
 
-## Abstract
+### Parent class
+
+```{.java filename="Vehicle.java"}
+public class Vehicle {
+    private String color;
+    private int speed;
+
+    public Vehicle(String color) {
+        this.color = color;
+        this.speed = 0;
+    }
+```
+
+### Subclass
+
+- `extends`: inherit
+- `super()`: constructor of the parent class
+- `super.foo()`: method *foo()* of the parent class
+
+```{.java filename="Bike.java"}
+import Vehicle;
+
+public class Bike extends Vehicle {
+    private boolean pannierRacks;
+
+    // Constructor
+    public Bike(String color) {
+        super(color);
+        this.pannierRacks = pannierRacks;
+    }
+```
+
+### Abstract
+
+- abstract classes: cannot be instantiated
+- abstract methods: Declared without implementation, must be overridden by subclasses
+
+```{.java filename="Vehicle.java"}
+public abstract class Vehicle {
+    private String color;
+    private int speed;
+
+    public Vehicle(String color) {
+        this.color = color;
+        this.speed = 0;
+    }
+
+    public abstract void honk();  // abstract method to be implemented in subsclasses
+
+    public void accelerate(int increment) {
+        this.speed += increment;
+    }
+```
+
+::: {.notes}
+- Is it possible to create a final abstract class?
+- Private abstract method?
+:::
+
+### Override method
+
+```{.java filename="Bike.java"}
+import Vehicle;
+
+public class Bike extends Vehicle {
+    private boolean pannierRacks;
+
+    // Constructor
+    public Bike(String color) {
+        super(color);
+        this.pannierRacks = pannierRacks;
+    }
+
+    @Override
+    public abstract void honk(){
+        System.out.println("Dring")
+    }
+
+    @Override
+    public void accelerate(int increment) {
+        this.speed += increment + 2;
+    }
+```
+
+::: {.notes}
+- Override final method?
+:::
+
+
 
 ## Polymorphism
 
 
-## Main
+## JavaDoc
+
 
 ## Enum

@@ -69,7 +69,7 @@ lightbox: true
 - "Write Once, Run Anywhere"
 
 :::{.notes}
-WORA : desktop, servers, smartphones
+WORA: desktop, servers, smartphones
 :::
 
 ### Robust / Secure
@@ -79,7 +79,43 @@ WORA : desktop, servers, smartphones
 - Compile-Time Checks
 
 
-### Java Vs Python
+## Compiler
+
+- Transform java code into bytecode
+- Detects syntax and type errors
+- Optimization
+- `javac MyClass.java` :arrow_right: *MyClass.class*
+
+## JVM
+
+::: {.callout-note title="Definition"}
+The Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.
+
+The JVM :
+
+- Executes bytecode
+- Interacts with OS
+- Manages Memory (Garbage Collection)
+:::
+
+
+- `java MyClass`
+
+### JVM, JDK, JRE
+
+- JRE: Java Runtime Environment
+- JDK: Java Development Kit
+
+| Component | Purpose                                     |
+|-----------|---------------------------------------------|
+| **JVM**   | Runs Java bytecode                          |
+| **JRE**   | Contains JVM + libraries to run Java apps   |
+| **JDK**   | Includes JRE + compiler + development tools |
+
+
+
+
+## Java Vs Python
 
 | **Criterion**     | **Java**                    | **Python**                 |  
 |-------------------|-----------------------------|----------------------------|  
@@ -92,10 +128,11 @@ WORA : desktop, servers, smartphones
 
 
 :::{.notes}
-- Typing : `int x = 10;` vs `x = 10`
-- Interpreted : exécution à la volée
+- Typing: `int x = 10;` vs `x = 10`
+- Interpreted: exécution à la volée
 - Multi-paradigm (objet, fonctionnel, impératif)
 :::
+
 
 
 

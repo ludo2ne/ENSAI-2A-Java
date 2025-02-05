@@ -2,7 +2,9 @@
 
 [Aide pour les TP de Java](https://ludo2ne.github.io/ENSAI-2A-Java/)
 
-## :construction: ### CM
+## :construction:  Todo 
+
+### CM
 
 English !
 
@@ -16,19 +18,9 @@ https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java
 
 
 
-### Intro
+### TP
 
-- modalités
-- TP
-- Historique
-- Language compilé (.java, .class), JVM, JDK
-
-### Bases
-
-- Commentaires
-- System.out.println("");
-- Variables, types, portée, fortement typé, static, final
-- Classes, main, instance, this, constructor, getter, toString
-- conditions : if, switch case
-- boucles : for, for each, while
-- fonction, void
+- 1. First steps (write code to solve issues about pwd)
+- 2. Classes, inheritage, doc
+- 3. Rated
+- 4. JUnit, Spring Boot
