@@ -1,0 +1,29 @@
+---
+title: "Advanced Java"
+description: "[Slides](advanced-slides.html)"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+  revealjs:
+    theme: moon
+    footer: "[Home](../../index.html) --- [Classes](advanced.html)"
+    slide-number: c/t                    ## collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: advanced-slides.html
+from: markdown+emoji
+lightbox: true
+---
+
+
+## Todo :construction:
+
+- Optional
+- Interface
+- Stream
+- Spring Boot
+- Hibernate
+- Maven

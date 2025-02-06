@@ -23,9 +23,9 @@ lightbox: true
 
 ```{.java filename="HelloWord.java"}
 class HelloWorld {
-public static void main(String[] args) { 
-    String message = "Hello World!";
-    System.out.println(message);
+    public static void main(String[] args) { 
+        String message = "Hello World!";
+        System.out.println(message);
     }
 }
 ```
@@ -33,6 +33,7 @@ public static void main(String[] args) {
 - compile: `javac HelloWord.java`
   - create *HelloWord.class*
 - run: `java HelloWord`
+- exit : CTRL + C
 
 :::{.notes}
 - you only write .java files
@@ -67,6 +68,8 @@ String name = "Léa";
 ```
 
 :::{.notes}
+- strong typing, immuable type
+- primitive, object
 - String
   - not a primitive data type
   - String is a Class
@@ -141,22 +144,25 @@ String status = (number > 0) ? "Positive": "Negative";
 ### Switch
 
 ```{.java}
-int day = 2;
+String fruit = "lemon";
 
-switch (day) {
-    case 1:
-        System.out.println("Monday");
-        break;
-    case 2:
-        System.out.println("Tuesday");
-        break;
-    default:
-        System.out.println("Invalid day");
+switch (fruit) {
+    case "cherry", "strawberry" -> System.out.println("Red fruit");
+    case "banana", "lemon" -> System.out.println("Yellow fruit");
+    default -> System.out.println("Unknown fruit");
 }
 ```
 
 ::: {.notes}
-- break is very important
+- switch can return a value
+
+```{.java}
+String color = switch (fruit) {
+    case "cherry", "strawberry" -> "Red fruit";
+    case "banana", "lemon" -> "Yellow fruit";
+    default -> "Unknown fruit";
+};
+```
 :::
 
 
@@ -189,19 +195,41 @@ for (int num: numbers) {
 
 
 ```{.java}
-int i = 0;
-while (i < 5) {
-    System.out.println("Iteration: " + i);
-    i++;
+int i = 10;
+while (i >= 0) {
+    System.out.println(i);
+    i--;
 }
 ```
 
 :::{.notes}
-checked after each iteration
+do-while to check after each iteration
 
 ```{.java}
 do { ...
 } while { ... }
+```
+:::
+
+
+### break / continue
+
+
+```{.java}
+for (int i = 0; i < 10; i++) {
+    if (i == 2)
+        continue;
+    else if (i == 4)
+        break;
+    System.out.println("Iteration: " + i);
+}
+```
+
+::: {.fragment}
+``` {.txt}
+Iteration: 0
+Iteration: 1
+Iteration: 3
 ```
 :::
 

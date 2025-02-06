@@ -1,6 +1,6 @@
 ---
-title: "Java - TP1"
-description: "Classes, Objects, Attributes, Methods"
+title: "Introduction to Java syntax"
+description: "Java - TP1"
 author: "Ludovic Deneuville"
 format:
   html:
@@ -12,12 +12,71 @@ number-sections: true
 number-depth: 3
 ---
 
-## Exercices pratiques
-
-- Décoder un mot de passe haché à 6 chiffres
 
 
+## Objectives {.unnumbered}
 
+In this first tutorial, we're simply going to familiarize ourselves with Java syntax, without using object-oriented programming.
+
+This is why methods are defined as static. They are class methods. You don't need to instantiate an object to call them.
+
+## Exercices
+
+### Brute force
+
+Write a Java method that attempts to brute-force a hashed 6-digit numeric password.
+
+- The method will iterate through all numbers from 000000 to 999999
+- For each number, Generate and compare hash with the given target hash
+- If a match is found, return the original number else return null
+
+
+::: {.callout-tip}
+- Use method *hashPassword()*
+- `String.format("%06d", 123)` -> "000123"
+:::
+
+
+### Strong password
+
+Write a Java method to check if a password is strong. A password is strong if:
+
+- ✅ It has at least 12 characters
+- ✅ It contains at least one uppercase letter
+- ✅ It contains at least one lowercase letter
+- ✅ It contains at least one digit
+- ❌ It does not contain whitespace
+
+::: {.callout-tip}
+Usefull methods
+
+- `Character.isUpperCase(ch)`
+- `Character.isDigit(ch)`
+- `Character.isWhitespace(ch)`
+:::
+
+
+### Check password list
+
+Write a method that takes a list of passwords (ArrayList<String>) and checks their strength. The method should return a HashMap where:
+
+- The keys are the passwords
+- The values are true if the password is strong, false otherwise
+
+
+
+
+## Login System
+
+- Loads a CSV file (awesome_passwords.csv) containing usernames and hashed passwords
+- Ask for a username
+- If username exists:
+  - Give the user 3 chances to input the correct password
+  - If login succeeds, print "Login successful!" and exit
+  - If all 3 attempts fail, restart username input
+
+
+---
 
 # Old
 

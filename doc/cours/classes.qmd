@@ -18,14 +18,6 @@ from: markdown+emoji
 lightbox: true
 ---
 
-## Todo :construction:
-
-- final
-- static
-
-https://www.w3schools.com/java/java_oop.asp
-
-
 ## OOP Principles
 
 ::: {.fragment}
