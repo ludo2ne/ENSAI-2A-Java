@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Ludovic Deneuville">
-  <title>Java – Introduction</title>
+  <title>Java – Advanced Java</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -127,7 +127,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction</h1>
+  <h1 class="title">Advanced Java</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -138,241 +138,23 @@ Ludovic Deneuville
 </div>
 
 </section>
-<section id="introduction-to-java" class="title-slide slide level2 center">
-<h2>Introduction to Java</h2>
+<section id="todo" class="title-slide slide level2 center">
+<h2>Todo <span class="emoji" data-emoji="construction">🚧</span></h2>
 <ul>
-<li>6h CM</li>
-<li>12h TP</li>
-<li><code>ludovic.deneuville@ensai.fr</code></li>
-<li>office 161</li>
-<li>based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt</li>
+<li>Optional</li>
+<li>Interface</li>
+<li>Stream</li>
+<li>Spring Boot</li>
+<li>Hibernate</li>
+<li>Maven</li>
 </ul>
-</section>
-
-<section id="objectives" class="title-slide slide level2 center">
-<h2>Objectives</h2>
-
-</section>
-
-<section id="tp" class="title-slide slide level2 center">
-<h2>TP</h2>
-
-</section>
-
-<section id="evaluation" class="title-slide slide level2 center">
-<h2>Evaluation</h2>
-
-</section>
-
-<section>
-<section id="why-java" class="title-slide slide level2 center">
-<h2>Why Java</h2>
-
-</section>
-<section id="history-version" class="slide level3">
-<h3>History / Version</h3>
-<ul>
-<li>Created in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)</li>
-<li>Java 8 (2014) : Lambda, Stream, Optional</li>
-<li><strong>Java 17 (2021)</strong></li>
-<li>Java 21 (2023)</li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Facebook story</li>
-<li>2009 Oracle</li>
-<li>2017 Java 9 -&gt; Modules</li>
-<li>2018 Java 11</li>
-<li>Java 17 : Sealed Classes, Refactor JDK</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="popular-mature" class="slide level3">
-<h3>Popular / Mature</h3>
-<ul>
-<li>Widely used in all sectors</li>
-<li>Back-end</li>
-<li>Heavily object-oriented</li>
-</ul>
-</section>
-<section id="portability" class="slide level3">
-<h3>Portability</h3>
-<ul>
-<li>Compiled to bytecode</li>
-<li>Runs on any machine with a JVM</li>
-<li>“Write Once, Run Anywhere”</li>
-</ul>
-<aside class="notes">
-<p>WORA: desktop, servers, smartphones</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="robust-secure" class="slide level3">
-<h3>Robust / Secure</h3>
-<ul>
-<li>Automatic memory management</li>
-<li>Strong Static Typing</li>
-<li>Compile-Time Checks</li>
-</ul>
-</section></section>
-<section id="compiler" class="title-slide slide level2 center">
-<h2>Compiler</h2>
-<ul>
-<li>Transform java code into bytecode</li>
-<li>Detects syntax and type errors</li>
-<li>Optimization</li>
-<li><code>javac MyClass.java</code> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>MyClass.class</em></li>
-</ul>
-</section>
-
-<section>
-<section id="jvm" class="title-slide slide level2 center">
-<h2>JVM</h2>
-<div title="Definition">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Definition</strong></p>
-</div>
-<div class="callout-content">
-<p>The Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.</p>
-<p>The JVM :</p>
-<ul>
-<li>Executes bytecode</li>
-<li>Interacts with OS</li>
-<li>Manages Memory (Garbage Collection)</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<ul>
-<li><code>java MyClass</code></li>
-</ul>
-</section>
-<section id="jvm-jdk-jre" class="slide level3">
-<h3>JVM, JDK, JRE</h3>
-<ul>
-<li>JRE: Java Runtime Environment</li>
-<li>JDK: Java Development Kit</li>
-</ul>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>JVM</strong></td>
-<td>Runs Java bytecode</td>
-</tr>
-<tr class="even">
-<td><strong>JRE</strong></td>
-<td>Contains JVM + libraries to run Java apps</td>
-</tr>
-<tr class="odd">
-<td><strong>JDK</strong></td>
-<td>Includes JRE + compiler + development tools</td>
-</tr>
-</tbody>
-</table>
-</section></section>
-<section id="java-vs-python" class="title-slide slide level2 center">
-<h2>Java Vs Python</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 38%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Criterion</strong></th>
-<th><strong>Java</strong></th>
-<th><strong>Python</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Typing</strong></td>
-<td>Strongly typed, static</td>
-<td>Strongly typed, dynamic</td>
-</tr>
-<tr class="even">
-<td><strong>Compilation</strong></td>
-<td>Compiled into bytecode</td>
-<td>Interpreted</td>
-</tr>
-<tr class="odd">
-<td><strong>Performance</strong></td>
-<td>Very fast</td>
-<td>Slower</td>
-</tr>
-<tr class="even">
-<td><strong>Syntax</strong></td>
-<td>Verbose, requires <code>{}</code></td>
-<td>Concise, uses indentation</td>
-</tr>
-<tr class="odd">
-<td><strong>Paradigm</strong></td>
-<td>Object-oriented</td>
-<td>Multi-paradigm</td>
-</tr>
-<tr class="even">
-<td><strong>Ecosystem</strong></td>
-<td>Huge (Spring, Hibernate…)</td>
-<td>Large (Django, Flask, Pandas…)</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<ul>
-<li>Typing: <code>int x = 10;</code> vs <code>x = 10</code></li>
-<li>Interpreted: exécution à la volée</li>
-<li>Multi-paradigm (objet, fonctionnel, impératif)</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="../../index.html">Home</a> — <a href="intro.html">Introduction</a></p>
+<p><a href="../../index.html">Home</a> — <a href="advanced.html">Classes</a></p>
 </div>
 </div></div>
 

@@ -210,9 +210,9 @@ Ludovic Deneuville
 <pre><strong>HelloWord.java</strong></pre>
 </div>
 <div class="sourceCode" id="cb1" data-filename="HelloWord.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a></a><span class="kw">class</span> HelloWorld <span class="op">{</span></span>
-<span id="cb1-2"><a></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb1-3"><a></a>    <span class="bu">String</span> message <span class="op">=</span> <span class="st">"Hello World!"</span><span class="op">;</span></span>
-<span id="cb1-4"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb1-2"><a></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span> </span>
+<span id="cb1-3"><a></a>        <span class="bu">String</span> message <span class="op">=</span> <span class="st">"Hello World!"</span><span class="op">;</span></span>
+<span id="cb1-4"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">);</span></span>
 <span id="cb1-5"><a></a>    <span class="op">}</span></span>
 <span id="cb1-6"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -222,6 +222,7 @@ Ludovic Deneuville
 <li>create <em>HelloWord.class</em></li>
 </ul></li>
 <li>run: <code>java HelloWord</code></li>
+<li>exit : CTRL + C</li>
 </ul>
 <aside class="notes">
 <ul>
@@ -274,6 +275,8 @@ Ludovic Deneuville
 <span id="cb2-7"><a></a><span class="bu">String</span> name <span class="op">=</span> <span class="st">"Léa"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ul>
+<li>strong typing, immuable type</li>
+<li>primitive, object</li>
 <li>String
 <ul>
 <li>not a primitive data type</li>
@@ -367,22 +370,22 @@ Ludovic Deneuville
 </section>
 <section id="switch" class="slide level3">
 <h3>Switch</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a></a><span class="dt">int</span> day <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a></a><span class="bu">String</span> fruit <span class="op">=</span> <span class="st">"lemon"</span><span class="op">;</span></span>
 <span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a><span class="cf">switch</span> <span class="op">(</span>day<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-4"><a></a>    <span class="cf">case</span> <span class="dv">1</span><span class="op">:</span></span>
-<span id="cb7-5"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Monday"</span><span class="op">);</span></span>
-<span id="cb7-6"><a></a>        <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb7-7"><a></a>    <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span></span>
-<span id="cb7-8"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Tuesday"</span><span class="op">);</span></span>
-<span id="cb7-9"><a></a>        <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb7-10"><a></a>    <span class="kw">default</span><span class="op">:</span></span>
-<span id="cb7-11"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Invalid day"</span><span class="op">);</span></span>
-<span id="cb7-12"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a></a><span class="cf">switch</span> <span class="op">(</span>fruit<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-4"><a></a>    <span class="cf">case</span> <span class="st">"cherry"</span><span class="op">,</span> <span class="st">"strawberry"</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Red fruit"</span><span class="op">);</span></span>
+<span id="cb7-5"><a></a>    <span class="cf">case</span> <span class="st">"banana"</span><span class="op">,</span> <span class="st">"lemon"</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Yellow fruit"</span><span class="op">);</span></span>
+<span id="cb7-6"><a></a>    <span class="kw">default</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Unknown fruit"</span><span class="op">);</span></span>
+<span id="cb7-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ul>
-<li>break is very important</li>
+<li>switch can return a value</li>
 </ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a></a><span class="bu">String</span> color <span class="op">=</span> <span class="cf">switch</span> <span class="op">(</span>fruit<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a></a>    <span class="cf">case</span> <span class="st">"cherry"</span><span class="op">,</span> <span class="st">"strawberry"</span> <span class="op">-&gt;</span> <span class="st">"Red fruit"</span><span class="op">;</span></span>
+<span id="cb8-3"><a></a>    <span class="cf">case</span> <span class="st">"banana"</span><span class="op">,</span> <span class="st">"lemon"</span> <span class="op">-&gt;</span> <span class="st">"Yellow fruit"</span><span class="op">;</span></span>
+<span id="cb8-4"><a></a>    <span class="kw">default</span> <span class="op">-&gt;</span> <span class="st">"Unknown fruit"</span><span class="op">;</span></span>
+<span id="cb8-5"><a></a><span class="op">};</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -397,9 +400,9 @@ Ludovic Deneuville
 </section>
 <section id="for" class="slide level3">
 <h3>For</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb8-2"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
-<span id="cb8-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb9-2"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
+<span id="cb9-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>initialization: i = 0</li>
 <li>condition: i &lt; 5</li>
@@ -411,23 +414,23 @@ Ludovic Deneuville
 <ul>
 <li>Iterating through arrays, lists</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a></a><span class="dt">int</span><span class="op">[]</span> numbers <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
-<span id="cb9-2"><a></a></span>
-<span id="cb9-3"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> num<span class="op">:</span> numbers<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-4"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>num<span class="op">);</span></span>
-<span id="cb9-5"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a></a><span class="dt">int</span><span class="op">[]</span> numbers <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> num<span class="op">:</span> numbers<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-4"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>num<span class="op">);</span></span>
+<span id="cb10-5"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="while" class="slide level3">
 <h3>While</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-2"><a></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-3"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
-<span id="cb10-4"><a></a>    i<span class="op">++;</span></span>
-<span id="cb10-5"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb11-2"><a></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-3"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb11-4"><a></a>    i<span class="op">--;</span></span>
+<span id="cb11-5"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
-<p>checked after each iteration</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a></a><span class="cf">do</span> <span class="op">{</span> <span class="kw">...</span></span>
-<span id="cb11-2"><a></a><span class="op">}</span> <span class="cf">while</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>do-while to check after each iteration</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a></a><span class="cf">do</span> <span class="op">{</span> <span class="kw">...</span></span>
+<span id="cb12-2"><a></a><span class="op">}</span> <span class="cf">while</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -439,13 +442,28 @@ Ludovic Deneuville
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="break-continue" class="slide level3">
+<h3>break / continue</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb13-2"><a></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">2</span><span class="op">)</span></span>
+<span id="cb13-3"><a></a>        <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb13-4"><a></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb13-5"><a></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb13-6"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
+<span id="cb13-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a></a>Iteration: 0</span>
+<span id="cb14-2"><a></a>Iteration: 1</span>
+<span id="cb14-3"><a></a>Iteration: 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section></section>
 <section>
 <section id="function" class="title-slide slide level2 center">
 <h2>Function</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">add</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-2"><a></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
-<span id="cb12-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">add</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-2"><a></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb15-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Access modifier: <em>public</em></li>
 <li>Return type: <em>int</em></li>
@@ -458,9 +476,9 @@ Ludovic Deneuville
 <ul>
 <li>Indicate that a method does not return any value</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">printIsOdd</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-2"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb13-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">printIsOdd</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-2"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb16-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="access-modifiers" class="slide level3">
 <h3>Access Modifiers</h3>
