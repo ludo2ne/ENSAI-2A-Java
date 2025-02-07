@@ -91,46 +91,25 @@
     "text": "In this first tutorial, we’re simply going to familiarize ourselves with Java syntax, without using object-oriented programming.\nThis is why methods are defined as static. They are class methods. You don’t need to instantiate an object to call them."
   },
   {
-    "objectID": "doc/tp/tp1.html#exercices",
-    "href": "doc/tp/tp1.html#exercices",
-    "title": "Introduction to Java syntax",
-    "section": "0.1 Exercices",
-    "text": "0.1 Exercices\n\n0.1.1 Brute force\nWrite a Java method that attempts to brute-force a hashed 6-digit numeric password.\n\nThe method will iterate through all numbers from 000000 to 999999\nFor each number, Generate and compare hash with the given target hash\nIf a match is found, return the original number else return null\n\n\n\n\n\n\n\nTip\n\n\n\n\nUse method hashPassword()\nString.format(\"%06d\", 123) -&gt; “000123”\n\n\n\n\n\n0.1.2 Strong password\nWrite a Java method to check if a password is strong. A password is strong if:\n\n✅ It has at least 12 characters\n✅ It contains at least one uppercase letter\n✅ It contains at least one lowercase letter\n✅ It contains at least one digit\n❌ It does not contain whitespace\n\n\n\n\n\n\n\nTip\n\n\n\nUsefull methods\n\nCharacter.isUpperCase(ch)\nCharacter.isDigit(ch)\nCharacter.isWhitespace(ch)\n\n\n\n\n\n0.1.3 Check password list\nWrite a method that takes a list of passwords (ArrayList) and checks their strength. The method should return a HashMap where:\n\nThe keys are the passwords\nThe values are true if the password is strong, false otherwise"
-  },
-  {
-    "objectID": "doc/tp/tp1.html#login-system",
-    "href": "doc/tp/tp1.html#login-system",
-    "title": "Introduction to Java syntax",
-    "section": "0.2 Login System",
-    "text": "0.2 Login System\n\nLoads a CSV file (awesome_passwords.csv) containing usernames and hashed passwords\nAsk for a username\nIf username exists:\n\nGive the user 3 chances to input the correct password\nIf login succeeds, print “Login successful!” and exit\nIf all 3 attempts fail, restart username input"
-  },
-  {
-    "objectID": "doc/tp/tp1.html#java-en-quelques-mots",
-    "href": "doc/tp/tp1.html#java-en-quelques-mots",
-    "title": "Introduction to Java syntax",
-    "section": "1.1 Java en quelques mots",
-    "text": "1.1 Java en quelques mots\n\nLangage orienté objet\nCompilé en bytecode puis exécuté par la JVM\n\nfichier.java ➡️ compilation ➡️ fichier.class ➡️ éxécution ➡️ run\ncompiler : javac fichier.java\néxécuter : java fichier\n\nPoints-virgules pour terminer les déclarations\nAccolades pour délimiter les blocs de code\nFortement typé statiquement\n\nvous devez déclarer le type de chaque variable\nces types sont vérifiés à la compilation\n\nConventions de nommage : utilisation du CamelCase\n\nclasse : première lettre MAJUSCULE, ex : VeloElectrique\nméthodes et variables : première lettre minuscule, ex : ajouterPanier()\n\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\"; \n        System.out.println(message);\n    }\n}"
-  },
-  {
     "objectID": "doc/tp/tp1.html#introduction",
     "href": "doc/tp/tp1.html#introduction",
     "title": "Introduction to Java syntax",
-    "section": "1.2 Introduction",
-    "text": "1.2 Introduction\n\n\n\n\n\n\nConseil\n\n\n\n\nSur votre disque P:, créez un dossier Java, puis à l’intérieur, créez un dossier TP1\nSur Moodle, téléchargez le sujet et le code de départ : JavaTP1.zip\n\nEnregistrez ces fichiers dans votre dossier TP1\nDézippez le fichier JavaTP1.zip\n\n\n\n\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\n\nAllez dans le dossier JavaTP1\nUn clic sur array_project , ensuite Sélectionner un dossier\n\nOuvrez un terminal (Terminal &gt; New)\n\n\nLisez le code du fichier ArrayListExample.java\n\ncompilez le fichier : javac -d bin ./src/edu/ensai/ArrayListExample.java\néxécutez le programme : java -cp bin edu.ensai.ArrayListExample\n\n\ni++ et ++i\n    int n = 10;\n    System.out.println(n++);\n    System.out.println(n);\n    n = 10;\n    System.out.println(++n);\n    System.out.println(n);\n\n\nCommandes Powershell\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ncd [directory]\nChange le répertoire de travail\n\n\ncd P:\nAller dans le lecteur P:\n\n\ncd ..\nRetour dans le dossier parent\n\n\ndir\nListe le contenu du répertoire courant\n\n\ntree /F\nVisualiser l’arborscence\n\n\nmkdir [directory]\nCrée un nouveau répertoire\n\n\ndel [file]\nSupprime un fichier\n\n\ncopy [source] [dest]\nCopie un fichier ou un répertoire\n\n\nmove [source] [dest]\nDéplace un fichier ou un répertoire\n\n\ncat [file]\nAffiche le contenu d’un fichier"
+    "section": "1 Introduction",
+    "text": "1 Introduction\nIn this tutorial, we will use the INSEE datalab.\nA service is available with Visual Studio Code and Java.\n\nLogin to SSPCloud\nLaunch the service VScode-Java\n\n\n\n\n\n\n\nImportant\n\n\n\nYou won’t find this service in the basic catalog. You have to use the link above to launch it.\nIt uses a specific Docker image\n\n\n\nLogin to GitHub\nFork this repository: https://github.com/ludo2ne/ENSAI-2A-Java-TP/fork\nOn the main page of your fork, click on Code\nCopy https url to clipboard\nBack to VSCode in the Datalab, Clone the forked repository using this https url"
   },
   {
-    "objectID": "doc/tp/tp1.html#exercices-1",
-    "href": "doc/tp/tp1.html#exercices-1",
+    "objectID": "doc/tp/tp1.html#visual-studio-code",
+    "href": "doc/tp/tp1.html#visual-studio-code",
     "title": "Introduction to Java syntax",
-    "section": "1.3 Exercices",
-    "text": "1.3 Exercices\n\n1.3.1 Exercice 1\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP1\nUn clic sur car_project , ensuite Sélectionner un dossier\n\n\n\n1.3.2 Exercice 2\n\nFile &gt; Open Folder\nAllez dans le dossier JavaTP1\nUn clic sur domino_project, ensuite Sélectionner un dossier"
+    "section": "Visual Studio Code",
+    "text": "Visual Studio Code\n🚧\n\nOpen Folder (ENSAI-2A-Java-TP)\n\n\n\n.vscode/settings.json\n\n{\n    \"editor.inlayHints.enabled\": \"off\",\n    \"editor.formatOnSave\": true,\n    \"java.saveActions.organizeImports\": true,\n}\n\n\n1.1 Shorcuts for windows\n\nSHIFT + ALT + A: Comment / Uncomment selected lines"
   },
   {
-    "objectID": "doc/tp/tp1.html#une-classe",
-    "href": "doc/tp/tp1.html#une-classe",
+    "objectID": "doc/tp/tp1.html#exercices",
+    "href": "doc/tp/tp1.html#exercices",
     "title": "Introduction to Java syntax",
-    "section": "1.4 Une classe",
-    "text": "1.4 Une classe\n/**\n * A Student\n */\npublic class Student {\n    // Attributs\n    private String name;\n    private int age;\n\n    /**\n     * Constructor\n     */\n    public Student(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n\n\n    // -------------------------------------------------------\n    // Getters et Setters\n    // -------------------------------------------------------\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public int getAge() {\n        return age;\n    }\n\n    public void setAge(int age) {\n        if (age &gt; 0) {\n            this.age = age;\n        } else {\n            System.out.println(\"L'âge doit être supérieur à zéro.\");\n        }\n    }\n    \n    // -------------------------------------------------------\n    // Methods\n    // -------------------------------------------------------\n\n    @Override\n    public String toString() {\n        return \"Student{\" +\n                \"name='\" + name + '\\'' +\n                \", age=\" + age +\n                '}';\n    }\n\n    /**\n     * Main method\n     */\n    public static void main(String[] args) {\n\n        // Création d'un objet Student\n        Student student = new Student(\"John Doe\", 20);\n        System.out.println(student);\n    }\n}"
+    "section": "2 Exercices",
+    "text": "2 Exercices\n\nOpen a terminal\n\nTerminal &gt; New Terminal (or CTRL + ù)\n\nGo to the folder ENSAI-2A-Java-TP/tp1/src\n\nif you need help, check out Unix basic commands\n\n\n\nCompile\n\na single Java file: javac MyClass.java\nall Java files: javac *.java\nspecify output directory for .class files (recommended): javac -d bin MyClass.java\n\n\n\nRun\n\n\n\n\n\n\nImportant\n\n\n\nTo run a class, it must have a main() method.\n\n\n\njava MyClass\nwhen .class files are in the bin/ directory: java -cp bin MyClass\n\n\n\n2.1 Brute force\nYou will write a Java method that attempts to brute-force a hashed 6-digit numeric password.\n\nThe method will iterate through all numbers from 000000 to 999999\nFor each number, Generate and compare hash with the given target hash\nIf a match is found, return the original number else return null\n\n\n\nOpen File Password.java\nComplete method bruteForce6Digit()\n\n\n\n\n\n\n\nTip\n\n\n\n\nUse method hashPassword()\nString.format(\"%06d\", 123)➡️ “000123”\n\n\n\n\n\n2.2 Strong password\n\nComplete method isStrongPassword()\n\nYou will write a Java method to check if a password is strong. A password is strong if:\n\n✅ It has at least 12 characters\n✅ It contains at least one uppercase letter\n✅ It contains at least one lowercase letter\n✅ It contains at least one digit\n❌ It does not contain whitespace\n\n\n\n\n\n\n\nTip\n\n\n\nUsefull methods:\n\nCharacter.isUpperCase(&lt;char&gt;)\nCharacter.isDigit(&lt;char&gt;)\nCharacter.isWhitespace(&lt;char&gt;)\n\n\n\n\n\n2.3 Check password list\n\nComplete method checkPasswordsList()\n\nYou will write a method that takes a list of passwords (ArrayList) and checks their strength.\nThe method should return a HashMap where:\n\nThe keys are the passwords\nThe values are true if the password is strong, false otherwise\n\n\n\n2.4 Generate a Random Password\nObjective: Implement a method to generate a secure random password that includes at least:\n\n✅ 1 uppercase letter\n\n✅ 1 lowercase letter\n\n✅ 1 digit\n\n✅ 1 special character\n\n\nEnsure length is at least 4\nCreate a list of characters\nAdd at least one character from each group\n\nFill the remaining characters randomly from all groups\nShuffle the password to mix character types Collections.shuffle(&lt;myList&gt;)\nConvert the list into a String and return it\n\n\nComplete method generatePassword()\n\n\n\n\n\n\n\nGenerate random int between 0 and 20\n\n\n\nSecureRandom random = new SecureRandom();\nSystem.out.println(random.nextInt(21));\n\n\n\n\n2.5 Login System\nComplete file Login.java:\n\nLoads csv file data/user_hashpwd.csv containing usernames and hashed passwords\nAsk for a username\nIf username exists, ask for password\nIf login succeeds, print Login successful! and exit, else ask again username\n\nBonus:\n\nAfter entering username, give 3 chances to input the correct password\nIf all 3 attempts fail, restart username input\n\n\n\n\n\n\n\nUse a Scanner\n\n\n\nScanner scanner = new Scanner(System.in);\n\nSystem.out.print(\"Enter username: \");\nString username = scanner.nextLine();\n\nscanner.close();"
   },
   {
     "objectID": "doc/cours/collections.html#maps",
@@ -340,7 +319,7 @@
     "href": "doc/cours/code-slides.html#variables-and-data-types",
     "title": "Java Basics",
     "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';\nString name = \"Léa\";\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
   },
   {
     "objectID": "doc/cours/code-slides.html#print",
@@ -396,7 +375,7 @@
     "href": "doc/cours/code.html#variables-and-data-types",
     "title": "Java Basics",
     "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';\nString name = \"Léa\";\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\ntrue && !false || false;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString myString = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\nmyString.length();\nmyString.charAt(0);          // Get character at index 0\nmyString.contains(\"va\");\nmyString.toLowerCase();      // also toUpperCase\nmyString.endsWith(\"Java\");   // also startsWith\n\nmyString.equals(\"Java\");     // Use equals to compare, not ==\nOthers: replace(), split()"
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\ntrue && !false || false;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString myString = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\nmyString.length();\nmyString.charAt(0);          // Get character at index 0\nmyString.contains(\"va\");\nmyString.toLowerCase();      // also toUpperCase\nmyString.endsWith(\"Java\");   // also startsWith\n\nmyString.equals(\"Java\");     // Use equals to compare, not ==\nOthers: replace(), split()"
   },
   {
     "objectID": "doc/cours/code.html#print",

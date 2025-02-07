@@ -205,23 +205,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">0.1</span> Exercices</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#visual-studio-code" id="toc-visual-studio-code" class="nav-link" data-scroll-target="#visual-studio-code">Visual Studio Code</a>
   <ul class="collapse">
-  <li><a href="#brute-force" id="toc-brute-force" class="nav-link" data-scroll-target="#brute-force"><span class="header-section-number">0.1.1</span> Brute force</a></li>
-  <li><a href="#strong-password" id="toc-strong-password" class="nav-link" data-scroll-target="#strong-password"><span class="header-section-number">0.1.2</span> Strong password</a></li>
-  <li><a href="#check-password-list" id="toc-check-password-list" class="nav-link" data-scroll-target="#check-password-list"><span class="header-section-number">0.1.3</span> Check password list</a></li>
+  <li><a href="#shorcuts-for-windows" id="toc-shorcuts-for-windows" class="nav-link" data-scroll-target="#shorcuts-for-windows"><span class="header-section-number">1.1</span> Shorcuts for windows</a></li>
   </ul></li>
-  <li><a href="#login-system" id="toc-login-system" class="nav-link" data-scroll-target="#login-system"><span class="header-section-number">0.2</span> Login System</a></li>
-  <li><a href="#old" id="toc-old" class="nav-link" data-scroll-target="#old"><span class="header-section-number">1</span> Old</a>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">2</span> Exercices</a>
   <ul class="collapse">
-  <li><a href="#java-en-quelques-mots" id="toc-java-en-quelques-mots" class="nav-link" data-scroll-target="#java-en-quelques-mots"><span class="header-section-number">1.1</span> Java en quelques mots</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">1.2</span> Introduction</a></li>
-  <li><a href="#exercices-1" id="toc-exercices-1" class="nav-link" data-scroll-target="#exercices-1"><span class="header-section-number">1.3</span> Exercices</a>
-  <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">1.3.1</span> Exercice 1</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">1.3.2</span> Exercice 2</a></li>
-  </ul></li>
-  <li><a href="#une-classe" id="toc-une-classe" class="nav-link" data-scroll-target="#une-classe"><span class="header-section-number">1.4</span> Une classe</a></li>
+  <li><a href="#brute-force" id="toc-brute-force" class="nav-link" data-scroll-target="#brute-force"><span class="header-section-number">2.1</span> Brute force</a></li>
+  <li><a href="#strong-password" id="toc-strong-password" class="nav-link" data-scroll-target="#strong-password"><span class="header-section-number">2.2</span> Strong password</a></li>
+  <li><a href="#check-password-list" id="toc-check-password-list" class="nav-link" data-scroll-target="#check-password-list"><span class="header-section-number">2.3</span> Check password list</a></li>
+  <li><a href="#generate-a-random-password" id="toc-generate-a-random-password" class="nav-link" data-scroll-target="#generate-a-random-password"><span class="header-section-number">2.4</span> Generate a Random Password</a></li>
+  <li><a href="#login-system" id="toc-login-system" class="nav-link" data-scroll-target="#login-system"><span class="header-section-number">2.5</span> Login System</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -268,15 +263,111 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this first tutorial, we’re simply going to familiarize ourselves with Java syntax, without using object-oriented programming.</p>
 <p>This is why methods are defined as static. They are class methods. You don’t need to instantiate an object to call them.</p>
 </section>
-<section id="exercices" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="exercices"><span class="header-section-number">0.1</span> Exercices</h2>
-<section id="brute-force" class="level3" data-number="0.1.1">
-<h3 data-number="0.1.1" class="anchored" data-anchor-id="brute-force"><span class="header-section-number">0.1.1</span> Brute force</h3>
-<p>Write a Java method that attempts to brute-force a hashed 6-digit numeric password.</p>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>In this tutorial, we will use the INSEE datalab.</p>
+<p>A service is available with Visual Studio Code and Java.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Login to <a href="https://datalab.sspcloud.fr" target="_blank">SSPCloud</a></label></li>
+<li><label><input type="checkbox">Launch the service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">VScode-Java</a></label></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You won’t find this service in the basic catalog. You have to use the link above to launch it.</p>
+<p>It uses a specific <a href="https://github.com/odysseu/onyxia-datascience-images/blob/main/vscode-java/Dockerfile" target="_blank">Docker image</a></p>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Login to <a href="https://github.com/" target="_blank">GitHub</a></label></li>
+<li><label><input type="checkbox">Fork this repository: <a href="https://github.com/ludo2ne/ENSAI-2A-Java-TP/fork" target="_blank">https://github.com/ludo2ne/ENSAI-2A-Java-TP/fork</a></label></li>
+<li><label><input type="checkbox">On the main page of your fork, click on <span class="green-button">Code</span></label></li>
+<li><label><input type="checkbox">Copy <em>https</em> url to clipboard</label></li>
+<li><label><input type="checkbox">Back to VSCode in the Datalab, Clone the forked repository using this <em>https</em> url</label></li>
+</ul>
+</section>
+<section id="visual-studio-code" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="visual-studio-code">Visual Studio Code</h2>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<ul>
+<li>Open Folder (ENSAI-2A-Java-TP)</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.vscode/settings.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename=".vscode/settings.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.inlayHints.enabled"</span><span class="fu">:</span> <span class="st">"off"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.formatOnSave"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"java.saveActions.organizeImports"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="shorcuts-for-windows" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="shorcuts-for-windows"><span class="header-section-number">1.1</span> Shorcuts for windows</h3>
+<ul>
+<li>SHIFT + ALT + A: Comment / Uncomment selected lines</li>
+</ul>
+</section>
+</section>
+<section id="exercices" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercices"><span class="header-section-number">2</span> Exercices</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Open a terminal</label>
+<ul>
+<li>Terminal &gt; New Terminal (or CTRL + ù)</li>
+</ul></li>
+<li><label><input type="checkbox">Go to the folder <code>ENSAI-2A-Java-TP/tp1/src</code></label>
+<ul>
+<li>if you need help, check out <a href="https://ludo2ne.github.io/Git-tuto/doc/presentation.html#commandes-unix" target="_blank">Unix basic commands</a></li>
+</ul></li>
+</ul>
+<section id="compile" class="level4">
+<h4 class="anchored" data-anchor-id="compile">Compile</h4>
+<ul>
+<li>a single Java file: <code>javac MyClass.java</code></li>
+<li>all Java files: <code>javac *.java</code></li>
+<li>specify output directory for <em>.class</em> files (recommended): <code>javac -d bin MyClass.java</code></li>
+</ul>
+</section>
+<section id="run" class="level4">
+<h4 class="anchored" data-anchor-id="run">Run</h4>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To run a class, it must have a <em>main()</em> method.</p>
+</div>
+</div>
+<ul>
+<li><code>java MyClass</code></li>
+<li>when .class files are in the <em>bin/</em> directory: <code>java -cp bin MyClass</code></li>
+</ul>
+</section>
+<section id="brute-force" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="brute-force"><span class="header-section-number">2.1</span> Brute force</h3>
+<p>You will write a Java method that attempts to brute-force a hashed 6-digit numeric password.</p>
 <ul>
 <li>The method will iterate through all numbers from 000000 to 999999</li>
 <li>For each number, Generate and compare hash with the given target hash</li>
 <li>If a match is found, return the original number else return null</li>
+</ul>
+<hr>
+<ul class="task-list">
+<li><label><input type="checkbox">Open File <em>Password.java</em></label></li>
+<li><label><input type="checkbox">Complete method <code>bruteForce6Digit()</code></label></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -290,14 +381,17 @@ Tip
 <div class="callout-body-container callout-body">
 <ul>
 <li>Use method <em>hashPassword()</em></li>
-<li><code>String.format("%06d", 123)</code> -&gt; “000123”</li>
+<li><code>String.format("%06d", 123)</code><span class="emoji" data-emoji="arrow_right">➡️</span> “000123”</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="strong-password" class="level3" data-number="0.1.2">
-<h3 data-number="0.1.2" class="anchored" data-anchor-id="strong-password"><span class="header-section-number">0.1.2</span> Strong password</h3>
-<p>Write a Java method to check if a password is strong. A password is strong if:</p>
+<section id="strong-password" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="strong-password"><span class="header-section-number">2.2</span> Strong password</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Complete method <code>isStrongPassword()</code></label></li>
+</ul>
+<p>You will write a Java method to check if a password is strong. A password is strong if:</p>
 <ul>
 <li>✅ It has at least 12 characters</li>
 <li>✅ It contains at least one uppercase letter</li>
@@ -315,259 +409,98 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Usefull methods</p>
+<p>Usefull methods:</p>
 <ul>
-<li><code>Character.isUpperCase(ch)</code></li>
-<li><code>Character.isDigit(ch)</code></li>
-<li><code>Character.isWhitespace(ch)</code></li>
+<li><code>Character.isUpperCase(&lt;char&gt;)</code></li>
+<li><code>Character.isDigit(&lt;char&gt;)</code></li>
+<li><code>Character.isWhitespace(&lt;char&gt;)</code></li>
 </ul>
 </div>
 </div>
 </section>
-<section id="check-password-list" class="level3" data-number="0.1.3">
-<h3 data-number="0.1.3" class="anchored" data-anchor-id="check-password-list"><span class="header-section-number">0.1.3</span> Check password list</h3>
-<p>Write a method that takes a list of passwords (ArrayList<string>) and checks their strength. The method should return a HashMap where:</string></p>
+<section id="check-password-list" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="check-password-list"><span class="header-section-number">2.3</span> Check password list</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Complete method <code>checkPasswordsList()</code></label></li>
+</ul>
+<p>You will write a method that takes a list of passwords (ArrayList<string>) and checks their strength.</string></p>
+<p>The method should return a HashMap where:</p>
 <ul>
 <li>The keys are the passwords</li>
 <li>The values are true if the password is strong, false otherwise</li>
 </ul>
 </section>
-</section>
-<section id="login-system" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="login-system"><span class="header-section-number">0.2</span> Login System</h2>
+<section id="generate-a-random-password" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="generate-a-random-password"><span class="header-section-number">2.4</span> Generate a Random Password</h3>
+<p><strong>Objective:</strong> Implement a method to generate a secure random password that includes at least:</p>
 <ul>
-<li>Loads a CSV file (awesome_passwords.csv) containing usernames and hashed passwords</li>
-<li>Ask for a username</li>
-<li>If username exists:
-<ul>
-<li>Give the user 3 chances to input the correct password</li>
-<li>If login succeeds, print “Login successful!” and exit</li>
-<li>If all 3 attempts fail, restart username input</li>
-</ul></li>
+<li>✅ 1 uppercase letter<br>
+</li>
+<li>✅ 1 lowercase letter<br>
+</li>
+<li>✅ 1 digit<br>
+</li>
+<li>✅ 1 special character</li>
 </ul>
-<hr>
-</section>
-<section id="old" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Old</h1>
-<section id="java-en-quelques-mots" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="java-en-quelques-mots"><span class="header-section-number">1.1</span> Java en quelques mots</h2>
-<ul>
-<li>Langage orienté objet</li>
-<li>Compilé en bytecode puis exécuté par la JVM
-<ul>
-<li>fichier.java <span class="emoji" data-emoji="arrow_right">➡️</span> <em>compilation</em> <span class="emoji" data-emoji="arrow_right">➡️</span> fichier.class <span class="emoji" data-emoji="arrow_right">➡️</span> <em>éxécution</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>run</em></li>
-<li>compiler : <code>javac fichier.java</code></li>
-<li>éxécuter : <code>java fichier</code></li>
-</ul></li>
-<li>Points-virgules pour terminer les déclarations</li>
-<li>Accolades pour délimiter les blocs de code</li>
-<li>Fortement typé statiquement
-<ul>
-<li>vous devez déclarer le type de chaque variable</li>
-<li>ces types sont vérifiés à la compilation</li>
-</ul></li>
-<li>Conventions de nommage : utilisation du <code>CamelCase</code>
-<ul>
-<li>classe : première lettre MAJUSCULE, ex : VeloElectrique</li>
-<li>méthodes et variables : première lettre minuscule, ex : ajouterPanier()</li>
-</ul></li>
+<ol type="1">
+<li>Ensure length is at least 4</li>
+<li>Create a list of characters</li>
+<li>Add at least one character from each group<br>
+</li>
+<li>Fill the remaining characters randomly from all groups</li>
+<li>Shuffle the password to mix character types <code>Collections.shuffle(&lt;myList&gt;)</code></li>
+<li>Convert the list into a <em>String</em> and return it</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox">Complete method <code>generatePassword()</code></label></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> HelloWorld <span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> message <span class="op">=</span> <span class="st">"Hello World!"</span><span class="op">;</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">);</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="introduction" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.2</span> Introduction</h2>
-<div class="callout callout-style-default callout-tip callout-titled" title="Conseil">
+<div class="callout callout-style-default callout-tip callout-titled" title="Generate random int between 0 and 20">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Conseil
+Generate random int between 0 and 20
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul class="task-list">
-<li><label><input type="checkbox">Sur votre disque <code>P:</code>, créez un dossier <code>Java</code>, puis à l’intérieur, créez un dossier <code>TP1</code></label></li>
-<li><label><input type="checkbox">Sur Moodle, téléchargez le sujet et le code de départ : JavaTP1.zip</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Enregistrez ces fichiers dans votre dossier <em>TP1</em></label></li>
-<li><label><input type="checkbox">Dézippez le fichier <em>JavaTP1.zip</em></label></li>
-</ul></li>
-</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SecureRandom</span> random <span class="op">=</span> <span class="kw">new</span> <span class="bu">SecureRandom</span><span class="op">();</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>random<span class="op">.</span><span class="fu">nextInt</span><span class="op">(</span><span class="dv">21</span><span class="op">));</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+</section>
+<section id="login-system" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="login-system"><span class="header-section-number">2.5</span> Login System</h3>
+<p>Complete file <em>Login.java</em>:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <code>Visual Studio Code</code></label>
+<li><label><input type="checkbox">Loads csv file <em>data/user_hashpwd.csv</em> containing usernames and hashed passwords</label></li>
+<li><label><input type="checkbox">Ask for a username</label></li>
+<li><label><input type="checkbox">If username exists, ask for password</label></li>
+<li><label><input type="checkbox">If login succeeds, print <strong>Login successful!</strong> and exit, else ask again username</label></li>
+</ul>
+<p>Bonus:</p>
 <ul>
-<li>File &gt; Open Folder
-<ul>
-<li>Allez dans le dossier <em>JavaTP1</em></li>
-<li>Un clic sur <em>array_project </em>, ensuite <code>Sélectionner un dossier</code></li>
-</ul></li>
-<li>Ouvrez un terminal (Terminal &gt; New)</li>
-</ul></li>
+<li>After entering username, give 3 chances to input the correct password</li>
+<li>If all 3 attempts fail, restart username input</li>
 </ul>
-<p>Lisez le code du fichier <em>ArrayListExample.java</em></p>
-<ul>
-<li>compilez le fichier : <code>javac -d bin ./src/edu/ensai/ArrayListExample.java</code></li>
-<li>éxécutez le programme : <code>java -cp bin edu.ensai.ArrayListExample</code></li>
-</ul>
-<section id="i-et-i" class="level4">
-<h4 class="anchored" data-anchor-id="i-et-i">i++ et ++i</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n<span class="op">++);</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(++</span>n<span class="op">);</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="commandes-powershell" class="level4">
-<h4 class="anchored" data-anchor-id="commandes-powershell">Commandes Powershell</h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Commande</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>cd [directory]</code></td>
-<td>Change le répertoire de travail</td>
-</tr>
-<tr class="even">
-<td><code>cd P:</code></td>
-<td>Aller dans le lecteur <em>P:</em></td>
-</tr>
-<tr class="odd">
-<td><code>cd ..</code></td>
-<td>Retour dans le dossier parent</td>
-</tr>
-<tr class="even">
-<td><code>dir</code></td>
-<td>Liste le contenu du répertoire courant</td>
-</tr>
-<tr class="odd">
-<td><code>tree /F</code></td>
-<td>Visualiser l’arborscence</td>
-</tr>
-<tr class="even">
-<td><code>mkdir [directory]</code></td>
-<td>Crée un nouveau répertoire</td>
-</tr>
-<tr class="odd">
-<td><code>del [file]</code></td>
-<td>Supprime un fichier</td>
-</tr>
-<tr class="even">
-<td><code>copy [source] [dest]</code></td>
-<td>Copie un fichier ou un répertoire</td>
-</tr>
-<tr class="odd">
-<td><code>move [source] [dest]</code></td>
-<td>Déplace un fichier ou un répertoire</td>
-</tr>
-<tr class="even">
-<td><code>cat [file]</code></td>
-<td>Affiche le contenu d’un fichier</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="exercices-1" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="exercices-1"><span class="header-section-number">1.3</span> Exercices</h2>
-<section id="exercice-1" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">1.3.1</span> Exercice 1</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Allez dans le dossier <em>JavaTP1</em></label></li>
-<li><label><input type="checkbox">Un clic sur <em>car_project </em>, ensuite <code>Sélectionner un dossier</code></label></li>
-</ul>
-</section>
-<section id="exercice-2" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">1.3.2</span> Exercice 2</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Allez dans le dossier <em>JavaTP1</em></label></li>
-<li><label><input type="checkbox">Un clic sur <em>domino_project</em>, ensuite <code>Sélectionner un dossier</code></label></li>
-</ul>
-</section>
-</section>
-<section id="une-classe" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="une-classe"><span class="header-section-number">1.4</span> Une classe</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> A Student</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Student <span class="op">{</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Attributs</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> age<span class="op">;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Constructor</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> age<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">age</span> <span class="op">=</span> age<span class="op">;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Getters et Setters</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> name<span class="op">;</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">getAge</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> age<span class="op">;</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setAge</span><span class="op">(</span><span class="dt">int</span> age<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            <span class="kw">this</span><span class="op">.</span><span class="fu">age</span> <span class="op">=</span> age<span class="op">;</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"L'âge doit être supérieur à zéro."</span><span class="op">);</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Methods</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Student{"</span> <span class="op">+</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name='"</span> <span class="op">+</span> name <span class="op">+</span> <span class="ch">'\''</span> <span class="op">+</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>                <span class="st">", age="</span> <span class="op">+</span> age <span class="op">+</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>                <span class="ch">'}'</span><span class="op">;</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Main method</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Création d'un objet Student</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>        Student student <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"John Doe"</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>student<span class="op">);</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Use a Scanner">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Use a Scanner
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Scanner</span> scanner <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Enter username: "</span><span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> username <span class="op">=</span> scanner<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>scanner<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 
 
 </section>
