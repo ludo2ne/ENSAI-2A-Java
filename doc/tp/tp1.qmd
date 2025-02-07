@@ -103,6 +103,7 @@ You will write a Java method that attempts to brute-force a hashed 6-digit numer
 
 ### Strong password
 
+- [ ] Commit and Push the code of the last exercise
 - [ ] Complete method `isStrongPassword()`
 
 You will write a Java method to check if a password is strong. A password is strong if:
@@ -124,6 +125,7 @@ Usefull methods:
 
 ### Check password list
 
+- [ ] Commit and Push the code of the last exercise
 - [ ] Complete method `checkPasswordsList()`
 
 You will write a method that takes a list of passwords (ArrayList<String>) and checks their strength. 
