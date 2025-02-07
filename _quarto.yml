@@ -16,11 +16,11 @@ website:
           - href: doc/cours/intro.qmd
             text: "Introduction"
           - href: doc/cours/code.qmd
-            text: "Java Bascis"
-          - href: doc/cours/classes.qmd
-            text: "Classes"
+            text: "Java Syntax"
           - href: doc/cours/collections.qmd
             text: "Collections"
+          - href: doc/cours/classes.qmd
+            text: "Classes"
       - text: TP
         menu: 
           - href: doc/tp/tp1.qmd

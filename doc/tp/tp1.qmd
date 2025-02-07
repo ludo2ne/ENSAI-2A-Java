@@ -19,9 +19,11 @@ In this first tutorial, we're simply going to familiarize ourselves with Java sy
 
 This is why methods are defined as static. They are class methods. You don't need to instantiate an object to call them.
 
+We're going to do a few exercises on the subject of passwords.
+
 ## Introduction
 
-In this tutorial, we will use the INSEE datalab.
+In this tutorial, we will use the INSEE SSPCloud Datalab.
 
 A service is available with Visual Studio Code and Java.
 
@@ -80,6 +82,15 @@ To run a class, it must have a *main()* method.
 
 - `java MyClass`
 -  when .class files are in the *bin/* directory: `java -cp bin MyClass`
+
+
+::: {.callout-note title="Static Methods"}
+As mentioned at the beginning, the aim of this tutorial is not OOP, but simply basic Java syntax. 
+
+So all the methods defined here are static :arrow_right: They are class methods :arrow_right: They can be called without instantiating an object.
+:::
+
+
 
 ### Brute force
 
