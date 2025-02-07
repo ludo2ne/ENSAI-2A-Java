@@ -1,13 +1,14 @@
-package src;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class Login {
     public static void main(String[] args) {
-        HashMap<String, String> userDatabase = loadUserDatabase("awesome_passwords.csv");
+        HashMap<String, String> userDatabase = loadUserDatabase("./data/awesome_passwords.csv");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {

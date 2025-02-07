@@ -63,8 +63,8 @@ final double PI = 3.14;        // final : Immutable
 
 boolean isJavaFun = true;
 
-char grade = 'A';
-String name = "Léa";
+char grade = 'A';             // single quote
+String name = "Léa";          // double quote
 ```
 
 :::{.notes}
