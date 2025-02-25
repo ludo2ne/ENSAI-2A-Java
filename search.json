@@ -116,35 +116,42 @@
     "href": "doc/cours/collections.html",
     "title": "Collections",
     "section": "",
-    "text": "🚧"
+    "text": "Three main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
   },
   {
     "objectID": "doc/cours/collections.html#collections-in-java",
     "href": "doc/cours/collections.html#collections-in-java",
     "title": "Collections",
-    "section": "Collections in Java",
-    "text": "Collections in Java\nThree main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
+    "section": "",
+    "text": "Three main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
   },
   {
     "objectID": "doc/cours/collections.html#arraylist",
     "href": "doc/cours/collections.html#arraylist",
     "title": "Collections",
     "section": "ArrayList",
-    "text": "ArrayList\n\nOrdered\nAllow duplicates"
+    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)\n\n\nCreate an ArrayList\nimport java.util.ArrayList;\nimport java.util.List;\n\nList&lt;String&gt; names = new ArrayList&lt;&gt;();\nList&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();\n\nList&lt;String&gt; colors = List.of(\"Blue\", \"Green\", \"Yellow\");    // Immutable\n\n\nArrayList&lt;&gt;(): constructor\nList&lt;String&gt; colors = new ArrayList&lt;&gt;(Arrays.asList(\"Blue\", \"Green\", \"Yellow\"));\nother ways\npossible to create list of objects\n\n\n\n\nModify values in a ArrayList\nnames.add(\"Alba\");                         // add at the end\nnames.addAll(List.of(\"Lisa\", \"Stan\"));     // add multiple\nnames.add(1, \"Martin\");                    // add at a specific index\n\nnames.set(1, \"Johannes\")                   // replace\n\n\nnames.remove(3);                           // remove by index\nnames.remove(\"Stan\");                      // remove by value (first occurence)\n\n\nOther methods\nint sizeList = names.size();\nString thisone = names.get(2)                   // get a value by index\nboolean containsJo = names.contains(\"Jo\");      // contain a value ?\n\nSystem.out.println(\"Empty List? \" + names.isEmpty());\n\n\nBrowse a List\nfor (int i = 0; i &lt; names.size(); i++) {\n    System.out.println(names.get(i));\n}\nor\nfor (String name : names) {\n    System.out.println(name);\n}"
   },
   {
-    "objectID": "doc/cours/collections.html#maps",
-    "href": "doc/cours/collections.html#maps",
+    "objectID": "doc/cours/collections.html#hashmap",
+    "href": "doc/cours/collections.html#hashmap",
     "title": "Collections",
-    "section": "Maps",
-    "text": "Maps"
+    "section": "HashMap",
+    "text": "HashMap\n\nHashMap&lt;K, V&gt;\nassociate a key (K) with a value (V)\nUnordered\nFast access\n\n\n\nlike python dict\nothers:\n\nTreeMap: Sorted by key\nLinkedHashMap: Maintains insertion order\n\n\n\n\nCreate and pop a HashMap\nimport java.util.HashMap;\n\nHashMap&lt;String, Integer&gt; fruitStore = new HashMap&lt;&gt;();\n\nfruitStore.put(\"Apple\", 5);\nfruitStore.put(\"Banana\", 3);\nfruitStore.put(\"Orange\", 10);\n\nfruitStore.put(\"Apple\", 5);         // update\n\nfruitStore.remove(\"Banana\");\n\nreplace (don’t create key if not exists):\n\nmap.replace(key, value);\nmap.replace(key, oldValue, newValue) only if oldValue is correct\n\n\n\n\nHashMap methods\nint nbElements = fruitStore.size();\n\nboolean hasBanana = fruitStore.containsKey(\"Banana\");\nboolean hasFive = map.containsValue(5);\n\nint nbApple = fruitStore.get(\"Apple\")\n\n\nIterate over a HashMap\nBy keys\nfor (String key : fruitStore.keySet()) {\n    System.out.println(key + \": \" + fruitStore.get(key));\n}\n By values\nfor (Integer value : fruitStore.values()) {\n    System.out.println(value);\n}\n\nBoth\nfor (Map.Entry&lt;String, Integer&gt; entry : fruitStore.entrySet()) {\n    System.out.println(entry.getKey() + \" : \" + entry.getValue());\n}\n Using Iterator with entrySet\nIterator&lt;Map.Entry&lt;String, Integer&gt;&gt; iterator = fruitStore.entrySet().iterator();\n\nwhile (iterator.hasNext()) {\n    Map.Entry&lt;String, Integer&gt; entry = iterator.next();\n    System.out.println(entry.getKey() + \": \" + entry.getValue());\n}"
   },
   {
-    "objectID": "doc/cours/collections.html#sets",
-    "href": "doc/cours/collections.html#sets",
+    "objectID": "doc/cours/collections.html#hashset",
+    "href": "doc/cours/collections.html#hashset",
     "title": "Collections",
-    "section": "Sets",
-    "text": "Sets"
+    "section": "HashSet",
+    "text": "HashSet\n\nNo duplicates\nUnordered\n\nimport java.util.HashSet;\n\nHashSet&lt;String&gt; colors = new HashSet&lt;&gt;();\n\ncolors.add(\"Blue\");\ncolors.add(\"Green\");\n\nboolean containPink = colors.contains(\"Pink\");\ncolors.remove(\"Green\");\n\nSystem.out.println(\"Size of set: \" + colors.size());\n\nfor (String color : colors) {\n    System.out.println(color);\n}"
+  },
+  {
+    "objectID": "doc/cours/collections.html#choosing-between-list-set-and-map",
+    "href": "doc/cours/collections.html#choosing-between-list-set-and-map",
+    "title": "Collections",
+    "section": "Choosing Between List, Set, and Map",
+    "text": "Choosing Between List, Set, and Map\n\n\n\nFeature\nArrayList\nHashSet\nHashMap\n\n\n\n\nAllows Duplicates?\n✅\n❌\n❌ (Keys)\n\n\nMaintains Order?\n✅\n❌\n❌\n\n\nKey-Value Storage?\n❌\n❌\n✅\n\n\nFast Lookup?\n❌ O(n)\n✅ O(1)\n✅ O(1)\n\n\n\n👉 Use a List when order matters and duplicates are allowed.\n👉 Use a Set when uniqueness is required.\n👉 Use a Map when you need key-value storage."
   },
   {
     "objectID": "doc/cours/collections-slides.html#collections-in-java",
@@ -158,21 +165,28 @@
     "href": "doc/cours/collections-slides.html#arraylist",
     "title": "Collections",
     "section": "ArrayList",
-    "text": "ArrayList\n\nOrdered\nAllow duplicates"
+    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)"
   },
   {
-    "objectID": "doc/cours/collections-slides.html#maps",
-    "href": "doc/cours/collections-slides.html#maps",
+    "objectID": "doc/cours/collections-slides.html#hashmap",
+    "href": "doc/cours/collections-slides.html#hashmap",
     "title": "Collections",
-    "section": "Maps",
-    "text": "Maps"
+    "section": "HashMap",
+    "text": "HashMap\n\nHashMap&lt;K, V&gt;\nassociate a key (K) with a value (V)\nUnordered\nFast access\n\n\n\nlike python dict\nothers:\n\nTreeMap: Sorted by key\nLinkedHashMap: Maintains insertion order"
   },
   {
-    "objectID": "doc/cours/collections-slides.html#sets",
-    "href": "doc/cours/collections-slides.html#sets",
+    "objectID": "doc/cours/collections-slides.html#hashset",
+    "href": "doc/cours/collections-slides.html#hashset",
     "title": "Collections",
-    "section": "Sets",
-    "text": "Sets"
+    "section": "HashSet",
+    "text": "HashSet\n\nNo duplicates\nUnordered\n\nimport java.util.HashSet;\n\nHashSet&lt;String&gt; colors = new HashSet&lt;&gt;();\n\ncolors.add(\"Blue\");\ncolors.add(\"Green\");\n\nboolean containPink = colors.contains(\"Pink\");\ncolors.remove(\"Green\");\n\nSystem.out.println(\"Size of set: \" + colors.size());\n\nfor (String color : colors) {\n    System.out.println(color);\n}"
+  },
+  {
+    "objectID": "doc/cours/collections-slides.html#choosing-between-list-set-and-map",
+    "href": "doc/cours/collections-slides.html#choosing-between-list-set-and-map",
+    "title": "Collections",
+    "section": "Choosing Between List, Set, and Map",
+    "text": "Choosing Between List, Set, and Map\n\n\n\nFeature\nArrayList\nHashSet\nHashMap\n\n\n\n\nAllows Duplicates?\n✅\n❌\n❌ (Keys)\n\n\nMaintains Order?\n✅\n❌\n❌\n\n\nKey-Value Storage?\n❌\n❌\n✅\n\n\nFast Lookup?\n❌ O(n)\n✅ O(1)\n✅ O(1)\n\n\n\n👉 Use a List when order matters and duplicates are allowed.\n👉 Use a Set when uniqueness is required.\n👉 Use a Map when you need key-value storage."
   },
   {
     "objectID": "doc/cours/classes.html",
