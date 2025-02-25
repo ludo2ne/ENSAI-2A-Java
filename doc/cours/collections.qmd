@@ -14,11 +14,10 @@ format:
     slide-level: 3
     controls: true
     output-file: collections-slides.html
+    code-line-numbers: false
 from: markdown+emoji
 lightbox: true
 ---
-
-:construction:
 
 ## Collections in Java
 
@@ -34,11 +33,205 @@ Each serves a different purpose.
 
 - Ordered
 - Allow duplicates
+- Fast for reading
+- Slow for inserting/deleting in the middle
+
+:::{.notes}
+LinkedList (Fast for inserting/deleting, slower for accessing elements)
+:::
+
+### Create an ArrayList
+
+```{.java}
+import java.util.ArrayList;
+import java.util.List;
+
+List<String> names = new ArrayList<>();
+List<Integer> numbers = new ArrayList<>();
+
+List<String> colors = List.of("Blue", "Green", "Yellow");    // Immutable
+```
+
+:::{.notes}
+- `ArrayList<>()`: constructor
+- `List<String> colors = new ArrayList<>(Arrays.asList("Blue", "Green", "Yellow"));`
+- other ways
+- possible to create list of objects
+:::
+
+### Modify values in a ArrayList
+
+```{.java}
+names.add("Alba");                         // add at the end
+names.addAll(List.of("Lisa", "Stan"));     // add multiple
+names.add(1, "Martin");                    // add at a specific index
+
+names.set(1, "Johannes")                   // replace
 
 
-## Maps
+names.remove(3);                           // remove by index
+names.remove("Stan");                      // remove by value (first occurence)
+```
 
 
-## Sets
+### Other methods 
+
+```{.java}
+int sizeList = names.size();
+String thisone = names.get(2)                   // get a value by index
+boolean containsJo = names.contains("Jo");      // contain a value ?
+
+System.out.println("Empty List? " + names.isEmpty());
+
+```
+
+### Browse a List
+
+```{.java}
+for (int i = 0; i < names.size(); i++) {
+    System.out.println(names.get(i));
+}
+```
+
+or
+
+```{.java}
+for (String name : names) {
+    System.out.println(name);
+}
+```
 
 
+
+
+## HashMap
+
+- `HashMap<K, V>`
+- associate a key (K) with a value (V)
+- Unordered
+- Fast access
+
+:::{.notes}
+- like python dict
+- others:
+  - TreeMap: Sorted by key
+  - LinkedHashMap: Maintains insertion order
+:::
+
+
+### Create and pop a HashMap
+
+```{.java}
+import java.util.HashMap;
+
+HashMap<String, Integer> fruitStore = new HashMap<>();
+
+fruitStore.put("Apple", 5);
+fruitStore.put("Banana", 3);
+fruitStore.put("Orange", 10);
+
+fruitStore.put("Apple", 5);         // update
+
+fruitStore.remove("Banana");
+```
+
+:::{.notes}
+replace (don't create key if not exists):
+
+- map.replace(key, value);
+- map.replace(key, oldValue, newValue) only if oldValue is correct
+:::
+
+### HashMap methods
+
+```{.java}
+int nbElements = fruitStore.size();
+
+boolean hasBanana = fruitStore.containsKey("Banana");
+boolean hasFive = map.containsValue(5);
+
+int nbApple = fruitStore.get("Apple")
+```
+
+### Iterate over a HashMap
+
+By keys
+
+```{.java}
+for (String key : fruitStore.keySet()) {
+    System.out.println(key + ": " + fruitStore.get(key));
+}
+```
+
+<br>
+By values
+
+```{.java}
+for (Integer value : fruitStore.values()) {
+    System.out.println(value);
+}
+```
+
+---
+
+Both
+
+```{.java}
+for (Map.Entry<String, Integer> entry : fruitStore.entrySet()) {
+    System.out.println(entry.getKey() + " : " + entry.getValue());
+}
+```
+
+<br>
+Using Iterator with entrySet
+
+```{.java}
+Iterator<Map.Entry<String, Integer>> iterator = fruitStore.entrySet().iterator();
+
+while (iterator.hasNext()) {
+    Map.Entry<String, Integer> entry = iterator.next();
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+
+## HashSet
+
+- No duplicates
+- Unordered
+
+
+```{.java}
+import java.util.HashSet;
+
+HashSet<String> colors = new HashSet<>();
+
+colors.add("Blue");
+colors.add("Green");
+
+boolean containPink = colors.contains("Pink");
+colors.remove("Green");
+
+System.out.println("Size of set: " + colors.size());
+
+for (String color : colors) {
+    System.out.println(color);
+}
+```
+
+
+
+## Choosing Between List, Set, and Map {.smaller}
+
+| Feature  | ArrayList | HashSet | HashMap |
+|----------|--------|--------|--------|
+| Allows Duplicates? | ✅  | ❌  | ❌ (Keys) |
+| Maintains Order? | ✅  | ❌  | ❌  |
+| Key-Value Storage? | ❌  | ❌  | ✅  |
+| Fast Lookup? | ❌  O(n) | ✅  O(1) | ✅  O(1) |
+
+👉 **Use a List** when order matters and duplicates are allowed.
+
+👉 **Use a Set** when uniqueness is required.
+
+👉 **Use a Map** when you need key-value storage.
