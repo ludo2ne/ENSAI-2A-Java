@@ -21,6 +21,8 @@ website:
             text: "Collections"
           - href: doc/cours/classes.qmd
             text: "Classes"
+          - href: doc/cours/advanced.qmd
+            text: "Java level 2"
       - text: TP
         menu: 
           - href: doc/tp/tp1.qmd

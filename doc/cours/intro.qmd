@@ -25,7 +25,7 @@ lightbox: true
 - 12h TP
 - `ludovic.deneuville@ensai.fr`
 - office 161
-- based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt
+- class based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt
 
 
 
@@ -34,23 +34,29 @@ lightbox: true
 - Learn the basic syntax of Java
 - Understand key OOP concepts
 - Learn how to use collections
+- Best practices
 
 
 ## TP
 
 - 4 x 3h
-- Datalabs
+- Datalab [SSPCloud](https://datalab.sspcloud.fr/){target="_blank"}
 - Follow instructions precisely
 - Don't use LLM
 
 
 ## Evaluation
 
-- Graded TP to be completed at home
-- Table-top exam (1h30, a handwritten A4 sheet)
+- Graded TP
+  - 2 students max per group
+  - to be completed at home
+- Table-top exam 
+  - duration: 1h30
+  - a handwritten A4 sheet allowed
 
 
 ## Why Java
+
 
 ### History / Version
 
@@ -60,8 +66,7 @@ lightbox: true
 - Java 17 (2021)
 - Java 21 (2023)
 
-
-
+<https://www.java.com/>{target="_blank"}
 
 :::{.notes}
 - Facebook story
@@ -75,9 +80,15 @@ lightbox: true
 ### Popular / Mature
 
 - Widely used in all sectors
-- Back-end
+- Back-end, Mobile, Big Data
 - Heavily object-oriented
 
+:::{.notes}
+- Enterprise Applications 
+- Backend Development (Spring Boot)
+- Mobile Development (via Kotlin & Android SDK)
+- Big Data & Machine Learning 
+:::
 
 
 ### Portability
@@ -130,12 +141,20 @@ The JVM :
 | **JRE**   | Contains JVM + libraries to run Java apps   |
 | **JDK**   | Includes JRE + compiler + dev tools         |
 
+<https://openjdk.org/projects/jdk/>{target="_blank"}
 
+
+:::{.notes}
+- JRE: java.util, java.io..., $java
+  - to execute java app
+- JDK: $javac, new libraries
+  - to dev java app
+:::
 
 
 ## Java Vs Python{.smaller}
 
-| **Criterion**     | **Java**                    | **Python**                 |  
+|                   | **Java**                    | **Python**                 |  
 |-------------------|-----------------------------|----------------------------|  
 | **Typing**        | Strongly typed, static      | Strongly typed, dynamic    |  
 | **Compilation**   | Compiled into bytecode      | Interpreted                |  
@@ -152,4 +171,15 @@ The JVM :
 :::
 
 
+## Resources
+
+- <https://www.baeldung.com/get-started-with-java-series>{target="_blank"}
+- <https://www.w3schools.com/java/>{target="_blank"}
+- <https://www.jmdoudoux.fr/accueil_java.htm>{target="_blank"}
+
+
+### Practice java language
+
+- <https://codingbat.com/java>{target="_blank"}
+- <https://adventofcode.com/>{target="_blank"}
 

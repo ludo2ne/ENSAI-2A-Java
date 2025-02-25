@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -8,7 +9,7 @@ import java.util.Scanner;
 
 public class Login {
     public static void main(String[] args) {
-        HashMap<String, String> userDatabase = loadUserDatabase("./data/awesome_passwords.csv");
+        HashMap<String, String> userDatabase = loadUserDatabase("../data/user_hashpwd.csv");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {

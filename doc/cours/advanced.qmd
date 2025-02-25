@@ -1,5 +1,5 @@
 ---
-title: "Advanced Java"
+title: "Java level 2"
 description: "[Slides](advanced-slides.html)"
 author: "Ludovic Deneuville"
 format: 
@@ -21,9 +21,15 @@ lightbox: true
 
 ## Todo :construction:
 
+- Package
+- Tree structure
 - Optional
+- Exception
 - Interface
 - Stream
+  - https://www.geeksforgeeks.org/java-8-stream-tutorial/
+  - https://www.baeldung.com/java-streams
+- Maven
 - Spring Boot
 - Hibernate
-- Maven
+- <https://rules.sonarsource.com/java/>

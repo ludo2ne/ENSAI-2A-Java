@@ -9,7 +9,7 @@ format:
     toc-depth: 2
   revealjs:
     theme: moon
-    footer: "[Home](../../index.html) --- [title: Collections](collections.html)"
+    footer: "[Home](../../index.html) --- [Collections](collections.html)"
     slide-number: c/t                    ## collapsed/total
     slide-level: 3
     controls: true
@@ -33,7 +33,7 @@ Each serves a different purpose.
 
 - Ordered
 - Allow duplicates
-- Fast for reading
+- Fast for reading, slow for searching
 - Slow for inserting/deleting in the middle
 
 :::{.notes}
@@ -59,7 +59,7 @@ List<String> colors = List.of("Blue", "Green", "Yellow");    // Immutable
 - possible to create list of objects
 :::
 
-### Modify values in a ArrayList
+### Play with values
 
 ```{.java}
 names.add("Alba");                         // add at the end
@@ -67,7 +67,6 @@ names.addAll(List.of("Lisa", "Stan"));     // add multiple
 names.add(1, "Martin");                    // add at a specific index
 
 names.set(1, "Johannes")                   // replace
-
 
 names.remove(3);                           // remove by index
 names.remove("Stan");                      // remove by value (first occurence)
@@ -78,14 +77,15 @@ names.remove("Stan");                      // remove by value (first occurence)
 
 ```{.java}
 int sizeList = names.size();
-String thisone = names.get(2)                   // get a value by index
-boolean containsJo = names.contains("Jo");      // contain a value ?
+String valueSecondIndex = names.get(2)          // get a value by index
+boolean containsJo = names.contains("Jo");      // contain a value?
 
 System.out.println("Empty List? " + names.isEmpty());
-
 ```
 
 ### Browse a List
+
+By index
 
 ```{.java}
 for (int i = 0; i < names.size(); i++) {
@@ -93,7 +93,7 @@ for (int i = 0; i < names.size(); i++) {
 }
 ```
 
-or
+By value
 
 ```{.java}
 for (String name : names) {
@@ -148,7 +148,7 @@ replace (don't create key if not exists):
 int nbElements = fruitStore.size();
 
 boolean hasBanana = fruitStore.containsKey("Banana");
-boolean hasFive = map.containsValue(5);
+boolean hasFive = fruitStore.containsValue(5);
 
 int nbApple = fruitStore.get("Apple")
 ```
@@ -174,7 +174,7 @@ for (Integer value : fruitStore.values()) {
 
 ---
 
-Both
+Both keys and values
 
 ```{.java}
 for (Map.Entry<String, Integer> entry : fruitStore.entrySet()) {

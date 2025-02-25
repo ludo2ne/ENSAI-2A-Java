@@ -1,6 +1,6 @@
 ---
 title: "Java"
-description: "Introduction à Java"
+description: "An introduction to Java"
 author: "Ludovic Deneuville"
 format: html
 from: markdown+emoji
@@ -9,11 +9,11 @@ from: markdown+emoji
 
 :construction: This course is currently being refactored
 
-## Courses
+## Class
 
 6h
 
-- Introduction
+- Introduction (why Java)
 - Java syntax (variables, structures, loops, etc.)
 - Containers (ArrayList, HashMap)
 - OOP (Classes, Objects, Inheritance, Polymorphism, etc.)
@@ -25,7 +25,7 @@ from: markdown+emoji
 
 4x3h
 
-- [TP1](doc/tp/tp1.qmd) : Discover Java synthaxe
+- [TP1](doc/tp/tp1.qmd) : Discover Java syntax
 - [TP2](doc/tp/tp2.qmd) : Full-Fledged Object Oriented Programming
 - [TP3](doc/tp/tp3.qmd) : Enums, Containers, Exceptions
 - [TP4](doc/tp/tp4.qmd) : Unit Tests, OOP

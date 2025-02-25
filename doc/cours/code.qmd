@@ -45,7 +45,7 @@ class HelloWorld {
 
 :::{.notes}
 - you only write .java files
-- 
+- main method
 :::
 
 ## Syntax
@@ -76,7 +76,7 @@ boolean isJavaFun = true;
 char grade = 'A';             // single quote
 String name = "Léa";          // double quote
 
-var i = 2f;                   // type inference
+var i = 2F;                   // type inference -> float
 ```
 
 :::{.notes}
@@ -122,6 +122,21 @@ myString.equals("Java");     // Use equals to compare, not ==
 Others: *replace()*, *split()*
 
 
+### Type casting
+
+```{.java}
+double num1 = 9.78;
+int num2 = (int) num1;                   // Casting Narrowing
+
+String str1 = "123";
+int num1 = Integer.parseInt(str1);       // String to int
+
+String str2 = String.valueOf(num1);      // int to String
+String str3 = num1 + ""
+```
+
+*toString()* for Object types
+
 ## Print
 
 - `System.out.print("Hello");`
@@ -129,6 +144,10 @@ Others: *replace()*, *split()*
   - adds a new line
 - System.out :arrow_right: Standard output stream
 
+
+:::{.notes}
+- `\n`: carriage return
+:::
 
 ## Structures
 
@@ -151,7 +170,7 @@ if (number > 0) {
 - Shorter alternative to *if-else*
 
 ```{.java}
-String status = (number > 0) ? "Positive": "Negative";
+String status = (number > 0) ? "Positive" : "Negative";
 ```
 
 ### Switch
@@ -191,9 +210,19 @@ for (int i = 0; i < 5; i++) {
 - condition: `i < 5`
 - update: `i++`
 
-:::{.note}
+:::{.notes}
 - condition: checked before entering
 - update: after each iteration
+
+```{.java filename="casimir.java"}
+int i = 0;
+for ( ; ; ) {
+    if ( i < 5)
+        break;
+    System.out.println("Iteration: " + i);
+    i++;
+}
+```
 :::
 
 ### For each
@@ -207,6 +236,10 @@ for (int num: numbers) {
     System.out.println(num);
 }
 ```
+
+:::{.notes}
+first and last time I'm going to talk about arrays
+:::
 
 ### While
 
@@ -270,6 +303,11 @@ public int add(int a, int b) {
 - [Parameters]{.underline}: *(int a, int b)*
 
 
+:::{.notes}
+- reminder: we are still in a class
+- Method name : camelCase
+:::
+
 ### Void
 
 - Indicate that a method does not return any value
@@ -293,6 +331,7 @@ Methods and Attributes Accessiblility
 | private                 | ✅         | ❌          | ❌          | ❌           |
 
 
+
 ## Various
 
 
@@ -301,9 +340,14 @@ int i = 0;
 
 i++;                // increment by 1
 i += 3;             // i = i + 3 
+
+Math.sqrt(3);
+Math.max(8, 5);
+Math.pow(2, 10);   // 1024
 ```
 
 :::{.notes}
 - `++i`
 - `+=` works with Strings
+- `%: modulo
 :::
