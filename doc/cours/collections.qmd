@@ -20,7 +20,20 @@ lightbox: true
 
 :construction:
 
-## Lists 
+## Collections in Java
+
+Three main types to store and manage data: 
+
+- List
+- Map
+- Set
+
+Each serves a different purpose.
+
+## ArrayList
+
+- Ordered
+- Allow duplicates
 
 
 ## Maps

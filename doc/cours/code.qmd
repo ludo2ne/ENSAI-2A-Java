@@ -14,9 +14,17 @@ format:
     slide-level: 3
     controls: true
     output-file: code-slides.html
+    code-line-numbers: false
 from: markdown+emoji
 lightbox: true
 ---
+
+
+## First of all
+
+::: {.callout-important}
+In Java, all executable code must be inside a class.
+:::
 
 
 ## Hello World
@@ -30,13 +38,14 @@ class HelloWorld {
 }
 ```
 
-- compile: `javac HelloWord.java`
-  - create *HelloWord.class*
-- run: `java HelloWord`
-- exit : CTRL + C
+- compile: [javac HelloWord.java]{.terminal}
+  - create file *HelloWord.class*
+- run: [java HelloWord]{.terminal}
+- exit: CTRL + C
 
 :::{.notes}
 - you only write .java files
+- 
 :::
 
 ## Syntax
@@ -44,15 +53,16 @@ class HelloWorld {
 - A Line of code ends with a semicolon `;`
 - Blocs are delimited with curly braces: `{ }`
 - Comments
-  - `//`: one line
+  - `//` one line
   - `/*` multi-lines `*/`
 
 ### Naming Conventions
 
-- Classes: PascalCase 
-- Variables, Methods: camelCase
-- constants: UPPER_CASE_WITH_UNDERSCORES
-- packages: Lowercase, dot-separated (package com.example.utils;)
+- [Classes]{.underline}: PascalCase 
+- [Variables, Methods]{.underline}: camelCase
+- [Constants]{.underline}: UPPERCASE_WITH_UNDERSCORES
+- [Packages]{.underline}: lowercase, dot-separated
+  - `package com.example.utils;`
 
 
 ## Variables and Data Types
@@ -65,6 +75,8 @@ boolean isJavaFun = true;
 
 char grade = 'A';             // single quote
 String name = "Léa";          // double quote
+
+var i = 2f;                   // type inference
 ```
 
 :::{.notes}
@@ -84,7 +96,7 @@ boolean hasBrother = false;
 
 boolean isFast = 20 > 15;
 
-true && !false || false;
+isJavaFun && !false || true;
 ```
 
 ::: {.notes}
@@ -113,7 +125,8 @@ Others: *replace()*, *split()*
 ## Print
 
 - `System.out.print("Hello");`
-- `System.out.println("Hello");`: adds a new line
+- `System.out.println("Hello");`
+  - adds a new line
 - System.out :arrow_right: Standard output stream
 
 
@@ -174,10 +187,14 @@ for (int i = 0; i < 5; i++) {
 }
 ```
 
-- initialization: i = 0
-- condition: i < 5
-- update: i++
+- initialization: `i = 0`
+- condition: `i < 5`
+- update: `i++`
 
+:::{.note}
+- condition: checked before entering
+- update: after each iteration
+:::
 
 ### For each
 
@@ -225,12 +242,18 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
+<br>
+
 ::: {.fragment}
 ``` {.txt}
 Iteration: 0
 Iteration: 1
 Iteration: 3
 ```
+:::
+
+:::{.notes}
+break: exit a single loop 
 :::
 
 ## Function
@@ -241,10 +264,10 @@ public int add(int a, int b) {
 }
 ```
 
-- Access modifier: *public*
-- Return type: *int*
-- Method name: *add*
-- Parameters: *(int a, int b)*
+- [Access modifier]{.underline}: *public*
+- [Return type]{.underline}: *int*
+- [Method name]{.underline}: *add*
+- [Parameters]{.underline}: *(int a, int b)*
 
 
 ### Void
@@ -272,4 +295,15 @@ Methods and Attributes Accessiblility
 
 ## Various
 
-- increment: `i++`
+
+```{.java}
+int i = 0;
+
+i++;                // increment by 1
+i += 3;             // i = i + 3 
+```
+
+:::{.notes}
+- `++i`
+- `+=` works with Strings
+:::

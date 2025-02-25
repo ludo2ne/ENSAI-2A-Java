@@ -31,24 +31,33 @@ lightbox: true
 
 ## Objectives
 
+- Learn the basic syntax of Java
+- Understand key OOP concepts
+- Learn how to use collections
 
 
 ## TP
 
-
+- 4 x 3h
+- Datalabs
+- Follow instructions precisely
+- Don't use LLM
 
 
 ## Evaluation
 
+- Graded TP to be completed at home
+- Table-top exam (1h30, a handwritten A4 sheet)
 
 
 ## Why Java
 
 ### History / Version
 
-- Created in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)
+- Created in 1991 
+  - by James Gosling and Mike Sheridan (Sun Microsystems)
 - Java 8 (2014) : Lambda, Stream, Optional
-- **Java 17 (2021)**
+- Java 17 (2021)
 - Java 21 (2023)
 
 
@@ -56,6 +65,7 @@ lightbox: true
 
 :::{.notes}
 - Facebook story
+- LTS
 - 2009 Oracle
 - 2017 Java 9 -> Modules
 - 2018 Java 11
@@ -92,7 +102,7 @@ WORA: desktop, servers, smartphones
 - Transform java code into bytecode
 - Detects syntax and type errors
 - Optimization
-- `javac MyClass.java` :arrow_right: *MyClass.class*
+- [javac MyClass.java]{.terminal} :arrow_right: create file *MyClass.class*
 
 ## JVM
 
@@ -107,7 +117,7 @@ The JVM :
 :::
 
 
-- `java MyClass`
+- [java MyClass]{.terminal} :arrow_right: run *main* method
 
 ### JVM, JDK, JRE
 
@@ -118,12 +128,12 @@ The JVM :
 |-----------|---------------------------------------------|
 | **JVM**   | Runs Java bytecode                          |
 | **JRE**   | Contains JVM + libraries to run Java apps   |
-| **JDK**   | Includes JRE + compiler + development tools |
+| **JDK**   | Includes JRE + compiler + dev tools         |
 
 
 
 
-## Java Vs Python
+## Java Vs Python{.smaller}
 
 | **Criterion**     | **Java**                    | **Python**                 |  
 |-------------------|-----------------------------|----------------------------|  
