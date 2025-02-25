@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-957390e16f8056bf57452af51c800dd0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-0e737baddcd55aaef238ba6a7f21118c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-57f86f76a34a3b5fcd4725c815234fdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ebe4cc08c959f78266c1f62ba9a6f235.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -204,7 +204,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#hello-world" id="toc-hello-world" class="nav-link active" data-scroll-target="#hello-world">Hello World</a></li>
+  <li><a href="#first-of-all" id="toc-first-of-all" class="nav-link active" data-scroll-target="#first-of-all">First of all</a></li>
+  <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world">Hello World</a></li>
   <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">Syntax</a></li>
   <li><a href="#variables-and-data-types" id="toc-variables-and-data-types" class="nav-link" data-scroll-target="#variables-and-data-types">Variables and Data Types</a></li>
   <li><a href="#print" id="toc-print" class="nav-link" data-scroll-target="#print">Print</a></li>
@@ -251,6 +252,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="first-of-all" class="level2">
+<h2 class="anchored" data-anchor-id="first-of-all">First of all</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In Java, all executable code must be inside a class.</p>
+</div>
+</div>
+</section>
 <section id="hello-world" class="level2">
 <h2 class="anchored" data-anchor-id="hello-world">Hello World</h2>
 <div class="code-with-filename">
@@ -265,16 +282,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>compile: <code>javac HelloWord.java</code>
+<li>compile: <span class="terminal">javac HelloWord.java</span>
 <ul>
-<li>create <em>HelloWord.class</em></li>
+<li>create file <em>HelloWord.class</em></li>
 </ul></li>
-<li>run: <code>java HelloWord</code></li>
-<li>exit : CTRL + C</li>
+<li>run: <span class="terminal">java HelloWord</span></li>
+<li>exit: CTRL + C</li>
 </ul>
 <div class="notes">
 <ul>
 <li>you only write .java files</li>
+<li></li>
 </ul>
 </div>
 </section>
@@ -285,17 +303,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Blocs are delimited with curly braces: <code>{ }</code></li>
 <li>Comments
 <ul>
-<li><code>//</code>: one line</li>
+<li><code>//</code> one line</li>
 <li><code>/*</code> multi-lines <code>*/</code></li>
 </ul></li>
 </ul>
 <section id="naming-conventions" class="level3">
 <h3 class="anchored" data-anchor-id="naming-conventions">Naming Conventions</h3>
 <ul>
-<li>Classes: PascalCase</li>
-<li>Variables, Methods: camelCase</li>
-<li>constants: UPPER_CASE_WITH_UNDERSCORES</li>
-<li>packages: Lowercase, dot-separated (package com.example.utils;)</li>
+<li><u>Classes</u>: PascalCase</li>
+<li><u>Variables, Methods</u>: camelCase</li>
+<li><u>Constants</u>: UPPERCASE_WITH_UNDERSCORES</li>
+<li><u>Packages</u>: lowercase, dot-separated
+<ul>
+<li><code>package com.example.utils;</code></li>
+</ul></li>
 </ul>
 </section>
 </section>
@@ -307,7 +328,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> isJavaFun <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> grade <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span>             <span class="co">// single quote</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> name <span class="op">=</span> <span class="st">"Léa"</span><span class="op">;</span>          <span class="co">// double quote</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> name <span class="op">=</span> <span class="st">"Léa"</span><span class="op">;</span>          <span class="co">// double quote</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> i <span class="op">=</span> <span class="fl">2f</span><span class="op">;</span>                   <span class="co">// type inference</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="notes">
 <ul>
 <li>strong typing, immuable type</li>
@@ -327,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> isFast <span class="op">=</span> <span class="dv">20</span> <span class="op">&gt;</span> <span class="dv">15</span><span class="op">;</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">true</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="kw">false</span> <span class="op">||</span> <span class="kw">false</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>isJavaFun <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="kw">false</span> <span class="op">||</span> <span class="kw">true</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="notes">
 <ul>
 <li>lowercase booleans</li>
@@ -354,7 +377,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="print">Print</h2>
 <ul>
 <li><code>System.out.print("Hello");</code></li>
-<li><code>System.out.println("Hello");</code>: adds a new line</li>
+<li><code>System.out.println("Hello");</code>
+<ul>
+<li>adds a new line</li>
+</ul></li>
 <li>System.out <span class="emoji" data-emoji="arrow_right">➡️</span> Standard output stream</li>
 </ul>
 </section>
@@ -405,10 +431,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>initialization: i = 0</li>
-<li>condition: i &lt; 5</li>
-<li>update: i++</li>
+<li>initialization: <code>i = 0</code></li>
+<li>condition: <code>i &lt; 5</code></li>
+<li>update: <code>i++</code></li>
 </ul>
+<div class="note">
+<ul>
+<li>condition: checked before entering</li>
+<li>update: after each iteration</li>
+</ul>
+</div>
 </section>
 <section id="for-each" class="level3">
 <h3 class="anchored" data-anchor-id="for-each">For each</h3>
@@ -443,10 +475,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
 <div class="fragment">
 <div class="sourceCode" id="cb14"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Iteration: 0</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Iteration: 1</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>Iteration: 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="notes">
+<p>break: exit a single loop</p>
 </div>
 </section>
 </section>
@@ -456,10 +492,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Access modifier: <em>public</em></li>
-<li>Return type: <em>int</em></li>
-<li>Method name: <em>add</em></li>
-<li>Parameters: <em>(int a, int b)</em></li>
+<li><u>Access modifier</u>: <em>public</em></li>
+<li><u>Return type</u>: <em>int</em></li>
+<li><u>Method name</u>: <em>add</em></li>
+<li><u>Parameters</u>: <em>(int a, int b)</em></li>
 </ul>
 <section id="void" class="level3">
 <h3 class="anchored" data-anchor-id="void">Void</h3>
@@ -525,9 +561,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="various" class="level2">
 <h2 class="anchored" data-anchor-id="various">Various</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>i<span class="op">++;</span>                <span class="co">// increment by 1</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>i <span class="op">+=</span> <span class="dv">3</span><span class="op">;</span>             <span class="co">// i = i + 3 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="notes">
 <ul>
-<li>increment: <code>i++</code></li>
+<li><code>++i</code></li>
+<li><code>+=</code> works with Strings</li>
 </ul>
+</div>
 
 
 </section>

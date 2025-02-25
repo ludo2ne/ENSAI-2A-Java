@@ -102,14 +102,7 @@
     "href": "doc/tp/tp1.html#introduction",
     "title": "Introduction to Java syntax",
     "section": "1 Introduction",
-    "text": "1 Introduction\nIn this tutorial, we will use the INSEE SSPCloud Datalab.\nA service is available with Visual Studio Code and Java.\n\nLogin to SSPCloud\nLaunch the service VScode-Java\n\n\n\n\n\n\n\nImportant\n\n\n\nYou won’t find this service in the basic catalog. You have to use the link above to launch it.\nIt uses a specific Docker image\n\n\n\nLogin to GitHub\nFork this repository: https://github.com/ludo2ne/ENSAI-2A-Java-TP/fork\nOn the main page of your fork, click on Code\nCopy https url to clipboard\nBack to VSCode in the Datalab, Clone the forked repository using this https url"
-  },
-  {
-    "objectID": "doc/tp/tp1.html#visual-studio-code",
-    "href": "doc/tp/tp1.html#visual-studio-code",
-    "title": "Introduction to Java syntax",
-    "section": "Visual Studio Code",
-    "text": "Visual Studio Code\n🚧\n\nOpen Folder (ENSAI-2A-Java-TP)\n\n\n\n.vscode/settings.json\n\n{\n    \"editor.inlayHints.enabled\": \"off\",\n    \"editor.formatOnSave\": true,\n    \"java.saveActions.organizeImports\": true,\n}\n\n\n1.1 Shorcuts for windows\n\nSHIFT + ALT + A: Comment / Uncomment selected lines"
+    "text": "1 Introduction\nIn this tutorial, we will use the INSEE SSPCloud Datalab.\n\nLogin to SSPCloud\n\n\n1.1 Git setup\n\n\n\n\n\n\nCaution\n\n\n\nOn the datalab, your services have a limited lifespan.\nTo save your programs, the best practice is to use a git repository. We will therefore create and use a token to communicate with GitHub.\nTo follow the process, you need to have a GitHub account. It is also possible to follow a similar process with GitLab.\n\n\n\nGenerate a GitHub Token\n\n\n\n\n\n\nAlready done?\n\n\n\nIf you have already generated and declared a GitHub token, there’s no need to repeat these 2 steps.\n\n\n\nLogin to GitHub\nGo to settings ➡️ Developer settings ➡️ Personal access tokens ➡️ Tokens (classic)\nGenerate a new classic token\n\nFill in:\n\ntoken name: Datalab GENES\nexpiration date ➡️ Custom ➡️ 1 year\n\n✅ Check the repo box\nClick on Generate token\nCopy the token starting with ghp_ and keep it safe for a few minutes\n\n\n\n\n\n\n\n\nWarning\n\n\n\n\nThis token will only be visible once\nIf you lose it or if it expires, you must generate a new one\n\n\n\n\n\nDeclare Your Token\nGitHub has provided you with a token. Now, you need to declare it on the Datalab:\n\nGo to My Account ➡️ Git tab\nFill in the following information:\n\nGit username\nemail (the one used for your GitHub account)\n\nPaste your token\n\n\n\n\n\n\n\nGit Config\n\n\n\nYou can now exchange code between the Datalab services and your GitHub repositories. 🎉\n\n\n\n\n\n1.2 Launch Vscode Java\nA service is available with Visual Studio Code and Java.\n\nLaunch the service VScode-Java\n\n\n\n\n\n\n\nImportant\n\n\n\nYou won’t find this service in the basic catalog. You have to use the link above to launch it.\nIt uses a specific Docker image\n\n\n\nBack to GitHub, fork this repository: https://github.com/ludo2ne/ENSAI-2A-Java-TP/fork\nOn the main page of your fork, click on Code\nCopy https url to clipboard\nBack to VSCode in the Datalab, Clone the forked repository using this https url\nIn the menu (3 parallel bars top left) ➡️ File ➡️ Open Folder\n\nenter : /home/onyxia/work/ENSAI-2A-Java-TP/ ➡️ OK\n\n\n\n\n\n\n\n\nShorcuts\n\n\n\n\nSHIFT + ALT + A: Comment / Uncomment selected lines"
   },
   {
     "objectID": "doc/tp/tp1.html#exercices",
@@ -126,11 +119,18 @@
     "text": "🚧"
   },
   {
-    "objectID": "doc/cours/collections.html#lists",
-    "href": "doc/cours/collections.html#lists",
+    "objectID": "doc/cours/collections.html#collections-in-java",
+    "href": "doc/cours/collections.html#collections-in-java",
     "title": "Collections",
-    "section": "Lists",
-    "text": "Lists"
+    "section": "Collections in Java",
+    "text": "Collections in Java\nThree main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
+  },
+  {
+    "objectID": "doc/cours/collections.html#arraylist",
+    "href": "doc/cours/collections.html#arraylist",
+    "title": "Collections",
+    "section": "ArrayList",
+    "text": "ArrayList\n\nOrdered\nAllow duplicates"
   },
   {
     "objectID": "doc/cours/collections.html#maps",
@@ -147,11 +147,18 @@
     "text": "Sets"
   },
   {
-    "objectID": "doc/cours/collections-slides.html#lists",
-    "href": "doc/cours/collections-slides.html#lists",
+    "objectID": "doc/cours/collections-slides.html#collections-in-java",
+    "href": "doc/cours/collections-slides.html#collections-in-java",
     "title": "Collections",
-    "section": "Lists",
-    "text": "Lists"
+    "section": "Collections in Java",
+    "text": "Collections in Java\nThree main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
+  },
+  {
+    "objectID": "doc/cours/collections-slides.html#arraylist",
+    "href": "doc/cours/collections-slides.html#arraylist",
+    "title": "Collections",
+    "section": "ArrayList",
+    "text": "ArrayList\n\nOrdered\nAllow duplicates"
   },
   {
     "objectID": "doc/cours/collections-slides.html#maps",
@@ -322,32 +329,39 @@
     "text": "Optional\nInterface\nStream\nSpring Boot\nHibernate\nMaven"
   },
   {
+    "objectID": "doc/cours/code-slides.html#first-of-all",
+    "href": "doc/cours/code-slides.html#first-of-all",
+    "title": "Java Basics",
+    "section": "First of all",
+    "text": "First of all\n\n\n\n\n\n\nImportant\n\n\nIn Java, all executable code must be inside a class."
+  },
+  {
     "objectID": "doc/cours/code-slides.html#hello-world",
     "href": "doc/cours/code-slides.html#hello-world",
     "title": "Java Basics",
     "section": "Hello World",
-    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate HelloWord.class\n\nrun: java HelloWord\nexit : CTRL + C\n\n\n\nyou only write .java files"
+    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files"
   },
   {
     "objectID": "doc/cours/code-slides.html#syntax",
     "href": "doc/cours/code-slides.html#syntax",
     "title": "Java Basics",
     "section": "Syntax",
-    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n//: one line\n/* multi-lines */"
+    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n// one line\n/* multi-lines */"
   },
   {
     "objectID": "doc/cours/code-slides.html#variables-and-data-types",
     "href": "doc/cours/code-slides.html#variables-and-data-types",
     "title": "Java Basics",
     "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2f;                   // type inference\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
   },
   {
     "objectID": "doc/cours/code-slides.html#print",
     "href": "doc/cours/code-slides.html#print",
     "title": "Java Basics",
     "section": "Print",
-    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");: adds a new line\nSystem.out ➡️ Standard output stream"
+    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream"
   },
   {
     "objectID": "doc/cours/code-slides.html#structures",
@@ -368,49 +382,56 @@
     "href": "doc/cours/code-slides.html#various",
     "title": "Java Basics",
     "section": "Various",
-    "text": "Various\n\nincrement: i++"
+    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\n\n++i\n+= works with Strings"
   },
   {
     "objectID": "doc/cours/code.html",
     "href": "doc/cours/code.html",
     "title": "Java Basics",
     "section": "",
-    "text": "HelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate HelloWord.class\n\nrun: java HelloWord\nexit : CTRL + C\n\n\n\nyou only write .java files"
+    "text": "Important\n\n\n\nIn Java, all executable code must be inside a class."
+  },
+  {
+    "objectID": "doc/cours/code.html#first-of-all",
+    "href": "doc/cours/code.html#first-of-all",
+    "title": "Java Basics",
+    "section": "",
+    "text": "Important\n\n\n\nIn Java, all executable code must be inside a class."
   },
   {
     "objectID": "doc/cours/code.html#hello-world",
     "href": "doc/cours/code.html#hello-world",
     "title": "Java Basics",
-    "section": "",
-    "text": "HelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate HelloWord.class\n\nrun: java HelloWord\nexit : CTRL + C\n\n\n\nyou only write .java files"
+    "section": "Hello World",
+    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files"
   },
   {
     "objectID": "doc/cours/code.html#syntax",
     "href": "doc/cours/code.html#syntax",
     "title": "Java Basics",
     "section": "Syntax",
-    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n//: one line\n/* multi-lines */\n\n\n\nNaming Conventions\n\nClasses: PascalCase\nVariables, Methods: camelCase\nconstants: UPPER_CASE_WITH_UNDERSCORES\npackages: Lowercase, dot-separated (package com.example.utils;)"
+    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n// one line\n/* multi-lines */\n\n\n\nNaming Conventions\n\nClasses: PascalCase\nVariables, Methods: camelCase\nConstants: UPPERCASE_WITH_UNDERSCORES\nPackages: lowercase, dot-separated\n\npackage com.example.utils;"
   },
   {
     "objectID": "doc/cours/code.html#variables-and-data-types",
     "href": "doc/cours/code.html#variables-and-data-types",
     "title": "Java Basics",
     "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\ntrue && !false || false;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString myString = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\nmyString.length();\nmyString.charAt(0);          // Get character at index 0\nmyString.contains(\"va\");\nmyString.toLowerCase();      // also toUpperCase\nmyString.endsWith(\"Java\");   // also startsWith\n\nmyString.equals(\"Java\");     // Use equals to compare, not ==\nOthers: replace(), split()"
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2f;                   // type inference\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\nisJavaFun && !false || true;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString myString = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\nmyString.length();\nmyString.charAt(0);          // Get character at index 0\nmyString.contains(\"va\");\nmyString.toLowerCase();      // also toUpperCase\nmyString.endsWith(\"Java\");   // also startsWith\n\nmyString.equals(\"Java\");     // Use equals to compare, not ==\nOthers: replace(), split()"
   },
   {
     "objectID": "doc/cours/code.html#print",
     "href": "doc/cours/code.html#print",
     "title": "Java Basics",
     "section": "Print",
-    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");: adds a new line\nSystem.out ➡️ Standard output stream"
+    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream"
   },
   {
     "objectID": "doc/cours/code.html#structures",
     "href": "doc/cours/code.html#structures",
     "title": "Java Basics",
     "section": "Structures",
-    "text": "Structures\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n\nTernary Operator\n\nShorter alternative to if-else\n\nString status = (number &gt; 0) ? \"Positive\": \"Negative\";\n\n\nSwitch\nString fruit = \"lemon\";\n\nswitch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; System.out.println(\"Red fruit\");\n    case \"banana\", \"lemon\" -&gt; System.out.println(\"Yellow fruit\");\n    default -&gt; System.out.println(\"Unknown fruit\");\n}\n\n\nswitch can return a value\n\nString color = switch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; \"Red fruit\";\n    case \"banana\", \"lemon\" -&gt; \"Yellow fruit\";\n    default -&gt; \"Unknown fruit\";\n};\n\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization: i = 0\ncondition: i &lt; 5\nupdate: i++\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num: numbers) {\n    System.out.println(num);\n}\n\n\nWhile\nint i = 10;\nwhile (i &gt;= 0) {\n    System.out.println(i);\n    i--;\n}\n\ndo-while to check after each iteration\ndo { ...\n} while { ... }\n\n\n\nbreak / continue\nfor (int i = 0; i &lt; 10; i++) {\n    if (i == 2)\n        continue;\n    else if (i == 4)\n        break;\n    System.out.println(\"Iteration: \" + i);\n}\n\nIteration: 0\nIteration: 1\nIteration: 3"
+    "text": "Structures\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n\nTernary Operator\n\nShorter alternative to if-else\n\nString status = (number &gt; 0) ? \"Positive\": \"Negative\";\n\n\nSwitch\nString fruit = \"lemon\";\n\nswitch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; System.out.println(\"Red fruit\");\n    case \"banana\", \"lemon\" -&gt; System.out.println(\"Yellow fruit\");\n    default -&gt; System.out.println(\"Unknown fruit\");\n}\n\n\nswitch can return a value\n\nString color = switch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; \"Red fruit\";\n    case \"banana\", \"lemon\" -&gt; \"Yellow fruit\";\n    default -&gt; \"Unknown fruit\";\n};\n\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization: i = 0\ncondition: i &lt; 5\nupdate: i++\n\n\n\ncondition: checked before entering\nupdate: after each iteration\n\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num: numbers) {\n    System.out.println(num);\n}\n\n\nWhile\nint i = 10;\nwhile (i &gt;= 0) {\n    System.out.println(i);\n    i--;\n}\n\ndo-while to check after each iteration\ndo { ...\n} while { ... }\n\n\n\nbreak / continue\nfor (int i = 0; i &lt; 10; i++) {\n    if (i == 2)\n        continue;\n    else if (i == 4)\n        break;\n    System.out.println(\"Iteration: \" + i);\n}\n\n\nIteration: 0\nIteration: 1\nIteration: 3\n\n\nbreak: exit a single loop"
   },
   {
     "objectID": "doc/cours/code.html#function",
@@ -424,7 +445,7 @@
     "href": "doc/cours/code.html#various",
     "title": "Java Basics",
     "section": "Various",
-    "text": "Various\n\nincrement: i++"
+    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\n\n++i\n+= works with Strings"
   },
   {
     "objectID": "doc/cours/intro-slides.html#introduction-to-java",
@@ -438,21 +459,21 @@
     "href": "doc/cours/intro-slides.html#objectives",
     "title": "Introduction",
     "section": "Objectives",
-    "text": "Objectives"
+    "text": "Objectives\n\nLearn the basic syntax of Java\nUnderstand key OOP concepts\nLearn how to use collections"
   },
   {
     "objectID": "doc/cours/intro-slides.html#tp",
     "href": "doc/cours/intro-slides.html#tp",
     "title": "Introduction",
     "section": "TP",
-    "text": "TP"
+    "text": "TP\n\n4 x 3h\nDatalabs\nFollow instructions precisely\nDon’t use LLM"
   },
   {
     "objectID": "doc/cours/intro-slides.html#evaluation",
     "href": "doc/cours/intro-slides.html#evaluation",
     "title": "Introduction",
     "section": "Evaluation",
-    "text": "Evaluation"
+    "text": "Evaluation\n\nGraded TP to be completed at home\nTable-top exam (1h30, a handwritten A4 sheet)"
   },
   {
     "objectID": "doc/cours/intro-slides.html#why-java",
@@ -466,14 +487,14 @@
     "href": "doc/cours/intro-slides.html#compiler",
     "title": "Introduction",
     "section": "Compiler",
-    "text": "Compiler\n\nTransform java code into bytecode\nDetects syntax and type errors\nOptimization\njavac MyClass.java ➡️ MyClass.class"
+    "text": "Compiler\n\nTransform java code into bytecode\nDetects syntax and type errors\nOptimization\njavac MyClass.java ➡️ create file MyClass.class"
   },
   {
     "objectID": "doc/cours/intro-slides.html#jvm",
     "href": "doc/cours/intro-slides.html#jvm",
     "title": "Introduction",
     "section": "JVM",
-    "text": "JVM\n\n\n\n\n\n\n\nDefinition\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\n\n\njava MyClass"
+    "text": "JVM\n\n\n\n\n\n\n\nDefinition\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\n\n\njava MyClass ➡️ run main method"
   },
   {
     "objectID": "doc/cours/intro-slides.html#java-vs-python",
@@ -501,42 +522,42 @@
     "href": "doc/cours/intro.html#objectives",
     "title": "Introduction",
     "section": "Objectives",
-    "text": "Objectives"
+    "text": "Objectives\n\nLearn the basic syntax of Java\nUnderstand key OOP concepts\nLearn how to use collections"
   },
   {
     "objectID": "doc/cours/intro.html#tp",
     "href": "doc/cours/intro.html#tp",
     "title": "Introduction",
     "section": "TP",
-    "text": "TP"
+    "text": "TP\n\n4 x 3h\nDatalabs\nFollow instructions precisely\nDon’t use LLM"
   },
   {
     "objectID": "doc/cours/intro.html#evaluation",
     "href": "doc/cours/intro.html#evaluation",
     "title": "Introduction",
     "section": "Evaluation",
-    "text": "Evaluation"
+    "text": "Evaluation\n\nGraded TP to be completed at home\nTable-top exam (1h30, a handwritten A4 sheet)"
   },
   {
     "objectID": "doc/cours/intro.html#why-java",
     "href": "doc/cours/intro.html#why-java",
     "title": "Introduction",
     "section": "Why Java",
-    "text": "Why Java\n\nHistory / Version\n\nCreated in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)\nJava 8 (2014) : Lambda, Stream, Optional\nJava 17 (2021)\nJava 21 (2023)\n\n\n\nFacebook story\n2009 Oracle\n2017 Java 9 -&gt; Modules\n2018 Java 11\nJava 17 : Sealed Classes, Refactor JDK\n\n\n\n\nPopular / Mature\n\nWidely used in all sectors\nBack-end\nHeavily object-oriented\n\n\n\nPortability\n\nCompiled to bytecode\nRuns on any machine with a JVM\n“Write Once, Run Anywhere”\n\n\nWORA: desktop, servers, smartphones\n\n\n\nRobust / Secure\n\nAutomatic memory management\nStrong Static Typing\nCompile-Time Checks"
+    "text": "Why Java\n\nHistory / Version\n\nCreated in 1991\n\nby James Gosling and Mike Sheridan (Sun Microsystems)\n\nJava 8 (2014) : Lambda, Stream, Optional\nJava 17 (2021)\nJava 21 (2023)\n\n\n\nFacebook story\nLTS\n2009 Oracle\n2017 Java 9 -&gt; Modules\n2018 Java 11\nJava 17 : Sealed Classes, Refactor JDK\n\n\n\n\nPopular / Mature\n\nWidely used in all sectors\nBack-end\nHeavily object-oriented\n\n\n\nPortability\n\nCompiled to bytecode\nRuns on any machine with a JVM\n“Write Once, Run Anywhere”\n\n\nWORA: desktop, servers, smartphones\n\n\n\nRobust / Secure\n\nAutomatic memory management\nStrong Static Typing\nCompile-Time Checks"
   },
   {
     "objectID": "doc/cours/intro.html#compiler",
     "href": "doc/cours/intro.html#compiler",
     "title": "Introduction",
     "section": "Compiler",
-    "text": "Compiler\n\nTransform java code into bytecode\nDetects syntax and type errors\nOptimization\njavac MyClass.java ➡️ MyClass.class"
+    "text": "Compiler\n\nTransform java code into bytecode\nDetects syntax and type errors\nOptimization\njavac MyClass.java ➡️ create file MyClass.class"
   },
   {
     "objectID": "doc/cours/intro.html#jvm",
     "href": "doc/cours/intro.html#jvm",
     "title": "Introduction",
     "section": "JVM",
-    "text": "JVM\n\n\n\n\n\n\nDefinition\n\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\njava MyClass\n\n\nJVM, JDK, JRE\n\nJRE: Java Runtime Environment\nJDK: Java Development Kit\n\n\n\n\nComponent\nPurpose\n\n\n\n\nJVM\nRuns Java bytecode\n\n\nJRE\nContains JVM + libraries to run Java apps\n\n\nJDK\nIncludes JRE + compiler + development tools"
+    "text": "JVM\n\n\n\n\n\n\nDefinition\n\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\njava MyClass ➡️ run main method\n\n\nJVM, JDK, JRE\n\nJRE: Java Runtime Environment\nJDK: Java Development Kit\n\n\n\n\nComponent\nPurpose\n\n\n\n\nJVM\nRuns Java bytecode\n\n\nJRE\nContains JVM + libraries to run Java apps\n\n\nJDK\nIncludes JRE + compiler + dev tools"
   },
   {
     "objectID": "doc/cours/intro.html#java-vs-python",

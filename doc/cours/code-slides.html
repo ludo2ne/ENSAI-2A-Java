@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Ludovic Deneuville">
   <title>Java – Java Basics</title>
@@ -94,7 +94,8 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-ab7a322b4ca39adb1086c9e0171297e3.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b17fa0af1ad93c2b7802af2443afaf9b.css">
+  <link rel="stylesheet" href="../../styles-reveal.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -203,30 +204,48 @@ Ludovic Deneuville
 </div>
 
 </section>
+<section id="first-of-all" class="title-slide slide level2 center">
+<h2>First of all</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>In Java, all executable code must be inside a class.</p>
+</div>
+</div>
+</div>
+</section>
+
 <section id="hello-world" class="title-slide slide level2 center">
 <h2>Hello World</h2>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>HelloWord.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="HelloWord.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a></a><span class="kw">class</span> HelloWorld <span class="op">{</span></span>
-<span id="cb1-2"><a></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span> </span>
-<span id="cb1-3"><a></a>        <span class="bu">String</span> message <span class="op">=</span> <span class="st">"Hello World!"</span><span class="op">;</span></span>
-<span id="cb1-4"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">);</span></span>
-<span id="cb1-5"><a></a>    <span class="op">}</span></span>
-<span id="cb1-6"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-filename="HelloWord.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> HelloWorld <span class="op">{</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span> </span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> message <span class="op">=</span> <span class="st">"Hello World!"</span><span class="op">;</span></span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>compile: <code>javac HelloWord.java</code>
+<li>compile: <span class="terminal">javac HelloWord.java</span>
 <ul>
-<li>create <em>HelloWord.class</em></li>
+<li>create file <em>HelloWord.class</em></li>
 </ul></li>
-<li>run: <code>java HelloWord</code></li>
-<li>exit : CTRL + C</li>
+<li>run: <span class="terminal">java HelloWord</span></li>
+<li>exit: CTRL + C</li>
 </ul>
 <aside class="notes">
 <ul>
 <li>you only write .java files</li>
+<li></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -249,7 +268,7 @@ Ludovic Deneuville
 <li>Blocs are delimited with curly braces: <code>{ }</code></li>
 <li>Comments
 <ul>
-<li><code>//</code>: one line</li>
+<li><code>//</code> one line</li>
 <li><code>/*</code> multi-lines <code>*/</code></li>
 </ul></li>
 </ul>
@@ -257,22 +276,27 @@ Ludovic Deneuville
 <section id="naming-conventions" class="slide level3">
 <h3>Naming Conventions</h3>
 <ul>
-<li>Classes: PascalCase</li>
-<li>Variables, Methods: camelCase</li>
-<li>constants: UPPER_CASE_WITH_UNDERSCORES</li>
-<li>packages: Lowercase, dot-separated (package com.example.utils;)</li>
+<li><u>Classes</u>: PascalCase</li>
+<li><u>Variables, Methods</u>: camelCase</li>
+<li><u>Constants</u>: UPPERCASE_WITH_UNDERSCORES</li>
+<li><u>Packages</u>: lowercase, dot-separated
+<ul>
+<li><code>package com.example.utils;</code></li>
+</ul></li>
 </ul>
 </section></section>
 <section>
 <section id="variables-and-data-types" class="title-slide slide level2 center">
 <h2>Variables and Data Types</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a></a><span class="dt">int</span> age <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
-<span id="cb2-2"><a></a><span class="dt">final</span> <span class="dt">double</span> PI <span class="op">=</span> <span class="fl">3.14</span><span class="op">;</span>        <span class="co">// final : Immutable</span></span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="dt">boolean</span> isJavaFun <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="dt">char</span> grade <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span>             <span class="co">// single quote</span></span>
-<span id="cb2-7"><a></a><span class="bu">String</span> name <span class="op">=</span> <span class="st">"Léa"</span><span class="op">;</span>          <span class="co">// double quote</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> age <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a><span class="dt">final</span> <span class="dt">double</span> PI <span class="op">=</span> <span class="fl">3.14</span><span class="op">;</span>        <span class="co">// final : Immutable</span></span>
+<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> isJavaFun <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> grade <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span>             <span class="co">// single quote</span></span>
+<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> name <span class="op">=</span> <span class="st">"Léa"</span><span class="op">;</span>          <span class="co">// double quote</span></span>
+<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> i <span class="op">=</span> <span class="fl">2f</span><span class="op">;</span>                   <span class="co">// type inference</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ul>
 <li>strong typing, immuable type</li>
@@ -298,12 +322,12 @@ Ludovic Deneuville
 </section>
 <section id="boolean" class="slide level3">
 <h3>Boolean</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a></a><span class="dt">boolean</span> isJavaFun <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb3-2"><a></a><span class="dt">boolean</span> hasBrother <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="dt">boolean</span> isFast <span class="op">=</span> <span class="dv">20</span> <span class="op">&gt;</span> <span class="dv">15</span><span class="op">;</span></span>
-<span id="cb3-5"><a></a></span>
-<span id="cb3-6"><a></a><span class="kw">true</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="kw">false</span> <span class="op">||</span> <span class="kw">false</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> isJavaFun <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> hasBrother <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> isFast <span class="op">=</span> <span class="dv">20</span> <span class="op">&gt;</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a>isJavaFun <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="kw">false</span> <span class="op">||</span> <span class="kw">true</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ul>
 <li>lowercase booleans</li>
@@ -323,23 +347,26 @@ Ludovic Deneuville
 </section>
 <section id="string" class="slide level3">
 <h3>String</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a></a><span class="bu">String</span> myString <span class="op">=</span> <span class="st">"Java"</span><span class="op">;</span></span>
-<span id="cb4-2"><a></a><span class="bu">String</span> fullName <span class="op">=</span> <span class="st">"Alain"</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"Philippe"</span><span class="op">;</span>   <span class="co">// concat</span></span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a>myString<span class="op">.</span><span class="fu">length</span><span class="op">();</span></span>
-<span id="cb4-5"><a></a>myString<span class="op">.</span><span class="fu">charAt</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span>          <span class="co">// Get character at index 0</span></span>
-<span id="cb4-6"><a></a>myString<span class="op">.</span><span class="fu">contains</span><span class="op">(</span><span class="st">"va"</span><span class="op">);</span></span>
-<span id="cb4-7"><a></a>myString<span class="op">.</span><span class="fu">toLowerCase</span><span class="op">();</span>      <span class="co">// also toUpperCase</span></span>
-<span id="cb4-8"><a></a>myString<span class="op">.</span><span class="fu">endsWith</span><span class="op">(</span><span class="st">"Java"</span><span class="op">);</span>   <span class="co">// also startsWith</span></span>
-<span id="cb4-9"><a></a></span>
-<span id="cb4-10"><a></a>myString<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="st">"Java"</span><span class="op">);</span>     <span class="co">// Use equals to compare, not ==</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> myString <span class="op">=</span> <span class="st">"Java"</span><span class="op">;</span></span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> fullName <span class="op">=</span> <span class="st">"Alain"</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"Philippe"</span><span class="op">;</span>   <span class="co">// concat</span></span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>myString<span class="op">.</span><span class="fu">length</span><span class="op">();</span></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>myString<span class="op">.</span><span class="fu">charAt</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span>          <span class="co">// Get character at index 0</span></span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a>myString<span class="op">.</span><span class="fu">contains</span><span class="op">(</span><span class="st">"va"</span><span class="op">);</span></span>
+<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a>myString<span class="op">.</span><span class="fu">toLowerCase</span><span class="op">();</span>      <span class="co">// also toUpperCase</span></span>
+<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a>myString<span class="op">.</span><span class="fu">endsWith</span><span class="op">(</span><span class="st">"Java"</span><span class="op">);</span>   <span class="co">// also startsWith</span></span>
+<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a>myString<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="st">"Java"</span><span class="op">);</span>     <span class="co">// Use equals to compare, not ==</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Others: <em>replace()</em>, <em>split()</em></p>
 </section></section>
 <section id="print" class="title-slide slide level2 center">
 <h2>Print</h2>
 <ul>
 <li><code>System.out.print("Hello");</code></li>
-<li><code>System.out.println("Hello");</code>: adds a new line</li>
+<li><code>System.out.println("Hello");</code>
+<ul>
+<li>adds a new line</li>
+</ul></li>
 <li>System.out <span class="emoji" data-emoji="arrow_right">➡️</span> Standard output stream</li>
 </ul>
 </section>
@@ -351,41 +378,41 @@ Ludovic Deneuville
 </section>
 <section id="if-else" class="slide level3">
 <h3>if-else</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a><span class="dt">int</span> number <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb5-2"><a></a></span>
-<span id="cb5-3"><a></a><span class="cf">if</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-4"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Positive number"</span><span class="op">);</span></span>
-<span id="cb5-5"><a></a><span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>number <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-6"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Negative number"</span><span class="op">);</span></span>
-<span id="cb5-7"><a></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb5-8"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Zero"</span><span class="op">);</span></span>
-<span id="cb5-9"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> number <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Positive number"</span><span class="op">);</span></span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>number <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Negative number"</span><span class="op">);</span></span>
+<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Zero"</span><span class="op">);</span></span>
+<span id="cb5-9"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="ternary-operator" class="slide level3">
 <h3>Ternary Operator</h3>
 <ul>
 <li>Shorter alternative to <em>if-else</em></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a></a><span class="bu">String</span> status <span class="op">=</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">?</span> <span class="st">"Positive"</span><span class="op">:</span> <span class="st">"Negative"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> status <span class="op">=</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">?</span> <span class="st">"Positive"</span><span class="op">:</span> <span class="st">"Negative"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="switch" class="slide level3">
 <h3>Switch</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a></a><span class="bu">String</span> fruit <span class="op">=</span> <span class="st">"lemon"</span><span class="op">;</span></span>
-<span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a><span class="cf">switch</span> <span class="op">(</span>fruit<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-4"><a></a>    <span class="cf">case</span> <span class="st">"cherry"</span><span class="op">,</span> <span class="st">"strawberry"</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Red fruit"</span><span class="op">);</span></span>
-<span id="cb7-5"><a></a>    <span class="cf">case</span> <span class="st">"banana"</span><span class="op">,</span> <span class="st">"lemon"</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Yellow fruit"</span><span class="op">);</span></span>
-<span id="cb7-6"><a></a>    <span class="kw">default</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Unknown fruit"</span><span class="op">);</span></span>
-<span id="cb7-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> fruit <span class="op">=</span> <span class="st">"lemon"</span><span class="op">;</span></span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a><span class="cf">switch</span> <span class="op">(</span>fruit<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"cherry"</span><span class="op">,</span> <span class="st">"strawberry"</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Red fruit"</span><span class="op">);</span></span>
+<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"banana"</span><span class="op">,</span> <span class="st">"lemon"</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Yellow fruit"</span><span class="op">);</span></span>
+<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">default</span> <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Unknown fruit"</span><span class="op">);</span></span>
+<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ul>
 <li>switch can return a value</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a></a><span class="bu">String</span> color <span class="op">=</span> <span class="cf">switch</span> <span class="op">(</span>fruit<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-2"><a></a>    <span class="cf">case</span> <span class="st">"cherry"</span><span class="op">,</span> <span class="st">"strawberry"</span> <span class="op">-&gt;</span> <span class="st">"Red fruit"</span><span class="op">;</span></span>
-<span id="cb8-3"><a></a>    <span class="cf">case</span> <span class="st">"banana"</span><span class="op">,</span> <span class="st">"lemon"</span> <span class="op">-&gt;</span> <span class="st">"Yellow fruit"</span><span class="op">;</span></span>
-<span id="cb8-4"><a></a>    <span class="kw">default</span> <span class="op">-&gt;</span> <span class="st">"Unknown fruit"</span><span class="op">;</span></span>
-<span id="cb8-5"><a></a><span class="op">};</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> color <span class="op">=</span> <span class="cf">switch</span> <span class="op">(</span>fruit<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"cherry"</span><span class="op">,</span> <span class="st">"strawberry"</span> <span class="op">-&gt;</span> <span class="st">"Red fruit"</span><span class="op">;</span></span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"banana"</span><span class="op">,</span> <span class="st">"lemon"</span> <span class="op">-&gt;</span> <span class="st">"Yellow fruit"</span><span class="op">;</span></span>
+<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">default</span> <span class="op">-&gt;</span> <span class="st">"Unknown fruit"</span><span class="op">;</span></span>
+<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -400,37 +427,43 @@ Ludovic Deneuville
 </section>
 <section id="for" class="slide level3">
 <h3>For</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb9-2"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
-<span id="cb9-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>initialization: i = 0</li>
-<li>condition: i &lt; 5</li>
-<li>update: i++</li>
+<li>initialization: <code>i = 0</code></li>
+<li>condition: <code>i &lt; 5</code></li>
+<li>update: <code>i++</code></li>
 </ul>
+<div class="note">
+<ul>
+<li>condition: checked before entering</li>
+<li>update: after each iteration</li>
+</ul>
+</div>
 </section>
 <section id="for-each" class="slide level3">
 <h3>For each</h3>
 <ul>
 <li>Iterating through arrays, lists</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a></a><span class="dt">int</span><span class="op">[]</span> numbers <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
-<span id="cb10-2"><a></a></span>
-<span id="cb10-3"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> num<span class="op">:</span> numbers<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-4"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>num<span class="op">);</span></span>
-<span id="cb10-5"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> numbers <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> num<span class="op">:</span> numbers<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>num<span class="op">);</span></span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="while" class="slide level3">
 <h3>While</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb11-2"><a></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-3"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
-<span id="cb11-4"><a></a>    i<span class="op">--;</span></span>
-<span id="cb11-5"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>    i<span class="op">--;</span></span>
+<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>do-while to check after each iteration</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a></a><span class="cf">do</span> <span class="op">{</span> <span class="kw">...</span></span>
-<span id="cb12-2"><a></a><span class="op">}</span> <span class="cf">while</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> <span class="op">{</span> <span class="kw">...</span></span>
+<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">while</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -445,30 +478,44 @@ Ludovic Deneuville
 </section>
 <section id="break-continue" class="slide level3">
 <h3>break / continue</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb13-2"><a></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">2</span><span class="op">)</span></span>
-<span id="cb13-3"><a></a>        <span class="cf">continue</span><span class="op">;</span></span>
-<span id="cb13-4"><a></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">4</span><span class="op">)</span></span>
-<span id="cb13-5"><a></a>        <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb13-6"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
-<span id="cb13-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">2</span><span class="op">)</span></span>
+<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb13-5"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb13-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Iteration: "</span> <span class="op">+</span> i<span class="op">);</span></span>
+<span id="cb13-7"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
 <div class="fragment">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a></a>Iteration: 0</span>
-<span id="cb14-2"><a></a>Iteration: 1</span>
-<span id="cb14-3"><a></a>Iteration: 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>Iteration: 0</span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>Iteration: 1</span>
+<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>Iteration: 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p>break: exit a single loop</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="function" class="title-slide slide level2 center">
 <h2>Function</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">add</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb15-2"><a></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
-<span id="cb15-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">add</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Access modifier: <em>public</em></li>
-<li>Return type: <em>int</em></li>
-<li>Method name: <em>add</em></li>
-<li>Parameters: <em>(int a, int b)</em></li>
+<li><u>Access modifier</u>: <em>public</em></li>
+<li><u>Return type</u>: <em>int</em></li>
+<li><u>Method name</u>: <em>add</em></li>
+<li><u>Parameters</u>: <em>(int a, int b)</em></li>
 </ul>
 </section>
 <section id="void" class="slide level3">
@@ -476,9 +523,9 @@ Ludovic Deneuville
 <ul>
 <li>Indicate that a method does not return any value</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">printIsOdd</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb16-2"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb16-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">printIsOdd</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="access-modifiers" class="slide level3">
 <h3>Access Modifiers</h3>
@@ -534,9 +581,26 @@ Ludovic Deneuville
 </section></section>
 <section id="various" class="title-slide slide level2 center">
 <h2>Various</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a>i<span class="op">++;</span>                <span class="co">// increment by 1</span></span>
+<span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a>i <span class="op">+=</span> <span class="dv">3</span><span class="op">;</span>             <span class="co">// i = i + 3 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
 <ul>
-<li>increment: <code>i++</code></li>
+<li><code>++i</code></li>
+<li><code>+=</code> works with Strings</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 
 </section>

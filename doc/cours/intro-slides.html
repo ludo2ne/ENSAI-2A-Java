@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.40">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Ludovic Deneuville">
   <title>Java – Introduction</title>
@@ -29,7 +29,8 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-ab7a322b4ca39adb1086c9e0171297e3.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b17fa0af1ad93c2b7802af2443afaf9b.css">
+  <link rel="stylesheet" href="../../styles-reveal.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -151,17 +152,29 @@ Ludovic Deneuville
 
 <section id="objectives" class="title-slide slide level2 center">
 <h2>Objectives</h2>
-
+<ul>
+<li>Learn the basic syntax of Java</li>
+<li>Understand key OOP concepts</li>
+<li>Learn how to use collections</li>
+</ul>
 </section>
 
 <section id="tp" class="title-slide slide level2 center">
 <h2>TP</h2>
-
+<ul>
+<li>4 x 3h</li>
+<li>Datalabs</li>
+<li>Follow instructions precisely</li>
+<li>Don’t use LLM</li>
+</ul>
 </section>
 
 <section id="evaluation" class="title-slide slide level2 center">
 <h2>Evaluation</h2>
-
+<ul>
+<li>Graded TP to be completed at home</li>
+<li>Table-top exam (1h30, a handwritten A4 sheet)</li>
+</ul>
 </section>
 
 <section>
@@ -172,14 +185,18 @@ Ludovic Deneuville
 <section id="history-version" class="slide level3">
 <h3>History / Version</h3>
 <ul>
-<li>Created in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)</li>
+<li>Created in 1991
+<ul>
+<li>by James Gosling and Mike Sheridan (Sun Microsystems)</li>
+</ul></li>
 <li>Java 8 (2014) : Lambda, Stream, Optional</li>
-<li><strong>Java 17 (2021)</strong></li>
+<li>Java 17 (2021)</li>
 <li>Java 21 (2023)</li>
 </ul>
 <aside class="notes">
 <ul>
 <li>Facebook story</li>
+<li>LTS</li>
 <li>2009 Oracle</li>
 <li>2017 Java 9 -&gt; Modules</li>
 <li>2018 Java 11</li>
@@ -240,7 +257,7 @@ Ludovic Deneuville
 <li>Transform java code into bytecode</li>
 <li>Detects syntax and type errors</li>
 <li>Optimization</li>
-<li><code>javac MyClass.java</code> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>MyClass.class</em></li>
+<li><span class="terminal">javac MyClass.java</span> <span class="emoji" data-emoji="arrow_right">➡️</span> create file <em>MyClass.class</em></li>
 </ul>
 </section>
 
@@ -269,7 +286,7 @@ Ludovic Deneuville
 </div>
 </div>
 <ul>
-<li><code>java MyClass</code></li>
+<li><span class="terminal">java MyClass</span> <span class="emoji" data-emoji="arrow_right">➡️</span> run <em>main</em> method</li>
 </ul>
 </section>
 <section id="jvm-jdk-jre" class="slide level3">
@@ -296,12 +313,12 @@ Ludovic Deneuville
 </tr>
 <tr class="odd">
 <td><strong>JDK</strong></td>
-<td>Includes JRE + compiler + development tools</td>
+<td>Includes JRE + compiler + dev tools</td>
 </tr>
 </tbody>
 </table>
 </section></section>
-<section id="java-vs-python" class="title-slide slide level2 center">
+<section id="java-vs-python" class="title-slide slide level2 smaller center">
 <h2>Java Vs Python</h2>
 <table class="caption-top">
 <colgroup>

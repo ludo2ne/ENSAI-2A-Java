@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,12 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-957390e16f8056bf57452af51c800dd0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-0e737baddcd55aaef238ba6a7f21118c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-57f86f76a34a3b5fcd4725c815234fdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ebe4cc08c959f78266c1f62ba9a6f235.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -230,26 +230,45 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="objectives" class="level2">
 <h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<ul>
+<li>Learn the basic syntax of Java</li>
+<li>Understand key OOP concepts</li>
+<li>Learn how to use collections</li>
+</ul>
 </section>
 <section id="tp" class="level2">
 <h2 class="anchored" data-anchor-id="tp">TP</h2>
+<ul>
+<li>4 x 3h</li>
+<li>Datalabs</li>
+<li>Follow instructions precisely</li>
+<li>Don’t use LLM</li>
+</ul>
 </section>
 <section id="evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
+<ul>
+<li>Graded TP to be completed at home</li>
+<li>Table-top exam (1h30, a handwritten A4 sheet)</li>
+</ul>
 </section>
 <section id="why-java" class="level2">
 <h2 class="anchored" data-anchor-id="why-java">Why Java</h2>
 <section id="history-version" class="level3">
 <h3 class="anchored" data-anchor-id="history-version">History / Version</h3>
 <ul>
-<li>Created in 1991 by James Gosling and Mike Sheridan (Sun Microsystems)</li>
+<li>Created in 1991
+<ul>
+<li>by James Gosling and Mike Sheridan (Sun Microsystems)</li>
+</ul></li>
 <li>Java 8 (2014) : Lambda, Stream, Optional</li>
-<li><strong>Java 17 (2021)</strong></li>
+<li>Java 17 (2021)</li>
 <li>Java 21 (2023)</li>
 </ul>
 <div class="notes">
 <ul>
 <li>Facebook story</li>
+<li>LTS</li>
 <li>2009 Oracle</li>
 <li>2017 Java 9 -&gt; Modules</li>
 <li>2018 Java 11</li>
@@ -291,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Transform java code into bytecode</li>
 <li>Detects syntax and type errors</li>
 <li>Optimization</li>
-<li><code>javac MyClass.java</code> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>MyClass.class</em></li>
+<li><span class="terminal">javac MyClass.java</span> <span class="emoji" data-emoji="arrow_right">➡️</span> create file <em>MyClass.class</em></li>
 </ul>
 </section>
 <section id="jvm" class="level2">
@@ -316,7 +335,7 @@ Definition
 </div>
 </div>
 <ul>
-<li><code>java MyClass</code></li>
+<li><span class="terminal">java MyClass</span> <span class="emoji" data-emoji="arrow_right">➡️</span> run <em>main</em> method</li>
 </ul>
 <section id="jvm-jdk-jre" class="level3">
 <h3 class="anchored" data-anchor-id="jvm-jdk-jre">JVM, JDK, JRE</h3>
@@ -342,14 +361,14 @@ Definition
 </tr>
 <tr class="odd">
 <td><strong>JDK</strong></td>
-<td>Includes JRE + compiler + development tools</td>
+<td>Includes JRE + compiler + dev tools</td>
 </tr>
 </tbody>
 </table>
 </section>
 </section>
-<section id="java-vs-python" class="level2">
-<h2 class="anchored" data-anchor-id="java-vs-python">Java Vs Python</h2>
+<section id="java-vs-python" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="java-vs-python">Java Vs Python</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
