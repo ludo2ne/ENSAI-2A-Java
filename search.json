@@ -7,18 +7,18 @@
     "text": "🚧 This course is currently being refactored"
   },
   {
-    "objectID": "index.html#courses",
-    "href": "index.html#courses",
+    "objectID": "index.html#class",
+    "href": "index.html#class",
     "title": "Java",
-    "section": "Courses",
-    "text": "Courses\n6h\n\nIntroduction\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nUnit Tests (JUnit)\nMaven, Spring Boot ?"
+    "section": "Class",
+    "text": "Class\n6h\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nUnit Tests (JUnit)\nMaven, Spring Boot ?"
   },
   {
     "objectID": "index.html#tp",
     "href": "index.html#tp",
     "title": "Java",
     "section": "TP",
-    "text": "TP\n4x3h\n\nTP1 : Discover Java synthaxe\nTP2 : Full-Fledged Object Oriented Programming\nTP3 : Enums, Containers, Exceptions\nTP4 : Unit Tests, OOP"
+    "text": "TP\n4x3h\n\nTP1 : Discover Java syntax\nTP2 : Full-Fledged Object Oriented Programming\nTP3 : Enums, Containers, Exceptions\nTP4 : Unit Tests, OOP"
   },
   {
     "objectID": "index.html#bibliography",
@@ -130,14 +130,14 @@
     "href": "doc/cours/collections.html#arraylist",
     "title": "Collections",
     "section": "ArrayList",
-    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)\n\n\nCreate an ArrayList\nimport java.util.ArrayList;\nimport java.util.List;\n\nList&lt;String&gt; names = new ArrayList&lt;&gt;();\nList&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();\n\nList&lt;String&gt; colors = List.of(\"Blue\", \"Green\", \"Yellow\");    // Immutable\n\n\nArrayList&lt;&gt;(): constructor\nList&lt;String&gt; colors = new ArrayList&lt;&gt;(Arrays.asList(\"Blue\", \"Green\", \"Yellow\"));\nother ways\npossible to create list of objects\n\n\n\n\nModify values in a ArrayList\nnames.add(\"Alba\");                         // add at the end\nnames.addAll(List.of(\"Lisa\", \"Stan\"));     // add multiple\nnames.add(1, \"Martin\");                    // add at a specific index\n\nnames.set(1, \"Johannes\")                   // replace\n\n\nnames.remove(3);                           // remove by index\nnames.remove(\"Stan\");                      // remove by value (first occurence)\n\n\nOther methods\nint sizeList = names.size();\nString thisone = names.get(2)                   // get a value by index\nboolean containsJo = names.contains(\"Jo\");      // contain a value ?\n\nSystem.out.println(\"Empty List? \" + names.isEmpty());\n\n\nBrowse a List\nfor (int i = 0; i &lt; names.size(); i++) {\n    System.out.println(names.get(i));\n}\nor\nfor (String name : names) {\n    System.out.println(name);\n}"
+    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading, slow for searching\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)\n\n\nCreate an ArrayList\nimport java.util.ArrayList;\nimport java.util.List;\n\nList&lt;String&gt; names = new ArrayList&lt;&gt;();\nList&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();\n\nList&lt;String&gt; colors = List.of(\"Blue\", \"Green\", \"Yellow\");    // Immutable\n\n\nArrayList&lt;&gt;(): constructor\nList&lt;String&gt; colors = new ArrayList&lt;&gt;(Arrays.asList(\"Blue\", \"Green\", \"Yellow\"));\nother ways\npossible to create list of objects\n\n\n\n\nPlay with values\nnames.add(\"Alba\");                         // add at the end\nnames.addAll(List.of(\"Lisa\", \"Stan\"));     // add multiple\nnames.add(1, \"Martin\");                    // add at a specific index\n\nnames.set(1, \"Johannes\")                   // replace\n\nnames.remove(3);                           // remove by index\nnames.remove(\"Stan\");                      // remove by value (first occurence)\n\n\nOther methods\nint sizeList = names.size();\nString valueSecondIndex = names.get(2)          // get a value by index\nboolean containsJo = names.contains(\"Jo\");      // contain a value?\n\nSystem.out.println(\"Empty List? \" + names.isEmpty());\n\n\nBrowse a List\nBy index\nfor (int i = 0; i &lt; names.size(); i++) {\n    System.out.println(names.get(i));\n}\nBy value\nfor (String name : names) {\n    System.out.println(name);\n}"
   },
   {
     "objectID": "doc/cours/collections.html#hashmap",
     "href": "doc/cours/collections.html#hashmap",
     "title": "Collections",
     "section": "HashMap",
-    "text": "HashMap\n\nHashMap&lt;K, V&gt;\nassociate a key (K) with a value (V)\nUnordered\nFast access\n\n\n\nlike python dict\nothers:\n\nTreeMap: Sorted by key\nLinkedHashMap: Maintains insertion order\n\n\n\n\nCreate and pop a HashMap\nimport java.util.HashMap;\n\nHashMap&lt;String, Integer&gt; fruitStore = new HashMap&lt;&gt;();\n\nfruitStore.put(\"Apple\", 5);\nfruitStore.put(\"Banana\", 3);\nfruitStore.put(\"Orange\", 10);\n\nfruitStore.put(\"Apple\", 5);         // update\n\nfruitStore.remove(\"Banana\");\n\nreplace (don’t create key if not exists):\n\nmap.replace(key, value);\nmap.replace(key, oldValue, newValue) only if oldValue is correct\n\n\n\n\nHashMap methods\nint nbElements = fruitStore.size();\n\nboolean hasBanana = fruitStore.containsKey(\"Banana\");\nboolean hasFive = map.containsValue(5);\n\nint nbApple = fruitStore.get(\"Apple\")\n\n\nIterate over a HashMap\nBy keys\nfor (String key : fruitStore.keySet()) {\n    System.out.println(key + \": \" + fruitStore.get(key));\n}\n By values\nfor (Integer value : fruitStore.values()) {\n    System.out.println(value);\n}\n\nBoth\nfor (Map.Entry&lt;String, Integer&gt; entry : fruitStore.entrySet()) {\n    System.out.println(entry.getKey() + \" : \" + entry.getValue());\n}\n Using Iterator with entrySet\nIterator&lt;Map.Entry&lt;String, Integer&gt;&gt; iterator = fruitStore.entrySet().iterator();\n\nwhile (iterator.hasNext()) {\n    Map.Entry&lt;String, Integer&gt; entry = iterator.next();\n    System.out.println(entry.getKey() + \": \" + entry.getValue());\n}"
+    "text": "HashMap\n\nHashMap&lt;K, V&gt;\nassociate a key (K) with a value (V)\nUnordered\nFast access\n\n\n\nlike python dict\nothers:\n\nTreeMap: Sorted by key\nLinkedHashMap: Maintains insertion order\n\n\n\n\nCreate and pop a HashMap\nimport java.util.HashMap;\n\nHashMap&lt;String, Integer&gt; fruitStore = new HashMap&lt;&gt;();\n\nfruitStore.put(\"Apple\", 5);\nfruitStore.put(\"Banana\", 3);\nfruitStore.put(\"Orange\", 10);\n\nfruitStore.put(\"Apple\", 5);         // update\n\nfruitStore.remove(\"Banana\");\n\nreplace (don’t create key if not exists):\n\nmap.replace(key, value);\nmap.replace(key, oldValue, newValue) only if oldValue is correct\n\n\n\n\nHashMap methods\nint nbElements = fruitStore.size();\n\nboolean hasBanana = fruitStore.containsKey(\"Banana\");\nboolean hasFive = fruitStore.containsValue(5);\n\nint nbApple = fruitStore.get(\"Apple\")\n\n\nIterate over a HashMap\nBy keys\nfor (String key : fruitStore.keySet()) {\n    System.out.println(key + \": \" + fruitStore.get(key));\n}\n By values\nfor (Integer value : fruitStore.values()) {\n    System.out.println(value);\n}\n\nBoth keys and values\nfor (Map.Entry&lt;String, Integer&gt; entry : fruitStore.entrySet()) {\n    System.out.println(entry.getKey() + \" : \" + entry.getValue());\n}\n Using Iterator with entrySet\nIterator&lt;Map.Entry&lt;String, Integer&gt;&gt; iterator = fruitStore.entrySet().iterator();\n\nwhile (iterator.hasNext()) {\n    Map.Entry&lt;String, Integer&gt; entry = iterator.next();\n    System.out.println(entry.getKey() + \": \" + entry.getValue());\n}"
   },
   {
     "objectID": "doc/cours/collections.html#hashset",
@@ -165,7 +165,7 @@
     "href": "doc/cours/collections-slides.html#arraylist",
     "title": "Collections",
     "section": "ArrayList",
-    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)"
+    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading, slow for searching\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)"
   },
   {
     "objectID": "doc/cours/collections-slides.html#hashmap",
@@ -193,14 +193,14 @@
     "href": "doc/cours/classes.html",
     "title": "Java Classes",
     "section": "",
-    "text": "Encapsulation\nInheritance\nPolymorphism\n\n\n\n\nEncapsulation: Bundling data and methods together\nInheritance: Deriving new classes from existing ones\nPolymorphism: One interface, multiple behaviors"
+    "text": "🚧"
   },
   {
     "objectID": "doc/cours/classes.html#oop-principles",
     "href": "doc/cours/classes.html#oop-principles",
     "title": "Java Classes",
-    "section": "",
-    "text": "Encapsulation\nInheritance\nPolymorphism\n\n\n\n\nEncapsulation: Bundling data and methods together\nInheritance: Deriving new classes from existing ones\nPolymorphism: One interface, multiple behaviors"
+    "section": "OOP Principles",
+    "text": "OOP Principles\n\n\nEncapsulation\nInheritance\nPolymorphism\n\n\n\n\nEncapsulation: Bundling data and methods together\nInheritance: Deriving new classes from existing ones\nPolymorphism: One interface, multiple behaviors"
   },
   {
     "objectID": "doc/cours/classes.html#a-class",
@@ -324,23 +324,23 @@
   {
     "objectID": "doc/cours/advanced-slides.html#todo",
     "href": "doc/cours/advanced-slides.html#todo",
-    "title": "Advanced Java",
+    "title": "Java level 2",
     "section": "Todo 🚧",
-    "text": "Todo 🚧\n\nOptional\nInterface\nStream\nSpring Boot\nHibernate\nMaven"
+    "text": "Todo 🚧\n\nPackage\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
   },
   {
     "objectID": "doc/cours/advanced.html",
     "href": "doc/cours/advanced.html",
-    "title": "Advanced Java",
+    "title": "Java level 2",
     "section": "",
-    "text": "Optional\nInterface\nStream\nSpring Boot\nHibernate\nMaven"
+    "text": "Package\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
   },
   {
     "objectID": "doc/cours/advanced.html#todo",
     "href": "doc/cours/advanced.html#todo",
-    "title": "Advanced Java",
+    "title": "Java level 2",
     "section": "",
-    "text": "Optional\nInterface\nStream\nSpring Boot\nHibernate\nMaven"
+    "text": "Package\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
   },
   {
     "objectID": "doc/cours/code-slides.html#first-of-all",
@@ -354,7 +354,7 @@
     "href": "doc/cours/code-slides.html#hello-world",
     "title": "Java Basics",
     "section": "Hello World",
-    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files"
+    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files\nmain method"
   },
   {
     "objectID": "doc/cours/code-slides.html#syntax",
@@ -368,14 +368,14 @@
     "href": "doc/cours/code-slides.html#variables-and-data-types",
     "title": "Java Basics",
     "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2f;                   // type inference\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2F;                   // type inference -&gt; float\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
   },
   {
     "objectID": "doc/cours/code-slides.html#print",
     "href": "doc/cours/code-slides.html#print",
     "title": "Java Basics",
     "section": "Print",
-    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream"
+    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream\n\n\n\n\\n: carriage return"
   },
   {
     "objectID": "doc/cours/code-slides.html#structures",
@@ -389,14 +389,14 @@
     "href": "doc/cours/code-slides.html#function",
     "title": "Java Basics",
     "section": "Function",
-    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)"
+    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)\n\n\n\nreminder: we are still in a class\nMethod name : camelCase"
   },
   {
     "objectID": "doc/cours/code-slides.html#various",
     "href": "doc/cours/code-slides.html#various",
     "title": "Java Basics",
     "section": "Various",
-    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\n\n++i\n+= works with Strings"
+    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\nMath.sqrt(3);\nMath.max(8, 5);\nMath.pow(2, 10);   // 1024\n\n\n++i\n+= works with Strings\n`%: modulo"
   },
   {
     "objectID": "doc/cours/code.html",
@@ -417,7 +417,7 @@
     "href": "doc/cours/code.html#hello-world",
     "title": "Java Basics",
     "section": "Hello World",
-    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files"
+    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files\nmain method"
   },
   {
     "objectID": "doc/cours/code.html#syntax",
@@ -431,63 +431,63 @@
     "href": "doc/cours/code.html#variables-and-data-types",
     "title": "Java Basics",
     "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2f;                   // type inference\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\nisJavaFun && !false || true;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString myString = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\nmyString.length();\nmyString.charAt(0);          // Get character at index 0\nmyString.contains(\"va\");\nmyString.toLowerCase();      // also toUpperCase\nmyString.endsWith(\"Java\");   // also startsWith\n\nmyString.equals(\"Java\");     // Use equals to compare, not ==\nOthers: replace(), split()"
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2F;                   // type inference -&gt; float\n\n\nstrong typing, immuable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\nisJavaFun && !false || true;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString myString = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\nmyString.length();\nmyString.charAt(0);          // Get character at index 0\nmyString.contains(\"va\");\nmyString.toLowerCase();      // also toUpperCase\nmyString.endsWith(\"Java\");   // also startsWith\n\nmyString.equals(\"Java\");     // Use equals to compare, not ==\nOthers: replace(), split()\n\n\nType casting\ndouble num1 = 9.78;\nint num2 = (int) num1;                   // Casting Narrowing\n\nString str1 = \"123\";\nint num1 = Integer.parseInt(str1);       // String to int\n\nString str2 = String.valueOf(num1);      // int to String\nString str3 = num1 + \"\"\ntoString() for Object types"
   },
   {
     "objectID": "doc/cours/code.html#print",
     "href": "doc/cours/code.html#print",
     "title": "Java Basics",
     "section": "Print",
-    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream"
+    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream\n\n\n\n\\n: carriage return"
   },
   {
     "objectID": "doc/cours/code.html#structures",
     "href": "doc/cours/code.html#structures",
     "title": "Java Basics",
     "section": "Structures",
-    "text": "Structures\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n\nTernary Operator\n\nShorter alternative to if-else\n\nString status = (number &gt; 0) ? \"Positive\": \"Negative\";\n\n\nSwitch\nString fruit = \"lemon\";\n\nswitch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; System.out.println(\"Red fruit\");\n    case \"banana\", \"lemon\" -&gt; System.out.println(\"Yellow fruit\");\n    default -&gt; System.out.println(\"Unknown fruit\");\n}\n\n\nswitch can return a value\n\nString color = switch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; \"Red fruit\";\n    case \"banana\", \"lemon\" -&gt; \"Yellow fruit\";\n    default -&gt; \"Unknown fruit\";\n};\n\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization: i = 0\ncondition: i &lt; 5\nupdate: i++\n\n\n\ncondition: checked before entering\nupdate: after each iteration\n\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num: numbers) {\n    System.out.println(num);\n}\n\n\nWhile\nint i = 10;\nwhile (i &gt;= 0) {\n    System.out.println(i);\n    i--;\n}\n\ndo-while to check after each iteration\ndo { ...\n} while { ... }\n\n\n\nbreak / continue\nfor (int i = 0; i &lt; 10; i++) {\n    if (i == 2)\n        continue;\n    else if (i == 4)\n        break;\n    System.out.println(\"Iteration: \" + i);\n}\n\n\nIteration: 0\nIteration: 1\nIteration: 3\n\n\nbreak: exit a single loop"
+    "text": "Structures\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n\nTernary Operator\n\nShorter alternative to if-else\n\nString status = (number &gt; 0) ? \"Positive\" : \"Negative\";\n\n\nSwitch\nString fruit = \"lemon\";\n\nswitch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; System.out.println(\"Red fruit\");\n    case \"banana\", \"lemon\" -&gt; System.out.println(\"Yellow fruit\");\n    default -&gt; System.out.println(\"Unknown fruit\");\n}\n\n\nswitch can return a value\n\nString color = switch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; \"Red fruit\";\n    case \"banana\", \"lemon\" -&gt; \"Yellow fruit\";\n    default -&gt; \"Unknown fruit\";\n};\n\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization: i = 0\ncondition: i &lt; 5\nupdate: i++\n\n\n\ncondition: checked before entering\nupdate: after each iteration\n\n\n\ncasimir.java\n\nint i = 0;\nfor ( ; ; ) {\n    if ( i &lt; 5)\n        break;\n    System.out.println(\"Iteration: \" + i);\n    i++;\n}\n\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num: numbers) {\n    System.out.println(num);\n}\n\nfirst and last time I’m going to talk about arrays\n\n\n\nWhile\nint i = 10;\nwhile (i &gt;= 0) {\n    System.out.println(i);\n    i--;\n}\n\ndo-while to check after each iteration\ndo { ...\n} while { ... }\n\n\n\nbreak / continue\nfor (int i = 0; i &lt; 10; i++) {\n    if (i == 2)\n        continue;\n    else if (i == 4)\n        break;\n    System.out.println(\"Iteration: \" + i);\n}\n\n\nIteration: 0\nIteration: 1\nIteration: 3\n\n\nbreak: exit a single loop"
   },
   {
     "objectID": "doc/cours/code.html#function",
     "href": "doc/cours/code.html#function",
     "title": "Java Basics",
     "section": "Function",
-    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)\n\n\nVoid\n\nIndicate that a method does not return any value\n\npublic void printIsOdd(int n) {\n    System.out.println(n % 2 != 0);\n}\n\n\nAccess Modifiers\nMethods and Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
+    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)\n\n\n\nreminder: we are still in a class\nMethod name : camelCase\n\n\n\nVoid\n\nIndicate that a method does not return any value\n\npublic void printIsOdd(int n) {\n    System.out.println(n % 2 != 0);\n}\n\n\nAccess Modifiers\nMethods and Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
   },
   {
     "objectID": "doc/cours/code.html#various",
     "href": "doc/cours/code.html#various",
     "title": "Java Basics",
     "section": "Various",
-    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\n\n++i\n+= works with Strings"
+    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\nMath.sqrt(3);\nMath.max(8, 5);\nMath.pow(2, 10);   // 1024\n\n\n++i\n+= works with Strings\n`%: modulo"
   },
   {
     "objectID": "doc/cours/intro-slides.html#introduction-to-java",
     "href": "doc/cours/intro-slides.html#introduction-to-java",
     "title": "Introduction",
     "section": "Introduction to Java",
-    "text": "Introduction to Java\n\n6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nbased on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
+    "text": "Introduction to Java\n\n6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nclass based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
   },
   {
     "objectID": "doc/cours/intro-slides.html#objectives",
     "href": "doc/cours/intro-slides.html#objectives",
     "title": "Introduction",
     "section": "Objectives",
-    "text": "Objectives\n\nLearn the basic syntax of Java\nUnderstand key OOP concepts\nLearn how to use collections"
+    "text": "Objectives\n\nLearn the basic syntax of Java\nUnderstand key OOP concepts\nLearn how to use collections\nBest practices"
   },
   {
     "objectID": "doc/cours/intro-slides.html#tp",
     "href": "doc/cours/intro-slides.html#tp",
     "title": "Introduction",
     "section": "TP",
-    "text": "TP\n\n4 x 3h\nDatalabs\nFollow instructions precisely\nDon’t use LLM"
+    "text": "TP\n\n4 x 3h\nDatalab SSPCloud\nFollow instructions precisely\nDon’t use LLM"
   },
   {
     "objectID": "doc/cours/intro-slides.html#evaluation",
     "href": "doc/cours/intro-slides.html#evaluation",
     "title": "Introduction",
     "section": "Evaluation",
-    "text": "Evaluation\n\nGraded TP to be completed at home\nTable-top exam (1h30, a handwritten A4 sheet)"
+    "text": "Evaluation\n\nGraded TP\n\n2 students max per group\nto be completed at home\n\nTable-top exam\n\nduration: 1h30\na handwritten A4 sheet allowed"
   },
   {
     "objectID": "doc/cours/intro-slides.html#why-java",
@@ -515,49 +515,56 @@
     "href": "doc/cours/intro-slides.html#java-vs-python",
     "title": "Introduction",
     "section": "Java Vs Python",
-    "text": "Java Vs Python\n\n\n\n\n\n\n\n\nCriterion\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping: int x = 10; vs x = 10\nInterpreted: exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
+    "text": "Java Vs Python\n\n\n\n\n\n\n\n\n\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping: int x = 10; vs x = 10\nInterpreted: exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
+  },
+  {
+    "objectID": "doc/cours/intro-slides.html#resources",
+    "href": "doc/cours/intro-slides.html#resources",
+    "title": "Introduction",
+    "section": "Resources",
+    "text": "Resources\n\nhttps://www.baeldung.com/get-started-with-java-series\nhttps://www.w3schools.com/java/\nhttps://www.jmdoudoux.fr/accueil_java.htm"
   },
   {
     "objectID": "doc/cours/intro.html",
     "href": "doc/cours/intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nbased on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
+    "text": "6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nclass based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
   },
   {
     "objectID": "doc/cours/intro.html#introduction-to-java",
     "href": "doc/cours/intro.html#introduction-to-java",
     "title": "Introduction",
     "section": "",
-    "text": "6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nbased on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
+    "text": "6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nclass based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
   },
   {
     "objectID": "doc/cours/intro.html#objectives",
     "href": "doc/cours/intro.html#objectives",
     "title": "Introduction",
     "section": "Objectives",
-    "text": "Objectives\n\nLearn the basic syntax of Java\nUnderstand key OOP concepts\nLearn how to use collections"
+    "text": "Objectives\n\nLearn the basic syntax of Java\nUnderstand key OOP concepts\nLearn how to use collections\nBest practices"
   },
   {
     "objectID": "doc/cours/intro.html#tp",
     "href": "doc/cours/intro.html#tp",
     "title": "Introduction",
     "section": "TP",
-    "text": "TP\n\n4 x 3h\nDatalabs\nFollow instructions precisely\nDon’t use LLM"
+    "text": "TP\n\n4 x 3h\nDatalab SSPCloud\nFollow instructions precisely\nDon’t use LLM"
   },
   {
     "objectID": "doc/cours/intro.html#evaluation",
     "href": "doc/cours/intro.html#evaluation",
     "title": "Introduction",
     "section": "Evaluation",
-    "text": "Evaluation\n\nGraded TP to be completed at home\nTable-top exam (1h30, a handwritten A4 sheet)"
+    "text": "Evaluation\n\nGraded TP\n\n2 students max per group\nto be completed at home\n\nTable-top exam\n\nduration: 1h30\na handwritten A4 sheet allowed"
   },
   {
     "objectID": "doc/cours/intro.html#why-java",
     "href": "doc/cours/intro.html#why-java",
     "title": "Introduction",
     "section": "Why Java",
-    "text": "Why Java\n\nHistory / Version\n\nCreated in 1991\n\nby James Gosling and Mike Sheridan (Sun Microsystems)\n\nJava 8 (2014) : Lambda, Stream, Optional\nJava 17 (2021)\nJava 21 (2023)\n\n\n\nFacebook story\nLTS\n2009 Oracle\n2017 Java 9 -&gt; Modules\n2018 Java 11\nJava 17 : Sealed Classes, Refactor JDK\n\n\n\n\nPopular / Mature\n\nWidely used in all sectors\nBack-end\nHeavily object-oriented\n\n\n\nPortability\n\nCompiled to bytecode\nRuns on any machine with a JVM\n“Write Once, Run Anywhere”\n\n\nWORA: desktop, servers, smartphones\n\n\n\nRobust / Secure\n\nAutomatic memory management\nStrong Static Typing\nCompile-Time Checks"
+    "text": "Why Java\n\nHistory / Version\n\nCreated in 1991\n\nby James Gosling and Mike Sheridan (Sun Microsystems)\n\nJava 8 (2014) : Lambda, Stream, Optional\nJava 17 (2021)\nJava 21 (2023)\n\nhttps://www.java.com/\n\n\nFacebook story\nLTS\n2009 Oracle\n2017 Java 9 -&gt; Modules\n2018 Java 11\nJava 17 : Sealed Classes, Refactor JDK\n\n\n\n\nPopular / Mature\n\nWidely used in all sectors\nBack-end, Mobile, Big Data\nHeavily object-oriented\n\n\n\nEnterprise Applications\nBackend Development (Spring Boot)\nMobile Development (via Kotlin & Android SDK)\nBig Data & Machine Learning\n\n\n\n\nPortability\n\nCompiled to bytecode\nRuns on any machine with a JVM\n“Write Once, Run Anywhere”\n\n\nWORA: desktop, servers, smartphones\n\n\n\nRobust / Secure\n\nAutomatic memory management\nStrong Static Typing\nCompile-Time Checks"
   },
   {
     "objectID": "doc/cours/intro.html#compiler",
@@ -571,14 +578,21 @@
     "href": "doc/cours/intro.html#jvm",
     "title": "Introduction",
     "section": "JVM",
-    "text": "JVM\n\n\n\n\n\n\nDefinition\n\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\njava MyClass ➡️ run main method\n\n\nJVM, JDK, JRE\n\nJRE: Java Runtime Environment\nJDK: Java Development Kit\n\n\n\n\nComponent\nPurpose\n\n\n\n\nJVM\nRuns Java bytecode\n\n\nJRE\nContains JVM + libraries to run Java apps\n\n\nJDK\nIncludes JRE + compiler + dev tools"
+    "text": "JVM\n\n\n\n\n\n\nDefinition\n\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\njava MyClass ➡️ run main method\n\n\nJVM, JDK, JRE\n\nJRE: Java Runtime Environment\nJDK: Java Development Kit\n\n\n\n\nComponent\nPurpose\n\n\n\n\nJVM\nRuns Java bytecode\n\n\nJRE\nContains JVM + libraries to run Java apps\n\n\nJDK\nIncludes JRE + compiler + dev tools\n\n\n\nhttps://openjdk.org/projects/jdk/\n\n\nJRE: java.util, java.io…, $java\n\nto execute java app\n\nJDK: $javac, new libraries\n\nto dev java app"
   },
   {
     "objectID": "doc/cours/intro.html#java-vs-python",
     "href": "doc/cours/intro.html#java-vs-python",
     "title": "Introduction",
     "section": "Java Vs Python",
-    "text": "Java Vs Python\n\n\n\n\n\n\n\n\nCriterion\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping: int x = 10; vs x = 10\nInterpreted: exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
+    "text": "Java Vs Python\n\n\n\n\n\n\n\n\n\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping: int x = 10; vs x = 10\nInterpreted: exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
+  },
+  {
+    "objectID": "doc/cours/intro.html#resources",
+    "href": "doc/cours/intro.html#resources",
+    "title": "Introduction",
+    "section": "Resources",
+    "text": "Resources\n\nhttps://www.baeldung.com/get-started-with-java-series\nhttps://www.w3schools.com/java/\nhttps://www.jmdoudoux.fr/accueil_java.htm\n\n\nPractice java language\n\nhttps://codingbat.com/java\nhttps://adventofcode.com/"
   },
   {
     "objectID": "doc/tp/tp2.html",

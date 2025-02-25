@@ -41,8 +41,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-57f86f76a34a3b5fcd4725c815234fdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ebe4cc08c959f78266c1f62ba9a6f235.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bd706bf7cc79ec682822fd2bf903aab3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-903665f6a46130ffbaec3b80528a79ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,6 +117,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../doc/cours/classes.html">
  <span class="dropdown-text">Classes</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/cours/advanced.html">
+ <span class="dropdown-text">Java level 2</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -178,6 +182,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#compiler" id="toc-compiler" class="nav-link" data-scroll-target="#compiler">Compiler</a></li>
   <li><a href="#jvm" id="toc-jvm" class="nav-link" data-scroll-target="#jvm">JVM</a></li>
   <li><a href="#java-vs-python" id="toc-java-vs-python" class="nav-link" data-scroll-target="#java-vs-python">Java Vs Python</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="intro-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
@@ -225,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 <li>12h TP</li>
 <li><code>ludovic.deneuville@ensai.fr</code></li>
 <li>office 161</li>
-<li>based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt</li>
+<li>class based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt</li>
 </ul>
 </section>
 <section id="objectives" class="level2">
@@ -234,13 +239,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Learn the basic syntax of Java</li>
 <li>Understand key OOP concepts</li>
 <li>Learn how to use collections</li>
+<li>Best practices</li>
 </ul>
 </section>
 <section id="tp" class="level2">
 <h2 class="anchored" data-anchor-id="tp">TP</h2>
 <ul>
 <li>4 x 3h</li>
-<li>Datalabs</li>
+<li>Datalab <a href="https://datalab.sspcloud.fr/" target="_blank">SSPCloud</a></li>
 <li>Follow instructions precisely</li>
 <li>Don’t use LLM</li>
 </ul>
@@ -248,8 +254,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
 <ul>
-<li>Graded TP to be completed at home</li>
-<li>Table-top exam (1h30, a handwritten A4 sheet)</li>
+<li>Graded TP
+<ul>
+<li>2 students max per group</li>
+<li>to be completed at home</li>
+</ul></li>
+<li>Table-top exam
+<ul>
+<li>duration: 1h30</li>
+<li>a handwritten A4 sheet allowed</li>
+</ul></li>
 </ul>
 </section>
 <section id="why-java" class="level2">
@@ -265,6 +279,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Java 17 (2021)</li>
 <li>Java 21 (2023)</li>
 </ul>
+<p><a href="https://www.java.com/" target="_blank">https://www.java.com/</a></p>
 <div class="notes">
 <ul>
 <li>Facebook story</li>
@@ -280,9 +295,17 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="popular-mature">Popular / Mature</h3>
 <ul>
 <li>Widely used in all sectors</li>
-<li>Back-end</li>
+<li>Back-end, Mobile, Big Data</li>
 <li>Heavily object-oriented</li>
 </ul>
+<div class="notes">
+<ul>
+<li>Enterprise Applications</li>
+<li>Backend Development (Spring Boot)</li>
+<li>Mobile Development (via Kotlin &amp; Android SDK)</li>
+<li>Big Data &amp; Machine Learning</li>
+</ul>
+</div>
 </section>
 <section id="portability" class="level3">
 <h3 class="anchored" data-anchor-id="portability">Portability</h3>
@@ -365,6 +388,19 @@ Definition
 </tr>
 </tbody>
 </table>
+<p><a href="https://openjdk.org/projects/jdk/" target="_blank">https://openjdk.org/projects/jdk/</a></p>
+<div class="notes">
+<ul>
+<li>JRE: java.util, java.io…, $java
+<ul>
+<li>to execute java app</li>
+</ul></li>
+<li>JDK: $javac, new libraries
+<ul>
+<li>to dev java app</li>
+</ul></li>
+</ul>
+</div>
 </section>
 </section>
 <section id="java-vs-python" class="level2 smaller">
@@ -377,7 +413,7 @@ Definition
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>Criterion</strong></th>
+<th></th>
 <th><strong>Java</strong></th>
 <th><strong>Python</strong></th>
 </tr>
@@ -422,8 +458,23 @@ Definition
 <li>Multi-paradigm (objet, fonctionnel, impératif)</li>
 </ul>
 </div>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.baeldung.com/get-started-with-java-series" target="_blank">https://www.baeldung.com/get-started-with-java-series</a></li>
+<li><a href="https://www.w3schools.com/java/" target="_blank">https://www.w3schools.com/java/</a></li>
+<li><a href="https://www.jmdoudoux.fr/accueil_java.htm" target="_blank">https://www.jmdoudoux.fr/accueil_java.htm</a></li>
+</ul>
+<section id="practice-java-language" class="level3">
+<h3 class="anchored" data-anchor-id="practice-java-language">Practice java language</h3>
+<ul>
+<li><a href="https://codingbat.com/java" target="_blank">https://codingbat.com/java</a></li>
+<li><a href="https://adventofcode.com/" target="_blank">https://adventofcode.com/</a></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
