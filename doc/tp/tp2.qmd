@@ -1,6 +1,6 @@
 ---
 title: "Java - TP2"
-description: "Full-Fledged Object Oriented Programming"
+description: "Object Oriented Programming"
 author: "Ludovic Deneuville"
 format:
   html:
@@ -12,100 +12,127 @@ number-sections: true
 number-depth: 3
 ---
 
-:construction:
-
-## Rappels sur Java
-
-- Langage orienté objet
-- Compilé en bytecode puis exécuté par la JVM
-  - fichier.java (dossier *src*) :arrow_right: *compilation* :arrow_right: fichier.class (dossier *bin*) :arrow_right: *éxécution* :arrow_right: *run*
-  - compiler : `javac fichier.java`
-  - éxécuter : `java fichier`
-- Points-virgules pour terminer les déclarations 
-- Accolades pour délimiter les blocs de code
-- Fortement typé statiquement
-  - vous devez déclarer le type de chaque variable
-  - ces types sont vérifiés à la compilation
-- Conventions de nommage : utilisation du `CamelCase`
-  - classe : première lettre MAJUSCULE, ex : VeloElectrique
-  - méthodes et variables : première lettre minuscule, ex : ajouterPanier()
+:construction: draft
 
 
-## Datalab
+## Objectives
 
-Il est possible de faire le TP soit sur la VM, soit sur le datalab
+POO
 
-- [ ] Connectez-vous sur le [datalab](https://datalab.sspcloud.fr/){target="_blank"}
-- [ ] Lancez le service [Java avec VScode](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} puis suivez les instructions
-- [ ] Ouvrez un terminal (CTRL + ù)
-  - [ ] Dans le terminal, collez `git clone https://github.com/i-yamane/JavaOOP-Practical-2.git`
-- [ ] File > Open Folder > */home/onyxia/work/JavaOOP-Practical-2/*
-  - :warning: important d'ouvrir le bon dossier !
-- [ ] Ouvrez à nouveau un terminal
-  - [ ] Positionnez-vous dans le bon dossier : `cd JavaOOP-Practical-2`
-  - [ ] Compilez le *Main* : `javac -d bin -sourcepath src ./src/Main.java`
-  - [ ] Exécutez le programme : `java -classpath bin Main`
+## Update repo
 
+careful with fork
 
-## VM
+File > Open Folder > tp2
 
-- Sur votre disque `P:`, 
-  - [ ] créez un dossier `Java`, 
-  - [ ] à l'intérieur, créez un dossier `TP2`
-- [ ] Clic droit > Ouvrir Git Bash
-  - [ ] `git clone https://github.com/i-yamane/JavaOOP-Practical-2.git`
-- [ ] Ouvrez Visual Studio Code
-  - [ ] File > Open Folder
-  - [ ] Allez dans le dossier *TP2*
-  - [ ] Un clic sur *JavaOOP-Practical-2*, ensuite `Sélectionner un dossier`
-  - [ ] Ouvrez un terminal (CTRL+ù)
+## Compile and run
 
-## Exercices
+### Maven
 
-### Exercice 1
+- `mvn clean install`
+  - Drop target, Download dependencies, Compile, Run TU, Package project
+- `mvn clean compile`
+  - Drop target, Download dependencies, Compile
+- `mvn exec:java -Dexec.mainClass="fr.ensai.library.Main"`
 
-- [ ] Compilez puis exécutez le Main
-  - `javac -d bin -sourcepath src .\src\Main.java`
-  - `java -classpath bin Main`
-- [ ] Rangez les fichiers dans les bons dossiers
-  - [ ] Mettez à jour les imports
-  - `javac -d bin -sourcepath src .\src\edu\ensai\pokemon\main\Main.java`
-  - `java -cp bin edu.ensai.pokemon.main.Main`
+Manually :
 
-### Exercice 2
-
-- Pour tous les attributs
-  - [ ] public :arrow_right: private
-  - [ ] Créez Getter et Setters
-  - [ ] Adaptez et corrigez le *Main.java*
+- `javac -d bin src/main/java/edu/ensai/library/*.java`
+- `java -cp bin tp2.src.main.java.edu.ensai.library.Main`
 
 
-### Exercice 3
+## Exercice : Library management
 
-- [ ] Commencez par bien faire le diagramme UML
-- Héritage, classe abstraite :arrow_right: comme en Python
-- Implémentation
-  - En Java, il n'y a pas d'Héritage multiple
-  - Permet de forcer les classes à implémenter des méthodes
-  - Possible d'implémenter plusieurs interfaces
+The goal of this exercise is to simulate the management of a library where students can borrow books.
+
+Classes *Author* and *Book* are already provided.
+
+### Steps
+
+- [ ] Library
+- [ ] Main
+  - compile and run
+- [ ] Abstract Item
+  - Modify Book
+  - Create Magazine
+- [ ] Loan
+  - Create Student
+
+### Create the library
+
+This class will represent the library and will have the following [private]{.underline} attributes:
+
+- *name*: A string that represents the name of the library
+- *books*: A list of Books
+
+and methods:
+
+- a constructor
+- *addBook(Book book)*: Adds a book to the library's collection
+- *displayBooks()* 
+  - print all books of the library
+  - or print a message if there is no book
+
+---
+
+- [ ] Create the `Library` class
+
+### Load books from file
+
+:construction: 
+
+All operations related to the library will be handled in the main class
 
 
-### Exercice 4
-
-- Paramétrage pour utiliser la commande `javadoc`
-  - Lancez les 2 commandes suivantes dans votre terminal powershell
-    - `$env:JAVA_HOME = "C:\Program Files\Java\jdk-11.0.11"`
-    - `$env:PATH += ";$env:JAVA_HOME\bin"`
-  - Elles permettent de dire où est installée le programme *javadoc*
-- [ ] Générez la javadoc
-  - `javadoc -d doc -sourcepath src -subpackages edu.ensai.pokemon`
-- [ ] Dans votre dossier, ouvrez dans *doc/index.html*
-  - pour ceux sur le [Datalab]{.underline} :
-    - [ ] Clic droit sur le dossier *doc*
-    - [ ] Download
+- [ ] Create the Main class with a main method
+- [ ] In the main method, Create an instance of the Library
+- [ ] Use the appropriate method to load books from the file *books.csv*
+- [ ] Display all books
 
 
-## Exemple de classe
+### Magazine
+
+The library is evolving and now includes magazines in addition to books. To accommodate this change, update your implementation while following object-oriented programming (OOP) principles
+
+- [ ] Introduce an abstract class `Item` that will serve as the parent for both *Book* and *Magazine*
+  - attributes: title, year, pageCount
+- [ ] Modify class `Book` extends Item
+- [ ] Create class `Magazine` extends Item
+  - attributes: issn, issueNumber
+
+### Loans
+
+The library system now needs to support book loans for students. To achieve this, update the implementation as follows:
+
+- [ ] Create a class `Student`
+  - attributes: name, age, academicYear
+- [ ] Create a class `Loan`
+  - attributes: student, item, startDate, returnDate (null at creation)
+  - methods: 
+    - setReturnDate() to update the return date
+    - toString() returning a String like "Item xxx borrowed by yyy."
+- [ ] Update the `Library` class adding two attributes:
+  - activeLoans (A list of ongoing loans)
+  - completedLoans (A list of returned loans)
+
+
+### Various methods
+
+In the Library class create following methods:
+
+- [ ] getBooksByAuthor(Author author) -> ArrayList<Book>
+
+
+
+
+
+
+
+
+
+## Java class
+
+### Example
 
 ```{.java}
 import java.util.ArrayList;
@@ -115,6 +142,9 @@ import java.util.ArrayList;
  * Attributes : name, age, and a list of notes.
  */
 public class Student {
+    // -------------------------------------------------------
+    // Attributes
+    // -------------------------------------------------------
     private String name;
     private int age;
     private ArrayList<Double> notes;
@@ -215,13 +245,16 @@ public class Student {
 ```
 
 
-## Modèle de classe
+### Template
 
 ```{.java}
 /**
  * Represents a ...
  */
 public class ClassName {
+    // -------------------------------------------------------
+    // Attributes
+    // -------------------------------------------------------
     private String attribute1;
     private int attribute2;
 
@@ -278,45 +311,3 @@ public class ClassName {
 }
 ```
 
-
-
-
-
-```{mermaid}
-classDiagram
-    class Item {
-        + name: String
-        + price: int
-        + isPermanent(): boolean
-        + isSingleUse(): boolean
-        + isUnusable(): boolean
-    }
-
-    class SingleUseItem {
-        - alreadyUsed: bool
-        + consume()
-    }
-
-
-    class Potion {
-        - hp_gain: int
-    }
-
-    class Sweet {
-        - xp_gain: int
-        + use(): int
-    }
-    
-    class Healer{
-        <<interface>>
-        + heal()
-    }
-
-    Item <|-- SingleUseItem
-    Item <|-- PermanentItem
-
-    SingleUseItem <|-- Potion
-    SingleUseItem <|-- Sweet
-    
-    Potion ..|> Healer : implements
-```

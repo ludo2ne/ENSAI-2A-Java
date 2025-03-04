@@ -24,7 +24,7 @@ lightbox: true
 - 6h CM
 - 12h TP
 - `ludovic.deneuville@ensai.fr`
-- office 161
+- office 181
 - class based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt
 
 
