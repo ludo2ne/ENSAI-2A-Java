@@ -17,28 +17,73 @@ number-depth: 3
 
 ## Objectives
 
-POO
+- POO
+- Introduction to Maven
+- JUnit
 
-## Update repo
+## Before you start
 
-careful with fork
+### Launch service VSCode Java
 
-File > Open Folder > tp2
+- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} using this link
+
+### Update your repo
+
+::: {.callout-important}
+During the first tutorial, you created a fork of the ENSAI-2A-Java-TP repository, i.e. you created a copy of this repository on GitHub.
+
+The original repository has been updated, so you need to synchronise your fork with the latest version of the repository.
+:::
+
+[Choose one]{.underline} of these two possibilities to perform it :
+
+- Using GitHub interface : sync on GitHub, and then clone on your VSCode
+- Manually : clone on your VSCode, and then sync using git commands
+
+#### Using GitHub interface (easy way)
+
+- [ ] Login to [GitHub](https://github.com/){target="_blank"}
+- [ ] Open the fork of ENSAI-2A-Java-TP, you created at the first practical
+- [ ] Clic on Sync fork
+- [ ] Open a terminal in VSCode an clone your repo
+
+#### In a terminal
+
+- [ ] Open a terminal in VSCode
+- [ ] Clone your repository
+- [ ] Position yourself into the repo using `cd <my_repo>`
+- [ ] Add the original repository as a remote (call it *upstream*)
+  - `git remote add upstream https://github.com/ludo2ne/ENSAI-2A-Java-TP.git`
+- [ ] Fetch the latest changes from upstream
+  - `git fetch upstream`
+- [ ] Make sure you're on the branch main
+  - `git checkout main`
+- [ ] Merge the changes
+  - `git merge upstream/main`
+- [ ] Resolve any conflicts (if necessary)
+- [ ] Push the updates to your fork
+  - `git push origin main`
+
+
+### Open Folder
+
+
+- [ ] File > Open Folder > tp2
+
+**tp2** must be the root folder of your explorer.
+
 
 ## Compile and run
 
 ### Maven
 
-- `mvn clean install`
-  - Drop target, Download dependencies, Compile, Run TU, Package project
 - `mvn clean compile`
-  - Drop target, Download dependencies, Compile
-- `mvn exec:java -Dexec.mainClass="fr.ensai.library.Main"`
+  - Drop target folder, Download dependencies, Compile
+- `mvn exec:java`
+  - Run *main* method of *Main* class
+- `mvn test`
+  - Run unit tests
 
-Manually :
-
-- `javac -d bin src/main/java/edu/ensai/library/*.java`
-- `java -cp bin tp2.src.main.java.edu.ensai.library.Main`
 
 
 ## Exercice : Library management
@@ -76,15 +121,70 @@ and methods:
 ---
 
 - [ ] Create the `Library` class
+- [ ] Add the method *loadBooksFromCSV()*
+  - also add needed imports at the top of the class
+
+```{.java}
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+
+
+    /**
+     * Loads books from a CSV file and adds them to the library.
+     * 
+     * @param filePath The path to the CSV file containing book data.
+     * @throws IOException If there is an error reading the file, an
+     *                     {@link IOException} will be thrown.
+     */
+    public void loadBooksFromCSV(String filePath) {
+
+        URL url = getClass().getClassLoader().getResource(filePath);
+
+        try (BufferedReader br = new BufferedReader(new FileReader(url.getFile()))) {
+            Map<String, Author> authors = new HashMap<>();
+            String line;
+            br.readLine(); // Skip the header line
+
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+
+                if (data.length == 5) {
+                    String isbn = data[0].trim();
+                    String title = data[1].trim();
+                    String authorName = data[2].trim();
+                    int year = Integer.parseInt(data[3].trim());
+                    int pageCount = Integer.parseInt(data[4].trim());
+
+                    // Check if author already exists in the map
+                    Author author = authors.get(authorName);
+                    if (author == null) {
+                        author = new Author(authorName);
+                        authors.put(authorName, author);
+                        System.out.println(author.toString());
+                    }
+                    Book book = new Book(isbn, title, author, year, pageCount);
+
+                    this.addIem(book);
+                }
+            }
+        } catch (
+
+        IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+    }
+```
+
 
 ### Load books from file
 
-:construction: 
 
 All operations related to the library will be handled in the main class
 
-
-- [ ] Create the Main class with a main method
+- [ ] Create the Main class (*Main.java*) with a main method
 - [ ] In the main method, Create an instance of the Library
 - [ ] Use the appropriate method to load books from the file *books.csv*
 - [ ] Display all books
@@ -105,7 +205,7 @@ The library is evolving and now includes magazines in addition to books. To acco
 The library system now needs to support book loans for students. To achieve this, update the implementation as follows:
 
 - [ ] Create a class `Student`
-  - attributes: name, age, academicYear
+  - attributes: name, age, academicYear, isClassDelegate
 - [ ] Create a class `Loan`
   - attributes: student, item, startDate, returnDate (null at creation)
   - methods: 
@@ -118,15 +218,20 @@ The library system now needs to support book loans for students. To achieve this
 
 ### Various methods
 
-In the Library class create following methods:
+In the *Library* class create following methods:
 
 - [ ] getBooksByAuthor(Author author) -> ArrayList<Book>
-
-
-
-
-
-
+  - write tests
+- [ ] findActiveLoanForItem(Item item) -> Loan
+  - Look if the item is present in active loans 
+  - Run tests
+- [ ] loanItem(Item item, Student student) -> boolean
+  - Check if the item is available
+  - Create a Loan and add it to activeLoans
+- [ ] renderItem(Item item) -> boolean
+  - Find the Loan if exists
+  - Add a return date
+  - Move an item from activeLoans to completedLoans
 
 
 
