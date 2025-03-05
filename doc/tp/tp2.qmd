@@ -90,18 +90,73 @@ The original repository has been updated, so you need to synchronise your fork w
 
 The goal of this exercise is to simulate the management of a library where students can borrow books.
 
-Classes *Author* and *Book* are already provided.
+Steps :
 
-### Steps
+- At first two classes are provided, *Author* and *Book*
+- Create a class representing the library (attributes, methods)
+- Create a Main class which will be the entry point for your program (main method, compile, run)
+- The library also offers magazines. use OOP to upgrade your system (inheritance, abstract class)
+- Set up features for loaning books and magazines
 
-- [ ] Library
-- [ ] Main
-  - compile and run
-- [ ] Abstract Item
-  - Modify Book
-  - Create Magazine
-- [ ] Loan
-  - Create Student
+
+At the end of the tp, your code must implement this class diagram :
+
+```{mermaid}
+classDiagram
+    class Library {
+        List~Item~ items
+        List~Loan~ activeLoans
+        List~Loan~ completedLoans
+    }
+    
+    class Item {
+        String title
+        int year
+        int pageCount
+    }
+    
+    class Book {
+        String isbn
+        Author author
+    }
+    
+    class Magazine {
+        String issn
+        String issueNumber
+    }
+
+    class Person {
+        String name
+        int age
+    }
+
+    class Author {
+        String nationality
+    }
+
+    class Student {
+        int academicYear
+        boolean isClassDelegate
+    }
+
+    class Loan {
+        Item item
+        Student borrower
+        Date startDate
+        Date returnDate
+    }
+
+    Library  --  Item : has
+    Library  --  Loan : manages
+    Loan  --  Item : relates to
+    Loan  --  Student : borrowed by
+    Person <|-- Author : extends
+    Person <|-- Student : extends
+    Item <|-- Magazine : extends
+    Item <|-- Book : extends
+    Book  -- Author : written by
+```
+
 
 ### Create the library
 
@@ -122,10 +177,12 @@ and methods:
 
 - [ ] Create the `Library` class
 - [ ] Add the method *loadBooksFromCSV()*
+  - copy the code below
   - also add needed imports at the top of the class
 
-```{.java}
+::: {.callout-note collapse="true" title="loadBooksFromCSV"}
 
+```{.java}
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -177,6 +234,8 @@ import java.net.URL;
         }
     }
 ```
+
+:::
 
 
 ### Load books from file
@@ -239,7 +298,7 @@ In the *Library* class create following methods:
 
 ### Example
 
-```{.java}
+```{.java filename="Student.java"}
 import java.util.ArrayList;
 
 /**
@@ -333,7 +392,6 @@ public class Student {
         return sum / this.notes.size();
     }
 
-
     /**
      * Main method
      */
@@ -352,7 +410,7 @@ public class Student {
 
 ### Template
 
-```{.java}
+```{.java filename="ClassName.java"}
 /**
  * Represents a ...
  */
