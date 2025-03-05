@@ -33,3 +33,4 @@ lightbox: true
 - Spring Boot
 - Hibernate
 - <https://rules.sonarsource.com/java/>
+- Enum

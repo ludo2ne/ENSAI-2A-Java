@@ -79,6 +79,17 @@ public class Bike {
 
 - static: class attribute
 
+### Reminder : Attributes Accessiblility
+
+| Modifier                | Same Class | Same Package | Subclasses  |  Everywhere   |
+|-------------------------|------------|--------------|-------------|---------------|
+| public                  | ✅         | ✅          | ✅          | ✅           |
+| protected               | ✅         | ✅          | ✅          | ❌           |
+| *default* (no modifier) | ✅         | ✅          | ❌          | ❌           |
+| private                 | ✅         | ❌          | ❌          | ❌           |
+
+
+
 ## Constructor
 
 ```{.java filename="Bike.java"}
@@ -125,12 +136,21 @@ Bike myBike = new Bike();
 - Error if another constructor is provided
 :::
 
-### Call a method
+## Call a method
 
 ```{.java}
+// Create a Bike object calling the constructor
 Bike greenBike = new Bike("Green", true);
+
+// Call methods
+greenBike.accelerate(5);
+System.out.println(greenBike.getSpeed());
 ```
 
+:::{.notes}
+- accelerate(int) -> void
+- getSpeed() -> int
+:::
 
 
 ## Main method
@@ -146,11 +166,11 @@ public static void main(String[] args) {
 
 
 ::: {.notes}
-- public :	Makes the method accessible from anywhere (required for JVM to call it)
-- static :	Allows calling the method without creating an instance of the class.
-- void :	The method does not return any value.
-- main	The method name that JVM looks for to start execution.
-- String[] args	Array of command-line arguments passed when running the program
+- public:	Makes the method accessible from anywhere (required for JVM to call it)
+- static:	Allows calling the method without creating an instance of the class.
+- void:	    The method does not return any value.
+- main:	    The method name that JVM looks for to start execution.
+- String[]: args	Array of command-line arguments passed when running the program
 :::
 
 
@@ -177,8 +197,6 @@ public class Vehicle {
 - `super.foo()`: method *foo()* of the parent class
 
 ```{.java filename="Bike.java"}
-import Vehicle;
-
 public class Bike extends Vehicle {
     private boolean pannierRacks;
 
@@ -219,8 +237,6 @@ public abstract class Vehicle {
 ### Override method
 
 ```{.java filename="Bike.java"}
-import Vehicle;
-
 public class Bike extends Vehicle {
     private boolean pannierRacks;
 
@@ -249,8 +265,86 @@ public class Bike extends Vehicle {
 
 ## Polymorphism
 
+### Substitution
+
+```{.java filename="Main.java"}
+Bike bike1 = new Bike();
+Bike bike2 = new Bike();
+Scooter scooter1 = new Scooter();
+Scooter scooter2 = new Scooter();
+
+List<Vehicle> vehicles = List.of(bike1, bike2, scooter1, scooter2);
+
+// Accelerate all vehicles
+for (Vehicle vehicle : vehicles) {
+    vehicle.accelerate(10);
+}
+```
+
+### Overloading
+
+```{.java filename="Bike.java"}
+public class Bike extends Vehicle {
+    private boolean pannierRacks;
+
+    ...
+
+    public void accelerate(int increment) {
+        this.speed += increment;
+    }
+    
+    public void accelerate() {
+        this.speed += 5;
+    }
+        
+    public void accelerate(double increment) {
+        this.speed += increment.intValue();
+    }
+```
+
 
 ## JavaDoc
 
+```{.java filename="Bike.java"}
+/**
+ * Represents a Bike, a type of Vehicle.
+ */
+public class Bike extends Vehicle {
+    private boolean pannierRacks;
 
-## Enum
+    /**
+     * Constructs a Bike with the given color
+     */
+    public Bike(String color) {
+        super(color);
+        this.pannierRacks = false;
+    }
+
+    /**
+     * Produces the sound of a bike's honk (dring).
+     */
+    @Override
+    public void honk() {
+        System.out.println("Dring");
+    }
+
+    /**
+     * Accelerates the bike by the given increment, plus an additional 2 units.
+     *
+     * @param increment The amount to increase the speed by.
+     */
+    @Override
+    public void accelerate(int increment) {
+        this.speed += increment + 2;
+    }
+
+    /**
+     * Checks if the bike has pannier racks.
+     *
+     * @return true if the bike has pannier racks, false otherwise.
+     */
+    public boolean hasPannierRacks() {
+        return pannierRacks;
+    }
+```
+
