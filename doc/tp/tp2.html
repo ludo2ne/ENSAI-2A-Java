@@ -104,6 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -221,12 +224,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#exercice-library-management" id="toc-exercice-library-management" class="nav-link" data-scroll-target="#exercice-library-management"><span class="header-section-number">4</span> Exercice : Library management</a>
   <ul class="collapse">
-  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps"><span class="header-section-number">4.1</span> Steps</a></li>
-  <li><a href="#create-the-library" id="toc-create-the-library" class="nav-link" data-scroll-target="#create-the-library"><span class="header-section-number">4.2</span> Create the library</a></li>
-  <li><a href="#load-books-from-file" id="toc-load-books-from-file" class="nav-link" data-scroll-target="#load-books-from-file"><span class="header-section-number">4.3</span> Load books from file</a></li>
-  <li><a href="#magazine" id="toc-magazine" class="nav-link" data-scroll-target="#magazine"><span class="header-section-number">4.4</span> Magazine</a></li>
-  <li><a href="#loans" id="toc-loans" class="nav-link" data-scroll-target="#loans"><span class="header-section-number">4.5</span> Loans</a></li>
-  <li><a href="#various-methods" id="toc-various-methods" class="nav-link" data-scroll-target="#various-methods"><span class="header-section-number">4.6</span> Various methods</a></li>
+  <li><a href="#create-the-library" id="toc-create-the-library" class="nav-link" data-scroll-target="#create-the-library"><span class="header-section-number">4.1</span> Create the library</a></li>
+  <li><a href="#load-books-from-file" id="toc-load-books-from-file" class="nav-link" data-scroll-target="#load-books-from-file"><span class="header-section-number">4.2</span> Load books from file</a></li>
+  <li><a href="#magazine" id="toc-magazine" class="nav-link" data-scroll-target="#magazine"><span class="header-section-number">4.3</span> Magazine</a></li>
+  <li><a href="#loans" id="toc-loans" class="nav-link" data-scroll-target="#loans"><span class="header-section-number">4.4</span> Loans</a></li>
+  <li><a href="#various-methods" id="toc-various-methods" class="nav-link" data-scroll-target="#various-methods"><span class="header-section-number">4.5</span> Various methods</a></li>
   </ul></li>
   <li><a href="#java-class" id="toc-java-class" class="nav-link" data-scroll-target="#java-class"><span class="header-section-number">5</span> Java class</a>
   <ul class="collapse">
@@ -381,28 +383,81 @@ Important
 <section id="exercice-library-management" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="exercice-library-management"><span class="header-section-number">4</span> Exercice : Library management</h2>
 <p>The goal of this exercise is to simulate the management of a library where students can borrow books.</p>
-<p>Classes <em>Author</em> and <em>Book</em> are already provided.</p>
-<section id="steps" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="steps"><span class="header-section-number">4.1</span> Steps</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Library</label></li>
-<li><label><input type="checkbox">Main</label>
+<p>Steps :</p>
 <ul>
-<li>compile and run</li>
-</ul></li>
-<li><label><input type="checkbox">Abstract Item</label>
-<ul>
-<li>Modify Book</li>
-<li>Create Magazine</li>
-</ul></li>
-<li><label><input type="checkbox">Loan</label>
-<ul>
-<li>Create Student</li>
-</ul></li>
+<li>At first two classes are provided, <em>Author</em> and <em>Book</em></li>
+<li>Create a class representing the library (attributes, methods)</li>
+<li>Create a Main class which will be the entry point for your program (main method, compile, run)</li>
+<li>The library also offers magazines. use OOP to upgrade your system (inheritance, abstract class)</li>
+<li>Set up features for loaning books and magazines</li>
 </ul>
-</section>
-<section id="create-the-library" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="create-the-library"><span class="header-section-number">4.2</span> Create the library</h3>
+<p>At the end of the tp, your code must implement this class diagram :</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+    class Library {
+        List~Item~ items
+        List~Loan~ activeLoans
+        List~Loan~ completedLoans
+    }
+    
+    class Item {
+        String title
+        int year
+        int pageCount
+    }
+    
+    class Book {
+        String isbn
+        Author author
+    }
+    
+    class Magazine {
+        String issn
+        String issueNumber
+    }
+
+    class Person {
+        String name
+        int age
+    }
+
+    class Author {
+        String nationality
+    }
+
+    class Student {
+        int academicYear
+        boolean isClassDelegate
+    }
+
+    class Loan {
+        Item item
+        Student borrower
+        Date startDate
+        Date returnDate
+    }
+
+    Library  --  Item : has
+    Library  --  Loan : manages
+    Loan  --  Item : relates to
+    Loan  --  Student : borrowed by
+    Person &lt;|-- Author : extends
+    Person &lt;|-- Student : extends
+    Item &lt;|-- Magazine : extends
+    Item &lt;|-- Book : extends
+    Book  -- Author : written by
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="create-the-library" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="create-the-library"><span class="header-section-number">4.1</span> Create the library</h3>
 <p>This class will represent the library and will have the following <u>private</u> attributes:</p>
 <ul>
 <li><em>name</em>: A string that represents the name of the library</li>
@@ -423,63 +478,78 @@ Important
 <li><label><input type="checkbox">Create the <code>Library</code> class</label></li>
 <li><label><input type="checkbox">Add the method <em>loadBooksFromCSV()</em></label>
 <ul>
+<li>copy the code below</li>
 <li>also add needed imports at the top of the class</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">BufferedReader</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">FileReader</span><span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">net</span><span class="op">.</span><span class="im">URL</span><span class="op">;</span></span>
+<div class="callout callout-style-default callout-note callout-titled" title="loadBooksFromCSV">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+loadBooksFromCSV
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">BufferedReader</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">FileReader</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">net</span><span class="op">.</span><span class="im">URL</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Loads books from a CSV file and adds them to the library<span class="co">.</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">filePath</span><span class="co"> </span>The path to the CSV file containing book data<span class="co">.</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@throws</span><span class="co"> </span><span class="an">IOException</span><span class="co"> </span>If there is an error reading the file<span class="co">,</span> an</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span>                     <span class="an">{@link</span> IOException<span class="an">}</span> will be thrown<span class="co">.</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">loadBooksFromCSV</span><span class="op">(</span><span class="bu">String</span> filePath<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">URL</span> url <span class="op">=</span> <span class="fu">getClass</span><span class="op">().</span><span class="fu">getClassLoader</span><span class="op">().</span><span class="fu">getResource</span><span class="op">(</span>filePath<span class="op">);</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> br <span class="op">=</span> <span class="kw">new</span> <span class="bu">BufferedReader</span><span class="op">(</span><span class="kw">new</span> <span class="bu">FileReader</span><span class="op">(</span>url<span class="op">.</span><span class="fu">getFile</span><span class="op">())))</span> <span class="op">{</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> Author<span class="op">&gt;</span> authors <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> line<span class="op">;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            br<span class="op">.</span><span class="fu">readLine</span><span class="op">();</span> <span class="co">// Skip the header line</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="op">((</span>line <span class="op">=</span> br<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                <span class="bu">String</span><span class="op">[]</span> data <span class="op">=</span> line<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>data<span class="op">.</span><span class="fu">length</span> <span class="op">==</span> <span class="dv">5</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">String</span> isbn <span class="op">=</span> data<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">trim</span><span class="op">();</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">String</span> title <span class="op">=</span> data<span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="fu">trim</span><span class="op">();</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">String</span> authorName <span class="op">=</span> data<span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="fu">trim</span><span class="op">();</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">int</span> year <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>data<span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="fu">trim</span><span class="op">());</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">int</span> pageCount <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>data<span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="fu">trim</span><span class="op">());</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                    <span class="co">// Check if author already exists in the map</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                    Author author <span class="op">=</span> authors<span class="op">.</span><span class="fu">get</span><span class="op">(</span>authorName<span class="op">);</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> <span class="op">(</span>author <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>                        author <span class="op">=</span> <span class="kw">new</span> <span class="fu">Author</span><span class="op">(</span>authorName<span class="op">);</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                        authors<span class="op">.</span><span class="fu">put</span><span class="op">(</span>authorName<span class="op">,</span> author<span class="op">);</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>author<span class="op">.</span><span class="fu">toString</span><span class="op">());</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                    <span class="op">}</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">Book</span> book <span class="op">=</span> <span class="kw">new</span> <span class="bu">Book</span><span class="op">(</span>isbn<span class="op">,</span> title<span class="op">,</span> author<span class="op">,</span> year<span class="op">,</span> pageCount<span class="op">);</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">this</span><span class="op">.</span><span class="fu">addIem</span><span class="op">(</span>book<span class="op">);</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">err</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Error reading the file: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Loads books from a CSV file and adds them to the library<span class="co">.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">filePath</span><span class="co"> </span>The path to the CSV file containing book data<span class="co">.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@throws</span><span class="co"> </span><span class="an">IOException</span><span class="co"> </span>If there is an error reading the file<span class="co">,</span> an</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span>                     <span class="an">{@link</span> IOException<span class="an">}</span> will be thrown<span class="co">.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">loadBooksFromCSV</span><span class="op">(</span><span class="bu">String</span> filePath<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">URL</span> url <span class="op">=</span> <span class="fu">getClass</span><span class="op">().</span><span class="fu">getClassLoader</span><span class="op">().</span><span class="fu">getResource</span><span class="op">(</span>filePath<span class="op">);</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> br <span class="op">=</span> <span class="kw">new</span> <span class="bu">BufferedReader</span><span class="op">(</span><span class="kw">new</span> <span class="bu">FileReader</span><span class="op">(</span>url<span class="op">.</span><span class="fu">getFile</span><span class="op">())))</span> <span class="op">{</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> Author<span class="op">&gt;</span> authors <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> line<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            br<span class="op">.</span><span class="fu">readLine</span><span class="op">();</span> <span class="co">// Skip the header line</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="op">((</span>line <span class="op">=</span> br<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                <span class="bu">String</span><span class="op">[]</span> data <span class="op">=</span> line<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>data<span class="op">.</span><span class="fu">length</span> <span class="op">==</span> <span class="dv">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">String</span> isbn <span class="op">=</span> data<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">trim</span><span class="op">();</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">String</span> title <span class="op">=</span> data<span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="fu">trim</span><span class="op">();</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">String</span> authorName <span class="op">=</span> data<span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="fu">trim</span><span class="op">();</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">int</span> year <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>data<span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="fu">trim</span><span class="op">());</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">int</span> pageCount <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>data<span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="fu">trim</span><span class="op">());</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>                    <span class="co">// Check if author already exists in the map</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                    Author author <span class="op">=</span> authors<span class="op">.</span><span class="fu">get</span><span class="op">(</span>authorName<span class="op">);</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> <span class="op">(</span>author <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>                        author <span class="op">=</span> <span class="kw">new</span> <span class="fu">Author</span><span class="op">(</span>authorName<span class="op">);</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>                        authors<span class="op">.</span><span class="fu">put</span><span class="op">(</span>authorName<span class="op">,</span> author<span class="op">);</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>author<span class="op">.</span><span class="fu">toString</span><span class="op">());</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                    <span class="op">}</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">Book</span> book <span class="op">=</span> <span class="kw">new</span> <span class="bu">Book</span><span class="op">(</span>isbn<span class="op">,</span> title<span class="op">,</span> author<span class="op">,</span> year<span class="op">,</span> pageCount<span class="op">);</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">this</span><span class="op">.</span><span class="fu">addIem</span><span class="op">(</span>book<span class="op">);</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">err</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Error reading the file: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="load-books-from-file" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="load-books-from-file"><span class="header-section-number">4.3</span> Load books from file</h3>
+<section id="load-books-from-file" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="load-books-from-file"><span class="header-section-number">4.2</span> Load books from file</h3>
 <p>All operations related to the library will be handled in the main class</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Create the Main class (<em>Main.java</em>) with a main method</label></li>
@@ -488,8 +558,8 @@ Important
 <li><label><input type="checkbox">Display all books</label></li>
 </ul>
 </section>
-<section id="magazine" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="magazine"><span class="header-section-number">4.4</span> Magazine</h3>
+<section id="magazine" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="magazine"><span class="header-section-number">4.3</span> Magazine</h3>
 <p>The library is evolving and now includes magazines in addition to books. To accommodate this change, update your implementation while following object-oriented programming (OOP) principles</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Introduce an abstract class <code>Item</code> that will serve as the parent for both <em>Book</em> and <em>Magazine</em></label>
@@ -503,8 +573,8 @@ Important
 </ul></li>
 </ul>
 </section>
-<section id="loans" class="level3" data-number="4.5">
-<h3 data-number="4.5" class="anchored" data-anchor-id="loans"><span class="header-section-number">4.5</span> Loans</h3>
+<section id="loans" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="loans"><span class="header-section-number">4.4</span> Loans</h3>
 <p>The library system now needs to support book loans for students. To achieve this, update the implementation as follows:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Create a class <code>Student</code></label>
@@ -527,8 +597,8 @@ Important
 </ul></li>
 </ul>
 </section>
-<section id="various-methods" class="level3" data-number="4.6">
-<h3 data-number="4.6" class="anchored" data-anchor-id="various-methods"><span class="header-section-number">4.6</span> Various methods</h3>
+<section id="various-methods" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="various-methods"><span class="header-section-number">4.5</span> Various methods</h3>
 <p>In the <em>Library</em> class create following methods:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">getBooksByAuthor(Author author) -&gt; ArrayList<book></book></label>
@@ -558,7 +628,11 @@ Important
 <h2 data-number="5" class="anchored" data-anchor-id="java-class"><span class="header-section-number">5</span> Java class</h2>
 <section id="example" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="example"><span class="header-section-number">5.1</span> Example</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Student.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="Student.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Represents a student</span>
@@ -651,24 +725,28 @@ Important
 <span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> sum <span class="op">/</span> <span class="kw">this</span><span class="op">.</span><span class="fu">notes</span><span class="op">.</span><span class="fu">size</span><span class="op">();</span></span>
 <span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Main method</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>        Student student <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Eva"</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">17.5</span><span class="op">);</span></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">12.0</span><span class="op">);</span></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">20.0</span><span class="op">);</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>student<span class="op">);</span></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Average Note: "</span> <span class="op">+</span> student<span class="op">.</span><span class="fu">computeAverage</span><span class="op">());</span></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Main method</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>        Student student <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Eva"</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">17.5</span><span class="op">);</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">12.0</span><span class="op">);</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">20.0</span><span class="op">);</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>student<span class="op">);</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Average Note: "</span> <span class="op">+</span> student<span class="op">.</span><span class="fu">computeAverage</span><span class="op">());</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="template" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="template"><span class="header-section-number">5.2</span> Template</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ClassName.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="ClassName.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Represents a <span class="co">...</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ClassName <span class="op">{</span></span>
@@ -729,6 +807,7 @@ Important
 <span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>c<span class="op">.</span><span class="fu">isAttribute2Odd</span><span class="op">());</span></span>
 <span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
