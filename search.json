@@ -214,49 +214,49 @@
     "href": "doc/cours/classes.html#attributes",
     "title": "Java Classes",
     "section": "Attributes",
-    "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n\n\nstatic: class attribute"
+    "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n\n\nstatic: class attribute\n\n\nReminder : Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
   },
   {
     "objectID": "doc/cours/classes.html#constructor",
     "href": "doc/cours/classes.html#constructor",
     "title": "Java Classes",
     "section": "Constructor",
-    "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n\nthis : Refers to the current object\n\n\nCreate a Bike Object\nBike greenBike = new Bike(\"Green\", true);\n\nBike: type of the variable\ngreenBike: name of the variable\nnew: Memory allocation\nBike(…): constructor call\n\n\n\nJava only uses positional arguments\nYou can create several constructors\n\n\n\n\nDefault Constructor\n\nIf no constructor is provided\n\nBike myBike = new Bike();\n\ncolor: null\npannierRacks: false\n\n\n\nError if another constructor is provided\n\n\n\n\nCall a method\nBike greenBike = new Bike(\"Green\", true);"
+    "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n\nthis : Refers to the current object\n\n\nCreate a Bike Object\nBike greenBike = new Bike(\"Green\", true);\n\nBike: type of the variable\ngreenBike: name of the variable\nnew: Memory allocation\nBike(…): constructor call\n\n\n\nJava only uses positional arguments\nYou can create several constructors\n\n\n\n\nDefault Constructor\n\nIf no constructor is provided\n\nBike myBike = new Bike();\n\ncolor: null\npannierRacks: false\n\n\n\nError if another constructor is provided"
+  },
+  {
+    "objectID": "doc/cours/classes.html#call-a-method",
+    "href": "doc/cours/classes.html#call-a-method",
+    "title": "Java Classes",
+    "section": "Call a method",
+    "text": "Call a method\n// Create a Bike object calling the constructor\nBike greenBike = new Bike(\"Green\", true);\n\n// Call methods\ngreenBike.accelerate(5);\nSystem.out.println(greenBike.getSpeed());\n\n\naccelerate(int) -&gt; void\ngetSpeed() -&gt; int"
   },
   {
     "objectID": "doc/cours/classes.html#main-method",
     "href": "doc/cours/classes.html#main-method",
     "title": "Java Classes",
     "section": "Main method",
-    "text": "Main method\n\nEntry point\nGenerally in a class called Main\n\npublic static void main(String[] args) {\n    // Program logic here\n}\n\n\npublic : Makes the method accessible from anywhere (required for JVM to call it)\nstatic : Allows calling the method without creating an instance of the class.\nvoid : The method does not return any value.\nmain The method name that JVM looks for to start execution.\nString[] args Array of command-line arguments passed when running the program"
+    "text": "Main method\n\nEntry point\nGenerally in a class called Main\n\npublic static void main(String[] args) {\n    // Program logic here\n}\n\n\npublic: Makes the method accessible from anywhere (required for JVM to call it)\nstatic: Allows calling the method without creating an instance of the class.\nvoid: The method does not return any value.\nmain: The method name that JVM looks for to start execution.\nString[]: args Array of command-line arguments passed when running the program"
   },
   {
     "objectID": "doc/cours/classes.html#inheritance",
     "href": "doc/cours/classes.html#inheritance",
     "title": "Java Classes",
     "section": "Inheritance",
-    "text": "Inheritance\n\nParent class\n\n\nVehicle.java\n\npublic class Vehicle {\n    private String color;\n    private int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n\n\nSubclass\n\nextends: inherit\nsuper(): constructor of the parent class\nsuper.foo(): method foo() of the parent class\n\n\n\nBike.java\n\nimport Vehicle;\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n\n\nAbstract\n\nabstract classes: cannot be instantiated\nabstract methods: Declared without implementation, must be overridden by subclasses\n\n\n\nVehicle.java\n\npublic abstract class Vehicle {\n    private String color;\n    private int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n    public abstract void honk();  // abstract method to be implemented in subsclasses\n\n    public void accelerate(int increment) {\n        this.speed += increment;\n    }\n\n\n\nIs it possible to create a final abstract class?\nPrivate abstract method?\n\n\n\n\nOverride method\n\n\nBike.java\n\nimport Vehicle;\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n    @Override\n    public abstract void honk(){\n        System.out.println(\"Dring\")\n    }\n\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n\n\nOverride final method?"
+    "text": "Inheritance\n\nParent class\n\n\nVehicle.java\n\npublic class Vehicle {\n    private String color;\n    private int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n\n\nSubclass\n\nextends: inherit\nsuper(): constructor of the parent class\nsuper.foo(): method foo() of the parent class\n\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n\n\nAbstract\n\nabstract classes: cannot be instantiated\nabstract methods: Declared without implementation, must be overridden by subclasses\n\n\n\nVehicle.java\n\npublic abstract class Vehicle {\n    private String color;\n    private int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n    public abstract void honk();  // abstract method to be implemented in subsclasses\n\n    public void accelerate(int increment) {\n        this.speed += increment;\n    }\n\n\n\nIs it possible to create a final abstract class?\nPrivate abstract method?\n\n\n\n\nOverride method\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n    @Override\n    public abstract void honk(){\n        System.out.println(\"Dring\")\n    }\n\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n\n\nOverride final method?"
   },
   {
     "objectID": "doc/cours/classes.html#polymorphism",
     "href": "doc/cours/classes.html#polymorphism",
     "title": "Java Classes",
     "section": "Polymorphism",
-    "text": "Polymorphism"
+    "text": "Polymorphism\n\nSubstitution\n\n\nMain.java\n\nBike bike1 = new Bike();\nBike bike2 = new Bike();\nScooter scooter1 = new Scooter();\nScooter scooter2 = new Scooter();\n\nList&lt;Vehicle&gt; vehicles = List.of(bike1, bike2, scooter1, scooter2);\n\n// Accelerate all vehicles\nfor (Vehicle vehicle : vehicles) {\n    vehicle.accelerate(10);\n}\n\n\n\nOverloading\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    ...\n\n    public void accelerate(int increment) {\n        this.speed += increment;\n    }\n    \n    public void accelerate() {\n        this.speed += 5;\n    }\n        \n    public void accelerate(double increment) {\n        this.speed += increment.intValue();\n    }"
   },
   {
     "objectID": "doc/cours/classes.html#javadoc",
     "href": "doc/cours/classes.html#javadoc",
     "title": "Java Classes",
     "section": "JavaDoc",
-    "text": "JavaDoc"
-  },
-  {
-    "objectID": "doc/cours/classes.html#enum",
-    "href": "doc/cours/classes.html#enum",
-    "title": "Java Classes",
-    "section": "Enum",
-    "text": "Enum"
+    "text": "JavaDoc\n\n\nBike.java\n\n/**\n * Represents a Bike, a type of Vehicle.\n */\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    /**\n     * Constructs a Bike with the given color\n     */\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = false;\n    }\n\n    /**\n     * Produces the sound of a bike's honk (dring).\n     */\n    @Override\n    public void honk() {\n        System.out.println(\"Dring\");\n    }\n\n    /**\n     * Accelerates the bike by the given increment, plus an additional 2 units.\n     *\n     * @param increment The amount to increase the speed by.\n     */\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n    /**\n     * Checks if the bike has pannier racks.\n     *\n     * @return true if the bike has pannier racks, false otherwise.\n     */\n    public boolean hasPannierRacks() {\n        return pannierRacks;\n    }"
   },
   {
     "objectID": "doc/cours/classes-slides.html#oop-principles",
@@ -287,11 +287,18 @@
     "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n\nthis : Refers to the current object"
   },
   {
+    "objectID": "doc/cours/classes-slides.html#call-a-method",
+    "href": "doc/cours/classes-slides.html#call-a-method",
+    "title": "Java Classes",
+    "section": "Call a method",
+    "text": "Call a method\n// Create a Bike object calling the constructor\nBike greenBike = new Bike(\"Green\", true);\n\n// Call methods\ngreenBike.accelerate(5);\nSystem.out.println(greenBike.getSpeed());\n\n\naccelerate(int) -&gt; void\ngetSpeed() -&gt; int"
+  },
+  {
     "objectID": "doc/cours/classes-slides.html#main-method",
     "href": "doc/cours/classes-slides.html#main-method",
     "title": "Java Classes",
     "section": "Main method",
-    "text": "Main method\n\nEntry point\nGenerally in a class called Main\n\npublic static void main(String[] args) {\n    // Program logic here\n}\n\n\npublic : Makes the method accessible from anywhere (required for JVM to call it)\nstatic : Allows calling the method without creating an instance of the class.\nvoid : The method does not return any value.\nmain The method name that JVM looks for to start execution.\nString[] args Array of command-line arguments passed when running the program"
+    "text": "Main method\n\nEntry point\nGenerally in a class called Main\n\npublic static void main(String[] args) {\n    // Program logic here\n}\n\n\npublic: Makes the method accessible from anywhere (required for JVM to call it)\nstatic: Allows calling the method without creating an instance of the class.\nvoid: The method does not return any value.\nmain: The method name that JVM looks for to start execution.\nString[]: args Array of command-line arguments passed when running the program"
   },
   {
     "objectID": "doc/cours/classes-slides.html#inheritance",
@@ -312,35 +319,28 @@
     "href": "doc/cours/classes-slides.html#javadoc",
     "title": "Java Classes",
     "section": "JavaDoc",
-    "text": "JavaDoc"
-  },
-  {
-    "objectID": "doc/cours/classes-slides.html#enum",
-    "href": "doc/cours/classes-slides.html#enum",
-    "title": "Java Classes",
-    "section": "Enum",
-    "text": "Enum"
+    "text": "JavaDoc\n\n\nBike.java\n\n/**\n * Represents a Bike, a type of Vehicle.\n */\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    /**\n     * Constructs a Bike with the given color\n     */\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = false;\n    }\n\n    /**\n     * Produces the sound of a bike's honk (dring).\n     */\n    @Override\n    public void honk() {\n        System.out.println(\"Dring\");\n    }\n\n    /**\n     * Accelerates the bike by the given increment, plus an additional 2 units.\n     *\n     * @param increment The amount to increase the speed by.\n     */\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n    /**\n     * Checks if the bike has pannier racks.\n     *\n     * @return true if the bike has pannier racks, false otherwise.\n     */\n    public boolean hasPannierRacks() {\n        return pannierRacks;\n    }"
   },
   {
     "objectID": "doc/cours/advanced-slides.html#todo",
     "href": "doc/cours/advanced-slides.html#todo",
     "title": "Java level 2",
     "section": "Todo 🚧",
-    "text": "Todo 🚧\n\nPackage\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
+    "text": "Todo 🚧\n\nPackage\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
   },
   {
     "objectID": "doc/cours/advanced.html",
     "href": "doc/cours/advanced.html",
     "title": "Java level 2",
     "section": "",
-    "text": "Package\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
+    "text": "Package\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
   },
   {
     "objectID": "doc/cours/advanced.html#todo",
     "href": "doc/cours/advanced.html#todo",
     "title": "Java level 2",
     "section": "",
-    "text": "Package\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
+    "text": "Package\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
   },
   {
     "objectID": "doc/cours/code-slides.html#first-of-all",
