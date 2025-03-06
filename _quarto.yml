@@ -21,8 +21,8 @@ website:
             text: "Collections"
           - href: doc/cours/classes.qmd
             text: "Classes"
-          - href: doc/cours/maven.qmd
-            text: "Maven"
+          - href: doc/cours/project.qmd
+            text: "Java Project"
           - href: doc/cours/junit.qmd
             text: "JUnit"
           - href: doc/cours/advanced.qmd

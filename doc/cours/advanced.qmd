@@ -21,8 +21,6 @@ lightbox: true
 
 ## Todo :construction:
 
-- Package
-- Tree structure
 - Optional
 - Exception
 - Interface

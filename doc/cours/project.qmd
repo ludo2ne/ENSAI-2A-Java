@@ -1,0 +1,203 @@
+---
+title: "Java Project"
+description: "[Slides](project-slides.html)"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+  revealjs:
+    theme: moon
+    footer: "[Home](../../index.html) --- [Java Project](project.html)"
+    slide-number: c/t                    ## collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: project-slides.html
+from: markdown+emoji
+lightbox: true
+---
+
+pacakges
+
+
+## Tree structure
+
+### Why Organize Your Project?
+
+- Maintainability: Easier to find and modify code
+- Readability: Improves understanding for developers
+- Collaboration: Essential for team projects
+- Build Process: Tools (Maven/Gradle) rely on it
+
+### The Standard Structure
+
+- src: The root directory for source code.
+- main: Contains the application's core code.
+- test: Contains code for testing the application.
+- resources: Non-Code Files (config files, images, text files...)
+- target: Output directory for compiled code
+
+---
+
+```{.txt}
+library-project/
+├── pom.xml
+└── src/
+|   ├── main/
+|   │   ├── java/
+|   │   │   └── fr/
+|   │   │       └── ensai/
+|   │   │           └── library/
+|   │   │               ├── Book.java
+|   │   │               └── Author.java
+|   │   └── resources/
+|   │       └── books.csv
+|   └── test/
+|       └── java/
+|           └── fr/
+|               └── ensai/
+|                   └── library/
+|                       └── BookTest.java
+└── target/
+```
+
+:::{.notes}
+bottom level *library* divided :
+
+- service
+- dao
+- business_object
+
+test : Mirrors the main structure
+:::
+
+## Maven
+
+### What is Maven?
+
+- A powerful build automation tool for Java projects
+- Helps manage dependencies
+- Provides a standardized build lifecycle
+
+:::{.notes}
+- dependencies: external libraries your project needs
+- lifecycle: compile, test, package
+
+Alternative: Gradle
+:::
+
+### Why Use Maven?
+
+- Simplifies dependency management: No more manual downloads
+- Ensures consistent builds: Everyone uses the same process
+- Promotes best practices: Encourages a well-defined project structure
+
+### POM
+
+- Project Object Model
+- a configuration file: pom.xml
+- describes your project and its dependencies
+
+### pom.xml
+
+```{.xml filename="pom.xml"}
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.ensai</groupId>
+    <artifactId>library</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- JUnit for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+### Artifacts
+
+- Packaged component with unique ID: groupId, artifactId, version.
+- Versioning: Essential to identify artifacts
+  - Major.Minor.Bugfix
+  - Development: *-SNAPSHOT* versions
+
+:::{.notes}
+
+- maven.compiler.source: Java source version compatibility for the compiler
+- maven.compiler.target: Determines the Java Runtime Environment (JRE) versions on which the compiled code can run
+:::
+
+### Dependencies
+
+- External libraries your project relies on
+- Maven downloads and manages these dependencies automatically
+- Example: JUnit, database connectors, logging frameworks
+
+### Plugins
+
+- Extend Maven's functionality
+- Examples: maven-compiler-plugin, maven-surefire-plugin (for testing)
+- Help with tasks like compiling code, running tests, creating JAR files
+
+
+### Lifecycles
+
+- `mvn clean`: Deletes the target directory
+- `mvn compile`: Compiles your Java code
+- `mvn test`: Runs your unit tests
+- `mvn package`: Creates a JAR file of your project
+- `mvn exec:java`: Run your program
+- `mvn site`: Creates a website for your project
+
+### Packaging a Java Project
+
+- creation of a JAR file (for libraries) 
+- or a WAR file (for web applications)
+
+::: {.callout-note title="JAR file"}
+- A package file format used to aggregate many Java class files and associated resources into a single file
+- Based on the ZIP file format
+:::
+
+:::{.notes}
+- WAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).
+:::
+
+---
+
+- <https://www.geeksforgeeks.org/apache-maven/>

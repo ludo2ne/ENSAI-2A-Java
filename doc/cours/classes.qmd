@@ -305,6 +305,16 @@ public class Bike extends Vehicle {
 
 ## JavaDoc
 
+- **Clarity**: Provides clear and consistent documentation for your code
+- **Maintainability**: Makes it easier to understand and maintain code
+- **Accessibility**: Generates HTML documentation that can be easily shared and viewed
+
+Javadoc comments are enclosed in /** and */.
+
+Placed immediately before the element being documented (class, method, field, etc.)
+
+### Example
+
 ```{.java filename="Bike.java"}
 /**
  * Represents a Bike, a type of Vehicle.
@@ -348,3 +358,14 @@ public class Bike extends Vehicle {
     }
 ```
 
+:::{.notes}
+Tags
+
+- `@author`: Author of the class.
+- `@version`: Version of the class.
+- `@param`: Description of a method parameter.
+- `@return`: Description of a method's return value.
+- `@throws`: Description of an exception that a method might throw.
+- `@see`: Cross-reference to other classes or methods.
+- `@deprecated`: Indicates that a method or class is deprecated.
+:::
