@@ -112,6 +112,13 @@
     "text": "2 Exercices\n\nOpen a terminal\n\nTerminal &gt; New Terminal (or CTRL + ù)\n\nGo to the folder ENSAI-2A-Java-TP/tp1/src\n\nif you need help, check out Unix basic commands\n\n\n\nCompile\n\na single Java file: javac MyClass.java\nall Java files: javac *.java\nspecify output directory for .class files (recommended): javac -d bin MyClass.java\n\n\n\nRun\n\n\n\n\n\n\nImportant\n\n\n\nTo run a class, it must have a main() method.\n\n\n\njava MyClass\nwhen .class files are in the bin/ directory: java -cp bin MyClass\n\n\n\n\n\n\n\nStatic Methods\n\n\n\nAs mentioned at the beginning, the aim of this tutorial is not OOP, but simply basic Java syntax.\nSo all the methods defined here are static ➡️ They are class methods ➡️ They can be called without instantiating an object.\n\n\n\n\n2.1 Brute force\nYou will write a Java method that attempts to brute-force a hashed 6-digit numeric password.\n\nThe method will iterate through all numbers from 000000 to 999999\nFor each number, Generate and compare hash with the given target hash\nIf a match is found, return the original number else return null\n\n\n\nOpen File Password.java\nComplete method bruteForce6Digit()\n\n\n\n\n\n\n\nTip\n\n\n\n\nUse method hashPassword()\nString.format(\"%06d\", 123)➡️ “000123”\n\n\n\n\n\n2.2 Strong password\n\nCommit and Push the code of the last exercise\nComplete method isStrongPassword()\n\nYou will write a Java method to check if a password is strong. A password is strong if:\n\n✅ It has at least 12 characters\n✅ It contains at least one uppercase letter\n✅ It contains at least one lowercase letter\n✅ It contains at least one digit\n❌ It does not contain whitespace\n\n\n\n\n\n\n\nTip\n\n\n\nUsefull methods:\n\nCharacter.isUpperCase(&lt;char&gt;)\nCharacter.isDigit(&lt;char&gt;)\nCharacter.isWhitespace(&lt;char&gt;)\n\n\n\n\n\n2.3 Check password list\n\nCommit and Push the code of the last exercise\nComplete method checkPasswordsList()\n\nYou will write a method that takes a list of passwords (ArrayList) and checks their strength.\nThe method should return a HashMap where:\n\nThe keys are the passwords\nThe values are true if the password is strong, false otherwise\n\n\n\n2.4 Generate a Random Password\nObjective: Implement a method to generate a secure random password that includes at least:\n\n✅ 1 uppercase letter\n\n✅ 1 lowercase letter\n\n✅ 1 digit\n\n✅ 1 special character\n\n\nEnsure length is at least 4\nCreate a list of characters\nAdd at least one character from each group\n\nFill the remaining characters randomly from all groups\nShuffle the password to mix character types Collections.shuffle(&lt;myList&gt;)\nConvert the list into a String and return it\n\n\nComplete method generatePassword()\n\n\n\n\n\n\n\nGenerate random int between 0 and 20\n\n\n\nSecureRandom random = new SecureRandom();\nSystem.out.println(random.nextInt(21));\n\n\n\n\n2.5 Login System\nComplete file Login.java:\n\nLoads csv file data/user_hashpwd.csv containing usernames and hashed passwords\nAsk for a username\nIf username exists, ask for password\nIf login succeeds, print Login successful! and exit, else ask again username\n\nBonus:\n\nAfter entering username, give 3 chances to input the correct password\nIf all 3 attempts fail, restart username input\n\n\n\n\n\n\n\nUse a Scanner\n\n\n\nScanner scanner = new Scanner(System.in);\n\nSystem.out.print(\"Enter username: \");\nString username = scanner.nextLine();\n\nscanner.close();"
   },
   {
+    "objectID": "doc/cours/junit.html",
+    "href": "doc/cours/junit.html",
+    "title": "JUnit",
+    "section": "",
+    "text": "Unit tests with JUnit\nhttps://junit.org/junit5/"
+  },
+  {
     "objectID": "doc/cours/collections.html",
     "href": "doc/cours/collections.html",
     "title": "Collections",
@@ -256,7 +263,7 @@
     "href": "doc/cours/classes.html#javadoc",
     "title": "Java Classes",
     "section": "JavaDoc",
-    "text": "JavaDoc\n\n\nBike.java\n\n/**\n * Represents a Bike, a type of Vehicle.\n */\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    /**\n     * Constructs a Bike with the given color\n     */\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = false;\n    }\n\n    /**\n     * Produces the sound of a bike's honk (dring).\n     */\n    @Override\n    public void honk() {\n        System.out.println(\"Dring\");\n    }\n\n    /**\n     * Accelerates the bike by the given increment, plus an additional 2 units.\n     *\n     * @param increment The amount to increase the speed by.\n     */\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n    /**\n     * Checks if the bike has pannier racks.\n     *\n     * @return true if the bike has pannier racks, false otherwise.\n     */\n    public boolean hasPannierRacks() {\n        return pannierRacks;\n    }"
+    "text": "JavaDoc\n\nClarity: Provides clear and consistent documentation for your code\nMaintainability: Makes it easier to understand and maintain code\nAccessibility: Generates HTML documentation that can be easily shared and viewed\n\nJavadoc comments are enclosed in /** and */.\nPlaced immediately before the element being documented (class, method, field, etc.)\n\nExample\n\n\nBike.java\n\n/**\n * Represents a Bike, a type of Vehicle.\n */\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    /**\n     * Constructs a Bike with the given color\n     */\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = false;\n    }\n\n    /**\n     * Produces the sound of a bike's honk (dring).\n     */\n    @Override\n    public void honk() {\n        System.out.println(\"Dring\");\n    }\n\n    /**\n     * Accelerates the bike by the given increment, plus an additional 2 units.\n     *\n     * @param increment The amount to increase the speed by.\n     */\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n    /**\n     * Checks if the bike has pannier racks.\n     *\n     * @return true if the bike has pannier racks, false otherwise.\n     */\n    public boolean hasPannierRacks() {\n        return pannierRacks;\n    }\n\n\nTags\n\n@author: Author of the class.\n@version: Version of the class.\n@param: Description of a method parameter.\n@return: Description of a method’s return value.\n@throws: Description of an exception that a method might throw.\n@see: Cross-reference to other classes or methods.\n@deprecated: Indicates that a method or class is deprecated."
   },
   {
     "objectID": "doc/cours/classes-slides.html#oop-principles",
@@ -319,28 +326,28 @@
     "href": "doc/cours/classes-slides.html#javadoc",
     "title": "Java Classes",
     "section": "JavaDoc",
-    "text": "JavaDoc\n\n\nBike.java\n\n/**\n * Represents a Bike, a type of Vehicle.\n */\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    /**\n     * Constructs a Bike with the given color\n     */\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = false;\n    }\n\n    /**\n     * Produces the sound of a bike's honk (dring).\n     */\n    @Override\n    public void honk() {\n        System.out.println(\"Dring\");\n    }\n\n    /**\n     * Accelerates the bike by the given increment, plus an additional 2 units.\n     *\n     * @param increment The amount to increase the speed by.\n     */\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n    /**\n     * Checks if the bike has pannier racks.\n     *\n     * @return true if the bike has pannier racks, false otherwise.\n     */\n    public boolean hasPannierRacks() {\n        return pannierRacks;\n    }"
+    "text": "JavaDoc\n\nClarity: Provides clear and consistent documentation for your code\nMaintainability: Makes it easier to understand and maintain code\nAccessibility: Generates HTML documentation that can be easily shared and viewed\n\nJavadoc comments are enclosed in /** and */.\nPlaced immediately before the element being documented (class, method, field, etc.)"
   },
   {
     "objectID": "doc/cours/advanced-slides.html#todo",
     "href": "doc/cours/advanced-slides.html#todo",
     "title": "Java level 2",
     "section": "Todo 🚧",
-    "text": "Todo 🚧\n\nPackage\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
+    "text": "Todo 🚧\n\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
   },
   {
     "objectID": "doc/cours/advanced.html",
     "href": "doc/cours/advanced.html",
     "title": "Java level 2",
     "section": "",
-    "text": "Package\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
+    "text": "Optional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
   },
   {
     "objectID": "doc/cours/advanced.html#todo",
     "href": "doc/cours/advanced.html#todo",
     "title": "Java level 2",
     "section": "",
-    "text": "Package\nTree structure\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
+    "text": "Optional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
   },
   {
     "objectID": "doc/cours/code-slides.html#first-of-all",
@@ -593,6 +600,41 @@
     "title": "Introduction",
     "section": "Resources",
     "text": "Resources\n\nhttps://www.baeldung.com/get-started-with-java-series\nhttps://www.w3schools.com/java/\nhttps://www.jmdoudoux.fr/accueil_java.htm\n\n\nPractice java language\n\nhttps://codingbat.com/java\nhttps://adventofcode.com/"
+  },
+  {
+    "objectID": "doc/cours/project-slides.html#tree-structure",
+    "href": "doc/cours/project-slides.html#tree-structure",
+    "title": "Java Project",
+    "section": "Tree structure",
+    "text": "Tree structure"
+  },
+  {
+    "objectID": "doc/cours/project-slides.html#maven",
+    "href": "doc/cours/project-slides.html#maven",
+    "title": "Java Project",
+    "section": "Maven",
+    "text": "Maven"
+  },
+  {
+    "objectID": "doc/cours/project.html",
+    "href": "doc/cours/project.html",
+    "title": "Java Project",
+    "section": "",
+    "text": "pacakges"
+  },
+  {
+    "objectID": "doc/cours/project.html#tree-structure",
+    "href": "doc/cours/project.html#tree-structure",
+    "title": "Java Project",
+    "section": "Tree structure",
+    "text": "Tree structure\n\nWhy Organize Your Project?\n\nMaintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\nThe Standard Structure\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
+  },
+  {
+    "objectID": "doc/cours/project.html#maven",
+    "href": "doc/cours/project.html#maven",
+    "title": "Java Project",
+    "section": "Maven",
+    "text": "Maven\n\nWhat is Maven?\n\nA powerful build automation tool for Java projects\nHelps manage dependencies\nProvides a standardized build lifecycle\n\n\n\ndependencies: external libraries your project needs\nlifecycle: compile, test, package\n\nAlternative: Gradle\n\n\n\nWhy Use Maven?\n\nSimplifies dependency management: No more manual downloads\nEnsures consistent builds: Everyone uses the same process\nPromotes best practices: Encourages a well-defined project structure\n\n\n\nPOM\n\nProject Object Model\na configuration file: pom.xml\ndescribes your project and its dependencies\n\n\n\npom.xml\n\n\npom.xml\n\n&lt;project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\"&gt;\n    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\n\n    &lt;groupId&gt;fr.ensai&lt;/groupId&gt;\n    &lt;artifactId&gt;library&lt;/artifactId&gt;\n    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;\n\n    &lt;properties&gt;\n        &lt;maven.compiler.source&gt;21&lt;/maven.compiler.source&gt;\n        &lt;maven.compiler.target&gt;21&lt;/maven.compiler.target&gt;\n    &lt;/properties&gt;\n\n    &lt;dependencies&gt;\n        &lt;!-- JUnit for testing --&gt;\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n    &lt;/dependencies&gt;\n\n    &lt;build&gt;\n        &lt;plugins&gt;\n            &lt;plugin&gt;\n                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;\n                &lt;version&gt;3.8.1&lt;/version&gt;\n                &lt;configuration&gt;\n                    &lt;source&gt;21&lt;/source&gt;\n                    &lt;target&gt;21&lt;/target&gt;\n                &lt;/configuration&gt;\n            &lt;/plugin&gt;\n        &lt;/plugins&gt;\n    &lt;/build&gt;\n&lt;/project&gt;\n\n\n\nArtifacts\n\nPackaged component with unique ID: groupId, artifactId, version.\nVersioning: Essential to identify artifacts\n\nMajor.Minor.Bugfix\nDevelopment: -SNAPSHOT versions\n\n\n\n\nmaven.compiler.source: Java source version compatibility for the compiler\nmaven.compiler.target: Determines the Java Runtime Environment (JRE) versions on which the compiled code can run\n\n\n\n\nDependencies\n\nExternal libraries your project relies on\nMaven downloads and manages these dependencies automatically\nExample: JUnit, database connectors, logging frameworks\n\n\n\nPlugins\n\nExtend Maven’s functionality\nExamples: maven-compiler-plugin, maven-surefire-plugin (for testing)\nHelp with tasks like compiling code, running tests, creating JAR files\n\n\n\nLifecycles\n\nmvn clean: Deletes the target directory\nmvn compile: Compiles your Java code\nmvn test: Runs your unit tests\nmvn package: Creates a JAR file of your project\nmvn exec:java: Run your program\nmvn site: Creates a website for your project\n\n\n\nPackaging a Java Project\n\ncreation of a JAR file (for libraries)\nor a WAR file (for web applications)\n\n\n\n\n\n\n\nJAR file\n\n\n\n\nA package file format used to aggregate many Java class files and associated resources into a single file\nBased on the ZIP file format\n\n\n\n\n\nWAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).\n\n\n\n\nhttps://www.geeksforgeeks.org/apache-maven/"
   },
   {
     "objectID": "doc/tp/tp2.html",

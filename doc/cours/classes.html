@@ -152,11 +152,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Classes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/maven.qmd">
- <span class="dropdown-text">Maven</span></a>
+    <a class="dropdown-item" href="../../doc/cours/project.html">
+ <span class="dropdown-text">Java Project</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/junit.qmd">
+    <a class="dropdown-item" href="../../doc/cours/junit.html">
  <span class="dropdown-text">JUnit</span></a>
   </li>  
         <li>
@@ -619,6 +619,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="javadoc" class="level2">
 <h2 class="anchored" data-anchor-id="javadoc">JavaDoc</h2>
+<ul>
+<li><strong>Clarity</strong>: Provides clear and consistent documentation for your code</li>
+<li><strong>Maintainability</strong>: Makes it easier to understand and maintain code</li>
+<li><strong>Accessibility</strong>: Generates HTML documentation that can be easily shared and viewed</li>
+</ul>
+<p>Javadoc comments are enclosed in /** and */.</p>
+<p>Placed immediately before the element being documented (class, method, field, etc.)</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Bike.java</strong></pre>
@@ -664,8 +673,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pannierRacks<span class="op">;</span></span>
 <span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="notes">
+<p>Tags</p>
+<ul>
+<li><code>@author</code>: Author of the class.</li>
+<li><code>@version</code>: Version of the class.</li>
+<li><code>@param</code>: Description of a method parameter.</li>
+<li><code>@return</code>: Description of a method’s return value.</li>
+<li><code>@throws</code>: Description of an exception that a method might throw.</li>
+<li><code>@see</code>: Cross-reference to other classes or methods.</li>
+<li><code>@deprecated</code>: Indicates that a method or class is deprecated.</li>
+</ul>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

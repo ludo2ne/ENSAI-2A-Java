@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Java - TP1">
+<meta name="description" content="Slides">
 
-<title>Introduction to Java syntax – Java</title>
+<title>JUnit – Java</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -212,42 +178,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
-  <ul class="collapse">
-  <li><a href="#git-setup" id="toc-git-setup" class="nav-link" data-scroll-target="#git-setup"><span class="header-section-number">1.1</span> Git setup</a></li>
-  <li><a href="#launch-vscode-java" id="toc-launch-vscode-java" class="nav-link" data-scroll-target="#launch-vscode-java"><span class="header-section-number">1.2</span> Launch Vscode Java</a></li>
-  </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">2</span> Exercices</a>
-  <ul class="collapse">
-  <li><a href="#brute-force" id="toc-brute-force" class="nav-link" data-scroll-target="#brute-force"><span class="header-section-number">2.1</span> Brute force</a></li>
-  <li><a href="#strong-password" id="toc-strong-password" class="nav-link" data-scroll-target="#strong-password"><span class="header-section-number">2.2</span> Strong password</a></li>
-  <li><a href="#check-password-list" id="toc-check-password-list" class="nav-link" data-scroll-target="#check-password-list"><span class="header-section-number">2.3</span> Check password list</a></li>
-  <li><a href="#generate-a-random-password" id="toc-generate-a-random-password" class="nav-link" data-scroll-target="#generate-a-random-password"><span class="header-section-number">2.4</span> Generate a Random Password</a></li>
-  <li><a href="#login-system" id="toc-login-system" class="nav-link" data-scroll-target="#login-system"><span class="header-section-number">2.5</span> Login System</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="junit-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Java syntax</h1>
+<h1 class="title">JUnit</h1>
 </div>
 
 <div>
   <div class="description">
-    Java - TP1
+    <a href="junit-slides.html">Slides</a>
   </div>
 </div>
 
@@ -270,361 +217,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="objectives" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="objectives">Objectives</h2>
-<p>In this first tutorial, we’re simply going to familiarize ourselves with Java syntax, without using object-oriented programming.</p>
-<p>This is why methods are defined as static. They are class methods. You don’t need to instantiate an object to call them.</p>
-<p>We’re going to do a few exercises on the subject of passwords.</p>
-</section>
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>In this tutorial, we will use the INSEE SSPCloud Datalab.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Login to <a href="https://datalab.sspcloud.fr" target="_blank">SSPCloud</a></label></li>
-</ul>
-<section id="git-setup" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="git-setup"><span class="header-section-number">1.1</span> Git setup</h3>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>On the datalab, your services have a <u><strong>limited lifespan</strong></u>.</p>
-<p>To save your programs, the best practice is to use a git repository. We will therefore create and use a token to communicate with GitHub.</p>
-<p>To follow the process, you need to have a <a href="https://github.com/" target="_blank">GitHub</a> account. It is also possible to follow a similar process with <a href="https://about.gitlab.com/" target="_blank">GitLab</a>.</p>
-</div>
-</div>
-<section id="generate-a-github-token" class="level4">
-<h4 class="anchored" data-anchor-id="generate-a-github-token">Generate a GitHub Token</h4>
-<div class="callout callout-style-default callout-tip callout-titled" title="Already done?">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Already done?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you have already generated and declared a GitHub token, there’s no need to repeat these 2 steps.</p>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Login to <a href="https://github.com/" target="_blank">GitHub</a></label></li>
-<li><label><input type="checkbox">Go to settings <span class="emoji" data-emoji="arrow_right">➡️</span> Developer settings <span class="emoji" data-emoji="arrow_right">➡️</span> Personal access tokens <span class="emoji" data-emoji="arrow_right">➡️</span> Tokens (classic)</label></li>
-<li><label><input type="checkbox">Generate a <a href="https://github.com/settings/tokens/new" target="_blank">new classic token</a></label>
-<ul>
-<li>Fill in:
-<ul>
-<li>token name: Datalab GENES</li>
-<li>expiration date <span class="emoji" data-emoji="arrow_right">➡️</span> Custom <span class="emoji" data-emoji="arrow_right">➡️</span> 1 year</li>
-</ul></li>
-<li><span class="emoji" data-emoji="white_check_mark">✅</span> Check the repo box</li>
-<li>Click on <span class="green-button">Generate token</span></li>
-<li>Copy the token starting with <code>ghp_</code> and keep it safe for a few minutes</li>
-</ul></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>This token will only be visible once</li>
-<li>If you lose it or if it expires, you must generate a new one</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="declare-your-token" class="level4">
-<h4 class="anchored" data-anchor-id="declare-your-token">Declare Your Token</h4>
-<p>GitHub has provided you with a token. Now, you need to declare it on the Datalab:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Go to <code>My Account</code> <span class="emoji" data-emoji="arrow_right">➡️</span> <code>Git</code> tab</label></li>
-<li><label><input type="checkbox">Fill in the following information:</label>
-<ul>
-<li>Git username</li>
-<li>email (the one used for your GitHub account)</li>
-</ul></li>
-<li><label><input type="checkbox">Paste your token</label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Git Config">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Git Config
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can now exchange code between the Datalab services and your GitHub repositories. <span class="emoji" data-emoji="tada">🎉</span></p>
-</div>
-</div>
-</section>
-</section>
-<section id="launch-vscode-java" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="launch-vscode-java"><span class="header-section-number">1.2</span> Launch Vscode Java</h3>
-<p>A service is available with Visual Studio Code and Java.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Launch the service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">VScode-Java</a></label></li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You won’t find this service in the basic catalog. You have to use the link above to launch it.</p>
-<p>It uses a specific <a href="https://github.com/odysseu/onyxia-datascience-images/blob/main/vscode-java/Dockerfile" target="_blank">Docker image</a></p>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Back to GitHub, fork this repository: <a href="https://github.com/ludo2ne/ENSAI-2A-Java-TP/fork" target="_blank">https://github.com/ludo2ne/ENSAI-2A-Java-TP/fork</a></label></li>
-<li><label><input type="checkbox">On the main page of your fork, click on <span class="green-button">Code</span></label></li>
-<li><label><input type="checkbox">Copy <em>https</em> url to clipboard</label></li>
-<li><label><input type="checkbox">Back to VSCode in the Datalab, Clone the forked repository using this <em>https</em> url</label></li>
-<li><label><input type="checkbox">In the menu (3 parallel bars top left) <span class="emoji" data-emoji="arrow_right">➡️</span> File <span class="emoji" data-emoji="arrow_right">➡️</span> Open Folder</label>
-<ul>
-<li>enter : <code>/home/onyxia/work/ENSAI-2A-Java-TP/</code> <span class="emoji" data-emoji="arrow_right">➡️</span> OK</li>
-</ul></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Shorcuts">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Shorcuts
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>SHIFT + ALT + A: Comment / Uncomment selected lines</li>
-</ul>
-</div>
-</div>
-</section>
-</section>
-<section id="exercices" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="exercices"><span class="header-section-number">2</span> Exercices</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Open a terminal</label>
-<ul>
-<li>Terminal &gt; New Terminal (or CTRL + ù)</li>
-</ul></li>
-<li><label><input type="checkbox">Go to the folder <code>ENSAI-2A-Java-TP/tp1/src</code></label>
-<ul>
-<li>if you need help, check out <a href="https://ludo2ne.github.io/Git-tuto/doc/presentation.html#commandes-unix" target="_blank">Unix basic commands</a></li>
-</ul></li>
-</ul>
-<section id="compile" class="level4">
-<h4 class="anchored" data-anchor-id="compile">Compile</h4>
-<ul>
-<li>a single Java file: <code>javac MyClass.java</code></li>
-<li>all Java files: <code>javac *.java</code></li>
-<li>specify output directory for <em>.class</em> files (recommended): <code>javac -d bin MyClass.java</code></li>
-</ul>
-</section>
-<section id="run" class="level4">
-<h4 class="anchored" data-anchor-id="run">Run</h4>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To run a class, it must have a <em>main()</em> method.</p>
-</div>
-</div>
-<ul>
-<li><code>java MyClass</code></li>
-<li>when .class files are in the <em>bin/</em> directory: <code>java -cp bin MyClass</code></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Static Methods">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Static Methods
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>As mentioned at the beginning, the aim of this tutorial is not OOP, but simply basic Java syntax.</p>
-<p>So all the methods defined here are static <span class="emoji" data-emoji="arrow_right">➡️</span> They are class methods <span class="emoji" data-emoji="arrow_right">➡️</span> They can be called without instantiating an object.</p>
-</div>
-</div>
-</section>
-<section id="brute-force" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="brute-force"><span class="header-section-number">2.1</span> Brute force</h3>
-<p>You will write a Java method that attempts to brute-force a hashed 6-digit numeric password.</p>
-<ul>
-<li>The method will iterate through all numbers from 000000 to 999999</li>
-<li>For each number, Generate and compare hash with the given target hash</li>
-<li>If a match is found, return the original number else return null</li>
-</ul>
-<hr>
-<ul class="task-list">
-<li><label><input type="checkbox">Open File <em>Password.java</em></label></li>
-<li><label><input type="checkbox">Complete method <code>bruteForce6Digit()</code></label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Use method <em>hashPassword()</em></li>
-<li><code>String.format("%06d", 123)</code><span class="emoji" data-emoji="arrow_right">➡️</span> “000123”</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="strong-password" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="strong-password"><span class="header-section-number">2.2</span> Strong password</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Commit and Push the code of the last exercise</label></li>
-<li><label><input type="checkbox">Complete method <code>isStrongPassword()</code></label></li>
-</ul>
-<p>You will write a Java method to check if a password is strong. A password is strong if:</p>
-<ul>
-<li>✅ It has at least 12 characters</li>
-<li>✅ It contains at least one uppercase letter</li>
-<li>✅ It contains at least one lowercase letter</li>
-<li>✅ It contains at least one digit</li>
-<li>❌ It does not contain whitespace</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Usefull methods:</p>
-<ul>
-<li><code>Character.isUpperCase(&lt;char&gt;)</code></li>
-<li><code>Character.isDigit(&lt;char&gt;)</code></li>
-<li><code>Character.isWhitespace(&lt;char&gt;)</code></li>
-</ul>
-</div>
-</div>
-</section>
-<section id="check-password-list" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="check-password-list"><span class="header-section-number">2.3</span> Check password list</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Commit and Push the code of the last exercise</label></li>
-<li><label><input type="checkbox">Complete method <code>checkPasswordsList()</code></label></li>
-</ul>
-<p>You will write a method that takes a list of passwords (ArrayList<string>) and checks their strength.</string></p>
-<p>The method should return a HashMap where:</p>
-<ul>
-<li>The keys are the passwords</li>
-<li>The values are true if the password is strong, false otherwise</li>
-</ul>
-</section>
-<section id="generate-a-random-password" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="generate-a-random-password"><span class="header-section-number">2.4</span> Generate a Random Password</h3>
-<p><strong>Objective:</strong> Implement a method to generate a secure random password that includes at least:</p>
-<ul>
-<li>✅ 1 uppercase letter<br>
-</li>
-<li>✅ 1 lowercase letter<br>
-</li>
-<li>✅ 1 digit<br>
-</li>
-<li>✅ 1 special character</li>
-</ul>
-<ol type="1">
-<li>Ensure length is at least 4</li>
-<li>Create a list of characters</li>
-<li>Add at least one character from each group<br>
-</li>
-<li>Fill the remaining characters randomly from all groups</li>
-<li>Shuffle the password to mix character types <code>Collections.shuffle(&lt;myList&gt;)</code></li>
-<li>Convert the list into a <em>String</em> and return it</li>
-</ol>
-<ul class="task-list">
-<li><label><input type="checkbox">Complete method <code>generatePassword()</code></label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Generate random int between 0 and 20">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Generate random int between 0 and 20
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SecureRandom</span> random <span class="op">=</span> <span class="kw">new</span> <span class="bu">SecureRandom</span><span class="op">();</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>random<span class="op">.</span><span class="fu">nextInt</span><span class="op">(</span><span class="dv">21</span><span class="op">));</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="login-system" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="login-system"><span class="header-section-number">2.5</span> Login System</h3>
-<p>Complete file <em>Login.java</em>:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Loads csv file <em>data/user_hashpwd.csv</em> containing usernames and hashed passwords</label></li>
-<li><label><input type="checkbox">Ask for a username</label></li>
-<li><label><input type="checkbox">If username exists, ask for password</label></li>
-<li><label><input type="checkbox">If login succeeds, print <strong>Login successful!</strong> and exit, else ask again username</label></li>
-</ul>
-<p>Bonus:</p>
-<ul>
-<li>After entering username, give 3 chances to input the correct password</li>
-<li>If all 3 attempts fail, restart username input</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Use a Scanner">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Use a Scanner
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Scanner</span> scanner <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Enter username: "</span><span class="op">);</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> username <span class="op">=</span> scanner<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>scanner<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
+<p>Unit tests with JUnit</p>
+<p><a href="https://junit.org/junit5/" class="uri">https://junit.org/junit5/</a></p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

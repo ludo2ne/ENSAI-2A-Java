@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Ludovic Deneuville">
-  <title>Java – Java level 2</title>
+  <title>Java – Java Project</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b17fa0af1ad93c2b7802af2443afaf9b.css">
   <link rel="stylesheet" href="../../styles-reveal.css">
@@ -128,7 +193,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Java level 2</h1>
+  <h1 class="title">Java Project</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -139,30 +204,280 @@ Ludovic Deneuville
 </div>
 
 </section>
-<section id="todo" class="title-slide slide level2 center">
-<h2>Todo <span class="emoji" data-emoji="construction">🚧</span></h2>
+<section class="slide level3">
+
+<p>pacakges</p>
+</section>
+<section>
+<section id="tree-structure" class="title-slide slide level2 center">
+<h2>Tree structure</h2>
+
+</section>
+<section id="why-organize-your-project" class="slide level3">
+<h3>Why Organize Your Project?</h3>
 <ul>
-<li>Optional</li>
-<li>Exception</li>
-<li>Interface</li>
-<li>Stream
+<li>Maintainability: Easier to find and modify code</li>
+<li>Readability: Improves understanding for developers</li>
+<li>Collaboration: Essential for team projects</li>
+<li>Build Process: Tools (Maven/Gradle) rely on it</li>
+</ul>
+</section>
+<section id="the-standard-structure" class="slide level3">
+<h3>The Standard Structure</h3>
 <ul>
-<li>https://www.geeksforgeeks.org/java-8-stream-tutorial/</li>
-<li>https://www.baeldung.com/java-streams</li>
+<li>src: The root directory for source code.</li>
+<li>main: Contains the application’s core code.</li>
+<li>test: Contains code for testing the application.</li>
+<li>resources: Non-Code Files (config files, images, text files…)</li>
+<li>target: Output directory for compiled code</li>
+</ul>
+</section>
+<section class="slide level3">
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a></a>library-project/</span>
+<span id="cb1-2"><a></a>├── pom.xml</span>
+<span id="cb1-3"><a></a>└── src/</span>
+<span id="cb1-4"><a></a>|   ├── main/</span>
+<span id="cb1-5"><a></a>|   │   ├── java/</span>
+<span id="cb1-6"><a></a>|   │   │   └── fr/</span>
+<span id="cb1-7"><a></a>|   │   │       └── ensai/</span>
+<span id="cb1-8"><a></a>|   │   │           └── library/</span>
+<span id="cb1-9"><a></a>|   │   │               ├── Book.java</span>
+<span id="cb1-10"><a></a>|   │   │               └── Author.java</span>
+<span id="cb1-11"><a></a>|   │   └── resources/</span>
+<span id="cb1-12"><a></a>|   │       └── books.csv</span>
+<span id="cb1-13"><a></a>|   └── test/</span>
+<span id="cb1-14"><a></a>|       └── java/</span>
+<span id="cb1-15"><a></a>|           └── fr/</span>
+<span id="cb1-16"><a></a>|               └── ensai/</span>
+<span id="cb1-17"><a></a>|                   └── library/</span>
+<span id="cb1-18"><a></a>|                       └── BookTest.java</span>
+<span id="cb1-19"><a></a>└── target/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>bottom level <em>library</em> divided :</p>
+<ul>
+<li>service</li>
+<li>dao</li>
+<li>business_object</li>
+</ul>
+<p>test : Mirrors the main structure</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="maven" class="title-slide slide level2 center">
+<h2>Maven</h2>
+
+</section>
+<section id="what-is-maven" class="slide level3">
+<h3>What is Maven?</h3>
+<ul>
+<li>A powerful build automation tool for Java projects</li>
+<li>Helps manage dependencies</li>
+<li>Provides a standardized build lifecycle</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>dependencies: external libraries your project needs</li>
+<li>lifecycle: compile, test, package</li>
+</ul>
+<p>Alternative: Gradle</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-use-maven" class="slide level3">
+<h3>Why Use Maven?</h3>
+<ul>
+<li>Simplifies dependency management: No more manual downloads</li>
+<li>Ensures consistent builds: Everyone uses the same process</li>
+<li>Promotes best practices: Encourages a well-defined project structure</li>
+</ul>
+</section>
+<section id="pom" class="slide level3">
+<h3>POM</h3>
+<ul>
+<li>Project Object Model</li>
+<li>a configuration file: pom.xml</li>
+<li>describes your project and its dependencies</li>
+</ul>
+</section>
+<section id="pom.xml" class="slide level3">
+<h3>pom.xml</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>pom.xml</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="pom.xml"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a></a>&lt;<span class="kw">project</span><span class="ot"> xmlns=</span><span class="st">"http://maven.apache.org/POM/4.0.0"</span></span>
+<span id="cb2-2"><a></a><span class="ot">         xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="cb2-3"><a></a><span class="ot">         xsi:schemaLocation=</span><span class="st">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+<span id="cb2-4"><a></a>    &lt;<span class="kw">modelVersion</span>&gt;4.0.0&lt;/<span class="kw">modelVersion</span>&gt;</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a>    &lt;<span class="kw">groupId</span>&gt;fr.ensai&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-7"><a></a>    &lt;<span class="kw">artifactId</span>&gt;library&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-8"><a></a>    &lt;<span class="kw">version</span>&gt;1.0-SNAPSHOT&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-9"><a></a></span>
+<span id="cb2-10"><a></a>    &lt;<span class="kw">properties</span>&gt;</span>
+<span id="cb2-11"><a></a>        &lt;<span class="kw">maven.compiler.source</span>&gt;21&lt;/<span class="kw">maven.compiler.source</span>&gt;</span>
+<span id="cb2-12"><a></a>        &lt;<span class="kw">maven.compiler.target</span>&gt;21&lt;/<span class="kw">maven.compiler.target</span>&gt;</span>
+<span id="cb2-13"><a></a>    &lt;/<span class="kw">properties</span>&gt;</span>
+<span id="cb2-14"><a></a></span>
+<span id="cb2-15"><a></a>    &lt;<span class="kw">dependencies</span>&gt;</span>
+<span id="cb2-16"><a></a>        <span class="co">&lt;!-- JUnit for testing --&gt;</span></span>
+<span id="cb2-17"><a></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb2-18"><a></a>            &lt;<span class="kw">groupId</span>&gt;org.junit.jupiter&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-19"><a></a>            &lt;<span class="kw">artifactId</span>&gt;junit-jupiter-api&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-20"><a></a>            &lt;<span class="kw">version</span>&gt;5.9.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-21"><a></a>            &lt;<span class="kw">scope</span>&gt;test&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb2-22"><a></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb2-23"><a></a></span>
+<span id="cb2-24"><a></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb2-25"><a></a>            &lt;<span class="kw">groupId</span>&gt;org.junit.jupiter&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-26"><a></a>            &lt;<span class="kw">artifactId</span>&gt;junit-jupiter-engine&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-27"><a></a>            &lt;<span class="kw">version</span>&gt;5.9.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-28"><a></a>            &lt;<span class="kw">scope</span>&gt;test&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb2-29"><a></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb2-30"><a></a>    &lt;/<span class="kw">dependencies</span>&gt;</span>
+<span id="cb2-31"><a></a></span>
+<span id="cb2-32"><a></a>    &lt;<span class="kw">build</span>&gt;</span>
+<span id="cb2-33"><a></a>        &lt;<span class="kw">plugins</span>&gt;</span>
+<span id="cb2-34"><a></a>            &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb2-35"><a></a>                &lt;<span class="kw">groupId</span>&gt;org.apache.maven.plugins&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-36"><a></a>                &lt;<span class="kw">artifactId</span>&gt;maven-compiler-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-37"><a></a>                &lt;<span class="kw">version</span>&gt;3.8.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-38"><a></a>                &lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb2-39"><a></a>                    &lt;<span class="kw">source</span>&gt;21&lt;/<span class="kw">source</span>&gt;</span>
+<span id="cb2-40"><a></a>                    &lt;<span class="kw">target</span>&gt;21&lt;/<span class="kw">target</span>&gt;</span>
+<span id="cb2-41"><a></a>                &lt;/<span class="kw">configuration</span>&gt;</span>
+<span id="cb2-42"><a></a>            &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb2-43"><a></a>        &lt;/<span class="kw">plugins</span>&gt;</span>
+<span id="cb2-44"><a></a>    &lt;/<span class="kw">build</span>&gt;</span>
+<span id="cb2-45"><a></a>&lt;/<span class="kw">project</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="artifacts" class="slide level3">
+<h3>Artifacts</h3>
+<ul>
+<li>Packaged component with unique ID: groupId, artifactId, version.</li>
+<li>Versioning: Essential to identify artifacts
+<ul>
+<li>Major.Minor.Bugfix</li>
+<li>Development: <em>-SNAPSHOT</em> versions</li>
 </ul></li>
-<li>Maven</li>
-<li>Spring Boot</li>
-<li>Hibernate</li>
-<li><a href="https://rules.sonarsource.com/java/" class="uri">https://rules.sonarsource.com/java/</a></li>
-<li>Enum</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>maven.compiler.source: Java source version compatibility for the compiler</li>
+<li>maven.compiler.target: Determines the Java Runtime Environment (JRE) versions on which the compiled code can run</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dependencies" class="slide level3">
+<h3>Dependencies</h3>
+<ul>
+<li>External libraries your project relies on</li>
+<li>Maven downloads and manages these dependencies automatically</li>
+<li>Example: JUnit, database connectors, logging frameworks</li>
+</ul>
+</section>
+<section id="plugins" class="slide level3">
+<h3>Plugins</h3>
+<ul>
+<li>Extend Maven’s functionality</li>
+<li>Examples: maven-compiler-plugin, maven-surefire-plugin (for testing)</li>
+<li>Help with tasks like compiling code, running tests, creating JAR files</li>
+</ul>
+</section>
+<section id="lifecycles" class="slide level3">
+<h3>Lifecycles</h3>
+<ul>
+<li><code>mvn clean</code>: Deletes the target directory</li>
+<li><code>mvn compile</code>: Compiles your Java code</li>
+<li><code>mvn test</code>: Runs your unit tests</li>
+<li><code>mvn package</code>: Creates a JAR file of your project</li>
+<li><code>mvn exec:java</code>: Run your program</li>
+<li><code>mvn site</code>: Creates a website for your project</li>
+</ul>
+</section>
+<section id="packaging-a-java-project" class="slide level3">
+<h3>Packaging a Java Project</h3>
+<ul>
+<li>creation of a JAR file (for libraries)</li>
+<li>or a WAR file (for web applications)</li>
+</ul>
+<div title="JAR file">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>JAR file</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>A package file format used to aggregate many Java class files and associated resources into a single file</li>
+<li>Based on the ZIP file format</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>WAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><a href="https://www.geeksforgeeks.org/apache-maven/" class="uri">https://www.geeksforgeeks.org/apache-maven/</a></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="../../index.html">Home</a> — <a href="advanced.html">Classes</a></p>
+<p><a href="../../index.html">Home</a> — <a href="project.html">Java Project</a></p>
 </div>
 </div></div>
 
