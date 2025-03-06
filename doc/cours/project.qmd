@@ -72,12 +72,52 @@ bottom level *library* divided :
 test : Mirrors the main structure
 :::
 
+### Packages
+
+- A way to organize Java classes and interfaces into namespaces
+- Used to group related classes together
+- Help to prevent naming conflicts
+
+
+:::{.notes}
+- Similar to folders or directories in a file system
+:::
+
+
+### Package Naming Conventions
+
+- Named in lowercase
+- Reverse domain name notation
+- Examples:
+  - fr.ensai.library
+  - com.myorg.myapp.service
+
+### Example
+
+```{.java}
+package fr.ensai.library;
+
+public class Book{
+    ...
+}
+```
+
+### Importing Packages
+
+- To use classes from other packages
+- `import fr.ensai.library.dao;`
+
+:::{.notes}
+Avoid import fr.ensai.library.*
+:::
+
 ## Maven
 
 ### What is Maven?
 
 - A powerful build automation tool for Java projects
 - Helps manage dependencies
+  - Download from [Maven Central repo](https://mvnrepository.com/repos/central){tagret="_blank"}
 - Provides a standardized build lifecycle
 
 :::{.notes}
@@ -184,10 +224,12 @@ Alternative: Gradle
 - `mvn exec:java`: Run your program
 - `mvn site`: Creates a website for your project
 
-### Packaging a Java Project
 
-- creation of a JAR file (for libraries) 
-- or a WAR file (for web applications)
+### Packaging for deployment
+
+- Creation of a JAR file (for API)
+- Or a WAR file (for web applications)
+  - Use a Tomcat server
 
 ::: {.callout-note title="JAR file"}
 - A package file format used to aggregate many Java class files and associated resources into a single file
@@ -196,8 +238,6 @@ Alternative: Gradle
 
 :::{.notes}
 - WAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).
+- Use Docker
+- Backend (Business logic)
 :::
-
----
-
-- <https://www.geeksforgeeks.org/apache-maven/>

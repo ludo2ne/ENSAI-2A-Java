@@ -15,13 +15,17 @@ number-depth: 3
 :construction: draft
 
 
-## Objectives
+## Objectives {.unnumbered}
 
 - POO
 - Introduction to Maven
 - JUnit
 
 ## Before you start
+
+When you've finished, don't forget to delete your service.
+
+After each part, create a commit and push your code to the remote repository.
 
 ### Launch service VSCode Java
 
@@ -234,12 +238,11 @@ import java.net.URL;
         }
     }
 ```
-
 :::
 
+- [ ] Commit and push
 
 ### Load books from file
-
 
 All operations related to the library will be handled in the main class
 

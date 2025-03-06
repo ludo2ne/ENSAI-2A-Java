@@ -103,6 +103,10 @@ public class Bike {
 
 - `this` : Refers to the current object
 
+:::{.notes}
+- Name of a Contructor: same as class name
+:::
+
 
 ### Create a Bike Object
 
@@ -206,6 +210,12 @@ public class Bike extends Vehicle {
         this.pannierRacks = pannierRacks;
     }
 ```
+
+:::{.notes}
+- Multiple-inheritance is forbidden in Java
+- Use Interfaces
+  - Declare methods to be implemented.
+:::
 
 ### Abstract
 

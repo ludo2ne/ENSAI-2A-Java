@@ -18,6 +18,127 @@ from: markdown+emoji
 lightbox: true
 ---
 
-Unit tests with JUnit
+## Unit tests with JUnit
 
-<https://junit.org/junit5/>
+<https://junit.org/junit5/>{target="_blank"}
+
+:::{.notes}
+A popular open-source testing framework for Java
+:::
+
+### Reminder: Unit Testing
+
+- Testing individual units of code
+- Verifying that each unit behaves as expected
+- Essential for detecting bugs
+- Avoid regressions (Prevents new changes from breaking existing code)
+
+## Test classes
+
+- One-to-One Relationship
+- Each class you write should have a corresponding test class
+- Book.java :arrow_right: BookTest.java
+  - placed in the same package as the class being tested
+  - but in the `src/test/java` directory
+
+## Example
+
+### Class Fraction
+
+```{.java filename="Fraction.java"}
+public class Fraction {
+    @Getter private int numerator;
+    @Getter private int denominator;
+
+    public Fraction(int numerator, int denominator) {
+        if (denominator == 0)
+            throw new IllegalArgumentException("Denominator cannot be zero.");
+        this.numerator = numerator;
+        this.denominator = denominator;
+    }
+
+    public Fraction invert() {
+        if (numerator == 0)
+            throw new ArithmeticException("Cannot invert a fraction with a zero numerator.");
+        return new Fraction(denominator, numerator);
+    }
+}
+```
+
+:::{.notes}
+- @Getter : using Lombok
+- Create method getAttribute()
+:::
+
+### Test class
+
+```{.java filename="FractionTest.java"}
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FractionTest {
+
+    @Test
+    void testInvertValid() {
+        // GIVEN
+        Fraction fraction = new Fraction(2, 3);
+
+        // WHEN
+        Fraction inverted = fraction.invert();
+
+        // THEN
+        assertEquals(3, inverted.getNumerator());
+        assertEquals(2, inverted.getDenominator());
+    }
+
+    @Test
+    void testInvertZeroNumerator() {
+        Fraction fraction = new Fraction(0, 5);
+        assertThrows(ArithmeticException.class, fraction::invert);
+    }
+}
+```
+
+## Assertions
+
+- assertEquals(expected, actual)
+- assertTrue(condition) / assertFalse(condition)
+- assertNull(object) / assertNotNull(object)
+- assertThrows(expectedType, executable)
+
+## Annotations
+
+- `@Test`: Marks a method as a test case
+- `@BeforeEach`: Executes before each test method
+- `@AfterEach`: Executes after each test method
+- `@BeforeAll`: Executes once before all test methods
+- `@AfterAll`: Executes once after all test methods
+
+## Mocking
+
+- Replacing real dependencies with controlled substitutes during unit testing
+- Allows you to isolate the unit under test from external factors
+- See Mockito frameworks
+
+## Mutation Testing
+
+- Evaluate the effectiveness of your tests
+- Introduces small changes (mutations) to your code
+- Checks if your tests can detect these changes
+
+<https://pitest.org/>{target="_blank"}
+
+:::{.notes}
+- Mutations are automatically seeded into your code, 
+- then your tests are run. 
+- If your tests fail then the mutation is killed
+- if your tests pass then the mutation lived
+- The quality of your tests can be gauged from the percentage of mutations killed
+
+
+Replace :
+
+- + with -
+- > with >=
+- ...
+:::

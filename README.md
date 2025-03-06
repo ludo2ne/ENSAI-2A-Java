@@ -2,8 +2,7 @@
 
 Enseignements ENSAI de 2e année en Python.
 
-
-## :construction:  Todo 
+## :construction:  Todo
 
 ### CM
 
@@ -17,6 +16,17 @@ https://github.com/olevitt
 
 https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java
 
+- CM1
+  - Intro
+  - Code
+  - Collections
+- CM2
+  - OOP
+  - Java Project
+    - https://www.geeksforgeeks.org/apache-maven/
+  - JUnit
+- CM3
+
 
 
 ### TP
@@ -25,8 +35,6 @@ https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java
 - 2. Classes, inheritage, doc
 - 3. Rated
 - 4. JUnit, Spring Boot
-
-
 
 ## :rocket: Publier les pages
 
