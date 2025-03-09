@@ -114,53 +114,53 @@ At the end of the tp, your code must implement this class diagram :
 ```{mermaid}
 classDiagram
     class Library {
-        List~Item~ items
-        List~Loan~ activeLoans
-        List~Loan~ completedLoans
-        addIem()
-        displayItems()
-        getBooksByAuthor() List~Book~
-        loanItem() boolean
-        renderItem() boolean
-        findActiveLoanForItem() Loan
-        loadBooksFromCSV()
+        -List~Item~ items
+        -List~Loan~ activeLoans
+        -List~Loan~ completedLoans
+        +addIem()
+        +displayItems()
+        +getBooksByAuthor() List~Book~
+        +loanItem() boolean
+        +renderItem() boolean
+        +findActiveLoanForItem() Loan
+        +loadBooksFromCSV()
     }
     
     class Item {
-        String title
-        int year
-        int pageCount
+        -String title
+        -int year
+        -int pageCount
     }
     
     class Book {
-        String isbn
-        Author author
+        -String isbn
+        -Author author
     }
     
     class Magazine {
-        String issn
-        String issueNumber
+        -String issn
+        -String issueNumber
     }
 
     class Person {
-        String name
-        int age
+        -String name
+        -int age
     }
 
     class Author {
-        String nationality
+        -String nationality
     }
 
     class Student {
-        int academicYear
-        boolean isClassDelegate
+        -int academicYear
+        -boolean isClassDelegate
     }
 
     class Loan {
-        Item item
-        Student borrower
-        Date startDate
-        Date returnDate
+        -Item item
+        -Student borrower
+        -Date startDate
+        -Date returnDate
     }
 
     Library  --  Item : has
@@ -173,6 +173,11 @@ classDiagram
     Item <|-- Book : extends
     Book  -- Author : written by
 ```
+
+::: {.callout-note}
+- In Java, it's conventional to declare all attributes as private.
+- Constructors, getter and setters don't appear on the diagram, nor do special methods (toString, equals)
+:::
 
 
 ### Create the library
@@ -188,6 +193,7 @@ and methods:
 - *addBook(Book book)*: Adds a book to the library's collection
 - *displayBooks()* 
   - print all books of the library
+  - use *toString()* method from Book class
   - or print a message if there is no book
 
 ---
@@ -257,10 +263,11 @@ import java.net.URL;
 
 ### Load books from file
 
-All operations related to the library will be handled in the main class
+All operations related to the library will be handled in the main class.
 
-- [ ] Update the main method of the Main class (*Main.java*)
-- [ ] In the main method, create an instance of the Library
+Update the main method of the Main class (*Main.java*):
+
+- [ ] Create an instance of the Library
 - [ ] Use the appropriate method to load books from the file *books.csv*
 - [ ] Display all books
 
@@ -275,12 +282,23 @@ The library is evolving and now includes magazines in addition to books. To acco
 - [ ] Create class `Magazine` extends Item
   - attributes: issn, issueNumber
 
+In the Library class, replace:
+
+- [ ] Attribute *books* by *items*
+- [ ] Method *displayBooks()* by *displayItems()*
+
+In the Main class:
+
+- [ ] create and add two magazines to the library before calling *displayItems()*
+
+
 ### Loans
 
 The library system now needs to support book loans for students. To achieve this, update the implementation as follows:
 
 - [ ] Create a class `Student`
   - attributes: name, age, academicYear, isClassDelegate
+- [ ] **Bonus**: do you know of a class that has anything in common with the Student class? Implement
 - [ ] Create a class `Loan`
   - attributes: student, item, startDate, returnDate (null at creation)
   - methods: 
@@ -295,11 +313,11 @@ The library system now needs to support book loans for students. To achieve this
 
 In the *Library* class create following methods:
 
-- [ ] getBooksByAuthor(Author author) -> ArrayList<Book>
-  - write tests
 - [ ] findActiveLoanForItem(Item item) -> Loan
   - Look if the item is present in active loans 
-  - Run tests
+  - Run unit tests
+- [ ] getBooksByAuthor(Author author) -> ArrayList\<Book\>
+  - write tests
 - [ ] loanItem(Item item, Student student) -> boolean
   - Check if the item is available
   - Create a Loan and add it to activeLoans
@@ -307,6 +325,9 @@ In the *Library* class create following methods:
   - Find the Loan if exists
   - Add a return date
   - Move an item from activeLoans to completedLoans
+- [ ] displayActiveLoans() -> void
+
+Feel free to use these methods in your main method.
 
 
 
