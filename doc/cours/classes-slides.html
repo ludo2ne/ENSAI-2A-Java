@@ -204,10 +204,6 @@ Ludovic Deneuville
 </div>
 
 </section>
-<section class="slide level3">
-
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-</section>
 <section id="oop-principles" class="title-slide slide level2 center">
 <h2>OOP Principles</h2>
 <div class="fragment">
@@ -222,6 +218,43 @@ Ludovic Deneuville
 <li>Encapsulation: Bundling data and methods together</li>
 <li>Inheritance: Deriving new classes from existing ones</li>
 <li>Polymorphism: One interface, multiple behaviors</li>
+</ul>
+<hr>
+<p>Why OOP ?</p>
+<ul>
+<li>Code reusability</li>
+<li>Modularity and maintainability</li>
+<li>Real-world modeling</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="encapsulation" class="title-slide slide level2 center">
+<h2>Encapsulation</h2>
+<ul>
+<li>Attributes: Fields
+<ul>
+<li>define the state of an object</li>
+</ul></li>
+<li>Methods: Behaviors
+<ul>
+<li>define the actions an object can perform</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>in relation to other classes</li>
+<li>Hiding internal details and exposing only necessary information</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -268,6 +301,19 @@ Ludovic Deneuville
 <span id="cb1-24"><a></a>    <span class="op">}</span></span>
 <span id="cb1-25"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p>details after</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section>
@@ -288,9 +334,25 @@ Ludovic Deneuville
 <ul>
 <li>static: class attribute</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>usually private attributes</li>
+<li>setters and getters next</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="reminder-attributes-accessiblility" class="slide level3">
-<h3>Reminder : Attributes Accessiblility</h3>
+<h3>Reminder: Attributes Accessiblility</h3>
 <table class="caption-top">
 <colgroup>
 <col style="width: 31%">
@@ -360,6 +422,13 @@ Ludovic Deneuville
 <aside class="notes">
 <ul>
 <li>Name of a Contructor: same as class name</li>
+<li>Generally public</li>
+<li>Private Contructor ?
+<ul>
+<li>Singleton Pattern (public static SingletonClass getInstance())</li>
+<li>Uninstantiable Classes: class that simply contains static methods</li>
+<li>Private Constructor called by Public Constructor</li>
+</ul></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -385,7 +454,7 @@ Ludovic Deneuville
 <aside class="notes">
 <ul>
 <li>Java only uses positional arguments</li>
-<li>You can create several constructors</li>
+<li>You can create several constructors ≠ Python</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -406,8 +475,11 @@ Ludovic Deneuville
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a>Bike myBike <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
+<li>with default values
+<ul>
 <li>color: <em>null</em></li>
 <li>pannierRacks: <em>false</em></li>
+</ul></li>
 </ul>
 <aside class="notes">
 <ul>
@@ -424,15 +496,46 @@ Ludovic Deneuville
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="create-a-copy" class="slide level3">
+<h3>Create a copy</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a></a>Bike greenBike <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">(</span><span class="st">"Green"</span><span class="op">,</span> <span class="kw">true</span><span class="op">);</span></span>
+<span id="cb6-2"><a></a>Bike otherBike <span class="op">=</span> greenBike<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+<ul>
+<li class="fragment"><em>otherBike</em> is it a copy of <em>greenBike</em>?</li>
+<li class="fragment">No, it refer to the same Bike object</li>
+<li class="fragment">How to create a copy?</li>
+</ul>
+</div>
+<aside class="notes">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a></a><span class="co">// Copy constructor</span></span>
+<span id="cb7-2"><a></a><span class="kw">public</span> <span class="fu">Bike</span><span class="op">(</span>Bike other<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-3"><a></a>      <span class="kw">...</span>  </span>
+<span id="cb7-4"><a></a><span class="op">}</span></span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a>Bike greenBike <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">(</span><span class="st">"Green"</span><span class="op">,</span> <span class="dv">25</span><span class="op">,</span> <span class="kw">true</span><span class="op">);</span></span>
+<span id="cb7-7"><a></a>Bike copiedBike <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">(</span>greenBike<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="call-a-method" class="title-slide slide level2 center">
 <h2>Call a method</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a></a><span class="co">// Create a Bike object calling the constructor</span></span>
-<span id="cb6-2"><a></a>Bike greenBike <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">(</span><span class="st">"Green"</span><span class="op">,</span> <span class="kw">true</span><span class="op">);</span></span>
-<span id="cb6-3"><a></a></span>
-<span id="cb6-4"><a></a><span class="co">// Call methods</span></span>
-<span id="cb6-5"><a></a>greenBike<span class="op">.</span><span class="fu">accelerate</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
-<span id="cb6-6"><a></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>greenBike<span class="op">.</span><span class="fu">getSpeed</span><span class="op">());</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a></a><span class="co">// Create a Bike object calling the constructor</span></span>
+<span id="cb8-2"><a></a>Bike greenBike <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">(</span><span class="st">"Green"</span><span class="op">,</span> <span class="kw">true</span><span class="op">);</span></span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a><span class="co">// Call methods</span></span>
+<span id="cb8-5"><a></a>greenBike<span class="op">.</span><span class="fu">accelerate</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
+<span id="cb8-6"><a></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>greenBike<span class="op">.</span><span class="fu">getSpeed</span><span class="op">());</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ul>
 <li>accelerate(int) -&gt; void</li>
@@ -451,15 +554,16 @@ Ludovic Deneuville
       }</style></aside>
 </section>
 
+<section>
 <section id="main-method" class="title-slide slide level2 center">
 <h2>Main method</h2>
 <ul>
 <li>Entry point</li>
 <li>Generally in a class called <em>Main</em></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-2"><a></a>    <span class="co">// Program logic here</span></span>
-<span id="cb7-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-2"><a></a>    <span class="co">// Program logic here</span></span>
+<span id="cb9-3"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ul>
 <li>public: Makes the method accessible from anywhere (required for JVM to call it)</li>
@@ -480,7 +584,28 @@ Ludovic Deneuville
           display:block!important;
       }</style></aside>
 </section>
-
+<section id="using-args" class="slide level3">
+<h3>Using args</h3>
+<ul>
+<li><code>String[] args</code>: arguments passed when running the program</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Main.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb10" data-filename="Main.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-2"><a></a>    <span class="dt">int</span> limit <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>args<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> limit<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb10-5"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb10-6"><a></a>    <span class="op">}</span></span>
+<span id="cb10-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>javac Main.java</code></li>
+<li><code>java Main 8</code></li>
+</ul>
+</section></section>
 <section>
 <section id="inheritance" class="title-slide slide level2 center">
 <h2>Inheritance</h2>
@@ -492,14 +617,15 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Vehicle.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb8" data-filename="Vehicle.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Vehicle <span class="op">{</span></span>
-<span id="cb8-2"><a></a>    <span class="kw">private</span> <span class="bu">String</span> color<span class="op">;</span></span>
-<span id="cb8-3"><a></a>    <span class="kw">private</span> <span class="dt">int</span> speed<span class="op">;</span></span>
-<span id="cb8-4"><a></a></span>
-<span id="cb8-5"><a></a>    <span class="kw">public</span> <span class="fu">Vehicle</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-6"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">color</span> <span class="op">=</span> color<span class="op">;</span></span>
-<span id="cb8-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb8-8"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11" data-filename="Vehicle.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Vehicle <span class="op">{</span></span>
+<span id="cb11-2"><a></a>    <span class="kw">protected</span> <span class="bu">String</span> color<span class="op">;</span></span>
+<span id="cb11-3"><a></a>    <span class="kw">protected</span> <span class="dt">int</span> speed<span class="op">;</span></span>
+<span id="cb11-4"><a></a></span>
+<span id="cb11-5"><a></a>    <span class="kw">public</span> <span class="fu">Vehicle</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-6"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">color</span> <span class="op">=</span> color<span class="op">;</span></span>
+<span id="cb11-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-8"><a></a>    <span class="op">}</span></span>
+<span id="cb11-9"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="subclass" class="slide level3">
@@ -513,14 +639,15 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Bike.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb9" data-filename="Bike.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Bike <span class="kw">extends</span> Vehicle <span class="op">{</span></span>
-<span id="cb9-2"><a></a>    <span class="kw">private</span> <span class="dt">boolean</span> pannierRacks<span class="op">;</span></span>
-<span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a>    <span class="co">// Constructor</span></span>
-<span id="cb9-5"><a></a>    <span class="kw">public</span> <span class="fu">Bike</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-6"><a></a>        <span class="kw">super</span><span class="op">(</span>color<span class="op">);</span></span>
-<span id="cb9-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">pannierRacks</span> <span class="op">=</span> pannierRacks<span class="op">;</span></span>
-<span id="cb9-8"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12" data-filename="Bike.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Bike <span class="kw">extends</span> Vehicle <span class="op">{</span></span>
+<span id="cb12-2"><a></a>    <span class="kw">private</span> <span class="dt">boolean</span> pannierRacks<span class="op">;</span></span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a>    <span class="co">// Constructor</span></span>
+<span id="cb12-5"><a></a>    <span class="kw">public</span> <span class="fu">Bike</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-6"><a></a>        <span class="kw">super</span><span class="op">(</span>color<span class="op">);</span></span>
+<span id="cb12-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">pannierRacks</span> <span class="op">=</span> pannierRacks<span class="op">;</span></span>
+<span id="cb12-8"><a></a>    <span class="op">}</span></span>
+<span id="cb12-9"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
 <ul>
@@ -552,22 +679,24 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Vehicle.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb10" data-filename="Vehicle.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a></a><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Vehicle <span class="op">{</span></span>
-<span id="cb10-2"><a></a>    <span class="kw">private</span> <span class="bu">String</span> color<span class="op">;</span></span>
-<span id="cb10-3"><a></a>    <span class="kw">private</span> <span class="dt">int</span> speed<span class="op">;</span></span>
-<span id="cb10-4"><a></a></span>
-<span id="cb10-5"><a></a>    <span class="kw">public</span> <span class="fu">Vehicle</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-6"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">color</span> <span class="op">=</span> color<span class="op">;</span></span>
-<span id="cb10-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-8"><a></a>    <span class="op">}</span></span>
-<span id="cb10-9"><a></a></span>
-<span id="cb10-10"><a></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">honk</span><span class="op">();</span>  <span class="co">// abstract method to be implemented in subsclasses</span></span>
-<span id="cb10-11"><a></a></span>
-<span id="cb10-12"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-13"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment<span class="op">;</span></span>
-<span id="cb10-14"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13" data-filename="Vehicle.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a></a><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Vehicle <span class="op">{</span></span>
+<span id="cb13-2"><a></a>    <span class="kw">protected</span> <span class="bu">String</span> color<span class="op">;</span></span>
+<span id="cb13-3"><a></a>    <span class="kw">protected</span> <span class="dt">int</span> speed<span class="op">;</span></span>
+<span id="cb13-4"><a></a></span>
+<span id="cb13-5"><a></a>    <span class="kw">public</span> <span class="fu">Vehicle</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-6"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">color</span> <span class="op">=</span> color<span class="op">;</span></span>
+<span id="cb13-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-8"><a></a>    <span class="op">}</span></span>
+<span id="cb13-9"><a></a></span>
+<span id="cb13-10"><a></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">honk</span><span class="op">();</span>  <span class="co">// abstract method to be implemented in subsclasses</span></span>
+<span id="cb13-11"><a></a></span>
+<span id="cb13-12"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-13"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment<span class="op">;</span></span>
+<span id="cb13-14"><a></a>    <span class="op">}</span></span>
+<span id="cb13-15"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
+<p>Questions:</p>
 <ul>
 <li>Is it possible to create a final abstract class?</li>
 <li>Private abstract method?</li>
@@ -590,27 +719,29 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Bike.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb11" data-filename="Bike.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Bike <span class="kw">extends</span> Vehicle <span class="op">{</span></span>
-<span id="cb11-2"><a></a>    <span class="kw">private</span> <span class="dt">boolean</span> pannierRacks<span class="op">;</span></span>
-<span id="cb11-3"><a></a></span>
-<span id="cb11-4"><a></a>    <span class="co">// Constructor</span></span>
-<span id="cb11-5"><a></a>    <span class="kw">public</span> <span class="fu">Bike</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-6"><a></a>        <span class="kw">super</span><span class="op">(</span>color<span class="op">);</span></span>
-<span id="cb11-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">pannierRacks</span> <span class="op">=</span> pannierRacks<span class="op">;</span></span>
-<span id="cb11-8"><a></a>    <span class="op">}</span></span>
-<span id="cb11-9"><a></a></span>
-<span id="cb11-10"><a></a>    <span class="at">@Override</span></span>
-<span id="cb11-11"><a></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">honk</span><span class="op">(){</span></span>
-<span id="cb11-12"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Dring"</span><span class="op">)</span></span>
-<span id="cb11-13"><a></a>    <span class="op">}</span></span>
-<span id="cb11-14"><a></a></span>
-<span id="cb11-15"><a></a>    <span class="at">@Override</span></span>
-<span id="cb11-16"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-17"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb11-18"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14" data-filename="Bike.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Bike <span class="kw">extends</span> Vehicle <span class="op">{</span></span>
+<span id="cb14-2"><a></a>    <span class="kw">private</span> <span class="dt">boolean</span> pannierRacks<span class="op">;</span></span>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a>    <span class="co">// Constructor</span></span>
+<span id="cb14-5"><a></a>    <span class="kw">public</span> <span class="fu">Bike</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-6"><a></a>        <span class="kw">super</span><span class="op">(</span>color<span class="op">);</span></span>
+<span id="cb14-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">pannierRacks</span> <span class="op">=</span> pannierRacks<span class="op">;</span></span>
+<span id="cb14-8"><a></a>    <span class="op">}</span></span>
+<span id="cb14-9"><a></a></span>
+<span id="cb14-10"><a></a>    <span class="at">@Override</span></span>
+<span id="cb14-11"><a></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">honk</span><span class="op">(){</span></span>
+<span id="cb14-12"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Dring"</span><span class="op">)</span></span>
+<span id="cb14-13"><a></a>    <span class="op">}</span></span>
+<span id="cb14-14"><a></a></span>
+<span id="cb14-15"><a></a>    <span class="at">@Override</span></span>
+<span id="cb14-16"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-17"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb14-18"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
 <ul>
+<li>You must override abstract methods</li>
+<li>You can override other methods</li>
 <li>Override final method?</li>
 </ul>
 <style type="text/css">
@@ -636,18 +767,31 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Main.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb12" data-filename="Main.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a></a>Bike bike1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">();</span></span>
-<span id="cb12-2"><a></a>Bike bike2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">();</span></span>
-<span id="cb12-3"><a></a>Scooter scooter1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Scooter</span><span class="op">();</span></span>
-<span id="cb12-4"><a></a>Scooter scooter2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Scooter</span><span class="op">();</span></span>
-<span id="cb12-5"><a></a></span>
-<span id="cb12-6"><a></a><span class="bu">List</span><span class="op">&lt;</span>Vehicle<span class="op">&gt;</span> vehicles <span class="op">=</span> <span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span>bike1<span class="op">,</span> bike2<span class="op">,</span> scooter1<span class="op">,</span> scooter2<span class="op">);</span></span>
-<span id="cb12-7"><a></a></span>
-<span id="cb12-8"><a></a><span class="co">// Accelerate all vehicles</span></span>
-<span id="cb12-9"><a></a><span class="cf">for</span> <span class="op">(</span>Vehicle vehicle <span class="op">:</span> vehicles<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-10"><a></a>    vehicle<span class="op">.</span><span class="fu">accelerate</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
-<span id="cb12-11"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15" data-filename="Main.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a></a>Bike bike1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">();</span></span>
+<span id="cb15-2"><a></a>Bike bike2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Bike</span><span class="op">();</span></span>
+<span id="cb15-3"><a></a>Scooter scooter1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Scooter</span><span class="op">();</span></span>
+<span id="cb15-4"><a></a>Scooter scooter2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Scooter</span><span class="op">();</span></span>
+<span id="cb15-5"><a></a></span>
+<span id="cb15-6"><a></a><span class="bu">List</span><span class="op">&lt;</span>Vehicle<span class="op">&gt;</span> vehicles <span class="op">=</span> <span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span>bike1<span class="op">,</span> bike2<span class="op">,</span> scooter1<span class="op">,</span> scooter2<span class="op">);</span></span>
+<span id="cb15-7"><a></a></span>
+<span id="cb15-8"><a></a><span class="co">// Accelerate all vehicles</span></span>
+<span id="cb15-9"><a></a><span class="cf">for</span> <span class="op">(</span>Vehicle vehicle <span class="op">:</span> vehicles<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-10"><a></a>    vehicle<span class="op">.</span><span class="fu">accelerate</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb15-11"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p>subclass provides a specific implementation of a method that is already defined in its superclass</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="overloading" class="slide level3">
 <h3>Overloading</h3>
@@ -655,29 +799,42 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Bike.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb13" data-filename="Bike.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Bike <span class="kw">extends</span> Vehicle <span class="op">{</span></span>
-<span id="cb13-2"><a></a>    <span class="kw">private</span> <span class="dt">boolean</span> pannierRacks<span class="op">;</span></span>
-<span id="cb13-3"><a></a></span>
-<span id="cb13-4"><a></a>    <span class="kw">...</span></span>
-<span id="cb13-5"><a></a></span>
-<span id="cb13-6"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment<span class="op">;</span></span>
-<span id="cb13-8"><a></a>    <span class="op">}</span></span>
-<span id="cb13-9"><a></a>    </span>
-<span id="cb13-10"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb13-11"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb13-12"><a></a>    <span class="op">}</span></span>
-<span id="cb13-13"><a></a>        </span>
-<span id="cb13-14"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">double</span> increment<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-15"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment<span class="op">.</span><span class="fu">intValue</span><span class="op">();</span></span>
-<span id="cb13-16"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16" data-filename="Bike.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Bike <span class="kw">extends</span> Vehicle <span class="op">{</span></span>
+<span id="cb16-2"><a></a>    <span class="kw">private</span> <span class="dt">boolean</span> pannierRacks<span class="op">;</span></span>
+<span id="cb16-3"><a></a></span>
+<span id="cb16-4"><a></a>    <span class="kw">...</span></span>
+<span id="cb16-5"><a></a></span>
+<span id="cb16-6"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment<span class="op">;</span></span>
+<span id="cb16-8"><a></a>    <span class="op">}</span></span>
+<span id="cb16-9"><a></a>    </span>
+<span id="cb16-10"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb16-11"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb16-12"><a></a>    <span class="op">}</span></span>
+<span id="cb16-13"><a></a>        </span>
+<span id="cb16-14"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">double</span> increment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-15"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment<span class="op">.</span><span class="fu">intValue</span><span class="op">();</span></span>
+<span id="cb16-16"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p>class has multiple methods with the same name but different parameters</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="javadoc" class="title-slide slide level2 center">
 <h2>JavaDoc</h2>
 <ul>
-<li><strong>Clarity</strong>: Provides clear and consistent documentation for your code</li>
+<li><strong>Clarity</strong>: Provides clear and consistent documentation</li>
 <li><strong>Maintainability</strong>: Makes it easier to understand and maintain code</li>
 <li><strong>Accessibility</strong>: Generates HTML documentation that can be easily shared and viewed</li>
 </ul>
@@ -690,46 +847,46 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Bike.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb14" data-filename="Bike.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a></a><span class="co">/**</span></span>
-<span id="cb14-2"><a></a> <span class="co">*</span> Represents a Bike<span class="co">,</span> a type of Vehicle<span class="co">.</span></span>
-<span id="cb14-3"><a></a> <span class="co">*/</span></span>
-<span id="cb14-4"><a></a><span class="kw">public</span> <span class="kw">class</span> Bike <span class="kw">extends</span> Vehicle <span class="op">{</span></span>
-<span id="cb14-5"><a></a>    <span class="kw">private</span> <span class="dt">boolean</span> pannierRacks<span class="op">;</span></span>
-<span id="cb14-6"><a></a></span>
-<span id="cb14-7"><a></a>    <span class="co">/**</span></span>
-<span id="cb14-8"><a></a>     <span class="co">*</span> Constructs a Bike with the given color</span>
-<span id="cb14-9"><a></a>     <span class="co">*/</span></span>
-<span id="cb14-10"><a></a>    <span class="kw">public</span> <span class="fu">Bike</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb14-11"><a></a>        <span class="kw">super</span><span class="op">(</span>color<span class="op">);</span></span>
-<span id="cb14-12"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">pannierRacks</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb14-13"><a></a>    <span class="op">}</span></span>
-<span id="cb14-14"><a></a></span>
-<span id="cb14-15"><a></a>    <span class="co">/**</span></span>
-<span id="cb14-16"><a></a>     <span class="co">*</span> Produces the sound of a bike<span class="co">'</span>s honk <span class="co">(</span>dring<span class="co">).</span></span>
-<span id="cb14-17"><a></a>     <span class="co">*/</span></span>
-<span id="cb14-18"><a></a>    <span class="at">@Override</span></span>
-<span id="cb14-19"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">honk</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb14-20"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Dring"</span><span class="op">);</span></span>
-<span id="cb14-21"><a></a>    <span class="op">}</span></span>
-<span id="cb14-22"><a></a></span>
-<span id="cb14-23"><a></a>    <span class="co">/**</span></span>
-<span id="cb14-24"><a></a>     <span class="co">*</span> Accelerates the bike by the given increment<span class="co">,</span> plus an additional <span class="co">2</span> units<span class="co">.</span></span>
-<span id="cb14-25"><a></a>     <span class="co">*</span></span>
-<span id="cb14-26"><a></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">increment</span><span class="co"> </span>The amount to increase the speed by<span class="co">.</span></span>
-<span id="cb14-27"><a></a>     <span class="co">*/</span></span>
-<span id="cb14-28"><a></a>    <span class="at">@Override</span></span>
-<span id="cb14-29"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb14-30"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb14-31"><a></a>    <span class="op">}</span></span>
-<span id="cb14-32"><a></a></span>
-<span id="cb14-33"><a></a>    <span class="co">/**</span></span>
-<span id="cb14-34"><a></a>     <span class="co">*</span> Checks if the bike has pannier racks<span class="co">.</span></span>
-<span id="cb14-35"><a></a>     <span class="co">*</span></span>
-<span id="cb14-36"><a></a>     <span class="co">*</span> <span class="an">@return</span> true if the bike has pannier racks<span class="co">,</span> false otherwise<span class="co">.</span></span>
-<span id="cb14-37"><a></a>     <span class="co">*/</span></span>
-<span id="cb14-38"><a></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">hasPannierRacks</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb14-39"><a></a>        <span class="cf">return</span> pannierRacks<span class="op">;</span></span>
-<span id="cb14-40"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17" data-filename="Bike.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a></a><span class="co">/**</span></span>
+<span id="cb17-2"><a></a> <span class="co">*</span> Represents a Bike<span class="co">,</span> a type of Vehicle<span class="co">.</span></span>
+<span id="cb17-3"><a></a> <span class="co">*/</span></span>
+<span id="cb17-4"><a></a><span class="kw">public</span> <span class="kw">class</span> Bike <span class="kw">extends</span> Vehicle <span class="op">{</span></span>
+<span id="cb17-5"><a></a>    <span class="kw">private</span> <span class="dt">boolean</span> pannierRacks<span class="op">;</span></span>
+<span id="cb17-6"><a></a></span>
+<span id="cb17-7"><a></a>    <span class="co">/**</span></span>
+<span id="cb17-8"><a></a>     <span class="co">*</span> Constructs a Bike with the given color</span>
+<span id="cb17-9"><a></a>     <span class="co">*/</span></span>
+<span id="cb17-10"><a></a>    <span class="kw">public</span> <span class="fu">Bike</span><span class="op">(</span><span class="bu">String</span> color<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb17-11"><a></a>        <span class="kw">super</span><span class="op">(</span>color<span class="op">);</span></span>
+<span id="cb17-12"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">pannierRacks</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb17-13"><a></a>    <span class="op">}</span></span>
+<span id="cb17-14"><a></a></span>
+<span id="cb17-15"><a></a>    <span class="co">/**</span></span>
+<span id="cb17-16"><a></a>     <span class="co">*</span> Produces the sound of a bike<span class="co">'</span>s honk <span class="co">(</span>dring<span class="co">).</span></span>
+<span id="cb17-17"><a></a>     <span class="co">*/</span></span>
+<span id="cb17-18"><a></a>    <span class="at">@Override</span></span>
+<span id="cb17-19"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">honk</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-20"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Dring"</span><span class="op">);</span></span>
+<span id="cb17-21"><a></a>    <span class="op">}</span></span>
+<span id="cb17-22"><a></a></span>
+<span id="cb17-23"><a></a>    <span class="co">/**</span></span>
+<span id="cb17-24"><a></a>     <span class="co">*</span> Accelerates the bike by the given increment<span class="co">,</span> plus an additional <span class="co">2</span> units<span class="co">.</span></span>
+<span id="cb17-25"><a></a>     <span class="co">*</span></span>
+<span id="cb17-26"><a></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">increment</span><span class="co"> </span>The amount to increase the speed by<span class="co">.</span></span>
+<span id="cb17-27"><a></a>     <span class="co">*/</span></span>
+<span id="cb17-28"><a></a>    <span class="at">@Override</span></span>
+<span id="cb17-29"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accelerate</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb17-30"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">+=</span> increment <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb17-31"><a></a>    <span class="op">}</span></span>
+<span id="cb17-32"><a></a></span>
+<span id="cb17-33"><a></a>    <span class="co">/**</span></span>
+<span id="cb17-34"><a></a>     <span class="co">*</span> Checks if the bike has pannier racks<span class="co">.</span></span>
+<span id="cb17-35"><a></a>     <span class="co">*</span></span>
+<span id="cb17-36"><a></a>     <span class="co">*</span> <span class="an">@return</span> true if the bike has pannier racks<span class="co">,</span> false otherwise<span class="co">.</span></span>
+<span id="cb17-37"><a></a>     <span class="co">*/</span></span>
+<span id="cb17-38"><a></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">hasPannierRacks</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-39"><a></a>        <span class="cf">return</span> pannierRacks<span class="op">;</span></span>
+<span id="cb17-40"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
 <p>Tags</p>

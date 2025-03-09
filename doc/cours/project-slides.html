@@ -204,10 +204,6 @@ Ludovic Deneuville
 </div>
 
 </section>
-<section class="slide level3">
-
-<p>pacakges</p>
-</section>
 <section>
 <section id="tree-structure" class="title-slide slide level2 center">
 <h2>Tree structure</h2>
@@ -216,20 +212,20 @@ Ludovic Deneuville
 <section id="why-organize-your-project" class="slide level3">
 <h3>Why Organize Your Project?</h3>
 <ul>
-<li>Maintainability: Easier to find and modify code</li>
-<li>Readability: Improves understanding for developers</li>
-<li>Collaboration: Essential for team projects</li>
-<li>Build Process: Tools (Maven/Gradle) rely on it</li>
+<li><strong>Maintainability</strong>: Easier to find and modify code</li>
+<li><strong>Readability</strong>: Improves understanding for developers</li>
+<li><strong>Collaboration</strong>: Essential for team projects</li>
+<li><strong>Build Process</strong>: Tools (Maven/Gradle) rely on it</li>
 </ul>
 </section>
 <section id="the-standard-structure" class="slide level3">
 <h3>The Standard Structure</h3>
 <ul>
-<li>src: The root directory for source code.</li>
-<li>main: Contains the application’s core code.</li>
-<li>test: Contains code for testing the application.</li>
-<li>resources: Non-Code Files (config files, images, text files…)</li>
-<li>target: Output directory for compiled code</li>
+<li><strong>src</strong>: The root directory for source code.</li>
+<li><strong>main</strong>: Contains the application’s core code.</li>
+<li><strong>test</strong>: Contains code for testing the application.</li>
+<li><strong>resources</strong>: Non-Code Files (config files, images, text files…)</li>
+<li><strong>target</strong>: Output directory for compiled code</li>
 </ul>
 </section>
 <section class="slide level3">
@@ -272,9 +268,10 @@ Ludovic Deneuville
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="packages" class="slide level3">
-<h3>Packages</h3>
+</section></section>
+<section>
+<section id="packages" class="title-slide slide level2 center">
+<h2>Packages</h2>
 <ul>
 <li>A way to organize Java classes and interfaces into namespaces</li>
 <li>Used to group related classes together</li>
@@ -307,6 +304,19 @@ Ludovic Deneuville
 <li>com.myorg.myapp.service</li>
 </ul></li>
 </ul>
+<aside class="notes">
+<p>service, dao…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="example" class="slide level3">
 <h3>Example</h3>
@@ -323,7 +333,10 @@ Ludovic Deneuville
 <li><code>import fr.ensai.library.dao;</code></li>
 </ul>
 <aside class="notes">
-<p>Avoid import fr.ensai.library.*</p>
+<ul>
+<li>No need to import classes from the same package</li>
+<li>Avoid import fr.ensai.library.*</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -356,6 +369,7 @@ Ludovic Deneuville
 <li>dependencies: external libraries your project needs</li>
 <li>lifecycle: compile, test, package</li>
 </ul>
+<p><strong>essential just to manage dependencies</strong></p>
 <p>Alternative: Gradle</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -376,6 +390,21 @@ Ludovic Deneuville
 <li>Ensures consistent builds: Everyone uses the same process</li>
 <li>Promotes best practices: Encourages a well-defined project structure</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>withoud maven : <code>java -cp &lt;all_dependencies&gt; Main</code></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="pom" class="slide level3">
 <h3>POM</h3>
@@ -477,7 +506,11 @@ Ludovic Deneuville
 <h3>Plugins</h3>
 <ul>
 <li>Extend Maven’s functionality</li>
-<li>Examples: maven-compiler-plugin, maven-surefire-plugin (for testing)</li>
+<li>Examples:
+<ul>
+<li>maven-compiler-plugin,</li>
+<li>maven-surefire-plugin (for testing)</li>
+</ul></li>
 <li>Help with tasks like compiling code, running tests, creating JAR files</li>
 </ul>
 </section>
@@ -522,6 +555,7 @@ Ludovic Deneuville
 <aside class="notes">
 <ul>
 <li>WAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).</li>
+<li>JAR: simply run it <code>java -jar my-api.jar</code> on a server or using Docker</li>
 <li>Use Docker</li>
 <li>Backend (Business logic)</li>
 </ul>
@@ -536,9 +570,52 @@ Ludovic Deneuville
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-
-
 </section></section>
+<section id="deployment-history" class="title-slide slide level2 center">
+<h2>deployment history</h2>
+<ul>
+<li>Monolith</li>
+<li>Virtualisation</li>
+<li>Containerization</li>
+<li>Orchestration</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Monolith
+<ul>
+<li>one physical server: one app</li>
+<li>Underutilized server resources</li>
+</ul></li>
+<li>Virtualisation
+<ul>
+<li>Application isolation</li>
+<li>Issue: compatibility</li>
+</ul></li>
+<li>Containerization
+<ul>
+<li>Portability</li>
+</ul></li>
+<li>Orchestration
+<ul>
+<li>Automated container management</li>
+</ul></li>
+</ul>
+<p>Before: Filezilla, integrator, it work on my machine<br>
+Now: CICD, git, devops</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

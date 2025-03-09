@@ -217,7 +217,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#tree-structure" id="toc-tree-structure" class="nav-link active" data-scroll-target="#tree-structure">Tree structure</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#maven" id="toc-maven" class="nav-link" data-scroll-target="#maven">Maven</a></li>
+  <li><a href="#deployment-history" id="toc-deployment-history" class="nav-link" data-scroll-target="#deployment-history">deployment history</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="project-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
@@ -258,26 +260,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>pacakges</p>
 <section id="tree-structure" class="level2">
 <h2 class="anchored" data-anchor-id="tree-structure">Tree structure</h2>
 <section id="why-organize-your-project" class="level3">
 <h3 class="anchored" data-anchor-id="why-organize-your-project">Why Organize Your Project?</h3>
 <ul>
-<li>Maintainability: Easier to find and modify code</li>
-<li>Readability: Improves understanding for developers</li>
-<li>Collaboration: Essential for team projects</li>
-<li>Build Process: Tools (Maven/Gradle) rely on it</li>
+<li><strong>Maintainability</strong>: Easier to find and modify code</li>
+<li><strong>Readability</strong>: Improves understanding for developers</li>
+<li><strong>Collaboration</strong>: Essential for team projects</li>
+<li><strong>Build Process</strong>: Tools (Maven/Gradle) rely on it</li>
 </ul>
 </section>
 <section id="the-standard-structure" class="level3">
 <h3 class="anchored" data-anchor-id="the-standard-structure">The Standard Structure</h3>
 <ul>
-<li>src: The root directory for source code.</li>
-<li>main: Contains the application’s core code.</li>
-<li>test: Contains code for testing the application.</li>
-<li>resources: Non-Code Files (config files, images, text files…)</li>
-<li>target: Output directory for compiled code</li>
+<li><strong>src</strong>: The root directory for source code.</li>
+<li><strong>main</strong>: Contains the application’s core code.</li>
+<li><strong>test</strong>: Contains code for testing the application.</li>
+<li><strong>resources</strong>: Non-Code Files (config files, images, text files…)</li>
+<li><strong>target</strong>: Output directory for compiled code</li>
 </ul>
 <hr>
 <div class="sourceCode" id="cb1"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>library-project/</span>
@@ -309,8 +310,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>test : Mirrors the main structure</p>
 </div>
 </section>
-<section id="packages" class="level3">
-<h3 class="anchored" data-anchor-id="packages">Packages</h3>
+</section>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <ul>
 <li>A way to organize Java classes and interfaces into namespaces</li>
 <li>Used to group related classes together</li>
@@ -321,7 +323,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Similar to folders or directories in a file system</li>
 </ul>
 </div>
-</section>
 <section id="package-naming-conventions" class="level3">
 <h3 class="anchored" data-anchor-id="package-naming-conventions">Package Naming Conventions</h3>
 <ul>
@@ -333,6 +334,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>com.myorg.myapp.service</li>
 </ul></li>
 </ul>
+<div class="notes">
+<p>service, dao…</p>
+</div>
 </section>
 <section id="example" class="level3">
 <h3 class="anchored" data-anchor-id="example">Example</h3>
@@ -349,7 +353,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>import fr.ensai.library.dao;</code></li>
 </ul>
 <div class="notes">
-<p>Avoid import fr.ensai.library.*</p>
+<ul>
+<li>No need to import classes from the same package</li>
+<li>Avoid import fr.ensai.library.*</li>
+</ul>
 </div>
 </section>
 </section>
@@ -370,6 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>dependencies: external libraries your project needs</li>
 <li>lifecycle: compile, test, package</li>
 </ul>
+<p><strong>essential just to manage dependencies</strong></p>
 <p>Alternative: Gradle</p>
 </div>
 </section>
@@ -380,6 +388,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Ensures consistent builds: Everyone uses the same process</li>
 <li>Promotes best practices: Encourages a well-defined project structure</li>
 </ul>
+<div class="notes">
+<ul>
+<li>withoud maven : <code>java -cp &lt;all_dependencies&gt; Main</code></li>
+</ul>
+</div>
 </section>
 <section id="pom" class="level3">
 <h3 class="anchored" data-anchor-id="pom">POM</h3>
@@ -471,7 +484,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="plugins">Plugins</h3>
 <ul>
 <li>Extend Maven’s functionality</li>
-<li>Examples: maven-compiler-plugin, maven-surefire-plugin (for testing)</li>
+<li>Examples:
+<ul>
+<li>maven-compiler-plugin,</li>
+<li>maven-surefire-plugin (for testing)</li>
+</ul></li>
 <li>Help with tasks like compiling code, running tests, creating JAR files</li>
 </ul>
 </section>
@@ -514,13 +531,47 @@ JAR file
 <div class="notes">
 <ul>
 <li>WAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).</li>
+<li>JAR: simply run it <code>java -jar my-api.jar</code> on a server or using Docker</li>
 <li>Use Docker</li>
 <li>Backend (Business logic)</li>
 </ul>
 </div>
-
-
 </section>
+</section>
+<section id="deployment-history" class="level2">
+<h2 class="anchored" data-anchor-id="deployment-history">deployment history</h2>
+<ul>
+<li>Monolith</li>
+<li>Virtualisation</li>
+<li>Containerization</li>
+<li>Orchestration</li>
+</ul>
+<div class="notes">
+<ul>
+<li>Monolith
+<ul>
+<li>one physical server: one app</li>
+<li>Underutilized server resources</li>
+</ul></li>
+<li>Virtualisation
+<ul>
+<li>Application isolation</li>
+<li>Issue: compatibility</li>
+</ul></li>
+<li>Containerization
+<ul>
+<li>Portability</li>
+</ul></li>
+<li>Orchestration
+<ul>
+<li>Automated container management</li>
+</ul></li>
+</ul>
+<p>Before: Filezilla, integrator, it work on my machine<br>
+Now: CICD, git, devops</p>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
