@@ -226,10 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#update-your-repo" id="toc-update-your-repo" class="nav-link" data-scroll-target="#update-your-repo"><span class="header-section-number">1.2</span> Update your repo</a></li>
   <li><a href="#open-folder" id="toc-open-folder" class="nav-link" data-scroll-target="#open-folder"><span class="header-section-number">1.3</span> Open Folder</a></li>
   </ul></li>
-  <li><a href="#compile-and-run" id="toc-compile-and-run" class="nav-link" data-scroll-target="#compile-and-run"><span class="header-section-number">2</span> Compile and run</a>
-  <ul class="collapse">
-  <li><a href="#maven" id="toc-maven" class="nav-link" data-scroll-target="#maven"><span class="header-section-number">2.1</span> Maven</a></li>
-  </ul></li>
+  <li><a href="#compile-and-run" id="toc-compile-and-run" class="nav-link" data-scroll-target="#compile-and-run"><span class="header-section-number">2</span> Compile and run</a></li>
   <li><a href="#exercice-library-management" id="toc-exercice-library-management" class="nav-link" data-scroll-target="#exercice-library-management"><span class="header-section-number">3</span> Exercice : Library management</a>
   <ul class="collapse">
   <li><a href="#create-the-library" id="toc-create-the-library" class="nav-link" data-scroll-target="#create-the-library"><span class="header-section-number">3.1</span> Create the library</a></li>
@@ -283,13 +280,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><span class="emoji" data-emoji="construction">🚧</span> draft</p>
 <section id="objectives" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="objectives">Objectives</h2>
 <ul>
-<li>POO</li>
+<li>Object-oriented programming (OOP)</li>
+<li>Java project structure</li>
 <li>Introduction to Maven</li>
-<li>JUnit</li>
+<li>Unit tests with JUnit</li>
 </ul>
 </section>
 <section id="before-you-start" class="level2" data-number="1">
@@ -299,11 +296,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="launch-service-vscode-java" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Launch the service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">VScode-Java</a> using this link</label></li>
+<li><label><input type="checkbox">Launch the service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">VScode-Java</a> using this link.</label></li>
 </ul>
 </section>
 <section id="update-your-repo" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="update-your-repo"><span class="header-section-number">1.2</span> Update your repo</h3>
+<div class="callout callout-style-default callout-warning callout-titled" title="if you haven't done TP1 using your account">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+if you haven’t done TP1 using your account
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Follow the instructions in the <a href="../../doc/tp/tp1.html#introduction" target="_blank">introduction to TP1</a>.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -314,22 +327,22 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>During the first tutorial, you created a fork of the ENSAI-2A-Java-TP repository, i.e.&nbsp;you created a copy of this repository on GitHub.</p>
+<p>During the first tutorial, you created a fork of the <a href="https://github.com/ludo2ne/ENSAI-2A-Java-TP" target="_blank">ENSAI-2A-Java-TP repository</a>, i.e.&nbsp;you created a copy of this repository on GitHub.</p>
 <p>The original repository has been updated, so you need to synchronise your fork with the latest version of the repository.</p>
 </div>
 </div>
-<p><u>Choose one</u> of these two possibilities to perform it :</p>
+<p><strong><u>Choose one</u></strong> of these two possibilities to perform it :</p>
 <ul>
 <li>Using GitHub interface : sync on GitHub, and then clone on your VSCode</li>
-<li>Manually : clone on your VSCode, and then sync using git commands</li>
+<li>Manually in a terminal : clone on your VSCode, and then sync using git commands</li>
 </ul>
 <section id="using-github-interface-easy-way" class="level4">
 <h4 class="anchored" data-anchor-id="using-github-interface-easy-way">Using GitHub interface (easy way)</h4>
 <ul class="task-list">
 <li><label><input type="checkbox">Login to <a href="https://github.com/" target="_blank">GitHub</a></label></li>
 <li><label><input type="checkbox">Open the fork of ENSAI-2A-Java-TP, you created at the first practical</label></li>
-<li><label><input type="checkbox">Clic on Sync fork</label></li>
-<li><label><input type="checkbox">Open a terminal in VSCode an clone your repo</label></li>
+<li><label><input type="checkbox">Click on the button <strong>Sync fork</strong></label></li>
+<li><label><input type="checkbox">Open a terminal in VSCode an clone your own repo</label></li>
 </ul>
 </section>
 <section id="in-a-terminal" class="level4">
@@ -364,16 +377,17 @@ Important
 </section>
 <section id="open-folder" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="open-folder"><span class="header-section-number">1.3</span> Open Folder</h3>
+<p>In VSCode :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">File &gt; Open Folder &gt; tp2</label></li>
 </ul>
-<p><strong>tp2</strong> must be the root folder of your explorer.</p>
+<p><strong>tp2</strong> must be the root folder in your explorer.</p>
 </section>
 </section>
 <section id="compile-and-run" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="compile-and-run"><span class="header-section-number">2</span> Compile and run</h2>
-<section id="maven" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="maven"><span class="header-section-number">2.1</span> Maven</h3>
+<p>Last time, you used the <em>javac</em> and <em>java</em> commands to compile and run your code.</p>
+<p>This time, we’ll be working on a Maven project, so you’ll be able to use the following commands :</p>
 <ul>
 <li><code>mvn clean compile</code>
 <ul>
@@ -389,16 +403,15 @@ Important
 </ul></li>
 </ul>
 </section>
-</section>
 <section id="exercice-library-management" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="exercice-library-management"><span class="header-section-number">3</span> Exercice : Library management</h2>
 <p>The goal of this exercise is to simulate the management of a library where students can borrow books.</p>
 <p>Steps :</p>
 <ul>
 <li>At first two classes are provided, <em>Author</em> and <em>Book</em></li>
+<li>You also have a <em>Main</em> class which will be the entry point for your program (main method, compile, run)</li>
 <li>Create a class representing the library (attributes, methods)</li>
-<li>Create a Main class which will be the entry point for your program (main method, compile, run)</li>
-<li>The library also offers magazines. use OOP to upgrade your system (inheritance, abstract class)</li>
+<li>The application evolves: the library also offers magazines. Use OOP to upgrade your system (inheritance, abstract class)</li>
 <li>Set up features for loaning books and magazines</li>
 </ul>
 <p>At the end of the tp, your code must implement this class diagram :</p>
@@ -412,6 +425,13 @@ Important
         List~Item~ items
         List~Loan~ activeLoans
         List~Loan~ completedLoans
+        addIem()
+        displayItems()
+        getBooksByAuthor() List~Book~
+        loanItem() boolean
+        renderItem() boolean
+        findActiveLoanForItem() Loan
+        loadBooksFromCSV()
     }
     
     class Item {
@@ -493,7 +513,7 @@ Important
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="loadBooksFromCSV">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -502,7 +522,7 @@ loadBooksFromCSV
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">BufferedReader</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">FileReader</span><span class="op">;</span></span>
@@ -565,8 +585,8 @@ loadBooksFromCSV
 <h3 data-number="3.2" class="anchored" data-anchor-id="load-books-from-file"><span class="header-section-number">3.2</span> Load books from file</h3>
 <p>All operations related to the library will be handled in the main class</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Create the Main class (<em>Main.java</em>) with a main method</label></li>
-<li><label><input type="checkbox">In the main method, Create an instance of the Library</label></li>
+<li><label><input type="checkbox">Update the main method of the Main class (<em>Main.java</em>)</label></li>
+<li><label><input type="checkbox">In the main method, create an instance of the Library</label></li>
 <li><label><input type="checkbox">Use the appropriate method to load books from the file <em>books.csv</em></label></li>
 <li><label><input type="checkbox">Display all books</label></li>
 </ul>
