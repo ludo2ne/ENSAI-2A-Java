@@ -237,6 +237,8 @@ Alternative: Gradle
 - `mvn site`: Creates a website for your project
 
 
+## Deployment 
+
 ### Packaging for deployment
 
 - Creation of a JAR file (for API)
@@ -253,9 +255,15 @@ Alternative: Gradle
 - JAR: simply run it `java -jar my-api.jar` on a server or using Docker
 - Use Docker
 - Backend (Business logic)
+
+Java Application history
+
+- monolith struts
+- back Java / front JS
+- Archi 3-tiers
 :::
 
-## deployment history
+### Deployment history
 
 - Monolith
 - Virtualisation
