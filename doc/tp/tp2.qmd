@@ -12,14 +12,13 @@ number-sections: true
 number-depth: 3
 ---
 
-:construction: draft
-
 
 ## Objectives {.unnumbered}
 
-- POO
+- Object-oriented programming (OOP)
+- Java project structure
 - Introduction to Maven
-- JUnit
+- Unit tests with JUnit
 
 ## Before you start
 
@@ -29,27 +28,31 @@ After each part, create a commit and push your code to the remote repository.
 
 ### Launch service VSCode Java
 
-- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} using this link
+- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} using this link.
 
 ### Update your repo
 
+:::{.callout-warning title="if you haven't done TP1 using your account" collapse="true"}
+Follow the instructions in the [introduction to TP1](./tp1.qmd#introduction){target="_blank"}.
+:::
+
 ::: {.callout-important}
-During the first tutorial, you created a fork of the ENSAI-2A-Java-TP repository, i.e. you created a copy of this repository on GitHub.
+During the first tutorial, you created a fork of the [ENSAI-2A-Java-TP repository](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"}, i.e. you created a copy of this repository on GitHub.
 
 The original repository has been updated, so you need to synchronise your fork with the latest version of the repository.
 :::
 
-[Choose one]{.underline} of these two possibilities to perform it :
+**[Choose one]{.underline}** of these two possibilities to perform it :
 
 - Using GitHub interface : sync on GitHub, and then clone on your VSCode
-- Manually : clone on your VSCode, and then sync using git commands
+- Manually in a terminal : clone on your VSCode, and then sync using git commands
 
 #### Using GitHub interface (easy way)
 
 - [ ] Login to [GitHub](https://github.com/){target="_blank"}
 - [ ] Open the fork of ENSAI-2A-Java-TP, you created at the first practical
-- [ ] Clic on Sync fork
-- [ ] Open a terminal in VSCode an clone your repo
+- [ ] Click on the button **Sync fork**
+- [ ] Open a terminal in VSCode an clone your own repo
 
 #### In a terminal
 
@@ -71,15 +74,18 @@ The original repository has been updated, so you need to synchronise your fork w
 
 ### Open Folder
 
+In VSCode :
 
 - [ ] File > Open Folder > tp2
 
-**tp2** must be the root folder of your explorer.
+**tp2** must be the root folder in your explorer.
 
 
 ## Compile and run
 
-### Maven
+Last time, you used the *javac* and *java* commands to compile and run your code.
+
+This time, we'll be working on a Maven project, so you'll be able to use the following commands :
 
 - `mvn clean compile`
   - Drop target folder, Download dependencies, Compile
@@ -97,9 +103,9 @@ The goal of this exercise is to simulate the management of a library where stude
 Steps :
 
 - At first two classes are provided, *Author* and *Book*
+- You also have a *Main* class which will be the entry point for your program (main method, compile, run)
 - Create a class representing the library (attributes, methods)
-- Create a Main class which will be the entry point for your program (main method, compile, run)
-- The library also offers magazines. use OOP to upgrade your system (inheritance, abstract class)
+- The application evolves: the library also offers magazines. Use OOP to upgrade your system (inheritance, abstract class)
 - Set up features for loaning books and magazines
 
 
@@ -111,6 +117,13 @@ classDiagram
         List~Item~ items
         List~Loan~ activeLoans
         List~Loan~ completedLoans
+        addIem()
+        displayItems()
+        getBooksByAuthor() List~Book~
+        loanItem() boolean
+        renderItem() boolean
+        findActiveLoanForItem() Loan
+        loadBooksFromCSV()
     }
     
     class Item {
@@ -246,8 +259,8 @@ import java.net.URL;
 
 All operations related to the library will be handled in the main class
 
-- [ ] Create the Main class (*Main.java*) with a main method
-- [ ] In the main method, Create an instance of the Library
+- [ ] Update the main method of the Main class (*Main.java*)
+- [ ] In the main method, create an instance of the Library
 - [ ] Use the appropriate method to load books from the file *books.csv*
 - [ ] Display all books
 

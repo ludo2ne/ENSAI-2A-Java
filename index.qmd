@@ -17,8 +17,10 @@ from: markdown+emoji
 - Java syntax (variables, structures, loops, etc.)
 - Containers (ArrayList, HashMap)
 - OOP (Classes, Objects, Inheritance, Polymorphism, etc.)
+- Java Project (Tree structure, Packages, Maven)
 - Unit Tests (JUnit)
-- Maven, Spring Boot ?
+- Advanced (Interface, Enum, Stream)
+- Spring Boot, Hibernate ?
 
 
 ## TP
@@ -26,9 +28,9 @@ from: markdown+emoji
 4x3h
 
 - [TP1](doc/tp/tp1.qmd) : Discover Java syntax
-- [TP2](doc/tp/tp2.qmd) : Full-Fledged Object Oriented Programming
-- [TP3](doc/tp/tp3.qmd) : Enums, Containers, Exceptions
-- [TP4](doc/tp/tp4.qmd) : Unit Tests, OOP
+- [TP2](doc/tp/tp2.qmd) : Object Oriented Programming, Unit Tests
+- [TP3](doc/tp/tp3.qmd) : Rated TP
+- [TP4](doc/tp/tp4.qmd) : ?
 
 
 ## Bibliography
