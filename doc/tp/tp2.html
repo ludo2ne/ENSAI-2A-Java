@@ -422,53 +422,53 @@ Important
 <div>
 <pre class="mermaid mermaid-js">classDiagram
     class Library {
-        List~Item~ items
-        List~Loan~ activeLoans
-        List~Loan~ completedLoans
-        addIem()
-        displayItems()
-        getBooksByAuthor() List~Book~
-        loanItem() boolean
-        renderItem() boolean
-        findActiveLoanForItem() Loan
-        loadBooksFromCSV()
+        -List~Item~ items
+        -List~Loan~ activeLoans
+        -List~Loan~ completedLoans
+        +addIem()
+        +displayItems()
+        +getBooksByAuthor() List~Book~
+        +loanItem() boolean
+        +renderItem() boolean
+        +findActiveLoanForItem() Loan
+        +loadBooksFromCSV()
     }
     
     class Item {
-        String title
-        int year
-        int pageCount
+        -String title
+        -int year
+        -int pageCount
     }
     
     class Book {
-        String isbn
-        Author author
+        -String isbn
+        -Author author
     }
     
     class Magazine {
-        String issn
-        String issueNumber
+        -String issn
+        -String issueNumber
     }
 
     class Person {
-        String name
-        int age
+        -String name
+        -int age
     }
 
     class Author {
-        String nationality
+        -String nationality
     }
 
     class Student {
-        int academicYear
-        boolean isClassDelegate
+        -int academicYear
+        -boolean isClassDelegate
     }
 
     class Loan {
-        Item item
-        Student borrower
-        Date startDate
-        Date returnDate
+        -Item item
+        -Student borrower
+        -Date startDate
+        -Date returnDate
     }
 
     Library  --  Item : has
@@ -486,6 +486,22 @@ Important
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>In Java, it’s conventional to declare all attributes as private.</li>
+<li>Constructors, getter and setters don’t appear on the diagram, nor do special methods (toString, equals)</li>
+</ul>
+</div>
+</div>
 <section id="create-the-library" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="create-the-library"><span class="header-section-number">3.1</span> Create the library</h3>
 <p>This class will represent the library and will have the following <u>private</u> attributes:</p>
@@ -500,6 +516,7 @@ Important
 <li><em>displayBooks()</em>
 <ul>
 <li>print all books of the library</li>
+<li>use <em>toString()</em> method from Book class</li>
 <li>or print a message if there is no book</li>
 </ul></li>
 </ul>
@@ -513,7 +530,7 @@ Important
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="loadBooksFromCSV">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -522,7 +539,7 @@ loadBooksFromCSV
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">BufferedReader</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">FileReader</span><span class="op">;</span></span>
@@ -583,10 +600,10 @@ loadBooksFromCSV
 </section>
 <section id="load-books-from-file" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="load-books-from-file"><span class="header-section-number">3.2</span> Load books from file</h3>
-<p>All operations related to the library will be handled in the main class</p>
+<p>All operations related to the library will be handled in the main class.</p>
+<p>Update the main method of the Main class (<em>Main.java</em>):</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Update the main method of the Main class (<em>Main.java</em>)</label></li>
-<li><label><input type="checkbox">In the main method, create an instance of the Library</label></li>
+<li><label><input type="checkbox">Create an instance of the Library</label></li>
 <li><label><input type="checkbox">Use the appropriate method to load books from the file <em>books.csv</em></label></li>
 <li><label><input type="checkbox">Display all books</label></li>
 </ul>
@@ -605,6 +622,15 @@ loadBooksFromCSV
 <li>attributes: issn, issueNumber</li>
 </ul></li>
 </ul>
+<p>In the Library class, replace:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Attribute <em>books</em> by <em>items</em></label></li>
+<li><label><input type="checkbox">Method <em>displayBooks()</em> by <em>displayItems()</em></label></li>
+</ul>
+<p>In the Main class:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">create and add two magazines to the library before calling <em>displayItems()</em></label></li>
+</ul>
 </section>
 <section id="loans" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="loans"><span class="header-section-number">3.4</span> Loans</h3>
@@ -614,6 +640,7 @@ loadBooksFromCSV
 <ul>
 <li>attributes: name, age, academicYear, isClassDelegate</li>
 </ul></li>
+<li><label><input type="checkbox"><strong>Bonus</strong>: do you know of a class that has anything in common with the Student class? Implement</label></li>
 <li><label><input type="checkbox">Create a class <code>Loan</code></label>
 <ul>
 <li>attributes: student, item, startDate, returnDate (null at creation)</li>
@@ -634,14 +661,14 @@ loadBooksFromCSV
 <h3 data-number="3.5" class="anchored" data-anchor-id="various-methods"><span class="header-section-number">3.5</span> Various methods</h3>
 <p>In the <em>Library</em> class create following methods:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">getBooksByAuthor(Author author) -&gt; ArrayList<book></book></label>
-<ul>
-<li>write tests</li>
-</ul></li>
 <li><label><input type="checkbox">findActiveLoanForItem(Item item) -&gt; Loan</label>
 <ul>
 <li>Look if the item is present in active loans</li>
-<li>Run tests</li>
+<li>Run unit tests</li>
+</ul></li>
+<li><label><input type="checkbox">getBooksByAuthor(Author author) -&gt; ArrayList&lt;Book&gt;</label>
+<ul>
+<li>write tests</li>
 </ul></li>
 <li><label><input type="checkbox">loanItem(Item item, Student student) -&gt; boolean</label>
 <ul>
@@ -654,7 +681,9 @@ loadBooksFromCSV
 <li>Add a return date</li>
 <li>Move an item from activeLoans to completedLoans</li>
 </ul></li>
+<li><label><input type="checkbox">displayActiveLoans() -&gt; void</label></li>
 </ul>
+<p>Feel free to use these methods in your main method.</p>
 </section>
 </section>
 <section id="java-class" class="level2" data-number="4">
