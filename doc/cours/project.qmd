@@ -18,25 +18,23 @@ from: markdown+emoji
 lightbox: true
 ---
 
-pacakges
-
 
 ## Tree structure
 
 ### Why Organize Your Project?
 
-- Maintainability: Easier to find and modify code
-- Readability: Improves understanding for developers
-- Collaboration: Essential for team projects
-- Build Process: Tools (Maven/Gradle) rely on it
+- **Maintainability**: Easier to find and modify code
+- **Readability**: Improves understanding for developers
+- **Collaboration**: Essential for team projects
+- **Build Process**: Tools (Maven/Gradle) rely on it
 
 ### The Standard Structure
 
-- src: The root directory for source code.
-- main: Contains the application's core code.
-- test: Contains code for testing the application.
-- resources: Non-Code Files (config files, images, text files...)
-- target: Output directory for compiled code
+- **src**: The root directory for source code.
+- **main**: Contains the application's core code.
+- **test**: Contains code for testing the application.
+- **resources**: Non-Code Files (config files, images, text files...)
+- **target**: Output directory for compiled code
 
 ---
 
@@ -72,7 +70,7 @@ bottom level *library* divided :
 test : Mirrors the main structure
 :::
 
-### Packages
+## Packages
 
 - A way to organize Java classes and interfaces into namespaces
 - Used to group related classes together
@@ -92,6 +90,10 @@ test : Mirrors the main structure
   - fr.ensai.library
   - com.myorg.myapp.service
 
+:::{.notes}
+service, dao...
+:::
+
 ### Example
 
 ```{.java}
@@ -108,7 +110,8 @@ public class Book{
 - `import fr.ensai.library.dao;`
 
 :::{.notes}
-Avoid import fr.ensai.library.*
+- No need to import classes from the same package
+- Avoid import fr.ensai.library.*
 :::
 
 ## Maven
@@ -124,6 +127,8 @@ Avoid import fr.ensai.library.*
 - dependencies: external libraries your project needs
 - lifecycle: compile, test, package
 
+**essential just to manage dependencies**
+
 Alternative: Gradle
 :::
 
@@ -132,6 +137,11 @@ Alternative: Gradle
 - Simplifies dependency management: No more manual downloads
 - Ensures consistent builds: Everyone uses the same process
 - Promotes best practices: Encourages a well-defined project structure
+
+:::{.notes}
+- withoud maven : `java -cp <all_dependencies> Main`
+:::
+
 
 ### POM
 
@@ -211,7 +221,9 @@ Alternative: Gradle
 ### Plugins
 
 - Extend Maven's functionality
-- Examples: maven-compiler-plugin, maven-surefire-plugin (for testing)
+- Examples: 
+  - maven-compiler-plugin, 
+  - maven-surefire-plugin (for testing)
 - Help with tasks like compiling code, running tests, creating JAR files
 
 
@@ -238,6 +250,30 @@ Alternative: Gradle
 
 :::{.notes}
 - WAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).
+- JAR: simply run it `java -jar my-api.jar` on a server or using Docker
 - Use Docker
 - Backend (Business logic)
+:::
+
+## deployment history
+
+- Monolith
+- Virtualisation
+- Containerization
+- Orchestration
+
+:::{.notes}
+- Monolith
+  - one physical server: one app
+  - Underutilized server resources
+- Virtualisation
+  - Application isolation
+  - Issue: compatibility
+- Containerization
+  - Portability
+- Orchestration
+  - Automated container management
+
+Before: Filezilla, integrator, it work on my machine  
+Now: CICD, git, devops
 :::

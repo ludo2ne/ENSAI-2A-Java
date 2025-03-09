@@ -330,6 +330,15 @@ In the *Library* class create following methods:
 Feel free to use these methods in your main method.
 
 
+## End of the TP
+
+- [ ] Commit and push
+- [ ] Remove your service
+
+::: {.callout-tip}
+If it's too easy, you can have fun with <https://adventofcode.com/>{target="_blank"}
+:::
+
 
 ## Java class
 

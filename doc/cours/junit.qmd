@@ -138,7 +138,7 @@ public class FractionTest {
 
 Replace :
 
-- + with -
-- > with >=
+- `+` with `-`
+- `>` with `>=`
 - ...
 :::
