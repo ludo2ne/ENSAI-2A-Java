@@ -93,11 +93,12 @@ details after
 ```{.java filename="Bike.java"}
 public class Bike {
     // Attributes
-    private String color;
+    private String color = "yellow";    // default value if not specified by the constructor
     private int speed;
     private boolean pannierRacks;
 
     private static int nbBikes = 0;
+}
 ```
 
 - static: class attribute
@@ -127,6 +128,7 @@ public class Bike {
         this.speed = 0;
         this.pannierRacks = pannierRacks;
     }
+}
 ```
 
 - `this` : Refers to the current object
@@ -277,6 +279,7 @@ public class Vehicle {
 - `extends`: inherit
 - `super()`: constructor of the parent class
 - `super.foo()`: method *foo()* of the parent class
+- super does not allow access to the private attributes of the parent class
 
 ```{.java filename="Bike.java"}
 public class Bike extends Vehicle {

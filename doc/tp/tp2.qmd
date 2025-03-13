@@ -85,7 +85,7 @@ In VSCode :
 
 Last time, you used the *javac* and *java* commands to compile and run your code.
 
-This time, we'll be working on a Maven project, so you'll be able to use the following commands :
+This time, we'll be working on a Maven project, so you'll be able to use the following commands:
 
 - `mvn clean compile`
   - Drop target folder, Download dependencies, Compile

@@ -1,5 +1,5 @@
 ---
-title: "Java level 2"
+title: "Advanced Java"
 description: "[Slides](advanced-slides.html)"
 author: "Ludovic Deneuville"
 format: 
@@ -9,7 +9,7 @@ format:
     toc-depth: 2
   revealjs:
     theme: moon
-    footer: "[Home](../../index.html) --- [Classes](advanced.html)"
+    footer: "[Home](../../index.html) --- [Advanced Java](advanced.html)"
     slide-number: c/t                    ## collapsed/total
     slide-level: 3
     controls: true
@@ -21,14 +21,289 @@ lightbox: true
 
 ## Todo :construction:
 
-- Optional
-- Exception
-- Interface
-- Stream
-  - https://www.geeksforgeeks.org/java-8-stream-tutorial/
-  - https://www.baeldung.com/java-streams
-- Maven
 - Spring Boot
 - Hibernate
 - <https://rules.sonarsource.com/java/>
-- Enum
+
+
+## Exception
+
+### What are Exceptions?
+
+- Events that disrupt the normal flow of program execution
+- Indicate errors or unexpected conditions that occur during runtime
+
+### Why Should We Raise Exceptions?
+
+- To controll error management, preventing unexpected program crashes
+- To alter the normal execution flow when an error occurs
+- To prevent the system from entering an unstable or inconsistent state
+
+### Example
+
+```{.java filename="BankAccount.java"}
+package fr.ensai.bank.domain;
+
+class BankAccount {
+    private double balance;
+    private double transferLimit;
+
+    public BankAccount(double initialBalance, double transferLimit) {
+        this.balance = initialBalance;
+        this.transferLimit = transferLimit;
+    }
+
+    /**
+     * Transfers a specified amount from this account to another account.
+     * The amount cannot exceed the available balance or the transfer limit.
+     *
+     * @param recipient the account to which the amount will be transferred
+     * @param amount the amount to be transferred
+     */
+    public void transfer(BankAccount recipient, double amount) {
+        this.balance -= amount;
+        recipient.balance += amount;
+    }
+}
+```
+
+:::{.notes}
+- Simple solution: return boolean instead of void
+- False if the transfert cannot be done
+:::
+
+### Throw an Exception
+
+```{.java filename="BankAccount.java"}
+/**
+ * Transfers a specified amount from this account to another account.
+ *
+ * @param recipient the account to which the amount will be transferred
+ * @param amount the amount to be transferred
+ * @throws IllegalArgumentException if the amount exceeds the available balance or the transfer limit
+ */
+public void transfer(BankAccount recipient, double amount)
+        throws IllegalArgumentException {       
+    if (amount > this.balance)
+        throw new IllegalArgumentException(
+            "Insufficient balance for the transfer. Attempted: " + amount + ", Available: " + this.balance);
+    if (amount > this.transferLimit)
+        throw new IllegalArgumentException(
+            "Transfer amount exceeds the transfer limit. Attempted: " + amount + ", Limit: " + this.transferLimit);
+    this.balance -= amount;
+    recipient.balance += amount;
+}
+```
+
+### Define Custom Exceptions
+
+```{.java filename="InsufficientBalanceException.java"}
+package fr.ensai.bank.exception;
+
+public class InsufficientBalanceException extends Exception {
+    public InsufficientBalanceException(String message) {
+        super(message);
+    }
+}
+```
+
+<br>
+
+```{.java filename="TransferLimitExceededException.java"}
+package fr.ensai.bank.exception;
+
+public class TransferLimitExceededException extends Exception {
+    public TransferLimitExceededException(String message) {
+        super(message);
+    }
+}
+```
+
+### Use Custom Exceptions
+
+```{.java filename="BankAccount.java"}
+import fr.ensai.bank.domain.InsufficientBalanceException;
+import fr.ensai.bank.domain.TransferLimitExceededException;
+
+public class Bank {
+
+    ...
+
+    public void transfer(BankAccount recipient, double amount)
+            throws InsufficientBalanceException, TransferLimitExceededException {
+        if (amount > this.balance)
+            throw new InsufficientBalanceException(
+                "Insufficient balance for the transfer. Attempted: " + amount + ", Available: " + this.balance);
+        if (amount > this.transferLimit)
+            throw new TransferLimitExceededException(
+                "Transfer amount exceeds the transfer limit. Attempted: " + amount + ", Limit: " + this.transferLimit);
+        this.balance -= amount;
+        recipient.balance += amount;
+    }
+}
+```
+
+### Exception Handling
+
+```{.java filename="Bank.java"}
+public class Bank {
+    public void makeTransfert(BankAccount sender, BankAccount receiver, amount) {
+        try {
+            sender.transfer(receiver, 250.0);
+        } catch (InsufficientBalanceException e) {
+            System.out.println("Transfer failed: " + e.getMessage());
+        } catch (TransferLimitExceededException e) {
+            System.out.println("Transfer failed: " + e.getMessage());
+        } finally {
+            System.out.println("Account 1 balance: " + sender.getBalance());
+            System.out.println("Account 2 balance: " + receiver.getBalance());
+        }
+    }
+}
+```
+
+:::{.notes}
+- You can have multiple `catch` blocks to handle different types of exceptions
+  - The order of catch blocks matters (most specific to most general).
+  - simpliest way: `catch (Exception e)`
+- Finally: block always executes, regardless of whether an exception occurred or not.
+  - Used for cleanup code (e.g., closing resources).
+:::
+
+### Encountering Exceptions
+
+When an exception occurs in your code, you have two primary options:
+
+- propagate the exception
+- resolve the exception
+
+### Types of Exception
+
+| **Exception**                | **Description**                                                                   | **Checked at Compilation** |
+|-----------------------------|------------------------------------------------------------------------------------|----------------------------|
+| `ArithmeticException`        | An exceptional condition has occurred in an arithmetic operation.                 | No                         |
+| `ArrayIndexOutOfBoundsException` | An array has been accessed with an illegal index.                             | No                         |
+| `ClassNotFoundException`    | Trying to access a class whose definition is not found.                            | Yes                        |
+| `FileNotFoundException`     | File is not accessible or does not open.                                           | Yes                        |
+| `IOException`               | Input-output operation failed or was interrupted.                                  | Yes                        |
+| `NoSuchFieldException`      | A class does not contain the specified field.                                      | Yes                        |
+| `NoSuchMethodException`     | Accessing a method that is not found.                                              | Yes                        |
+| `NullPointerException`      | Referring to the members of a null object.                                         | No                         |
+| `NumberFormatException`     | A method could not convert a string into a numeric format.                         | No                         |
+| `RuntimeException`          | Represents an exception that occurs during runtime.                                | No                         |
+| `IllegalArgumentException`  | A method receives an argument that does not fit the given condition.               | No                         |
+
+<https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/>{target="_blank"}
+
+
+
+## Stream
+
+- <https://www.geeksforgeeks.org/java-8-stream-tutorial/>
+- <https://www.baeldung.com/java-streams>
+
+### Java Streams
+
+- Introduced in Java 8
+- Declarative style
+- Concise and readable code
+- Efficient data processing
+- Support for parallel processing
+
+
+### How it works
+
+- Takes input from the Collections, Arrays, or I/O channels
+- Provide a result as per the pipelined methods
+- Intermediate operation is lazily executed and returns a stream
+- Terminal operations mark the end of the stream and return the result
+
+
+### A first example
+
+```{.java}
+Long sumOdds = Stream
+    .iterate(0L, i -> i + 1L)        // Generate an infinite stream of Longs starting from 0, incrementing by 1
+    .limit(10)                       // Limit the stream to the first 10 elements
+    .filter(i -> (i % 2) == 0)       // Filter the stream to keep only even numbers
+    .map(i -> i + 1)                 // Transform each element by adding 1
+    .sorted()                        // Sort the stream
+    .reduce(0L, Long::sum);          // Reduce the stream to a single Long by summing all elements
+```
+
+### Key Concepts
+
+- Source (List, Array...)
+- Intermediate Operations (filter, map...)
+- Terminal Operation (reduce, collect, forEach...)
+
+
+### Intermediate Operations
+
+They return a new stream.
+
+| Operation           | Description                                       | Example                                      |
+|---------------------|---------------------------------------------------|----------------------------------------------|
+| `filter(predicate)` | Selects matching elements.                        | `stream.filter(x -> x > 10)`                |
+| `map(function)`     | Transforms elements.                              | `stream.map(String::toUpperCase)`            |
+| `flatMap(function)` | Transforms to streams, then flattens.             | `stream.flatMap(List::stream)`              |
+| `distinct()`        | Removes duplicates.                               | `stream.distinct()`                          |
+| `sorted()`          | Sorts elements (natural order).                   | `stream.sorted()`                            |
+| `sorted(comparator)`| Sorts elements (using comparator).                | `stream.sorted(Comparator.reverseOrder())` |
+| `peek(consumer)`    | Performs action on each element.                  | `stream.peek(System.out::println)`           |
+| `limit(maxSize)`    | Truncates to `maxSize` elements.                  | `stream.limit(10)`                           |
+| `skip(n)`           | Discards first `n` elements.                      | `stream.skip(5)`                             |
+
+
+:::{.notes}
+- Lambda functions
+- method reference (String::toUpperCase)
+:::
+
+
+### Terminal Operations
+
+| Operation           | Description                                      | Example                                       |
+|---------------------|--------------------------------------------------|-----------------------------------------------|
+| `forEach(action)`    | Performs an action on each element.             | `stream.forEach(System.out::println)`        |
+| `collect(collector)` | Accumulates elements into a result container.   | `stream.collect(Collectors.toList())`         |
+| `reduce(identity, accumulator)` | Reduces elements to a single value.  | `stream.reduce(0, Integer::sum)`            |
+| `count()`           | Returns the number of elements.                  | `stream.count()`                              |
+| `anyMatch(predicate)`| Checks if any element matches.                  | `stream.anyMatch(x -> x > 10)`                |
+| `allMatch(predicate)`| Checks if all elements match.                   | `stream.allMatch(x -> x > 0)`                 |
+| `noneMatch(predicate)`| Checks if no elements match.                   | `stream.noneMatch(x -> x < 0)`                |
+| `findFirst()`       | Returns the first element.                       | `stream.findFirst()`                          |
+| `min(comparator)`     | Returns the minimum element.                   | `stream.min(Comparator.naturalOrder())`       |
+
+
+### Parallel Streams
+
+- processed in parallel for improved performance
+- Use *parallelStream()*
+- Suitable for CPU-intensive operations on large datasets
+
+
+### MapReduce
+
+- <https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks>
+- <https://en.wikipedia.org/wiki/MapReduce>
+
+
+
+
+
+## Enum
+
+
+
+
+
+## Interface
+
+
+
+## Optional
+
+
+
+
