@@ -9,7 +9,7 @@
 <meta name="author" content="Ludovic Deneuville">
 <meta name="description" content="Slides">
 
-<title>Java level 2 – Java</title>
+<title>Advanced Java – Java</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -127,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/cours/advanced.html">
- <span class="dropdown-text">Java level 2</span></a>
+ <span class="dropdown-text">Advanced Java</span></a>
   </li>  
     </ul>
   </li>
@@ -183,6 +217,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul class="collapse">
   <li><a href="#todo" id="toc-todo" class="nav-link active" data-scroll-target="#todo">Todo <span class="emoji" data-emoji="construction">🚧</span></a></li>
+  <li><a href="#exception" id="toc-exception" class="nav-link" data-scroll-target="#exception">Exception</a></li>
+  <li><a href="#stream" id="toc-stream" class="nav-link" data-scroll-target="#stream">Stream</a></li>
+  <li><a href="#enum" id="toc-enum" class="nav-link" data-scroll-target="#enum">Enum</a></li>
+  <li><a href="#interface" id="toc-interface" class="nav-link" data-scroll-target="#interface">Interface</a></li>
+  <li><a href="#optional" id="toc-optional" class="nav-link" data-scroll-target="#optional">Optional</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="advanced-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
@@ -195,7 +234,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Java level 2</h1>
+<h1 class="title">Advanced Java</h1>
 </div>
 
 <div>
@@ -226,20 +265,467 @@ ul.task-list li input[type="checkbox"] {
 <section id="todo" class="level2">
 <h2 class="anchored" data-anchor-id="todo">Todo <span class="emoji" data-emoji="construction">🚧</span></h2>
 <ul>
-<li>Optional</li>
-<li>Exception</li>
-<li>Interface</li>
-<li>Stream
-<ul>
-<li>https://www.geeksforgeeks.org/java-8-stream-tutorial/</li>
-<li>https://www.baeldung.com/java-streams</li>
-</ul></li>
-<li>Maven</li>
 <li>Spring Boot</li>
 <li>Hibernate</li>
 <li><a href="https://rules.sonarsource.com/java/" class="uri">https://rules.sonarsource.com/java/</a></li>
-<li>Enum</li>
 </ul>
+</section>
+<section id="exception" class="level2">
+<h2 class="anchored" data-anchor-id="exception">Exception</h2>
+<section id="what-are-exceptions" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-exceptions">What are Exceptions?</h3>
+<ul>
+<li>Events that disrupt the normal flow of program execution</li>
+<li>Indicate errors or unexpected conditions that occur during runtime</li>
+</ul>
+</section>
+<section id="why-should-we-raise-exceptions" class="level3">
+<h3 class="anchored" data-anchor-id="why-should-we-raise-exceptions">Why Should We Raise Exceptions?</h3>
+<ul>
+<li>To controll error management, preventing unexpected program crashes</li>
+<li>To alter the normal execution flow when an error occurs</li>
+<li>To prevent the system from entering an unstable or inconsistent state</li>
+</ul>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>BankAccount.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="BankAccount.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">domain</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BankAccount <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">double</span> balance<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">double</span> transferLimit<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">BankAccount</span><span class="op">(</span><span class="dt">double</span> initialBalance<span class="op">,</span> <span class="dt">double</span> transferLimit<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">=</span> initialBalance<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span> <span class="op">=</span> transferLimit<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Transfers a specified amount from this account to another account<span class="co">.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> The amount cannot exceed the available balance or the transfer limit<span class="co">.</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">recipient</span><span class="co"> </span>the account to which the amount will be transferred</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">amount</span><span class="co"> </span>the amount to be transferred</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">transfer</span><span class="op">(</span>BankAccount recipient<span class="op">,</span> <span class="dt">double</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">-=</span> amount<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        recipient<span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="notes">
+<ul>
+<li>Simple solution: return boolean instead of void</li>
+<li>False if the transfert cannot be done</li>
+</ul>
+</div>
+</section>
+<section id="throw-an-exception" class="level3">
+<h3 class="anchored" data-anchor-id="throw-an-exception">Throw an Exception</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>BankAccount.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="BankAccount.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Transfers a specified amount from this account to another account<span class="co">.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">recipient</span><span class="co"> </span>the account to which the amount will be transferred</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">amount</span><span class="co"> </span>the amount to be transferred</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="an">@throws</span><span class="co"> </span><span class="an">IllegalArgumentException</span><span class="co"> </span>if the amount exceeds the available balance or the transfer limit</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">transfer</span><span class="op">(</span>BankAccount recipient<span class="op">,</span> <span class="dt">double</span> amount<span class="op">)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">throws</span> <span class="bu">IllegalArgumentException</span> <span class="op">{</span>       </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span><span class="op">)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Insufficient balance for the transfer. Attempted: "</span> <span class="op">+</span> amount <span class="op">+</span> <span class="st">", Available: "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span><span class="op">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span><span class="op">)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Transfer amount exceeds the transfer limit. Attempted: "</span> <span class="op">+</span> amount <span class="op">+</span> <span class="st">", Limit: "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span><span class="op">);</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">-=</span> amount<span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    recipient<span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="define-custom-exceptions" class="level3">
+<h3 class="anchored" data-anchor-id="define-custom-exceptions">Define Custom Exceptions</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>InsufficientBalanceException.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="InsufficientBalanceException.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> InsufficientBalanceException <span class="kw">extends</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">InsufficientBalanceException</span><span class="op">(</span><span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">super</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>TransferLimitExceededException.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="TransferLimitExceededException.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TransferLimitExceededException <span class="kw">extends</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">TransferLimitExceededException</span><span class="op">(</span><span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">super</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="use-custom-exceptions" class="level3">
+<h3 class="anchored" data-anchor-id="use-custom-exceptions">Use Custom Exceptions</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>BankAccount.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="BankAccount.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">domain</span><span class="op">.</span><span class="im">InsufficientBalanceException</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">domain</span><span class="op">.</span><span class="im">TransferLimitExceededException</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Bank <span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">transfer</span><span class="op">(</span>BankAccount recipient<span class="op">,</span> <span class="dt">double</span> amount<span class="op">)</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            <span class="kw">throws</span> InsufficientBalanceException<span class="op">,</span> TransferLimitExceededException <span class="op">{</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span><span class="op">)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">InsufficientBalanceException</span><span class="op">(</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Insufficient balance for the transfer. Attempted: "</span> <span class="op">+</span> amount <span class="op">+</span> <span class="st">", Available: "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span><span class="op">);</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span><span class="op">)</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">TransferLimitExceededException</span><span class="op">(</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Transfer amount exceeds the transfer limit. Attempted: "</span> <span class="op">+</span> amount <span class="op">+</span> <span class="st">", Limit: "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span><span class="op">);</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">-=</span> amount<span class="op">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        recipient<span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exception-handling" class="level3">
+<h3 class="anchored" data-anchor-id="exception-handling">Exception Handling</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Bank.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb6" data-filename="Bank.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Bank <span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">makeTransfert</span><span class="op">(</span>BankAccount sender<span class="op">,</span> BankAccount receiver<span class="op">,</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            sender<span class="op">.</span><span class="fu">transfer</span><span class="op">(</span>receiver<span class="op">,</span> <span class="fl">250.0</span><span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span>InsufficientBalanceException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Transfer failed: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span>TransferLimitExceededException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Transfer failed: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">finally</span> <span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Account 1 balance: "</span> <span class="op">+</span> sender<span class="op">.</span><span class="fu">getBalance</span><span class="op">());</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Account 2 balance: "</span> <span class="op">+</span> receiver<span class="op">.</span><span class="fu">getBalance</span><span class="op">());</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="notes">
+<ul>
+<li>You can have multiple <code>catch</code> blocks to handle different types of exceptions
+<ul>
+<li>The order of catch blocks matters (most specific to most general).</li>
+<li>simpliest way: <code>catch (Exception e)</code></li>
+</ul></li>
+<li>Finally: block always executes, regardless of whether an exception occurred or not.
+<ul>
+<li>Used for cleanup code (e.g., closing resources).</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="encountering-exceptions" class="level3">
+<h3 class="anchored" data-anchor-id="encountering-exceptions">Encountering Exceptions</h3>
+<p>When an exception occurs in your code, you have two primary options:</p>
+<ul>
+<li>propagate the exception</li>
+<li>resolve the exception</li>
+</ul>
+</section>
+<section id="types-of-exception" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-exception">Types of Exception</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 59%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Exception</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Checked at Compilation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ArithmeticException</code></td>
+<td>An exceptional condition has occurred in an arithmetic operation.</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td><code>ArrayIndexOutOfBoundsException</code></td>
+<td>An array has been accessed with an illegal index.</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><code>ClassNotFoundException</code></td>
+<td>Trying to access a class whose definition is not found.</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td><code>FileNotFoundException</code></td>
+<td>File is not accessible or does not open.</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td><code>IOException</code></td>
+<td>Input-output operation failed or was interrupted.</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td><code>NoSuchFieldException</code></td>
+<td>A class does not contain the specified field.</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td><code>NoSuchMethodException</code></td>
+<td>Accessing a method that is not found.</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td><code>NullPointerException</code></td>
+<td>Referring to the members of a null object.</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><code>NumberFormatException</code></td>
+<td>A method could not convert a string into a numeric format.</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td><code>RuntimeException</code></td>
+<td>Represents an exception that occurs during runtime.</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><code>IllegalArgumentException</code></td>
+<td>A method receives an argument that does not fit the given condition.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/" target="_blank">https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/</a></p>
+</section>
+</section>
+<section id="stream" class="level2">
+<h2 class="anchored" data-anchor-id="stream">Stream</h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/java-8-stream-tutorial/" class="uri">https://www.geeksforgeeks.org/java-8-stream-tutorial/</a></li>
+<li><a href="https://www.baeldung.com/java-streams" class="uri">https://www.baeldung.com/java-streams</a></li>
+</ul>
+<section id="java-streams" class="level3">
+<h3 class="anchored" data-anchor-id="java-streams">Java Streams</h3>
+<ul>
+<li>Introduced in Java 8</li>
+<li>Declarative style</li>
+<li>Concise and readable code</li>
+<li>Efficient data processing</li>
+<li>Support for parallel processing</li>
+</ul>
+</section>
+<section id="how-it-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-it-works">How it works</h3>
+<ul>
+<li>Takes input from the Collections, Arrays, or I/O channels</li>
+<li>Provide a result as per the pipelined methods</li>
+<li>Intermediate operation is lazily executed and returns a stream</li>
+<li>Terminal operations mark the end of the stream and return the result</li>
+</ul>
+</section>
+<section id="a-first-example" class="level3">
+<h3 class="anchored" data-anchor-id="a-first-example">A first example</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Long</span> sumOdds <span class="op">=</span> Stream</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">iterate</span><span class="op">(</span><span class="dv">0L</span><span class="op">,</span> i <span class="op">-&gt;</span> i <span class="op">+</span> <span class="dv">1L</span><span class="op">)</span>        <span class="co">// Generate an infinite stream of Longs starting from 0, incrementing by 1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">limit</span><span class="op">(</span><span class="dv">10</span><span class="op">)</span>                       <span class="co">// Limit the stream to the first 10 elements</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>i <span class="op">-&gt;</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">2</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span>       <span class="co">// Filter the stream to keep only even numbers</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">map</span><span class="op">(</span>i <span class="op">-&gt;</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">)</span>                 <span class="co">// Transform each element by adding 1</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span>                        <span class="co">// Sort the stream</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">reduce</span><span class="op">(</span><span class="dv">0L</span><span class="op">,</span> <span class="bu">Long</span><span class="op">::</span>sum<span class="op">);</span>          <span class="co">// Reduce the stream to a single Long by summing all elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="key-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts">Key Concepts</h3>
+<ul>
+<li>Source (List, Array…)</li>
+<li>Intermediate Operations (filter, map…)</li>
+<li>Terminal Operation (reduce, collect, forEach…)</li>
+</ul>
+</section>
+<section id="intermediate-operations" class="level3">
+<h3 class="anchored" data-anchor-id="intermediate-operations">Intermediate Operations</h3>
+<p>They return a new stream.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 43%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>filter(predicate)</code></td>
+<td>Selects matching elements.</td>
+<td><code>stream.filter(x -&gt; x &gt; 10)</code></td>
+</tr>
+<tr class="even">
+<td><code>map(function)</code></td>
+<td>Transforms elements.</td>
+<td><code>stream.map(String::toUpperCase)</code></td>
+</tr>
+<tr class="odd">
+<td><code>flatMap(function)</code></td>
+<td>Transforms to streams, then flattens.</td>
+<td><code>stream.flatMap(List::stream)</code></td>
+</tr>
+<tr class="even">
+<td><code>distinct()</code></td>
+<td>Removes duplicates.</td>
+<td><code>stream.distinct()</code></td>
+</tr>
+<tr class="odd">
+<td><code>sorted()</code></td>
+<td>Sorts elements (natural order).</td>
+<td><code>stream.sorted()</code></td>
+</tr>
+<tr class="even">
+<td><code>sorted(comparator)</code></td>
+<td>Sorts elements (using comparator).</td>
+<td><code>stream.sorted(Comparator.reverseOrder())</code></td>
+</tr>
+<tr class="odd">
+<td><code>peek(consumer)</code></td>
+<td>Performs action on each element.</td>
+<td><code>stream.peek(System.out::println)</code></td>
+</tr>
+<tr class="even">
+<td><code>limit(maxSize)</code></td>
+<td>Truncates to <code>maxSize</code> elements.</td>
+<td><code>stream.limit(10)</code></td>
+</tr>
+<tr class="odd">
+<td><code>skip(n)</code></td>
+<td>Discards first <code>n</code> elements.</td>
+<td><code>stream.skip(5)</code></td>
+</tr>
+</tbody>
+</table>
+<div class="notes">
+<ul>
+<li>Lambda functions</li>
+<li>method reference (String::toUpperCase)</li>
+</ul>
+</div>
+</section>
+<section id="terminal-operations" class="level3">
+<h3 class="anchored" data-anchor-id="terminal-operations">Terminal Operations</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 42%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>forEach(action)</code></td>
+<td>Performs an action on each element.</td>
+<td><code>stream.forEach(System.out::println)</code></td>
+</tr>
+<tr class="even">
+<td><code>collect(collector)</code></td>
+<td>Accumulates elements into a result container.</td>
+<td><code>stream.collect(Collectors.toList())</code></td>
+</tr>
+<tr class="odd">
+<td><code>reduce(identity, accumulator)</code></td>
+<td>Reduces elements to a single value.</td>
+<td><code>stream.reduce(0, Integer::sum)</code></td>
+</tr>
+<tr class="even">
+<td><code>count()</code></td>
+<td>Returns the number of elements.</td>
+<td><code>stream.count()</code></td>
+</tr>
+<tr class="odd">
+<td><code>anyMatch(predicate)</code></td>
+<td>Checks if any element matches.</td>
+<td><code>stream.anyMatch(x -&gt; x &gt; 10)</code></td>
+</tr>
+<tr class="even">
+<td><code>allMatch(predicate)</code></td>
+<td>Checks if all elements match.</td>
+<td><code>stream.allMatch(x -&gt; x &gt; 0)</code></td>
+</tr>
+<tr class="odd">
+<td><code>noneMatch(predicate)</code></td>
+<td>Checks if no elements match.</td>
+<td><code>stream.noneMatch(x -&gt; x &lt; 0)</code></td>
+</tr>
+<tr class="even">
+<td><code>findFirst()</code></td>
+<td>Returns the first element.</td>
+<td><code>stream.findFirst()</code></td>
+</tr>
+<tr class="odd">
+<td><code>min(comparator)</code></td>
+<td>Returns the minimum element.</td>
+<td><code>stream.min(Comparator.naturalOrder())</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parallel-streams" class="level3">
+<h3 class="anchored" data-anchor-id="parallel-streams">Parallel Streams</h3>
+<ul>
+<li>processed in parallel for improved performance</li>
+<li>Use <em>parallelStream()</em></li>
+<li>Suitable for CPU-intensive operations on large datasets</li>
+</ul>
+</section>
+<section id="mapreduce" class="level3">
+<h3 class="anchored" data-anchor-id="mapreduce">MapReduce</h3>
+<ul>
+<li><a href="https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks" class="uri">https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MapReduce" class="uri">https://en.wikipedia.org/wiki/MapReduce</a></li>
+</ul>
+</section>
+</section>
+<section id="enum" class="level2">
+<h2 class="anchored" data-anchor-id="enum">Enum</h2>
+</section>
+<section id="interface" class="level2">
+<h2 class="anchored" data-anchor-id="interface">Interface</h2>
+</section>
+<section id="optional" class="level2">
+<h2 class="anchored" data-anchor-id="optional">Optional</h2>
 
 
 </section>

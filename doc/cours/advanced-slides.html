@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Ludovic Deneuville">
-  <title>Java – Java level 2</title>
+  <title>Java – Advanced Java</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b17fa0af1ad93c2b7802af2443afaf9b.css">
   <link rel="stylesheet" href="../../styles-reveal.css">
@@ -128,7 +193,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Java level 2</h1>
+  <h1 class="title">Advanced Java</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -142,27 +207,512 @@ Ludovic Deneuville
 <section id="todo" class="title-slide slide level2 center">
 <h2>Todo <span class="emoji" data-emoji="construction">🚧</span></h2>
 <ul>
-<li>Optional</li>
-<li>Exception</li>
-<li>Interface</li>
-<li>Stream
-<ul>
-<li>https://www.geeksforgeeks.org/java-8-stream-tutorial/</li>
-<li>https://www.baeldung.com/java-streams</li>
-</ul></li>
-<li>Maven</li>
 <li>Spring Boot</li>
 <li>Hibernate</li>
 <li><a href="https://rules.sonarsource.com/java/" class="uri">https://rules.sonarsource.com/java/</a></li>
-<li>Enum</li>
 </ul>
+</section>
+
+<section>
+<section id="exception" class="title-slide slide level2 center">
+<h2>Exception</h2>
+
+</section>
+<section id="what-are-exceptions" class="slide level3">
+<h3>What are Exceptions?</h3>
+<ul>
+<li>Events that disrupt the normal flow of program execution</li>
+<li>Indicate errors or unexpected conditions that occur during runtime</li>
+</ul>
+</section>
+<section id="why-should-we-raise-exceptions" class="slide level3">
+<h3>Why Should We Raise Exceptions?</h3>
+<ul>
+<li>To controll error management, preventing unexpected program crashes</li>
+<li>To alter the normal execution flow when an error occurs</li>
+<li>To prevent the system from entering an unstable or inconsistent state</li>
+</ul>
+</section>
+<section id="example" class="slide level3">
+<h3>Example</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>BankAccount.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="BankAccount.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">domain</span><span class="op">;</span></span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a><span class="kw">class</span> BankAccount <span class="op">{</span></span>
+<span id="cb1-4"><a></a>    <span class="kw">private</span> <span class="dt">double</span> balance<span class="op">;</span></span>
+<span id="cb1-5"><a></a>    <span class="kw">private</span> <span class="dt">double</span> transferLimit<span class="op">;</span></span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a>    <span class="kw">public</span> <span class="fu">BankAccount</span><span class="op">(</span><span class="dt">double</span> initialBalance<span class="op">,</span> <span class="dt">double</span> transferLimit<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-8"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">=</span> initialBalance<span class="op">;</span></span>
+<span id="cb1-9"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span> <span class="op">=</span> transferLimit<span class="op">;</span></span>
+<span id="cb1-10"><a></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a>    <span class="co">/**</span></span>
+<span id="cb1-13"><a></a>     <span class="co">*</span> Transfers a specified amount from this account to another account<span class="co">.</span></span>
+<span id="cb1-14"><a></a>     <span class="co">*</span> The amount cannot exceed the available balance or the transfer limit<span class="co">.</span></span>
+<span id="cb1-15"><a></a>     <span class="co">*</span></span>
+<span id="cb1-16"><a></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">recipient</span><span class="co"> </span>the account to which the amount will be transferred</span>
+<span id="cb1-17"><a></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">amount</span><span class="co"> </span>the amount to be transferred</span>
+<span id="cb1-18"><a></a>     <span class="co">*/</span></span>
+<span id="cb1-19"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">transfer</span><span class="op">(</span>BankAccount recipient<span class="op">,</span> <span class="dt">double</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-20"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">-=</span> amount<span class="op">;</span></span>
+<span id="cb1-21"><a></a>        recipient<span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb1-22"><a></a>    <span class="op">}</span></span>
+<span id="cb1-23"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<ul>
+<li>Simple solution: return boolean instead of void</li>
+<li>False if the transfert cannot be done</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="throw-an-exception" class="slide level3">
+<h3>Throw an Exception</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>BankAccount.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="BankAccount.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a></a><span class="co">/**</span></span>
+<span id="cb2-2"><a></a> <span class="co">*</span> Transfers a specified amount from this account to another account<span class="co">.</span></span>
+<span id="cb2-3"><a></a> <span class="co">*</span></span>
+<span id="cb2-4"><a></a> <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">recipient</span><span class="co"> </span>the account to which the amount will be transferred</span>
+<span id="cb2-5"><a></a> <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">amount</span><span class="co"> </span>the amount to be transferred</span>
+<span id="cb2-6"><a></a> <span class="co">*</span> <span class="an">@throws</span><span class="co"> </span><span class="an">IllegalArgumentException</span><span class="co"> </span>if the amount exceeds the available balance or the transfer limit</span>
+<span id="cb2-7"><a></a> <span class="co">*/</span></span>
+<span id="cb2-8"><a></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">transfer</span><span class="op">(</span>BankAccount recipient<span class="op">,</span> <span class="dt">double</span> amount<span class="op">)</span></span>
+<span id="cb2-9"><a></a>        <span class="kw">throws</span> <span class="bu">IllegalArgumentException</span> <span class="op">{</span>       </span>
+<span id="cb2-10"><a></a>    <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span><span class="op">)</span></span>
+<span id="cb2-11"><a></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span></span>
+<span id="cb2-12"><a></a>            <span class="st">"Insufficient balance for the transfer. Attempted: "</span> <span class="op">+</span> amount <span class="op">+</span> <span class="st">", Available: "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span><span class="op">);</span></span>
+<span id="cb2-13"><a></a>    <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span><span class="op">)</span></span>
+<span id="cb2-14"><a></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span></span>
+<span id="cb2-15"><a></a>            <span class="st">"Transfer amount exceeds the transfer limit. Attempted: "</span> <span class="op">+</span> amount <span class="op">+</span> <span class="st">", Limit: "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span><span class="op">);</span></span>
+<span id="cb2-16"><a></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">-=</span> amount<span class="op">;</span></span>
+<span id="cb2-17"><a></a>    recipient<span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb2-18"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="define-custom-exceptions" class="slide level3">
+<h3>Define Custom Exceptions</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>InsufficientBalanceException.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="InsufficientBalanceException.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="kw">public</span> <span class="kw">class</span> InsufficientBalanceException <span class="kw">extends</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb3-4"><a></a>    <span class="kw">public</span> <span class="fu">InsufficientBalanceException</span><span class="op">(</span><span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-5"><a></a>        <span class="kw">super</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb3-6"><a></a>    <span class="op">}</span></span>
+<span id="cb3-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>TransferLimitExceededException.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="TransferLimitExceededException.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="kw">public</span> <span class="kw">class</span> TransferLimitExceededException <span class="kw">extends</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb4-4"><a></a>    <span class="kw">public</span> <span class="fu">TransferLimitExceededException</span><span class="op">(</span><span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-5"><a></a>        <span class="kw">super</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb4-6"><a></a>    <span class="op">}</span></span>
+<span id="cb4-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="use-custom-exceptions" class="slide level3">
+<h3>Use Custom Exceptions</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>BankAccount.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="BankAccount.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a><span class="kw">import</span> <span class="im">fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">domain</span><span class="op">.</span><span class="im">InsufficientBalanceException</span><span class="op">;</span></span>
+<span id="cb5-2"><a></a><span class="kw">import</span> <span class="im">fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">domain</span><span class="op">.</span><span class="im">TransferLimitExceededException</span><span class="op">;</span></span>
+<span id="cb5-3"><a></a></span>
+<span id="cb5-4"><a></a><span class="kw">public</span> <span class="kw">class</span> Bank <span class="op">{</span></span>
+<span id="cb5-5"><a></a></span>
+<span id="cb5-6"><a></a>    <span class="kw">...</span></span>
+<span id="cb5-7"><a></a></span>
+<span id="cb5-8"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">transfer</span><span class="op">(</span>BankAccount recipient<span class="op">,</span> <span class="dt">double</span> amount<span class="op">)</span></span>
+<span id="cb5-9"><a></a>            <span class="kw">throws</span> InsufficientBalanceException<span class="op">,</span> TransferLimitExceededException <span class="op">{</span></span>
+<span id="cb5-10"><a></a>        <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span><span class="op">)</span></span>
+<span id="cb5-11"><a></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">InsufficientBalanceException</span><span class="op">(</span></span>
+<span id="cb5-12"><a></a>                <span class="st">"Insufficient balance for the transfer. Attempted: "</span> <span class="op">+</span> amount <span class="op">+</span> <span class="st">", Available: "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span><span class="op">);</span></span>
+<span id="cb5-13"><a></a>        <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span><span class="op">)</span></span>
+<span id="cb5-14"><a></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">TransferLimitExceededException</span><span class="op">(</span></span>
+<span id="cb5-15"><a></a>                <span class="st">"Transfer amount exceeds the transfer limit. Attempted: "</span> <span class="op">+</span> amount <span class="op">+</span> <span class="st">", Limit: "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">transferLimit</span><span class="op">);</span></span>
+<span id="cb5-16"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">-=</span> amount<span class="op">;</span></span>
+<span id="cb5-17"><a></a>        recipient<span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb5-18"><a></a>    <span class="op">}</span></span>
+<span id="cb5-19"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exception-handling" class="slide level3">
+<h3>Exception Handling</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Bank.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb6" data-filename="Bank.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Bank <span class="op">{</span></span>
+<span id="cb6-2"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">makeTransfert</span><span class="op">(</span>BankAccount sender<span class="op">,</span> BankAccount receiver<span class="op">,</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-3"><a></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb6-4"><a></a>            sender<span class="op">.</span><span class="fu">transfer</span><span class="op">(</span>receiver<span class="op">,</span> <span class="fl">250.0</span><span class="op">);</span></span>
+<span id="cb6-5"><a></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span>InsufficientBalanceException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-6"><a></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Transfer failed: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb6-7"><a></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span>TransferLimitExceededException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-8"><a></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Transfer failed: "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb6-9"><a></a>        <span class="op">}</span> <span class="cf">finally</span> <span class="op">{</span></span>
+<span id="cb6-10"><a></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Account 1 balance: "</span> <span class="op">+</span> sender<span class="op">.</span><span class="fu">getBalance</span><span class="op">());</span></span>
+<span id="cb6-11"><a></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Account 2 balance: "</span> <span class="op">+</span> receiver<span class="op">.</span><span class="fu">getBalance</span><span class="op">());</span></span>
+<span id="cb6-12"><a></a>        <span class="op">}</span></span>
+<span id="cb6-13"><a></a>    <span class="op">}</span></span>
+<span id="cb6-14"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<ul>
+<li>You can have multiple <code>catch</code> blocks to handle different types of exceptions
+<ul>
+<li>The order of catch blocks matters (most specific to most general).</li>
+<li>simpliest way: <code>catch (Exception e)</code></li>
+</ul></li>
+<li>Finally: block always executes, regardless of whether an exception occurred or not.
+<ul>
+<li>Used for cleanup code (e.g., closing resources).</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="encountering-exceptions" class="slide level3">
+<h3>Encountering Exceptions</h3>
+<p>When an exception occurs in your code, you have two primary options:</p>
+<ul>
+<li>propagate the exception</li>
+<li>resolve the exception</li>
+</ul>
+</section>
+<section id="types-of-exception" class="slide level3">
+<h3>Types of Exception</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 59%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Exception</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Checked at Compilation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ArithmeticException</code></td>
+<td>An exceptional condition has occurred in an arithmetic operation.</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td><code>ArrayIndexOutOfBoundsException</code></td>
+<td>An array has been accessed with an illegal index.</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><code>ClassNotFoundException</code></td>
+<td>Trying to access a class whose definition is not found.</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td><code>FileNotFoundException</code></td>
+<td>File is not accessible or does not open.</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td><code>IOException</code></td>
+<td>Input-output operation failed or was interrupted.</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td><code>NoSuchFieldException</code></td>
+<td>A class does not contain the specified field.</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td><code>NoSuchMethodException</code></td>
+<td>Accessing a method that is not found.</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td><code>NullPointerException</code></td>
+<td>Referring to the members of a null object.</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><code>NumberFormatException</code></td>
+<td>A method could not convert a string into a numeric format.</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td><code>RuntimeException</code></td>
+<td>Represents an exception that occurs during runtime.</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><code>IllegalArgumentException</code></td>
+<td>A method receives an argument that does not fit the given condition.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/" target="_blank">https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/</a></p>
+</section></section>
+<section>
+<section id="stream" class="title-slide slide level2 center">
+<h2>Stream</h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/java-8-stream-tutorial/" class="uri">https://www.geeksforgeeks.org/java-8-stream-tutorial/</a></li>
+<li><a href="https://www.baeldung.com/java-streams" class="uri">https://www.baeldung.com/java-streams</a></li>
+</ul>
+</section>
+<section id="java-streams" class="slide level3">
+<h3>Java Streams</h3>
+<ul>
+<li>Introduced in Java 8</li>
+<li>Declarative style</li>
+<li>Concise and readable code</li>
+<li>Efficient data processing</li>
+<li>Support for parallel processing</li>
+</ul>
+</section>
+<section id="how-it-works" class="slide level3">
+<h3>How it works</h3>
+<ul>
+<li>Takes input from the Collections, Arrays, or I/O channels</li>
+<li>Provide a result as per the pipelined methods</li>
+<li>Intermediate operation is lazily executed and returns a stream</li>
+<li>Terminal operations mark the end of the stream and return the result</li>
+</ul>
+</section>
+<section id="a-first-example" class="slide level3">
+<h3>A first example</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a></a><span class="bu">Long</span> sumOdds <span class="op">=</span> Stream</span>
+<span id="cb7-2"><a></a>    <span class="op">.</span><span class="fu">iterate</span><span class="op">(</span><span class="dv">0L</span><span class="op">,</span> i <span class="op">-&gt;</span> i <span class="op">+</span> <span class="dv">1L</span><span class="op">)</span>        <span class="co">// Generate an infinite stream of Longs starting from 0, incrementing by 1</span></span>
+<span id="cb7-3"><a></a>    <span class="op">.</span><span class="fu">limit</span><span class="op">(</span><span class="dv">10</span><span class="op">)</span>                       <span class="co">// Limit the stream to the first 10 elements</span></span>
+<span id="cb7-4"><a></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>i <span class="op">-&gt;</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">2</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span>       <span class="co">// Filter the stream to keep only even numbers</span></span>
+<span id="cb7-5"><a></a>    <span class="op">.</span><span class="fu">map</span><span class="op">(</span>i <span class="op">-&gt;</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">)</span>                 <span class="co">// Transform each element by adding 1</span></span>
+<span id="cb7-6"><a></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span>                        <span class="co">// Sort the stream</span></span>
+<span id="cb7-7"><a></a>    <span class="op">.</span><span class="fu">reduce</span><span class="op">(</span><span class="dv">0L</span><span class="op">,</span> <span class="bu">Long</span><span class="op">::</span>sum<span class="op">);</span>          <span class="co">// Reduce the stream to a single Long by summing all elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="key-concepts" class="slide level3">
+<h3>Key Concepts</h3>
+<ul>
+<li>Source (List, Array…)</li>
+<li>Intermediate Operations (filter, map…)</li>
+<li>Terminal Operation (reduce, collect, forEach…)</li>
+</ul>
+</section>
+<section id="intermediate-operations" class="slide level3">
+<h3>Intermediate Operations</h3>
+<p>They return a new stream.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 43%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>filter(predicate)</code></td>
+<td>Selects matching elements.</td>
+<td><code>stream.filter(x -&gt; x &gt; 10)</code></td>
+</tr>
+<tr class="even">
+<td><code>map(function)</code></td>
+<td>Transforms elements.</td>
+<td><code>stream.map(String::toUpperCase)</code></td>
+</tr>
+<tr class="odd">
+<td><code>flatMap(function)</code></td>
+<td>Transforms to streams, then flattens.</td>
+<td><code>stream.flatMap(List::stream)</code></td>
+</tr>
+<tr class="even">
+<td><code>distinct()</code></td>
+<td>Removes duplicates.</td>
+<td><code>stream.distinct()</code></td>
+</tr>
+<tr class="odd">
+<td><code>sorted()</code></td>
+<td>Sorts elements (natural order).</td>
+<td><code>stream.sorted()</code></td>
+</tr>
+<tr class="even">
+<td><code>sorted(comparator)</code></td>
+<td>Sorts elements (using comparator).</td>
+<td><code>stream.sorted(Comparator.reverseOrder())</code></td>
+</tr>
+<tr class="odd">
+<td><code>peek(consumer)</code></td>
+<td>Performs action on each element.</td>
+<td><code>stream.peek(System.out::println)</code></td>
+</tr>
+<tr class="even">
+<td><code>limit(maxSize)</code></td>
+<td>Truncates to <code>maxSize</code> elements.</td>
+<td><code>stream.limit(10)</code></td>
+</tr>
+<tr class="odd">
+<td><code>skip(n)</code></td>
+<td>Discards first <code>n</code> elements.</td>
+<td><code>stream.skip(5)</code></td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<ul>
+<li>Lambda functions</li>
+<li>method reference (String::toUpperCase)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="terminal-operations" class="slide level3">
+<h3>Terminal Operations</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 42%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>forEach(action)</code></td>
+<td>Performs an action on each element.</td>
+<td><code>stream.forEach(System.out::println)</code></td>
+</tr>
+<tr class="even">
+<td><code>collect(collector)</code></td>
+<td>Accumulates elements into a result container.</td>
+<td><code>stream.collect(Collectors.toList())</code></td>
+</tr>
+<tr class="odd">
+<td><code>reduce(identity, accumulator)</code></td>
+<td>Reduces elements to a single value.</td>
+<td><code>stream.reduce(0, Integer::sum)</code></td>
+</tr>
+<tr class="even">
+<td><code>count()</code></td>
+<td>Returns the number of elements.</td>
+<td><code>stream.count()</code></td>
+</tr>
+<tr class="odd">
+<td><code>anyMatch(predicate)</code></td>
+<td>Checks if any element matches.</td>
+<td><code>stream.anyMatch(x -&gt; x &gt; 10)</code></td>
+</tr>
+<tr class="even">
+<td><code>allMatch(predicate)</code></td>
+<td>Checks if all elements match.</td>
+<td><code>stream.allMatch(x -&gt; x &gt; 0)</code></td>
+</tr>
+<tr class="odd">
+<td><code>noneMatch(predicate)</code></td>
+<td>Checks if no elements match.</td>
+<td><code>stream.noneMatch(x -&gt; x &lt; 0)</code></td>
+</tr>
+<tr class="even">
+<td><code>findFirst()</code></td>
+<td>Returns the first element.</td>
+<td><code>stream.findFirst()</code></td>
+</tr>
+<tr class="odd">
+<td><code>min(comparator)</code></td>
+<td>Returns the minimum element.</td>
+<td><code>stream.min(Comparator.naturalOrder())</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parallel-streams" class="slide level3">
+<h3>Parallel Streams</h3>
+<ul>
+<li>processed in parallel for improved performance</li>
+<li>Use <em>parallelStream()</em></li>
+<li>Suitable for CPU-intensive operations on large datasets</li>
+</ul>
+</section>
+<section id="mapreduce" class="slide level3">
+<h3>MapReduce</h3>
+<ul>
+<li><a href="https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks" class="uri">https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MapReduce" class="uri">https://en.wikipedia.org/wiki/MapReduce</a></li>
+</ul>
+</section></section>
+<section id="enum" class="title-slide slide level2 center">
+<h2>Enum</h2>
+
+</section>
+
+<section id="interface" class="title-slide slide level2 center">
+<h2>Interface</h2>
+
+</section>
+
+<section id="optional" class="title-slide slide level2 center">
+<h2>Optional</h2>
 
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="../../index.html">Home</a> — <a href="advanced.html">Classes</a></p>
+<p><a href="../../index.html">Home</a> — <a href="advanced.html">Advanced Java</a></p>
 </div>
 </div></div>
 

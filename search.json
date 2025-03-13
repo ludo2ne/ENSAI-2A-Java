@@ -326,14 +326,14 @@
     "href": "doc/cours/classes.html#attributes",
     "title": "Java Classes",
     "section": "Attributes",
-    "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n\n\nstatic: class attribute\n\n\n\nusually private attributes\nsetters and getters next\n\n\n\nReminder: Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
+    "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color = \"yellow\";    // default value if not specified by the constructor\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n}\n\n\nstatic: class attribute\n\n\n\nusually private attributes\nsetters and getters next\n\n\n\nReminder: Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
   },
   {
     "objectID": "doc/cours/classes.html#constructor",
     "href": "doc/cours/classes.html#constructor",
     "title": "Java Classes",
     "section": "Constructor",
-    "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n\nthis : Refers to the current object\n\n\n\nName of a Contructor: same as class name\nGenerally public\nPrivate Contructor ?\n\nSingleton Pattern (public static SingletonClass getInstance())\nUninstantiable Classes: class that simply contains static methods\nPrivate Constructor called by Public Constructor\n\n\n\n\nCreate a Bike Object\nBike greenBike = new Bike(\"Green\", true);\n\nBike: type of the variable\ngreenBike: name of the variable\nnew: Memory allocation\nBike(…): constructor call\n\n\n\nJava only uses positional arguments\nYou can create several constructors ≠ Python\n\n\n\n\nDefault Constructor\n\nIf no constructor is provided\n\nBike myBike = new Bike();\n\nwith default values\n\ncolor: null\npannierRacks: false\n\n\n\n\nError if another constructor is provided\n\n\n\n\nCreate a copy\nBike greenBike = new Bike(\"Green\", true);\nBike otherBike = greenBike;\n\n\notherBike is it a copy of greenBike?\nNo, it refer to the same Bike object\nHow to create a copy?\n\n\n\n// Copy constructor\npublic Bike(Bike other) {\n      ...  \n}\n\nBike greenBike = new Bike(\"Green\", 25, true);\nBike copiedBike = new Bike(greenBike);"
+    "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n}\n\n\nthis : Refers to the current object\n\n\n\nName of a Contructor: same as class name\nGenerally public\nPrivate Contructor ?\n\nSingleton Pattern (public static SingletonClass getInstance())\nUninstantiable Classes: class that simply contains static methods\nPrivate Constructor called by Public Constructor\n\n\n\n\nCreate a Bike Object\nBike greenBike = new Bike(\"Green\", true);\n\nBike: type of the variable\ngreenBike: name of the variable\nnew: Memory allocation\nBike(…): constructor call\n\n\n\nJava only uses positional arguments\nYou can create several constructors ≠ Python\n\n\n\n\nDefault Constructor\n\nIf no constructor is provided\n\nBike myBike = new Bike();\n\nwith default values\n\ncolor: null\npannierRacks: false\n\n\n\n\nError if another constructor is provided\n\n\n\n\nCreate a copy\nBike greenBike = new Bike(\"Green\", true);\nBike otherBike = greenBike;\n\n\notherBike is it a copy of greenBike?\nNo, it refer to the same Bike object\nHow to create a copy?\n\n\n\n// Copy constructor\npublic Bike(Bike other) {\n      ...  \n}\n\nBike greenBike = new Bike(\"Green\", 25, true);\nBike copiedBike = new Bike(greenBike);"
   },
   {
     "objectID": "doc/cours/classes.html#call-a-method",
@@ -354,7 +354,7 @@
     "href": "doc/cours/classes.html#inheritance",
     "title": "Java Classes",
     "section": "Inheritance",
-    "text": "Inheritance\n\nParent class\n\n\nVehicle.java\n\npublic class Vehicle {\n    protected String color;\n    protected int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n}\n\n\n\nSubclass\n\nextends: inherit\nsuper(): constructor of the parent class\nsuper.foo(): method foo() of the parent class\n\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n}\n\n\n\nMultiple-inheritance is forbidden in Java\nUse Interfaces\n\nDeclare methods to be implemented.\n\n\n\n\n\nAbstract\n\nabstract classes: cannot be instantiated\nabstract methods: Declared without implementation, must be overridden by subclasses\n\n\n\nVehicle.java\n\npublic abstract class Vehicle {\n    protected String color;\n    protected int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n    public abstract void honk();  // abstract method to be implemented in subsclasses\n\n    public void accelerate(int increment) {\n        this.speed += increment;\n    }\n}\n\n\nQuestions:\n\nIs it possible to create a final abstract class?\nPrivate abstract method?\n\n\n\n\nOverride method\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n    @Override\n    public abstract void honk(){\n        System.out.println(\"Dring\")\n    }\n\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n\n\nYou must override abstract methods\nYou can override other methods\nOverride final method?"
+    "text": "Inheritance\n\nParent class\n\n\nVehicle.java\n\npublic class Vehicle {\n    protected String color;\n    protected int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n}\n\n\n\nSubclass\n\nextends: inherit\nsuper(): constructor of the parent class\nsuper.foo(): method foo() of the parent class\nsuper does not allow access to the private attributes of the parent class\n\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n}\n\n\n\nMultiple-inheritance is forbidden in Java\nUse Interfaces\n\nDeclare methods to be implemented.\n\n\n\n\n\nAbstract\n\nabstract classes: cannot be instantiated\nabstract methods: Declared without implementation, must be overridden by subclasses\n\n\n\nVehicle.java\n\npublic abstract class Vehicle {\n    protected String color;\n    protected int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n    public abstract void honk();  // abstract method to be implemented in subsclasses\n\n    public void accelerate(int increment) {\n        this.speed += increment;\n    }\n}\n\n\nQuestions:\n\nIs it possible to create a final abstract class?\nPrivate abstract method?\n\n\n\n\nOverride method\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n    @Override\n    public abstract void honk(){\n        System.out.println(\"Dring\")\n    }\n\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n\n\nYou must override abstract methods\nYou can override other methods\nOverride final method?"
   },
   {
     "objectID": "doc/cours/classes.html#polymorphism",
@@ -396,14 +396,14 @@
     "href": "doc/cours/classes-slides.html#attributes",
     "title": "Java Classes",
     "section": "Attributes",
-    "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n\n\nstatic: class attribute\n\n\n\nusually private attributes\nsetters and getters next"
+    "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color = \"yellow\";    // default value if not specified by the constructor\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n}\n\n\nstatic: class attribute\n\n\n\nusually private attributes\nsetters and getters next"
   },
   {
     "objectID": "doc/cours/classes-slides.html#constructor",
     "href": "doc/cours/classes-slides.html#constructor",
     "title": "Java Classes",
     "section": "Constructor",
-    "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n\nthis : Refers to the current object\n\n\n\nName of a Contructor: same as class name\nGenerally public\nPrivate Contructor ?\n\nSingleton Pattern (public static SingletonClass getInstance())\nUninstantiable Classes: class that simply contains static methods\nPrivate Constructor called by Public Constructor"
+    "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n}\n\n\nthis : Refers to the current object\n\n\n\nName of a Contructor: same as class name\nGenerally public\nPrivate Contructor ?\n\nSingleton Pattern (public static SingletonClass getInstance())\nUninstantiable Classes: class that simply contains static methods\nPrivate Constructor called by Public Constructor"
   },
   {
     "objectID": "doc/cours/classes-slides.html#call-a-method",
@@ -443,23 +443,93 @@
   {
     "objectID": "doc/cours/advanced-slides.html#todo",
     "href": "doc/cours/advanced-slides.html#todo",
-    "title": "Java level 2",
+    "title": "Advanced Java",
     "section": "Todo 🚧",
-    "text": "Todo 🚧\n\nOptional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
+    "text": "Todo 🚧\n\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
+  },
+  {
+    "objectID": "doc/cours/advanced-slides.html#exception",
+    "href": "doc/cours/advanced-slides.html#exception",
+    "title": "Advanced Java",
+    "section": "Exception",
+    "text": "Exception"
+  },
+  {
+    "objectID": "doc/cours/advanced-slides.html#stream",
+    "href": "doc/cours/advanced-slides.html#stream",
+    "title": "Advanced Java",
+    "section": "Stream",
+    "text": "Stream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams"
+  },
+  {
+    "objectID": "doc/cours/advanced-slides.html#enum",
+    "href": "doc/cours/advanced-slides.html#enum",
+    "title": "Advanced Java",
+    "section": "Enum",
+    "text": "Enum"
+  },
+  {
+    "objectID": "doc/cours/advanced-slides.html#interface",
+    "href": "doc/cours/advanced-slides.html#interface",
+    "title": "Advanced Java",
+    "section": "Interface",
+    "text": "Interface"
+  },
+  {
+    "objectID": "doc/cours/advanced-slides.html#optional",
+    "href": "doc/cours/advanced-slides.html#optional",
+    "title": "Advanced Java",
+    "section": "Optional",
+    "text": "Optional"
   },
   {
     "objectID": "doc/cours/advanced.html",
     "href": "doc/cours/advanced.html",
-    "title": "Java level 2",
+    "title": "Advanced Java",
     "section": "",
-    "text": "Optional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
+    "text": "Spring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
   },
   {
     "objectID": "doc/cours/advanced.html#todo",
     "href": "doc/cours/advanced.html#todo",
-    "title": "Java level 2",
+    "title": "Advanced Java",
     "section": "",
-    "text": "Optional\nException\nInterface\nStream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\nMaven\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/\nEnum"
+    "text": "Spring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
+  },
+  {
+    "objectID": "doc/cours/advanced.html#exception",
+    "href": "doc/cours/advanced.html#exception",
+    "title": "Advanced Java",
+    "section": "Exception",
+    "text": "Exception\n\nWhat are Exceptions?\n\nEvents that disrupt the normal flow of program execution\nIndicate errors or unexpected conditions that occur during runtime\n\n\n\nWhy Should We Raise Exceptions?\n\nTo controll error management, preventing unexpected program crashes\nTo alter the normal execution flow when an error occurs\nTo prevent the system from entering an unstable or inconsistent state\n\n\n\nExample\n\n\nBankAccount.java\n\npackage fr.ensai.bank.domain;\n\nclass BankAccount {\n    private double balance;\n    private double transferLimit;\n\n    public BankAccount(double initialBalance, double transferLimit) {\n        this.balance = initialBalance;\n        this.transferLimit = transferLimit;\n    }\n\n    /**\n     * Transfers a specified amount from this account to another account.\n     * The amount cannot exceed the available balance or the transfer limit.\n     *\n     * @param recipient the account to which the amount will be transferred\n     * @param amount the amount to be transferred\n     */\n    public void transfer(BankAccount recipient, double amount) {\n        this.balance -= amount;\n        recipient.balance += amount;\n    }\n}\n\n\n\nSimple solution: return boolean instead of void\nFalse if the transfert cannot be done\n\n\n\n\nThrow an Exception\n\n\nBankAccount.java\n\n/**\n * Transfers a specified amount from this account to another account.\n *\n * @param recipient the account to which the amount will be transferred\n * @param amount the amount to be transferred\n * @throws IllegalArgumentException if the amount exceeds the available balance or the transfer limit\n */\npublic void transfer(BankAccount recipient, double amount)\n        throws IllegalArgumentException {       \n    if (amount &gt; this.balance)\n        throw new IllegalArgumentException(\n            \"Insufficient balance for the transfer. Attempted: \" + amount + \", Available: \" + this.balance);\n    if (amount &gt; this.transferLimit)\n        throw new IllegalArgumentException(\n            \"Transfer amount exceeds the transfer limit. Attempted: \" + amount + \", Limit: \" + this.transferLimit);\n    this.balance -= amount;\n    recipient.balance += amount;\n}\n\n\n\nDefine Custom Exceptions\n\n\nInsufficientBalanceException.java\n\npackage fr.ensai.bank.exception;\n\npublic class InsufficientBalanceException extends Exception {\n    public InsufficientBalanceException(String message) {\n        super(message);\n    }\n}\n\n\n\n\nTransferLimitExceededException.java\n\npackage fr.ensai.bank.exception;\n\npublic class TransferLimitExceededException extends Exception {\n    public TransferLimitExceededException(String message) {\n        super(message);\n    }\n}\n\n\n\nUse Custom Exceptions\n\n\nBankAccount.java\n\nimport fr.ensai.bank.domain.InsufficientBalanceException;\nimport fr.ensai.bank.domain.TransferLimitExceededException;\n\npublic class Bank {\n\n    ...\n\n    public void transfer(BankAccount recipient, double amount)\n            throws InsufficientBalanceException, TransferLimitExceededException {\n        if (amount &gt; this.balance)\n            throw new InsufficientBalanceException(\n                \"Insufficient balance for the transfer. Attempted: \" + amount + \", Available: \" + this.balance);\n        if (amount &gt; this.transferLimit)\n            throw new TransferLimitExceededException(\n                \"Transfer amount exceeds the transfer limit. Attempted: \" + amount + \", Limit: \" + this.transferLimit);\n        this.balance -= amount;\n        recipient.balance += amount;\n    }\n}\n\n\n\nException Handling\n\n\nBank.java\n\npublic class Bank {\n    public void makeTransfert(BankAccount sender, BankAccount receiver, amount) {\n        try {\n            sender.transfer(receiver, 250.0);\n        } catch (InsufficientBalanceException e) {\n            System.out.println(\"Transfer failed: \" + e.getMessage());\n        } catch (TransferLimitExceededException e) {\n            System.out.println(\"Transfer failed: \" + e.getMessage());\n        } finally {\n            System.out.println(\"Account 1 balance: \" + sender.getBalance());\n            System.out.println(\"Account 2 balance: \" + receiver.getBalance());\n        }\n    }\n}\n\n\n\nYou can have multiple catch blocks to handle different types of exceptions\n\nThe order of catch blocks matters (most specific to most general).\nsimpliest way: catch (Exception e)\n\nFinally: block always executes, regardless of whether an exception occurred or not.\n\nUsed for cleanup code (e.g., closing resources).\n\n\n\n\n\nEncountering Exceptions\nWhen an exception occurs in your code, you have two primary options:\n\npropagate the exception\nresolve the exception\n\n\n\nTypes of Exception\n\n\n\n\n\n\n\n\nException\nDescription\nChecked at Compilation\n\n\n\n\nArithmeticException\nAn exceptional condition has occurred in an arithmetic operation.\nNo\n\n\nArrayIndexOutOfBoundsException\nAn array has been accessed with an illegal index.\nNo\n\n\nClassNotFoundException\nTrying to access a class whose definition is not found.\nYes\n\n\nFileNotFoundException\nFile is not accessible or does not open.\nYes\n\n\nIOException\nInput-output operation failed or was interrupted.\nYes\n\n\nNoSuchFieldException\nA class does not contain the specified field.\nYes\n\n\nNoSuchMethodException\nAccessing a method that is not found.\nYes\n\n\nNullPointerException\nReferring to the members of a null object.\nNo\n\n\nNumberFormatException\nA method could not convert a string into a numeric format.\nNo\n\n\nRuntimeException\nRepresents an exception that occurs during runtime.\nNo\n\n\nIllegalArgumentException\nA method receives an argument that does not fit the given condition.\nNo\n\n\n\nhttps://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/"
+  },
+  {
+    "objectID": "doc/cours/advanced.html#stream",
+    "href": "doc/cours/advanced.html#stream",
+    "title": "Advanced Java",
+    "section": "Stream",
+    "text": "Stream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\n\nJava Streams\n\nIntroduced in Java 8\nDeclarative style\nConcise and readable code\nEfficient data processing\nSupport for parallel processing\n\n\n\nHow it works\n\nTakes input from the Collections, Arrays, or I/O channels\nProvide a result as per the pipelined methods\nIntermediate operation is lazily executed and returns a stream\nTerminal operations mark the end of the stream and return the result\n\n\n\nA first example\nLong sumOdds = Stream\n    .iterate(0L, i -&gt; i + 1L)        // Generate an infinite stream of Longs starting from 0, incrementing by 1\n    .limit(10)                       // Limit the stream to the first 10 elements\n    .filter(i -&gt; (i % 2) == 0)       // Filter the stream to keep only even numbers\n    .map(i -&gt; i + 1)                 // Transform each element by adding 1\n    .sorted()                        // Sort the stream\n    .reduce(0L, Long::sum);          // Reduce the stream to a single Long by summing all elements\n\n\nKey Concepts\n\nSource (List, Array…)\nIntermediate Operations (filter, map…)\nTerminal Operation (reduce, collect, forEach…)\n\n\n\nIntermediate Operations\nThey return a new stream.\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nfilter(predicate)\nSelects matching elements.\nstream.filter(x -&gt; x &gt; 10)\n\n\nmap(function)\nTransforms elements.\nstream.map(String::toUpperCase)\n\n\nflatMap(function)\nTransforms to streams, then flattens.\nstream.flatMap(List::stream)\n\n\ndistinct()\nRemoves duplicates.\nstream.distinct()\n\n\nsorted()\nSorts elements (natural order).\nstream.sorted()\n\n\nsorted(comparator)\nSorts elements (using comparator).\nstream.sorted(Comparator.reverseOrder())\n\n\npeek(consumer)\nPerforms action on each element.\nstream.peek(System.out::println)\n\n\nlimit(maxSize)\nTruncates to maxSize elements.\nstream.limit(10)\n\n\nskip(n)\nDiscards first n elements.\nstream.skip(5)\n\n\n\n\n\nLambda functions\nmethod reference (String::toUpperCase)\n\n\n\n\nTerminal Operations\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nforEach(action)\nPerforms an action on each element.\nstream.forEach(System.out::println)\n\n\ncollect(collector)\nAccumulates elements into a result container.\nstream.collect(Collectors.toList())\n\n\nreduce(identity, accumulator)\nReduces elements to a single value.\nstream.reduce(0, Integer::sum)\n\n\ncount()\nReturns the number of elements.\nstream.count()\n\n\nanyMatch(predicate)\nChecks if any element matches.\nstream.anyMatch(x -&gt; x &gt; 10)\n\n\nallMatch(predicate)\nChecks if all elements match.\nstream.allMatch(x -&gt; x &gt; 0)\n\n\nnoneMatch(predicate)\nChecks if no elements match.\nstream.noneMatch(x -&gt; x &lt; 0)\n\n\nfindFirst()\nReturns the first element.\nstream.findFirst()\n\n\nmin(comparator)\nReturns the minimum element.\nstream.min(Comparator.naturalOrder())\n\n\n\n\n\nParallel Streams\n\nprocessed in parallel for improved performance\nUse parallelStream()\nSuitable for CPU-intensive operations on large datasets\n\n\n\nMapReduce\n\nhttps://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks\nhttps://en.wikipedia.org/wiki/MapReduce"
+  },
+  {
+    "objectID": "doc/cours/advanced.html#enum",
+    "href": "doc/cours/advanced.html#enum",
+    "title": "Advanced Java",
+    "section": "Enum",
+    "text": "Enum"
+  },
+  {
+    "objectID": "doc/cours/advanced.html#interface",
+    "href": "doc/cours/advanced.html#interface",
+    "title": "Advanced Java",
+    "section": "Interface",
+    "text": "Interface"
+  },
+  {
+    "objectID": "doc/cours/advanced.html#optional",
+    "href": "doc/cours/advanced.html#optional",
+    "title": "Advanced Java",
+    "section": "Optional",
+    "text": "Optional"
   },
   {
     "objectID": "doc/cours/code-slides.html#first-of-all",
@@ -802,7 +872,7 @@
     "href": "doc/tp/tp2.html#compile-and-run",
     "title": "Java - TP2",
     "section": "2 Compile and run",
-    "text": "2 Compile and run\nLast time, you used the javac and java commands to compile and run your code.\nThis time, we’ll be working on a Maven project, so you’ll be able to use the following commands :\n\nmvn clean compile\n\nDrop target folder, Download dependencies, Compile\n\nmvn exec:java\n\nRun main method of Main class\n\nmvn test\n\nRun unit tests"
+    "text": "2 Compile and run\nLast time, you used the javac and java commands to compile and run your code.\nThis time, we’ll be working on a Maven project, so you’ll be able to use the following commands:\n\nmvn clean compile\n\nDrop target folder, Download dependencies, Compile\n\nmvn exec:java\n\nRun main method of Main class\n\nmvn test\n\nRun unit tests"
   },
   {
     "objectID": "doc/tp/tp2.html#exercice-library-management",
