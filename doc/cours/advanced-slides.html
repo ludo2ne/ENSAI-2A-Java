@@ -209,6 +209,7 @@ Ludovic Deneuville
 <ul>
 <li>Spring Boot</li>
 <li>Hibernate</li>
+<li>Use DuckDB in TP4</li>
 <li><a href="https://rules.sonarsource.com/java/" class="uri">https://rules.sonarsource.com/java/</a></li>
 </ul>
 </section>
@@ -414,7 +415,7 @@ Ludovic Deneuville
 <li>resolve the exception</li>
 </ul>
 </section>
-<section id="types-of-exception" class="slide level3">
+<section id="types-of-exception" class="slide level3 smaller">
 <h3>Types of Exception</h3>
 <table class="caption-top">
 <colgroup>
@@ -492,10 +493,22 @@ Ludovic Deneuville
 <section>
 <section id="stream" class="title-slide slide level2 center">
 <h2>Stream</h2>
+<aside class="notes">
 <ul>
 <li><a href="https://www.geeksforgeeks.org/java-8-stream-tutorial/" class="uri">https://www.geeksforgeeks.org/java-8-stream-tutorial/</a></li>
 <li><a href="https://www.baeldung.com/java-streams" class="uri">https://www.baeldung.com/java-streams</a></li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="java-streams" class="slide level3">
 <h3>Java Streams</h3>
@@ -534,7 +547,7 @@ Ludovic Deneuville
 <li>Terminal Operation (reduce, collect, forEach…)</li>
 </ul>
 </section>
-<section id="intermediate-operations" class="slide level3">
+<section id="intermediate-operations" class="slide level3 smaller">
 <h3>Intermediate Operations</h3>
 <p>They return a new stream.</p>
 <table class="caption-top">
@@ -615,7 +628,7 @@ Ludovic Deneuville
           display:block!important;
       }</style></aside>
 </section>
-<section id="terminal-operations" class="slide level3">
+<section id="terminal-operations" class="slide level3 smaller">
 <h3>Terminal Operations</h3>
 <table class="caption-top">
 <colgroup>
@@ -690,9 +703,79 @@ Ludovic Deneuville
 <section id="mapreduce" class="slide level3">
 <h3>MapReduce</h3>
 <ul>
-<li><a href="https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks" class="uri">https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks</a></li>
-<li><a href="https://en.wikipedia.org/wiki/MapReduce" class="uri">https://en.wikipedia.org/wiki/MapReduce</a></li>
+<li>A programming model for processing and generating large datasets</li>
+<li>Designed for distributed computing on clusters of machines.</li>
+<li>Breaks down complex tasks into simpler, parallel operations</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Invented by Google in the 2000s</li>
+<li>If memory space is not enought to load the full data set</li>
+<li><a href="https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks" class="uri">https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks</a></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mapreduce-workflow" class="slide level3">
+<h3>MapReduce workflow</h3>
+<ul>
+<li>Split: Input data is divided into smaller chunks</li>
+<li>Map: Each chunk is processed by a Map function</li>
+<li>Reduce: Values are aggregated by a Reduce function</li>
+</ul>
+</section>
+<section id="mapreduce-principle" class="slide level3">
+<h3>MapReduce principle</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
+<span id="cb8-2"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> valuesSquares <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a>Function<span class="op">&lt;</span><span class="bu">Integer</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> square <span class="op">=</span> n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">;</span></span>
+<span id="cb8-5"><a></a></span>
+<span id="cb8-6"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">:</span> values<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-7"><a></a>    valuesSquares<span class="op">.</span><span class="fu">add</span><span class="op">(</span>square<span class="op">.</span><span class="fu">apply</span><span class="op">(</span>n<span class="op">));</span></span>
+<span id="cb8-8"><a></a><span class="op">}</span></span>
+<span id="cb8-9"><a></a></span>
+<span id="cb8-10"><a></a><span class="dt">int</span> sumOfSquares <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-11"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> v <span class="op">:</span> valuesSquares<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-12"><a></a>    sumOfSquares <span class="op">+=</span> v <span class="op">*</span> v<span class="op">;</span></span>
+<span id="cb8-13"><a></a><span class="op">}</span></span>
+<span id="cb8-14"><a></a></span>
+<span id="cb8-15"><a></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> sumOfSquares <span class="op">/</span> valuesSquares<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="manual-implementation" class="slide level3">
+<h3>Manual implementation</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a></a><span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> <span class="fu">manualMap</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> DoubleUnaryOperator function<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-2"><a></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb9-3"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-4"><a></a>        result<span class="op">.</span><span class="fu">add</span><span class="op">(</span>function<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>element<span class="op">));</span></span>
+<span id="cb9-5"><a></a>    <span class="op">}</span></span>
+<span id="cb9-6"><a></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb9-7"><a></a><span class="op">}</span></span>
+<span id="cb9-8"><a></a></span>
+<span id="cb9-9"><a></a><span class="kw">public</span> <span class="dt">double</span> <span class="fu">manualReduce</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> <span class="dt">double</span> identity<span class="op">,</span> DoubleBinaryOperator accumulator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-10"><a></a>    <span class="dt">double</span> result <span class="op">=</span> identity<span class="op">;</span></span>
+<span id="cb9-11"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-12"><a></a>        result <span class="op">=</span> accumulator<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>result<span class="op">,</span> element<span class="op">);</span></span>
+<span id="cb9-13"><a></a>    <span class="op">}</span></span>
+<span id="cb9-14"><a></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb9-15"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mapreduce-using-streams" class="slide level3">
+<h3>MapReduce using streams</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> values<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb10-4"><a></a>    <span class="op">.</span><span class="fu">mapToInt</span><span class="op">(</span>n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">)</span></span>
+<span id="cb10-5"><a></a>    <span class="op">.</span><span class="fu">average</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section id="enum" class="title-slide slide level2 center">
 <h2>Enum</h2>
@@ -706,6 +789,18 @@ Ludovic Deneuville
 
 <section id="optional" class="title-slide slide level2 center">
 <h2>Optional</h2>
+
+</section>
+
+<section id="orm" class="title-slide slide level2 center">
+<h2>ORM</h2>
+<p>Hibernate</p>
+</section>
+
+<section id="api-java" class="title-slide slide level2 center">
+<h2>APi Java</h2>
+<p>Spring boot</p>
+<p><a href="https://ensai-school.github.io/software-engineering-2021-2022/" class="uri">https://ensai-school.github.io/software-engineering-2021-2022/</a></p>
 
 
 </section>

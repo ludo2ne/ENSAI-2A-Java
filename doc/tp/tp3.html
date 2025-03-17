@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Enums, Containers, Exceptions">
+<meta name="description" content="Rated TP">
 
 <title>Java - TP3 – Java</title>
 <style>
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -104,9 +70,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -219,27 +182,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rappels" id="toc-rappels" class="nav-link active" data-scroll-target="#rappels"><span class="header-section-number">1</span> Rappels</a>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions"><span class="header-section-number">1</span> Instructions</a>
   <ul class="collapse">
-  <li><a href="#enum" id="toc-enum" class="nav-link" data-scroll-target="#enum"><span class="header-section-number">1.1</span> Enum</a></li>
-  <li><a href="#collections" id="toc-collections" class="nav-link" data-scroll-target="#collections"><span class="header-section-number">1.2</span> Collections</a></li>
-  <li><a href="#exceptions" id="toc-exceptions" class="nav-link" data-scroll-target="#exceptions"><span class="header-section-number">1.3</span> Exceptions</a></li>
-  <li><a href="#gestion-dexception" id="toc-gestion-dexception" class="nav-link" data-scroll-target="#gestion-dexception"><span class="header-section-number">1.4</span> Gestion d’exception</a></li>
-  <li><a href="#propagation-dexception" id="toc-propagation-dexception" class="nav-link" data-scroll-target="#propagation-dexception"><span class="header-section-number">1.5</span> Propagation d’exception</a></li>
-  <li><a href="#créer-une-exception" id="toc-créer-une-exception" class="nav-link" data-scroll-target="#créer-une-exception"><span class="header-section-number">1.6</span> Créer une exception</a></li>
+  <li><a href="#create-a-private-repo" id="toc-create-a-private-repo" class="nav-link" data-scroll-target="#create-a-private-repo"><span class="header-section-number">1.1</span> Create a private repo</a></li>
+  <li><a href="#launch-service-vscode-java" id="toc-launch-service-vscode-java" class="nav-link" data-scroll-target="#launch-service-vscode-java"><span class="header-section-number">1.2</span> Launch service VSCode Java</a></li>
+  <li><a href="#when-youve-finished" id="toc-when-youve-finished" class="nav-link" data-scroll-target="#when-youve-finished"><span class="header-section-number">1.3</span> When you’ve finished</a></li>
   </ul></li>
-  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link" data-scroll-target="#avant-de-commencer"><span class="header-section-number">2</span> Avant de commencer</a></li>
-  <li><a href="#datalab" id="toc-datalab" class="nav-link" data-scroll-target="#datalab"><span class="header-section-number">3</span> Datalab</a></li>
-  <li><a href="#vm" id="toc-vm" class="nav-link" data-scroll-target="#vm"><span class="header-section-number">4</span> VM</a></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a>
-  <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">5.1</span> Exercice 1</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">5.2</span> Exercice 2</a></li>
-  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">5.3</span> Exercice 3</a></li>
-  <li><a href="#exercice-4" id="toc-exercice-4" class="nav-link" data-scroll-target="#exercice-4"><span class="header-section-number">5.4</span> Exercice 4</a></li>
-  </ul></li>
-  <li><a href="#exemple-de-classe" id="toc-exemple-de-classe" class="nav-link" data-scroll-target="#exemple-de-classe"><span class="header-section-number">6</span> Exemple de classe</a></li>
-  <li><a href="#modèle-de-classe" id="toc-modèle-de-classe" class="nav-link" data-scroll-target="#modèle-de-classe"><span class="header-section-number">7</span> Modèle de classe</a></li>
+  <li><a href="#subject" id="toc-subject" class="nav-link" data-scroll-target="#subject"><span class="header-section-number">2</span> Subject</a></li>
   </ul>
 </nav>
 </nav>
@@ -257,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Enums, Containers, Exceptions
+    Rated TP
   </div>
 </div>
 
@@ -281,554 +230,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
-<section id="rappels" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="rappels"><span class="header-section-number">1</span> Rappels</h2>
-<section id="enum" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="enum"><span class="header-section-number">1.1</span> Enum</h3>
+<section id="instructions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">1</span> Instructions</h2>
 <ul>
-<li>classes dont on limite les objets que l’on peut créer</li>
-<li>dans l’exemple ci-dessous, on ne peut créer que 3 objets différents
+<li>Groups of 1 or 2 students
 <ul>
-<li>le constructeur est privé, ce qui interdit la création d’objets de l’enum JourSemaine avec d’autres paramètres</li>
+<li>Edit the <em>README.md</em> (when it’s created) file to enter your names</li>
+<li>Inter-group plagiarism will be severely punished</li>
+</ul></li>
+<li>Due Date: <strong>Wednesday 26 March at 10pm</strong>
+<ul>
+<li>1 point deducted for each half-hour delay</li>
+</ul></li>
+<li>Zip your project repository and load it on Moodle
+<ul>
+<li>Don’t include <em>target</em> folder</li>
 </ul></li>
 </ul>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>JourSemaine.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb1" data-filename="JourSemaine.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">enum</span> JourSemaine <span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">LUNDI</span> <span class="op">(</span><span class="st">"Lundi"</span><span class="op">,</span> <span class="dv">1</span><span class="op">),</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MARDI</span> <span class="op">(</span><span class="st">"Mardi"</span><span class="op">,</span> <span class="dv">2</span><span class="op">),</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MERCREDI</span> <span class="op">(</span><span class="st">"Mercredi"</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> nom<span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> numero<span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">JourSemaine</span><span class="op">(</span><span class="bu">String</span> nom<span class="op">,</span> <span class="dt">int</span> numero<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">nom</span> <span class="op">=</span> nom<span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">numero</span> <span class="op">=</span> numero<span class="op">;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"JourSemaine("</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">nom</span> <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">numero</span> <span class="op">+</span> <span class="st">")"</span><span class="op">;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Main.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb2" data-filename="Main.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Main <span class="op">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span> args<span class="op">[]){</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        JourSemaine js <span class="op">=</span> JourSemaine<span class="op">.</span><span class="fu">LUNDI</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>js<span class="op">);</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="collections" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="collections"><span class="header-section-number">1.2</span> Collections</h3>
-<p>Infos détaillées sur le site de Jean-Michel Doudoux :</p>
-<ul>
-<li><a href="https://www.jmdoudoux.fr/java/dej/chap-collections.htm#collections-3" target="_blank">Liste</a></li>
-<li><a href="https://www.jmdoudoux.fr/java/dej/chap-collections.htm#collections-4" target="_blank">Set</a> : pas de doublons</li>
-<li><a href="https://www.jmdoudoux.fr/java/dej/chap-collections.htm#collections-5" target="_blank">Map</a> : clé-valeurs</li>
-</ul>
-</section>
-<section id="exceptions" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="exceptions"><span class="header-section-number">1.3</span> Exceptions</h3>
-<p>Une exception est levée lorsqu’une erreur est détectée.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Frac.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb3" data-filename="Frac.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Frac <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> num<span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> denom<span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Frac</span><span class="op">(</span><span class="dt">int</span> num<span class="op">,</span> <span class="dt">int</span> denom<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">=</span> num<span class="op">;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span> <span class="op">=</span> denom<span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">float</span> <span class="fu">valeur_approchee</span><span class="op">(){</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">/</span> <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span><span class="op">;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Main.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb4" data-filename="Main.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Main<span class="op">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span>java<span class="op">.</span><span class="fu">lang</span><span class="op">.</span><span class="fu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      Frac f1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>f1<span class="op">.</span><span class="fu">valeur_approchee</span><span class="op">());</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Exception in thread "main" java.lang.ArithmeticException: / by zero</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="gestion-dexception" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="gestion-dexception"><span class="header-section-number">1.4</span> Gestion d’exception</h3>
-<ul>
-<li>nous identifions le bloc de code qui pourrait poser souci</li>
-<li>nous l’encapsulons dans un bloc <em>try / catch</em></li>
-</ul>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Frac.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb5" data-filename="Frac.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Frac <span class="op">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> num<span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> denom<span class="op">;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Frac</span><span class="op">(</span><span class="dt">int</span> num<span class="op">,</span> <span class="dt">int</span> denom<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">=</span> num<span class="op">;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span> <span class="op">=</span> denom<span class="op">;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">float</span> <span class="fu">valeur_approchee</span><span class="op">(){</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">float</span> res <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span><span class="op">{</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            res <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">/</span> <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span><span class="op">;</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">catch</span><span class="op">(</span><span class="bu">ArithmeticException</span> e<span class="op">){</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Exception levée : "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">toString</span><span class="op">());</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Cause : "</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> res<span class="op">;</span>      </span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Cette fois-ci, le même <em>Main</em> renvoie :</p>
-<pre><code>Exception levée : java.lang.ArithmeticException: / by zero
-Cause : / by zero
-0.0</code></pre>
-</section>
-<section id="propagation-dexception" class="level3" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="propagation-dexception"><span class="header-section-number">1.5</span> Propagation d’exception</h3>
-<p>Une autre possibilité est de dire que la méthode <em>valeur_approchee()</em> pourrait renvoyer une exception (mot clé : <code>throws</code>).</p>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><code>throws</code> Exception
+<li>Everything you need is in the course and the practical exercises</li>
+<li>You are permitted to conduct internet searches to find information and documentation</li>
+<li>The use of any LLM is <u>strictly prohibited</u> during this exam
 <ul>
-<li>dans la signature d’une méthode</li>
-<li>indique que la méthode peut retourner une exception</li>
+<li>As Olivier so rightly says: LLMs are good servants, but bad masters</li>
+<li>They can be useful tools, but they must not replace your own comprehension and programming skills</li>
 </ul></li>
-<li><code>throw</code> new Exception()
+</ul>
+<p>If you are caught using an LLM, it will be considered cheating and you will receive a zero.</p>
+</div>
+</div>
+<section id="create-a-private-repo" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="create-a-private-repo"><span class="header-section-number">1.1</span> Create a private repo</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Login to <a href="https://github.com/" target="_blank">GitHub</a></label></li>
+<li><label><input type="checkbox"><a href="https://github.com/new" target="_blank">Create a new repository</a></label>
 <ul>
-<li>déclenche volontairement une exception</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Frac.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb7" data-filename="Frac.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Frac <span class="op">{</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> num<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> denom<span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Frac</span><span class="op">(</span><span class="dt">int</span> num<span class="op">,</span> <span class="dt">int</span> denom<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">=</span> num<span class="op">;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span> <span class="op">=</span> denom<span class="op">;</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">float</span> <span class="fu">valeur_approchee</span><span class="op">()</span> <span class="kw">throws</span> <span class="bu">ArithmeticException</span><span class="op">{</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">denom</span> <span class="op">==</span> <span class="dv">0</span><span class="op">){</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Division par zéro"</span><span class="op">);</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">/</span> <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span><span class="op">;</span>      </span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Dans ce cas on dit que l’exception se propage. Elle devra être gérée “plus haut”, par exemple en mettant un bloc <em>try / catch</em> dans le <em>Main</em></p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Main.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb8" data-filename="Main.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Main<span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span>java<span class="op">.</span><span class="fu">lang</span><span class="op">.</span><span class="fu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        Frac f1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span><span class="op">{</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>f1<span class="op">.</span><span class="fu">valeur_approchee</span><span class="op">());</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span><span class="cf">catch</span><span class="op">(</span><span class="bu">ArithmeticException</span> e<span class="op">){</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Impossible de diviser par zéro"</span><span class="op">);</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span>      </span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="créer-une-exception" class="level3" data-number="1.6">
-<h3 data-number="1.6" class="anchored" data-anchor-id="créer-une-exception"><span class="header-section-number">1.6</span> Créer une exception</h3>
-<p>Il est également possible de créer ses propres exceptions.</p>
-<p>Par exemple, si vous décidez que le numérateur ne doit pas être impair, vous pouvez créer :</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>NumerateurImpairException.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb9" data-filename="NumerateurImpairException.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> NumerateurImpairException <span class="kw">extends</span> <span class="bu">Exception</span><span class="op">{</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">NumerateurImpairException</span><span class="op">(){</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">super</span><span class="op">(</span><span class="st">"Le numérateur ne doit pas être impair"</span><span class="op">);</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Vous pouvez ensuite modifier le constructeur pour lever au cas où cette exception.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>NumerateurImpairException.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb10" data-filename="NumerateurImpairException.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Frac <span class="op">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> num<span class="op">;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> denom<span class="op">;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Frac</span><span class="op">(</span><span class="dt">int</span> num<span class="op">,</span> <span class="dt">int</span> denom<span class="op">)</span> <span class="kw">throws</span> NumerateurImpairException<span class="op">{</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="op">(</span>num <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">){</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>          <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">NumerateurImpairException</span><span class="op">();</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">=</span> num<span class="op">;</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>      <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span> <span class="op">=</span> denom<span class="op">;</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Et enfin vous gérez l’exception dans le <em>Main</em>.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Main.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb11" data-filename="Main.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Main<span class="op">{</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span>java<span class="op">.</span><span class="fu">lang</span><span class="op">.</span><span class="fu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span><span class="op">{</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            Frac f1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span><span class="cf">catch</span><span class="op">(</span><span class="bu">Exception</span> e<span class="op">){</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">//Le numérateur ne doit pas être impair</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="avant-de-commencer" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="avant-de-commencer"><span class="header-section-number">2</span> Avant de commencer</h2>
-<ul>
-<li>Sur votre disque <code>P:</code>,
-<ul class="task-list">
-<li><label><input type="checkbox">créez un dossier <code>Java</code>,</label></li>
-<li><label><input type="checkbox">à l’intérieur, créez un dossier <code>TP3</code></label></li>
-<li><label><input type="checkbox">Ouvrez et enregistrez le <a href="https://foad-moodle.ensai.fr/pluginfile.php/21983/mod_resource/content/7/TP3.pdf" target="_blank">sujet</a></label></li>
-</ul></li>
-<li><label><input type="checkbox">Récupérez le dépôt sur <a href="https://foad-moodle.ensai.fr/mod/resource/view.php?id=9944" target="_blank">Moodle</a></label></li>
-</ul>
-</section>
-<section id="datalab" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="datalab"><span class="header-section-number">3</span> Datalab</h2>
-<p>Il est possible de faire le TP soit sur la VM, soit sur le datalab</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Connectez-vous sur le <a href="https://datalab.sspcloud.fr/" target="_blank">datalab</a></label></li>
-<li><label><input type="checkbox">Lancez le service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">Java avec VScode</a> puis suivez les instructions</label></li>
-<li><label><input type="checkbox">Dans <em>l’explorer</em> à gauche &gt; clic droit &gt; Upload</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Chargez le fichier <code>JavaTP3-base.zip</code></label></li>
-</ul></li>
-<li><label><input type="checkbox">Ouvrez un terminal</label>
-<ul class="task-list">
-<li><label><input type="checkbox">rentrez <code>unzip JavaTP3-base.zip</code> pour extraire les fichiers</label></li>
-</ul></li>
-<li><label><input type="checkbox">File &gt; Open Folder &gt; <em>/home/onyxia/work/JavaTP3-base/</em></label>
-<ul>
-<li><span class="emoji" data-emoji="warning">⚠️</span> important d’ouvrir le bon dossier !</li>
-</ul></li>
-<li><label><input type="checkbox">Ouvrez un terminal (CTRL+ù)</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Positionnez-vous dans le bon dossier : <code>cd JavaTP3-base</code></label></li>
-<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src ./src/edu/ensai/pokemon/main/Main.java</code></label></li>
-<li><label><input type="checkbox">Exécutez le programme : <code>java -cp bin edu.ensai.pokemon.main.Main</code></label></li>
+<li><strong>Repository name:</strong> ENSAI-Java-TP3</li>
+<li>Private</li>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> Add a README file</li>
+<li><strong>Add .gitignore:</strong> Java</li>
+<li><strong>Licence:</strong> Apache License 2.0 (or another)</li>
 </ul></li>
 </ul>
 </section>
-<section id="vm" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="vm"><span class="header-section-number">4</span> VM</h2>
+<section id="launch-service-vscode-java" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="launch-service-vscode-java"><span class="header-section-number">1.2</span> Launch service VSCode Java</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
+<li><label><input type="checkbox">Launch the service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">VScode-Java</a> using this link.</label></li>
+<li><label><input type="checkbox">Clone your repository (https)</label></li>
+<li><label><input type="checkbox">Open Folder <code>home/onyxia/work/ENSAI-Java-TP3</code></label></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After each part, create a commit and push your code to the remote repository.</p>
+</div>
+</div>
+</section>
+<section id="when-youve-finished" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="when-youve-finished"><span class="header-section-number">1.3</span> When you’ve finished</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Allez dans le dossier <em>TP3</em></label></li>
-<li><label><input type="checkbox">Un clic sur <em>JavaTP3-base</em>, ensuite <code>Sélectionner un dossier</code></label></li>
-</ul></li>
-<li><label><input type="checkbox">Ouvrez un terminal (CTRL+ù)</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Positionnez-vous dans le bon dossier : <code>cd JavaTP3-base</code></label></li>
-<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src .\src\edu\ensai\pokemon\main\Main.java</code></label></li>
-<li><label><input type="checkbox">Exécutez le programme : <code>java -cp bin edu.ensai.pokemon.main.Main</code></label></li>
-</ul></li>
+<li><label><input type="checkbox">Save your work using git</label></li>
+<li><label><input type="checkbox">Delete your service</label></li>
 </ul>
 </section>
-<section id="exercices" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="exercices"><span class="header-section-number">5</span> Exercices</h2>
-<section id="exercice-1" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">5.1</span> Exercice 1</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Transformez la classe <em>Species</em> en Enum</label></li>
-<li><label><input type="checkbox">Adaptez le code du <em>Main</em></label></li>
-</ul>
 </section>
-<section id="exercice-2" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">5.2</span> Exercice 2</h3>
-<ul>
-<li>Player est un singleton, on ne peut en créer qu’une seule instance</li>
-<li><label><input type="checkbox">Classe Inventory</label></li>
-<li><label><input type="checkbox">Ajouter à Player un attribut de type Inventory</label></li>
-<li><label><input type="checkbox">Dans le main, appeler l’instance de Player</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Créer et ajouter un objet à l’inventaire</label></li>
-<li><label><input type="checkbox">Afficher le montant total de l’inventaire</label></li>
-</ul></li>
-</ul>
-<p>https://refactoring.guru/fr/replace-inheritance-with-delegation</p>
-</section>
-<section id="exercice-3" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">5.3</span> Exercice 3</h3>
-</section>
-<section id="exercice-4" class="level3" data-number="5.4">
-<h3 data-number="5.4" class="anchored" data-anchor-id="exercice-4"><span class="header-section-number">5.4</span> Exercice 4</h3>
-</section>
-</section>
-<section id="exemple-de-classe" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="exemple-de-classe"><span class="header-section-number">6</span> Exemple de classe</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Represents a student</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Attributes <span class="co">:</span> name<span class="co">,</span> age<span class="co">,</span> and a list of notes<span class="co">.</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Student <span class="op">{</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> age<span class="op">;</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> notes<span class="op">;</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Constructs a new Student object with the given name and age<span class="co">.</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">name</span><span class="co"> </span>The name of the student<span class="co">.</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">age</span><span class="co"> </span>The age of the student<span class="co">.</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> age<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">age</span> <span class="op">=</span> age<span class="op">;</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">notes</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span>     <span class="co">// empty list</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Getters and Setters (to access private attributes)</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> name<span class="op">;</span></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">getAge</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> age<span class="op">;</span></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Sets the age of the student<span class="co">.</span></span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">age</span><span class="co"> </span>The age to set<span class="co">.</span> It should be greater than zero<span class="co">.</span></span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@throws</span><span class="co"> </span><span class="an">IllegalArgumentException</span><span class="co"> </span>if the provided age is not greater than zero<span class="co">.</span></span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setAge</span><span class="op">(</span><span class="dt">int</span> age<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>age <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">"Age must be greater than zero."</span><span class="op">);</span></span>
-<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">age</span> <span class="op">=</span> age<span class="op">;</span></span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Methods</span></span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@return</span> A string representation of the Student object<span class="co">.</span></span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Student("</span> <span class="op">+</span></span>
-<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>                <span class="st">"name='"</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">+</span> <span class="ch">'\''</span> <span class="op">+</span></span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>                <span class="st">", age="</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">age</span> <span class="op">+</span></span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>                <span class="ch">')'</span><span class="op">;</span></span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Adds a note to the student<span class="co">'</span>s list of notes<span class="co">.</span></span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">note</span><span class="co"> </span>The note to be added<span class="co">.</span></span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">addNote</span><span class="op">(</span><span class="dt">double</span> note<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">notes</span><span class="op">.</span><span class="fu">add</span><span class="op">(</span>note<span class="op">);</span></span>
-<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Computes the average note of the student<span class="co">.</span></span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@return</span> The average note of the student<span class="co">.</span></span>
-<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@throws</span><span class="co"> </span><span class="an">ArithmeticException</span><span class="co"> </span>if there are no notes present<span class="co">.</span></span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">computeAverage</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">notes</span><span class="op">.</span><span class="fu">isEmpty</span><span class="op">())</span> <span class="op">{</span></span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Cannot compute average. No notes available."</span><span class="op">);</span></span>
-<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>        <span class="dt">double</span> sum <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> note <span class="op">:</span> <span class="kw">this</span><span class="op">.</span><span class="fu">notes</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>            sum <span class="op">+=</span> note<span class="op">;</span></span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> sum <span class="op">/</span> <span class="kw">this</span><span class="op">.</span><span class="fu">notes</span><span class="op">.</span><span class="fu">size</span><span class="op">();</span></span>
-<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Main method</span>
-<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>        Student student <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Eva"</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
-<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">17.5</span><span class="op">);</span></span>
-<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">12.0</span><span class="op">);</span></span>
-<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>        student<span class="op">.</span><span class="fu">addNote</span><span class="op">(</span><span class="fl">20.0</span><span class="op">);</span></span>
-<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>student<span class="op">);</span></span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Average Note: "</span> <span class="op">+</span> student<span class="op">.</span><span class="fu">computeAverage</span><span class="op">());</span></span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="modèle-de-classe" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="modèle-de-classe"><span class="header-section-number">7</span> Modèle de classe</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Represents a <span class="co">...</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ClassName <span class="op">{</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> attribute1<span class="op">;</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> attribute2<span class="op">;</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Constructs a new <span class="co">...</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">parameter1</span><span class="co"> </span>parameter1_description</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">parameter2</span><span class="co"> </span>parameter2_description</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">ClassName</span><span class="op">(</span><span class="bu">String</span> parameter1<span class="op">,</span> <span class="dt">int</span> parameter2<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">attribute1</span> <span class="op">=</span> parameter1<span class="op">;</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">attribute2</span> <span class="op">=</span> parameter2<span class="op">;</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Methods</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">// -------------------------------------------------------</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> No parameter<span class="co">,</span> return void</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print_attribute1</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">attribute1</span><span class="op">);</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Increment value of attribute2</span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> A parameter<span class="co">,</span> return void</span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="an">increment</span><span class="co"> </span>increment</span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">increment_attribute2</span><span class="op">(</span><span class="dt">int</span> increment<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">attribute2</span> <span class="op">+=</span> increment<span class="op">;</span></span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Checks if attribute2 is odd<span class="co">.</span></span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@return</span> true if attribute2 is odd<span class="co">,</span> false otherwise<span class="co">.</span></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isAttribute2Odd</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> attribute2 <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Main method</span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>        ClassName c <span class="op">=</span> <span class="kw">new</span> <span class="fu">ClassName</span><span class="op">(</span><span class="st">""</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>        c<span class="op">.</span><span class="fu">increment_attribute2</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>c<span class="op">.</span><span class="fu">isAttribute2Odd</span><span class="op">());</span></span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">classDiagram
-    class Item {
-        + name: String
-        + price: int
-        + isPermanent(): boolean
-        + isSingleUse(): boolean
-        + isUnusable(): boolean
-    }
-
-    class SingleUseItem {
-        - alreadyUsed: bool
-        + consume()
-    }
-
-
-    class Potion {
-        - hp_gain: int
-    }
-
-    class Sweet {
-        - xp_gain: int
-        + use(): int
-    }
-    
-    class Healer{
-        &lt;&lt;interface&gt;&gt;
-        + heal()
-    }
-
-    Item &lt;|-- SingleUseItem
-    Item &lt;|-- PermanentItem
-
-    SingleUseItem &lt;|-- Potion
-    SingleUseItem &lt;|-- Sweet
-    
-    Potion ..|&gt; Healer : implements
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="subject" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="subject"><span class="header-section-number">2</span> Subject</h2>
+<p>The subject will be available on exam day</p>
 
 
 </section>

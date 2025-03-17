@@ -222,6 +222,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#enum" id="toc-enum" class="nav-link" data-scroll-target="#enum">Enum</a></li>
   <li><a href="#interface" id="toc-interface" class="nav-link" data-scroll-target="#interface">Interface</a></li>
   <li><a href="#optional" id="toc-optional" class="nav-link" data-scroll-target="#optional">Optional</a></li>
+  <li><a href="#orm" id="toc-orm" class="nav-link" data-scroll-target="#orm">ORM</a></li>
+  <li><a href="#api-java" id="toc-api-java" class="nav-link" data-scroll-target="#api-java">APi Java</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="advanced-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
@@ -267,6 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Spring Boot</li>
 <li>Hibernate</li>
+<li>Use DuckDB in TP4</li>
 <li><a href="https://rules.sonarsource.com/java/" class="uri">https://rules.sonarsource.com/java/</a></li>
 </ul>
 </section>
@@ -448,8 +451,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>resolve the exception</li>
 </ul>
 </section>
-<section id="types-of-exception" class="level3">
-<h3 class="anchored" data-anchor-id="types-of-exception">Types of Exception</h3>
+<section id="types-of-exception" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="types-of-exception">Types of Exception</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -526,10 +529,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="stream" class="level2">
 <h2 class="anchored" data-anchor-id="stream">Stream</h2>
+<div class="notes">
 <ul>
 <li><a href="https://www.geeksforgeeks.org/java-8-stream-tutorial/" class="uri">https://www.geeksforgeeks.org/java-8-stream-tutorial/</a></li>
 <li><a href="https://www.baeldung.com/java-streams" class="uri">https://www.baeldung.com/java-streams</a></li>
 </ul>
+</div>
 <section id="java-streams" class="level3">
 <h3 class="anchored" data-anchor-id="java-streams">Java Streams</h3>
 <ul>
@@ -567,8 +572,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Terminal Operation (reduce, collect, forEach…)</li>
 </ul>
 </section>
-<section id="intermediate-operations" class="level3">
-<h3 class="anchored" data-anchor-id="intermediate-operations">Intermediate Operations</h3>
+<section id="intermediate-operations" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="intermediate-operations">Intermediate Operations</h3>
 <p>They return a new stream.</p>
 <table class="caption-top table">
 <colgroup>
@@ -638,8 +643,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </div>
 </section>
-<section id="terminal-operations" class="level3">
-<h3 class="anchored" data-anchor-id="terminal-operations">Terminal Operations</h3>
+<section id="terminal-operations" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="terminal-operations">Terminal Operations</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 17%">
@@ -713,9 +718,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="mapreduce" class="level3">
 <h3 class="anchored" data-anchor-id="mapreduce">MapReduce</h3>
 <ul>
-<li><a href="https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks" class="uri">https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks</a></li>
-<li><a href="https://en.wikipedia.org/wiki/MapReduce" class="uri">https://en.wikipedia.org/wiki/MapReduce</a></li>
+<li>A programming model for processing and generating large datasets</li>
+<li>Designed for distributed computing on clusters of machines.</li>
+<li>Breaks down complex tasks into simpler, parallel operations</li>
 </ul>
+<div class="notes">
+<ul>
+<li>Invented by Google in the 2000s</li>
+<li>If memory space is not enought to load the full data set</li>
+<li><a href="https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks" class="uri">https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks</a></li>
+</ul>
+</div>
+</section>
+<section id="mapreduce-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="mapreduce-workflow">MapReduce workflow</h3>
+<ul>
+<li>Split: Input data is divided into smaller chunks</li>
+<li>Map: Each chunk is processed by a Map function</li>
+<li>Reduce: Values are aggregated by a Reduce function</li>
+</ul>
+</section>
+<section id="mapreduce-principle" class="level3">
+<h3 class="anchored" data-anchor-id="mapreduce-principle">MapReduce principle</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> valuesSquares <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Function<span class="op">&lt;</span><span class="bu">Integer</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> square <span class="op">=</span> n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">:</span> values<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    valuesSquares<span class="op">.</span><span class="fu">add</span><span class="op">(</span>square<span class="op">.</span><span class="fu">apply</span><span class="op">(</span>n<span class="op">));</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sumOfSquares <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> v <span class="op">:</span> valuesSquares<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    sumOfSquares <span class="op">+=</span> v <span class="op">*</span> v<span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> sumOfSquares <span class="op">/</span> valuesSquares<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="manual-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="manual-implementation">Manual implementation</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> <span class="fu">manualMap</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> DoubleUnaryOperator function<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">add</span><span class="op">(</span>function<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>element<span class="op">));</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">double</span> <span class="fu">manualReduce</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> <span class="dt">double</span> identity<span class="op">,</span> DoubleBinaryOperator accumulator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> result <span class="op">=</span> identity<span class="op">;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> accumulator<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>result<span class="op">,</span> element<span class="op">);</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mapreduce-using-streams" class="level3">
+<h3 class="anchored" data-anchor-id="mapreduce-using-streams">MapReduce using streams</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> values<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">mapToInt</span><span class="op">(</span>n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">average</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="enum" class="level2">
@@ -726,6 +791,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="optional" class="level2">
 <h2 class="anchored" data-anchor-id="optional">Optional</h2>
+</section>
+<section id="orm" class="level2">
+<h2 class="anchored" data-anchor-id="orm">ORM</h2>
+<p>Hibernate</p>
+</section>
+<section id="api-java" class="level2">
+<h2 class="anchored" data-anchor-id="api-java">APi Java</h2>
+<p>Spring boot</p>
+<p><a href="https://ensai-school.github.io/software-engineering-2021-2022/" class="uri">https://ensai-school.github.io/software-engineering-2021-2022/</a></p>
 
 
 </section>

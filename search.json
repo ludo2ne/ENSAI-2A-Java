@@ -35,53 +35,18 @@
     "text": "🚧"
   },
   {
-    "objectID": "doc/tp/tp3.html#rappels",
-    "href": "doc/tp/tp3.html#rappels",
+    "objectID": "doc/tp/tp3.html#instructions",
+    "href": "doc/tp/tp3.html#instructions",
     "title": "Java - TP3",
-    "section": "1 Rappels",
-    "text": "1 Rappels\n\n1.1 Enum\n\nclasses dont on limite les objets que l’on peut créer\ndans l’exemple ci-dessous, on ne peut créer que 3 objets différents\n\nle constructeur est privé, ce qui interdit la création d’objets de l’enum JourSemaine avec d’autres paramètres\n\n\n\n\nJourSemaine.java\n\npublic enum JourSemaine {\n\n    LUNDI (\"Lundi\", 1),\n    MARDI (\"Mardi\", 2),\n    MERCREDI (\"Mercredi\", 3);\n \n    private String nom;\n    private int numero;\n \n    private JourSemaine(String nom, int numero) {\n        this.nom = nom;\n        this.numero = numero;\n    }\n \n    @Override\n    public String toString() {\n        return \"JourSemaine(\" + this.nom + \", \" + this.numero + \")\";\n    }\n}\n\n\n\nMain.java\n\npublic class Main {\n    public static void main(String args[]){\n        JourSemaine js = JourSemaine.LUNDI;\n\n        System.out.println(js);\n    }\n}\n\n\n\n1.2 Collections\nInfos détaillées sur le site de Jean-Michel Doudoux :\n\nListe\nSet : pas de doublons\nMap : clé-valeurs\n\n\n\n1.3 Exceptions\nUne exception est levée lorsqu’une erreur est détectée.\n\n\nFrac.java\n\npublic class Frac {\n\n    private int num;\n    private int denom;\n\n    public Frac(int num, int denom) {\n      this.num = num;\n      this.denom = denom;\n    }\n\n    public float valeur_approchee(){\n      return this.num / this.denom;\n    }\n}\n\n\n\nMain.java\n\npublic class Main{\n    public static void main(java.lang.String[] args) {\n      Frac f1 = new Frac(1, 0);\n      System.out.println(f1.valeur_approchee());\n      // Exception in thread \"main\" java.lang.ArithmeticException: / by zero\n    }\n}\n\n\n\n1.4 Gestion d’exception\n\nnous identifions le bloc de code qui pourrait poser souci\nnous l’encapsulons dans un bloc try / catch\n\n\n\nFrac.java\n\npublic class Frac {\n\n    private int num;\n    private int denom;\n\n    public Frac(int num, int denom) {\n      this.num = num;\n      this.denom = denom;\n    }\n\n    public float valeur_approchee(){\n        float res = 0;\n\n        try{\n            res = this.num / this.denom;\n        }\n        catch(ArithmeticException e){\n            System.out.println(\"Exception levée : \" + e.toString());\n            System.out.println(\"Cause : \" + e.getMessage());\n        }\n        return res;      \n    }\n}\n\nCette fois-ci, le même Main renvoie :\nException levée : java.lang.ArithmeticException: / by zero\nCause : / by zero\n0.0\n\n\n1.5 Propagation d’exception\nUne autre possibilité est de dire que la méthode valeur_approchee() pourrait renvoyer une exception (mot clé : throws).\n\n\n\n\n\n\nCaution\n\n\n\n\nthrows Exception\n\ndans la signature d’une méthode\nindique que la méthode peut retourner une exception\n\nthrow new Exception()\n\ndéclenche volontairement une exception\n\n\n\n\n\n\nFrac.java\n\npublic class Frac {\n\n    private int num;\n    private int denom;\n\n    public Frac(int num, int denom) {\n      this.num = num;\n      this.denom = denom;\n    }\n\n    public float valeur_approchee() throws ArithmeticException{\n        if (this.denom == 0){\n            throw new ArithmeticException(\"Division par zéro\");\n        }\n        return this.num / this.denom;      \n    }\n}\n\nDans ce cas on dit que l’exception se propage. Elle devra être gérée “plus haut”, par exemple en mettant un bloc try / catch dans le Main\n\n\nMain.java\n\npublic class Main{\n    public static void main(java.lang.String[] args) {\n        Frac f1 = new Frac(1, 0);\n\n        try{\n            System.out.println(f1.valeur_approchee());\n        }catch(ArithmeticException e){\n            System.out.println(\"Impossible de diviser par zéro\");\n        }      \n    }\n}\n\n\n\n1.6 Créer une exception\nIl est également possible de créer ses propres exceptions.\nPar exemple, si vous décidez que le numérateur ne doit pas être impair, vous pouvez créer :\n\n\nNumerateurImpairException.java\n\npublic class NumerateurImpairException extends Exception{\n    public NumerateurImpairException(){\n        super(\"Le numérateur ne doit pas être impair\");\n    }\n}\n\nVous pouvez ensuite modifier le constructeur pour lever au cas où cette exception.\n\n\nNumerateurImpairException.java\n\npublic class Frac {\n\n    private int num;\n    private int denom;\n\n    public Frac(int num, int denom) throws NumerateurImpairException{\n\n      if (num % 2 != 0){\n          throw new NumerateurImpairException();\n      }\n      this.num = num;\n      this.denom = denom;\n    }\n}\n\nEt enfin vous gérez l’exception dans le Main.\n\n\nMain.java\n\npublic class Main{\n    public static void main(java.lang.String[] args) {\n        try{\n            Frac f1 = new Frac(1, 0);\n        }catch(Exception e){\n            System.out.println(e.getMessage());\n        }\n        //Le numérateur ne doit pas être impair\n    }\n}"
+    "section": "1 Instructions",
+    "text": "1 Instructions\n\nGroups of 1 or 2 students\n\nEdit the README.md (when it’s created) file to enter your names\nInter-group plagiarism will be severely punished\n\nDue Date: Wednesday 26 March at 10pm\n\n1 point deducted for each half-hour delay\n\nZip your project repository and load it on Moodle\n\nDon’t include target folder\n\n\n\n\n\n\n\n\nImportant\n\n\n\n\nEverything you need is in the course and the practical exercises\nYou are permitted to conduct internet searches to find information and documentation\nThe use of any LLM is strictly prohibited during this exam\n\nAs Olivier so rightly says: LLMs are good servants, but bad masters\nThey can be useful tools, but they must not replace your own comprehension and programming skills\n\n\nIf you are caught using an LLM, it will be considered cheating and you will receive a zero.\n\n\n\n1.1 Create a private repo\n\nLogin to GitHub\nCreate a new repository\n\nRepository name: ENSAI-Java-TP3\nPrivate\n✅ Add a README file\nAdd .gitignore: Java\nLicence: Apache License 2.0 (or another)\n\n\n\n\n1.2 Launch service VSCode Java\n\nLaunch the service VScode-Java using this link.\nClone your repository (https)\nOpen Folder home/onyxia/work/ENSAI-Java-TP3\n\n\n\n\n\n\n\nTip\n\n\n\nAfter each part, create a commit and push your code to the remote repository.\n\n\n\n\n1.3 When you’ve finished\n\nSave your work using git\nDelete your service"
   },
   {
-    "objectID": "doc/tp/tp3.html#avant-de-commencer",
-    "href": "doc/tp/tp3.html#avant-de-commencer",
+    "objectID": "doc/tp/tp3.html#subject",
+    "href": "doc/tp/tp3.html#subject",
     "title": "Java - TP3",
-    "section": "2 Avant de commencer",
-    "text": "2 Avant de commencer\n\nSur votre disque P:,\n\ncréez un dossier Java,\nà l’intérieur, créez un dossier TP3\nOuvrez et enregistrez le sujet\n\nRécupérez le dépôt sur Moodle"
-  },
-  {
-    "objectID": "doc/tp/tp3.html#datalab",
-    "href": "doc/tp/tp3.html#datalab",
-    "title": "Java - TP3",
-    "section": "3 Datalab",
-    "text": "3 Datalab\nIl est possible de faire le TP soit sur la VM, soit sur le datalab\n\nConnectez-vous sur le datalab\nLancez le service Java avec VScode puis suivez les instructions\nDans l’explorer à gauche &gt; clic droit &gt; Upload\n\nChargez le fichier JavaTP3-base.zip\n\nOuvrez un terminal\n\nrentrez unzip JavaTP3-base.zip pour extraire les fichiers\n\nFile &gt; Open Folder &gt; /home/onyxia/work/JavaTP3-base/\n\n⚠️ important d’ouvrir le bon dossier !\n\nOuvrez un terminal (CTRL+ù)\n\nPositionnez-vous dans le bon dossier : cd JavaTP3-base\nCompilez le Main : javac -d bin -sourcepath src ./src/edu/ensai/pokemon/main/Main.java\nExécutez le programme : java -cp bin edu.ensai.pokemon.main.Main"
-  },
-  {
-    "objectID": "doc/tp/tp3.html#vm",
-    "href": "doc/tp/tp3.html#vm",
-    "title": "Java - TP3",
-    "section": "4 VM",
-    "text": "4 VM\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nAllez dans le dossier TP3\nUn clic sur JavaTP3-base, ensuite Sélectionner un dossier\n\nOuvrez un terminal (CTRL+ù)\n\nPositionnez-vous dans le bon dossier : cd JavaTP3-base\nCompilez le Main : javac -d bin -sourcepath src .\\src\\edu\\ensai\\pokemon\\main\\Main.java\nExécutez le programme : java -cp bin edu.ensai.pokemon.main.Main"
-  },
-  {
-    "objectID": "doc/tp/tp3.html#exercices",
-    "href": "doc/tp/tp3.html#exercices",
-    "title": "Java - TP3",
-    "section": "5 Exercices",
-    "text": "5 Exercices\n\n5.1 Exercice 1\n\nTransformez la classe Species en Enum\nAdaptez le code du Main\n\n\n\n5.2 Exercice 2\n\nPlayer est un singleton, on ne peut en créer qu’une seule instance\nClasse Inventory\nAjouter à Player un attribut de type Inventory\nDans le main, appeler l’instance de Player\n\nCréer et ajouter un objet à l’inventaire\nAfficher le montant total de l’inventaire\n\n\nhttps://refactoring.guru/fr/replace-inheritance-with-delegation\n\n\n5.3 Exercice 3\n\n\n5.4 Exercice 4"
-  },
-  {
-    "objectID": "doc/tp/tp3.html#exemple-de-classe",
-    "href": "doc/tp/tp3.html#exemple-de-classe",
-    "title": "Java - TP3",
-    "section": "6 Exemple de classe",
-    "text": "6 Exemple de classe\nimport java.util.ArrayList;\n\n/**\n * Represents a student\n * Attributes : name, age, and a list of notes.\n */\npublic class Student {\n    private String name;\n    private int age;\n    private ArrayList&lt;Double&gt; notes;\n\n    /**\n     * Constructs a new Student object with the given name and age.\n     * @param name The name of the student.\n     * @param age The age of the student.\n     */\n    public Student(String name, int age) {\n        this.name = name;\n        this.age = age;\n        this.notes = new ArrayList&lt;&gt;();     // empty list\n    }\n\n    // -------------------------------------------------------\n    // Getters and Setters (to access private attributes)\n    // -------------------------------------------------------\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public int getAge() {\n        return age;\n    }\n\n    /**\n     * Sets the age of the student.\n     * @param age The age to set. It should be greater than zero.\n     * @throws IllegalArgumentException if the provided age is not greater than zero.\n     */\n    public void setAge(int age) {\n        if (age &lt;= 0) {\n            throw new IllegalArgumentException(\"Age must be greater than zero.\");\n        }\n        this.age = age;\n    }\n    \n    // -------------------------------------------------------\n    // Methods\n    // -------------------------------------------------------\n\n    /**\n     * @return A string representation of the Student object.\n     */\n    @Override\n    public String toString() {\n        return \"Student(\" +\n                \"name='\" + this.name + '\\'' +\n                \", age=\" + this.age +\n                ')';\n    }\n\n    /**\n     * Adds a note to the student's list of notes.\n     * @param note The note to be added.\n     */\n    public void addNote(double note) {\n        this.notes.add(note);\n    }\n\n    /**\n     * Computes the average note of the student.\n     * @return The average note of the student.\n     * @throws ArithmeticException if there are no notes present.\n     */\n    public double computeAverage() {\n        if (this.notes.isEmpty()) {\n            throw new ArithmeticException(\"Cannot compute average. No notes available.\");\n        }\n\n        double sum = 0.0;\n        for (double note : this.notes) {\n            sum += note;\n        }\n        return sum / this.notes.size();\n    }\n\n\n    /**\n     * Main method\n     */\n    public static void main(String[] args) {\n        Student student = new Student(\"Eva\", 20);\n        student.addNote(17.5);\n        student.addNote(12.0);\n        student.addNote(20.0);\n        \n        System.out.println(student);\n        System.out.println(\"Average Note: \" + student.computeAverage());\n    }\n}"
-  },
-  {
-    "objectID": "doc/tp/tp3.html#modèle-de-classe",
-    "href": "doc/tp/tp3.html#modèle-de-classe",
-    "title": "Java - TP3",
-    "section": "7 Modèle de classe",
-    "text": "7 Modèle de classe\n/**\n * Represents a ...\n */\npublic class ClassName {\n    private String attribute1;\n    private int attribute2;\n\n    /**\n     * Constructs a new ...\n     * @param parameter1 parameter1_description\n     * @param parameter2 parameter2_description\n     */\n    public ClassName(String parameter1, int parameter2) {\n        this.attribute1 = parameter1;\n        this.attribute2 = parameter2;\n    }\n\n\n    // -------------------------------------------------------\n    // Methods\n    // -------------------------------------------------------\n\n    /**\n     * No parameter, return void\n     */\n    public void print_attribute1() {\n        System.out.println(this.attribute1);\n    }\n    \n    /**\n     * Increment value of attribute2\n     * A parameter, return void\n     * @param increment increment\n     */\n    public void increment_attribute2(int increment) {\n        this.attribute2 += increment;\n    }\n    \n    /**\n     * Checks if attribute2 is odd.\n     *\n     * @return true if attribute2 is odd, false otherwise.\n     */\n    public boolean isAttribute2Odd() {\n        return attribute2 % 2 != 0;\n    }\n\n\n    /**\n     * Main method\n     */\n    public static void main(String[] args) {\n\n        ClassName c = new ClassName(\"\", 0);\n        c.increment_attribute2(5);\n        System.out.println(c.isAttribute2Odd());\n    }\n}\n\n\n\n\n\nclassDiagram\n    class Item {\n        + name: String\n        + price: int\n        + isPermanent(): boolean\n        + isSingleUse(): boolean\n        + isUnusable(): boolean\n    }\n\n    class SingleUseItem {\n        - alreadyUsed: bool\n        + consume()\n    }\n\n\n    class Potion {\n        - hp_gain: int\n    }\n\n    class Sweet {\n        - xp_gain: int\n        + use(): int\n    }\n    \n    class Healer{\n        &lt;&lt;interface&gt;&gt;\n        + heal()\n    }\n\n    Item &lt;|-- SingleUseItem\n    Item &lt;|-- PermanentItem\n\n    SingleUseItem &lt;|-- Potion\n    SingleUseItem &lt;|-- Sweet\n    \n    Potion ..|&gt; Healer : implements"
+    "section": "2 Subject",
+    "text": "2 Subject\nThe subject will be available on exam day"
   },
   {
     "objectID": "doc/tp/tp1.html",
@@ -445,7 +410,7 @@
     "href": "doc/cours/advanced-slides.html#todo",
     "title": "Advanced Java",
     "section": "Todo 🚧",
-    "text": "Todo 🚧\n\nSpring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
+    "text": "Todo 🚧\n\nSpring Boot\nHibernate\nUse DuckDB in TP4\nhttps://rules.sonarsource.com/java/"
   },
   {
     "objectID": "doc/cours/advanced-slides.html#exception",
@@ -459,7 +424,7 @@
     "href": "doc/cours/advanced-slides.html#stream",
     "title": "Advanced Java",
     "section": "Stream",
-    "text": "Stream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams"
+    "text": "Stream\n\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams"
   },
   {
     "objectID": "doc/cours/advanced-slides.html#enum",
@@ -483,18 +448,32 @@
     "text": "Optional"
   },
   {
+    "objectID": "doc/cours/advanced-slides.html#orm",
+    "href": "doc/cours/advanced-slides.html#orm",
+    "title": "Advanced Java",
+    "section": "ORM",
+    "text": "ORM\nHibernate"
+  },
+  {
+    "objectID": "doc/cours/advanced-slides.html#api-java",
+    "href": "doc/cours/advanced-slides.html#api-java",
+    "title": "Advanced Java",
+    "section": "APi Java",
+    "text": "APi Java\nSpring boot\nhttps://ensai-school.github.io/software-engineering-2021-2022/"
+  },
+  {
     "objectID": "doc/cours/advanced.html",
     "href": "doc/cours/advanced.html",
     "title": "Advanced Java",
     "section": "",
-    "text": "Spring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
+    "text": "Spring Boot\nHibernate\nUse DuckDB in TP4\nhttps://rules.sonarsource.com/java/"
   },
   {
     "objectID": "doc/cours/advanced.html#todo",
     "href": "doc/cours/advanced.html#todo",
     "title": "Advanced Java",
     "section": "",
-    "text": "Spring Boot\nHibernate\nhttps://rules.sonarsource.com/java/"
+    "text": "Spring Boot\nHibernate\nUse DuckDB in TP4\nhttps://rules.sonarsource.com/java/"
   },
   {
     "objectID": "doc/cours/advanced.html#exception",
@@ -508,7 +487,7 @@
     "href": "doc/cours/advanced.html#stream",
     "title": "Advanced Java",
     "section": "Stream",
-    "text": "Stream\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\n\nJava Streams\n\nIntroduced in Java 8\nDeclarative style\nConcise and readable code\nEfficient data processing\nSupport for parallel processing\n\n\n\nHow it works\n\nTakes input from the Collections, Arrays, or I/O channels\nProvide a result as per the pipelined methods\nIntermediate operation is lazily executed and returns a stream\nTerminal operations mark the end of the stream and return the result\n\n\n\nA first example\nLong sumOdds = Stream\n    .iterate(0L, i -&gt; i + 1L)        // Generate an infinite stream of Longs starting from 0, incrementing by 1\n    .limit(10)                       // Limit the stream to the first 10 elements\n    .filter(i -&gt; (i % 2) == 0)       // Filter the stream to keep only even numbers\n    .map(i -&gt; i + 1)                 // Transform each element by adding 1\n    .sorted()                        // Sort the stream\n    .reduce(0L, Long::sum);          // Reduce the stream to a single Long by summing all elements\n\n\nKey Concepts\n\nSource (List, Array…)\nIntermediate Operations (filter, map…)\nTerminal Operation (reduce, collect, forEach…)\n\n\n\nIntermediate Operations\nThey return a new stream.\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nfilter(predicate)\nSelects matching elements.\nstream.filter(x -&gt; x &gt; 10)\n\n\nmap(function)\nTransforms elements.\nstream.map(String::toUpperCase)\n\n\nflatMap(function)\nTransforms to streams, then flattens.\nstream.flatMap(List::stream)\n\n\ndistinct()\nRemoves duplicates.\nstream.distinct()\n\n\nsorted()\nSorts elements (natural order).\nstream.sorted()\n\n\nsorted(comparator)\nSorts elements (using comparator).\nstream.sorted(Comparator.reverseOrder())\n\n\npeek(consumer)\nPerforms action on each element.\nstream.peek(System.out::println)\n\n\nlimit(maxSize)\nTruncates to maxSize elements.\nstream.limit(10)\n\n\nskip(n)\nDiscards first n elements.\nstream.skip(5)\n\n\n\n\n\nLambda functions\nmethod reference (String::toUpperCase)\n\n\n\n\nTerminal Operations\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nforEach(action)\nPerforms an action on each element.\nstream.forEach(System.out::println)\n\n\ncollect(collector)\nAccumulates elements into a result container.\nstream.collect(Collectors.toList())\n\n\nreduce(identity, accumulator)\nReduces elements to a single value.\nstream.reduce(0, Integer::sum)\n\n\ncount()\nReturns the number of elements.\nstream.count()\n\n\nanyMatch(predicate)\nChecks if any element matches.\nstream.anyMatch(x -&gt; x &gt; 10)\n\n\nallMatch(predicate)\nChecks if all elements match.\nstream.allMatch(x -&gt; x &gt; 0)\n\n\nnoneMatch(predicate)\nChecks if no elements match.\nstream.noneMatch(x -&gt; x &lt; 0)\n\n\nfindFirst()\nReturns the first element.\nstream.findFirst()\n\n\nmin(comparator)\nReturns the minimum element.\nstream.min(Comparator.naturalOrder())\n\n\n\n\n\nParallel Streams\n\nprocessed in parallel for improved performance\nUse parallelStream()\nSuitable for CPU-intensive operations on large datasets\n\n\n\nMapReduce\n\nhttps://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks\nhttps://en.wikipedia.org/wiki/MapReduce"
+    "text": "Stream\n\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-streams\n\n\n\nJava Streams\n\nIntroduced in Java 8\nDeclarative style\nConcise and readable code\nEfficient data processing\nSupport for parallel processing\n\n\n\nHow it works\n\nTakes input from the Collections, Arrays, or I/O channels\nProvide a result as per the pipelined methods\nIntermediate operation is lazily executed and returns a stream\nTerminal operations mark the end of the stream and return the result\n\n\n\nA first example\nLong sumOdds = Stream\n    .iterate(0L, i -&gt; i + 1L)        // Generate an infinite stream of Longs starting from 0, incrementing by 1\n    .limit(10)                       // Limit the stream to the first 10 elements\n    .filter(i -&gt; (i % 2) == 0)       // Filter the stream to keep only even numbers\n    .map(i -&gt; i + 1)                 // Transform each element by adding 1\n    .sorted()                        // Sort the stream\n    .reduce(0L, Long::sum);          // Reduce the stream to a single Long by summing all elements\n\n\nKey Concepts\n\nSource (List, Array…)\nIntermediate Operations (filter, map…)\nTerminal Operation (reduce, collect, forEach…)\n\n\n\nIntermediate Operations\nThey return a new stream.\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nfilter(predicate)\nSelects matching elements.\nstream.filter(x -&gt; x &gt; 10)\n\n\nmap(function)\nTransforms elements.\nstream.map(String::toUpperCase)\n\n\nflatMap(function)\nTransforms to streams, then flattens.\nstream.flatMap(List::stream)\n\n\ndistinct()\nRemoves duplicates.\nstream.distinct()\n\n\nsorted()\nSorts elements (natural order).\nstream.sorted()\n\n\nsorted(comparator)\nSorts elements (using comparator).\nstream.sorted(Comparator.reverseOrder())\n\n\npeek(consumer)\nPerforms action on each element.\nstream.peek(System.out::println)\n\n\nlimit(maxSize)\nTruncates to maxSize elements.\nstream.limit(10)\n\n\nskip(n)\nDiscards first n elements.\nstream.skip(5)\n\n\n\n\n\nLambda functions\nmethod reference (String::toUpperCase)\n\n\n\n\nTerminal Operations\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nforEach(action)\nPerforms an action on each element.\nstream.forEach(System.out::println)\n\n\ncollect(collector)\nAccumulates elements into a result container.\nstream.collect(Collectors.toList())\n\n\nreduce(identity, accumulator)\nReduces elements to a single value.\nstream.reduce(0, Integer::sum)\n\n\ncount()\nReturns the number of elements.\nstream.count()\n\n\nanyMatch(predicate)\nChecks if any element matches.\nstream.anyMatch(x -&gt; x &gt; 10)\n\n\nallMatch(predicate)\nChecks if all elements match.\nstream.allMatch(x -&gt; x &gt; 0)\n\n\nnoneMatch(predicate)\nChecks if no elements match.\nstream.noneMatch(x -&gt; x &lt; 0)\n\n\nfindFirst()\nReturns the first element.\nstream.findFirst()\n\n\nmin(comparator)\nReturns the minimum element.\nstream.min(Comparator.naturalOrder())\n\n\n\n\n\nParallel Streams\n\nprocessed in parallel for improved performance\nUse parallelStream()\nSuitable for CPU-intensive operations on large datasets\n\n\n\nMapReduce\n\nA programming model for processing and generating large datasets\nDesigned for distributed computing on clusters of machines.\nBreaks down complex tasks into simpler, parallel operations\n\n\n\nInvented by Google in the 2000s\nIf memory space is not enought to load the full data set\nhttps://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks\n\n\n\n\nMapReduce workflow\n\nSplit: Input data is divided into smaller chunks\nMap: Each chunk is processed by a Map function\nReduce: Values are aggregated by a Reduce function\n\n\n\nMapReduce principle\nList&lt;Integer&gt; values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);\nList&lt;Integer&gt; valuesSquares = new ArrayList&lt;&gt;();\n\nFunction&lt;Integer, Integer&gt; square = n -&gt; n * n;\n\nfor (int n : values) {\n    valuesSquares.add(square.apply(n));\n}\n\nint sumOfSquares = 0;\nfor (int v : valuesSquares) {\n    sumOfSquares += v * v;\n}\n\ndouble meanSumOfSquares = sumOfSquares / valuesSquares.size();\n\n\nManual implementation\npublic List&lt;Double&gt; manualMap(List&lt;Double&gt; list, DoubleUnaryOperator function) {\n    List&lt;Double&gt; result = new ArrayList&lt;&gt;();\n    for (double element : list) {\n        result.add(function.applyAsDouble(element));\n    }\n    return result;\n}\n\npublic double manualReduce(List&lt;Double&gt; list, double identity, DoubleBinaryOperator accumulator) {\n    double result = identity;\n    for (double element : list) {\n        result = accumulator.applyAsDouble(result, element);\n    }\n    return result;\n}\n\n\nMapReduce using streams\nList&lt;Integer&gt; values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);\n\ndouble meanSumOfSquares = values.stream()\n    .mapToInt(n -&gt; n * n)\n    .average();"
   },
   {
     "objectID": "doc/cours/advanced.html#enum",
@@ -530,6 +509,20 @@
     "title": "Advanced Java",
     "section": "Optional",
     "text": "Optional"
+  },
+  {
+    "objectID": "doc/cours/advanced.html#orm",
+    "href": "doc/cours/advanced.html#orm",
+    "title": "Advanced Java",
+    "section": "ORM",
+    "text": "ORM\nHibernate"
+  },
+  {
+    "objectID": "doc/cours/advanced.html#api-java",
+    "href": "doc/cours/advanced.html#api-java",
+    "title": "Advanced Java",
+    "section": "APi Java",
+    "text": "APi Java\nSpring boot\nhttps://ensai-school.github.io/software-engineering-2021-2022/"
   },
   {
     "objectID": "doc/cours/code-slides.html#first-of-all",
