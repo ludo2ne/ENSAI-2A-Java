@@ -23,6 +23,7 @@ lightbox: true
 
 - Spring Boot
 - Hibernate
+- Use DuckDB in TP4
 - <https://rules.sonarsource.com/java/>
 
 
@@ -177,7 +178,7 @@ When an exception occurs in your code, you have two primary options:
 - propagate the exception
 - resolve the exception
 
-### Types of Exception
+### Types of Exception {.smaller}
 
 | **Exception**                | **Description**                                                                   | **Checked at Compilation** |
 |-----------------------------|------------------------------------------------------------------------------------|----------------------------|
@@ -199,8 +200,10 @@ When an exception occurs in your code, you have two primary options:
 
 ## Stream
 
+:::{.notes}
 - <https://www.geeksforgeeks.org/java-8-stream-tutorial/>
 - <https://www.baeldung.com/java-streams>
+:::
 
 ### Java Streams
 
@@ -238,7 +241,7 @@ Long sumOdds = Stream
 - Terminal Operation (reduce, collect, forEach...)
 
 
-### Intermediate Operations
+### Intermediate Operations {.smaller}
 
 They return a new stream.
 
@@ -261,7 +264,7 @@ They return a new stream.
 :::
 
 
-### Terminal Operations
+### Terminal Operations {.smaller}
 
 | Operation           | Description                                      | Example                                       |
 |---------------------|--------------------------------------------------|-----------------------------------------------|
@@ -285,10 +288,74 @@ They return a new stream.
 
 ### MapReduce
 
+- A programming model for processing and generating large datasets
+- Designed for distributed computing on clusters of machines.
+- Breaks down complex tasks into simpler, parallel operations
+
+:::{.notes}
+- Invented by Google in the 2000s
+- If memory space is not enought to load the full data set
 - <https://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks>
-- <https://en.wikipedia.org/wiki/MapReduce>
+:::
+
+### MapReduce workflow
+
+- Split: Input data is divided into smaller chunks
+- Map: Each chunk is processed by a Map function
+- Reduce: Values are aggregated by a Reduce function
 
 
+### MapReduce principle
+
+```{.java}
+List<Integer> values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);
+List<Integer> valuesSquares = new ArrayList<>();
+
+Function<Integer, Integer> square = n -> n * n;
+
+for (int n : values) {
+    valuesSquares.add(square.apply(n));
+}
+
+int sumOfSquares = 0;
+for (int v : valuesSquares) {
+    sumOfSquares += v * v;
+}
+
+double meanSumOfSquares = sumOfSquares / valuesSquares.size();
+```
+
+
+### Manual implementation
+
+```{.java}
+public List<Double> manualMap(List<Double> list, DoubleUnaryOperator function) {
+    List<Double> result = new ArrayList<>();
+    for (double element : list) {
+        result.add(function.applyAsDouble(element));
+    }
+    return result;
+}
+
+public double manualReduce(List<Double> list, double identity, DoubleBinaryOperator accumulator) {
+    double result = identity;
+    for (double element : list) {
+        result = accumulator.applyAsDouble(result, element);
+    }
+    return result;
+}
+```
+
+
+### MapReduce using streams
+
+```{.java}
+List<Integer> values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);
+
+double meanSumOfSquares = values.stream()
+    .mapToInt(n -> n * n)
+    .average();
+```
 
 
 
@@ -306,4 +373,16 @@ They return a new stream.
 
 
 
+
+## ORM
+
+Hibernate
+
+
+
+## APi Java
+
+Spring boot
+
+<https://ensai-school.github.io/software-engineering-2021-2022/>
 

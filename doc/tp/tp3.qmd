@@ -1,6 +1,6 @@
 ---
 title: "Java - TP3"
-description: "Enums, Containers, Exceptions"
+description: "Rated TP"
 author: "Ludovic Deneuville"
 format:
   html:
@@ -14,506 +14,56 @@ number-depth: 3
 
 :construction:
 
+## Instructions
+
+- Groups of 1 or 2 students
+  - Edit the *README.md* (when it's created) file to enter your names
+  - Inter-group plagiarism will be severely punished
+- Due Date: **Wednesday 26 March at 10pm**
+  - 1 point deducted for each half-hour delay
+- Zip your project repository and load it on Moodle
+  - Don't include *target* folder
 
 
-## Rappels
+::: {.callout-important}
+- Everything you need is in the course and the practical exercises 
+- You are permitted to conduct internet searches to find information and documentation
+- The use of any LLM is [strictly prohibited]{.underline} during this exam
+  - As Olivier so rightly says: LLMs are good servants, but bad masters
+  - They can be useful tools, but they must not replace your own comprehension and programming skills
 
-### Enum
-
-- classes dont on limite les objets que l'on peut créer
-- dans l'exemple ci-dessous, on ne peut créer que 3 objets différents
-  - le constructeur est privé, ce qui interdit la création d'objets de l'enum JourSemaine avec d'autres paramètres
-
-```{.java filename="JourSemaine.java"}
-public enum JourSemaine {
-
-    LUNDI ("Lundi", 1),
-    MARDI ("Mardi", 2),
-    MERCREDI ("Mercredi", 3);
- 
-    private String nom;
-    private int numero;
- 
-    private JourSemaine(String nom, int numero) {
-        this.nom = nom;
-        this.numero = numero;
-    }
- 
-    @Override
-    public String toString() {
-        return "JourSemaine(" + this.nom + ", " + this.numero + ")";
-    }
-}
-```
-
-
-```{.java filename="Main.java"}
-public class Main {
-    public static void main(String args[]){
-        JourSemaine js = JourSemaine.LUNDI;
-
-        System.out.println(js);
-    }
-}
-```
-
-### Collections
-
-Infos détaillées sur le site de Jean-Michel Doudoux :
-
-- [Liste](https://www.jmdoudoux.fr/java/dej/chap-collections.htm#collections-3){target="_blank"}
-- [Set](https://www.jmdoudoux.fr/java/dej/chap-collections.htm#collections-4){target="_blank"} : pas de doublons
-- [Map](https://www.jmdoudoux.fr/java/dej/chap-collections.htm#collections-5){target="_blank"} : clé-valeurs
-
-
-### Exceptions
-
-Une exception est levée lorsqu'une erreur est détectée.
-
-```{.java filename="Frac.java"}
-public class Frac {
-
-    private int num;
-    private int denom;
-
-    public Frac(int num, int denom) {
-      this.num = num;
-      this.denom = denom;
-    }
-
-    public float valeur_approchee(){
-      return this.num / this.denom;
-    }
-}
-```
-
-```{.java filename="Main.java"}
-public class Main{
-    public static void main(java.lang.String[] args) {
-      Frac f1 = new Frac(1, 0);
-      System.out.println(f1.valeur_approchee());
-      // Exception in thread "main" java.lang.ArithmeticException: / by zero
-    }
-}
-```
-
-### Gestion d'exception
-
-- nous identifions le bloc de code qui pourrait poser souci
-- nous l'encapsulons dans un bloc *try / catch*
-
-```{.java filename="Frac.java"}
-public class Frac {
-
-    private int num;
-    private int denom;
-
-    public Frac(int num, int denom) {
-      this.num = num;
-      this.denom = denom;
-    }
-
-    public float valeur_approchee(){
-        float res = 0;
-
-        try{
-            res = this.num / this.denom;
-        }
-        catch(ArithmeticException e){
-            System.out.println("Exception levée : " + e.toString());
-            System.out.println("Cause : " + e.getMessage());
-        }
-        return res;      
-    }
-}
-```
-
-Cette fois-ci, le même *Main* renvoie :
-
-```
-Exception levée : java.lang.ArithmeticException: / by zero
-Cause : / by zero
-0.0
-```
-
-### Propagation d'exception
-
-Une autre possibilité est de dire que la méthode *valeur_approchee()* pourrait renvoyer une exception (mot clé : `throws`).
-
-::: {.callout-caution}
-
-- `throws` Exception
-  - dans la signature d'une méthode
-  - indique que la méthode peut retourner une exception
-- `throw` new Exception()
-  - déclenche volontairement une exception
+If you are caught using an LLM, it will be considered cheating and you will receive a zero.
 :::
 
-```{.java filename="Frac.java"}
-public class Frac {
 
-    private int num;
-    private int denom;
 
-    public Frac(int num, int denom) {
-      this.num = num;
-      this.denom = denom;
-    }
+### Create a private repo
 
-    public float valeur_approchee() throws ArithmeticException{
-        if (this.denom == 0){
-            throw new ArithmeticException("Division par zéro");
-        }
-        return this.num / this.denom;      
-    }
-}
-```
+- [ ] Login to [GitHub](https://github.com/){target="_blank"}
+- [ ] [Create a new repository](https://github.com/new){target="_blank"}
+  - **Repository name:** ENSAI-Java-TP3
+  - Private
+  - :white_check_mark: Add a README file
+  - **Add .gitignore:** Java
+  - **Licence:** Apache License 2.0 (or another)
 
-Dans ce cas on dit que l'exception se propage. Elle devra être gérée "plus haut", par exemple en mettant un bloc *try / catch* dans le *Main*
+### Launch service VSCode Java
 
+- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} using this link.
+- [ ] Clone your repository (https)
+- [ ] Open Folder `home/onyxia/work/ENSAI-Java-TP3`
 
-```{.java filename="Main.java"}
-public class Main{
-    public static void main(java.lang.String[] args) {
-        Frac f1 = new Frac(1, 0);
+::: {.callout-tip}
+After each part, create a commit and push your code to the remote repository.
+:::
 
-        try{
-            System.out.println(f1.valeur_approchee());
-        }catch(ArithmeticException e){
-            System.out.println("Impossible de diviser par zéro");
-        }      
-    }
-}
-```
+### When you've finished
 
-### Créer une exception
+- [ ] Save your work using git
+- [ ] Delete your service
 
-Il est également possible de créer ses propres exceptions.
 
-Par exemple, si vous décidez que le numérateur ne doit pas être impair, vous pouvez créer : 
 
-```{.java filename="NumerateurImpairException.java"}
-public class NumerateurImpairException extends Exception{
-    public NumerateurImpairException(){
-        super("Le numérateur ne doit pas être impair");
-    }
-}
-```
+## Subject
 
-Vous pouvez ensuite modifier le constructeur pour lever au cas où cette exception.
-
-```{.java filename="NumerateurImpairException.java"}
-public class Frac {
-
-    private int num;
-    private int denom;
-
-    public Frac(int num, int denom) throws NumerateurImpairException{
-
-      if (num % 2 != 0){
-          throw new NumerateurImpairException();
-      }
-      this.num = num;
-      this.denom = denom;
-    }
-}
-```
-
-Et enfin vous gérez l'exception dans le *Main*.
-
-```{.java filename="Main.java"}
-public class Main{
-    public static void main(java.lang.String[] args) {
-        try{
-            Frac f1 = new Frac(1, 0);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        //Le numérateur ne doit pas être impair
-    }
-}
-```
-
-
-
-
-## Avant de commencer
-
-- Sur votre disque `P:`, 
-  - [ ] créez un dossier `Java`, 
-  - [ ] à l'intérieur, créez un dossier `TP3`
-  - [ ] Ouvrez et enregistrez le [sujet](https://foad-moodle.ensai.fr/pluginfile.php/21983/mod_resource/content/7/TP3.pdf){target="_blank"}
-- [ ] Récupérez le dépôt sur [Moodle](https://foad-moodle.ensai.fr/mod/resource/view.php?id=9944){target="_blank"}
-
-
-## Datalab
-
-Il est possible de faire le TP soit sur la VM, soit sur le datalab
-
-- [ ] Connectez-vous sur le [datalab](https://datalab.sspcloud.fr/){target="_blank"}
-- [ ] Lancez le service [Java avec VScode](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} puis suivez les instructions
-- [ ] Dans *l'explorer* à gauche > clic droit > Upload
-  - [ ] Chargez le fichier `JavaTP3-base.zip`
-- [ ] Ouvrez un terminal
-  - [ ] rentrez `unzip JavaTP3-base.zip` pour extraire les fichiers
-- [ ] File > Open Folder > */home/onyxia/work/JavaTP3-base/*
-  - :warning: important d'ouvrir le bon dossier !
-- [ ] Ouvrez  un terminal (CTRL+ù)  
-  - [ ] Positionnez-vous dans le bon dossier : `cd JavaTP3-base`
-  - [ ] Compilez le *Main* : `javac -d bin -sourcepath src ./src/edu/ensai/pokemon/main/Main.java`
-  - [ ] Exécutez le programme : `java -cp bin edu.ensai.pokemon.main.Main`
-
-
-## VM
-
-- [ ] Ouvrez Visual Studio Code
-  - [ ] File > Open Folder
-  - [ ] Allez dans le dossier *TP3*
-  - [ ] Un clic sur *JavaTP3-base*, ensuite `Sélectionner un dossier`
-- [ ] Ouvrez  un terminal (CTRL+ù)  
-  - [ ] Positionnez-vous dans le bon dossier : `cd JavaTP3-base`
-  - [ ] Compilez le *Main* : `javac -d bin -sourcepath src .\src\edu\ensai\pokemon\main\Main.java`
-  - [ ] Exécutez le programme : `java -cp bin edu.ensai.pokemon.main.Main`
-
-
-## Exercices
-
-### Exercice 1
-
-- [ ] Transformez la classe *Species* en Enum
-- [ ] Adaptez le code du *Main*
-
-### Exercice 2
-
-- Player est un singleton, on ne peut en créer qu'une seule instance
-- [ ] Classe Inventory
-- [ ] Ajouter à Player un attribut de type Inventory
-- [ ] Dans le main, appeler l'instance de Player
-  - [ ] Créer et ajouter un objet à l'inventaire
-  - [ ] Afficher le montant total de l'inventaire
-
-https://refactoring.guru/fr/replace-inheritance-with-delegation
-
-### Exercice 3
-
-
-
-### Exercice 4
-
-
-
-## Exemple de classe
-
-```{.java}
-import java.util.ArrayList;
-
-/**
- * Represents a student
- * Attributes : name, age, and a list of notes.
- */
-public class Student {
-    private String name;
-    private int age;
-    private ArrayList<Double> notes;
-
-    /**
-     * Constructs a new Student object with the given name and age.
-     * @param name The name of the student.
-     * @param age The age of the student.
-     */
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-        this.notes = new ArrayList<>();     // empty list
-    }
-
-    // -------------------------------------------------------
-    // Getters and Setters (to access private attributes)
-    // -------------------------------------------------------
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    /**
-     * Sets the age of the student.
-     * @param age The age to set. It should be greater than zero.
-     * @throws IllegalArgumentException if the provided age is not greater than zero.
-     */
-    public void setAge(int age) {
-        if (age <= 0) {
-            throw new IllegalArgumentException("Age must be greater than zero.");
-        }
-        this.age = age;
-    }
-    
-    // -------------------------------------------------------
-    // Methods
-    // -------------------------------------------------------
-
-    /**
-     * @return A string representation of the Student object.
-     */
-    @Override
-    public String toString() {
-        return "Student(" +
-                "name='" + this.name + '\'' +
-                ", age=" + this.age +
-                ')';
-    }
-
-    /**
-     * Adds a note to the student's list of notes.
-     * @param note The note to be added.
-     */
-    public void addNote(double note) {
-        this.notes.add(note);
-    }
-
-    /**
-     * Computes the average note of the student.
-     * @return The average note of the student.
-     * @throws ArithmeticException if there are no notes present.
-     */
-    public double computeAverage() {
-        if (this.notes.isEmpty()) {
-            throw new ArithmeticException("Cannot compute average. No notes available.");
-        }
-
-        double sum = 0.0;
-        for (double note : this.notes) {
-            sum += note;
-        }
-        return sum / this.notes.size();
-    }
-
-
-    /**
-     * Main method
-     */
-    public static void main(String[] args) {
-        Student student = new Student("Eva", 20);
-        student.addNote(17.5);
-        student.addNote(12.0);
-        student.addNote(20.0);
-        
-        System.out.println(student);
-        System.out.println("Average Note: " + student.computeAverage());
-    }
-}
-```
-
-
-## Modèle de classe
-
-```{.java}
-/**
- * Represents a ...
- */
-public class ClassName {
-    private String attribute1;
-    private int attribute2;
-
-    /**
-     * Constructs a new ...
-     * @param parameter1 parameter1_description
-     * @param parameter2 parameter2_description
-     */
-    public ClassName(String parameter1, int parameter2) {
-        this.attribute1 = parameter1;
-        this.attribute2 = parameter2;
-    }
-
-
-    // -------------------------------------------------------
-    // Methods
-    // -------------------------------------------------------
-
-    /**
-     * No parameter, return void
-     */
-    public void print_attribute1() {
-        System.out.println(this.attribute1);
-    }
-    
-    /**
-     * Increment value of attribute2
-     * A parameter, return void
-     * @param increment increment
-     */
-    public void increment_attribute2(int increment) {
-        this.attribute2 += increment;
-    }
-    
-    /**
-     * Checks if attribute2 is odd.
-     *
-     * @return true if attribute2 is odd, false otherwise.
-     */
-    public boolean isAttribute2Odd() {
-        return attribute2 % 2 != 0;
-    }
-
-
-    /**
-     * Main method
-     */
-    public static void main(String[] args) {
-
-        ClassName c = new ClassName("", 0);
-        c.increment_attribute2(5);
-        System.out.println(c.isAttribute2Odd());
-    }
-}
-```
-
-
-
-
-
-```{mermaid}
-classDiagram
-    class Item {
-        + name: String
-        + price: int
-        + isPermanent(): boolean
-        + isSingleUse(): boolean
-        + isUnusable(): boolean
-    }
-
-    class SingleUseItem {
-        - alreadyUsed: bool
-        + consume()
-    }
-
-
-    class Potion {
-        - hp_gain: int
-    }
-
-    class Sweet {
-        - xp_gain: int
-        + use(): int
-    }
-    
-    class Healer{
-        <<interface>>
-        + heal()
-    }
-
-    Item <|-- SingleUseItem
-    Item <|-- PermanentItem
-
-    SingleUseItem <|-- Potion
-    SingleUseItem <|-- Sweet
-    
-    Potion ..|> Healer : implements
-```
+The subject will be available on exam day
