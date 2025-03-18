@@ -16,7 +16,7 @@ number-depth: 3
 
 ## Instructions
 
-- Groups of 1 or 2 students
+- Groups of 1 or 2 students (from the same TP group)
   - Edit the *README.md* (when it's created) file to enter your names
   - Inter-group plagiarism will be severely punished
 - Due Date: **Wednesday 26 March at 10pm**
@@ -24,6 +24,7 @@ number-depth: 3
 - Zip your project repository and load it on Moodle
   - Don't include *target* folder
 
+Your code must be functional, with no compilation or runtime errors.
 
 ::: {.callout-important}
 - Everything you need is in the course and the practical exercises 
@@ -53,7 +54,9 @@ If you are caught using an LLM, it will be considered cheating and you will rece
 - [ ] Clone your repository (https)
 - [ ] Open Folder `home/onyxia/work/ENSAI-Java-TP3`
 
-::: {.callout-tip}
+::: {.callout-caution}
+Service interruptions are possible. To prevent data loss, back up your code regularly with Git.
+
 After each part, create a commit and push your code to the remote repository.
 :::
 
@@ -66,4 +69,8 @@ After each part, create a commit and push your code to the remote repository.
 
 ## Subject
 
-The subject will be available on exam day
+The subject will be available on exam day.
+
+
+---
+

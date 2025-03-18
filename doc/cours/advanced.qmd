@@ -241,6 +241,22 @@ Long sumOdds = Stream
 - Terminal Operation (reduce, collect, forEach...)
 
 
+### Create a Stream
+
+```{.java}
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+ArrayList<String> arrayList = new ArrayList<>(List.of("a", "b", "c", "d"));
+Map<String, Integer> map = Map.of("a", 1, "b", 2, "c", 3);
+String text = "I am your father";
+
+arrayList.stream();                                      // Creates a stream from an arrayList
+map.entrySet().stream();                                 // Creates a stream from the map's entry set
+Stream.of(text.split(" ")).collect(Collectors.toList()); // Extract list of words from a text
+```
+
+
 ### Intermediate Operations {.smaller}
 
 They return a new stream.

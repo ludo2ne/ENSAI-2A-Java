@@ -101,6 +101,21 @@ for (String name : names) {
 }
 ```
 
+### Usefull methods
+
+```{.java}
+import java.util.Collections;
+
+Collections.sort(List<T> list);
+Collections.reverse(List<T> list);
+Collections.shuffle(List<T> list);
+Collections.replaceAll(List<T> list, T oldVal, T newVal)
+```
+
+:::{.notes}
+- `<T>`: This is the type parameter
+- Those methods modifie the original list in place
+:::
 
 
 
@@ -235,3 +250,5 @@ for (String color : colors) {
 👉 **Use a Set** when uniqueness is required.
 
 👉 **Use a Map** when you need key-value storage.
+
+
