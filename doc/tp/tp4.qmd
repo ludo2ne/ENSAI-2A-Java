@@ -15,6 +15,11 @@ number-depth: 3
 :construction:
 
 
+:::{.notes}
+- DuckDB ?
+- Appli Spring boot
+:::
+
 
 ## Avant de commencer
 

@@ -21,10 +21,15 @@ lightbox: true
 
 ## Todo :construction:
 
+
+:::{.notes}
+- Optional
 - Spring Boot
-- Hibernate
-- Use DuckDB in TP4
+- Hibernate (ORM)
 - <https://rules.sonarsource.com/java/>
+- APi Java <https://ensai-school.github.io/software-engineering-2021-2022/>
+:::
+
 
 
 ## Exception
@@ -180,10 +185,10 @@ When an exception occurs in your code, you have two primary options:
 
 ### Types of Exception {.smaller}
 
+::: {style="font-size: 70%;"}
+
 | **Exception**                | **Description**                                                                   | **Checked at Compilation** |
 |-----------------------------|------------------------------------------------------------------------------------|----------------------------|
-| `ArithmeticException`        | An exceptional condition has occurred in an arithmetic operation.                 | No                         |
-| `ArrayIndexOutOfBoundsException` | An array has been accessed with an illegal index.                             | No                         |
 | `ClassNotFoundException`    | Trying to access a class whose definition is not found.                            | Yes                        |
 | `FileNotFoundException`     | File is not accessible or does not open.                                           | Yes                        |
 | `IOException`               | Input-output operation failed or was interrupted.                                  | Yes                        |
@@ -191,10 +196,14 @@ When an exception occurs in your code, you have two primary options:
 | `NoSuchMethodException`     | Accessing a method that is not found.                                              | Yes                        |
 | `NullPointerException`      | Referring to the members of a null object.                                         | No                         |
 | `NumberFormatException`     | A method could not convert a string into a numeric format.                         | No                         |
+| `ArithmeticException`        | An exceptional condition has occurred in an arithmetic operation.                 | No                         |
+| `ArrayIndexOutOfBoundsException` | An array has been accessed with an illegal index.                             | No                         |
 | `RuntimeException`          | Represents an exception that occurs during runtime.                                | No                         |
 | `IllegalArgumentException`  | A method receives an argument that does not fit the given condition.               | No                         |
 
-<https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/>{target="_blank"}
+:::
+
+see [Types of Exception in Java with Examples](https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/){target="_blank"}
 
 
 
@@ -259,6 +268,8 @@ Stream.of(text.split(" ")).collect(Collectors.toList()); // Extract list of word
 
 ### Intermediate Operations {.smaller}
 
+::: {style="font-size: 80%;"}
+
 They return a new stream.
 
 | Operation           | Description                                       | Example                                      |
@@ -273,6 +284,7 @@ They return a new stream.
 | `limit(maxSize)`    | Truncates to `maxSize` elements.                  | `stream.limit(10)`                           |
 | `skip(n)`           | Discards first `n` elements.                      | `stream.skip(5)`                             |
 
+:::
 
 :::{.notes}
 - Lambda functions
@@ -281,6 +293,8 @@ They return a new stream.
 
 
 ### Terminal Operations {.smaller}
+
+::: {style="font-size: 80%;"}
 
 | Operation           | Description                                      | Example                                       |
 |---------------------|--------------------------------------------------|-----------------------------------------------|
@@ -294,6 +308,7 @@ They return a new stream.
 | `findFirst()`       | Returns the first element.                       | `stream.findFirst()`                          |
 | `min(comparator)`     | Returns the minimum element.                   | `stream.min(Comparator.naturalOrder())`       |
 
+:::
 
 ### Parallel Streams
 
@@ -377,28 +392,402 @@ double meanSumOfSquares = values.stream()
 
 ## Enum
 
+### What are Enums?
+
+- Defines a set of named constants
+- Represents a fixed and predefined set of possible values
+- Examples: Day of week, colors, playing cards
+
+### Declare a basic Enum
+
+```{.java filename="Grade.java"}
+public enum Grade {
+    EXCELLENT,
+    VERY_GOOD,
+    GOOD,
+    AVERAGE,
+    INSUFFICIENT
+}
+```
+
+### Use an Enum
+
+```{.java}
+Grade grade = Grade.VERY_GOOD;
+
+switch (grade) {
+    case EXCELLENT:
+        System.out.println("Excellent!");
+        break;
+    case VERY_GOOD:
+        System.out.println("Very good!");
+        break;
+        
+    ...
+}
+```
+
+### Adding Behavior to Enum
+
+- Enums are More Than Just Constants
+- They are special classes
+  - They can have methods and attributes
+
+```{.java filename="Grade.java"}
+public enum Grade {
+    EXCELLENT(90), VERY_GOOD(80), GOOD(70), AVERAGE(60), INSUFFICIENT(50);
+
+    private final int minimumScore;
+
+    private Grade(int minimumScore) {
+        this.minimumScore = minimumScore;
+    }
+
+    public String getFeedback() {
+        switch (this) {
+            case EXCELLENT: return "Outstanding!";
+            case VERY_GOOD: return "Well done!";
+            case GOOD: return "Satisfactory.";
+            case AVERAGE: return "Needs more effort.";
+            case INSUFFICIENT: return "Requires significant improvement.";
+            default: return "Unknown grade.";
+        }
+    }
+}
+```
+
+:::{.notes}
+- constructor is private
+  - we cannot access it from outside the class
+  - we can use enum constants to call the constructor
+- compiler error if constructor is public
+:::
 
 
+### Enum methods
+
+
+```{.java}
+Grade studentGrade = Grade.VERY_GOOD;
+System.out.println("Grade: " + studentGrade + ", Minimum Score: " + studentGrade.getMinimumScore());
+
+
+// Iterate
+for (Grade g : Grade.values()) {
+    System.out.println(g);
+}
+```
+
+### Enums: Pros and Cons
+
+- :white_check_mark: **Readability**: Makes code easier to understand by using descriptive names for values
+- :white_check_mark: **Type Safety**: Avoids errors related to typos or invalid values
+- :white_check_mark: **Maintainability**: Easier to modify and add new values (for dev)
+- :x: **Limited Extensibility**: Difficult to add or modify values at runtime
+- :x: **Reduced Flexibility**: Restricts values to a predefined set
+
+:::{.notes}
+- :white_check_mark: Compile-Time Validation: Catches enum-related issues early during compilation.
+:::
 
 
 ## Interface
 
+### Back to Inheritance
+
+- Fighter: Primarily focused on combat.
+- Doctor: Primarily focused on healing.
+
+```{mermaid}
+classDiagram
+
+class Person {
+    - name: String
+    - health: int
+    + takeDamage(int amount)
+    + receiveHealing(int amount)
+}
+
+class Fighter {
+    - attackPower: int
+    + fight(Person target)
+}
+
+class Doctor {
+    - healingPower: int
+    + heal(Person patient)
+}
+
+Person <|-- Fighter
+Person <|-- Doctor
+```
 
 
-## Optional
+:::{.notes}
+- **Python:** Allows multiple inheritance.
+- **Example:** A Square could be considered both a Rectangle and a Rhombus.
+:::
+
+### Introducing a New Character
+
+- ArmyDoctor: A special character that can both heal and combat.
+- Java does not support multiple inheritance directly
 
 
+```{mermaid}
+classDiagram
+
+class Person {
+    - name: String
+    - health: int
+    + takeDamage(int amount)
+    + receiveHealing(int amount)
+}
+
+class Fighter {
+    - attackPower: int
+    + fight(Person target)
+}
+
+class ArmyDoctor {
+    - healingPower: int
+    - combatSkill: int
+    + heal(Person patient)
+    + fight(Person target)
+}
+
+class Doctor {
+    - healingPower: int
+    + heal(Person patient)
+}
+
+Person <|-- Fighter
+Person <|-- ArmyDoctor
+Person <|-- Doctor
+```
+
+### Defining Abilities as Contracts
+
+Instead of focusing solely on fixed "classes," let's think about **abilities**.
+
+We can define **contracts** for different types of actions:
+
+- The ability to *combat*
+- The ability to *heal*
+
+This approach provides flexibility in how we define our game characters.
 
 
-## ORM
+### What is a Java Interface?
 
-Hibernate
+- A Java Interface acts as a **blueprint**
+- It specifies a particular set of **abilities** or behaviors
+- It defines a **contract** that any class can choose to implement.
 
 
+### Create an Interface
 
-## APi Java
+```{.java filename="Combatant.java"}
+public interface Combatant {
+    /**
+     * Represents the ability to engage in combat.
+     */
+    void fight(Person p);
+}
+```
 
-Spring boot
+<br>
 
-<https://ensai-school.github.io/software-engineering-2021-2022/>
+```{.java filename="Healer.java"}
+public interface Healer {
+    /**
+     * Represents the ability to provide healing to a Person.
+     */
+    void heal(Person p);
+}
+```
 
+
+### Parent class
+
+```{.java filename="Person.java"}
+public class Person {
+    private String name;
+    private int health;
+
+    public Person(String name, int health) {
+        this.name = name;
+        this.health = health;
+    }
+
+    public void takeDamage(int amount) {
+        this.health -= amount;
+    }
+
+    public void receiveHealing(int amount) {
+        this.health += amount;
+    }
+}
+```
+
+### Implementing the Interfaces
+
+```{.java filename="Doctor.java"}
+public class Doctor extends Person implements Healer {
+    private int healingPower;
+
+    public Doctor(String name, int health, int healingPower) {
+        super(name, health);
+        this.healingPower = healingPower;
+    }
+
+    @Override
+    public void heal(Person patient) {
+        patient.receiveHealing(this.healingPower);
+    }
+}
+```
+
+### Multiple Interfaces
+
+```{.java filename="ArmyDoctor.java"}
+public class ArmyDoctor extends Person implements Healer, Combatant {
+    private int healingPower;
+    private int combatSkill;
+
+    public ArmyDoctor(String name, int health, int healingPower, int combatSkill) {
+        super(name, health);
+        this.healingPower = healingPower;
+        this.combatSkill = combatSkill;
+    }
+
+    @Override
+    public int heal(Person patient) {
+        patient.receiveHealing(healingPower * 0.5);
+    }
+
+    @Override
+    public void inflictDamage(Person target, int amount) {
+        target.takeDamage(combatSkill * 0.2);
+    }
+}
+```
+
+### UML
+
+```{mermaid}
+classDiagram
+
+class Person {
+    - name: String
+    - health: int
+    + takeDamage(int amount)
+    + receiveHealing(int amount)
+}
+
+class Fighter {
+    - attackPower: int
+}
+
+class ArmyDoctor {
+    - healingPower: int
+    - combatSkill: int
+}
+
+class Doctor {
+    - healingPower: int
+}
+
+
+class Combatant {
+    <<interface>>
+    + fight(Person target)
+}
+
+class Healer {
+    <<interface>>
+    + heal(Person patient)
+}
+
+Person <|-- Fighter
+Person <|-- Doctor
+Person <|-- ArmyDoctor
+
+Fighter ..|> Combatant
+ArmyDoctor ..|> Combatant
+ArmyDoctor ..|> Healer
+Doctor ..|> Healer
+```
+
+
+## Upcasting and Downcasting
+
+### Upcasting
+
+Convert an object:
+
+- of a more specific type
+- to a more general type
+
+
+:::{.notes}
+specific type: a subclass or a class that implements an interface
+:::
+
+---
+
+Does this code compile and run?
+
+```{.java}
+Doctor d = new Doctor(...);
+
+Person p = (Person) d;
+d.takeDamage(5);
+```
+
+<br>
+
+```{.java}
+Doctor d = new Doctor(...);
+
+Person p = (Person) d;
+p.heal(anotherPerson);
+```
+
+:::{.notes}
+1. Compiles and runs
+2. Compile error
+:::
+
+### Downcasting
+
+Converting an object of:
+
+- a more general type
+- to a more specific type
+
+---
+
+Does this code compile and run?
+
+```{.java}
+Person p = new Doctor(...);
+
+Doctor d = (Doctor) p;
+d.heal(anotherPerson);
+```
+
+<br>
+
+```{.java}
+Person p = new Doctor(...);
+
+Combatant c = (Combatant) p;
+p.takeDamage(5);
+```
+
+
+:::{.notes}
+1. Compiles and runs
+2. Compile error java.lang.ClassCastException
+:::

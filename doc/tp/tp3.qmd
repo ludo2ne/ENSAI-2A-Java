@@ -26,6 +26,8 @@ number-depth: 3
 
 Your code must be functional, with no compilation or runtime errors.
 
+Don't forget to include the javadoc and to comment your code if necessary.
+
 ::: {.callout-important}
 - Everything you need is in the course and the practical exercises 
 - You are permitted to conduct internet searches to find information and documentation
