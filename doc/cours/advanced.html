@@ -104,6 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -221,9 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#stream" id="toc-stream" class="nav-link" data-scroll-target="#stream">Stream</a></li>
   <li><a href="#enum" id="toc-enum" class="nav-link" data-scroll-target="#enum">Enum</a></li>
   <li><a href="#interface" id="toc-interface" class="nav-link" data-scroll-target="#interface">Interface</a></li>
-  <li><a href="#optional" id="toc-optional" class="nav-link" data-scroll-target="#optional">Optional</a></li>
-  <li><a href="#orm" id="toc-orm" class="nav-link" data-scroll-target="#orm">ORM</a></li>
-  <li><a href="#api-java" id="toc-api-java" class="nav-link" data-scroll-target="#api-java">APi Java</a></li>
+  <li><a href="#upcasting-and-downcasting" id="toc-upcasting-and-downcasting" class="nav-link" data-scroll-target="#upcasting-and-downcasting">Upcasting and Downcasting</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="advanced-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
@@ -266,12 +267,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="todo" class="level2">
 <h2 class="anchored" data-anchor-id="todo">Todo <span class="emoji" data-emoji="construction">🚧</span></h2>
+<div class="notes">
 <ul>
+<li>Optional</li>
 <li>Spring Boot</li>
-<li>Hibernate</li>
-<li>Use DuckDB in TP4</li>
+<li>Hibernate (ORM)</li>
 <li><a href="https://rules.sonarsource.com/java/" class="uri">https://rules.sonarsource.com/java/</a></li>
+<li>APi Java <a href="https://ensai-school.github.io/software-engineering-2021-2022/" class="uri">https://ensai-school.github.io/software-engineering-2021-2022/</a></li>
 </ul>
+</div>
 </section>
 <section id="exception" class="level2">
 <h2 class="anchored" data-anchor-id="exception">Exception</h2>
@@ -453,6 +457,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="types-of-exception" class="level3 smaller">
 <h3 class="smaller anchored" data-anchor-id="types-of-exception">Types of Exception</h3>
+<div style="font-size: 70%;">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -467,16 +472,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><code>ArithmeticException</code></td>
-<td>An exceptional condition has occurred in an arithmetic operation.</td>
-<td>No</td>
-</tr>
-<tr class="even">
-<td><code>ArrayIndexOutOfBoundsException</code></td>
-<td>An array has been accessed with an illegal index.</td>
-<td>No</td>
-</tr>
 <tr class="odd">
 <td><code>ClassNotFoundException</code></td>
 <td>Trying to access a class whose definition is not found.</td>
@@ -513,6 +508,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>No</td>
 </tr>
 <tr class="even">
+<td><code>ArithmeticException</code></td>
+<td>An exceptional condition has occurred in an arithmetic operation.</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><code>ArrayIndexOutOfBoundsException</code></td>
+<td>An array has been accessed with an illegal index.</td>
+<td>No</td>
+</tr>
+<tr class="even">
 <td><code>RuntimeException</code></td>
 <td>Represents an exception that occurs during runtime.</td>
 <td>No</td>
@@ -524,7 +529,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><a href="https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/" target="_blank">https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/</a></p>
+</div>
+<p>see <a href="https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/" target="_blank">Types of Exception in Java with Examples</a></p>
 </section>
 </section>
 <section id="stream" class="level2">
@@ -572,8 +578,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Terminal Operation (reduce, collect, forEach…)</li>
 </ul>
 </section>
+<section id="create-a-stream" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-stream">Create a Stream</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.</span><span class="im">Collectors</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.</span><span class="im">Stream</span><span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> arrayList <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;(</span><span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"a"</span><span class="op">,</span> <span class="st">"b"</span><span class="op">,</span> <span class="st">"c"</span><span class="op">,</span> <span class="st">"d"</span><span class="op">));</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> map <span class="op">=</span> <span class="bu">Map</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"a"</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="st">"b"</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="st">"c"</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> text <span class="op">=</span> <span class="st">"I am your father"</span><span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>arrayList<span class="op">.</span><span class="fu">stream</span><span class="op">();</span>                                      <span class="co">// Creates a stream from an arrayList</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>map<span class="op">.</span><span class="fu">entrySet</span><span class="op">().</span><span class="fu">stream</span><span class="op">();</span>                                 <span class="co">// Creates a stream from the map's entry set</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span>text<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">" "</span><span class="op">)).</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">toList</span><span class="op">());</span> <span class="co">// Extract list of words from a text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="intermediate-operations" class="level3 smaller">
 <h3 class="smaller anchored" data-anchor-id="intermediate-operations">Intermediate Operations</h3>
+<div style="font-size: 80%;">
 <p>They return a new stream.</p>
 <table class="caption-top table">
 <colgroup>
@@ -636,6 +656,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+</div>
 <div class="notes">
 <ul>
 <li>Lambda functions</li>
@@ -645,6 +666,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="terminal-operations" class="level3 smaller">
 <h3 class="smaller anchored" data-anchor-id="terminal-operations">Terminal Operations</h3>
+<div style="font-size: 80%;">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 17%">
@@ -706,6 +728,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="parallel-streams" class="level3">
 <h3 class="anchored" data-anchor-id="parallel-streams">Parallel Streams</h3>
@@ -740,68 +763,486 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="mapreduce-principle" class="level3">
 <h3 class="anchored" data-anchor-id="mapreduce-principle">MapReduce principle</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> valuesSquares <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Function<span class="op">&lt;</span><span class="bu">Integer</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> square <span class="op">=</span> n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">:</span> values<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    valuesSquares<span class="op">.</span><span class="fu">add</span><span class="op">(</span>square<span class="op">.</span><span class="fu">apply</span><span class="op">(</span>n<span class="op">));</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sumOfSquares <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> v <span class="op">:</span> valuesSquares<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    sumOfSquares <span class="op">+=</span> v <span class="op">*</span> v<span class="op">;</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> sumOfSquares <span class="op">/</span> valuesSquares<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> valuesSquares <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Function<span class="op">&lt;</span><span class="bu">Integer</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> square <span class="op">=</span> n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">:</span> values<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    valuesSquares<span class="op">.</span><span class="fu">add</span><span class="op">(</span>square<span class="op">.</span><span class="fu">apply</span><span class="op">(</span>n<span class="op">));</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sumOfSquares <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> v <span class="op">:</span> valuesSquares<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    sumOfSquares <span class="op">+=</span> v <span class="op">*</span> v<span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> sumOfSquares <span class="op">/</span> valuesSquares<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="manual-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="manual-implementation">Manual implementation</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> <span class="fu">manualMap</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> DoubleUnaryOperator function<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">add</span><span class="op">(</span>function<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>element<span class="op">));</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">double</span> <span class="fu">manualReduce</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> <span class="dt">double</span> identity<span class="op">,</span> DoubleBinaryOperator accumulator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> result <span class="op">=</span> identity<span class="op">;</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> accumulator<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>result<span class="op">,</span> element<span class="op">);</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> <span class="fu">manualMap</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> DoubleUnaryOperator function<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">add</span><span class="op">(</span>function<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>element<span class="op">));</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">double</span> <span class="fu">manualReduce</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> <span class="dt">double</span> identity<span class="op">,</span> DoubleBinaryOperator accumulator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> result <span class="op">=</span> identity<span class="op">;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> accumulator<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>result<span class="op">,</span> element<span class="op">);</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="mapreduce-using-streams" class="level3">
 <h3 class="anchored" data-anchor-id="mapreduce-using-streams">MapReduce using streams</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> values<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">mapToInt</span><span class="op">(</span>n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">)</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">average</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> values<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">mapToInt</span><span class="op">(</span>n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">average</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="enum" class="level2">
 <h2 class="anchored" data-anchor-id="enum">Enum</h2>
+<section id="what-are-enums" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-enums">What are Enums?</h3>
+<ul>
+<li>Defines a set of named constants</li>
+<li>Represents a fixed and predefined set of possible values</li>
+<li>Examples: Day of week, colors, playing cards</li>
+</ul>
+</section>
+<section id="declare-a-basic-enum" class="level3">
+<h3 class="anchored" data-anchor-id="declare-a-basic-enum">Declare a basic Enum</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Grade.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb12" data-filename="Grade.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">enum</span> Grade <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    EXCELLENT<span class="op">,</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    VERY_GOOD<span class="op">,</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    GOOD<span class="op">,</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    AVERAGE<span class="op">,</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    INSUFFICIENT</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="use-an-enum" class="level3">
+<h3 class="anchored" data-anchor-id="use-an-enum">Use an Enum</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Grade grade <span class="op">=</span> Grade<span class="op">.</span><span class="fu">VERY_GOOD</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">switch</span> <span class="op">(</span>grade<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> EXCELLENT<span class="op">:</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Excellent!"</span><span class="op">);</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> VERY_GOOD<span class="op">:</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Very good!"</span><span class="op">);</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="adding-behavior-to-enum" class="level3">
+<h3 class="anchored" data-anchor-id="adding-behavior-to-enum">Adding Behavior to Enum</h3>
+<ul>
+<li>Enums are More Than Just Constants</li>
+<li>They are special classes
+<ul>
+<li>They can have methods and attributes</li>
+</ul></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Grade.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb14" data-filename="Grade.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">enum</span> Grade <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">EXCELLENT</span><span class="op">(</span><span class="dv">90</span><span class="op">),</span> <span class="fu">VERY_GOOD</span><span class="op">(</span><span class="dv">80</span><span class="op">),</span> <span class="fu">GOOD</span><span class="op">(</span><span class="dv">70</span><span class="op">),</span> <span class="fu">AVERAGE</span><span class="op">(</span><span class="dv">60</span><span class="op">),</span> <span class="fu">INSUFFICIENT</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="dt">int</span> minimumScore<span class="op">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">Grade</span><span class="op">(</span><span class="dt">int</span> minimumScore<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">minimumScore</span> <span class="op">=</span> minimumScore<span class="op">;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getFeedback</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">switch</span> <span class="op">(</span><span class="kw">this</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> EXCELLENT<span class="op">:</span> <span class="cf">return</span> <span class="st">"Outstanding!"</span><span class="op">;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> VERY_GOOD<span class="op">:</span> <span class="cf">return</span> <span class="st">"Well done!"</span><span class="op">;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> GOOD<span class="op">:</span> <span class="cf">return</span> <span class="st">"Satisfactory."</span><span class="op">;</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> AVERAGE<span class="op">:</span> <span class="cf">return</span> <span class="st">"Needs more effort."</span><span class="op">;</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> INSUFFICIENT<span class="op">:</span> <span class="cf">return</span> <span class="st">"Requires significant improvement."</span><span class="op">;</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>            <span class="kw">default</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Unknown grade."</span><span class="op">;</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="notes">
+<ul>
+<li>constructor is private
+<ul>
+<li>we cannot access it from outside the class</li>
+<li>we can use enum constants to call the constructor</li>
+</ul></li>
+<li>compiler error if constructor is public</li>
+</ul>
+</div>
+</section>
+<section id="enum-methods" class="level3">
+<h3 class="anchored" data-anchor-id="enum-methods">Enum methods</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Grade studentGrade <span class="op">=</span> Grade<span class="op">.</span><span class="fu">VERY_GOOD</span><span class="op">;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Grade: "</span> <span class="op">+</span> studentGrade <span class="op">+</span> <span class="st">", Minimum Score: "</span> <span class="op">+</span> studentGrade<span class="op">.</span><span class="fu">getMinimumScore</span><span class="op">());</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Iterate</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>Grade g <span class="op">:</span> Grade<span class="op">.</span><span class="fu">values</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>g<span class="op">);</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="enums-pros-and-cons" class="level3">
+<h3 class="anchored" data-anchor-id="enums-pros-and-cons">Enums: Pros and Cons</h3>
+<ul>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> <strong>Readability</strong>: Makes code easier to understand by using descriptive names for values</li>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> <strong>Type Safety</strong>: Avoids errors related to typos or invalid values</li>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> <strong>Maintainability</strong>: Easier to modify and add new values (for dev)</li>
+<li><span class="emoji" data-emoji="x">❌</span> <strong>Limited Extensibility</strong>: Difficult to add or modify values at runtime</li>
+<li><span class="emoji" data-emoji="x">❌</span> <strong>Reduced Flexibility</strong>: Restricts values to a predefined set</li>
+</ul>
+<div class="notes">
+<ul>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> Compile-Time Validation: Catches enum-related issues early during compilation.</li>
+</ul>
+</div>
+</section>
 </section>
 <section id="interface" class="level2">
 <h2 class="anchored" data-anchor-id="interface">Interface</h2>
+<section id="back-to-inheritance" class="level3">
+<h3 class="anchored" data-anchor-id="back-to-inheritance">Back to Inheritance</h3>
+<ul>
+<li>Fighter: Primarily focused on combat.</li>
+<li>Doctor: Primarily focused on healing.</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+
+class Person {
+    - name: String
+    - health: int
+    + takeDamage(int amount)
+    + receiveHealing(int amount)
+}
+
+class Fighter {
+    - attackPower: int
+    + fight(Person target)
+}
+
+class Doctor {
+    - healingPower: int
+    + heal(Person patient)
+}
+
+Person &lt;|-- Fighter
+Person &lt;|-- Doctor
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="notes">
+<ul>
+<li><strong>Python:</strong> Allows multiple inheritance.</li>
+<li><strong>Example:</strong> A Square could be considered both a Rectangle and a Rhombus.</li>
+</ul>
+</div>
 </section>
-<section id="optional" class="level2">
-<h2 class="anchored" data-anchor-id="optional">Optional</h2>
+<section id="introducing-a-new-character" class="level3">
+<h3 class="anchored" data-anchor-id="introducing-a-new-character">Introducing a New Character</h3>
+<ul>
+<li>ArmyDoctor: A special character that can both heal and combat.</li>
+<li>Java does not support multiple inheritance directly</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+
+class Person {
+    - name: String
+    - health: int
+    + takeDamage(int amount)
+    + receiveHealing(int amount)
+}
+
+class Fighter {
+    - attackPower: int
+    + fight(Person target)
+}
+
+class ArmyDoctor {
+    - healingPower: int
+    - combatSkill: int
+    + heal(Person patient)
+    + fight(Person target)
+}
+
+class Doctor {
+    - healingPower: int
+    + heal(Person patient)
+}
+
+Person &lt;|-- Fighter
+Person &lt;|-- ArmyDoctor
+Person &lt;|-- Doctor
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
-<section id="orm" class="level2">
-<h2 class="anchored" data-anchor-id="orm">ORM</h2>
-<p>Hibernate</p>
+<section id="defining-abilities-as-contracts" class="level3">
+<h3 class="anchored" data-anchor-id="defining-abilities-as-contracts">Defining Abilities as Contracts</h3>
+<p>Instead of focusing solely on fixed “classes,” let’s think about <strong>abilities</strong>.</p>
+<p>We can define <strong>contracts</strong> for different types of actions:</p>
+<ul>
+<li>The ability to <em>combat</em></li>
+<li>The ability to <em>heal</em></li>
+</ul>
+<p>This approach provides flexibility in how we define our game characters.</p>
 </section>
-<section id="api-java" class="level2">
-<h2 class="anchored" data-anchor-id="api-java">APi Java</h2>
-<p>Spring boot</p>
-<p><a href="https://ensai-school.github.io/software-engineering-2021-2022/" class="uri">https://ensai-school.github.io/software-engineering-2021-2022/</a></p>
+<section id="what-is-a-java-interface" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-java-interface">What is a Java Interface?</h3>
+<ul>
+<li>A Java Interface acts as a <strong>blueprint</strong></li>
+<li>It specifies a particular set of <strong>abilities</strong> or behaviors</li>
+<li>It defines a <strong>contract</strong> that any class can choose to implement.</li>
+</ul>
+</section>
+<section id="create-an-interface" class="level3">
+<h3 class="anchored" data-anchor-id="create-an-interface">Create an Interface</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Combatant.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb16" data-filename="Combatant.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Combatant <span class="op">{</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Represents the ability to engage in combat<span class="co">.</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">fight</span><span class="op">(</span>Person p<span class="op">);</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Healer.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb17" data-filename="Healer.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> Healer <span class="op">{</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Represents the ability to provide healing to a Person<span class="co">.</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">heal</span><span class="op">(</span>Person p<span class="op">);</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="parent-class" class="level3">
+<h3 class="anchored" data-anchor-id="parent-class">Parent class</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Person.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb18" data-filename="Person.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Person <span class="op">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> health<span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">=</span> health<span class="op">;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">takeDamage</span><span class="op">(</span><span class="dt">int</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">-=</span> amount<span class="op">;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">receiveHealing</span><span class="op">(</span><span class="dt">int</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="implementing-the-interfaces" class="level3">
+<h3 class="anchored" data-anchor-id="implementing-the-interfaces">Implementing the Interfaces</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Doctor.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb19" data-filename="Doctor.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Doctor <span class="kw">extends</span> Person <span class="kw">implements</span> Healer <span class="op">{</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> healingPower<span class="op">;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Doctor</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">,</span> <span class="dt">int</span> healingPower<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">super</span><span class="op">(</span>name<span class="op">,</span> health<span class="op">);</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span> <span class="op">=</span> healingPower<span class="op">;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">heal</span><span class="op">(</span>Person patient<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        patient<span class="op">.</span><span class="fu">receiveHealing</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span><span class="op">);</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="multiple-interfaces" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-interfaces">Multiple Interfaces</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ArmyDoctor.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb20" data-filename="ArmyDoctor.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ArmyDoctor <span class="kw">extends</span> Person <span class="kw">implements</span> Healer<span class="op">,</span> Combatant <span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> healingPower<span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> combatSkill<span class="op">;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">ArmyDoctor</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">,</span> <span class="dt">int</span> healingPower<span class="op">,</span> <span class="dt">int</span> combatSkill<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">super</span><span class="op">(</span>name<span class="op">,</span> health<span class="op">);</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span> <span class="op">=</span> healingPower<span class="op">;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">combatSkill</span> <span class="op">=</span> combatSkill<span class="op">;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">heal</span><span class="op">(</span>Person patient<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        patient<span class="op">.</span><span class="fu">receiveHealing</span><span class="op">(</span>healingPower <span class="op">*</span> <span class="fl">0.5</span><span class="op">);</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">inflictDamage</span><span class="op">(</span>Person target<span class="op">,</span> <span class="dt">int</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        target<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span>combatSkill <span class="op">*</span> <span class="fl">0.2</span><span class="op">);</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="uml" class="level3">
+<h3 class="anchored" data-anchor-id="uml">UML</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+
+class Person {
+    - name: String
+    - health: int
+    + takeDamage(int amount)
+    + receiveHealing(int amount)
+}
+
+class Fighter {
+    - attackPower: int
+}
+
+class ArmyDoctor {
+    - healingPower: int
+    - combatSkill: int
+}
+
+class Doctor {
+    - healingPower: int
+}
 
 
+class Combatant {
+    &lt;&lt;interface&gt;&gt;
+    + fight(Person target)
+}
+
+class Healer {
+    &lt;&lt;interface&gt;&gt;
+    + heal(Person patient)
+}
+
+Person &lt;|-- Fighter
+Person &lt;|-- Doctor
+Person &lt;|-- ArmyDoctor
+
+Fighter ..|&gt; Combatant
+ArmyDoctor ..|&gt; Combatant
+ArmyDoctor ..|&gt; Healer
+Doctor ..|&gt; Healer
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="upcasting-and-downcasting" class="level2">
+<h2 class="anchored" data-anchor-id="upcasting-and-downcasting">Upcasting and Downcasting</h2>
+<section id="upcasting" class="level3">
+<h3 class="anchored" data-anchor-id="upcasting">Upcasting</h3>
+<p>Convert an object:</p>
+<ul>
+<li>of a more specific type</li>
+<li>to a more general type</li>
+</ul>
+<div class="notes">
+<p>specific type: a subclass or a class that implements an interface</p>
+</div>
+<hr>
+<p>Does this code compile and run?</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Doctor d <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Person p <span class="op">=</span> <span class="op">(</span>Person<span class="op">)</span> d<span class="op">;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>d<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Doctor d <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Person p <span class="op">=</span> <span class="op">(</span>Person<span class="op">)</span> d<span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">heal</span><span class="op">(</span>anotherPerson<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="notes">
+<ol type="1">
+<li>Compiles and runs</li>
+<li>Compile error</li>
+</ol>
+</div>
+</section>
+<section id="downcasting" class="level3">
+<h3 class="anchored" data-anchor-id="downcasting">Downcasting</h3>
+<p>Converting an object of:</p>
+<ul>
+<li>a more general type</li>
+<li>to a more specific type</li>
+</ul>
+<hr>
+<p>Does this code compile and run?</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>Doctor d <span class="op">=</span> <span class="op">(</span>Doctor<span class="op">)</span> p<span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>d<span class="op">.</span><span class="fu">heal</span><span class="op">(</span>anotherPerson<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>Combatant c <span class="op">=</span> <span class="op">(</span>Combatant<span class="op">)</span> p<span class="op">;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="notes">
+<ol type="1">
+<li>Compiles and runs</li>
+<li>Compile error java.lang.ClassCastException</li>
+</ol>
+</div>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
