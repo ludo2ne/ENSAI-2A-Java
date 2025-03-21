@@ -1,6 +1,6 @@
 ---
-title: "Advanced Java"
-description: "[Slides](advanced-slides.html)"
+title: "level3"
+description: "[Slides](level3-slides.html)"
 author: "Ludovic Deneuville"
 format: 
   html:
@@ -9,11 +9,11 @@ format:
     toc-depth: 2
   revealjs:
     theme: moon
-    footer: "[Home](../../index.html) --- [Advanced Java](advanced.html)"
+    footer: "[Home](../../index.html) --- [level3](level3.html)"
     slide-number: c/t                    ## collapsed/total
     slide-level: 3
     controls: true
-    output-file: advanced-slides.html
+    output-file: level3-slides.html
 from: markdown+emoji
 lightbox: true
 ---
