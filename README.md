@@ -24,8 +24,11 @@ https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java
   - OOP
   - Java Project
     - https://www.geeksforgeeks.org/apache-maven/
+    - https://openclassrooms.com/fr/courses/4503526-organisez-et-packagez-une-application-java-avec-apache-maven
   - JUnit
 - CM3
+  - Stream
+  - Exception, Enum, Interface
 
 
 
@@ -36,7 +39,7 @@ https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java
   - ajouter UML à chaque étape
   - Enoncé Loads books from a CSV(addItem -> addBook, appel constructeur Author 1 seul paramètre, supp print)
 - 3. Rated
-- 4. JUnit, Spring Boot
+- 4. Spring Boot
 
 
 

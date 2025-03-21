@@ -1,0 +1,31 @@
+---
+title: "Advanced Java"
+description: "[Slides](advanced-slides.html)"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+  revealjs:
+    theme: moon
+    footer: "[Home](../../index.html) --- [Advanced Java](advanced.html)"
+    slide-number: c/t                    ## collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: advanced-slides.html
+from: markdown+emoji
+lightbox: true
+---
+
+
+## Todo :construction:
+
+
+:::{.notes}
+- Spring Boot
+- Hibernate (ORM)
+- <https://rules.sonarsource.com/java/>
+- APi Java <https://ensai-school.github.io/software-engineering-2021-2022/>
+:::
+

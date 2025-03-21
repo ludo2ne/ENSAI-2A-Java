@@ -14,21 +14,12 @@ format:
     slide-level: 3
     controls: true
     output-file: advanced-slides.html
+mermaid:
+  theme: forest
 from: markdown+emoji
 lightbox: true
 ---
 
-
-## Todo :construction:
-
-
-:::{.notes}
-- Optional
-- Spring Boot
-- Hibernate (ORM)
-- <https://rules.sonarsource.com/java/>
-- APi Java <https://ensai-school.github.io/software-engineering-2021-2022/>
-:::
 
 
 
@@ -39,9 +30,19 @@ lightbox: true
 - Events that disrupt the normal flow of program execution
 - Indicate errors or unexpected conditions that occur during runtime
 
+:::{.callout-tip}
+Exceptions are your friends.
+:::
+
+:::{.notes}
+- Reminder
+- Exceptions are your friend
+:::
+
 ### Why Should We Raise Exceptions?
 
-- To controll error management, preventing unexpected program crashes
+- To controll error management
+- To preventing unexpected program crashes
 - To alter the normal execution flow when an error occurs
 - To prevent the system from entering an unstable or inconsistent state
 
@@ -101,6 +102,12 @@ public void transfer(BankAccount recipient, double amount)
 }
 ```
 
+:::{.notes}
+- If amount < 0 ?
+- throws: method can throw this exception
+- throw: raise
+:::
+
 ### Define Custom Exceptions
 
 ```{.java filename="InsufficientBalanceException.java"}
@@ -125,11 +132,16 @@ public class TransferLimitExceededException extends Exception {
 }
 ```
 
+:::{.notes}
+- as a class
+- you can specify message
+:::
+
 ### Use Custom Exceptions
 
 ```{.java filename="BankAccount.java"}
-import fr.ensai.bank.domain.InsufficientBalanceException;
-import fr.ensai.bank.domain.TransferLimitExceededException;
+import fr.ensai.bank.exception.InsufficientBalanceException;
+import fr.ensai.bank.exception.TransferLimitExceededException;
 
 public class Bank {
 
@@ -148,6 +160,10 @@ public class Bank {
     }
 }
 ```
+
+:::{.notes}
+package `exception`
+:::
 
 ### Exception Handling
 
@@ -174,6 +190,7 @@ public class Bank {
   - simpliest way: `catch (Exception e)`
 - Finally: block always executes, regardless of whether an exception occurred or not.
   - Used for cleanup code (e.g., closing resources).
+  - Without finally, code after catch blocks is only executed if no unhandled exception occurs.
 :::
 
 ### Encountering Exceptions
@@ -206,6 +223,26 @@ When an exception occurs in your code, you have two primary options:
 see [Types of Exception in Java with Examples](https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/){target="_blank"}
 
 
+### NullPointerException
+
+```{.java}
+public class NullPointerExceptionExample {
+
+    public static void printLength(String text){
+        System.out.println(text.length());
+    }
+
+    public static void main(String[] args) {
+        String myText = null;
+        printLength(myText); // will throw a NullPointerException.
+    }
+}
+```
+
+::: {.callout-tip title="How to Prevent"}
+Always check if an object reference is null before using it.
+:::
+
 
 ## Stream
 
@@ -226,8 +263,8 @@ see [Types of Exception in Java with Examples](https://www.geeksforgeeks.org/typ
 ### How it works
 
 - Takes input from the Collections, Arrays, or I/O channels
-- Provide a result as per the pipelined methods
-- Intermediate operation is lazily executed and returns a stream
+- Provide a result as per the **pipelined** methods
+- Intermediate operation is **lazily** executed and returns a stream
 - Terminal operations mark the end of the stream and return the result
 
 
@@ -243,11 +280,28 @@ Long sumOdds = Stream
     .reduce(0L, Long::sum);          // Reduce the stream to a single Long by summing all elements
 ```
 
+:::{.notes}
+- Lazy evaluation: 
+  - != eager
+  - Computation on the elements of the stream is only performed when it's necessary
+  - don't generate all natural number
+  - limit 10
+
+Intermediate operations are not executed until a terminal operation is invoked. 
+
+This approach can optimize performance, especially for large datasets, by reducing the number of iterations and computations.
+:::
+
 ### Key Concepts
 
 - Source (List, Array...)
 - Intermediate Operations (filter, map...)
 - Terminal Operation (reduce, collect, forEach...)
+- Lazy evaluation
+
+:::{.notes}
+- Lazy evaluation: very important concept
+:::
 
 
 ### Create a Stream
@@ -278,7 +332,7 @@ They return a new stream.
 | `map(function)`     | Transforms elements.                              | `stream.map(String::toUpperCase)`            |
 | `flatMap(function)` | Transforms to streams, then flattens.             | `stream.flatMap(List::stream)`              |
 | `distinct()`        | Removes duplicates.                               | `stream.distinct()`                          |
-| `sorted()`          | Sorts elements (natural order).                   | `stream.sorted()`                            |
+| `sorted()`          | Sorts elements.                                   | `stream.sorted()`                            |
 | `sorted(comparator)`| Sorts elements (using comparator).                | `stream.sorted(Comparator.reverseOrder())` |
 | `peek(consumer)`    | Performs action on each element.                  | `stream.peek(System.out::println)`           |
 | `limit(maxSize)`    | Truncates to `maxSize` elements.                  | `stream.limit(10)`                           |
@@ -356,6 +410,12 @@ for (int v : valuesSquares) {
 double meanSumOfSquares = sumOfSquares / valuesSquares.size();
 ```
 
+:::{.notes}
+- compute squares (map)
+- sum squares (reduce)
+- final step (O(1))
+:::
+
 
 ### Manual implementation
 
@@ -377,6 +437,14 @@ public double manualReduce(List<Double> list, double identity, DoubleBinaryOpera
 }
 ```
 
+:::{.notes}
+- DoubleUnaryOperator (sqrt, power...)
+  - Interface with one method
+  - applyAsDouble(Double d) -> double
+- DoubleBinaryOperator (add, mult...)
+  - applyAsDouble(Double d1, Double d2) -> double
+:::
+
 
 ### MapReduce using streams
 
@@ -388,7 +456,10 @@ double meanSumOfSquares = values.stream()
     .average();
 ```
 
-
+:::{.notes}
+- mapToInt() -> IntStream
+  - map() specialization
+:::
 
 ## Enum
 
@@ -410,6 +481,10 @@ public enum Grade {
 }
 ```
 
+:::{.notes}
+- These are the constant values of the enum
+:::
+
 ### Use an Enum
 
 ```{.java}
@@ -427,16 +502,26 @@ switch (grade) {
 }
 ```
 
+:::{.notes}
+- Enums are implicitly:
+  - static (no need to create an instance)
+  - final (no modification allowed)
+:::
+
+
 ### Adding Behavior to Enum
 
 - Enums are More Than Just Constants
 - They are special classes
   - They can have methods and attributes
 
+---
+
 ```{.java filename="Grade.java"}
 public enum Grade {
     EXCELLENT(90), VERY_GOOD(80), GOOD(70), AVERAGE(60), INSUFFICIENT(50);
 
+    @Getter
     private final int minimumScore;
 
     private Grade(int minimumScore) {
@@ -469,8 +554,10 @@ public enum Grade {
 
 ```{.java}
 Grade studentGrade = Grade.VERY_GOOD;
-System.out.println("Grade: " + studentGrade + ", Minimum Score: " + studentGrade.getMinimumScore());
 
+System.out.println("Grade: " + studentGrade);
+System.out.println("Minimum Score: " + studentGrade.getMinimumScore());
+System.out.println("Feedback: " + studentGrade.getFeedback());
 
 // Iterate
 for (Grade g : Grade.values()) {
@@ -478,7 +565,7 @@ for (Grade g : Grade.values()) {
 }
 ```
 
-### Enums: Pros and Cons
+### Enums: Pros and Cons {.smaller}
 
 - :white_check_mark: **Readability**: Makes code easier to understand by using descriptive names for values
 - :white_check_mark: **Type Safety**: Avoids errors related to typos or invalid values
@@ -533,6 +620,7 @@ Person <|-- Doctor
 - ArmyDoctor: A special character that can both heal and combat.
 - Java does not support multiple inheritance directly
 
+---
 
 ```{mermaid}
 classDiagram
@@ -549,12 +637,6 @@ class Fighter {
     + fight(Person target)
 }
 
-class ArmyDoctor {
-    - healingPower: int
-    - combatSkill: int
-    + heal(Person patient)
-    + fight(Person target)
-}
 
 class Doctor {
     - healingPower: int
@@ -562,7 +644,8 @@ class Doctor {
 }
 
 Person <|-- Fighter
-Person <|-- ArmyDoctor
+Fighter <|-- ArmyDoctor
+Doctor <|-- ArmyDoctor
 Person <|-- Doctor
 ```
 
@@ -606,6 +689,17 @@ public interface Healer {
     void heal(Person p);
 }
 ```
+
+:::{.notes}
+- All methods are `public abstract`
+- default method
+  - `default void heal(Person p) { ...})` -> no longer abstract
+- static method:
+  - called using interface name without instanciation
+- private method:
+  - to factorize code inside (no access from outside)
+- attribute (constants) are implicitly public, static and final
+:::
 
 
 ### Parent class
@@ -662,13 +756,13 @@ public class ArmyDoctor extends Person implements Healer, Combatant {
     }
 
     @Override
-    public int heal(Person patient) {
-        patient.receiveHealing(healingPower * 0.5);
+    public void heal(Person patient) {
+        patient.receiveHealing(this.healingPower * 0.5);
     }
 
     @Override
-    public void inflictDamage(Person target, int amount) {
-        target.takeDamage(combatSkill * 0.2);
+    public void fight(Person target) {
+        target.takeDamage(this.combatSkill * 0.2);
     }
 }
 ```
@@ -782,7 +876,7 @@ d.heal(anotherPerson);
 ```{.java}
 Person p = new Doctor(...);
 
-Combatant c = (Combatant) p;
+Fighter f = (Fighter) p;
 p.takeDamage(5);
 ```
 
@@ -790,4 +884,48 @@ p.takeDamage(5);
 :::{.notes}
 1. Compiles and runs
 2. Compile error java.lang.ClassCastException
+:::
+
+### Downcasting with instanceof
+
+```{.java}
+Person p = new Doctor(...);
+
+if (p instanceof Doctor d) {
+    d.heal(anotherPerson);
+} else {
+    System.out.println(p + " is not a Doctor.");
+}
+```
+
+:::{.notes}
+```{.java}
+if (p instanceof Doctor d)
+
+// equivalent since Java 16
+
+if (p instanceof Doctor){
+    Doctor d = (Doctor) p;
+}
+```
+:::
+
+
+## To go further
+
+- Optional
+- Genericity
+- Annotations
+
+:::{.notes}
+- Optional: deal with null value
+
+```{.java}
+    public static <T> void printArray(T[] array) {
+        for (T element : array) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+```
 :::
