@@ -187,6 +187,7 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="forest">
   <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
   <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -207,15 +208,34 @@ Ludovic Deneuville
 </div>
 
 </section>
-<section id="todo" class="title-slide slide level2 center">
-<h2>Todo <span class="emoji" data-emoji="construction">🚧</span></h2>
+<section>
+<section id="exception" class="title-slide slide level2 center">
+<h2>Exception</h2>
+
+</section>
+<section id="what-are-exceptions" class="slide level3">
+<h3>What are Exceptions?</h3>
+<ul>
+<li>Events that disrupt the normal flow of program execution</li>
+<li>Indicate errors or unexpected conditions that occur during runtime</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Exceptions are your friends.</p>
+</div>
+</div>
+</div>
 <aside class="notes">
 <ul>
-<li>Optional</li>
-<li>Spring Boot</li>
-<li>Hibernate (ORM)</li>
-<li><a href="https://rules.sonarsource.com/java/" class="uri">https://rules.sonarsource.com/java/</a></li>
-<li>APi Java <a href="https://ensai-school.github.io/software-engineering-2021-2022/" class="uri">https://ensai-school.github.io/software-engineering-2021-2022/</a></li>
+<li>Reminder</li>
+<li>Exceptions are your friend</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -229,23 +249,11 @@ Ludovic Deneuville
           display:block!important;
       }</style></aside>
 </section>
-
-<section>
-<section id="exception" class="title-slide slide level2 center">
-<h2>Exception</h2>
-
-</section>
-<section id="what-are-exceptions" class="slide level3">
-<h3>What are Exceptions?</h3>
-<ul>
-<li>Events that disrupt the normal flow of program execution</li>
-<li>Indicate errors or unexpected conditions that occur during runtime</li>
-</ul>
-</section>
 <section id="why-should-we-raise-exceptions" class="slide level3">
 <h3>Why Should We Raise Exceptions?</h3>
 <ul>
-<li>To controll error management, preventing unexpected program crashes</li>
+<li>To controll error management</li>
+<li>To preventing unexpected program crashes</li>
 <li>To alter the normal execution flow when an error occurs</li>
 <li>To prevent the system from entering an unstable or inconsistent state</li>
 </ul>
@@ -322,6 +330,23 @@ Ludovic Deneuville
 <span id="cb2-17"><a></a>    recipient<span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
 <span id="cb2-18"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<ul>
+<li>If amount &lt; 0 ?</li>
+<li>throws: method can throw this exception</li>
+<li>throw: raise</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="define-custom-exceptions" class="slide level3">
 <h3>Define Custom Exceptions</h3>
@@ -350,6 +375,22 @@ Ludovic Deneuville
 <span id="cb4-6"><a></a>    <span class="op">}</span></span>
 <span id="cb4-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<ul>
+<li>as a class</li>
+<li>you can specify message</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="use-custom-exceptions" class="slide level3">
 <h3>Use Custom Exceptions</h3>
@@ -357,8 +398,8 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>BankAccount.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb5" data-filename="BankAccount.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a><span class="kw">import</span> <span class="im">fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">domain</span><span class="op">.</span><span class="im">InsufficientBalanceException</span><span class="op">;</span></span>
-<span id="cb5-2"><a></a><span class="kw">import</span> <span class="im">fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">domain</span><span class="op">.</span><span class="im">TransferLimitExceededException</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb5" data-filename="BankAccount.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a><span class="kw">import</span> <span class="im">fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">exception</span><span class="op">.</span><span class="im">InsufficientBalanceException</span><span class="op">;</span></span>
+<span id="cb5-2"><a></a><span class="kw">import</span> <span class="im">fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">bank</span><span class="op">.</span><span class="im">exception</span><span class="op">.</span><span class="im">TransferLimitExceededException</span><span class="op">;</span></span>
 <span id="cb5-3"><a></a></span>
 <span id="cb5-4"><a></a><span class="kw">public</span> <span class="kw">class</span> Bank <span class="op">{</span></span>
 <span id="cb5-5"><a></a></span>
@@ -377,6 +418,19 @@ Ludovic Deneuville
 <span id="cb5-18"><a></a>    <span class="op">}</span></span>
 <span id="cb5-19"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p>package <code>exception</code></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="exception-handling" class="slide level3">
 <h3>Exception Handling</h3>
@@ -409,6 +463,7 @@ Ludovic Deneuville
 <li>Finally: block always executes, regardless of whether an exception occurred or not.
 <ul>
 <li>Used for cleanup code (e.g., closing resources).</li>
+<li>Without finally, code after catch blocks is only executed if no unhandled exception occurs.</li>
 </ul></li>
 </ul>
 <style type="text/css">
@@ -507,6 +562,35 @@ Ludovic Deneuville
 </table>
 </div>
 <p>see <a href="https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/" target="_blank">Types of Exception in Java with Examples</a></p>
+</section>
+<section id="nullpointerexception" class="slide level3">
+<h3>NullPointerException</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a></a><span class="kw">public</span> <span class="kw">class</span> NullPointerExceptionExample <span class="op">{</span></span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printLength</span><span class="op">(</span><span class="bu">String</span> text<span class="op">){</span></span>
+<span id="cb7-4"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>text<span class="op">.</span><span class="fu">length</span><span class="op">());</span></span>
+<span id="cb7-5"><a></a>    <span class="op">}</span></span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-8"><a></a>        <span class="bu">String</span> myText <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb7-9"><a></a>        <span class="fu">printLength</span><span class="op">(</span>myText<span class="op">);</span> <span class="co">// will throw a NullPointerException.</span></span>
+<span id="cb7-10"><a></a>    <span class="op">}</span></span>
+<span id="cb7-11"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div title="How to Prevent">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>How to Prevent</strong></p>
+</div>
+<div class="callout-content">
+<p>Always check if an object reference is null before using it.</p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="stream" class="title-slide slide level2 center">
@@ -542,20 +626,43 @@ Ludovic Deneuville
 <h3>How it works</h3>
 <ul>
 <li>Takes input from the Collections, Arrays, or I/O channels</li>
-<li>Provide a result as per the pipelined methods</li>
-<li>Intermediate operation is lazily executed and returns a stream</li>
+<li>Provide a result as per the <strong>pipelined</strong> methods</li>
+<li>Intermediate operation is <strong>lazily</strong> executed and returns a stream</li>
 <li>Terminal operations mark the end of the stream and return the result</li>
 </ul>
 </section>
 <section id="a-first-example" class="slide level3">
 <h3>A first example</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a></a><span class="bu">Long</span> sumOdds <span class="op">=</span> Stream</span>
-<span id="cb7-2"><a></a>    <span class="op">.</span><span class="fu">iterate</span><span class="op">(</span><span class="dv">0L</span><span class="op">,</span> i <span class="op">-&gt;</span> i <span class="op">+</span> <span class="dv">1L</span><span class="op">)</span>        <span class="co">// Generate an infinite stream of Longs starting from 0, incrementing by 1</span></span>
-<span id="cb7-3"><a></a>    <span class="op">.</span><span class="fu">limit</span><span class="op">(</span><span class="dv">10</span><span class="op">)</span>                       <span class="co">// Limit the stream to the first 10 elements</span></span>
-<span id="cb7-4"><a></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>i <span class="op">-&gt;</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">2</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span>       <span class="co">// Filter the stream to keep only even numbers</span></span>
-<span id="cb7-5"><a></a>    <span class="op">.</span><span class="fu">map</span><span class="op">(</span>i <span class="op">-&gt;</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">)</span>                 <span class="co">// Transform each element by adding 1</span></span>
-<span id="cb7-6"><a></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span>                        <span class="co">// Sort the stream</span></span>
-<span id="cb7-7"><a></a>    <span class="op">.</span><span class="fu">reduce</span><span class="op">(</span><span class="dv">0L</span><span class="op">,</span> <span class="bu">Long</span><span class="op">::</span>sum<span class="op">);</span>          <span class="co">// Reduce the stream to a single Long by summing all elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a></a><span class="bu">Long</span> sumOdds <span class="op">=</span> Stream</span>
+<span id="cb8-2"><a></a>    <span class="op">.</span><span class="fu">iterate</span><span class="op">(</span><span class="dv">0L</span><span class="op">,</span> i <span class="op">-&gt;</span> i <span class="op">+</span> <span class="dv">1L</span><span class="op">)</span>        <span class="co">// Generate an infinite stream of Longs starting from 0, incrementing by 1</span></span>
+<span id="cb8-3"><a></a>    <span class="op">.</span><span class="fu">limit</span><span class="op">(</span><span class="dv">10</span><span class="op">)</span>                       <span class="co">// Limit the stream to the first 10 elements</span></span>
+<span id="cb8-4"><a></a>    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>i <span class="op">-&gt;</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">2</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span>       <span class="co">// Filter the stream to keep only even numbers</span></span>
+<span id="cb8-5"><a></a>    <span class="op">.</span><span class="fu">map</span><span class="op">(</span>i <span class="op">-&gt;</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">)</span>                 <span class="co">// Transform each element by adding 1</span></span>
+<span id="cb8-6"><a></a>    <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span>                        <span class="co">// Sort the stream</span></span>
+<span id="cb8-7"><a></a>    <span class="op">.</span><span class="fu">reduce</span><span class="op">(</span><span class="dv">0L</span><span class="op">,</span> <span class="bu">Long</span><span class="op">::</span>sum<span class="op">);</span>          <span class="co">// Reduce the stream to a single Long by summing all elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ul>
+<li>Lazy evaluation:
+<ul>
+<li>!= eager</li>
+<li>Computation on the elements of the stream is only performed when it’s necessary</li>
+<li>don’t generate all natural number</li>
+<li>limit 10</li>
+</ul></li>
+</ul>
+<p>Intermediate operations are not executed until a terminal operation is invoked.</p>
+<p>This approach can optimize performance, especially for large datasets, by reducing the number of iterations and computations.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="key-concepts" class="slide level3">
 <h3>Key Concepts</h3>
@@ -563,20 +670,36 @@ Ludovic Deneuville
 <li>Source (List, Array…)</li>
 <li>Intermediate Operations (filter, map…)</li>
 <li>Terminal Operation (reduce, collect, forEach…)</li>
+<li>Lazy evaluation</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Lazy evaluation: very important concept</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="create-a-stream" class="slide level3">
 <h3>Create a Stream</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.</span><span class="im">Collectors</span><span class="op">;</span></span>
-<span id="cb8-2"><a></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.</span><span class="im">Stream</span><span class="op">;</span></span>
-<span id="cb8-3"><a></a></span>
-<span id="cb8-4"><a></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> arrayList <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;(</span><span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"a"</span><span class="op">,</span> <span class="st">"b"</span><span class="op">,</span> <span class="st">"c"</span><span class="op">,</span> <span class="st">"d"</span><span class="op">));</span></span>
-<span id="cb8-5"><a></a><span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> map <span class="op">=</span> <span class="bu">Map</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"a"</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="st">"b"</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="st">"c"</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb8-6"><a></a><span class="bu">String</span> text <span class="op">=</span> <span class="st">"I am your father"</span><span class="op">;</span></span>
-<span id="cb8-7"><a></a></span>
-<span id="cb8-8"><a></a>arrayList<span class="op">.</span><span class="fu">stream</span><span class="op">();</span>                                      <span class="co">// Creates a stream from an arrayList</span></span>
-<span id="cb8-9"><a></a>map<span class="op">.</span><span class="fu">entrySet</span><span class="op">().</span><span class="fu">stream</span><span class="op">();</span>                                 <span class="co">// Creates a stream from the map's entry set</span></span>
-<span id="cb8-10"><a></a>Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span>text<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">" "</span><span class="op">)).</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">toList</span><span class="op">());</span> <span class="co">// Extract list of words from a text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.</span><span class="im">Collectors</span><span class="op">;</span></span>
+<span id="cb9-2"><a></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.</span><span class="im">Stream</span><span class="op">;</span></span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> arrayList <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;(</span><span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"a"</span><span class="op">,</span> <span class="st">"b"</span><span class="op">,</span> <span class="st">"c"</span><span class="op">,</span> <span class="st">"d"</span><span class="op">));</span></span>
+<span id="cb9-5"><a></a><span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> map <span class="op">=</span> <span class="bu">Map</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"a"</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="st">"b"</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="st">"c"</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb9-6"><a></a><span class="bu">String</span> text <span class="op">=</span> <span class="st">"I am your father"</span><span class="op">;</span></span>
+<span id="cb9-7"><a></a></span>
+<span id="cb9-8"><a></a>arrayList<span class="op">.</span><span class="fu">stream</span><span class="op">();</span>                                      <span class="co">// Creates a stream from an arrayList</span></span>
+<span id="cb9-9"><a></a>map<span class="op">.</span><span class="fu">entrySet</span><span class="op">().</span><span class="fu">stream</span><span class="op">();</span>                                 <span class="co">// Creates a stream from the map's entry set</span></span>
+<span id="cb9-10"><a></a>Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span>text<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">" "</span><span class="op">)).</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">toList</span><span class="op">());</span> <span class="co">// Extract list of words from a text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="intermediate-operations" class="slide level3 smaller">
 <h3>Intermediate Operations</h3>
@@ -618,7 +741,7 @@ Ludovic Deneuville
 </tr>
 <tr class="odd">
 <td><code>sorted()</code></td>
-<td>Sorts elements (natural order).</td>
+<td>Sorts elements.</td>
 <td><code>stream.sorted()</code></td>
 </tr>
 <tr class="even">
@@ -770,47 +893,105 @@ Ludovic Deneuville
 </section>
 <section id="mapreduce-principle" class="slide level3">
 <h3>MapReduce principle</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
-<span id="cb9-2"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> valuesSquares <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a>Function<span class="op">&lt;</span><span class="bu">Integer</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> square <span class="op">=</span> n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">;</span></span>
-<span id="cb9-5"><a></a></span>
-<span id="cb9-6"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">:</span> values<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-7"><a></a>    valuesSquares<span class="op">.</span><span class="fu">add</span><span class="op">(</span>square<span class="op">.</span><span class="fu">apply</span><span class="op">(</span>n<span class="op">));</span></span>
-<span id="cb9-8"><a></a><span class="op">}</span></span>
-<span id="cb9-9"><a></a></span>
-<span id="cb9-10"><a></a><span class="dt">int</span> sumOfSquares <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-11"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> v <span class="op">:</span> valuesSquares<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-12"><a></a>    sumOfSquares <span class="op">+=</span> v <span class="op">*</span> v<span class="op">;</span></span>
-<span id="cb9-13"><a></a><span class="op">}</span></span>
-<span id="cb9-14"><a></a></span>
-<span id="cb9-15"><a></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> sumOfSquares <span class="op">/</span> valuesSquares<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
+<span id="cb10-2"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> valuesSquares <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a>Function<span class="op">&lt;</span><span class="bu">Integer</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> square <span class="op">=</span> n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">;</span></span>
+<span id="cb10-5"><a></a></span>
+<span id="cb10-6"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">:</span> values<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-7"><a></a>    valuesSquares<span class="op">.</span><span class="fu">add</span><span class="op">(</span>square<span class="op">.</span><span class="fu">apply</span><span class="op">(</span>n<span class="op">));</span></span>
+<span id="cb10-8"><a></a><span class="op">}</span></span>
+<span id="cb10-9"><a></a></span>
+<span id="cb10-10"><a></a><span class="dt">int</span> sumOfSquares <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb10-11"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> v <span class="op">:</span> valuesSquares<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-12"><a></a>    sumOfSquares <span class="op">+=</span> v <span class="op">*</span> v<span class="op">;</span></span>
+<span id="cb10-13"><a></a><span class="op">}</span></span>
+<span id="cb10-14"><a></a></span>
+<span id="cb10-15"><a></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> sumOfSquares <span class="op">/</span> valuesSquares<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ul>
+<li>compute squares (map)</li>
+<li>sum squares (reduce)</li>
+<li>final step (O(1))</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="manual-implementation" class="slide level3">
 <h3>Manual implementation</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a></a><span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> <span class="fu">manualMap</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> DoubleUnaryOperator function<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-2"><a></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb10-3"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-4"><a></a>        result<span class="op">.</span><span class="fu">add</span><span class="op">(</span>function<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>element<span class="op">));</span></span>
-<span id="cb10-5"><a></a>    <span class="op">}</span></span>
-<span id="cb10-6"><a></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb10-7"><a></a><span class="op">}</span></span>
-<span id="cb10-8"><a></a></span>
-<span id="cb10-9"><a></a><span class="kw">public</span> <span class="dt">double</span> <span class="fu">manualReduce</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> <span class="dt">double</span> identity<span class="op">,</span> DoubleBinaryOperator accumulator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-10"><a></a>    <span class="dt">double</span> result <span class="op">=</span> identity<span class="op">;</span></span>
-<span id="cb10-11"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-12"><a></a>        result <span class="op">=</span> accumulator<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>result<span class="op">,</span> element<span class="op">);</span></span>
-<span id="cb10-13"><a></a>    <span class="op">}</span></span>
-<span id="cb10-14"><a></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb10-15"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a></a><span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> <span class="fu">manualMap</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> DoubleUnaryOperator function<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-2"><a></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb11-3"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-4"><a></a>        result<span class="op">.</span><span class="fu">add</span><span class="op">(</span>function<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>element<span class="op">));</span></span>
+<span id="cb11-5"><a></a>    <span class="op">}</span></span>
+<span id="cb11-6"><a></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb11-7"><a></a><span class="op">}</span></span>
+<span id="cb11-8"><a></a></span>
+<span id="cb11-9"><a></a><span class="kw">public</span> <span class="dt">double</span> <span class="fu">manualReduce</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Double</span><span class="op">&gt;</span> list<span class="op">,</span> <span class="dt">double</span> identity<span class="op">,</span> DoubleBinaryOperator accumulator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-10"><a></a>    <span class="dt">double</span> result <span class="op">=</span> identity<span class="op">;</span></span>
+<span id="cb11-11"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">double</span> element <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-12"><a></a>        result <span class="op">=</span> accumulator<span class="op">.</span><span class="fu">applyAsDouble</span><span class="op">(</span>result<span class="op">,</span> element<span class="op">);</span></span>
+<span id="cb11-13"><a></a>    <span class="op">}</span></span>
+<span id="cb11-14"><a></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb11-15"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ul>
+<li>DoubleUnaryOperator (sqrt, power…)
+<ul>
+<li>Interface with one method</li>
+<li>applyAsDouble(Double d) -&gt; double</li>
+</ul></li>
+<li>DoubleBinaryOperator (add, mult…)
+<ul>
+<li>applyAsDouble(Double d1, Double d2) -&gt; double</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="mapreduce-using-streams" class="slide level3">
 <h3>MapReduce using streams</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> values<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
-<span id="cb11-4"><a></a>    <span class="op">.</span><span class="fu">mapToInt</span><span class="op">(</span>n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">)</span></span>
-<span id="cb11-5"><a></a>    <span class="op">.</span><span class="fu">average</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a><span class="dt">double</span> meanSumOfSquares <span class="op">=</span> values<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb12-4"><a></a>    <span class="op">.</span><span class="fu">mapToInt</span><span class="op">(</span>n <span class="op">-&gt;</span> n <span class="op">*</span> n<span class="op">)</span></span>
+<span id="cb12-5"><a></a>    <span class="op">.</span><span class="fu">average</span><span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ul>
+<li>mapToInt() -&gt; IntStream
+<ul>
+<li>map() specialization</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="enum" class="title-slide slide level2 center">
@@ -831,29 +1012,63 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Grade.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb12" data-filename="Grade.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a></a><span class="kw">public</span> <span class="kw">enum</span> Grade <span class="op">{</span></span>
-<span id="cb12-2"><a></a>    EXCELLENT<span class="op">,</span></span>
-<span id="cb12-3"><a></a>    VERY_GOOD<span class="op">,</span></span>
-<span id="cb12-4"><a></a>    GOOD<span class="op">,</span></span>
-<span id="cb12-5"><a></a>    AVERAGE<span class="op">,</span></span>
-<span id="cb12-6"><a></a>    INSUFFICIENT</span>
-<span id="cb12-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13" data-filename="Grade.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a></a><span class="kw">public</span> <span class="kw">enum</span> Grade <span class="op">{</span></span>
+<span id="cb13-2"><a></a>    EXCELLENT<span class="op">,</span></span>
+<span id="cb13-3"><a></a>    VERY_GOOD<span class="op">,</span></span>
+<span id="cb13-4"><a></a>    GOOD<span class="op">,</span></span>
+<span id="cb13-5"><a></a>    AVERAGE<span class="op">,</span></span>
+<span id="cb13-6"><a></a>    INSUFFICIENT</span>
+<span id="cb13-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<ul>
+<li>These are the constant values of the enum</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="use-an-enum" class="slide level3">
 <h3>Use an Enum</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a></a>Grade grade <span class="op">=</span> Grade<span class="op">.</span><span class="fu">VERY_GOOD</span><span class="op">;</span></span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a><span class="cf">switch</span> <span class="op">(</span>grade<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-4"><a></a>    <span class="cf">case</span> EXCELLENT<span class="op">:</span></span>
-<span id="cb13-5"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Excellent!"</span><span class="op">);</span></span>
-<span id="cb13-6"><a></a>        <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb13-7"><a></a>    <span class="cf">case</span> VERY_GOOD<span class="op">:</span></span>
-<span id="cb13-8"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Very good!"</span><span class="op">);</span></span>
-<span id="cb13-9"><a></a>        <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb13-10"><a></a>        </span>
-<span id="cb13-11"><a></a>    <span class="kw">...</span></span>
-<span id="cb13-12"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a></a>Grade grade <span class="op">=</span> Grade<span class="op">.</span><span class="fu">VERY_GOOD</span><span class="op">;</span></span>
+<span id="cb14-2"><a></a></span>
+<span id="cb14-3"><a></a><span class="cf">switch</span> <span class="op">(</span>grade<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-4"><a></a>    <span class="cf">case</span> EXCELLENT<span class="op">:</span></span>
+<span id="cb14-5"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Excellent!"</span><span class="op">);</span></span>
+<span id="cb14-6"><a></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb14-7"><a></a>    <span class="cf">case</span> VERY_GOOD<span class="op">:</span></span>
+<span id="cb14-8"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Very good!"</span><span class="op">);</span></span>
+<span id="cb14-9"><a></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb14-10"><a></a>        </span>
+<span id="cb14-11"><a></a>    <span class="kw">...</span></span>
+<span id="cb14-12"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ul>
+<li>Enums are implicitly:
+<ul>
+<li>static (no need to create an instance)</li>
+<li>final (no modification allowed)</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="adding-behavior-to-enum" class="slide level3">
 <h3>Adding Behavior to Enum</h3>
@@ -864,30 +1079,34 @@ Ludovic Deneuville
 <li>They can have methods and attributes</li>
 </ul></li>
 </ul>
+</section>
+<section class="slide level3">
+
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Grade.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb14" data-filename="Grade.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a></a><span class="kw">public</span> <span class="kw">enum</span> Grade <span class="op">{</span></span>
-<span id="cb14-2"><a></a>    <span class="fu">EXCELLENT</span><span class="op">(</span><span class="dv">90</span><span class="op">),</span> <span class="fu">VERY_GOOD</span><span class="op">(</span><span class="dv">80</span><span class="op">),</span> <span class="fu">GOOD</span><span class="op">(</span><span class="dv">70</span><span class="op">),</span> <span class="fu">AVERAGE</span><span class="op">(</span><span class="dv">60</span><span class="op">),</span> <span class="fu">INSUFFICIENT</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
-<span id="cb14-3"><a></a></span>
-<span id="cb14-4"><a></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="dt">int</span> minimumScore<span class="op">;</span></span>
-<span id="cb14-5"><a></a></span>
-<span id="cb14-6"><a></a>    <span class="kw">private</span> <span class="fu">Grade</span><span class="op">(</span><span class="dt">int</span> minimumScore<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb14-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">minimumScore</span> <span class="op">=</span> minimumScore<span class="op">;</span></span>
-<span id="cb14-8"><a></a>    <span class="op">}</span></span>
-<span id="cb14-9"><a></a></span>
-<span id="cb14-10"><a></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getFeedback</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb14-11"><a></a>        <span class="cf">switch</span> <span class="op">(</span><span class="kw">this</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb14-12"><a></a>            <span class="cf">case</span> EXCELLENT<span class="op">:</span> <span class="cf">return</span> <span class="st">"Outstanding!"</span><span class="op">;</span></span>
-<span id="cb14-13"><a></a>            <span class="cf">case</span> VERY_GOOD<span class="op">:</span> <span class="cf">return</span> <span class="st">"Well done!"</span><span class="op">;</span></span>
-<span id="cb14-14"><a></a>            <span class="cf">case</span> GOOD<span class="op">:</span> <span class="cf">return</span> <span class="st">"Satisfactory."</span><span class="op">;</span></span>
-<span id="cb14-15"><a></a>            <span class="cf">case</span> AVERAGE<span class="op">:</span> <span class="cf">return</span> <span class="st">"Needs more effort."</span><span class="op">;</span></span>
-<span id="cb14-16"><a></a>            <span class="cf">case</span> INSUFFICIENT<span class="op">:</span> <span class="cf">return</span> <span class="st">"Requires significant improvement."</span><span class="op">;</span></span>
-<span id="cb14-17"><a></a>            <span class="kw">default</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Unknown grade."</span><span class="op">;</span></span>
-<span id="cb14-18"><a></a>        <span class="op">}</span></span>
-<span id="cb14-19"><a></a>    <span class="op">}</span></span>
-<span id="cb14-20"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15" data-filename="Grade.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a></a><span class="kw">public</span> <span class="kw">enum</span> Grade <span class="op">{</span></span>
+<span id="cb15-2"><a></a>    <span class="fu">EXCELLENT</span><span class="op">(</span><span class="dv">90</span><span class="op">),</span> <span class="fu">VERY_GOOD</span><span class="op">(</span><span class="dv">80</span><span class="op">),</span> <span class="fu">GOOD</span><span class="op">(</span><span class="dv">70</span><span class="op">),</span> <span class="fu">AVERAGE</span><span class="op">(</span><span class="dv">60</span><span class="op">),</span> <span class="fu">INSUFFICIENT</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
+<span id="cb15-3"><a></a></span>
+<span id="cb15-4"><a></a>    <span class="at">@Getter</span></span>
+<span id="cb15-5"><a></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="dt">int</span> minimumScore<span class="op">;</span></span>
+<span id="cb15-6"><a></a></span>
+<span id="cb15-7"><a></a>    <span class="kw">private</span> <span class="fu">Grade</span><span class="op">(</span><span class="dt">int</span> minimumScore<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-8"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">minimumScore</span> <span class="op">=</span> minimumScore<span class="op">;</span></span>
+<span id="cb15-9"><a></a>    <span class="op">}</span></span>
+<span id="cb15-10"><a></a></span>
+<span id="cb15-11"><a></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getFeedback</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-12"><a></a>        <span class="cf">switch</span> <span class="op">(</span><span class="kw">this</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-13"><a></a>            <span class="cf">case</span> EXCELLENT<span class="op">:</span> <span class="cf">return</span> <span class="st">"Outstanding!"</span><span class="op">;</span></span>
+<span id="cb15-14"><a></a>            <span class="cf">case</span> VERY_GOOD<span class="op">:</span> <span class="cf">return</span> <span class="st">"Well done!"</span><span class="op">;</span></span>
+<span id="cb15-15"><a></a>            <span class="cf">case</span> GOOD<span class="op">:</span> <span class="cf">return</span> <span class="st">"Satisfactory."</span><span class="op">;</span></span>
+<span id="cb15-16"><a></a>            <span class="cf">case</span> AVERAGE<span class="op">:</span> <span class="cf">return</span> <span class="st">"Needs more effort."</span><span class="op">;</span></span>
+<span id="cb15-17"><a></a>            <span class="cf">case</span> INSUFFICIENT<span class="op">:</span> <span class="cf">return</span> <span class="st">"Requires significant improvement."</span><span class="op">;</span></span>
+<span id="cb15-18"><a></a>            <span class="kw">default</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Unknown grade."</span><span class="op">;</span></span>
+<span id="cb15-19"><a></a>        <span class="op">}</span></span>
+<span id="cb15-20"><a></a>    <span class="op">}</span></span>
+<span id="cb15-21"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
 <ul>
@@ -912,16 +1131,18 @@ Ludovic Deneuville
 </section>
 <section id="enum-methods" class="slide level3">
 <h3>Enum methods</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a></a>Grade studentGrade <span class="op">=</span> Grade<span class="op">.</span><span class="fu">VERY_GOOD</span><span class="op">;</span></span>
-<span id="cb15-2"><a></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Grade: "</span> <span class="op">+</span> studentGrade <span class="op">+</span> <span class="st">", Minimum Score: "</span> <span class="op">+</span> studentGrade<span class="op">.</span><span class="fu">getMinimumScore</span><span class="op">());</span></span>
-<span id="cb15-3"><a></a></span>
-<span id="cb15-4"><a></a></span>
-<span id="cb15-5"><a></a><span class="co">// Iterate</span></span>
-<span id="cb15-6"><a></a><span class="cf">for</span> <span class="op">(</span>Grade g <span class="op">:</span> Grade<span class="op">.</span><span class="fu">values</span><span class="op">())</span> <span class="op">{</span></span>
-<span id="cb15-7"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>g<span class="op">);</span></span>
-<span id="cb15-8"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a></a>Grade studentGrade <span class="op">=</span> Grade<span class="op">.</span><span class="fu">VERY_GOOD</span><span class="op">;</span></span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Grade: "</span> <span class="op">+</span> studentGrade<span class="op">);</span></span>
+<span id="cb16-4"><a></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Minimum Score: "</span> <span class="op">+</span> studentGrade<span class="op">.</span><span class="fu">getMinimumScore</span><span class="op">());</span></span>
+<span id="cb16-5"><a></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Feedback: "</span> <span class="op">+</span> studentGrade<span class="op">.</span><span class="fu">getFeedback</span><span class="op">());</span></span>
+<span id="cb16-6"><a></a></span>
+<span id="cb16-7"><a></a><span class="co">// Iterate</span></span>
+<span id="cb16-8"><a></a><span class="cf">for</span> <span class="op">(</span>Grade g <span class="op">:</span> Grade<span class="op">.</span><span class="fu">values</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb16-9"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>g<span class="op">);</span></span>
+<span id="cb16-10"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="enums-pros-and-cons" class="slide level3">
+<section id="enums-pros-and-cons" class="slide level3 smaller">
 <h3>Enums: Pros and Cons</h3>
 <ul>
 <li><span class="emoji" data-emoji="white_check_mark">✅</span> <strong>Readability</strong>: Makes code easier to understand by using descriptive names for values</li>
@@ -1012,6 +1233,9 @@ Person &lt;|-- Doctor
 <li>ArmyDoctor: A special character that can both heal and combat.</li>
 <li>Java does not support multiple inheritance directly</li>
 </ul>
+</section>
+<section class="slide level3">
+
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1031,12 +1255,6 @@ class Fighter {
     + fight(Person target)
 }
 
-class ArmyDoctor {
-    - healingPower: int
-    - combatSkill: int
-    + heal(Person patient)
-    + fight(Person target)
-}
 
 class Doctor {
     - healingPower: int
@@ -1044,7 +1262,8 @@ class Doctor {
 }
 
 Person &lt;|-- Fighter
-Person &lt;|-- ArmyDoctor
+Fighter &lt;|-- ArmyDoctor
+Doctor &lt;|-- ArmyDoctor
 Person &lt;|-- Doctor
 </pre>
 </div>
@@ -1077,25 +1296,53 @@ Person &lt;|-- Doctor
 <div class="code-with-filename-file">
 <pre><strong>Combatant.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb16" data-filename="Combatant.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a></a><span class="kw">public</span> <span class="kw">interface</span> Combatant <span class="op">{</span></span>
-<span id="cb16-2"><a></a>    <span class="co">/**</span></span>
-<span id="cb16-3"><a></a>     <span class="co">*</span> Represents the ability to engage in combat<span class="co">.</span></span>
-<span id="cb16-4"><a></a>     <span class="co">*/</span></span>
-<span id="cb16-5"><a></a>    <span class="dt">void</span> <span class="fu">fight</span><span class="op">(</span>Person p<span class="op">);</span></span>
-<span id="cb16-6"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17" data-filename="Combatant.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a></a><span class="kw">public</span> <span class="kw">interface</span> Combatant <span class="op">{</span></span>
+<span id="cb17-2"><a></a>    <span class="co">/**</span></span>
+<span id="cb17-3"><a></a>     <span class="co">*</span> Represents the ability to engage in combat<span class="co">.</span></span>
+<span id="cb17-4"><a></a>     <span class="co">*/</span></span>
+<span id="cb17-5"><a></a>    <span class="dt">void</span> <span class="fu">fight</span><span class="op">(</span>Person p<span class="op">);</span></span>
+<span id="cb17-6"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Healer.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb17" data-filename="Healer.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a></a><span class="kw">public</span> <span class="kw">interface</span> Healer <span class="op">{</span></span>
-<span id="cb17-2"><a></a>    <span class="co">/**</span></span>
-<span id="cb17-3"><a></a>     <span class="co">*</span> Represents the ability to provide healing to a Person<span class="co">.</span></span>
-<span id="cb17-4"><a></a>     <span class="co">*/</span></span>
-<span id="cb17-5"><a></a>    <span class="dt">void</span> <span class="fu">heal</span><span class="op">(</span>Person p<span class="op">);</span></span>
-<span id="cb17-6"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18" data-filename="Healer.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb18-1"><a></a><span class="kw">public</span> <span class="kw">interface</span> Healer <span class="op">{</span></span>
+<span id="cb18-2"><a></a>    <span class="co">/**</span></span>
+<span id="cb18-3"><a></a>     <span class="co">*</span> Represents the ability to provide healing to a Person<span class="co">.</span></span>
+<span id="cb18-4"><a></a>     <span class="co">*/</span></span>
+<span id="cb18-5"><a></a>    <span class="dt">void</span> <span class="fu">heal</span><span class="op">(</span>Person p<span class="op">);</span></span>
+<span id="cb18-6"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<ul>
+<li>All methods are <code>public abstract</code></li>
+<li>default method
+<ul>
+<li><code>default void heal(Person p) { ...})</code> -&gt; no longer abstract</li>
+</ul></li>
+<li>static method:
+<ul>
+<li>called using interface name without instanciation</li>
+</ul></li>
+<li>private method:
+<ul>
+<li>to factorize code inside (no access from outside)</li>
+</ul></li>
+<li>attribute (constants) are implicitly public, static and final</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="parent-class" class="slide level3">
 <h3>Parent class</h3>
@@ -1103,23 +1350,23 @@ Person &lt;|-- Doctor
 <div class="code-with-filename-file">
 <pre><strong>Person.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb18" data-filename="Person.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb18-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Person <span class="op">{</span></span>
-<span id="cb18-2"><a></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb18-3"><a></a>    <span class="kw">private</span> <span class="dt">int</span> health<span class="op">;</span></span>
-<span id="cb18-4"><a></a></span>
-<span id="cb18-5"><a></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-6"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb18-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">=</span> health<span class="op">;</span></span>
-<span id="cb18-8"><a></a>    <span class="op">}</span></span>
-<span id="cb18-9"><a></a></span>
-<span id="cb18-10"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">takeDamage</span><span class="op">(</span><span class="dt">int</span> amount<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-11"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">-=</span> amount<span class="op">;</span></span>
-<span id="cb18-12"><a></a>    <span class="op">}</span></span>
-<span id="cb18-13"><a></a></span>
-<span id="cb18-14"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">receiveHealing</span><span class="op">(</span><span class="dt">int</span> amount<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-15"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">+=</span> amount<span class="op">;</span></span>
-<span id="cb18-16"><a></a>    <span class="op">}</span></span>
-<span id="cb18-17"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19" data-filename="Person.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb19-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Person <span class="op">{</span></span>
+<span id="cb19-2"><a></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb19-3"><a></a>    <span class="kw">private</span> <span class="dt">int</span> health<span class="op">;</span></span>
+<span id="cb19-4"><a></a></span>
+<span id="cb19-5"><a></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-6"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb19-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">=</span> health<span class="op">;</span></span>
+<span id="cb19-8"><a></a>    <span class="op">}</span></span>
+<span id="cb19-9"><a></a></span>
+<span id="cb19-10"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">takeDamage</span><span class="op">(</span><span class="dt">int</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-11"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">-=</span> amount<span class="op">;</span></span>
+<span id="cb19-12"><a></a>    <span class="op">}</span></span>
+<span id="cb19-13"><a></a></span>
+<span id="cb19-14"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">receiveHealing</span><span class="op">(</span><span class="dt">int</span> amount<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-15"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">health</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb19-16"><a></a>    <span class="op">}</span></span>
+<span id="cb19-17"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="implementing-the-interfaces" class="slide level3">
@@ -1128,19 +1375,19 @@ Person &lt;|-- Doctor
 <div class="code-with-filename-file">
 <pre><strong>Doctor.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb19" data-filename="Doctor.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb19-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Doctor <span class="kw">extends</span> Person <span class="kw">implements</span> Healer <span class="op">{</span></span>
-<span id="cb19-2"><a></a>    <span class="kw">private</span> <span class="dt">int</span> healingPower<span class="op">;</span></span>
-<span id="cb19-3"><a></a></span>
-<span id="cb19-4"><a></a>    <span class="kw">public</span> <span class="fu">Doctor</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">,</span> <span class="dt">int</span> healingPower<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb19-5"><a></a>        <span class="kw">super</span><span class="op">(</span>name<span class="op">,</span> health<span class="op">);</span></span>
-<span id="cb19-6"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span> <span class="op">=</span> healingPower<span class="op">;</span></span>
-<span id="cb19-7"><a></a>    <span class="op">}</span></span>
-<span id="cb19-8"><a></a></span>
-<span id="cb19-9"><a></a>    <span class="at">@Override</span></span>
-<span id="cb19-10"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">heal</span><span class="op">(</span>Person patient<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb19-11"><a></a>        patient<span class="op">.</span><span class="fu">receiveHealing</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span><span class="op">);</span></span>
-<span id="cb19-12"><a></a>    <span class="op">}</span></span>
-<span id="cb19-13"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20" data-filename="Doctor.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Doctor <span class="kw">extends</span> Person <span class="kw">implements</span> Healer <span class="op">{</span></span>
+<span id="cb20-2"><a></a>    <span class="kw">private</span> <span class="dt">int</span> healingPower<span class="op">;</span></span>
+<span id="cb20-3"><a></a></span>
+<span id="cb20-4"><a></a>    <span class="kw">public</span> <span class="fu">Doctor</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">,</span> <span class="dt">int</span> healingPower<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-5"><a></a>        <span class="kw">super</span><span class="op">(</span>name<span class="op">,</span> health<span class="op">);</span></span>
+<span id="cb20-6"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span> <span class="op">=</span> healingPower<span class="op">;</span></span>
+<span id="cb20-7"><a></a>    <span class="op">}</span></span>
+<span id="cb20-8"><a></a></span>
+<span id="cb20-9"><a></a>    <span class="at">@Override</span></span>
+<span id="cb20-10"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">heal</span><span class="op">(</span>Person patient<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-11"><a></a>        patient<span class="op">.</span><span class="fu">receiveHealing</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span><span class="op">);</span></span>
+<span id="cb20-12"><a></a>    <span class="op">}</span></span>
+<span id="cb20-13"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="multiple-interfaces" class="slide level3">
@@ -1149,26 +1396,26 @@ Person &lt;|-- Doctor
 <div class="code-with-filename-file">
 <pre><strong>ArmyDoctor.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb20" data-filename="ArmyDoctor.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a></a><span class="kw">public</span> <span class="kw">class</span> ArmyDoctor <span class="kw">extends</span> Person <span class="kw">implements</span> Healer<span class="op">,</span> Combatant <span class="op">{</span></span>
-<span id="cb20-2"><a></a>    <span class="kw">private</span> <span class="dt">int</span> healingPower<span class="op">;</span></span>
-<span id="cb20-3"><a></a>    <span class="kw">private</span> <span class="dt">int</span> combatSkill<span class="op">;</span></span>
-<span id="cb20-4"><a></a></span>
-<span id="cb20-5"><a></a>    <span class="kw">public</span> <span class="fu">ArmyDoctor</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">,</span> <span class="dt">int</span> healingPower<span class="op">,</span> <span class="dt">int</span> combatSkill<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb20-6"><a></a>        <span class="kw">super</span><span class="op">(</span>name<span class="op">,</span> health<span class="op">);</span></span>
-<span id="cb20-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span> <span class="op">=</span> healingPower<span class="op">;</span></span>
-<span id="cb20-8"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">combatSkill</span> <span class="op">=</span> combatSkill<span class="op">;</span></span>
-<span id="cb20-9"><a></a>    <span class="op">}</span></span>
-<span id="cb20-10"><a></a></span>
-<span id="cb20-11"><a></a>    <span class="at">@Override</span></span>
-<span id="cb20-12"><a></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">heal</span><span class="op">(</span>Person patient<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb20-13"><a></a>        patient<span class="op">.</span><span class="fu">receiveHealing</span><span class="op">(</span>healingPower <span class="op">*</span> <span class="fl">0.5</span><span class="op">);</span></span>
-<span id="cb20-14"><a></a>    <span class="op">}</span></span>
-<span id="cb20-15"><a></a></span>
-<span id="cb20-16"><a></a>    <span class="at">@Override</span></span>
-<span id="cb20-17"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">inflictDamage</span><span class="op">(</span>Person target<span class="op">,</span> <span class="dt">int</span> amount<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb20-18"><a></a>        target<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span>combatSkill <span class="op">*</span> <span class="fl">0.2</span><span class="op">);</span></span>
-<span id="cb20-19"><a></a>    <span class="op">}</span></span>
-<span id="cb20-20"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21" data-filename="ArmyDoctor.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb21-1"><a></a><span class="kw">public</span> <span class="kw">class</span> ArmyDoctor <span class="kw">extends</span> Person <span class="kw">implements</span> Healer<span class="op">,</span> Combatant <span class="op">{</span></span>
+<span id="cb21-2"><a></a>    <span class="kw">private</span> <span class="dt">int</span> healingPower<span class="op">;</span></span>
+<span id="cb21-3"><a></a>    <span class="kw">private</span> <span class="dt">int</span> combatSkill<span class="op">;</span></span>
+<span id="cb21-4"><a></a></span>
+<span id="cb21-5"><a></a>    <span class="kw">public</span> <span class="fu">ArmyDoctor</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> health<span class="op">,</span> <span class="dt">int</span> healingPower<span class="op">,</span> <span class="dt">int</span> combatSkill<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-6"><a></a>        <span class="kw">super</span><span class="op">(</span>name<span class="op">,</span> health<span class="op">);</span></span>
+<span id="cb21-7"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span> <span class="op">=</span> healingPower<span class="op">;</span></span>
+<span id="cb21-8"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">combatSkill</span> <span class="op">=</span> combatSkill<span class="op">;</span></span>
+<span id="cb21-9"><a></a>    <span class="op">}</span></span>
+<span id="cb21-10"><a></a></span>
+<span id="cb21-11"><a></a>    <span class="at">@Override</span></span>
+<span id="cb21-12"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">heal</span><span class="op">(</span>Person patient<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-13"><a></a>        patient<span class="op">.</span><span class="fu">receiveHealing</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">healingPower</span> <span class="op">*</span> <span class="fl">0.5</span><span class="op">);</span></span>
+<span id="cb21-14"><a></a>    <span class="op">}</span></span>
+<span id="cb21-15"><a></a></span>
+<span id="cb21-16"><a></a>    <span class="at">@Override</span></span>
+<span id="cb21-17"><a></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">fight</span><span class="op">(</span>Person target<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-18"><a></a>        target<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">combatSkill</span> <span class="op">*</span> <span class="fl">0.2</span><span class="op">);</span></span>
+<span id="cb21-19"><a></a>    <span class="op">}</span></span>
+<span id="cb21-20"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="uml" class="slide level3">
@@ -1255,15 +1502,15 @@ Doctor ..|&gt; Healer
 <section class="slide level3">
 
 <p>Does this code compile and run?</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb21-1"><a></a>Doctor d <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
-<span id="cb21-2"><a></a></span>
-<span id="cb21-3"><a></a>Person p <span class="op">=</span> <span class="op">(</span>Person<span class="op">)</span> d<span class="op">;</span></span>
-<span id="cb21-4"><a></a>d<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb22-1"><a></a>Doctor d <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
 <span id="cb22-2"><a></a></span>
 <span id="cb22-3"><a></a>Person p <span class="op">=</span> <span class="op">(</span>Person<span class="op">)</span> d<span class="op">;</span></span>
-<span id="cb22-4"><a></a>p<span class="op">.</span><span class="fu">heal</span><span class="op">(</span>anotherPerson<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-4"><a></a>d<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb23-1"><a></a>Doctor d <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb23-2"><a></a></span>
+<span id="cb23-3"><a></a>Person p <span class="op">=</span> <span class="op">(</span>Person<span class="op">)</span> d<span class="op">;</span></span>
+<span id="cb23-4"><a></a>p<span class="op">.</span><span class="fu">heal</span><span class="op">(</span>anotherPerson<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ol type="1">
 <li>Compiles and runs</li>
@@ -1292,15 +1539,15 @@ Doctor ..|&gt; Healer
 <section class="slide level3">
 
 <p>Does this code compile and run?</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb23-1"><a></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
-<span id="cb23-2"><a></a></span>
-<span id="cb23-3"><a></a>Doctor d <span class="op">=</span> <span class="op">(</span>Doctor<span class="op">)</span> p<span class="op">;</span></span>
-<span id="cb23-4"><a></a>d<span class="op">.</span><span class="fu">heal</span><span class="op">(</span>anotherPerson<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb24-1"><a></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
 <span id="cb24-2"><a></a></span>
-<span id="cb24-3"><a></a>Combatant c <span class="op">=</span> <span class="op">(</span>Combatant<span class="op">)</span> p<span class="op">;</span></span>
-<span id="cb24-4"><a></a>p<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-3"><a></a>Doctor d <span class="op">=</span> <span class="op">(</span>Doctor<span class="op">)</span> p<span class="op">;</span></span>
+<span id="cb24-4"><a></a>d<span class="op">.</span><span class="fu">heal</span><span class="op">(</span>anotherPerson<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb25-1"><a></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb25-2"><a></a></span>
+<span id="cb25-3"><a></a>Fighter f <span class="op">=</span> <span class="op">(</span>Fighter<span class="op">)</span> p<span class="op">;</span></span>
+<span id="cb25-4"><a></a>p<span class="op">.</span><span class="fu">takeDamage</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ol type="1">
 <li>Compiles and runs</li>
@@ -1317,9 +1564,67 @@ Doctor ..|&gt; Healer
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-
-
+</section>
+<section id="downcasting-with-instanceof" class="slide level3">
+<h3>Downcasting with instanceof</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb26-1"><a></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Doctor</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb26-2"><a></a></span>
+<span id="cb26-3"><a></a><span class="cf">if</span> <span class="op">(</span>p <span class="kw">instanceof</span> Doctor d<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-4"><a></a>    d<span class="op">.</span><span class="fu">heal</span><span class="op">(</span>anotherPerson<span class="op">);</span></span>
+<span id="cb26-5"><a></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb26-6"><a></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>p <span class="op">+</span> <span class="st">" is not a Doctor."</span><span class="op">);</span></span>
+<span id="cb26-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb27-1"><a></a><span class="cf">if</span> <span class="op">(</span>p <span class="kw">instanceof</span> Doctor d<span class="op">)</span></span>
+<span id="cb27-2"><a></a></span>
+<span id="cb27-3"><a></a><span class="co">// equivalent since Java 16</span></span>
+<span id="cb27-4"><a></a></span>
+<span id="cb27-5"><a></a><span class="cf">if</span> <span class="op">(</span>p <span class="kw">instanceof</span> Doctor<span class="op">){</span></span>
+<span id="cb27-6"><a></a>    Doctor d <span class="op">=</span> <span class="op">(</span>Doctor<span class="op">)</span> p<span class="op">;</span></span>
+<span id="cb27-7"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
+<section id="to-go-further" class="title-slide slide level2 center">
+<h2>To go further</h2>
+<ul>
+<li>Optional</li>
+<li>Genericity</li>
+<li>Annotations</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Optional: deal with null value</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb28-1"><a></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="dt">void</span> <span class="fu">printArray</span><span class="op">(</span>T<span class="op">[]</span> array<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-2"><a></a>        <span class="cf">for</span> <span class="op">(</span>T element <span class="op">:</span> array<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-3"><a></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span>element <span class="op">+</span> <span class="st">" "</span><span class="op">);</span></span>
+<span id="cb28-4"><a></a>        <span class="op">}</span></span>
+<span id="cb28-5"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb28-6"><a></a>    <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
