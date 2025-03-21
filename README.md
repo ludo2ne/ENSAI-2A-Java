@@ -42,7 +42,6 @@ https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java
 - 4. Spring Boot
 
 
-
 ## :rocket: Publier les pages
 
 Site construit avec [Quarto](https://quarto.org/) ([Tutoriel](https://ludo2ne.github.io/Quarto-tuto/))
