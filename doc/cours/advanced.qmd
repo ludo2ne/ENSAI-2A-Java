@@ -21,7 +21,17 @@ lightbox: true
 ---
 
 
+## Reminder {.unnumbered .unlisted}
 
+:::{.notes}
+Advices for Rated TP:
+
+- Javadoc
+- Comment if necessary
+- PascalCase (Class, Method, Variables)
+- Use clear, meaningful names for variables and methods 
+- well-indented code, easy to read
+:::
 
 ## Exception
 
@@ -39,6 +49,41 @@ Exceptions are your friends.
 - Exceptions are your friend
 :::
 
+### NullPointerException
+
+```{.java}
+public class NullPointerExceptionExample {
+
+    public static void printLength(String text){
+        System.out.println(text.length());
+    }
+
+    public static void main(String[] args) {
+        String myText = null;
+        printLength(myText); // will throw a NullPointerException.
+    }
+}
+```
+
+::: {.callout-tip title="How to Prevent"}
+Always check if an object reference is null before using it.
+:::
+
+
+### ArithmeticException
+
+```{.java}
+public class ArithmeticExceptionExample {
+    public static void main(String[] args) {
+        int numerator = 10;
+        int denominator = 0;
+        int result = numerator / denominator; // Will throw ArithmeticException
+        System.out.println("The division result is: " + result);
+    }
+}
+```
+
+
 ### Why Should We Raise Exceptions?
 
 - To controll error management
@@ -46,19 +91,21 @@ Exceptions are your friends.
 - To alter the normal execution flow when an error occurs
 - To prevent the system from entering an unstable or inconsistent state
 
+:::{.notes}
+We are also allowed to raise exceptions.
+
+To control the execution.
+:::
+
 ### Example
 
 ```{.java filename="BankAccount.java"}
 package fr.ensai.bank.domain;
 
+@AllArgsConstructor
 class BankAccount {
     private double balance;
     private double transferLimit;
-
-    public BankAccount(double initialBalance, double transferLimit) {
-        this.balance = initialBalance;
-        this.transferLimit = transferLimit;
-    }
 
     /**
      * Transfers a specified amount from this account to another account.
@@ -75,8 +122,13 @@ class BankAccount {
 ```
 
 :::{.notes}
-- Simple solution: return boolean instead of void
-- False if the transfert cannot be done
+This code can lead to an incoherent state
+
+- recipient: OtherBankAccount
+- `@AllArgsConstructor`: Lombok
+- `recipient.balance += amount;`: valid code, no need of a setter inside
+- Other solution: return boolean instead of void
+  - False if the transfert cannot be done
 :::
 
 ### Throw an Exception
@@ -133,6 +185,8 @@ public class TransferLimitExceededException extends Exception {
 ```
 
 :::{.notes}
+- Inherit class Exception
+  - `public class Exception extends Throwable`
 - as a class
 - you can specify message
 :::
@@ -223,32 +277,12 @@ When an exception occurs in your code, you have two primary options:
 see [Types of Exception in Java with Examples](https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/){target="_blank"}
 
 
-### NullPointerException
-
-```{.java}
-public class NullPointerExceptionExample {
-
-    public static void printLength(String text){
-        System.out.println(text.length());
-    }
-
-    public static void main(String[] args) {
-        String myText = null;
-        printLength(myText); // will throw a NullPointerException.
-    }
-}
-```
-
-::: {.callout-tip title="How to Prevent"}
-Always check if an object reference is null before using it.
-:::
-
 
 ## Stream
 
 :::{.notes}
 - <https://www.geeksforgeeks.org/java-8-stream-tutorial/>
-- <https://www.baeldung.com/java-streams>
+- <https://www.baeldung.com/java-8-streams>
 :::
 
 ### Java Streams
@@ -301,6 +335,7 @@ This approach can optimize performance, especially for large datasets, by reduci
 
 :::{.notes}
 - Lazy evaluation: very important concept
+  - Like dplyr
 :::
 
 
@@ -314,9 +349,14 @@ ArrayList<String> arrayList = new ArrayList<>(List.of("a", "b", "c", "d"));
 Map<String, Integer> map = Map.of("a", 1, "b", 2, "c", 3);
 String text = "I am your father";
 
-arrayList.stream();                                      // Creates a stream from an arrayList
-map.entrySet().stream();                                 // Creates a stream from the map's entry set
-Stream.of(text.split(" ")).collect(Collectors.toList()); // Extract list of words from a text
+// Creates a stream from an arrayList
+Stream<String> arrayListStream = arrayList.stream();
+
+// Creates a stream from the map's entry set
+Stream<Map.Entry<String, Integer>> mapEntryStream = map.entrySet().stream();
+
+// Extract list of words from a text
+Stream<String> textStream = Stream.of(text.split(" ")).collect(Collectors.toList());
 ```
 
 
@@ -343,6 +383,7 @@ They return a new stream.
 :::{.notes}
 - Lambda functions
 - method reference (String::toUpperCase)
+- Intermediate operations return a new modified stream
 :::
 
 
@@ -362,6 +403,11 @@ They return a new stream.
 | `findFirst()`       | Returns the first element.                       | `stream.findFirst()`                          |
 | `min(comparator)`     | Returns the minimum element.                   | `stream.min(Comparator.naturalOrder())`       |
 
+:::
+
+:::{.notes}
+- an attempt to reuse the same reference after calling the terminal operation will trigger the IllegalStateException
+- Java 8 streams can’t be reused
 :::
 
 ### Parallel Streams
@@ -451,7 +497,13 @@ public double manualReduce(List<Double> list, double identity, DoubleBinaryOpera
 ```{.java}
 List<Integer> values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);
 
-double meanSumOfSquares = values.stream()
+double sumOfSquares = values.stream()
+    .map(n -> n * n)
+    .reduce(0, (a, b) -> a + b);
+
+double meanSumOfSquares = sumOfSquares / values.size();
+
+double meanSumOfSquaresAvg = values.stream()
     .mapToInt(n -> n * n)
     .average();
 ```
