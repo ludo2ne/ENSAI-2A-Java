@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -189,6 +226,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#when-youve-finished" id="toc-when-youve-finished" class="nav-link" data-scroll-target="#when-youve-finished"><span class="header-section-number">1.3</span> When you’ve finished</a></li>
   </ul></li>
   <li><a href="#subject" id="toc-subject" class="nav-link" data-scroll-target="#subject"><span class="header-section-number">2</span> Subject</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">3</span> Questions</a>
+  <ul class="collapse">
+  <li><a href="#artist" id="toc-artist" class="nav-link" data-scroll-target="#artist"><span class="header-section-number">3.1</span> Artist</a></li>
+  <li><a href="#podcast" id="toc-podcast" class="nav-link" data-scroll-target="#podcast"><span class="header-section-number">3.2</span> Podcast</a></li>
+  <li><a href="#pop-rock-electro" id="toc-pop-rock-electro" class="nav-link" data-scroll-target="#pop-rock-electro"><span class="header-section-number">3.3</span> Pop, Rock, Electro</a></li>
+  <li><a href="#playlist" id="toc-playlist" class="nav-link" data-scroll-target="#playlist"><span class="header-section-number">3.4</span> Playlist</a></li>
+  <li><a href="#create-some-objects" id="toc-create-some-objects" class="nav-link" data-scroll-target="#create-some-objects"><span class="header-section-number">3.5</span> Create some objects</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -317,10 +362,323 @@ Caution
 </section>
 <section id="subject" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="subject"><span class="header-section-number">2</span> Subject</h2>
-<p>The subject will be available on exam day.</p>
+<p>This exercise involves designing and implementing a media management system in Java. You’ll create classes for media types (songs, podcasts), playlists, and a media player. Focus on object-oriented principles, defining attributes, methods, and relationships. The goal is a functional system for managing and playing media.</p>
+<p>Given files :</p>
+<ul>
+<li>Song.java</li>
+<li>pom.xml</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Given files (click here to expand)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Given files (click here to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Song.java</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="Song.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">mediaplayer</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> Represents a song with essential attributes<span class="co">.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Song <span class="op">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> singer<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> title<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> year<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> duration<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> lyrics<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> author<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> composer<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Constructs a new Song object<span class="co">.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">title</span><span class="co">    </span>The title of the song<span class="co">.</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">singer</span><span class="co">   </span>The singer of the song<span class="co">.</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">title</span><span class="co">    </span>The title of the song<span class="co">.</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">year</span><span class="co">     </span>The year the song was released<span class="co">.</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">duration</span><span class="co"> </span>The duration of the song in seconds<span class="co">.</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">lyrics</span><span class="co">   </span>The lyrics of the song<span class="co">.</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">author</span><span class="co">   </span>The author of the song<span class="co">.</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">composer</span><span class="co"> </span>The composer of the song<span class="co">.</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Song</span><span class="op">(</span><span class="bu">String</span> title<span class="op">,</span> <span class="bu">String</span> singer<span class="op">,</span> <span class="dt">int</span> year<span class="op">,</span> <span class="dt">int</span> duration<span class="op">,</span> <span class="bu">String</span> lyrics<span class="op">,</span> <span class="bu">String</span> author<span class="op">,</span> <span class="bu">String</span> composer<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">title</span> <span class="op">=</span> title<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">singer</span> <span class="op">=</span> singer<span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">year</span> <span class="op">=</span> year<span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">duration</span> <span class="op">=</span> duration<span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">lyrics</span> <span class="op">=</span> lyrics<span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">author</span> <span class="op">=</span> author<span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">composer</span> <span class="op">=</span> composer<span class="op">;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> String representation of the Song<span class="co">.</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Song "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">title</span> <span class="op">+</span> <span class="st">" by "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">singer</span><span class="op">;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Indicates whether some other object is <span class="co">"</span>equal to<span class="co">"</span> this one<span class="co">. </span>Two Song</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> objects are considered equal if they have the same title<span class="co">,</span> singer<span class="co">,</span> and year<span class="co">.</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">equals</span><span class="op">(</span><span class="bu">Object</span> o<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="kw">this</span> <span class="op">==</span> o<span class="op">)</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>o <span class="op">==</span> <span class="kw">null</span> <span class="op">||</span> <span class="kw">this</span><span class="op">.</span><span class="fu">getClass</span><span class="op">()</span> <span class="op">!=</span> o<span class="op">.</span><span class="fu">getClass</span><span class="op">())</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        Song otherSong <span class="op">=</span> <span class="op">(</span>Song<span class="op">)</span> o<span class="op">;</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">year</span> <span class="op">==</span> otherSong<span class="op">.</span><span class="fu">year</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>                Objects<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">title</span><span class="op">,</span> otherSong<span class="op">.</span><span class="fu">title</span><span class="op">)</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>                Objects<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">singer</span><span class="op">,</span> otherSong<span class="op">.</span><span class="fu">singer</span><span class="op">);</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">hashCode</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Objects<span class="op">.</span><span class="fu">hash</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">title</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="fu">singer</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="fu">year</span><span class="op">);</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <hr>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>pom.mxl</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="pom.mxl"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">project</span><span class="ot"> xmlns=</span><span class="st">"http://maven.apache.org/POM/4.0.0"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ot">         xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ot">         xsi:schemaLocation=</span><span class="st">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">modelVersion</span>&gt;4.0.0&lt;/<span class="kw">modelVersion</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;fr.ensai&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;mediaplayer&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">version</span>&gt;1.0-SNAPSHOT&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">properties</span>&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">maven.compiler.source</span>&gt;21&lt;/<span class="kw">maven.compiler.source</span>&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">maven.compiler.target</span>&gt;21&lt;/<span class="kw">maven.compiler.target</span>&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">properties</span>&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">dependencies</span>&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- JUnit for testing --&gt;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.junit.jupiter&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;junit-jupiter-api&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;5.9.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">scope</span>&gt;test&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.junit.jupiter&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;junit-jupiter-engine&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;5.9.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">scope</span>&gt;test&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">dependencies</span>&gt;</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">build</span>&gt;</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">plugins</span>&gt;</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            <span class="co">&lt;!-- Compiler Plugin --&gt;</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">groupId</span>&gt;org.apache.maven.plugins&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">artifactId</span>&gt;maven-compiler-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">version</span>&gt;3.8.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">source</span>&gt;21&lt;/<span class="kw">source</span>&gt;</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">target</span>&gt;21&lt;/<span class="kw">target</span>&gt;</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">configuration</span>&gt;</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">groupId</span>&gt;org.codehaus.mojo&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">artifactId</span>&gt;exec-maven-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">version</span>&gt;3.0.0&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">mainClass</span>&gt;fr.ensai.mediaplayer.Main&lt;/<span class="kw">mainClass</span>&gt;</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">configuration</span>&gt;</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">groupId</span>&gt;org.apache.maven.plugins&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">artifactId</span>&gt;maven-surefire-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">version</span>&gt;3.2.5&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">plugins</span>&gt;</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">build</span>&gt;</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">project</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<ul class="task-list">
+<li><label><input type="checkbox">Create the arborscence of a Maven project</label></li>
+</ul>
+</section>
+<section id="questions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="questions"><span class="header-section-number">3</span> Questions</h2>
+<section id="artist" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="artist"><span class="header-section-number">3.1</span> Artist</h3>
+<p>In the Song class, we want to replace the String types for attributes singer, author, and composer with instances of an Artist class.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+
+class Artist {
+     - -firstName: String
+     - -lastName: String
+     - -nationality: String
+     + toString(): String
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>In the toString() method, concat “Artist” with firstName and lastName.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create Artist class</label></li>
+<li><label><input type="checkbox">Refactor Song class updating attributes types</label>
+<ul>
+<li>We’ll assume that the songs have a single singer, a single author, a single composer</li>
+</ul></li>
+<li><label><input type="checkbox">In Song class, create method <em>play()</em>,</label>
+<ul>
+<li>this method will print each word of lyrics</li>
+<li>use the code below to add a brief delay between each word</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Thread</span><span class="op">.</span><span class="fu">sleep</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">InterruptedException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Thread</span><span class="op">.</span><span class="fu">currentThread</span><span class="op">().</span><span class="fu">interrupt</span><span class="op">();</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">err</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Thread was interrupted"</span><span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a class <em>Main</em> with a <em>main</em> method</label></li>
+<li><label><input type="checkbox">In the <em>main()</em> method, create an instance of Song and play it</label>
+<ul>
+<li>use a real Song, singer and lyrics</li>
+<li>you are allowed to leave author and composer blank</li>
+<li>for the lyrics, you can limit them to a few hundred words</li>
+</ul></li>
+</ul>
+</section>
+<section id="podcast" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="podcast"><span class="header-section-number">3.2</span> Podcast</h3>
+<p>In your player you will also read Podcasts :</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+
+class Podcast {
+    - -title: String
+    - -host: String
+    - -topic: String
+    - -duration: int
+    - -year: int
+    - -subtitles: String
+    + play()
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Implement class <code>Podcast</code></label>
+<ul>
+<li>Use OOP to avoid code duplication</li>
+</ul></li>
+<li><label><input type="checkbox">Create method <em>play()</em>, printing subtitles</label></li>
+<li><label><input type="checkbox">Implement the <em>toString()</em> method in the same way as for songs</label></li>
+</ul>
+</section>
+<section id="pop-rock-electro" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="pop-rock-electro"><span class="header-section-number">3.3</span> Pop, Rock, Electro</h3>
+<p>We want to add a new attribute to the Song to store the musical genres it is associated with.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a structure to store musical genres</label></li>
+<li><label><input type="checkbox">Add 10 values of your choice</label></li>
+<li><label><input type="checkbox">Modify the Song class to add a list of musical genres to each song</label></li>
+<li><label><input type="checkbox">Don’t forget to update the <em>main()</em> method</label></li>
+</ul>
+</section>
+<section id="playlist" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="playlist"><span class="header-section-number">3.4</span> Playlist</h3>
+<p>We now want to be able to create playlists with these songs and podcasts.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+
+class Playlist {
+    - -name: String
+    - -mediaList: List~Media~
+    - -totalDuration: int
+    + addMedia(Media media)
+    + removeMedia(Media media): bool
+    + removeMedia(int index)
+    + play(boolean random)
+}
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a <code>Playlist</code> class with a <em>name</em>, a <em>list of media</em> and <em>total duration</em></label></li>
+<li><label><input type="checkbox">Develop the <em>addMedia()</em> method to add a media at the end of the playlist</label></li>
+<li><label><input type="checkbox">Create the <em>removeMedia(Media media)</em> method</label>
+<ul>
+<li>it deletes occurences of a media if it exists in the playlist</li>
+</ul></li>
+<li><label><input type="checkbox">Create unit tests with Junit for these last two methods</label></li>
+<li><label><input type="checkbox">Instanciate the <em>removeMedia(Int i)</em> method to delete a media by index</label></li>
+<li><label><input type="checkbox">Develop a method for playing the playlist</label>
+<ul>
+<li>Include a parameter to play the tracks randomly</li>
+</ul></li>
+<li><label><input type="checkbox">Add the option of copying the playlist</label></li>
+</ul>
+</section>
+<section id="create-some-objects" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="create-some-objects"><span class="header-section-number">3.5</span> Create some objects</h3>
+<p>In the main method:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a new song (in addition to the one created at the beginning), as well as a Podcast</label></li>
+<li><label><input type="checkbox">Instantiate a playlist named <em>p1</em> and add these three media to it</label></li>
+<li><label><input type="checkbox">Copy your playlist and name it <em>p2</em></label></li>
+<li><label><input type="checkbox">Remove a song from <em>p1</em></label></li>
+<li><label><input type="checkbox">Print the total duration of <em>p1</em> and <em>p2</em></label></li>
+<li><label><input type="checkbox">Play <em>p2</em></label></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
