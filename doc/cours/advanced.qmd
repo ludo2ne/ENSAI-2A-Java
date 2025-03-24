@@ -47,6 +47,7 @@ Exceptions are your friends.
 :::{.notes}
 - Reminder
 - Exceptions are your friend
+- Error (OutOfMemoryError, StackOverflowError)
 :::
 
 ### NullPointerException
@@ -276,7 +277,9 @@ When an exception occurs in your code, you have two primary options:
 
 see [Types of Exception in Java with Examples](https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/){target="_blank"}
 
-
+:::{.notes}
+- RuntimException (not checked at compilation)
+:::
 
 ## Stream
 

@@ -36,9 +36,11 @@ from: markdown+emoji
 ## Bibliography
 
 - [Java Tutorial, w3schools](https://www.w3schools.com/java/default.asp){target="_blank"}
+- <https://www.baeldung.com/get-started-with-java-series>{target="_blank"}
 
 
 ### FR
 
 - [Développons en Java, Jean-Michel DOUDOUX](https://www.jmdoudoux.fr/accueil_java.htm){target="_blank"}
 - [Apprenez à programmer en Java, Zeste de savoir](https://zestedesavoir.com/tutoriels/646/apprenez-a-programmer-en-java/557_java-oriente-objet/){target="_blank"}
+- <https://blog.paumard.org/cours/java/>{target="_blank"}

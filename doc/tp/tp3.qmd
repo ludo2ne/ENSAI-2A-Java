@@ -71,8 +71,276 @@ After each part, create a commit and push your code to the remote repository.
 
 ## Subject
 
-The subject will be available on exam day.
+
+This exercise involves designing and implementing a media management system in Java. You'll create classes for media types (songs, podcasts), playlists, and a media player. Focus on object-oriented principles, defining attributes, methods, and relationships. The goal is a functional system for managing and playing media.
+
+Given files : 
+
+- Song.java
+- pom.xml
+
+:::{.callout-note title="Given files (click here to expand)" collapse="true"}
+```{.java filename="Song.java"}
+package fr.ensai.mediaplayer;
+
+/**
+ * Represents a song with essential attributes.
+ */
+public class Song {
+    private String singer;
+    private String title;
+    private int year;
+    private int duration;
+    private String lyrics;
+    private String author;
+    private String composer;
+
+    /**
+     * Constructs a new Song object.
+     *
+     * @param title    The title of the song.
+     * @param singer   The singer of the song.
+     * @param title    The title of the song.
+     * @param year     The year the song was released.
+     * @param duration The duration of the song in seconds.
+     * @param lyrics   The lyrics of the song.
+     * @param author   The author of the song.
+     * @param composer The composer of the song.
+     */
+    public Song(String title, String singer, int year, int duration, String lyrics, String author, String composer) {
+        this.title = title;
+        this.singer = singer;
+        this.year = year;
+        this.duration = duration;
+        this.lyrics = lyrics;
+        this.author = author;
+        this.composer = composer;
+    }
+
+    /**
+     * String representation of the Song.
+     */
+    @Override
+    public String toString() {
+        return "Song " + this.title + " by " + this.singer;
+    }
+    
+    /**
+     * Indicates whether some other object is "equal to" this one. Two Song
+     * objects are considered equal if they have the same title, singer, and year.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || this.getClass() != o.getClass())
+            return false;
+        Song otherSong = (Song) o;
+        return this.year == otherSong.year &&
+                Objects.equals(this.title, otherSong.title) &&
+                Objects.equals(this.singer, otherSong.singer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.title, this.singer, this.year);
+    }
+
+}
+```
+
+---
+
+
+```{.xml filename="pom.mxl"}
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.ensai</groupId>
+    <artifactId>mediaplayer</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- JUnit for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <mainClass>fr.ensai.mediaplayer.Main</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+:::
 
 
 ---
+
+- [ ] Create the arborscence of a Maven project
+
+
+## Questions
+
+### Artist
+
+In the Song class, we want to replace the String types for attributes singer, author, and composer with instances of an Artist class.
+
+```{mermaid}
+classDiagram
+
+class Artist {
+     - -firstName: String
+     - -lastName: String
+     - -nationality: String
+     + toString(): String
+}
+```
+
+In the toString() method, concat "Artist" with firstName and lastName.
+
+- [ ] Create Artist class
+- [ ] Refactor Song class updating attributes types
+  - We'll assume that the songs have a single singer, a single author, a single composer
+- [ ] In Song class, create method *play()*, 
+  - this method will print each word of lyrics
+  - use the code below to add a brief delay between each word
+
+```{.java}
+try {
+    Thread.sleep(100);
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt();
+    System.err.println("Thread was interrupted");
+}
+```
+
+- [ ] Create a class *Main* with a *main* method
+- [ ] In the *main()* method, create an instance of Song and play it
+  - use a real Song, singer and lyrics
+  - you are allowed to leave author and composer blank
+  - for the lyrics, you can limit them to a few hundred words
+
+### Podcast
+
+In your player you will also read Podcasts :
+
+```{mermaid}
+classDiagram
+
+class Podcast {
+    - -title: String
+    - -host: String
+    - -topic: String
+    - -duration: int
+    - -year: int
+    - -subtitles: String
+    + play()
+}
+```
+
+- [ ] Implement class `Podcast`
+  - Use OOP to avoid code duplication
+- [ ] Create method *play()*, printing subtitles
+- [ ] Implement the *toString()* method in the same way as for songs
+
+
+### Pop, Rock, Electro
+
+We want to add a new attribute to the Song to store the musical genres it is associated with.
+
+- [ ] Create a structure to store musical genres
+- [ ] Add 10 values of your choice
+- [ ] Modify the Song class to add a list of musical genres to each song
+- [ ] Don't forget to update the *main()* method
+
+
+### Playlist
+
+We now want to be able to create playlists with these songs and podcasts.
+
+```{mermaid}
+classDiagram
+
+class Playlist {
+    - -name: String
+    - -mediaList: List~Media~
+    - -totalDuration: int
+    + addMedia(Media media)
+    + removeMedia(Media media): bool
+    + removeMedia(int index)
+    + play(boolean random)
+}
+```
+
+- [ ] Create a `Playlist` class with a *name*, a *list of media* and *total duration*
+- [ ] Develop the *addMedia()* method to add a media at the end of the playlist
+- [ ] Create the *removeMedia(Media media)* method
+  - it deletes occurences of a media if it exists in the playlist
+- [ ] Create unit tests with Junit for these last two methods
+- [ ] Instanciate the *removeMedia(Int i)* method to delete a media by index
+- [ ] Develop a method for playing the playlist
+  - Include a parameter to play the tracks randomly
+- [ ] Add the option of copying the playlist
+
+
+
+### Create some objects
+
+In the main method:
+
+- [ ] Create a new song (in addition to the one created at the beginning), as well as a Podcast
+- [ ] Instantiate a playlist named *p1* and add these three media to it
+- [ ] Copy your playlist and name it *p2*
+- [ ] Remove a song from *p1*
+- [ ] Print the total duration of *p1* and *p2*
+- [ ] Play *p2*
+
+
+
+
 
