@@ -358,8 +358,8 @@ Stream<String> arrayListStream = arrayList.stream();
 // Creates a stream from the map's entry set
 Stream<Map.Entry<String, Integer>> mapEntryStream = map.entrySet().stream();
 
-// Extract list of words from a text
-Stream<String> textStream = Stream.of(text.split(" ")).collect(Collectors.toList());
+// Extract list of words from a text an store it in a List
+List<String> wordsList = Stream.of(text.split(" ")).collect(Collectors.toList());
 ```
 
 
