@@ -4,42 +4,42 @@
     "href": "index.html",
     "title": "Java",
     "section": "",
-    "text": "🚧 This course is currently being refactored"
+    "text": "6h\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nUnit Tests (JUnit)\nAdvanced (Interface, Enum, Stream)\nSpring Boot, Hibernate"
   },
   {
     "objectID": "index.html#class",
     "href": "index.html#class",
     "title": "Java",
-    "section": "Class",
-    "text": "Class\n6h\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nUnit Tests (JUnit)\nAdvanced (Interface, Enum, Stream)\nSpring Boot, Hibernate ?"
+    "section": "",
+    "text": "6h\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nUnit Tests (JUnit)\nAdvanced (Interface, Enum, Stream)\nSpring Boot, Hibernate"
   },
   {
     "objectID": "index.html#tp",
     "href": "index.html#tp",
     "title": "Java",
     "section": "TP",
-    "text": "TP\n4x3h\n\nTP1 : Discover Java syntax\nTP2 : Object Oriented Programming, Unit Tests\nTP3 : Rated TP\nTP4 : ?"
+    "text": "TP\n4x3h\n\nTP1 : Discover Java syntax\nTP2 : Maven project, OOP, Unit Tests\nTP3 : Rated TP\nTP4 : A Spring Boot project"
   },
   {
     "objectID": "index.html#bibliography",
     "href": "index.html#bibliography",
     "title": "Java",
     "section": "Bibliography",
-    "text": "Bibliography\n\nJava Tutorial, w3schools\nhttps://www.baeldung.com/get-started-with-java-series\n\n\nFR\n\nDéveloppons en Java, Jean-Michel DOUDOUX\nApprenez à programmer en Java, Zeste de savoir\nhttps://blog.paumard.org/cours/java/"
+    "text": "Bibliography\n\nJava Tutorial, w3schools\nhttps://www.baeldung.com/get-started-with-java-series\n\n\nFR\n\nhttps://gayerie.dev/docs/java/index.html\nhttps://gayerie.dev/docs/spring/index.html\nDéveloppons en Java, Jean-Michel DOUDOUX\nApprenez à programmer en Java, Zeste de savoir\nhttps://blog.paumard.org/cours/java/"
   },
   {
     "objectID": "doc/tp/tp3.html",
     "href": "doc/tp/tp3.html",
     "title": "Java - TP3",
     "section": "",
-    "text": "🚧"
+    "text": "Groups of 1 or 2 students (from the same TP group)\n\nEdit the README.md (when it’s created) file to enter your names\nInter-group plagiarism will be severely punished\n\nDue Date: Wednesday 26 March at 10pm\n\n1 point deducted for each half-hour delay\n\nZip your project repository and load it on Moodle\n\nDon’t include target folder\n\n\nYour code must be functional, with no compilation or runtime errors.\nDon’t forget to include the javadoc and to comment your code if necessary.\n\n\n\n\n\n\nImportant\n\n\n\n\nEverything you need is in the course and the practical exercises\nYou are permitted to conduct internet searches to find information and documentation\nThe use of any LLM is strictly prohibited during this exam\n\nAs Olivier so rightly says: LLMs are good servants, but bad masters\nThey can be useful tools, but they must not replace your own comprehension and programming skills\n\n\nIf you are caught using an LLM, it will be considered cheating and you will receive a zero.\n\n\n\n\n\nLogin to GitHub\nCreate a new repository\n\nRepository name: ENSAI-Java-TP3\nPrivate\n✅ Add a README file\nAdd .gitignore: Java\nLicence: Apache License 2.0 (or another)\n\n\n\n\n\n\nLaunch the service VScode-Java using this link.\nClone your repository (https)\nOpen Folder home/onyxia/work/ENSAI-Java-TP3\n\n\n\n\n\n\n\nCaution\n\n\n\nService interruptions are possible. To prevent data loss, back up your code regularly with Git.\nAfter each part, create a commit and push your code to the remote repository.\n\n\n\n\n\n\nSave your work using git\nDelete your service"
   },
   {
     "objectID": "doc/tp/tp3.html#instructions",
     "href": "doc/tp/tp3.html#instructions",
     "title": "Java - TP3",
-    "section": "1 Instructions",
-    "text": "1 Instructions\n\nGroups of 1 or 2 students (from the same TP group)\n\nEdit the README.md (when it’s created) file to enter your names\nInter-group plagiarism will be severely punished\n\nDue Date: Wednesday 26 March at 10pm\n\n1 point deducted for each half-hour delay\n\nZip your project repository and load it on Moodle\n\nDon’t include target folder\n\n\nYour code must be functional, with no compilation or runtime errors.\nDon’t forget to include the javadoc and to comment your code if necessary.\n\n\n\n\n\n\nImportant\n\n\n\n\nEverything you need is in the course and the practical exercises\nYou are permitted to conduct internet searches to find information and documentation\nThe use of any LLM is strictly prohibited during this exam\n\nAs Olivier so rightly says: LLMs are good servants, but bad masters\nThey can be useful tools, but they must not replace your own comprehension and programming skills\n\n\nIf you are caught using an LLM, it will be considered cheating and you will receive a zero.\n\n\n\n1.1 Create a private repo\n\nLogin to GitHub\nCreate a new repository\n\nRepository name: ENSAI-Java-TP3\nPrivate\n✅ Add a README file\nAdd .gitignore: Java\nLicence: Apache License 2.0 (or another)\n\n\n\n\n1.2 Launch service VSCode Java\n\nLaunch the service VScode-Java using this link.\nClone your repository (https)\nOpen Folder home/onyxia/work/ENSAI-Java-TP3\n\n\n\n\n\n\n\nCaution\n\n\n\nService interruptions are possible. To prevent data loss, back up your code regularly with Git.\nAfter each part, create a commit and push your code to the remote repository.\n\n\n\n\n1.3 When you’ve finished\n\nSave your work using git\nDelete your service"
+    "section": "",
+    "text": "Groups of 1 or 2 students (from the same TP group)\n\nEdit the README.md (when it’s created) file to enter your names\nInter-group plagiarism will be severely punished\n\nDue Date: Wednesday 26 March at 10pm\n\n1 point deducted for each half-hour delay\n\nZip your project repository and load it on Moodle\n\nDon’t include target folder\n\n\nYour code must be functional, with no compilation or runtime errors.\nDon’t forget to include the javadoc and to comment your code if necessary.\n\n\n\n\n\n\nImportant\n\n\n\n\nEverything you need is in the course and the practical exercises\nYou are permitted to conduct internet searches to find information and documentation\nThe use of any LLM is strictly prohibited during this exam\n\nAs Olivier so rightly says: LLMs are good servants, but bad masters\nThey can be useful tools, but they must not replace your own comprehension and programming skills\n\n\nIf you are caught using an LLM, it will be considered cheating and you will receive a zero.\n\n\n\n\n\nLogin to GitHub\nCreate a new repository\n\nRepository name: ENSAI-Java-TP3\nPrivate\n✅ Add a README file\nAdd .gitignore: Java\nLicence: Apache License 2.0 (or another)\n\n\n\n\n\n\nLaunch the service VScode-Java using this link.\nClone your repository (https)\nOpen Folder home/onyxia/work/ENSAI-Java-TP3\n\n\n\n\n\n\n\nCaution\n\n\n\nService interruptions are possible. To prevent data loss, back up your code regularly with Git.\nAfter each part, create a commit and push your code to the remote repository.\n\n\n\n\n\n\nSave your work using git\nDelete your service"
   },
   {
     "objectID": "doc/tp/tp3.html#subject",
@@ -1036,38 +1036,24 @@
     "text": "🚧"
   },
   {
-    "objectID": "doc/tp/tp4.html#avant-de-commencer",
-    "href": "doc/tp/tp4.html#avant-de-commencer",
+    "objectID": "doc/tp/tp4.html#objectives",
+    "href": "doc/tp/tp4.html#objectives",
     "title": "Java - TP4",
-    "section": "1 Avant de commencer",
-    "text": "1 Avant de commencer\n\nSur votre disque P:, créez un dossier Java,\nà l’intérieur, créez un dossier TP4\nOuvrez et enregistrez le sujet\nRécupérez le dépôt sur Moodle"
+    "section": "Objectives",
+    "text": "Objectives\n\nCreate a Spring Boot application"
   },
   {
-    "objectID": "doc/tp/tp4.html#datalab",
-    "href": "doc/tp/tp4.html#datalab",
+    "objectID": "doc/tp/tp4.html#before-you-start",
+    "href": "doc/tp/tp4.html#before-you-start",
     "title": "Java - TP4",
-    "section": "2 Datalab",
-    "text": "2 Datalab\nIl est possible de faire le TP soit sur la VM, soit sur le datalab\n\nConnectez-vous sur le datalab\nLancez le service Java avec VScode puis suivez les instructions\nDans l’explorer à gauche &gt; clic droit &gt; Upload\n\nChargez le fichier JavaTP4-unit-test-base\n\nOuvrez un terminal\n\nrentrez unzip JavaTP4-unit-test-base pour extraire les fichiers\n\nFile &gt; Open Folder &gt; /home/onyxia/work/JavaTP4-unit-test-base/\n\n⚠️ important d’ouvrir le bon dossier !\n\n\nRemplacez le contenu du fichier .vscode/settings.json par :\n{\n    \"java.project.sourcePaths\": [\n        \"src/main/java\",\n        \"src/test/java\"\n    ],\n    \"java.project.referencedLibraries\": [\n        \"lib/**/*.jar\"\n    ]\n}"
+    "section": "1 Before you start",
+    "text": "1 Before you start\nWhen you’ve finished, don’t forget to delete your service.\nAfter each part, create a commit and push your code to the remote repository.\n\n1.1 Launch service VSCode Java\n🚧 Use a new image ?\nFROM vscode-python\nEnable port 9000\nINSTALL JAVA, MVN...\n\n\n1.2 Update your forked repo\n…\n\n\n1.3 Open Folder\nIn VSCode :\n\nFile &gt; Open Folder &gt; tp4\n\ntp4 must be the root folder in your explorer.\n\n\n1.4 Compile and run\n\nmvn spring-boot:run"
   },
   {
-    "objectID": "doc/tp/tp4.html#vm",
-    "href": "doc/tp/tp4.html#vm",
+    "objectID": "doc/tp/tp4.html#exercice",
+    "href": "doc/tp/tp4.html#exercice",
     "title": "Java - TP4",
-    "section": "3 VM",
-    "text": "3 VM\n\nOuvrez Visual Studio Code\nFile &gt; Open Folder\nAllez dans le dossier TP3\nUn clic sur JavaTP4-unit-test-base, ensuite Sélectionner un dossier"
-  },
-  {
-    "objectID": "doc/tp/tp4.html#tests-unitaires",
-    "href": "doc/tp/tp4.html#tests-unitaires",
-    "title": "Java - TP4",
-    "section": "4 Tests unitaires",
-    "text": "4 Tests unitaires\n\n4.1 Bonnes pratiques\n\nTests indépendants : Chaque test devrait être indépendant des autres tests. Assurez-vous que l’exécution d’un test ne dépend pas du résultat d’un autre test.\nClarté et lisibilité : Écrivez des noms de méthodes de test descriptifs pour indiquer clairement ce qui est testé. Utilisez des noms qui décrivent le comportement attendu.\nIsolation des tests : Les tests doivent être isolés, c’est-à-dire qu’ils ne doivent pas dépendre de l’état du système, de l’ordre d’exécution ou d’autres facteurs externes. Utilisez des mocks ou des données de test spécifiques pour isoler chaque test.\nTestez les cas limites : Assurez-vous de tester les cas limites ainsi que les cas typiques. Cela inclut les valeurs nulles, les limites des boucles, les bornes d’entrée, etc.\nMinimisez les assertions par test : Chaque test ne devrait vérifier qu’une seule chose. Si un test contient plusieurs assertions, cela rendra plus difficile de comprendre quelle assertion a échoué en cas d’échec du test.\nMise en place et nettoyage : Utilisez les méthodes @Before et @After pour effectuer la mise en place et le nettoyage des objets nécessaires pour chaque test. Assurez-vous que l’état initial est correct avant chaque test.\nUtilisation de données de test significatives : Utilisez des données de test significatives et représentatives pour vos cas de test. Cela garantit que les tests couvrent des scénarios réels et non seulement les cas triviaux.\nGestion des exceptions : Testez les cas où des exceptions peuvent être levées et assurez-vous qu’elles sont gérées correctement dans vos tests.\nDocumentation des tests : Écrivez des commentaires ou des descriptions claires pour expliquer le but de chaque test, ce qu’il teste et pourquoi c’est important.\nExécution régulière des tests : Exécutez vos tests régulièrement pour vous assurer qu’ils restent valides au fil du temps, en particulier après des modifications du code source.\n\n\n\n4.2 Un exemple avec JUnit\n\n\nfrac.java\n\npublic class Frac {\n\n    private int num;\n    private int denom;\n\n    public Frac(int num, int denom) {\n        this.num = num;\n        this.denom = denom;\n    }\n\n    public boolean est_valide() {\n        return denom != 0;\n    }\n\n    public float valeur_approchee() {\n        return (float) this.num / this.denom;\n    }\n\n    public Frac inverse() {\n        return new Frac(this.denom, this.num);\n    }\n\n    public Frac addition(Frac other) {\n        int newNum = this.num * other.denom + other.num * this.denom;\n        int newDenom = this.denom * other.denom;\n        return new Frac(newNum, newDenom);\n    }\n\n    public Frac multiplication(Frac other) {\n        int newNum = this.num * other.num;\n        int newDenom = this.denom * other.denom;\n        return new Frac(newNum, newDenom);\n    }\n\n    public String toString() {\n        return num + \"/\" + denom;\n    }\n}\n\n\n\nFracTest.java\n\nimport org.junit.Test;\nimport org.junit.Assert;\n\npublic class FracTest {\n\n    @Test\n    public void testEstValideOK() {\n\n        //GIVEN\n        Frac frac1 = new Frac(1, 2);\n\n        //WHEN\n        boolean res = frac1.est_valide();\n\n        //THEN\n        Assert.assertTrue(res);\n    }\n    \n    public void testEstValideEchec() {\n        Frac frac2 = new Frac(3, 0);\n        Assert.assertFalse(frac2.est_valide());\n    }\n\n    @Test\n    public void testValeurApprochee() {\n        Frac frac1 = new Frac(1, 2);\n        Assert.assertEquals(0.5, frac1.valeur_approchee(), 0.001);\n    }\n\n    @Test\n    public void testInverse() {\n        Frac frac1 = new Frac(1, 2);\n        Frac inverse1 = frac1.inverse();\n\n        Assert.assertEquals(2, inverse1.num);\n        Assert.assertEquals(1, inverse1.denom);\n    }\n\n    @Test\n    public void testAddition() {\n        Frac frac1 = new Frac(1, 2);\n        Frac frac2 = new Frac(1, 4);\n        Frac result = frac1.addition(frac2);\n\n        Assert.assertEquals(6, result.num);\n        Assert.assertEquals(8, result.denom);\n    }\n\n    @Test\n    public void testMultiplication() {\n        Frac frac1 = new Frac(1, 2);\n        Frac frac2 = new Frac(3, 4);\n        Frac result = frac1.multiplication(frac2);\n\n        Assert.assertEquals(3, result.num);\n        Assert.assertEquals(8, result.denom);\n    }\n\n    @Test\n    public void testToString() {\n        Frac frac1 = new Frac(1, 2);\n        Assert.assertEquals(\"1/2\", frac1.toString());\n    }\n}\n\n\n\n4.3 Lancer les tests manuellement\n\nOuvrir un terminal bash\nCompliler tous les tests\n\njavac -cp .:lib/*:src/test/java:src/main/java -d bin src/test/java/fr/ensai/java/tp4/core/*.java\nen ajoutant manuellement au classpath (-cp …) les dossiers lib, main et test\n\nExécuter une classe de tests\n\njava -cp .:bin:lib/* org.junit.runner.JUnitCore fr.ensai.java.tp4.core.LevelTest\nen ajoutant au classpath bin et lib"
-  },
-  {
-    "objectID": "doc/tp/tp4.html#exercices",
-    "href": "doc/tp/tp4.html#exercices",
-    "title": "Java - TP4",
-    "section": "5 Exercices",
-    "text": "5 Exercices\n\n5.1 Exercice 1\nDes tests unitaires ont déjà été écrits\n\ndans VSCode à gauche, cliquez sur l’icone en forme de fiole\n\npatientez quelques secondes le temps que VSCode trouve les tests unitaires\n\nlancez les tests en cliquant sur les 2 triangles pointants vers la droite\ncorrigez les tests (voir sujet)\n\nQuestion 2 :\n\ncréez la classe de tests SpecieTest\nécrivez les TU de la classe Specie en vous inspirant de ce qui a été fait pour Player\nMéthodes à tester :\n\nConstructeur de BULBZAURUS\nConstructeur de CHARMANDUS\ntoString() de BULBZAURUS : Species [number=0, name=Bulbzaurus, type=GRASS, initialHp=10, initialStrength=1]\n\n\n\n\n5.2 Exercice 2\n\ncréez la classe InventoryTest et écrivez les TU de la méthode add()\ncréez la classe SingleUseItemTest\n\n\n\n5.3 Exercice 3\nRappels sur les interfaces :\n\ncréez une Interface Coordinates contenant les méthodes communes\nmodifiez la classe CartesianCoordinates pour qu’elle implémente cette interface\ncréez la classe PolarCoordinates implémentant la même interface\n\nEnsuite compilez, puis exécutez le main :\n\npour un terminal Bash\n\nCompilez le Main : javac -d bin -sourcepath src ./src/main/Main.java\nExécutez le programme : java -cp bin main.Main\n\npour un terminal PowerShell\nCompilez le Main : javac -d bin -sourcepath src .\\src\\main\\Main.java\nExécutez le programme : java -cp bin main.Main"
+    "section": "2 Exercice",
+    "text": "2 Exercice"
   }
 ]

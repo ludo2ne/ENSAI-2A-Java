@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -220,21 +186,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link active" data-scroll-target="#avant-de-commencer"><span class="header-section-number">1</span> Avant de commencer</a></li>
-  <li><a href="#datalab" id="toc-datalab" class="nav-link" data-scroll-target="#datalab"><span class="header-section-number">2</span> Datalab</a></li>
-  <li><a href="#vm" id="toc-vm" class="nav-link" data-scroll-target="#vm"><span class="header-section-number">3</span> VM</a></li>
-  <li><a href="#tests-unitaires" id="toc-tests-unitaires" class="nav-link" data-scroll-target="#tests-unitaires"><span class="header-section-number">4</span> Tests unitaires</a>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#before-you-start" id="toc-before-you-start" class="nav-link" data-scroll-target="#before-you-start"><span class="header-section-number">1</span> Before you start</a>
   <ul class="collapse">
-  <li><a href="#bonnes-pratiques" id="toc-bonnes-pratiques" class="nav-link" data-scroll-target="#bonnes-pratiques"><span class="header-section-number">4.1</span> Bonnes pratiques</a></li>
-  <li><a href="#un-exemple-avec-junit" id="toc-un-exemple-avec-junit" class="nav-link" data-scroll-target="#un-exemple-avec-junit"><span class="header-section-number">4.2</span> Un exemple avec JUnit</a></li>
-  <li><a href="#lancer-les-tests-manuellement" id="toc-lancer-les-tests-manuellement" class="nav-link" data-scroll-target="#lancer-les-tests-manuellement"><span class="header-section-number">4.3</span> Lancer les tests manuellement</a></li>
+  <li><a href="#launch-service-vscode-java" id="toc-launch-service-vscode-java" class="nav-link" data-scroll-target="#launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</a></li>
+  <li><a href="#update-your-forked-repo" id="toc-update-your-forked-repo" class="nav-link" data-scroll-target="#update-your-forked-repo"><span class="header-section-number">1.2</span> Update your forked repo</a></li>
+  <li><a href="#open-folder" id="toc-open-folder" class="nav-link" data-scroll-target="#open-folder"><span class="header-section-number">1.3</span> Open Folder</a></li>
+  <li><a href="#compile-and-run" id="toc-compile-and-run" class="nav-link" data-scroll-target="#compile-and-run"><span class="header-section-number">1.4</span> Compile and run</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a>
-  <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">5.1</span> Exercice 1</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">5.2</span> Exercice 2</a></li>
-  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">5.3</span> Exercice 3</a></li>
-  </ul></li>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">2</span> Exercice</a></li>
   </ul>
 </nav>
 </nav>
@@ -282,257 +242,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Appli Spring boot</li>
 </ul>
 </div>
-<section id="avant-de-commencer" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="avant-de-commencer"><span class="header-section-number">1</span> Avant de commencer</h2>
+<section id="objectives" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="objectives">Objectives</h2>
+<ul>
+<li>Create a Spring Boot application</li>
+</ul>
+</section>
+<section id="before-you-start" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="before-you-start"><span class="header-section-number">1</span> Before you start</h2>
+<p>When you’ve finished, don’t forget to delete your service.</p>
+<p>After each part, create a commit and push your code to the remote repository.</p>
+<section id="launch-service-vscode-java" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</h3>
+<p><span class="emoji" data-emoji="construction">🚧</span> Use a new image ?</p>
+<pre><code>FROM vscode-python
+Enable port 9000
+INSTALL JAVA, MVN...</code></pre>
+</section>
+<section id="update-your-forked-repo" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="update-your-forked-repo"><span class="header-section-number">1.2</span> Update your forked repo</h3>
+<p>…</p>
+</section>
+<section id="open-folder" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="open-folder"><span class="header-section-number">1.3</span> Open Folder</h3>
+<p>In VSCode :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Sur votre disque <code>P:</code>, créez un dossier <code>Java</code>,</label></li>
-<li><label><input type="checkbox">à l’intérieur, créez un dossier <code>TP4</code></label></li>
-<li><label><input type="checkbox">Ouvrez et enregistrez le <a href="https://foad-moodle.ensai.fr/pluginfile.php/22185/mod_resource/content/10/TP4.pdf" target="_blank">sujet</a></label></li>
-<li><label><input type="checkbox">Récupérez le dépôt sur <a href="https://foad-moodle.ensai.fr/mod/resource/view.php?id=10130" target="_blank">Moodle</a></label></li>
+<li><label><input type="checkbox">File &gt; Open Folder &gt; tp4</label></li>
 </ul>
+<p><strong>tp4</strong> must be the root folder in your explorer.</p>
 </section>
-<section id="datalab" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="datalab"><span class="header-section-number">2</span> Datalab</h2>
-<p>Il est possible de faire le TP soit sur la VM, soit sur le datalab</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Connectez-vous sur le <a href="https://datalab.sspcloud.fr/" target="_blank">datalab</a></label></li>
-<li><label><input type="checkbox">Lancez le service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&amp;autoLaunch=true&amp;service.image.custom.enabled=true&amp;service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB" target="_blank">Java avec VScode</a> puis suivez les instructions</label></li>
-<li><label><input type="checkbox">Dans <em>l’explorer</em> à gauche &gt; clic droit &gt; Upload</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Chargez le fichier <code>JavaTP4-unit-test-base</code></label></li>
-</ul></li>
-<li><label><input type="checkbox">Ouvrez un terminal</label>
-<ul class="task-list">
-<li><label><input type="checkbox">rentrez <code>unzip JavaTP4-unit-test-base</code> pour extraire les fichiers</label></li>
-</ul></li>
-<li><label><input type="checkbox">File &gt; Open Folder &gt; <em>/home/onyxia/work/JavaTP4-unit-test-base/</em></label>
+<section id="compile-and-run" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="compile-and-run"><span class="header-section-number">1.4</span> Compile and run</h3>
 <ul>
-<li><span class="emoji" data-emoji="warning">⚠️</span> important d’ouvrir le bon dossier !</li>
-</ul></li>
-</ul>
-<p>Remplacez le contenu du fichier <code>.vscode/settings.json</code> par :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"java.project.sourcePaths"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"src/main/java"</span><span class="ot">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"src/test/java"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"java.project.referencedLibraries"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"lib/**/*.jar"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="vm" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="vm"><span class="header-section-number">3</span> VM</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez Visual Studio Code</label></li>
-<li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Allez dans le dossier <em>TP3</em></label></li>
-<li><label><input type="checkbox">Un clic sur <em>JavaTP4-unit-test-base</em>, ensuite <code>Sélectionner un dossier</code></label></li>
-</ul>
-</section>
-<section id="tests-unitaires" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="tests-unitaires"><span class="header-section-number">4</span> Tests unitaires</h2>
-<section id="bonnes-pratiques" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="bonnes-pratiques"><span class="header-section-number">4.1</span> Bonnes pratiques</h3>
-<ul>
-<li><strong>Tests indépendants</strong> : Chaque test devrait être indépendant des autres tests. Assurez-vous que l’exécution d’un test ne dépend pas du résultat d’un autre test.</li>
-<li><strong>Clarté et lisibilité</strong> : Écrivez des noms de méthodes de test descriptifs pour indiquer clairement ce qui est testé. Utilisez des noms qui décrivent le comportement attendu.</li>
-<li><strong>Isolation des tests</strong> : Les tests doivent être isolés, c’est-à-dire qu’ils ne doivent pas dépendre de l’état du système, de l’ordre d’exécution ou d’autres facteurs externes. Utilisez des mocks ou des données de test spécifiques pour isoler chaque test.</li>
-<li><strong>Testez les cas limites</strong> : Assurez-vous de tester les cas limites ainsi que les cas typiques. Cela inclut les valeurs nulles, les limites des boucles, les bornes d’entrée, etc.</li>
-<li><strong>Minimisez les assertions par test</strong> : Chaque test ne devrait vérifier qu’une seule chose. Si un test contient plusieurs assertions, cela rendra plus difficile de comprendre quelle assertion a échoué en cas d’échec du test.</li>
-<li><strong>Mise en place et nettoyage</strong> : Utilisez les méthodes <span class="citation" data-cites="Before">@Before</span> et <span class="citation" data-cites="After">@After</span> pour effectuer la mise en place et le nettoyage des objets nécessaires pour chaque test. Assurez-vous que l’état initial est correct avant chaque test.</li>
-<li><strong>Utilisation de données de test significatives</strong> : Utilisez des données de test significatives et représentatives pour vos cas de test. Cela garantit que les tests couvrent des scénarios réels et non seulement les cas triviaux.</li>
-<li><strong>Gestion des exceptions</strong> : Testez les cas où des exceptions peuvent être levées et assurez-vous qu’elles sont gérées correctement dans vos tests.</li>
-<li><strong>Documentation des tests</strong> : Écrivez des commentaires ou des descriptions claires pour expliquer le but de chaque test, ce qu’il teste et pourquoi c’est important.</li>
-<li><strong>Exécution régulière des tests</strong> : Exécutez vos tests régulièrement pour vous assurer qu’ils restent valides au fil du temps, en particulier après des modifications du code source.</li>
-</ul>
-</section>
-<section id="un-exemple-avec-junit" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="un-exemple-avec-junit"><span class="header-section-number">4.2</span> Un exemple avec JUnit</h3>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>frac.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb2" data-filename="frac.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Frac <span class="op">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> num<span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> denom<span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Frac</span><span class="op">(</span><span class="dt">int</span> num<span class="op">,</span> <span class="dt">int</span> denom<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">=</span> num<span class="op">;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span> <span class="op">=</span> denom<span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">est_valide</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> denom <span class="op">!=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">float</span> <span class="fu">valeur_approchee</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">(</span><span class="dt">float</span><span class="op">)</span> <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">/</span> <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span><span class="op">;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Frac <span class="fu">inverse</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">denom</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="fu">num</span><span class="op">);</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Frac <span class="fu">addition</span><span class="op">(</span>Frac other<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> newNum <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">*</span> other<span class="op">.</span><span class="fu">denom</span> <span class="op">+</span> other<span class="op">.</span><span class="fu">num</span> <span class="op">*</span> <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span><span class="op">;</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> newDenom <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span> <span class="op">*</span> other<span class="op">.</span><span class="fu">denom</span><span class="op">;</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span>newNum<span class="op">,</span> newDenom<span class="op">);</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Frac <span class="fu">multiplication</span><span class="op">(</span>Frac other<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> newNum <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">num</span> <span class="op">*</span> other<span class="op">.</span><span class="fu">num</span><span class="op">;</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> newDenom <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">denom</span> <span class="op">*</span> other<span class="op">.</span><span class="fu">denom</span><span class="op">;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span>newNum<span class="op">,</span> newDenom<span class="op">);</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> num <span class="op">+</span> <span class="st">"/"</span> <span class="op">+</span> denom<span class="op">;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>FracTest.java</strong></pre>
-</div>
-<div class="sourceCode" id="cb3" data-filename="FracTest.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">junit</span><span class="op">.</span><span class="im">Test</span><span class="op">;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">junit</span><span class="op">.</span><span class="im">Assert</span><span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> FracTest <span class="op">{</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testEstValideOK</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">//GIVEN</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        Frac frac1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">//WHEN</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">boolean</span> res <span class="op">=</span> frac1<span class="op">.</span><span class="fu">est_valide</span><span class="op">();</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">//THEN</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertTrue</span><span class="op">(</span>res<span class="op">);</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testEstValideEchec</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        Frac frac2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertFalse</span><span class="op">(</span>frac2<span class="op">.</span><span class="fu">est_valide</span><span class="op">());</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testValeurApprochee</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        Frac frac1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertEquals</span><span class="op">(</span><span class="fl">0.5</span><span class="op">,</span> frac1<span class="op">.</span><span class="fu">valeur_approchee</span><span class="op">(),</span> <span class="fl">0.001</span><span class="op">);</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testInverse</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        Frac frac1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        Frac inverse1 <span class="op">=</span> frac1<span class="op">.</span><span class="fu">inverse</span><span class="op">();</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertEquals</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> inverse1<span class="op">.</span><span class="fu">num</span><span class="op">);</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertEquals</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> inverse1<span class="op">.</span><span class="fu">denom</span><span class="op">);</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testAddition</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        Frac frac1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        Frac frac2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">);</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        Frac result <span class="op">=</span> frac1<span class="op">.</span><span class="fu">addition</span><span class="op">(</span>frac2<span class="op">);</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertEquals</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> result<span class="op">.</span><span class="fu">num</span><span class="op">);</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertEquals</span><span class="op">(</span><span class="dv">8</span><span class="op">,</span> result<span class="op">.</span><span class="fu">denom</span><span class="op">);</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testMultiplication</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>        Frac frac1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>        Frac frac2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">);</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>        Frac result <span class="op">=</span> frac1<span class="op">.</span><span class="fu">multiplication</span><span class="op">(</span>frac2<span class="op">);</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> result<span class="op">.</span><span class="fu">num</span><span class="op">);</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertEquals</span><span class="op">(</span><span class="dv">8</span><span class="op">,</span> result<span class="op">.</span><span class="fu">denom</span><span class="op">);</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testToString</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>        Frac frac1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Frac</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>        Assert<span class="op">.</span><span class="fu">assertEquals</span><span class="op">(</span><span class="st">"1/2"</span><span class="op">,</span> frac1<span class="op">.</span><span class="fu">toString</span><span class="op">());</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="lancer-les-tests-manuellement" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="lancer-les-tests-manuellement"><span class="header-section-number">4.3</span> Lancer les tests manuellement</h3>
-<ul>
-<li>Ouvrir un terminal <em>bash</em></li>
-<li>Compliler tous les tests
-<ul>
-<li><code>javac -cp .:lib/*:src/test/java:src/main/java -d bin src/test/java/fr/ensai/java/tp4/core/*.java</code></li>
-<li>en ajoutant manuellement au classpath (-cp …) les dossiers <em>lib</em>, <em>main</em> et <em>test</em></li>
-</ul></li>
-<li>Exécuter une classe de tests
-<ul>
-<li><code>java -cp .:bin:lib/* org.junit.runner.JUnitCore fr.ensai.java.tp4.core.LevelTest</code></li>
-<li>en ajoutant au classpath <em>bin</em> et <em>lib</em></li>
-</ul></li>
+<li><code>mvn spring-boot:run</code></li>
 </ul>
 </section>
 </section>
-<section id="exercices" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="exercices"><span class="header-section-number">5</span> Exercices</h2>
-<section id="exercice-1" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">5.1</span> Exercice 1</h3>
-<p>Des tests unitaires ont déjà été écrits</p>
-<ul class="task-list">
-<li><label><input type="checkbox">dans VSCode à gauche, cliquez sur l’icone en forme de fiole</label>
-<ul>
-<li>patientez quelques secondes le temps que VSCode trouve les tests unitaires</li>
-</ul></li>
-<li><label><input type="checkbox">lancez les tests en cliquant sur les 2 triangles pointants vers la droite</label></li>
-<li><label><input type="checkbox">corrigez les tests (voir sujet)</label></li>
-</ul>
-<p>Question 2 :</p>
-<ul>
-<li><label><input type="checkbox">créez la classe de tests <code>SpecieTest</code></label></li>
-<li><label><input type="checkbox">écrivez les TU de la classe <code>Specie</code> en vous inspirant de ce qui a été fait pour <code>Player</code></label></li>
-<li>Méthodes à tester :
-<ul>
-<li>Constructeur de BULBZAURUS</li>
-<li>Constructeur de CHARMANDUS</li>
-<li>toString() de BULBZAURUS : <code>Species [number=0, name=Bulbzaurus, type=GRASS, initialHp=10, initialStrength=1]</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="exercice-2" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">5.2</span> Exercice 2</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">créez la classe <code>InventoryTest</code> et écrivez les TU de la méthode <em>add()</em></label></li>
-<li><label><input type="checkbox">créez la classe <code>SingleUseItemTest</code></label></li>
-</ul>
-</section>
-<section id="exercice-3" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">5.3</span> Exercice 3</h3>
-<p>Rappels sur les interfaces :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">créez une Interface <code>Coordinates</code> contenant les méthodes communes</label></li>
-<li><label><input type="checkbox">modifiez la classe <code>CartesianCoordinates</code> pour qu’elle implémente cette interface</label></li>
-<li><label><input type="checkbox">créez la classe <code>PolarCoordinates</code> implémentant la même interface</label></li>
-</ul>
-<p>Ensuite compilez, puis exécutez le main :</p>
-<ul>
-<li>pour un terminal <em>Bash</em>
-<ul>
-<li>Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src ./src/main/Main.java</code></li>
-<li>Exécutez le programme : <code>java -cp bin main.Main</code></li>
-</ul></li>
-<li>pour un terminal <em>PowerShell</em></li>
-<li><label><input type="checkbox">Compilez le <em>Main</em> : <code>javac -d bin -sourcepath src .\src\main\Main.java</code></label></li>
-<li><label><input type="checkbox">Exécutez le programme : <code>java -cp bin main.Main</code></label></li>
-</ul>
+<section id="exercice" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercice"><span class="header-section-number">2</span> Exercice</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
