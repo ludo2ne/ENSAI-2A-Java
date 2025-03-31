@@ -27,6 +27,8 @@ website:
             text: "JUnit"
           - href: doc/cours/advanced.qmd
             text: "Advanced Java"
+          - href: doc/cours/spring.qmd
+            text: "Spring Boot"
       - text: TP
         menu: 
           - href: doc/tp/tp1.qmd

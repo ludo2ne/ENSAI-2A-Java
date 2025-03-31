@@ -1,0 +1,648 @@
+---
+title: "Spring"
+description: "[Slides](spring-slides.html)"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+  revealjs:
+    theme: moon
+    footer: "[Home](../../index.html) --- [Spring](spring.html)"
+    slide-number: c/t                    ## collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: spring-slides.html
+    code-line-numbers: false
+from: markdown+emoji
+lightbox: true
+mermaid:
+  theme: neutral
+---
+
+:construction:
+
+:::{.notes}
+- <https://rules.sonarsource.com/java/>
+- APi Java <https://ensai-school.github.io/software-engineering-2021-2022/>
+
+https://www.geeksforgeeks.org/introduction-to-spring-framework/
+https://www.geeksforgeeks.org/spring/
+https://www.geeksforgeeks.org/introduction-to-spring-boot/
+https://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/overview.html
+
+https://gayerie.dev/docs/spring/index.html
+:::
+
+
+## Spring
+
+### Spring Framework
+
+- Open-source, lightweight framework
+- Simplifies Java development
+- Loosely coupled components
+- Promotes good design practices
+- Makes integration with other systems seamless
+
+:::{.notes}
+- improving:
+  - maintainability,
+  - testability.
+  - flexibility 
+:::
+
+
+
+### Modules
+
+- **Spring MVC**: to build web applications
+- **Spring Security**: authentication, authorization...
+- **Spring Data**: simplifies database access
+- **Spring Batch**: handling large-scale batch processing
+
+
+
+### Key features
+
+- Inversion of Control (IoC)
+- Dependency Injection (DI)
+- Aspect-Oriented Programming (AOP)
+
+
+:::{.notes}
+- Ioc
+  - control flow of a program is inverted
+  - Reduces the dependencies between components
+  - making the codebase more modular
+  - Promotes loose coupling
+- AOP: A module that encapsulates cross-cutting functionality
+  - Wrapper for log, security
+:::
+
+### Manually creating dependency
+
+```{.java filename="Bread.java"}
+public class Bread {
+    private boolean isToasted;
+
+    public void toast(){
+        this.isToasted = true;
+    }
+}
+```
+
+<br>
+
+```{.java filename="Sandwich.java"}
+public class Sandwich {
+    private Bread bread;
+    private ArrayList<String> ingredients;
+
+    public Sandwich(Bread bread) {
+        this.bread = bread;
+    }
+}
+```
+
+---
+
+1. Create a Bread object
+2. Create the sandwich object
+
+<br>
+
+```{.java}
+Bread bread = new Bread();
+Sandwich sandwich = new Sandwich(bread);
+```
+
+### Dependency Injection
+
+```{.java filename="Bread.java"} 
+@Component
+public class Bread {
+    private boolean isToasted;
+
+    public void toast(){
+        this.isToasted = true;
+    }
+}
+```
+
+<br>
+
+```{.java filename="Sandwich.java"}
+public class Sandwich {
+    @Autowired
+    private Bread bread;
+    
+    private ArrayList<String> ingredients;
+}
+```
+
+:::{.notes}
+- <https://www.baeldung.com/spring-bean>
+:::
+
+### What happens now?
+
+- Spring scans `@Component` classes
+- It automatically creates and injects a Bread instance into Sandwich
+- The `@Autowired` annotation tells Spring to resolve and inject the dependency
+- Component subclasses: `@Service`, `@Repository`, `@Controller`
+
+:::{.notes}
+- Component: Bean
+:::
+
+### Bean principles
+
+- No args constructor
+- Managed by the Spring IoC container
+- Scope (Singleton, Prototype)
+- Lifecycle (creation, usage, destruction)
+
+
+:::{.notes}
+- NoArgs: allows Spring to create the bean instance without having to worry about the parameters
+- Prototype: new instance when called
+:::
+
+
+
+## Annotations
+
+### What is Annotation?
+
+- Preceded by an `@`
+- Assigns extra metadata
+- Modify or examine behavior
+- Heavily used in Spring
+
+:::{.notes}
+- Applied to class, method, interface, attribute
+- Use for:
+  - documentation (Override, Deprecated)
+  - Config
+  - Runtime processing
+- Possible to create your own
+:::
+
+### Lombok {background="#000000" background-image="./img/lombok.jpg"}
+
+- Java library
+- Reduce boilerplate
+- Cleaner and more readable code
+- <https://projectlombok.org/>{target="_blank"}
+
+:::{.notes}
+- Isalnd of Indonesia: Lombok, Java
+- boilerplate: repetitive code
+:::
+
+### Lombok Annotations
+
+Auto-generates:
+
+- `@Getter` and `@Setter`
+- `@AllArgsConstructor`
+- `@NoArgsConstructor`
+
+---
+
+```{.java}
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
+@Getter
+public class Book {
+    private String title;
+
+    @Setter
+    private String author;
+}
+```
+
+
+
+## Layers
+
+### Reminder
+
+- **Controller**: API
+- **Service**: Business Logic
+- **Repository**: Data Access Object
+- **Model**: Entities
+
+
+:::{.notes}
+- Controller:
+  - Handles incoming HTTP requests from the client
+  - Processes the request and sends a response
+- Repository: CRUD
+- entities (business_objects):
+  - Maps to tables in the database using JPA/Spring Data
+  - JPA: Java Persistence API
+:::
+
+
+---
+
+![](img/layers.png)
+
+---
+
+![](img/business_layer.png)
+
+
+
+### Workflow
+
+- A client sends an HTTPS request
+- The request is received by the Controller
+- If needed, the Controller calls the Service Layer
+- The Service Layer executes the business logic and interacts with the Repository Layer to perform data operations
+- The Repository Layer retrieves or modifies data in the database using JPA
+- The response is sent back to the client
+
+---
+
+
+### Sequence diagram {background="#FFFFFF"}
+
+```{mermaid}
+sequenceDiagram
+    participant Client
+    participant Controller
+    participant Service
+    participant Repository
+    participant Database
+
+    Client->>Controller: GET /books?title=Java
+    Controller->>Service: getBookByTitle("Java")
+    Service->>Repository: findByTitle("Java")
+    Repository->>Database: SELECT * FROM books WHERE title="Java"
+    Database-->>Repository: Returns book data
+    Repository-->>Service: Returns Book entity
+    Service-->>Controller: Returns Book DTO
+    Controller-->>Client: HTTP 200 OK (Book JSON)
+
+```
+
+
+### HTTP status codes {.smaller}
+
+:::{style="font-size: 80%;"}
+
+| HTTP Status Code | Description                                                                         |
+|--------------------|------------------------------------------------------------------------------------|
+| 200 OK             | The request was successful.                                                       |
+| 400 Bad Request    | The server could not understand the request due to invalid syntax.                |
+| 401 Unauthorized   | Authentication is required, and the client should authenticate itself.            |
+| 403 Forbidden      | The client does not have access rights to the content.                             |
+| 404 Not Found      | The server can not find the requested resource.                                    |
+| 500 Internal Server Error | The server encountered an unexpected condition that prevented it from fulfilling the request. |
+| 501 Not Implemented | The server does not support the functionality required to fulfill the request.    |
+| 502 Bad Gateway    | The server received an invalid response from the upstream server.                  |
+| 503 Service Unavailable | The server is not ready to handle the request.                                |
+
+: {tbl-colwidths="[30, 70]"}
+
+:::
+
+:::{.notes}
+- Client side: The problem is with your device or browser.
+- Server side: The problem is with the website you are trying to use.
+:::
+
+
+## Spring Boot
+
+### Why use Spring Boot?
+
+- Includes all Spring features
+- Simplify configuration
+- Allows developers to focus on business logic
+- Quick development of production-ready applications
+- Optimisation of dependency management
+
+### Features
+
+- Auto-Configuration
+- Creat REST APIs is easy
+- Embedded Tomcat Server
+
+
+### Starters
+
+Dependencies:
+
+- spring-boot-starter-core
+- spring-boot-starter-data-jpa
+- spring-boot-starter-test
+- spring-boot-starter-web
+
+### Create a project
+
+- <https://start.spring.io/>{target="_blank"}
+- Generate a zip
+  - project tree
+  - pom with selected dependencies
+
+
+
+## Properties
+
+:::{.notes}
+- old: application.properties
+- new: yaml
+:::
+
+### application.yml
+
+```{.yml}
+server:
+  port: 9000
+
+spring:
+  application:
+    name: running
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:bootapp;DB_CLOSE_DELAY=-1
+    username: sa
+    password: password
+
+logging:
+  level:
+    root: ERROR
+    fr:
+      ensai: INFO
+    org:
+      springframework:
+        boot:
+          web:
+            embedded:
+              tomcat: INFO
+```
+
+:::{.notes}
+- Like python .env
+- Port
+- Database connection
+- Log setup
+- Let's talk about YAML
+:::
+
+### YAML
+
+- YAML Ain't Markup Language
+- Text format
+- Indentation-based syntax
+- Easily readable by humans
+
+
+:::{.notes}
+- recursive acronym
+:::
+
+### YAML Strucure
+
+- Key-Value pairs
+- indentation: 2 spaces
+  - Required
+  - [YAML Lint](https://www.yamllint.com/){target="_blank"} to validate
+- CASE sensitive
+
+:::{.notes}
+- text values: facultatives quotes
+- spaces: no tabs
+:::
+
+### YAML Examples
+
+```{.yml}
+person:
+  name: Charlotte         # str
+  city: "Amiens"          # str
+  age: 25                 # int
+  height: 1.70            # float
+  student: false          # bool
+  birth_date: 1990-05-15  # date
+```
+
+<br>
+
+```{.yml}
+hobbies: 
+  - chess
+  - hiking
+  - landart
+```
+
+- [More about YAML](https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/docs/outils/YAML.html){target="_blank"} 
+- <https://quickref.me/yaml.html>{target="_blank"} 
+
+:::{.notes}
+- dict
+- list
+  - other syntax: `hobbies: ["chess", "hiking", "landart"]`
+:::
+
+## Data Mapping
+
+---
+
+### Why is it usefull?
+
+- Facilitates interaction between Java objects and database tables
+- ensure accurate data transfer between layers, databases
+- Object-Relational Mapping (ORM)
+
+:::{.notes}
+- SQLAlchemy in Python
+- It was forbidden in IT Project
+:::
+
+### Database side
+
+```{.sql}
+CREATE TABLE user (
+    lastname     VARCHAR(255),
+    firstname    VARCHAR(255),
+    birth_date   DATE,
+    gender       VARCHAR(10)
+);
+```
+
+### Java class
+
+```{.java}
+public class User {
+    private String lastName;
+    private String firstName;
+    private LocalDate birthDate;
+    private String gender;
+```
+
+### Hibernate
+
+- Simplify data interactions with relational databases
+- Maps Java classes to database tables
+- Provides database independence
+- Generates SQL queries for CRUD operations
+
+:::{.notes}
+- inluded via spring-boot-starter-data-jpa
+- JPA: Java Persistence API
+- the default JPA implementation is Hibernate
+:::
+
+
+### Entity Bean
+
+```{.java}
+@Entity
+@Table(name = "user")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
+    @Column(name = "lastname")
+    private String lastName;
+
+    @Column(name = "firstname")
+    private String firstName;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
+
+    @Column(name = "gender")
+    private String gender;
+}
+```
+
+:::{.notes}
+Mapping
+
+- `@Table(name = "user")`: no need if same names
+- `@Column(name = "lastname")`: no need if same names
+- `@Id` marks the id field as the primary key of the entity
+
+Mapping is done, now let's transfert data
+:::
+
+## Repository
+
+### A basic DAO
+
+```{.java}
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+}
+```
+
+:::{.notes}
+- That's all!
+- All CRUD methods are available
+- No need to implement the code
+- TODO explain JpaRepository
+:::
+
+### Basic methods
+
+Methods included automatically without having to implement them:
+
+- `save(Entity e)`
+- `findById(Long id)`
+- `findAll()`
+- `count()`
+- `delete(Entity e)`
+
+:::{.notes}
+- Save: INSERT or UPDATE
+:::
+
+
+### Native SQL Query
+
+```{.java}
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    @Query(value = """
+        SELECT * 
+        FROM user u 
+        WHERE u.last_name = :lastName
+    """, nativeQuery = true)
+    List<User> findByLastNameNative(@Param("lastName") String lastName);
+}
+```
+
+
+### JPQL
+
+- Java Persistence Query Language
+- Method name :arrow_right: Query
+
+```{.java}
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    List<User> findByGenderOrderByFirstNameDesc(String gender);
+}
+```
+
+:::{.notes}
+- No need to implement the code
+- The method name is enought
+- <https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html#jpa.query-methods.query-creation>
+:::
+
+## Controller
+
+### API Rest
+
+### Endpoints
+
+
+## API with Spring Boot
+
+<https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot>
+
+
+
+
+## Run application
+
+### Main
+
+```{.java filename="Application.java"}
+@SpringBootApplication
+public class Application {
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+}
+```
+
+:::{.notes}
+- Main method simply running the application
+:::
