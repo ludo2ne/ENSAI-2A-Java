@@ -7,8 +7,6 @@ from: markdown+emoji
 ---
 
 
-:construction: This course is currently being refactored
-
 ## Class
 
 6h
@@ -20,7 +18,7 @@ from: markdown+emoji
 - Java Project (Tree structure, Packages, Maven)
 - Unit Tests (JUnit)
 - Advanced (Interface, Enum, Stream)
-- Spring Boot, Hibernate ?
+- Spring Boot, Hibernate
 
 
 ## TP
@@ -28,9 +26,9 @@ from: markdown+emoji
 4x3h
 
 - [TP1](doc/tp/tp1.qmd) : Discover Java syntax
-- [TP2](doc/tp/tp2.qmd) : Object Oriented Programming, Unit Tests
+- [TP2](doc/tp/tp2.qmd) : Maven project, OOP, Unit Tests
 - [TP3](doc/tp/tp3.qmd) : Rated TP
-- [TP4](doc/tp/tp4.qmd) : ?
+- [TP4](doc/tp/tp4.qmd) : A Spring Boot project
 
 
 ## Bibliography
@@ -41,6 +39,8 @@ from: markdown+emoji
 
 ### FR
 
+- <https://gayerie.dev/docs/java/index.html>
+- <https://gayerie.dev/docs/spring/index.html>
 - [Développons en Java, Jean-Michel DOUDOUX](https://www.jmdoudoux.fr/accueil_java.htm){target="_blank"}
 - [Apprenez à programmer en Java, Zeste de savoir](https://zestedesavoir.com/tutoriels/646/apprenez-a-programmer-en-java/557_java-oriente-objet/){target="_blank"}
 - <https://blog.paumard.org/cours/java/>{target="_blank"}

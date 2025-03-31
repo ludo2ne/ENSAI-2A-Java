@@ -12,8 +12,6 @@ number-sections: true
 number-depth: 3
 ---
 
-:construction:
-
 ## Instructions
 
 - Groups of 1 or 2 students (from the same TP group)

@@ -21,232 +21,44 @@ number-depth: 3
 :::
 
 
-## Avant de commencer
 
-- [ ] Sur votre disque `P:`, créez un dossier `Java`, 
-- [ ] à l'intérieur, créez un dossier `TP4`
-- [ ] Ouvrez et enregistrez le [sujet](https://foad-moodle.ensai.fr/pluginfile.php/22185/mod_resource/content/10/TP4.pdf){target="_blank"}
-- [ ] Récupérez le dépôt sur [Moodle](https://foad-moodle.ensai.fr/mod/resource/view.php?id=10130){target="_blank"}
+## Objectives {.unnumbered}
 
+- Create a Spring Boot application
 
-## Datalab
+## Before you start
 
-Il est possible de faire le TP soit sur la VM, soit sur le datalab
+When you've finished, don't forget to delete your service.
 
-- [ ] Connectez-vous sur le [datalab](https://datalab.sspcloud.fr/){target="_blank"}
-- [ ] Lancez le service [Java avec VScode](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} puis suivez les instructions
-- [ ] Dans *l'explorer* à gauche > clic droit > Upload
-  - [ ] Chargez le fichier `JavaTP4-unit-test-base`
-- [ ] Ouvrez un terminal
-  - [ ] rentrez `unzip JavaTP4-unit-test-base` pour extraire les fichiers
-- [ ] File > Open Folder > */home/onyxia/work/JavaTP4-unit-test-base/*
-  - :warning: important d'ouvrir le bon dossier !
+After each part, create a commit and push your code to the remote repository.
 
-Remplacez le contenu du fichier `.vscode/settings.json` par :
+### Launch service VSCode Java
 
-```{.json}
-{
-    "java.project.sourcePaths": [
-        "src/main/java",
-        "src/test/java"
-    ],
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
-}
+:construction: Use a new image ?
+
+```
+FROM vscode-python
+Enable port 9000
+INSTALL JAVA, MVN...
 ```
 
+### Update your forked repo
 
-## VM
+...
 
-- [ ] Ouvrez Visual Studio Code
-- [ ] File > Open Folder
-- [ ] Allez dans le dossier *TP3*
-- [ ] Un clic sur *JavaTP4-unit-test-base*, ensuite `Sélectionner un dossier`
+### Open Folder
 
+In VSCode :
 
-## Tests unitaires
+- [ ] File > Open Folder > tp4
 
-### Bonnes pratiques
-
-- **Tests indépendants** : Chaque test devrait être indépendant des autres tests. Assurez-vous que l'exécution d'un test ne dépend pas du résultat d'un autre test.
-- **Clarté et lisibilité** : Écrivez des noms de méthodes de test descriptifs pour indiquer clairement ce qui est testé. Utilisez des noms qui décrivent le comportement attendu.
-- **Isolation des tests** : Les tests doivent être isolés, c'est-à-dire qu'ils ne doivent pas dépendre de l'état du système, de l'ordre d'exécution ou d'autres facteurs externes. Utilisez des mocks ou des données de test spécifiques pour isoler chaque test.
-- **Testez les cas limites** : Assurez-vous de tester les cas limites ainsi que les cas typiques. Cela inclut les valeurs nulles, les limites des boucles, les bornes d'entrée, etc.
-- **Minimisez les assertions par test** : Chaque test ne devrait vérifier qu'une seule chose. Si un test contient plusieurs assertions, cela rendra plus difficile de comprendre quelle assertion a échoué en cas d'échec du test.
-- **Mise en place et nettoyage** : Utilisez les méthodes @Before et @After pour effectuer la mise en place et le nettoyage des objets nécessaires pour chaque test. Assurez-vous que l'état initial est correct avant chaque test.
-- **Utilisation de données de test significatives** : Utilisez des données de test significatives et représentatives pour vos cas de test. Cela garantit que les tests couvrent des scénarios réels et non seulement les cas triviaux.
-- **Gestion des exceptions** : Testez les cas où des exceptions peuvent être levées et assurez-vous qu'elles sont gérées correctement dans vos tests.
-- **Documentation des tests** : Écrivez des commentaires ou des descriptions claires pour expliquer le but de chaque test, ce qu'il teste et pourquoi c'est important.
-- **Exécution régulière des tests** : Exécutez vos tests régulièrement pour vous assurer qu'ils restent valides au fil du temps, en particulier après des modifications du code source.
+**tp4** must be the root folder in your explorer.
 
 
-### Un exemple avec JUnit
-
-```{.java filename="frac.java"}
-public class Frac {
-
-    private int num;
-    private int denom;
-
-    public Frac(int num, int denom) {
-        this.num = num;
-        this.denom = denom;
-    }
-
-    public boolean est_valide() {
-        return denom != 0;
-    }
-
-    public float valeur_approchee() {
-        return (float) this.num / this.denom;
-    }
-
-    public Frac inverse() {
-        return new Frac(this.denom, this.num);
-    }
-
-    public Frac addition(Frac other) {
-        int newNum = this.num * other.denom + other.num * this.denom;
-        int newDenom = this.denom * other.denom;
-        return new Frac(newNum, newDenom);
-    }
-
-    public Frac multiplication(Frac other) {
-        int newNum = this.num * other.num;
-        int newDenom = this.denom * other.denom;
-        return new Frac(newNum, newDenom);
-    }
-
-    public String toString() {
-        return num + "/" + denom;
-    }
-}
-```
+### Compile and run
 
 
-```{.java filename="FracTest.java"}
-import org.junit.Test;
-import org.junit.Assert;
-
-public class FracTest {
-
-    @Test
-    public void testEstValideOK() {
-
-        //GIVEN
-        Frac frac1 = new Frac(1, 2);
-
-        //WHEN
-        boolean res = frac1.est_valide();
-
-        //THEN
-        Assert.assertTrue(res);
-    }
-    
-    public void testEstValideEchec() {
-        Frac frac2 = new Frac(3, 0);
-        Assert.assertFalse(frac2.est_valide());
-    }
-
-    @Test
-    public void testValeurApprochee() {
-        Frac frac1 = new Frac(1, 2);
-        Assert.assertEquals(0.5, frac1.valeur_approchee(), 0.001);
-    }
-
-    @Test
-    public void testInverse() {
-        Frac frac1 = new Frac(1, 2);
-        Frac inverse1 = frac1.inverse();
-
-        Assert.assertEquals(2, inverse1.num);
-        Assert.assertEquals(1, inverse1.denom);
-    }
-
-    @Test
-    public void testAddition() {
-        Frac frac1 = new Frac(1, 2);
-        Frac frac2 = new Frac(1, 4);
-        Frac result = frac1.addition(frac2);
-
-        Assert.assertEquals(6, result.num);
-        Assert.assertEquals(8, result.denom);
-    }
-
-    @Test
-    public void testMultiplication() {
-        Frac frac1 = new Frac(1, 2);
-        Frac frac2 = new Frac(3, 4);
-        Frac result = frac1.multiplication(frac2);
-
-        Assert.assertEquals(3, result.num);
-        Assert.assertEquals(8, result.denom);
-    }
-
-    @Test
-    public void testToString() {
-        Frac frac1 = new Frac(1, 2);
-        Assert.assertEquals("1/2", frac1.toString());
-    }
-}
-```
-
-### Lancer les tests manuellement
-
-- Ouvrir un terminal *bash*
-- Compliler tous les tests
-  - `javac -cp .:lib/*:src/test/java:src/main/java -d bin src/test/java/fr/ensai/java/tp4/core/*.java`
-  - en ajoutant manuellement au classpath (-cp ...) les dossiers *lib*, *main* et *test* 
-- Exécuter une classe de tests
-  - `java -cp .:bin:lib/* org.junit.runner.JUnitCore fr.ensai.java.tp4.core.LevelTest`
-  - en ajoutant au classpath *bin* et *lib*
+- `mvn spring-boot:run`
 
 
-
-## Exercices
-
-### Exercice 1
-
-Des tests unitaires ont déjà été écrits
-
-- [ ] dans VSCode à gauche, cliquez sur l'icone en forme de fiole
-  - patientez quelques secondes le temps que VSCode trouve les tests unitaires
-- [ ] lancez les tests en cliquant sur les 2 triangles pointants vers la droite
-- [ ] corrigez les tests (voir sujet)
-
-Question 2 :
-
-- [ ] créez la classe de tests `SpecieTest`
-- [ ] écrivez les TU de la classe `Specie` en vous inspirant de ce qui a été fait pour `Player`
-- Méthodes à tester :
-  - Constructeur de BULBZAURUS 
-  - Constructeur de CHARMANDUS
-  - toString() de BULBZAURUS : `Species [number=0, name=Bulbzaurus, type=GRASS, initialHp=10, initialStrength=1]`
-
-### Exercice 2
-
-- [ ] créez la classe `InventoryTest` et écrivez les TU de la méthode *add()*
-- [ ] créez la classe `SingleUseItemTest`
-
-
-
-### Exercice 3
-
- Rappels sur les interfaces :
-
-- [ ] créez une Interface `Coordinates` contenant les méthodes communes
-- [ ] modifiez la classe `CartesianCoordinates` pour qu'elle implémente cette interface
-- [ ] créez la classe `PolarCoordinates` implémentant la même interface
-
-Ensuite compilez, puis exécutez le main :
-
-- pour un terminal *Bash*
-  - Compilez le *Main* : `javac -d bin -sourcepath src ./src/main/Main.java`
-  - Exécutez le programme : `java -cp bin main.Main`
-- pour un terminal *PowerShell*
-- [ ] Compilez le *Main* : `javac -d bin -sourcepath src .\src\main\Main.java`
-- [ ] Exécutez le programme : `java -cp bin main.Main`
-
-
-
+## Exercice
