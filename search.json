@@ -84,25 +84,67 @@
     "text": "2 Exercices\n\nOpen a terminal\n\nTerminal &gt; New Terminal (or CTRL + ù)\n\nGo to the folder ENSAI-2A-Java-TP/tp1/src\n\nif you need help, check out Unix basic commands\n\n\n\nCompile\n\na single Java file: javac MyClass.java\nall Java files: javac *.java\nspecify output directory for .class files (recommended): javac -d bin MyClass.java\n\n\n\nRun\n\n\n\n\n\n\nImportant\n\n\n\nTo run a class, it must have a main() method.\n\n\n\njava MyClass\nwhen .class files are in the bin/ directory: java -cp bin MyClass\n\n\n\n\n\n\n\nStatic Methods\n\n\n\nAs mentioned at the beginning, the aim of this tutorial is not OOP, but simply basic Java syntax.\nSo all the methods defined here are static ➡️ They are class methods ➡️ They can be called without instantiating an object.\n\n\n\n\n2.1 Brute force\nYou will write a Java method that attempts to brute-force a hashed 6-digit numeric password.\n\nThe method will iterate through all numbers from 000000 to 999999\nFor each number, Generate and compare hash with the given target hash\nIf a match is found, return the original number else return null\n\n\n\nOpen File Password.java\nComplete method bruteForce6Digit()\n\n\n\n\n\n\n\nTip\n\n\n\n\nUse method hashPassword()\nString.format(\"%06d\", 123)➡️ “000123”\n\n\n\n\n\n2.2 Strong password\n\nCommit and Push the code of the last exercise\nComplete method isStrongPassword()\n\nYou will write a Java method to check if a password is strong. A password is strong if:\n\n✅ It has at least 12 characters\n✅ It contains at least one uppercase letter\n✅ It contains at least one lowercase letter\n✅ It contains at least one digit\n❌ It does not contain whitespace\n\n\n\n\n\n\n\nTip\n\n\n\nUsefull methods:\n\nCharacter.isUpperCase(&lt;char&gt;)\nCharacter.isDigit(&lt;char&gt;)\nCharacter.isWhitespace(&lt;char&gt;)\n\n\n\n\n\n2.3 Check password list\n\nCommit and Push the code of the last exercise\nComplete method checkPasswordsList()\n\nYou will write a method that takes a list of passwords (ArrayList) and checks their strength.\nThe method should return a HashMap where:\n\nThe keys are the passwords\nThe values are true if the password is strong, false otherwise\n\n\n\n2.4 Generate a Random Password\nObjective: Implement a method to generate a secure random password that includes at least:\n\n✅ 1 uppercase letter\n\n✅ 1 lowercase letter\n\n✅ 1 digit\n\n✅ 1 special character\n\n\nEnsure length is at least 4\nCreate a list of characters\nAdd at least one character from each group\n\nFill the remaining characters randomly from all groups\nShuffle the password to mix character types Collections.shuffle(&lt;myList&gt;)\nConvert the list into a String and return it\n\n\nComplete method generatePassword()\n\n\n\n\n\n\n\nGenerate random int between 0 and 20\n\n\n\nSecureRandom random = new SecureRandom();\nSystem.out.println(random.nextInt(21));\n\n\n\n\n2.5 Login System\nComplete file Login.java:\n\nLoads csv file data/user_hashpwd.csv containing usernames and hashed passwords\nAsk for a username\nIf username exists, ask for password\nIf login succeeds, print Login successful! and exit, else ask again username\n\nBonus:\n\nAfter entering username, give 3 chances to input the correct password\nIf all 3 attempts fail, restart username input\n\n\n\n\n\n\n\nUse a Scanner\n\n\n\nScanner scanner = new Scanner(System.in);\n\nSystem.out.print(\"Enter username: \");\nString username = scanner.nextLine();\n\nscanner.close();"
   },
   {
-    "objectID": "doc/cours/level3.html",
-    "href": "doc/cours/level3.html",
-    "title": "level3",
+    "objectID": "doc/cours/project.html",
+    "href": "doc/cours/project.html",
+    "title": "Java Project",
     "section": "",
-    "text": "Spring Boot\nHibernate (ORM)\nhttps://rules.sonarsource.com/java/\nAPi Java https://ensai-school.github.io/software-engineering-2021-2022/"
+    "text": "Maintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\n\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
   },
   {
-    "objectID": "doc/cours/level3.html#todo",
-    "href": "doc/cours/level3.html#todo",
-    "title": "level3",
+    "objectID": "doc/cours/project.html#tree-structure",
+    "href": "doc/cours/project.html#tree-structure",
+    "title": "Java Project",
     "section": "",
-    "text": "Spring Boot\nHibernate (ORM)\nhttps://rules.sonarsource.com/java/\nAPi Java https://ensai-school.github.io/software-engineering-2021-2022/"
+    "text": "Maintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\n\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
   },
   {
-    "objectID": "doc/cours/level3-slides.html#todo",
-    "href": "doc/cours/level3-slides.html#todo",
-    "title": "level3",
-    "section": "Todo 🚧",
-    "text": "Todo 🚧\n\n\nSpring Boot\nHibernate (ORM)\nhttps://rules.sonarsource.com/java/\nAPi Java https://ensai-school.github.io/software-engineering-2021-2022/"
+    "objectID": "doc/cours/project.html#packages",
+    "href": "doc/cours/project.html#packages",
+    "title": "Java Project",
+    "section": "Packages",
+    "text": "Packages\n\nA way to organize Java classes and interfaces into namespaces\nUsed to group related classes together\nHelp to prevent naming conflicts\n\n\n\nSimilar to folders or directories in a file system\n\n\n\nPackage Naming Conventions\n\nNamed in lowercase\nReverse domain name notation\nExamples:\n\nfr.ensai.library\ncom.myorg.myapp.service\n\n\n\nservice, dao…\n\n\n\nExample\npackage fr.ensai.library;\n\npublic class Book{\n    ...\n}\n\n\nImporting Packages\n\nTo use classes from other packages\nimport fr.ensai.library.dao;\n\n\n\nNo need to import classes from the same package\nAvoid import fr.ensai.library.*"
+  },
+  {
+    "objectID": "doc/cours/project.html#maven",
+    "href": "doc/cours/project.html#maven",
+    "title": "Java Project",
+    "section": "Maven",
+    "text": "Maven\n\nWhat is Maven?\n\nA powerful build automation tool for Java projects\nHelps manage dependencies\n\nDownload from Maven Central repo\n\nProvides a standardized build lifecycle\n\n\n\ndependencies: external libraries your project needs\nlifecycle: compile, test, package\n\nessential just to manage dependencies\nAlternative: Gradle\n\n\n\nWhy Use Maven?\n\nSimplifies dependency management: No more manual downloads\nEnsures consistent builds: Everyone uses the same process\nPromotes best practices: Encourages a well-defined project structure\n\n\n\nwithoud maven : java -cp &lt;all_dependencies&gt; Main\n\n\n\n\nPOM\n\nProject Object Model\na configuration file: pom.xml\ndescribes your project and its dependencies\n\n\n\npom.xml\n\n\npom.xml\n\n&lt;project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\"&gt;\n    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\n\n    &lt;groupId&gt;fr.ensai&lt;/groupId&gt;\n    &lt;artifactId&gt;library&lt;/artifactId&gt;\n    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;\n\n    &lt;properties&gt;\n        &lt;maven.compiler.source&gt;21&lt;/maven.compiler.source&gt;\n        &lt;maven.compiler.target&gt;21&lt;/maven.compiler.target&gt;\n    &lt;/properties&gt;\n\n    &lt;dependencies&gt;\n        &lt;!-- JUnit for testing --&gt;\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n    &lt;/dependencies&gt;\n\n    &lt;build&gt;\n        &lt;plugins&gt;\n            &lt;plugin&gt;\n                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;\n                &lt;version&gt;3.8.1&lt;/version&gt;\n                &lt;configuration&gt;\n                    &lt;source&gt;21&lt;/source&gt;\n                    &lt;target&gt;21&lt;/target&gt;\n                &lt;/configuration&gt;\n            &lt;/plugin&gt;\n        &lt;/plugins&gt;\n    &lt;/build&gt;\n&lt;/project&gt;\n\n\n\nArtifacts\n\nPackaged component with unique ID: groupId, artifactId, version.\nVersioning: Essential to identify artifacts\n\nMajor.Minor.Bugfix\nDevelopment: -SNAPSHOT versions\n\n\n\n\nmaven.compiler.source: Java source version compatibility for the compiler\nmaven.compiler.target: Determines the Java Runtime Environment (JRE) versions on which the compiled code can run\n\n\n\n\nDependencies\n\nExternal libraries your project relies on\nMaven downloads and manages these dependencies automatically\nExample: JUnit, database connectors, logging frameworks\n\n\n\nPlugins\n\nExtend Maven’s functionality\nExamples:\n\nmaven-compiler-plugin,\nmaven-surefire-plugin (for testing)\n\nHelp with tasks like compiling code, running tests, creating JAR files\n\n\n\nLifecycles\n\nmvn clean: Deletes the target directory\nmvn compile: Compiles your Java code\nmvn test: Runs your unit tests\nmvn package: Creates a JAR file of your project\nmvn exec:java: Run your program\nmvn site: Creates a website for your project"
+  },
+  {
+    "objectID": "doc/cours/project.html#deployment",
+    "href": "doc/cours/project.html#deployment",
+    "title": "Java Project",
+    "section": "Deployment",
+    "text": "Deployment\n\nPackaging for deployment\n\nCreation of a JAR file (for API)\nOr a WAR file (for web applications)\n\nUse a Tomcat server\n\n\n\n\n\n\n\n\nJAR file\n\n\n\n\nA package file format used to aggregate many Java class files and associated resources into a single file\nBased on the ZIP file format\n\n\n\n\n\nWAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).\nJAR: simply run it java -jar my-api.jar on a server or using Docker\nUse Docker\nBackend (Business logic)\n\nJava Application history\n\nmonolith struts\nback Java / front JS\nArchi 3-tiers\n\n\n\n\nDeployment history\n\nMonolith\nVirtualisation\nContainerization\nOrchestration\n\n\n\nMonolith\n\none physical server: one app\nUnderutilized server resources\n\nVirtualisation\n\nApplication isolation\nIssue: compatibility\n\nContainerization\n\nPortability\n\nOrchestration\n\nAutomated container management\n\n\nBefore: Filezilla, integrator, it work on my machine\nNow: CICD, git, devops"
+  },
+  {
+    "objectID": "doc/cours/project-slides.html#tree-structure",
+    "href": "doc/cours/project-slides.html#tree-structure",
+    "title": "Java Project",
+    "section": "Tree structure",
+    "text": "Tree structure"
+  },
+  {
+    "objectID": "doc/cours/project-slides.html#packages",
+    "href": "doc/cours/project-slides.html#packages",
+    "title": "Java Project",
+    "section": "Packages",
+    "text": "Packages\n\nA way to organize Java classes and interfaces into namespaces\nUsed to group related classes together\nHelp to prevent naming conflicts\n\n\n\nSimilar to folders or directories in a file system"
+  },
+  {
+    "objectID": "doc/cours/project-slides.html#maven",
+    "href": "doc/cours/project-slides.html#maven",
+    "title": "Java Project",
+    "section": "Maven",
+    "text": "Maven"
+  },
+  {
+    "objectID": "doc/cours/project-slides.html#deployment",
+    "href": "doc/cours/project-slides.html#deployment",
+    "title": "Java Project",
+    "section": "Deployment",
+    "text": "Deployment"
   },
   {
     "objectID": "doc/cours/intro.html",
@@ -791,67 +833,151 @@
     "text": "Mutation Testing\n\nEvaluate the effectiveness of your tests\nIntroduces small changes (mutations) to your code\nChecks if your tests can detect these changes\n\nhttps://pitest.org/\n\n\nMutations are automatically seeded into your code,\nthen your tests are run.\nIf your tests fail then the mutation is killed\nif your tests pass then the mutation lived\nThe quality of your tests can be gauged from the percentage of mutations killed\n\nReplace :\n\n+ with -\n&gt; with &gt;=\n…"
   },
   {
-    "objectID": "doc/cours/project-slides.html#tree-structure",
-    "href": "doc/cours/project-slides.html#tree-structure",
-    "title": "Java Project",
-    "section": "Tree structure",
-    "text": "Tree structure"
+    "objectID": "doc/cours/spring-slides.html#spring",
+    "href": "doc/cours/spring-slides.html#spring",
+    "title": "Spring",
+    "section": "Spring",
+    "text": "Spring"
   },
   {
-    "objectID": "doc/cours/project-slides.html#packages",
-    "href": "doc/cours/project-slides.html#packages",
-    "title": "Java Project",
-    "section": "Packages",
-    "text": "Packages\n\nA way to organize Java classes and interfaces into namespaces\nUsed to group related classes together\nHelp to prevent naming conflicts\n\n\n\nSimilar to folders or directories in a file system"
+    "objectID": "doc/cours/spring-slides.html#annotations",
+    "href": "doc/cours/spring-slides.html#annotations",
+    "title": "Spring",
+    "section": "Annotations",
+    "text": "Annotations"
   },
   {
-    "objectID": "doc/cours/project-slides.html#maven",
-    "href": "doc/cours/project-slides.html#maven",
-    "title": "Java Project",
-    "section": "Maven",
-    "text": "Maven"
+    "objectID": "doc/cours/spring-slides.html#layers",
+    "href": "doc/cours/spring-slides.html#layers",
+    "title": "Spring",
+    "section": "Layers",
+    "text": "Layers"
   },
   {
-    "objectID": "doc/cours/project-slides.html#deployment",
-    "href": "doc/cours/project-slides.html#deployment",
-    "title": "Java Project",
-    "section": "Deployment",
-    "text": "Deployment"
+    "objectID": "doc/cours/spring-slides.html#spring-boot",
+    "href": "doc/cours/spring-slides.html#spring-boot",
+    "title": "Spring",
+    "section": "Spring Boot",
+    "text": "Spring Boot"
   },
   {
-    "objectID": "doc/cours/project.html",
-    "href": "doc/cours/project.html",
-    "title": "Java Project",
+    "objectID": "doc/cours/spring-slides.html#properties",
+    "href": "doc/cours/spring-slides.html#properties",
+    "title": "Spring",
+    "section": "Properties",
+    "text": "Properties\n\n\nold: application.properties\nnew: yaml"
+  },
+  {
+    "objectID": "doc/cours/spring-slides.html#data-mapping",
+    "href": "doc/cours/spring-slides.html#data-mapping",
+    "title": "Spring",
+    "section": "Data Mapping",
+    "text": "Data Mapping"
+  },
+  {
+    "objectID": "doc/cours/spring-slides.html#repository",
+    "href": "doc/cours/spring-slides.html#repository",
+    "title": "Spring",
+    "section": "Repository",
+    "text": "Repository"
+  },
+  {
+    "objectID": "doc/cours/spring-slides.html#controller",
+    "href": "doc/cours/spring-slides.html#controller",
+    "title": "Spring",
+    "section": "Controller",
+    "text": "Controller"
+  },
+  {
+    "objectID": "doc/cours/spring-slides.html#api-with-spring-boot",
+    "href": "doc/cours/spring-slides.html#api-with-spring-boot",
+    "title": "Spring",
+    "section": "API with Spring Boot",
+    "text": "API with Spring Boot\nhttps://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot"
+  },
+  {
+    "objectID": "doc/cours/spring-slides.html#run-application",
+    "href": "doc/cours/spring-slides.html#run-application",
+    "title": "Spring",
+    "section": "Run application",
+    "text": "Run application"
+  },
+  {
+    "objectID": "doc/cours/spring.html",
+    "href": "doc/cours/spring.html",
+    "title": "Spring",
     "section": "",
-    "text": "Maintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\n\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
+    "text": "🚧"
   },
   {
-    "objectID": "doc/cours/project.html#tree-structure",
-    "href": "doc/cours/project.html#tree-structure",
-    "title": "Java Project",
-    "section": "",
-    "text": "Maintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\n\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
+    "objectID": "doc/cours/spring.html#spring",
+    "href": "doc/cours/spring.html#spring",
+    "title": "Spring",
+    "section": "Spring",
+    "text": "Spring\n\nSpring Framework\n\nOpen-source, lightweight framework\nSimplifies Java development\nLoosely coupled components\nPromotes good design practices\nMakes integration with other systems seamless\n\n\n\nimproving:\n\nmaintainability,\ntestability.\nflexibility\n\n\n\n\n\nModules\n\nSpring MVC: to build web applications\nSpring Security: authentication, authorization…\nSpring Data: simplifies database access\nSpring Batch: handling large-scale batch processing\n\n\n\nKey features\n\nInversion of Control (IoC)\nDependency Injection (DI)\nAspect-Oriented Programming (AOP)\n\n\n\nIoc\n\ncontrol flow of a program is inverted\nReduces the dependencies between components\nmaking the codebase more modular\nPromotes loose coupling\n\nAOP: A module that encapsulates cross-cutting functionality\n\nWrapper for log, security\n\n\n\n\n\nManually creating dependency\n\n\nBread.java\n\npublic class Bread {\n    private boolean isToasted;\n\n    public void toast(){\n        this.isToasted = true;\n    }\n}\n\n\n\n\nSandwich.java\n\npublic class Sandwich {\n    private Bread bread;\n    private ArrayList&lt;String&gt; ingredients;\n\n    public Sandwich(Bread bread) {\n        this.bread = bread;\n    }\n}\n\n\n\nCreate a Bread object\nCreate the sandwich object\n\n\nBread bread = new Bread();\nSandwich sandwich = new Sandwich(bread);\n\n\nDependency Injection\n\n\nBread.java\n\n@Component\npublic class Bread {\n    private boolean isToasted;\n\n    public void toast(){\n        this.isToasted = true;\n    }\n}\n\n\n\n\nSandwich.java\n\npublic class Sandwich {\n    @Autowired\n    private Bread bread;\n    \n    private ArrayList&lt;String&gt; ingredients;\n}\n\n\n\nhttps://www.baeldung.com/spring-bean\n\n\n\n\nWhat happens now?\n\nSpring scans @Component classes\nIt automatically creates and injects a Bread instance into Sandwich\nThe @Autowired annotation tells Spring to resolve and inject the dependency\nComponent subclasses: @Service, @Repository, @Controller\n\n\n\nComponent: Bean\n\n\n\n\nBean principles\n\nNo args constructor\nManaged by the Spring IoC container\nScope (Singleton, Prototype)\nLifecycle (creation, usage, destruction)\n\n\n\nNoArgs: allows Spring to create the bean instance without having to worry about the parameters\nPrototype: new instance when called"
   },
   {
-    "objectID": "doc/cours/project.html#packages",
-    "href": "doc/cours/project.html#packages",
-    "title": "Java Project",
-    "section": "Packages",
-    "text": "Packages\n\nA way to organize Java classes and interfaces into namespaces\nUsed to group related classes together\nHelp to prevent naming conflicts\n\n\n\nSimilar to folders or directories in a file system\n\n\n\nPackage Naming Conventions\n\nNamed in lowercase\nReverse domain name notation\nExamples:\n\nfr.ensai.library\ncom.myorg.myapp.service\n\n\n\nservice, dao…\n\n\n\nExample\npackage fr.ensai.library;\n\npublic class Book{\n    ...\n}\n\n\nImporting Packages\n\nTo use classes from other packages\nimport fr.ensai.library.dao;\n\n\n\nNo need to import classes from the same package\nAvoid import fr.ensai.library.*"
+    "objectID": "doc/cours/spring.html#annotations",
+    "href": "doc/cours/spring.html#annotations",
+    "title": "Spring",
+    "section": "Annotations",
+    "text": "Annotations\n\nWhat is Annotation?\n\nPreceded by an @\nAssigns extra metadata\nModify or examine behavior\nHeavily used in Spring\n\n\n\nApplied to class, method, interface, attribute\nUse for:\n\ndocumentation (Override, Deprecated)\nConfig\nRuntime processing\n\nPossible to create your own\n\n\n\n\nLombok\n\nJava library\nReduce boilerplate\nCleaner and more readable code\nhttps://projectlombok.org/\n\n\n\nIsalnd of Indonesia: Lombok, Java\nboilerplate: repetitive code\n\n\n\n\nLombok Annotations\nAuto-generates:\n\n@Getter and @Setter\n@AllArgsConstructor\n@NoArgsConstructor\n\n\nimport lombok.AllArgsConstructor;\nimport lombok.Getter;\nimport lombok.Setter;\n\n@AllArgsConstructor\n@Getter\npublic class Book {\n    private String title;\n\n    @Setter\n    private String author;\n}"
   },
   {
-    "objectID": "doc/cours/project.html#maven",
-    "href": "doc/cours/project.html#maven",
-    "title": "Java Project",
-    "section": "Maven",
-    "text": "Maven\n\nWhat is Maven?\n\nA powerful build automation tool for Java projects\nHelps manage dependencies\n\nDownload from Maven Central repo\n\nProvides a standardized build lifecycle\n\n\n\ndependencies: external libraries your project needs\nlifecycle: compile, test, package\n\nessential just to manage dependencies\nAlternative: Gradle\n\n\n\nWhy Use Maven?\n\nSimplifies dependency management: No more manual downloads\nEnsures consistent builds: Everyone uses the same process\nPromotes best practices: Encourages a well-defined project structure\n\n\n\nwithoud maven : java -cp &lt;all_dependencies&gt; Main\n\n\n\n\nPOM\n\nProject Object Model\na configuration file: pom.xml\ndescribes your project and its dependencies\n\n\n\npom.xml\n\n\npom.xml\n\n&lt;project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\"&gt;\n    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\n\n    &lt;groupId&gt;fr.ensai&lt;/groupId&gt;\n    &lt;artifactId&gt;library&lt;/artifactId&gt;\n    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;\n\n    &lt;properties&gt;\n        &lt;maven.compiler.source&gt;21&lt;/maven.compiler.source&gt;\n        &lt;maven.compiler.target&gt;21&lt;/maven.compiler.target&gt;\n    &lt;/properties&gt;\n\n    &lt;dependencies&gt;\n        &lt;!-- JUnit for testing --&gt;\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n    &lt;/dependencies&gt;\n\n    &lt;build&gt;\n        &lt;plugins&gt;\n            &lt;plugin&gt;\n                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;\n                &lt;version&gt;3.8.1&lt;/version&gt;\n                &lt;configuration&gt;\n                    &lt;source&gt;21&lt;/source&gt;\n                    &lt;target&gt;21&lt;/target&gt;\n                &lt;/configuration&gt;\n            &lt;/plugin&gt;\n        &lt;/plugins&gt;\n    &lt;/build&gt;\n&lt;/project&gt;\n\n\n\nArtifacts\n\nPackaged component with unique ID: groupId, artifactId, version.\nVersioning: Essential to identify artifacts\n\nMajor.Minor.Bugfix\nDevelopment: -SNAPSHOT versions\n\n\n\n\nmaven.compiler.source: Java source version compatibility for the compiler\nmaven.compiler.target: Determines the Java Runtime Environment (JRE) versions on which the compiled code can run\n\n\n\n\nDependencies\n\nExternal libraries your project relies on\nMaven downloads and manages these dependencies automatically\nExample: JUnit, database connectors, logging frameworks\n\n\n\nPlugins\n\nExtend Maven’s functionality\nExamples:\n\nmaven-compiler-plugin,\nmaven-surefire-plugin (for testing)\n\nHelp with tasks like compiling code, running tests, creating JAR files\n\n\n\nLifecycles\n\nmvn clean: Deletes the target directory\nmvn compile: Compiles your Java code\nmvn test: Runs your unit tests\nmvn package: Creates a JAR file of your project\nmvn exec:java: Run your program\nmvn site: Creates a website for your project"
+    "objectID": "doc/cours/spring.html#layers",
+    "href": "doc/cours/spring.html#layers",
+    "title": "Spring",
+    "section": "Layers",
+    "text": "Layers\n\nReminder\n\nController: API\nService: Business Logic\nRepository: Data Access Object\nModel: Entities\n\n\n\nController:\n\nHandles incoming HTTP requests from the client\nProcesses the request and sends a response\n\nRepository: CRUD\nentities (business_objects):\n\nMaps to tables in the database using JPA/Spring Data\nJPA: Java Persistence API\n\n\n\n\n\n\n\n\n\nWorkflow\n\nA client sends an HTTPS request\nThe request is received by the Controller\nIf needed, the Controller calls the Service Layer\nThe Service Layer executes the business logic and interacts with the Repository Layer to perform data operations\nThe Repository Layer retrieves or modifies data in the database using JPA\nThe response is sent back to the client\n\n\n\n\nSequence diagram\n\n\n\n\n\nsequenceDiagram\n    participant Client\n    participant Controller\n    participant Service\n    participant Repository\n    participant Database\n\n    Client-&gt;&gt;Controller: GET /books?title=Java\n    Controller-&gt;&gt;Service: getBookByTitle(\"Java\")\n    Service-&gt;&gt;Repository: findByTitle(\"Java\")\n    Repository-&gt;&gt;Database: SELECT * FROM books WHERE title=\"Java\"\n    Database--&gt;&gt;Repository: Returns book data\n    Repository--&gt;&gt;Service: Returns Book entity\n    Service--&gt;&gt;Controller: Returns Book DTO\n    Controller--&gt;&gt;Client: HTTP 200 OK (Book JSON)\n\n\n\n\n\n\n\n\n\nHTTP status codes\n\n\n\n\n\n\n\n\nHTTP Status Code\nDescription\n\n\n\n\n200 OK\nThe request was successful.\n\n\n400 Bad Request\nThe server could not understand the request due to invalid syntax.\n\n\n401 Unauthorized\nAuthentication is required, and the client should authenticate itself.\n\n\n403 Forbidden\nThe client does not have access rights to the content.\n\n\n404 Not Found\nThe server can not find the requested resource.\n\n\n500 Internal Server Error\nThe server encountered an unexpected condition that prevented it from fulfilling the request.\n\n\n501 Not Implemented\nThe server does not support the functionality required to fulfill the request.\n\n\n502 Bad Gateway\nThe server received an invalid response from the upstream server.\n\n\n503 Service Unavailable\nThe server is not ready to handle the request.\n\n\n\n\n\n\nClient side: The problem is with your device or browser.\nServer side: The problem is with the website you are trying to use."
   },
   {
-    "objectID": "doc/cours/project.html#deployment",
-    "href": "doc/cours/project.html#deployment",
-    "title": "Java Project",
-    "section": "Deployment",
-    "text": "Deployment\n\nPackaging for deployment\n\nCreation of a JAR file (for API)\nOr a WAR file (for web applications)\n\nUse a Tomcat server\n\n\n\n\n\n\n\n\nJAR file\n\n\n\n\nA package file format used to aggregate many Java class files and associated resources into a single file\nBased on the ZIP file format\n\n\n\n\n\nWAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).\nJAR: simply run it java -jar my-api.jar on a server or using Docker\nUse Docker\nBackend (Business logic)\n\nJava Application history\n\nmonolith struts\nback Java / front JS\nArchi 3-tiers\n\n\n\n\nDeployment history\n\nMonolith\nVirtualisation\nContainerization\nOrchestration\n\n\n\nMonolith\n\none physical server: one app\nUnderutilized server resources\n\nVirtualisation\n\nApplication isolation\nIssue: compatibility\n\nContainerization\n\nPortability\n\nOrchestration\n\nAutomated container management\n\n\nBefore: Filezilla, integrator, it work on my machine\nNow: CICD, git, devops"
+    "objectID": "doc/cours/spring.html#spring-boot",
+    "href": "doc/cours/spring.html#spring-boot",
+    "title": "Spring",
+    "section": "Spring Boot",
+    "text": "Spring Boot\n\nWhy use Spring Boot?\n\nIncludes all Spring features\nSimplify configuration\nAllows developers to focus on business logic\nQuick development of production-ready applications\nOptimisation of dependency management\n\n\n\nFeatures\n\nAuto-Configuration\nCreat REST APIs is easy\nEmbedded Tomcat Server\n\n\n\nStarters\nDependencies:\n\nspring-boot-starter-core\nspring-boot-starter-data-jpa\nspring-boot-starter-test\nspring-boot-starter-web\n\n\n\nCreate a project\n\nhttps://start.spring.io/\nGenerate a zip\n\nproject tree\npom with selected dependencies"
+  },
+  {
+    "objectID": "doc/cours/spring.html#properties",
+    "href": "doc/cours/spring.html#properties",
+    "title": "Spring",
+    "section": "Properties",
+    "text": "Properties\n\n\nold: application.properties\nnew: yaml\n\n\n\napplication.yml\nserver:\n  port: 9000\n\nspring:\n  application:\n    name: running\n  datasource:\n    driver-class-name: org.h2.Driver\n    url: jdbc:h2:mem:bootapp;DB_CLOSE_DELAY=-1\n    username: sa\n    password: password\n\nlogging:\n  level:\n    root: ERROR\n    fr:\n      ensai: INFO\n    org:\n      springframework:\n        boot:\n          web:\n            embedded:\n              tomcat: INFO\n\n\nLike python .env\nPort\nDatabase connection\nLog setup\nLet’s talk about YAML\n\n\n\n\nYAML\n\nYAML Ain’t Markup Language\nText format\nIndentation-based syntax\nEasily readable by humans\n\n\n\nrecursive acronym\n\n\n\n\nYAML Strucure\n\nKey-Value pairs\nindentation: 2 spaces\n\nRequired\nYAML Lint to validate\n\nCASE sensitive\n\n\n\ntext values: facultatives quotes\nspaces: no tabs\n\n\n\n\nYAML Examples\nperson:\n  name: Charlotte         # str\n  city: \"Amiens\"          # str\n  age: 25                 # int\n  height: 1.70            # float\n  student: false          # bool\n  birth_date: 1990-05-15  # date\n\nhobbies: \n  - chess\n  - hiking\n  - landart\n\nMore about YAML\nhttps://quickref.me/yaml.html\n\n\n\ndict\nlist\n\nother syntax: hobbies: [\"chess\", \"hiking\", \"landart\"]"
+  },
+  {
+    "objectID": "doc/cours/spring.html#data-mapping",
+    "href": "doc/cours/spring.html#data-mapping",
+    "title": "Spring",
+    "section": "Data Mapping",
+    "text": "Data Mapping\n\n\nWhy is it usefull?\n\nFacilitates interaction between Java objects and database tables\nensure accurate data transfer between layers, databases\nObject-Relational Mapping (ORM)\n\n\n\nSQLAlchemy in Python\nIt was forbidden in IT Project\n\n\n\n\nDatabase side\nCREATE TABLE user (\n    lastname     VARCHAR(255),\n    firstname    VARCHAR(255),\n    birth_date   DATE,\n    gender       VARCHAR(10)\n);\n\n\nJava class\npublic class User {\n    private String lastName;\n    private String firstName;\n    private LocalDate birthDate;\n    private String gender;\n\n\nHibernate\n\nSimplify data interactions with relational databases\nMaps Java classes to database tables\nProvides database independence\nGenerates SQL queries for CRUD operations\n\n\n\ninluded via spring-boot-starter-data-jpa\nJPA: Java Persistence API\nthe default JPA implementation is Hibernate\n\n\n\n\nEntity Bean\n@Entity\n@Table(name = \"user\")\npublic class User {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.SEQUENCE)\n    private Long id;\n\n    @Column(name = \"lastname\")\n    private String lastName;\n\n    @Column(name = \"firstname\")\n    private String firstName;\n\n    @Column(name = \"birth_date\")\n    private LocalDate birthDate;\n\n    @Column(name = \"gender\")\n    private String gender;\n}\n\nMapping\n\n@Table(name = \"user\"): no need if same names\n@Column(name = \"lastname\"): no need if same names\n@Id marks the id field as the primary key of the entity\n\nMapping is done, now let’s transfert data"
+  },
+  {
+    "objectID": "doc/cours/spring.html#repository",
+    "href": "doc/cours/spring.html#repository",
+    "title": "Spring",
+    "section": "Repository",
+    "text": "Repository\n\nA basic DAO\nimport org.springframework.data.jpa.repository.JpaRepository;\nimport org.springframework.stereotype.Repository;\n\n@Repository\npublic interface UserRepository extends JpaRepository&lt;User, Long&gt; {\n}\n\n\nThat’s all!\nAll CRUD methods are available\nNo need to implement the code\nTODO explain JpaRepository\n\n\n\n\nBasic methods\nMethods included automatically without having to implement them:\n\nsave(Entity e)\nfindById(Long id)\nfindAll()\ncount()\ndelete(Entity e)\n\n\n\nSave: INSERT or UPDATE\n\n\n\n\nNative SQL Query\nimport org.springframework.data.jpa.repository.JpaRepository;\nimport org.springframework.data.jpa.repository.Query;\nimport org.springframework.data.repository.query.Param;\nimport org.springframework.stereotype.Repository;\nimport java.util.List;\n\n@Repository\npublic interface UserRepository extends JpaRepository&lt;User, Long&gt; {\n\n    @Query(value = \"\"\"\n        SELECT * \n        FROM user u \n        WHERE u.last_name = :lastName\n    \"\"\", nativeQuery = true)\n    List&lt;User&gt; findByLastNameNative(@Param(\"lastName\") String lastName);\n}\n\n\nJPQL\n\nJava Persistence Query Language\nMethod name ➡️ Query\n\nimport org.springframework.data.jpa.repository.JpaRepository;\nimport org.springframework.stereotype.Repository;\n\n@Repository\npublic interface UserRepository extends JpaRepository&lt;User, Long&gt; {\n    List&lt;User&gt; findByGenderOrderByFirstNameDesc(String gender);\n}\n\n\nNo need to implement the code\nThe method name is enought\nhttps://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html#jpa.query-methods.query-creation"
+  },
+  {
+    "objectID": "doc/cours/spring.html#controller",
+    "href": "doc/cours/spring.html#controller",
+    "title": "Spring",
+    "section": "Controller",
+    "text": "Controller\n\nAPI Rest\n\n\nEndpoints"
+  },
+  {
+    "objectID": "doc/cours/spring.html#api-with-spring-boot",
+    "href": "doc/cours/spring.html#api-with-spring-boot",
+    "title": "Spring",
+    "section": "API with Spring Boot",
+    "text": "API with Spring Boot\nhttps://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot"
+  },
+  {
+    "objectID": "doc/cours/spring.html#run-application",
+    "href": "doc/cours/spring.html#run-application",
+    "title": "Spring",
+    "section": "Run application",
+    "text": "Run application\n\nMain\n\n\nApplication.java\n\n@SpringBootApplication\npublic class Application {\n    public static void main(String[] args) {\n        SpringApplication.run(Application.class, args);\n    }\n}\n\n\n\nMain method simply running the application"
   },
   {
     "objectID": "doc/tp/tp2.html",
