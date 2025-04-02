@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -201,6 +235,9 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure"><span class="header-section-number">2.1</span> Project structure</a></li>
   <li><a href="#workflow-example" id="toc-workflow-example" class="nav-link" data-scroll-target="#workflow-example"><span class="header-section-number">2.2</span> Workflow example</a></li>
+  <li><a href="#create-competitions" id="toc-create-competitions" class="nav-link" data-scroll-target="#create-competitions"><span class="header-section-number">2.3</span> Create competitions</a></li>
+  <li><a href="#binding-athletes-and-competitions" id="toc-binding-athletes-and-competitions" class="nav-link" data-scroll-target="#binding-athletes-and-competitions"><span class="header-section-number">2.4</span> Binding Athletes and Competitions</a></li>
+  <li><a href="#register-an-athlete" id="toc-register-an-athlete" class="nav-link" data-scroll-target="#register-an-athlete"><span class="header-section-number">2.5</span> Register an Athlete</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -442,6 +479,113 @@ athlete</li>
 </div>
 </div>
 </div>
+</section>
+<section id="create-competitions" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="create-competitions"><span class="header-section-number">2.3</span> Create competitions</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The goal is to display all competitions.</p>
+</div>
+</div>
+<p>In your database there is a table called <code>competition</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> competition (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    id_competition SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    designation    <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    city           <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    event_date     <span class="dt">DATE</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    distance       <span class="dt">FLOAT</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    max_athletes   <span class="dt">INTEGER</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a Model class for competitions</label>
+<ul>
+<li>To store dates, use <code>LocalDate</code> from <em>java.time.LocalDate</em></li>
+</ul></li>
+<li><label><input type="checkbox">Create an interface <em>CompetitionRepository</em> to access the data in the database</label></li>
+<li><label><input type="checkbox">Write a service class for competitions with methods allowing you to:</label>
+<ul>
+<li>list all competitions</li>
+<li>find a competition from its id</li>
+<li>delete a competition</li>
+</ul></li>
+<li><label><input type="checkbox">Code a controller to handle these endpoints:</label>
+<ul>
+<li><code>/competition</code>: display all competition (allCompetition.html)</li>
+<li><code>/competition/delete/{id}</code>: to delete a competition using its id</li>
+</ul></li>
+</ul>
+</section>
+<section id="binding-athletes-and-competitions" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="binding-athletes-and-competitions"><span class="header-section-number">2.4</span> Binding Athletes and Competitions</h3>
+<p>We have Athletes.</p>
+<p>We have competitions.</p>
+<p>Now we want to register athletes for competitions.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> registration (</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    id_registration       SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    id_athlete            BIGINT <span class="kw">REFERENCES</span> athlete(id_athlete),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    id_competition        BIGINT <span class="kw">REFERENCES</span> competition(id_competition),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    registration_date     <span class="dt">DATE</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Code Model class Registration</label></li>
+<li><label><input type="checkbox">Create Repository interface</label></li>
+<li><label><input type="checkbox">Include a method to find a Registration from an Athlete and a Competition</label></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can use <a href="https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html" target="_blank">Query creation from method names</a></p>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Add a method <em>findAthleteIdByCompetitionId(Long idCompetition)</em> using the custom query below</label></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> r.athlete.<span class="kw">id</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> Registration r</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> r.competition.<span class="kw">id</span> <span class="op">=</span> <span class="ch">:idCompetition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now let’s add some methods in <code>CompetitionService</code>:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Add a method <em>findRegisteredAthletes(Long idCompetition)</em> returning the list of athletes registered for a given competition</label></li>
+<li><label><input type="checkbox">Create a method <em>deleteRegistration(Long idCompetition, Long idAthlete)</em></label></li>
+</ul>
+<p>Try to delete a Competition. What’s wrong?</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Update method <em>CompetitionService.deleteById()</em></label></li>
+<li><label><input type="checkbox">Bonus: you will meet the same issue if you try to delete an Athlete. Fix it</label></li>
+</ul>
+</section>
+<section id="register-an-athlete" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="register-an-athlete"><span class="header-section-number">2.5</span> Register an Athlete</h3>
+<p>difficulty : <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span></p>
+<p>On the screen listing the athletes in a competition:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Add a drop-down menu listing Athletes no registered in the current Competition</label></li>
+<li><label><input type="checkbox">Insert a button to register the selected Athlete</label></li>
+</ul>
+<p>In Java classes:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a controller method <em>registerAthleteCompetition(Long competitionId, Long athleteId)</em></label></li>
+<li><label><input type="checkbox">Create a service method</label>
+<ul>
+<li>to create the Registration</li>
+<li>call the suitable repository method</li>
+</ul></li>
+</ul>
 
 
 </section>
