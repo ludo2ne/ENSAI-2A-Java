@@ -171,3 +171,96 @@ sequenceDiagram
     AthleteService-->>AthleteController: Return list of athletes
     AthleteController-->>IHM: Return allAthletes
 ```
+
+### Create competitions
+
+::: {.callout-note}
+The goal is to display all competitions.
+:::
+
+In your database there is a table called `competition`.
+
+```{.sql}
+CREATE TABLE competition (
+    id_competition SERIAL PRIMARY KEY,
+    designation    VARCHAR(255),
+    city           VARCHAR(255),
+    event_date     DATE,
+    distance       FLOAT,
+    max_athletes   INTEGER
+);
+```
+
+- [ ] Create a Model class for competitions
+  - To store dates, use `LocalDate` from *java.time.LocalDate*
+- [ ] Create an interface *CompetitionRepository* to access the data in the database
+- [ ] Write a service class for competitions with methods allowing you to:
+  - list all competitions
+  - find a competition from its id
+  - delete a competition
+- [ ] Code a controller to handle these endpoints:
+  - `/competition`: display all competition (allCompetition.html)
+  - `/competition/delete/{id}`: to delete a competition using its id
+
+
+### Binding Athletes and Competitions
+
+We have Athletes.
+
+We have competitions.
+
+Now we want to register athletes for competitions.
+
+```{.sql}
+CREATE TABLE registration (
+    id_registration       SERIAL PRIMARY KEY,
+    id_athlete            BIGINT REFERENCES athlete(id_athlete),
+    id_competition        BIGINT REFERENCES competition(id_competition),
+    registration_date     DATE
+);
+```
+
+- [ ] Code Model class Registration
+- [ ] Create Repository interface
+- [ ] Include a method to find a Registration from an Athlete and a Competition
+
+::: {.callout-tip}
+You can use [Query creation from method names](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html){target="_blank"}
+:::
+
+- [ ] Add a method *findAthleteIdByCompetitionId(Long idCompetition)* using the custom query below
+
+```{.sql}
+SELECT r.athlete.id
+  FROM Registration r
+ WHERE r.competition.id = :idCompetition
+```
+
+Now let's add some methods in `CompetitionService`:
+
+- [ ] Add a method *findRegisteredAthletes(Long idCompetition)* returning the list of athletes registered for a given competition
+- [ ] Create a method *deleteRegistration(Long idCompetition, Long idAthlete)*
+
+Try to delete a Competition. What's wrong?
+
+- [ ] Update method *CompetitionService.deleteById()*
+- [ ] Bonus: you will meet the same issue if you try to delete an Athlete. Fix it
+
+
+### Register an Athlete
+
+difficulty : :star: :star: :star:
+
+On the screen listing the athletes in a competition:
+
+- [ ] Add a drop-down menu listing Athletes no registered in the current Competition
+- [ ] Insert a button to register the selected Athlete
+
+In Java classes:
+
+- [ ] Create a controller method *registerAthleteCompetition(Long competitionId, Long athleteId)*
+- [ ] Create a service method 
+  - to create the Registration 
+  - call the suitable repository method
+
+
