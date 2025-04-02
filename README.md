@@ -4,6 +4,8 @@ Enseignements ENSAI de 2e année en Python.
 
 ## :construction:  Todo
 
+- [ ] maj <https://ensai.fr/cpt_matiere/programmation-orientee-objet-avec-java/>
+
 ### CM
 
 English !
@@ -29,7 +31,8 @@ https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java
 - CM3
   - Stream
   - Exception, Enum, Interface
-
+- CM4
+  - Spring, Hibernate, Lombok, Annotations
 
 
 ### TP

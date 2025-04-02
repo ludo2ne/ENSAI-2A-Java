@@ -52,7 +52,10 @@ The original repository has been updated, so you need to synchronise your fork w
 - [ ] Login to [GitHub](https://github.com/){target="_blank"}
 - [ ] Open the fork of ENSAI-2A-Java-TP, you created at the first practical
 - [ ] Click on the button **Sync fork**
-- [ ] Open a terminal in VSCode an clone your own repo
+
+In VSCode:
+
+- [ ] Open a terminal and clone your own repo
 
 #### In a terminal
 

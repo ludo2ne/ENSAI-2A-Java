@@ -1,6 +1,6 @@
 ---
 title: "Java - TP4"
-description: "Unit Tests, OOP"
+description: "Spring Boot Application"
 author: "Ludovic Deneuville"
 format:
   html:
@@ -10,6 +10,7 @@ format:
 from: markdown+emoji
 number-sections: true
 number-depth: 3
+lightbox: true
 ---
 
 :construction:
@@ -24,7 +25,12 @@ number-depth: 3
 
 ## Objectives {.unnumbered}
 
-- Create a Spring Boot application
+The aim is to develop a Spring Boot:
+
+- using layered programming
+- creating new functionalities
+
+The principle will be the same as what was done in IT project 2A.
 
 ## Before you start
 
@@ -34,7 +40,13 @@ After each part, create a commit and push your code to the remote repository.
 
 ### Launch service VSCode Java
 
-:construction: Use a new image ?
+:construction: 
+
+2 possibilities:
+
+- [ ] Launch VSCode-python opening port 9000
+  - installjava.sh
+- [ ] Create a new image ?
 
 ```
 FROM vscode-python
@@ -42,14 +54,22 @@ Enable port 9000
 INSTALL JAVA, MVN...
 ```
 
-### Update your forked repo
 
-...
 
-### Open Folder
+### Update your forked repository
+
+As you did in TP2, you need to update your fork of the [ENSAI-2A-Java-TP](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"} repository.
+
+- [ ] Login to [GitHub](https://github.com/){target="_blank"}
+- [ ] Open the fork of ENSAI-2A-Java-TP, you created at the first practical
+- [ ] Click on the button **Sync fork**
+
+
+### Clone and Open Folder
 
 In VSCode :
 
+- [ ] Open a terminal and clone your own repo
 - [ ] File > Open Folder > tp4
 
 **tp4** must be the root folder in your explorer.
@@ -57,8 +77,97 @@ In VSCode :
 
 ### Compile and run
 
+Use this command to run your application:
 
 - `mvn spring-boot:run`
+- `CTRL + C` to stop
 
+After launching the Spring Boot application, it will be deployed to something like:
+
+- `https://user-<sspcloud_username>-<6digits_number>-user-9000.user.lab.sspcloud.fr/`
+
+
+::: {.callout-warning}
+If you meet that error: *Web server failed to start. Port 9000 was already in use.*
+
+- `ps -aux | grep java`
+- kill processes (ask for help!)
+
+:::
 
 ## Exercice
+
+You'll be working on an application that manages registrations for running races.
+
+Features already implemented:
+
+- List of all Athletes
+- Add an Athlete
+- Delete an Athlete
+
+::: {.callout-caution}
+To make it easier to use, you'll be using:
+
+- [Thymeleaf](https://www.thymeleaf.org/){target="_blank"} to provide an interface
+- An embedded, in-memory H2 database
+
+However, bear in mind that in modern applications, Java is not used for GUIs. For example, the standard stack at INSEE is:
+
+- database: PostgreSQL
+- backend: Java (API that exposes endpoints)
+- frontend: [React JS](https://react.dev/){target="_blank"} (uses API data for display)
+:::
+
+### Project structure
+
+If you expand all the folders, you'll notice that there are a lot of files.
+
+Let's focus on a few key points:
+
+- `src/main/java/fr/ensai/running/`: the java classes of your Layered Spring Boot application
+  - Layers: controller, service, repository, model...
+  - `Application.java`: the Main class to run your application
+- `src/main/resources/`
+  - `templates/`: html pages
+  - `application.yml`:  Spring Boot properties of your application
+- `pom.xml`: Maven config
+
+::: {.callout-note collapse="true" title="To go further"}
+- `/config`: To setup your app (security...)
+- `LoggerAspect.java`: Used to log before and after each method call
+:::
+
+
+
+### Workflow example
+
+- You want to display all Athletes
+- You click on button *Athletes* on the navigation bar
+  - This takes you to the `/athletes` endpoint (check the *navbar.html* file if necessary)
+- In the Controller, it match with method `findAllAthletes()`
+  - This method calls method `findAll()` from the service
+    - This method calls method `findAll()` from the repository
+      - But if you check class *AthleteRepository.java*, there is no method *findAll()*
+      - In fact, it's a native method of *CrudRepository*, so it is not necessary to implement it
+      - This method retrieves all athletes from the database
+  - Once the data has been retrieved, the method returns the string 'allAthletes'
+  - Which means that you will be redirected to the *allAthletes.html* page.
+
+
+  athlete
+
+```{mermaid}
+sequenceDiagram
+    participant IHM
+    participant AthleteController
+    participant AthleteService
+    participant CrudRepository
+
+    IHM->>AthleteController: Request findAllAthletes()
+    AthleteController->>AthleteService: Call findAll()
+    AthleteService->>CrudRepository: Call findAll()
+    CrudRepository->>CrudRepository: Execute findAll()
+    CrudRepository-->>AthleteService: Return list of athletes
+    AthleteService-->>AthleteController: Return list of athletes
+    AthleteController-->>IHM: Return allAthletes
+```

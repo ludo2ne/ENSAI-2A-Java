@@ -98,6 +98,7 @@ It uses a specific [Docker image](https://github.com/odysseu/onyxia-datascience-
 
 ::: {.callout-tip title="Shorcuts"}
 - SHIFT + ALT + A: Comment / Uncomment selected lines
+- SHIFT + ALT + O: Auto import
 :::
 
 
