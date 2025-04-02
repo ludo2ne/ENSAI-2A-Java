@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Unit Tests, OOP">
+<meta name="description" content="Spring Boot Application">
 
 <title>Java - TP4 – Java</title>
 <style>
@@ -70,6 +70,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -190,11 +193,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#before-you-start" id="toc-before-you-start" class="nav-link" data-scroll-target="#before-you-start"><span class="header-section-number">1</span> Before you start</a>
   <ul class="collapse">
   <li><a href="#launch-service-vscode-java" id="toc-launch-service-vscode-java" class="nav-link" data-scroll-target="#launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</a></li>
-  <li><a href="#update-your-forked-repo" id="toc-update-your-forked-repo" class="nav-link" data-scroll-target="#update-your-forked-repo"><span class="header-section-number">1.2</span> Update your forked repo</a></li>
-  <li><a href="#open-folder" id="toc-open-folder" class="nav-link" data-scroll-target="#open-folder"><span class="header-section-number">1.3</span> Open Folder</a></li>
+  <li><a href="#update-your-forked-repository" id="toc-update-your-forked-repository" class="nav-link" data-scroll-target="#update-your-forked-repository"><span class="header-section-number">1.2</span> Update your forked repository</a></li>
+  <li><a href="#clone-and-open-folder" id="toc-clone-and-open-folder" class="nav-link" data-scroll-target="#clone-and-open-folder"><span class="header-section-number">1.3</span> Clone and Open Folder</a></li>
   <li><a href="#compile-and-run" id="toc-compile-and-run" class="nav-link" data-scroll-target="#compile-and-run"><span class="header-section-number">1.4</span> Compile and run</a></li>
   </ul></li>
-  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">2</span> Exercice</a></li>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">2</span> Exercice</a>
+  <ul class="collapse">
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure"><span class="header-section-number">2.1</span> Project structure</a></li>
+  <li><a href="#workflow-example" id="toc-workflow-example" class="nav-link" data-scroll-target="#workflow-example"><span class="header-section-number">2.2</span> Workflow example</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -212,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Unit Tests, OOP
+    Spring Boot Application
   </div>
 </div>
 
@@ -244,9 +251,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="objectives" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="objectives">Objectives</h2>
+<p>The aim is to develop a Spring Boot:</p>
 <ul>
-<li>Create a Spring Boot application</li>
+<li>using layered programming</li>
+<li>creating new functionalities</li>
 </ul>
+<p>The principle will be the same as what was done in IT project 2A.</p>
 </section>
 <section id="before-you-start" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="before-you-start"><span class="header-section-number">1</span> Before you start</h2>
@@ -254,34 +264,187 @@ ul.task-list li input[type="checkbox"] {
 <p>After each part, create a commit and push your code to the remote repository.</p>
 <section id="launch-service-vscode-java" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</h3>
-<p><span class="emoji" data-emoji="construction">🚧</span> Use a new image ?</p>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<p>2 possibilities:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Launch VSCode-python opening port 9000</label>
+<ul>
+<li>installjava.sh</li>
+</ul></li>
+<li><label><input type="checkbox">Create a new image ?</label></li>
+</ul>
 <pre><code>FROM vscode-python
 Enable port 9000
 INSTALL JAVA, MVN...</code></pre>
 </section>
-<section id="update-your-forked-repo" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="update-your-forked-repo"><span class="header-section-number">1.2</span> Update your forked repo</h3>
-<p>…</p>
+<section id="update-your-forked-repository" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="update-your-forked-repository"><span class="header-section-number">1.2</span> Update your forked repository</h3>
+<p>As you did in TP2, you need to update your fork of the <a href="https://github.com/ludo2ne/ENSAI-2A-Java-TP" target="_blank">ENSAI-2A-Java-TP</a> repository.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Login to <a href="https://github.com/" target="_blank">GitHub</a></label></li>
+<li><label><input type="checkbox">Open the fork of ENSAI-2A-Java-TP, you created at the first practical</label></li>
+<li><label><input type="checkbox">Click on the button <strong>Sync fork</strong></label></li>
+</ul>
 </section>
-<section id="open-folder" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="open-folder"><span class="header-section-number">1.3</span> Open Folder</h3>
+<section id="clone-and-open-folder" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="clone-and-open-folder"><span class="header-section-number">1.3</span> Clone and Open Folder</h3>
 <p>In VSCode :</p>
 <ul class="task-list">
+<li><label><input type="checkbox">Open a terminal and clone your own repo</label></li>
 <li><label><input type="checkbox">File &gt; Open Folder &gt; tp4</label></li>
 </ul>
 <p><strong>tp4</strong> must be the root folder in your explorer.</p>
 </section>
 <section id="compile-and-run" class="level3" data-number="1.4">
 <h3 data-number="1.4" class="anchored" data-anchor-id="compile-and-run"><span class="header-section-number">1.4</span> Compile and run</h3>
+<p>Use this command to run your application:</p>
 <ul>
 <li><code>mvn spring-boot:run</code></li>
+<li><code>CTRL + C</code> to stop</li>
 </ul>
+<p>After launching the Spring Boot application, it will be deployed to something like:</p>
+<ul>
+<li><code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user-9000.user.lab.sspcloud.fr/</code></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you meet that error: <em>Web server failed to start. Port 9000 was already in use.</em></p>
+<ul>
+<li><code>ps -aux | grep java</code></li>
+<li>kill processes (ask for help!)</li>
+</ul>
+</div>
+</div>
 </section>
 </section>
 <section id="exercice" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="exercice"><span class="header-section-number">2</span> Exercice</h2>
+<p>You’ll be working on an application that manages registrations for running races.</p>
+<p>Features already implemented:</p>
+<ul>
+<li>List of all Athletes</li>
+<li>Add an Athlete</li>
+<li>Delete an Athlete</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To make it easier to use, you’ll be using:</p>
+<ul>
+<li><a href="https://www.thymeleaf.org/" target="_blank">Thymeleaf</a> to provide an interface</li>
+<li>An embedded, in-memory H2 database</li>
+</ul>
+<p>However, bear in mind that in modern applications, Java is not used for GUIs. For example, the standard stack at INSEE is:</p>
+<ul>
+<li>database: PostgreSQL</li>
+<li>backend: Java (API that exposes endpoints)</li>
+<li>frontend: <a href="https://react.dev/" target="_blank">React JS</a> (uses API data for display)</li>
+</ul>
+</div>
+</div>
+<section id="project-structure" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="project-structure"><span class="header-section-number">2.1</span> Project structure</h3>
+<p>If you expand all the folders, you’ll notice that there are a lot of files.</p>
+<p>Let’s focus on a few key points:</p>
+<ul>
+<li><code>src/main/java/fr/ensai/running/</code>: the java classes of your Layered Spring Boot application
+<ul>
+<li>Layers: controller, service, repository, model…</li>
+<li><code>Application.java</code>: the Main class to run your application</li>
+</ul></li>
+<li><code>src/main/resources/</code>
+<ul>
+<li><code>templates/</code>: html pages</li>
+<li><code>application.yml</code>: Spring Boot properties of your application</li>
+</ul></li>
+<li><code>pom.xml</code>: Maven config</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="To go further">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+To go further
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>/config</code>: To setup your app (security…)</li>
+<li><code>LoggerAspect.java</code>: Used to log before and after each method call</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="workflow-example" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="workflow-example"><span class="header-section-number">2.2</span> Workflow example</h3>
+<ul>
+<li>You want to display all Athletes</li>
+<li>You click on button <em>Athletes</em> on the navigation bar
+<ul>
+<li>This takes you to the <code>/athletes</code> endpoint (check the <em>navbar.html</em> file if necessary)</li>
+</ul></li>
+<li>In the Controller, it match with method <code>findAllAthletes()</code>
+<ul>
+<li>This method calls method <code>findAll()</code> from the service
+<ul>
+<li>This method calls method <code>findAll()</code> from the repository
+<ul>
+<li>But if you check class <em>AthleteRepository.java</em>, there is no method <em>findAll()</em></li>
+<li>In fact, it’s a native method of <em>CrudRepository</em>, so it is not necessary to implement it</li>
+<li>This method retrieves all athletes from the database</li>
+</ul></li>
+</ul></li>
+<li>Once the data has been retrieved, the method returns the string ‘allAthletes’</li>
+<li>Which means that you will be redirected to the <em>allAthletes.html</em> page.</li>
+</ul>
+athlete</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    participant IHM
+    participant AthleteController
+    participant AthleteService
+    participant CrudRepository
+
+    IHM-&gt;&gt;AthleteController: Request findAllAthletes()
+    AthleteController-&gt;&gt;AthleteService: Call findAll()
+    AthleteService-&gt;&gt;CrudRepository: Call findAll()
+    CrudRepository-&gt;&gt;CrudRepository: Execute findAll()
+    CrudRepository--&gt;&gt;AthleteService: Return list of athletes
+    AthleteService--&gt;&gt;AthleteController: Return list of athletes
+    AthleteController--&gt;&gt;IHM: Return allAthletes
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
