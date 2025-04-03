@@ -234,10 +234,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">2</span> Exercice</a>
   <ul class="collapse">
   <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure"><span class="header-section-number">2.1</span> Project structure</a></li>
-  <li><a href="#workflow-example" id="toc-workflow-example" class="nav-link" data-scroll-target="#workflow-example"><span class="header-section-number">2.2</span> Workflow example</a></li>
-  <li><a href="#create-competitions" id="toc-create-competitions" class="nav-link" data-scroll-target="#create-competitions"><span class="header-section-number">2.3</span> Create competitions</a></li>
-  <li><a href="#binding-athletes-and-competitions" id="toc-binding-athletes-and-competitions" class="nav-link" data-scroll-target="#binding-athletes-and-competitions"><span class="header-section-number">2.4</span> Binding Athletes and Competitions</a></li>
-  <li><a href="#register-an-athlete" id="toc-register-an-athlete" class="nav-link" data-scroll-target="#register-an-athlete"><span class="header-section-number">2.5</span> Register an Athlete</a></li>
+  <li><a href="#for-students-in-the-it-sections" id="toc-for-students-in-the-it-sections" class="nav-link" data-scroll-target="#for-students-in-the-it-sections"><span class="header-section-number">2.2</span> For students in the IT sections</a></li>
+  <li><a href="#workflow-example" id="toc-workflow-example" class="nav-link" data-scroll-target="#workflow-example"><span class="header-section-number">2.3</span> Workflow example</a></li>
+  <li><a href="#api-rest" id="toc-api-rest" class="nav-link" data-scroll-target="#api-rest"><span class="header-section-number">2.4</span> API Rest</a></li>
+  <li><a href="#create-competitions" id="toc-create-competitions" class="nav-link" data-scroll-target="#create-competitions"><span class="header-section-number">2.5</span> Create competitions</a></li>
+  <li><a href="#binding-athletes-and-competitions" id="toc-binding-athletes-and-competitions" class="nav-link" data-scroll-target="#binding-athletes-and-competitions"><span class="header-section-number">2.6</span> Binding Athletes and Competitions</a></li>
+  <li><a href="#register-an-athlete" id="toc-register-an-athlete" class="nav-link" data-scroll-target="#register-an-athlete"><span class="header-section-number">2.7</span> Register an Athlete</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -279,19 +281,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-<div class="notes">
-<ul>
-<li>DuckDB ?</li>
-<li>Appli Spring boot</li>
-</ul>
-</div>
 <section id="objectives" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="objectives">Objectives</h2>
-<p>The aim is to develop a Spring Boot:</p>
+<p>The aim is to develop a Spring Boot application:</p>
 <ul>
 <li>using layered programming</li>
 <li>creating new functionalities</li>
+<li>coding some API endpoints</li>
 </ul>
 <p>The principle will be the same as what was done in IT project 2A.</p>
 </section>
@@ -301,18 +297,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>After each part, create a commit and push your code to the remote repository.</p>
 <section id="launch-service-vscode-java" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</h3>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-<p>2 possibilities:</p>
+<p>We’re developing an API for public Internet access, which requires us to expose our application through a specific port (9000).</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Launch VSCode-python opening port 9000</label>
+<li><label><input type="checkbox">Use this link to launch the <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&amp;version=2.2.7&amp;s3=region-ec97c721&amp;service.image.custom.enabled=true&amp;service.image.custom.version=«odysseu%2Fonyxia-vscode-java%3Aj21»&amp;networking.user.enabled=true&amp;networking.user.ports%5B0%5D=9000&amp;autoLaunch=true" target="_blank">VSCode-java</a> service (it’s not the same link as last time).</label></li>
+<li><label><input type="checkbox">During container startup, copy the link where your application will be exposed (port 9000)</label>
 <ul>
-<li>installjava.sh</li>
+<li>It looks like : - <code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user&lt;optional: -9000&gt;.user.lab.sspcloud.fr/</code></li>
 </ul></li>
-<li><label><input type="checkbox">Create a new image ?</label></li>
 </ul>
-<pre><code>FROM vscode-python
-Enable port 9000
-INSTALL JAVA, MVN...</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Custom your service">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Custom your service
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I you meet any issue you can launch it manually:</p>
+<ul>
+<li>In menu <em>Service catalog</em>, Launch <em>VSCode-python</em></li>
+<li><em>Service</em> tab <span class="emoji" data-emoji="arrow_right">➡️</span> Use a custom image: <code>odysseu/onyxia-vscode-java:j21</code></li>
+<li><em>Networking detail</em> tab <span class="emoji" data-emoji="arrow_right">➡️</span> Enable a custom service port: <code>9000</code></li>
+<li>Optional: Save this configuration</li>
+<li>Launch</li>
+</ul>
+<hr>
+<p>The most important is to enable port 9000.</p>
+<p>I you meet any issue with the docker image you can:</p>
+<ul>
+<li>Update it, using a recent source image</li>
+<li>Run manually Java, Maven and VSCode extensions after having launched the service
+<ul>
+<li>Create the file below in folder <em>work</em></li>
+<li>Add execution rights: <code>chmod +x installjava.sh</code></li>
+<li>Run it: <code>./installjava.sh</code></li>
+</ul></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>installjava.sh</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="installjava.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># installjava.sh</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chmod +x installjava.sh</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_VERSION</span><span class="op">=</span>21</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_HOME</span><span class="op">=</span><span class="st">"/usr/lib/jvm/java-</span><span class="va">$JAVA_VERSION</span><span class="st">-openjdk-amd64"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"</span><span class="va">${JAVA_HOME}</span><span class="st">/bin:</span><span class="va">${PATH}</span><span class="st">"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install ca-certificates-java libbz2-dev openjdk-<span class="st">"</span><span class="va">$JAVA_VERSION</span><span class="st">"</span>-jdk openjdk-<span class="va">${JAVA_VERSION}</span>-jre-headless <span class="at">-y</span> <span class="at">--no-install-recommends</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install maven <span class="at">-y</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">--version</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> <span class="at">--version</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> adamraichu.zip-viewer</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> redhat.java</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> vscjava.vscode-java-pack</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> bierner.markdown-mermaid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="update-your-forked-repository" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="update-your-forked-repository"><span class="header-section-number">1.2</span> Update your forked repository</h3>
@@ -341,7 +391,7 @@ INSTALL JAVA, MVN...</code></pre>
 </ul>
 <p>After launching the Spring Boot application, it will be deployed to something like:</p>
 <ul>
-<li><code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user-9000.user.lab.sspcloud.fr/</code></li>
+<li><code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user&lt;optional: -9000&gt;.user.lab.sspcloud.fr/</code></li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -408,11 +458,12 @@ Caution
 <ul>
 <li><code>templates/</code>: html pages</li>
 <li><code>application.yml</code>: Spring Boot properties of your application</li>
+<li><code>data.sql</code>: Used to create and pop your database</li>
 </ul></li>
 <li><code>pom.xml</code>: Maven config</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="To go further">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -421,7 +472,7 @@ To go further
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><code>/config</code>: To setup your app (security…)</li>
@@ -431,8 +482,20 @@ To go further
 </div>
 </div>
 </section>
-<section id="workflow-example" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="workflow-example"><span class="header-section-number">2.2</span> Workflow example</h3>
+<section id="for-students-in-the-it-sections" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="for-students-in-the-it-sections"><span class="header-section-number">2.2</span> For students in the IT sections</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">In the SPPCloud, create a service PostgreSQL</label></li>
+<li><label><input type="checkbox">Modify file <em>application.yml</em> to connect to this database</label></li>
+<li><label><input type="checkbox">Optional: create a service <em>CloudBeaver</em> if you want to execute queries</label>
+<ul>
+<li>If all goes well, CloudBeaver will automatically connect to your database</li>
+<li>Otherwise you need to create a new connection entering Host, Database, Username and Password</li>
+</ul></li>
+</ul>
+</section>
+<section id="workflow-example" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="workflow-example"><span class="header-section-number">2.3</span> Workflow example</h3>
 <ul>
 <li>You want to display all Athletes</li>
 <li>You click on button <em>Athletes</em> on the navigation bar
@@ -480,8 +543,47 @@ athlete</li>
 </div>
 </div>
 </section>
-<section id="create-competitions" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="create-competitions"><span class="header-section-number">2.3</span> Create competitions</h3>
+<section id="api-rest" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="api-rest"><span class="header-section-number">2.4</span> API Rest</h3>
+<p>Before playing with the GUI, you’re going to create a few endpoints for your API.</p>
+<p>In file <em>ApiRestController.java</em>, add the following endpoints:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">GET an Athlete by id</label></li>
+<li><label><input type="checkbox">DELETE an Athlete by id</label></li>
+<li><label><input type="checkbox">CREATE an Athlete</label></li>
+</ul>
+<p>If you haven’t any client installed (Insomnia, Bruno…) on your machine you can use these bash commands:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST https://<span class="op">&lt;</span>your_url<span class="op">&gt;</span>.user.lab.sspcloud.fr/api/athlete <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> <span class="st">'{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">           "firstName": "Floria",</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">           "lastName": "Guei",</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">           "age": 34,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">           "gender": "Female"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">         }'</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> DELETE https://<span class="op">&lt;</span>your_url<span class="op">&gt;</span>.user.lab.sspcloud.fr/api/athlete/1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The ApiRestController class is annotated with <span class="citation" data-cites="RestController">@RestController</span>, and is therefore used to create endpoints for a REST API.</p>
+<p>Next, we’re going to use simple Controllers to interact with the GUI.</p>
+<p>If you prefer, you can continue to develop REST API endpoints without using the GUI.</p>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Commit and push your code</label></li>
+</ul>
+</section>
+<section id="create-competitions" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="create-competitions"><span class="header-section-number">2.5</span> Create competitions</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -495,15 +597,15 @@ Note
 <p>The goal is to display all competitions.</p>
 </div>
 </div>
-<p>In your database there is a table called <code>competition</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> competition (</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    id_competition SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    designation    <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    city           <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    event_date     <span class="dt">DATE</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    distance       <span class="dt">FLOAT</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    max_athletes   <span class="dt">INTEGER</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In your database there is a table called <code>competition</code> (loaded at start-up via the <em>data.sql</em> file).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> competition (</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    id_competition SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    designation    <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    city           <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    event_date     <span class="dt">DATE</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    distance       <span class="dt">FLOAT</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    max_athletes   <span class="dt">INTEGER</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul class="task-list">
 <li><label><input type="checkbox">Create a Model class for competitions</label>
 <ul>
@@ -523,17 +625,73 @@ Note
 </ul></li>
 </ul>
 </section>
-<section id="binding-athletes-and-competitions" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="binding-athletes-and-competitions"><span class="header-section-number">2.4</span> Binding Athletes and Competitions</h3>
+<section id="binding-athletes-and-competitions" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="binding-athletes-and-competitions"><span class="header-section-number">2.6</span> Binding Athletes and Competitions</h3>
 <p>We have Athletes.</p>
 <p>We have competitions.</p>
 <p>Now we want to register athletes for competitions.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> registration (</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    id_registration       SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    id_athlete            BIGINT <span class="kw">REFERENCES</span> athlete(id_athlete),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    id_competition        BIGINT <span class="kw">REFERENCES</span> competition(id_competition),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    registration_date     <span class="dt">DATE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Paste those queries at the end of <em>data.sql</em></label></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="To be pasted at the end of data.sql">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+To be pasted at the end of data.sql
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">----------------------------------------------</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Registration</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">----------------------------------------------</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> registration;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> registration (</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    id_registration       SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    id_athlete            BIGINT <span class="kw">REFERENCES</span> athlete(id_athlete),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    id_competition        BIGINT <span class="kw">REFERENCES</span> competition(id_competition),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    registration_date     <span class="dt">DATE</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> registration (id_registration, id_athlete, id_competition, registration_date) <span class="kw">VALUES</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77770</span>, <span class="dv">99990</span>, <span class="dv">88880</span>, <span class="st">'2024-03-01'</span>),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77771</span>, <span class="dv">99991</span>, <span class="dv">88881</span>, <span class="st">'2024-03-02'</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77772</span>, <span class="dv">99992</span>, <span class="dv">88882</span>, <span class="st">'2024-03-03'</span>),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77773</span>, <span class="dv">99993</span>, <span class="dv">88883</span>, <span class="st">'2024-03-04'</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77774</span>, <span class="dv">99994</span>, <span class="dv">88884</span>, <span class="st">'2024-03-05'</span>),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77775</span>, <span class="dv">99995</span>, <span class="dv">88880</span>, <span class="st">'2024-03-06'</span>),</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77776</span>, <span class="dv">99996</span>, <span class="dv">88881</span>, <span class="st">'2024-03-07'</span>),</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77777</span>, <span class="dv">99997</span>, <span class="dv">88882</span>, <span class="st">'2024-03-08'</span>),</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77778</span>, <span class="dv">99998</span>, <span class="dv">88883</span>, <span class="st">'2024-03-09'</span>),</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77779</span>, <span class="dv">99999</span>, <span class="dv">88884</span>, <span class="st">'2024-03-10'</span>),</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77780</span>, <span class="dv">99990</span>, <span class="dv">88881</span>, <span class="st">'2024-03-11'</span>),</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77781</span>, <span class="dv">99991</span>, <span class="dv">88882</span>, <span class="st">'2024-03-12'</span>),</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77782</span>, <span class="dv">99992</span>, <span class="dv">88883</span>, <span class="st">'2024-03-13'</span>),</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77783</span>, <span class="dv">99993</span>, <span class="dv">88884</span>, <span class="st">'2024-03-14'</span>),</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77784</span>, <span class="dv">99994</span>, <span class="dv">88880</span>, <span class="st">'2024-03-15'</span>),</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77785</span>, <span class="dv">99995</span>, <span class="dv">88882</span>, <span class="st">'2024-03-16'</span>),</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77786</span>, <span class="dv">99996</span>, <span class="dv">88883</span>, <span class="st">'2024-03-17'</span>),</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77787</span>, <span class="dv">99997</span>, <span class="dv">88884</span>, <span class="st">'2024-03-18'</span>),</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77788</span>, <span class="dv">99998</span>, <span class="dv">88880</span>, <span class="st">'2024-03-19'</span>),</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77789</span>, <span class="dv">99999</span>, <span class="dv">88881</span>, <span class="st">'2024-03-20'</span>),</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77790</span>, <span class="dv">99990</span>, <span class="dv">88882</span>, <span class="st">'2024-03-21'</span>),</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77791</span>, <span class="dv">99991</span>, <span class="dv">88883</span>, <span class="st">'2024-03-22'</span>),</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77792</span>, <span class="dv">99992</span>, <span class="dv">88884</span>, <span class="st">'2024-03-23'</span>),</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77793</span>, <span class="dv">99993</span>, <span class="dv">88880</span>, <span class="st">'2024-03-24'</span>),</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77794</span>, <span class="dv">99994</span>, <span class="dv">88881</span>, <span class="st">'2024-03-25'</span>),</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77795</span>, <span class="dv">99995</span>, <span class="dv">88883</span>, <span class="st">'2024-03-26'</span>),</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77796</span>, <span class="dv">99996</span>, <span class="dv">88884</span>, <span class="st">'2024-03-27'</span>),</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77797</span>, <span class="dv">99997</span>, <span class="dv">88880</span>, <span class="st">'2024-03-28'</span>),</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77798</span>, <span class="dv">99998</span>, <span class="dv">88881</span>, <span class="st">'2024-03-29'</span>),</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77799</span>, <span class="dv">99999</span>, <span class="dv">88882</span>, <span class="st">'2024-03-30'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <ul class="task-list">
 <li><label><input type="checkbox">Code Model class Registration</label></li>
 <li><label><input type="checkbox">Create Repository interface</label></li>
@@ -555,9 +713,9 @@ Tip
 <ul class="task-list">
 <li><label><input type="checkbox">Add a method <em>findAthleteIdByCompetitionId(Long idCompetition)</em> using the custom query below</label></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> r.athlete.<span class="kw">id</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> Registration r</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> r.competition.<span class="kw">id</span> <span class="op">=</span> <span class="ch">:idCompetition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> r.athlete.<span class="kw">id</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> Registration r</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> r.competition.<span class="kw">id</span> <span class="op">=</span> <span class="ch">:idCompetition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now let’s add some methods in <code>CompetitionService</code>:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Add a method <em>findRegisteredAthletes(Long idCompetition)</em> returning the list of athletes registered for a given competition</label></li>
@@ -569,9 +727,9 @@ Tip
 <li><label><input type="checkbox">Bonus: you will meet the same issue if you try to delete an Athlete. Fix it</label></li>
 </ul>
 </section>
-<section id="register-an-athlete" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="register-an-athlete"><span class="header-section-number">2.5</span> Register an Athlete</h3>
-<p>difficulty : <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span></p>
+<section id="register-an-athlete" class="level3" data-number="2.7">
+<h3 data-number="2.7" class="anchored" data-anchor-id="register-an-athlete"><span class="header-section-number">2.7</span> Register an Athlete</h3>
+<p>Difficulty : <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span></p>
 <p>On the screen listing the athletes in a competition:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Add a drop-down menu listing Athletes no registered in the current Competition</label></li>
@@ -586,6 +744,7 @@ Tip
 <li>call the suitable repository method</li>
 </ul></li>
 </ul>
+<p>If that was too easy, have fun creating other features.</p>
 
 
 </section>
