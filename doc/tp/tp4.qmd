@@ -13,22 +13,13 @@ number-depth: 3
 lightbox: true
 ---
 
-:construction:
-
-
-:::{.notes}
-- DuckDB ?
-- Appli Spring boot
-:::
-
-
-
 ## Objectives {.unnumbered}
 
-The aim is to develop a Spring Boot:
+The aim is to develop a Spring Boot application:
 
 - using layered programming
 - creating new functionalities
+- coding some API endpoints
 
 The principle will be the same as what was done in IT project 2A.
 
@@ -40,19 +31,57 @@ After each part, create a commit and push your code to the remote repository.
 
 ### Launch service VSCode Java
 
-:construction: 
+We're developing an API for public Internet access, which requires us to expose our application through a specific port (9000).
 
-2 possibilities:
+- [ ] Use this link to launch the [VSCode-java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&version=2.2.7&s3=region-ec97c721&service.image.custom.enabled=true&service.image.custom.version=«odysseu%2Fonyxia-vscode-java%3Aj21»&networking.user.enabled=true&networking.user.ports[0]=9000&autoLaunch=true){target="_blank"} service (it's not the same link as last time).
+- [ ] During container startup, copy the link where your application will be exposed (port 9000)
+  - It looks like : - `https://user-<sspcloud_username>-<6digits_number>-user<optional: -9000>.user.lab.sspcloud.fr/`
 
-- [ ] Launch VSCode-python opening port 9000
-  - installjava.sh
-- [ ] Create a new image ?
 
+::: {.callout-tip title="Custom your service" collapse="true"}
+I you meet any issue you can launch it manually:
+
+- In menu *Service catalog*, Launch *VSCode-python*
+- *Service* tab :arrow_right: Use a custom image: `odysseu/onyxia-vscode-java:j21`
+- *Networking detail* tab :arrow_right: Enable a custom service port: `9000`
+- Optional: Save this configuration
+- Launch
+
+---
+
+The most important is to enable port 9000. 
+
+I you meet any issue with the docker image you can:
+
+- Update it, using a recent source image 
+- Run manually Java, Maven and VSCode extensions after having launched the service
+  - Create the file below in folder *work*
+  - Add execution rights: `chmod +x installjava.sh`
+  - Run it: `./installjava.sh`
+
+```{.bash filename="installjava.sh"}
+# installjava.sh
+# chmod +x installjava.sh
+
+export JAVA_VERSION=21
+export JAVA_HOME="/usr/lib/jvm/java-$JAVA_VERSION-openjdk-amd64"
+export PATH="${JAVA_HOME}/bin:${PATH}"
+
+sudo apt-get update
+sudo apt-get install ca-certificates-java libbz2-dev openjdk-"$JAVA_VERSION"-jdk openjdk-${JAVA_VERSION}-jre-headless -y --no-install-recommends
+sudo apt-get install maven -y
+
+java --version
+mvn --version
+
+code-server --install-extension adamraichu.zip-viewer
+code-server --install-extension redhat.java
+code-server --install-extension vscjava.vscode-java-pack
+code-server --install-extension bierner.markdown-mermaid
 ```
-FROM vscode-python
-Enable port 9000
-INSTALL JAVA, MVN...
-```
+
+:::
+
 
 
 
@@ -84,7 +113,7 @@ Use this command to run your application:
 
 After launching the Spring Boot application, it will be deployed to something like:
 
-- `https://user-<sspcloud_username>-<6digits_number>-user-9000.user.lab.sspcloud.fr/`
+- `https://user-<sspcloud_username>-<6digits_number>-user<optional: -9000>.user.lab.sspcloud.fr/`
 
 
 ::: {.callout-warning}
@@ -130,6 +159,7 @@ Let's focus on a few key points:
 - `src/main/resources/`
   - `templates/`: html pages
   - `application.yml`:  Spring Boot properties of your application
+  - `data.sql`: Used to create and pop your database
 - `pom.xml`: Maven config
 
 ::: {.callout-note collapse="true" title="To go further"}
@@ -137,6 +167,13 @@ Let's focus on a few key points:
 - `LoggerAspect.java`: Used to log before and after each method call
 :::
 
+### For students in the IT sections
+
+- [ ] In the SPPCloud, create a service PostgreSQL
+- [ ] Modify file *application.yml* to connect to this database
+- [ ] Optional: create a service *CloudBeaver* if you want to execute queries
+  - If all goes well, CloudBeaver will automatically connect to your database
+  - Otherwise you need to create a new connection entering Host, Database, Username and Password
 
 
 ### Workflow example
@@ -172,13 +209,49 @@ sequenceDiagram
     AthleteController-->>IHM: Return allAthletes
 ```
 
+### API Rest
+
+Before playing with the GUI, you're going to create a few endpoints for your API.
+
+In file *ApiRestController.java*, add the following endpoints:
+
+- [ ] GET an Athlete by id
+- [ ] DELETE an Athlete by id
+- [ ] CREATE an Athlete
+
+If you haven't any client installed (Insomnia, Bruno...) on your machine you can use these bash commands:
+
+```{.bash}
+curl -X POST https://<your_url>.user.lab.sspcloud.fr/api/athlete \
+     -H "Content-Type: application/json" \
+     -d '{
+           "firstName": "Floria",
+           "lastName": "Guei",
+           "age": 34,
+           "gender": "Female"
+         }'
+
+curl -X DELETE https://<your_url>.user.lab.sspcloud.fr/api/athlete/1
+```
+
+::: {.callout-caution}
+The ApiRestController class is annotated with @RestController, and is therefore used to create endpoints for a REST API.
+
+Next, we're going to use simple Controllers to interact with the GUI.
+
+If you prefer, you can continue to develop REST API endpoints without using the GUI.
+:::
+
+- [ ] Commit and push your code
+
+
 ### Create competitions
 
 ::: {.callout-note}
 The goal is to display all competitions.
 :::
 
-In your database there is a table called `competition`.
+In your database there is a table called `competition` (loaded at start-up via the *data.sql* file).
 
 ```{.sql}
 CREATE TABLE competition (
@@ -211,14 +284,57 @@ We have competitions.
 
 Now we want to register athletes for competitions.
 
+- [ ] Paste those queries at the end of *data.sql*
+
+
+::: {.callout-note title="To be pasted at the end of data.sql" collapse="true"}
 ```{.sql}
+----------------------------------------------
+-- Registration
+----------------------------------------------
+
+DROP TABLE IF EXISTS registration;
+
 CREATE TABLE registration (
     id_registration       SERIAL PRIMARY KEY,
     id_athlete            BIGINT REFERENCES athlete(id_athlete),
     id_competition        BIGINT REFERENCES competition(id_competition),
     registration_date     DATE
 );
+
+INSERT INTO registration (id_registration, id_athlete, id_competition, registration_date) VALUES
+(77770, 99990, 88880, '2024-03-01'),
+(77771, 99991, 88881, '2024-03-02'),
+(77772, 99992, 88882, '2024-03-03'),
+(77773, 99993, 88883, '2024-03-04'),
+(77774, 99994, 88884, '2024-03-05'),
+(77775, 99995, 88880, '2024-03-06'),
+(77776, 99996, 88881, '2024-03-07'),
+(77777, 99997, 88882, '2024-03-08'),
+(77778, 99998, 88883, '2024-03-09'),
+(77779, 99999, 88884, '2024-03-10'),
+(77780, 99990, 88881, '2024-03-11'),
+(77781, 99991, 88882, '2024-03-12'),
+(77782, 99992, 88883, '2024-03-13'),
+(77783, 99993, 88884, '2024-03-14'),
+(77784, 99994, 88880, '2024-03-15'),
+(77785, 99995, 88882, '2024-03-16'),
+(77786, 99996, 88883, '2024-03-17'),
+(77787, 99997, 88884, '2024-03-18'),
+(77788, 99998, 88880, '2024-03-19'),
+(77789, 99999, 88881, '2024-03-20'),
+(77790, 99990, 88882, '2024-03-21'),
+(77791, 99991, 88883, '2024-03-22'),
+(77792, 99992, 88884, '2024-03-23'),
+(77793, 99993, 88880, '2024-03-24'),
+(77794, 99994, 88881, '2024-03-25'),
+(77795, 99995, 88883, '2024-03-26'),
+(77796, 99996, 88884, '2024-03-27'),
+(77797, 99997, 88880, '2024-03-28'),
+(77798, 99998, 88881, '2024-03-29'),
+(77799, 99999, 88882, '2024-03-30');
 ```
+:::
 
 - [ ] Code Model class Registration
 - [ ] Create Repository interface
@@ -249,7 +365,7 @@ Try to delete a Competition. What's wrong?
 
 ### Register an Athlete
 
-difficulty : :star: :star: :star:
+Difficulty : :star: :star: :star:
 
 On the screen listing the athletes in a competition:
 
@@ -263,4 +379,5 @@ In Java classes:
   - to create the Registration 
   - call the suitable repository method
 
+If that was too easy, have fun creating other features.
 
