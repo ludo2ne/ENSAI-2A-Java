@@ -35,7 +35,7 @@ We're developing an API for public Internet access, which requires us to expose 
 
 - [ ] Use this link to launch the [VSCode-java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&version=2.2.7&s3=region-ec97c721&service.image.custom.enabled=true&service.image.custom.version=«odysseu%2Fonyxia-vscode-java%3Aj21»&networking.user.enabled=true&networking.user.ports[0]=9000&autoLaunch=true){target="_blank"} service (it's not the same link as last time).
 - [ ] During container startup, copy the link where your application will be exposed (port 9000)
-  - It looks like : - `https://user-<sspcloud_username>-<6digits_number>-user<optional: -9000>.user.lab.sspcloud.fr/`
+  - It looks like : `https://user-<sspcloud_username>-<6digits_number>-user<optional: -9000>.user.lab.sspcloud.fr/`
 
 
 ::: {.callout-tip title="Custom your service" collapse="true"}

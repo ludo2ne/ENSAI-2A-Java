@@ -512,18 +512,14 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id_user")
     private Long id;
 
-    @Column(name = "lastname")
-    private String lastName;
-
-    @Column(name = "firstname")
-    private String firstName;
+    private String name;
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @Column(name = "gender")
     private String gender;
 }
 ```
@@ -532,11 +528,105 @@ public class User {
 Mapping
 
 - `@Table(name = "user")`: no need if same names
-- `@Column(name = "lastname")`: no need if same names
+- `@Column(name = "birth_date")`: no need if same names
 - `@Id` marks the id field as the primary key of the entity
 
 Mapping is done, now let's transfert data
 :::
+
+### Entity annotations {.smaller}
+
+| Annotation         | Description |
+|--------------------|-------------|
+| `@Entity`         | Marks the class as a JPA entity. |
+| `@Table(name="tb_name")` | Specifies the database table name. |
+| `@Id`            | Marks a field as the **primary key**. |
+| `@GeneratedValue( .. )` | Defines the **auto-increment** strategy for the PK. |
+| `@Column(name="col_name", nullable=false, unique=true, length=255)` | Maps a field to a database column and allows configuration. |
+| `@Enumerated(EnumType.STRING)` | Maps an **enum** to a database column. |
+| `@Transient`      | Marks a field as **non-persistent** (ignored by JPA). |
+
+
+### Entity relationships
+
+| Annotation         | Description |
+|--------------------|-------------|
+| `@JoinColumn(name="FK_column")` | Specifies the **foreign key** column for relationships. |
+| `@ManyToOne`      | Defines a **many-to-one** relationship between entities. |
+| `@OneToMany(mappedBy="fieldName")` | Defines a **one-to-many** relationship. |
+| `@ManyToMany`     | Defines a **many-to-many** relationship. |
+| `@OneToOne`       | Defines a **one-to-one** relationship. |
+
+
+### ManyToOne
+
+
+:::{.panel-tabset .nav-pills}
+
+### Users and Clubs
+
+Considering that:
+- a user has a club
+- a club can have several users
+
+Where is the foreign key?
+
+#### User class
+
+```{.java filename="User.java"}
+@Entity
+@Table(name = "user")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id_user")
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_club")
+    private Club club;
+}
+```
+
+#### Club class
+
+```{.java filename="Club.java"}
+@Entity
+@Table(name = "club")
+public class Club {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id_club")
+    private Long id;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @OneToMany(mappedBy = "club")
+    private List<User> users = new ArrayList<>();
+}
+```
+
+:::
+
+:::{.notes}
+Database reminder:
+
+- PK, FK
+- Association table
+- *..*, 1..*
+:::
+
+### ManyToMany
+
+- To be used if the association table is basic
+- Otherwise create an entity for the association table with ManyToOne
+
 
 ## Repository
 
