@@ -167,10 +167,13 @@ Let's focus on a few key points:
 - `LoggerAspect.java`: Used to log before and after each method call
 :::
 
-### For students in the IT sections
+### For students in IT sections
+
+Let's use a PostgreSQL database insted of an embedded H2:
 
 - [ ] In the SPPCloud, create a service PostgreSQL
 - [ ] Modify file *application.yml* to connect to this database
+  - search on internet for the necessary configuration
 - [ ] Optional: create a service *CloudBeaver* if you want to execute queries
   - If all goes well, CloudBeaver will automatically connect to your database
   - Otherwise you need to create a new connection entering Host, Database, Username and Password
@@ -219,7 +222,7 @@ In file *ApiRestController.java*, add the following endpoints:
 - [ ] DELETE an Athlete by id
 - [ ] CREATE an Athlete
 
-If you haven't any client installed (Insomnia, Bruno...) on your machine you can use these bash commands:
+If you haven't any http client installed (Insomnia, Bruno, Postman...) on your machine you can use these bash commands to test your endpoints:
 
 ```{.bash}
 curl -X POST https://<your_url>.user.lab.sspcloud.fr/api/athlete \
@@ -360,6 +363,7 @@ Now let's add some methods in `CompetitionService`:
 Try to delete a Competition. What's wrong?
 
 - [ ] Update method *CompetitionService.deleteById()*
+  - to allow you to force deletion
 - [ ] Bonus: you will meet the same issue if you try to delete an Athlete. Fix it
 
 
