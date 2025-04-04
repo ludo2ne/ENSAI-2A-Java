@@ -13,6 +13,14 @@ number-depth: 3
 lightbox: true
 ---
 
+:::{.notes}
+Ideas of Questions:
+
+- Use Stream
+- Check if age >=0
+- Use an Enum for gender
+:::
+
 ## Objectives {.unnumbered}
 
 The aim is to develop a Spring Boot application:
@@ -106,6 +114,8 @@ In VSCode :
 
 ### Compile and run
 
+- [ ] If necessary in the terminal, change directory to tp4
+
 Use this command to run your application:
 
 - `mvn spring-boot:run`
@@ -121,8 +131,9 @@ If you meet that error: *Web server failed to start. Port 9000 was already in us
 
 - `ps -aux | grep java`
 - kill processes (ask for help!)
-
 :::
+
+Sometimes `mvn clean` could be usefull.
 
 ## Exercice
 

@@ -63,6 +63,13 @@ https://gayerie.dev/docs/spring/index.html
 - **Spring Batch**: handling large-scale batch processing
 
 
+:::{.notes}
+- With Spring, you're stepping into a realm where much of the 'magic' happens behind the scenes
+- many functionalities are implicitly handled
+- Spring's power lies in its ability to handle a lot of the boilerplate code
+- you define your beans and dependencies, and Spring wires them together seamlessly
+:::
+
 
 ### Key features
 
@@ -684,11 +691,11 @@ mappedBy = 'club' indicates that the relationship is managed by the club attribu
 ### A basic DAO
 
 ```{.java}
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 }
 ```
 
@@ -696,7 +703,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 - That's all!
 - All CRUD methods are available
 - No need to implement the code
-- TODO explain CrudRepository
+- JpaRepository extends CrudRepository
 :::
 
 ### Basic methods
@@ -718,14 +725,14 @@ Methods included automatically without having to implement them:
 ### Native SQL Query
 
 ```{.java}
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = """
         SELECT * 
@@ -740,14 +747,14 @@ public interface UserRepository extends CrudRepository<User, Long> {
 ### JPQL
 
 - Java Persistence Query Language
-- Method name :arrow_right: Query
+- Method name :arrow_right: Auto-generate the Query
 
 ```{.java}
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByGenderOrderByFirstNameDesc(String gender);
 }
 ```
