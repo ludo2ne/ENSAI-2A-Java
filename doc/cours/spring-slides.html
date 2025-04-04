@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4379b0ccadffce622b03caf4c46266b3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+  <meta name="generator" content="quarto-1.6.43">
 
   <meta name="author" content="Ludovic Deneuville">
   <title>Java – An API with Spring Boot</title>
@@ -272,6 +272,24 @@ Ludovic Deneuville
 <li><strong>Spring Data</strong>: simplifies database access</li>
 <li><strong>Spring Batch</strong>: handling large-scale batch processing</li>
 </ul>
+<aside class="notes">
+<ul>
+<li>With Spring, you’re stepping into a realm where much of the ‘magic’ happens behind the scenes</li>
+<li>many functionalities are implicitly handled</li>
+<li>Spring’s power lies in its ability to handle a lot of the boilerplate code</li>
+<li>you define your beans and dependencies, and Spring wires them together seamlessly</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="key-features" class="slide level3">
 <h3>Key features</h3>
@@ -1276,18 +1294,18 @@ Ludovic Deneuville
 </section>
 <section id="a-basic-dao" class="slide level3">
 <h3>A basic DAO</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">data</span><span class="op">.</span><span class="im">repository</span><span class="op">.</span><span class="im">CrudRepository</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">data</span><span class="op">.</span><span class="im">jpa</span><span class="op">.</span><span class="im">repository</span><span class="op">.</span><span class="im">JpaRepository</span><span class="op">;</span></span>
 <span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Repository</span><span class="op">;</span></span>
 <span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">@Repository</span></span>
-<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> UserRepository <span class="kw">extends</span> CrudRepository<span class="op">&lt;</span>User<span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> UserRepository <span class="kw">extends</span> JpaRepository<span class="op">&lt;</span>User<span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> <span class="op">{</span></span>
 <span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <ul>
 <li>That’s all!</li>
 <li>All CRUD methods are available</li>
 <li>No need to implement the code</li>
-<li>TODO explain CrudRepository</li>
+<li>JpaRepository extends CrudRepository</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1330,14 +1348,14 @@ Ludovic Deneuville
 </section>
 <section id="native-sql-query" class="slide level3">
 <h3>Native SQL Query</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">data</span><span class="op">.</span><span class="im">repository</span><span class="op">.</span><span class="im">CrudRepository</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">data</span><span class="op">.</span><span class="im">jpa</span><span class="op">.</span><span class="im">repository</span><span class="op">.</span><span class="im">JpaRepository</span><span class="op">;</span></span>
 <span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">data</span><span class="op">.</span><span class="im">jpa</span><span class="op">.</span><span class="im">repository</span><span class="op">.</span><span class="im">Query</span><span class="op">;</span></span>
 <span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">data</span><span class="op">.</span><span class="im">repository</span><span class="op">.</span><span class="im">query</span><span class="op">.</span><span class="im">Param</span><span class="op">;</span></span>
 <span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Repository</span><span class="op">;</span></span>
 <span id="cb16-5"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
 <span id="cb16-6"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">@Repository</span></span>
-<span id="cb16-8"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> UserRepository <span class="kw">extends</span> CrudRepository<span class="op">&lt;</span>User<span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb16-8"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> UserRepository <span class="kw">extends</span> JpaRepository<span class="op">&lt;</span>User<span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> <span class="op">{</span></span>
 <span id="cb16-9"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-10"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">@Query</span><span class="op">(</span>value <span class="op">=</span> <span class="st">"""</span></span>
 <span id="cb16-11"><a aria-hidden="true" tabindex="-1"></a><span class="st">        SELECT * </span></span>
@@ -1351,13 +1369,13 @@ Ludovic Deneuville
 <h3>JPQL</h3>
 <ul>
 <li>Java Persistence Query Language</li>
-<li>Method name <span class="emoji" data-emoji="arrow_right">➡️</span> Query</li>
+<li>Method name <span class="emoji" data-emoji="arrow_right">➡️</span> Auto-generate the Query</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">data</span><span class="op">.</span><span class="im">repository</span><span class="op">.</span><span class="im">CrudRepository</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">data</span><span class="op">.</span><span class="im">jpa</span><span class="op">.</span><span class="im">repository</span><span class="op">.</span><span class="im">JpaRepository</span><span class="op">;</span></span>
 <span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Repository</span><span class="op">;</span></span>
 <span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a><span class="at">@Repository</span></span>
-<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> UserRepository <span class="kw">extends</span> CrudRepository<span class="op">&lt;</span>User<span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> UserRepository <span class="kw">extends</span> JpaRepository<span class="op">&lt;</span>User<span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> <span class="op">{</span></span>
 <span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">findByGenderOrderByFirstNameDesc</span><span class="op">(</span><span class="bu">String</span> gender<span class="op">);</span></span>
 <span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
