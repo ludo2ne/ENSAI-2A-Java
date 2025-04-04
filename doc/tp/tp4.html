@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">2</span> Exercice</a>
   <ul class="collapse">
   <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure"><span class="header-section-number">2.1</span> Project structure</a></li>
-  <li><a href="#for-students-in-the-it-sections" id="toc-for-students-in-the-it-sections" class="nav-link" data-scroll-target="#for-students-in-the-it-sections"><span class="header-section-number">2.2</span> For students in the IT sections</a></li>
+  <li><a href="#for-students-in-it-sections" id="toc-for-students-in-it-sections" class="nav-link" data-scroll-target="#for-students-in-it-sections"><span class="header-section-number">2.2</span> For students in IT sections</a></li>
   <li><a href="#workflow-example" id="toc-workflow-example" class="nav-link" data-scroll-target="#workflow-example"><span class="header-section-number">2.3</span> Workflow example</a></li>
   <li><a href="#api-rest" id="toc-api-rest" class="nav-link" data-scroll-target="#api-rest"><span class="header-section-number">2.4</span> API Rest</a></li>
   <li><a href="#create-competitions" id="toc-create-competitions" class="nav-link" data-scroll-target="#create-competitions"><span class="header-section-number">2.5</span> Create competitions</a></li>
@@ -482,11 +482,15 @@ To go further
 </div>
 </div>
 </section>
-<section id="for-students-in-the-it-sections" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="for-students-in-the-it-sections"><span class="header-section-number">2.2</span> For students in the IT sections</h3>
+<section id="for-students-in-it-sections" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="for-students-in-it-sections"><span class="header-section-number">2.2</span> For students in IT sections</h3>
+<p>Let’s use a PostgreSQL database insted of an embedded H2:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">In the SPPCloud, create a service PostgreSQL</label></li>
-<li><label><input type="checkbox">Modify file <em>application.yml</em> to connect to this database</label></li>
+<li><label><input type="checkbox">Modify file <em>application.yml</em> to connect to this database</label>
+<ul>
+<li>search on internet for the necessary configuration</li>
+</ul></li>
 <li><label><input type="checkbox">Optional: create a service <em>CloudBeaver</em> if you want to execute queries</label>
 <ul>
 <li>If all goes well, CloudBeaver will automatically connect to your database</li>
@@ -552,7 +556,7 @@ athlete</li>
 <li><label><input type="checkbox">DELETE an Athlete by id</label></li>
 <li><label><input type="checkbox">CREATE an Athlete</label></li>
 </ul>
-<p>If you haven’t any client installed (Insomnia, Bruno…) on your machine you can use these bash commands:</p>
+<p>If you haven’t any http client installed (Insomnia, Bruno, Postman…) on your machine you can use these bash commands to test your endpoints:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST https://<span class="op">&lt;</span>your_url<span class="op">&gt;</span>.user.lab.sspcloud.fr/api/athlete <span class="dt">\</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> <span class="st">'{</span></span>
@@ -723,7 +727,10 @@ Tip
 </ul>
 <p>Try to delete a Competition. What’s wrong?</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Update method <em>CompetitionService.deleteById()</em></label></li>
+<li><label><input type="checkbox">Update method <em>CompetitionService.deleteById()</em></label>
+<ul>
+<li>to allow you to force deletion</li>
+</ul></li>
 <li><label><input type="checkbox">Bonus: you will meet the same issue if you try to delete an Athlete. Fix it</label></li>
 </ul>
 </section>
