@@ -30,6 +30,8 @@ from: markdown+emoji
 - [TP3](doc/tp/tp3.qmd) : Rated TP
 - [TP4](doc/tp/tp4.qmd) : A Spring Boot project
 
+Dedicated repository: [ENSAI-2A-Java-TP](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"}
+
 
 ## Bibliography
 

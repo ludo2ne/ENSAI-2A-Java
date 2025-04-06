@@ -25,6 +25,16 @@ mermaid:
 ## Spring
 
 :::{.notes}
+Program:
+
+- Annotations
+- Layered Architecture
+- Spring Boot
+- Data mapping
+- How to create an API
+
+
+
 :construction:
 
 - <https://rules.sonarsource.com/java/>
@@ -48,9 +58,11 @@ https://gayerie.dev/docs/spring/index.html
 
 :::{.notes}
 - improving:
-  - maintainability,
-  - testability.
+  - maintainability
+  - testability
   - flexibility 
+
+Developing a Java application without using Spring is like being a data scientist without using SQL
 :::
 
 
@@ -389,7 +401,9 @@ Dependencies:
   - including project tree
   - including pom with selected dependencies
 
-
+:::{.notes}
+Step 1: create project, select dependencies
+:::
 
 ## Properties
 
@@ -427,6 +441,8 @@ logging:
 ```
 
 :::{.notes}
+Step 2: custom properties, setup
+
 - Like python .env
 - Port (80: http, 443: https, 22: SSH, 21: FTP)
 - Database connection
@@ -494,6 +510,8 @@ hobbies:
 ## Data Mapping
 
 :::{.notes}
+Step 3: deal with data
+
 - I would remind you that the aim is to send the data up to the GUI
 - We want to get data from database to our app
 :::
@@ -515,7 +533,7 @@ hobbies:
 
 ```{.sql}
 CREATE TABLE user (
-    lastname     VARCHAR(255),
+    id_user      SERIAL PRIMARY KEY,
     firstname    VARCHAR(255),
     birth_date   DATE,
     gender       VARCHAR(10)
@@ -526,8 +544,8 @@ CREATE TABLE user (
 
 ```{.java}
 public class User {
-    private String lastName;
-    private String firstName;
+    private Long id;
+    private String name;
     private LocalDate birthDate;
     private String gender;
 ```
@@ -536,6 +554,7 @@ public class User {
 - A few differences:
   - `User` instead of `user`
   - `birthDate` vs `birth_date`
+  - `id` vs `id_user`
 
 ### Hibernate
 
@@ -737,9 +756,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = """
         SELECT * 
         FROM user u 
-        WHERE u.last_name = :lastName
+        WHERE u.name = :name
     """, nativeQuery = true)
-    List<User> findByLastNameNative(@Param("lastName") String lastName);
+    List<User> findByNameNative(@Param("name") String name);
 }
 ```
 
@@ -755,7 +774,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    List<User> findByGenderOrderByFirstNameDesc(String gender);
+    List<User> findByGenderOrderByNameDesc(String gender);
 }
 ```
 
@@ -829,13 +848,13 @@ Alternative to PATH Param: Query Parameters
 ### Create, Update, Delete
 
 ```{.java filename="ApiRestController.java"}
-    @PostMapping
+    @PostMapping("/users")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User createdUser = userService.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
         User existingUser = userService.findById(id);
         if (existingUser == null) {
@@ -846,7 +865,7 @@ Alternative to PATH Param: Query Parameters
         return ResponseEntity.ok(updatedUser);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         User existingUser = userService.findById(id);
         if (existingUser == null) {

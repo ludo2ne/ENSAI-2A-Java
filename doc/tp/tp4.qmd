@@ -194,7 +194,7 @@ Let's use a PostgreSQL database insted of an embedded H2:
 
 - You want to display all Athletes
 - You click on button *Athletes* on the navigation bar
-  - This takes you to the `/athletes` endpoint (check the *navbar.html* file if necessary)
+  - This takes you to the `/athlete` endpoint (check the *navbar.html* file if necessary)
 - In the Controller, it match with method `findAllAthletes()`
   - This method calls method `findAll()` from the service
     - This method calls method `findAll()` from the repository
@@ -286,7 +286,7 @@ CREATE TABLE competition (
   - find a competition from its id
   - delete a competition
 - [ ] Code a controller to handle these endpoints:
-  - `/competition`: display all competition (allCompetition.html)
+  - `/competition`: display all competitions (allCompetitions.html)
   - `/competition/delete/{id}`: to delete a competition using its id
 
 
