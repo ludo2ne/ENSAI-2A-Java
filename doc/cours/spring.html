@@ -279,6 +279,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="spring" class="level2">
 <h2 class="anchored" data-anchor-id="spring">Spring</h2>
 <div class="notes">
+<p>Program:</p>
+<ul>
+<li>Annotations</li>
+<li>Layered Architecture</li>
+<li>Spring Boot</li>
+<li>Data mapping</li>
+<li>How to create an API</li>
+</ul>
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
 <ul>
 <li><a href="https://rules.sonarsource.com/java/" class="uri">https://rules.sonarsource.com/java/</a></li>
@@ -300,11 +308,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>improving:
 <ul>
-<li>maintainability,</li>
-<li>testability.</li>
+<li>maintainability</li>
+<li>testability</li>
 <li>flexibility</li>
 </ul></li>
 </ul>
+<p>Developing a Java application without using Spring is like being a data scientist without using SQL</p>
 </div>
 </section>
 <section id="modules" class="level3">
@@ -713,6 +722,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>including pom with selected dependencies</li>
 </ul></li>
 </ul>
+<div class="notes">
+<p>Step 1: create project, select dependencies</p>
+</div>
 </section>
 </section>
 <section id="properties" class="level2">
@@ -749,6 +761,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">embedded</span><span class="kw">:</span></span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">tomcat</span><span class="kw">:</span><span class="at"> INFO</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="notes">
+<p>Step 2: custom properties, setup</p>
 <ul>
 <li>Like python .env</li>
 <li>Port (80: http, 443: https, 22: SSH, 21: FTP)</li>
@@ -824,6 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-mapping" class="level2">
 <h2 class="anchored" data-anchor-id="data-mapping">Data Mapping</h2>
 <div class="notes">
+<p>Step 3: deal with data</p>
 <ul>
 <li>I would remind you that the aim is to send the data up to the GUI</li>
 <li>We want to get data from database to our app</li>
@@ -847,7 +861,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="database-side" class="level3">
 <h3 class="anchored" data-anchor-id="database-side">Database side</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="fu">user</span> (</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    lastname     <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    id_user      SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    firstname    <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    birth_date   <span class="dt">DATE</span>,</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    gender       <span class="dt">VARCHAR</span>(<span class="dv">10</span>)</span>
@@ -856,8 +870,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="java-class" class="level3">
 <h3 class="anchored" data-anchor-id="java-class">Java class</h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> User <span class="op">{</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> lastName<span class="op">;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> firstName<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> id<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDate birthDate<span class="op">;</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> gender<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -866,6 +880,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>User</code> instead of <code>user</code></li>
 <li><code>birthDate</code> vs <code>birth_date</code></li>
+<li><code>id</code> vs <code>id_user</code></li>
 </ul></li>
 </ul>
 </section>
@@ -1127,9 +1142,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Query</span><span class="op">(</span>value <span class="op">=</span> <span class="st">"""</span></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="st">        SELECT * </span></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="st">        FROM user u </span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="st">        WHERE u.last_name = :lastName</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="st">        WHERE u.name = :name</span></span>
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span><span class="op">,</span> nativeQuery <span class="op">=</span> <span class="kw">true</span><span class="op">)</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">findByLastNameNative</span><span class="op">(</span><span class="at">@Param</span><span class="op">(</span><span class="st">"lastName"</span><span class="op">)</span> <span class="bu">String</span> lastName<span class="op">);</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">findByNameNative</span><span class="op">(</span><span class="at">@Param</span><span class="op">(</span><span class="st">"name"</span><span class="op">)</span> <span class="bu">String</span> name<span class="op">);</span></span>
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="jpql" class="level3">
@@ -1143,7 +1158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="at">@Repository</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> UserRepository <span class="kw">extends</span> JpaRepository<span class="op">&lt;</span>User<span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> <span class="op">{</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">findByGenderOrderByFirstNameDesc</span><span class="op">(</span><span class="bu">String</span> gender<span class="op">);</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">findByGenderOrderByNameDesc</span><span class="op">(</span><span class="bu">String</span> gender<span class="op">);</span></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="notes">
 <ul>
@@ -1228,13 +1243,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>ApiRestController.java</strong></pre>
 </div>
-<div class="sourceCode" id="cb20" data-filename="ApiRestController.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<div class="sourceCode" id="cb20" data-filename="ApiRestController.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">"/users"</span><span class="op">)</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> ResponseEntity<span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">createUser</span><span class="op">(</span><span class="at">@RequestBody</span> User user<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        User createdUser <span class="op">=</span> userService<span class="op">.</span><span class="fu">save</span><span class="op">(</span>user<span class="op">);</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ResponseEntity<span class="op">.</span><span class="fu">status</span><span class="op">(</span>HttpStatus<span class="op">.</span><span class="fu">CREATED</span><span class="op">).</span><span class="fu">body</span><span class="op">(</span>createdUser<span class="op">);</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PutMapping</span><span class="op">(</span><span class="st">"/{id}"</span><span class="op">)</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PutMapping</span><span class="op">(</span><span class="st">"/users/{id}"</span><span class="op">)</span></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> ResponseEntity<span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">updateUser</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">,</span> <span class="at">@RequestBody</span> User user<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        User existingUser <span class="op">=</span> userService<span class="op">.</span><span class="fu">findById</span><span class="op">(</span>id<span class="op">);</span></span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>existingUser <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
@@ -1245,7 +1260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ResponseEntity<span class="op">.</span><span class="fu">ok</span><span class="op">(</span>updatedUser<span class="op">);</span></span>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">@DeleteMapping</span><span class="op">(</span><span class="st">"/{id}"</span><span class="op">)</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">@DeleteMapping</span><span class="op">(</span><span class="st">"/users/{id}"</span><span class="op">)</span></span>
 <span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> ResponseEntity<span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">deleteUser</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        User existingUser <span class="op">=</span> userService<span class="op">.</span><span class="fu">findById</span><span class="op">(</span>id<span class="op">);</span></span>
 <span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>existingUser <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
