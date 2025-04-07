@@ -313,8 +313,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>It looks like : <code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user&lt;optional: -9000&gt;.user.lab.sspcloud.fr/</code></li>
 </ul></li>
 </ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your service authorises the opening of another port (ex: 5000) on the Internet, you will need to use the same port to launch your Spring Boot application (application.yml file).</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Custom your service">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -323,7 +336,7 @@ Custom your service
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>I you meet any issue you can launch it manually:</p>
 <ul>
@@ -475,7 +488,7 @@ Caution
 <li><code>pom.xml</code>: Maven config</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="To go further">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -484,7 +497,7 @@ To go further
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><code>/config</code>: To setup your app (security…)</li>
@@ -627,6 +640,21 @@ Note
 <ul>
 <li>To store dates, use <code>LocalDate</code> from <em>java.time.LocalDate</em></li>
 </ul></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled" title="Naming conventions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Naming conventions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please respect the naming conventions inherent in the languages (Java: camelCase, SQL: snake_case).</p>
+</div>
+</div>
+<ul class="task-list">
 <li><label><input type="checkbox">Create an interface <em>CompetitionRepository</em> to access the data in the database</label></li>
 <li><label><input type="checkbox">Write a service class for competitions with methods allowing you to:</label>
 <ul>
@@ -636,7 +664,10 @@ Note
 </ul></li>
 <li><label><input type="checkbox">Code a controller to handle these endpoints:</label>
 <ul>
-<li><code>/competition</code>: display all competitions (allCompetitions.html)</li>
+<li><code>/competition</code>: display all competitions (allCompetitions.html)
+<ul>
+<li>In the Model, add an attribute named “competitions”</li>
+</ul></li>
 <li><code>/competition/delete/{id}</code>: to delete a competition using its id</li>
 </ul></li>
 </ul>
@@ -650,7 +681,7 @@ Note
 <li><label><input type="checkbox">Paste those queries at the end of <em>data.sql</em></label></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="To be pasted at the end of data.sql">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -659,7 +690,7 @@ To be pasted at the end of data.sql
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">----------------------------------------------</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Registration</span></span>
