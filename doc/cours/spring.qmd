@@ -62,7 +62,11 @@ https://gayerie.dev/docs/spring/index.html
   - testability
   - flexibility 
 
-Developing a Java application without using Spring is like being a data scientist without using SQL
+Building a Java application without Spring is like trying to build a house without power tools.
+
+Alternatives: JEE (old), Quarkus, Micronaut
+
+Like Django or Flask for Python
 :::
 
 
@@ -819,7 +823,7 @@ public class ApiRestController {
 ### Use a PATH Parameter
 
 ```{.java filename="ApiRestController.java"}
-    @GetMapping("/users/{id}")
+    @GetMapping("/users/{id_user}")
     public ResponseEntity<User> getUserById(@PathVariable Long id_user) {
         User user = userService.findById(id_user);
         if (user == null) {

@@ -5,6 +5,7 @@ Enseignements ENSAI de 2e année en Python.
 ## :construction:  Todo
 
 - [ ] maj <https://ensai.fr/cpt_matiere/programmation-orientee-objet-avec-java/>
+- [ ] add schedule in slides
 
 ### CM
 

@@ -45,6 +45,9 @@ We're developing an API for public Internet access, which requires us to expose 
 - [ ] During container startup, copy the link where your application will be exposed (port 9000)
   - It looks like : `https://user-<sspcloud_username>-<6digits_number>-user<optional: -9000>.user.lab.sspcloud.fr/`
 
+::: {.callout-warning}
+If your service authorises the opening of another port (ex: 5000) on the Internet, you will need to use the same port to launch your Spring Boot application (application.yml file).
+:::
 
 ::: {.callout-tip title="Custom your service" collapse="true"}
 I you meet any issue you can launch it manually:
@@ -280,6 +283,11 @@ CREATE TABLE competition (
 
 - [ ] Create a Model class for competitions
   - To store dates, use `LocalDate` from *java.time.LocalDate*
+
+::: {.callout-warning title="Naming conventions"}
+Please respect the naming conventions inherent in the languages (Java: camelCase, SQL: snake_case).
+:::
+
 - [ ] Create an interface *CompetitionRepository* to access the data in the database
 - [ ] Write a service class for competitions with methods allowing you to:
   - list all competitions
@@ -287,6 +295,7 @@ CREATE TABLE competition (
   - delete a competition
 - [ ] Code a controller to handle these endpoints:
   - `/competition`: display all competitions (allCompetitions.html)
+    - In the Model, add an attribute named "competitions"
   - `/competition/delete/{id}`: to delete a competition using its id
 
 
