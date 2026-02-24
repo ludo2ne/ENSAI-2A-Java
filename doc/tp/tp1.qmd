@@ -83,16 +83,21 @@ A service is available with Visual Studio Code and Java.
 
 - [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"}
 
+:construction: Custom service with port 9000 opened
+
 ::: {.callout-important}
 You won't find this service in the basic catalog. You have to use the link above to launch it.
 
-It uses a specific [Docker image](https://github.com/odysseu/onyxia-datascience-images/blob/main/vscode-java/Dockerfile){target="_blank"}
+It is a service built from vscode-python, on which Java is then installed via [this script](vscode-java.sh){target="_blank"}.
 :::
 
-- [ ] Back to GitHub, fork this repository: <https://github.com/ludo2ne/ENSAI-2A-Java-TP/fork>{target="_blank"}
-- [ ] On the main page of your fork, click on [Code]{.green-button}
-- [ ] Copy *https* url to clipboard
-- [ ] Back to VSCode in the Datalab, Clone the forked repository using this *https* url
+- [ ] Back to GitHub, go to: <https://github.com/ludo2ne/ENSAI-2A-Java-TP>{target="_blank"}
+- [ ] Create a new repository [Using this template]{.green-button}
+  - name: *ENSAI-2A-Java-TP*
+- [ ] Copy your repository address 
+  - click on [Code]{.green-button}
+  - Copy *https* url to clipboard
+- [ ] Back to VSCode in the Datalab, clone your repository
 - [ ] In the menu (3 parallel bars top left) :arrow_right: File :arrow_right: Open Folder
   - enter : `/home/onyxia/work/ENSAI-2A-Java-TP/` :arrow_right: OK
 

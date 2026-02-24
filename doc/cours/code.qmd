@@ -26,6 +26,10 @@ lightbox: true
 In Java, all executable code must be inside a class.
 :::
 
+::: {.fragment}
+- Not anymore !
+:::
+
 
 ## Hello World
 
@@ -80,7 +84,7 @@ var i = 2F;                   // type inference -> float
 ```
 
 :::{.notes}
-- strong typing, immuable type
+- strong typing, immutable type
 - primitive, object
 - String
   - not a primitive data type

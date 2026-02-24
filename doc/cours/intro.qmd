@@ -24,7 +24,7 @@ lightbox: true
 - 6h CM
 - 12h TP
 - `ludovic.deneuville@ensai.fr`
-- office 181
+- office 161
 - class based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt
 
 
@@ -42,7 +42,7 @@ lightbox: true
 - 4 x 3h
 - Datalab [SSPCloud](https://datalab.sspcloud.fr/){target="_blank"}
 - Follow instructions precisely
-- Don't use LLM
+- Don't use GenAI
 
 
 ## Evaluation
@@ -65,11 +65,12 @@ lightbox: true
 - Java 8 (2014) : Lambda, Stream, Optional
 - Java 17 (2021)
 - Java 21 (2023)
+- Java 25 (sept. 2025)
 
 <https://www.java.com/>{target="_blank"}
 
 :::{.notes}
-- Facebook story
+- Facebook story (Sun Microsystems)
 - LTS
 - 2009 Oracle
 - 2017 Java 9 -> Modules
@@ -170,6 +171,35 @@ The JVM :
 - Multi-paradigm (objet, fonctionnel, impératif)
 :::
 
+
+### High-level languages
+
+- Human-readable syntax
+- Hardware abstraction
+- Faster, easier development
+- Indirect performance (VM/runtime)
+
+### Low-level languages
+  
+- Close to hardware
+- Fine control over memory/resources
+- Maximum performance
+- Higher complexity
+
+### High/Low-level
+
+| Level | Priority         | Typical Uses              |
+|-------|------------------|---------------------------|
+| High  | Productivity     | Web, data, scripting      |
+| Mid   | Balance          | Enterprise, backend       |
+| Low   | Control & speed  | OS, embedded, real-time   |
+
+:::{.notes}
+- High : Python
+- Mid : Java
+- Low : Rust
+- Very Low : C, Assembly
+:::
 
 ## Resources
 
