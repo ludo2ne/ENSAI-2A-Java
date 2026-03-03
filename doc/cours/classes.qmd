@@ -16,6 +16,11 @@ format:
     output-file: classes-slides.html
 from: markdown+emoji
 lightbox: true
+categories:
+  - OOP
+  - Inheritance
+  - Main
+  - JavaDoc
 ---
 
 

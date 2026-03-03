@@ -37,39 +37,19 @@ Follow the instructions in the [introduction to TP1](./tp1.qmd#introduction){tar
 :::
 
 ::: {.callout-important}
-During the first tutorial, you created a fork of the [ENSAI-2A-Java-TP repository](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"}, i.e. you created a copy of this repository on GitHub.
+During the first tutorial, you created a repository using template [ENSAI-2A-Java-TP repository](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"}, i.e. you created a copy of this repository on GitHub.
 
-The original repository has been updated, so you need to synchronise your fork with the latest version of the repository.
+If the original repository has been updated, so you need to synchronise your fork with the latest version of the repository.
 :::
 
-**[Choose one]{.underline}** of these two possibilities to perform it :
 
-- Using GitHub interface : sync on GitHub, and then clone on your VSCode
-- Manually in a terminal : clone on your VSCode, and then sync using git commands
+In the terminal:
 
-#### Using GitHub interface (easy way)
-
-- [ ] Login to [GitHub](https://github.com/){target="_blank"}
-- [ ] Open the fork of ENSAI-2A-Java-TP, you created at the first practical
-- [ ] Click on the button **Sync fork**
-
-In VSCode:
-
-- [ ] Open a terminal and clone your own repo
-
-#### In a terminal
-
-- [ ] Open a terminal in VSCode
-- [ ] Clone your repository
 - [ ] Position yourself into the repo using `cd <my_repo>`
 - [ ] Add the original repository as a remote (call it *upstream*)
   - `git remote add upstream https://github.com/ludo2ne/ENSAI-2A-Java-TP.git`
-- [ ] Fetch the latest changes from upstream
-  - `git fetch upstream`
-- [ ] Make sure you're on the branch main
-  - `git checkout main`
-- [ ] Merge the changes
-  - `git merge upstream/main`
+- [ ] Fetch the latest changes from upstream and merge the main branch
+  - `git pull upstream main --allow-unrelated-histories --no-edit`
 - [ ] Resolve any conflicts (if necessary)
 - [ ] Push the updates to your fork
   - `git push origin main`
@@ -97,6 +77,187 @@ This time, we'll be working on a Maven project, so you'll be able to use the fol
 - `mvn test`
   - Run unit tests
 
+
+
+## Java class
+
+### Example
+
+```{.java filename="Student.java"}
+import java.util.ArrayList;
+
+/**
+ * Represents a student
+ * Attributes : name, age, and a list of notes.
+ */
+public class Student {
+    // -------------------------------------------------------
+    // Attributes
+    // -------------------------------------------------------
+    private String name;
+    private int age;
+    private ArrayList<Double> notes;
+
+    /**
+     * Constructs a new Student object with the given name and age.
+     * @param name The name of the student.
+     * @param age The age of the student.
+     */
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+        this.notes = new ArrayList<>();     // empty list
+    }
+
+    // -------------------------------------------------------
+    // Getters and Setters (to access private attributes)
+    // -------------------------------------------------------
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * Sets the age of the student.
+     * @param age The age to set. It should be greater than zero.
+     * @throws IllegalArgumentException if the provided age is not greater than zero.
+     */
+    public void setAge(int age) {
+        if (age <= 0) {
+            throw new IllegalArgumentException("Age must be greater than zero.");
+        }
+        this.age = age;
+    }
+    
+    // -------------------------------------------------------
+    // Methods
+    // -------------------------------------------------------
+
+    /**
+     * @return A string representation of the Student object.
+     */
+    @Override
+    public String toString() {
+        return "Student(" +
+                "name='" + this.name + '\'' +
+                ", age=" + this.age +
+                ')';
+    }
+
+    /**
+     * Adds a note to the student's list of notes.
+     * @param note The note to be added.
+     */
+    public void addNote(double note) {
+        this.notes.add(note);
+    }
+
+    /**
+     * Computes the average note of the student.
+     * @return The average note of the student.
+     * @throws ArithmeticException if there are no notes present.
+     */
+    public double computeAverage() {
+        if (this.notes.isEmpty()) {
+            throw new ArithmeticException("Cannot compute average. No notes available.");
+        }
+
+        double sum = 0.0;
+        for (double note : this.notes) {
+            sum += note;
+        }
+        return sum / this.notes.size();
+    }
+
+    /**
+     * Main method
+     */
+    public static void main(String[] args) {
+        Student student = new Student("Eva", 20);
+        student.addNote(17.5);
+        student.addNote(12.0);
+        student.addNote(20.0);
+        
+        System.out.println(student);
+        System.out.println("Average Note: " + student.computeAverage());
+    }
+}
+```
+
+
+### Template
+
+```{.java filename="ClassName.java"}
+/**
+ * Represents a ...
+ */
+public class ClassName {
+    // -------------------------------------------------------
+    // Attributes
+    // -------------------------------------------------------
+    private String attribute1;
+    private int attribute2;
+
+    /**
+     * Constructs a new ...
+     * @param parameter1 parameter1_description
+     * @param parameter2 parameter2_description
+     */
+    public ClassName(String parameter1, int parameter2) {
+        this.attribute1 = parameter1;
+        this.attribute2 = parameter2;
+    }
+
+
+    // -------------------------------------------------------
+    // Methods
+    // -------------------------------------------------------
+
+    /**
+     * No parameter, return void
+     */
+    public void print_attribute1() {
+        System.out.println(this.attribute1);
+    }
+    
+    /**
+     * Increment value of attribute2
+     * A parameter, return void
+     * @param increment increment
+     */
+    public void increment_attribute2(int increment) {
+        this.attribute2 += increment;
+    }
+    
+    /**
+     * Checks if attribute2 is odd.
+     *
+     * @return true if attribute2 is odd, false otherwise.
+     */
+    public boolean isAttribute2Odd() {
+        return attribute2 % 2 != 0;
+    }
+
+
+    /**
+     * Main method
+     */
+    public static void main(String[] args) {
+
+        ClassName c = new ClassName("", 0);
+        c.increment_attribute2(5);
+        System.out.println(c.isAttribute2Odd());
+    }
+}
+```
 
 
 ## Exercice : Library management
@@ -333,7 +494,7 @@ In the *Library* class create following methods:
 Feel free to use these methods in your main method.
 
 
-## End of the TP
+## End of the TP{.unnumbered}
 
 - [ ] Commit and push
 - [ ] Remove your service
@@ -341,185 +502,4 @@ Feel free to use these methods in your main method.
 ::: {.callout-tip}
 If it's too easy, you can have fun with <https://adventofcode.com/>{target="_blank"}
 :::
-
-
-## Java class
-
-### Example
-
-```{.java filename="Student.java"}
-import java.util.ArrayList;
-
-/**
- * Represents a student
- * Attributes : name, age, and a list of notes.
- */
-public class Student {
-    // -------------------------------------------------------
-    // Attributes
-    // -------------------------------------------------------
-    private String name;
-    private int age;
-    private ArrayList<Double> notes;
-
-    /**
-     * Constructs a new Student object with the given name and age.
-     * @param name The name of the student.
-     * @param age The age of the student.
-     */
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-        this.notes = new ArrayList<>();     // empty list
-    }
-
-    // -------------------------------------------------------
-    // Getters and Setters (to access private attributes)
-    // -------------------------------------------------------
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    /**
-     * Sets the age of the student.
-     * @param age The age to set. It should be greater than zero.
-     * @throws IllegalArgumentException if the provided age is not greater than zero.
-     */
-    public void setAge(int age) {
-        if (age <= 0) {
-            throw new IllegalArgumentException("Age must be greater than zero.");
-        }
-        this.age = age;
-    }
-    
-    // -------------------------------------------------------
-    // Methods
-    // -------------------------------------------------------
-
-    /**
-     * @return A string representation of the Student object.
-     */
-    @Override
-    public String toString() {
-        return "Student(" +
-                "name='" + this.name + '\'' +
-                ", age=" + this.age +
-                ')';
-    }
-
-    /**
-     * Adds a note to the student's list of notes.
-     * @param note The note to be added.
-     */
-    public void addNote(double note) {
-        this.notes.add(note);
-    }
-
-    /**
-     * Computes the average note of the student.
-     * @return The average note of the student.
-     * @throws ArithmeticException if there are no notes present.
-     */
-    public double computeAverage() {
-        if (this.notes.isEmpty()) {
-            throw new ArithmeticException("Cannot compute average. No notes available.");
-        }
-
-        double sum = 0.0;
-        for (double note : this.notes) {
-            sum += note;
-        }
-        return sum / this.notes.size();
-    }
-
-    /**
-     * Main method
-     */
-    public static void main(String[] args) {
-        Student student = new Student("Eva", 20);
-        student.addNote(17.5);
-        student.addNote(12.0);
-        student.addNote(20.0);
-        
-        System.out.println(student);
-        System.out.println("Average Note: " + student.computeAverage());
-    }
-}
-```
-
-
-### Template
-
-```{.java filename="ClassName.java"}
-/**
- * Represents a ...
- */
-public class ClassName {
-    // -------------------------------------------------------
-    // Attributes
-    // -------------------------------------------------------
-    private String attribute1;
-    private int attribute2;
-
-    /**
-     * Constructs a new ...
-     * @param parameter1 parameter1_description
-     * @param parameter2 parameter2_description
-     */
-    public ClassName(String parameter1, int parameter2) {
-        this.attribute1 = parameter1;
-        this.attribute2 = parameter2;
-    }
-
-
-    // -------------------------------------------------------
-    // Methods
-    // -------------------------------------------------------
-
-    /**
-     * No parameter, return void
-     */
-    public void print_attribute1() {
-        System.out.println(this.attribute1);
-    }
-    
-    /**
-     * Increment value of attribute2
-     * A parameter, return void
-     * @param increment increment
-     */
-    public void increment_attribute2(int increment) {
-        this.attribute2 += increment;
-    }
-    
-    /**
-     * Checks if attribute2 is odd.
-     *
-     * @return true if attribute2 is odd, false otherwise.
-     */
-    public boolean isAttribute2Odd() {
-        return attribute2 % 2 != 0;
-    }
-
-
-    /**
-     * Main method
-     */
-    public static void main(String[] args) {
-
-        ClassName c = new ClassName("", 0);
-        c.increment_attribute2(5);
-        System.out.println(c.isAttribute2Odd());
-    }
-}
-```
 

@@ -16,6 +16,8 @@ format:
     output-file: junit-slides.html
 from: markdown+emoji
 lightbox: true
+categories:
+  - Unit tests
 ---
 
 ## Unit tests with JUnit

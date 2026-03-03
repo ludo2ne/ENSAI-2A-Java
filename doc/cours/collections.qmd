@@ -17,6 +17,9 @@ format:
     code-line-numbers: false
 from: markdown+emoji
 lightbox: true
+categories:
+  - ArrayList
+  - HashMap
 ---
 
 ## Collections in Java

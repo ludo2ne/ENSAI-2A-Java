@@ -21,69 +21,74 @@ This is why methods are defined as static. They are class methods. You don't nee
 
 We're going to do a few exercises on the subject of passwords.
 
-## Introduction
 
-In this tutorial, we will use the INSEE SSPCloud Datalab.
+## Git setup
+
+In all tutorials, we are going to code on SSPCloud datalab.
 
 - [ ] Login to [SSPCloud](https://datalab.sspcloud.fr){target="_blank"}
 
-
-### Git setup
-
-::: {.callout-caution}
 On the datalab, your services have a [**limited lifespan**]{.underline}.
 
 To save your programs, the best practice is to use a git repository. We will therefore create and use a token to communicate with GitHub.
 
-To follow the process, you need to have a [GitHub](https://github.com/){target="_blank"} account.
-It is also possible to follow a similar process with [GitLab](https://about.gitlab.com/){target="_blank"}.
+Using a token means [you do not have to authenticate]{.unerline} yourself every time you exchange data between your datalab service and GitHub.
+
+::: {.callout-tip title="How it works"}
+- Create a classic token on GitHub
+  - `ghp_...`
+- Declare it on SSPCloud
+  - This creates an environment variable containing the token value.
+  - `export GIT_PERSONAL_ACCESS_TOKEN=ghp_...`
+- Use it when creating the clone
+  - `git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/....git`
+- You can now push and pull without authentication 
 :::
 
-
-#### Generate a GitHub Token
-
-::: {.callout-tip title="Already done?"}
-If you have already generated and declared a GitHub token, there's no need to repeat these 2 steps.
-:::
+### Is your token still active?
 
 - [ ] Login to [GitHub](https://github.com/){target="_blank"}
 - [ ] Go to settings :arrow_right: Developer settings :arrow_right: Personal access tokens :arrow_right: Tokens (classic)
+  - [Direct link](https://github.com/settings/tokens){target="_blank"}
+
+::: {.callout-tip title="If not generate a new one" collapse="true"}
 - [ ] Generate a [new classic token](https://github.com/settings/tokens/new){target="_blank"}
   - Fill in:
     - token name: Datalab GENES
-    - expiration date :arrow_right: Custom :arrow_right: 1 year
-  - :white_check_mark: Check the repo box
+    - expiration date :arrow_right: Custom :arrow_right: 31 December
+  - :white_check_mark: Tick repo and workflow boxes
   - Click on [Generate token]{.green-button}
-  - Copy the token starting with `ghp_` and keep it safe for a few minutes
+- [ ] Copy the token starting with `ghp_` and keep it safe for a few minutes
 
-::: {.callout-warning}
-- This token will only be visible once
-- If you lose it or if it expires, you must generate a new one
+This token will only be visible once. If you lose it or if it expires, you must generate a new one.
 :::
 
 
-#### Declare Your Token
+### Is your token registered on SSPCloud?
 
-GitHub has provided you with a token. Now, you need to declare it on the Datalab:
+On the Datalab:
 
 - [ ] Go to `My Account` :arrow_right: `Git` tab
-- [ ] Fill in the following information:
-  - Git username
-  - email (the one used for your GitHub account)
-- [ ] Paste your token
 
-::: {.callout-tip title="Git Config"}
-You can now exchange code between the Datalab services and your GitHub repositories. :tada:
+If you do not have a declared token:
+
+- [ ] Create one (see previous step) and declare it on the SSP Cloud
+
+::: {.callout-warning}
+If you are uncertain or believe that the token declared on the datalab is no longer active, create a new one.
 :::
 
+### Create your remote repository
 
-### Launch Vscode Java
+- [ ] Back to GitHub, go to: <https://github.com/ludo2ne/ENSAI-2A-Java-TP>{target="_blank"}
+- [ ] Create a new repository [Using this template]{.green-button}
+  - name: *ENSAI-2A-Java-TP*
+
+## Launch Vscode Java
 
 A service is available with Visual Studio Code and Java.
 
-- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"}
-
-:construction: Custom service with port 9000 opened
+- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&version=2.5.2&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&networking.user.enabled=true&autoLaunch=true){target="_blank"}
 
 ::: {.callout-important}
 You won't find this service in the basic catalog. You have to use the link above to launch it.
@@ -91,38 +96,34 @@ You won't find this service in the basic catalog. You have to use the link above
 It is a service built from vscode-python, on which Java is then installed via [this script](vscode-java.sh){target="_blank"}.
 :::
 
-- [ ] Back to GitHub, go to: <https://github.com/ludo2ne/ENSAI-2A-Java-TP>{target="_blank"}
-- [ ] Create a new repository [Using this template]{.green-button}
-  - name: *ENSAI-2A-Java-TP*
-- [ ] Copy your repository address 
-  - click on [Code]{.green-button}
+- [ ] Open the service
+- [ ] Get your repository address on GitHub
+  - Click on [Code]{.green-button}
   - Copy *https* url to clipboard
-- [ ] Back to VSCode in the Datalab, clone your repository
-- [ ] In the menu (3 parallel bars top left) :arrow_right: File :arrow_right: Open Folder
-  - enter : `/home/onyxia/work/ENSAI-2A-Java-TP/` :arrow_right: OK
+- [ ] Clone your repository
+  - Don't forget to insert the token
+- [ ] Open Folder *ENSAI-2A-Java-TP*
+  - In the menu (3 parallel bars top left) :arrow_right: File
+  - Enter : `/home/onyxia/work/ENSAI-2A-Java-TP/tp1` :arrow_right: OK
+  - Or with command: `code-server /home/onyxia/work/ENSAI-2A-Java-TP/tp1`
 
-::: {.callout-tip title="Shorcuts"}
+::: {.callout-tip title="Shortcuts"}
 - SHIFT + ALT + A: Comment / Uncomment selected lines
 - SHIFT + ALT + O: Auto import
 :::
 
 
+## Compile and Run
 
+How to compile and run Java code?
 
-## Exercices
-
-- [ ] Open a terminal
-  - Terminal > New Terminal (or CTRL + ù)
-- [ ] Go to the folder `ENSAI-2A-Java-TP/tp1/src`
-  - if you need help, check out [Unix basic commands](https://ludo2ne.github.io/Git-tuto/doc/presentation.html#commandes-unix){target="_blank"}
-
-#### Compile
+### Compile
 
 - a single Java file: `javac MyClass.java`
 - all Java files: `javac *.java`
 - specify output directory for *.class* files (recommended): `javac -d bin MyClass.java`
 
-#### Run
+### Run
 
 ::: {.callout-important}
 To run a class, it must have a *main()* method.
@@ -139,13 +140,20 @@ So all the methods defined here are static :arrow_right: They are class methods 
 :::
 
 
+## Exercices
+
+- [ ] Open a terminal
+  - Terminal > New Terminal (or CTRL + ù)
+- [ ] Go into the folder `src`
+  - if you need help, check out [Unix basic commands](https://ludo2ne.github.io/Git-tuto/doc/presentation.html#commandes-unix){target="_blank"}
+
 
 ### Brute force
 
 You will write a Java method that attempts to brute-force a hashed 6-digit numeric password.
 
 - The method will iterate through all numbers from 000000 to 999999
-- For each number, Generate and compare hash with the given target hash
+- For each number, generate and compare hash with the given target hash
 - If a match is found, return the original number else return null
 
 ---
@@ -160,9 +168,10 @@ You will write a Java method that attempts to brute-force a hashed 6-digit numer
 :::
 
 
+- [ ] Commit and Push your code
+
 ### Strong password
 
-- [ ] Commit and Push the code of the last exercise
 - [ ] Complete method `isStrongPassword()`
 
 You will write a Java method to check if a password is strong. A password is strong if:
@@ -181,10 +190,10 @@ Usefull methods:
 - `Character.isWhitespace(<char>)`
 :::
 
+- [ ] Commit and Push your code
 
 ### Check password list
 
-- [ ] Commit and Push the code of the last exercise
 - [ ] Complete method `checkPasswordsList()`
 
 You will write a method that takes a list of passwords (ArrayList<String>) and checks their strength. 
@@ -193,6 +202,7 @@ The method should return a HashMap where:
 
 - The keys are the passwords
 - The values are true if the password is strong, false otherwise
+
 
 ### Generate a Random Password
 
@@ -214,11 +224,34 @@ The method should return a HashMap where:
 
 ::: {.callout-tip title="Generate random int between 0 and 20"}
 ```{.java}
+import java.security.SecureRandom;
+
 SecureRandom random = new SecureRandom();
-System.out.println(random.nextInt(21));
+System.out.println(random.nextInt(20));
 ```
 :::
 
+- [ ] Bonus: Add the option to include or exclude a special character in the generated password
+
+
+### Evaluate a password
+
+**Objective:** Reads a password, compute a score and evaluates its strength.
+
+- [ ] Compute a score based on the password's length and on the variety of characters it contains
+
+For the length, add two points each time the password exceeds a threshold: 8, 12, 16, 18 and 20 characters.
+
+Then check whether the password contains lowercase letters, uppercase letters, digits, and special characters. Count how many of these categories are present and add (number of categories) to the score.
+
+- [ ] Return a strength label
+
+| Score            | Strength       |
+|------------------|----------------|
+| < 6              | Weak           |
+| 6                | Okay           |
+| 7–8              | Good           |
+| > 8              | Strong         |
 
 ### Login System
 
@@ -243,4 +276,15 @@ String username = scanner.nextLine();
 
 scanner.close();
 ```
+:::
+
+
+## End of the Lab {.unnumbered}
+
+::: {.callout-important}
+- [ ] Push your code to GitHub
+  - if your VSCode service dies, your code will not be lost
+  - on Datalabs, there is no guarantee of the lifespan of your services
+- [ ] Pause or delete your datalab services
+  - to free up reserved resources
 :::

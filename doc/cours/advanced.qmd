@@ -18,6 +18,11 @@ mermaid:
   theme: forest
 from: markdown+emoji
 lightbox: true
+categories:
+  - Exceptions
+  - Stream
+  - Enum
+  - Interface
 ---
 
 

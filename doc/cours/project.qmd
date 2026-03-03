@@ -16,6 +16,8 @@ format:
     output-file: project-slides.html
 from: markdown+emoji
 lightbox: true
+categories:
+  - Maven
 ---
 
 
@@ -229,12 +231,12 @@ Alternative: Gradle
 
 ### Lifecycles
 
-- `mvn clean`: Deletes the target directory
-- `mvn compile`: Compiles your Java code
-- `mvn test`: Runs your unit tests
-- `mvn package`: Creates a JAR file of your project
-- `mvn exec:java`: Run your program
-- `mvn site`: Creates a website for your project
+- `mvn clean`: Deletes the *target* directory.
+- `mvn compile`: Compiles the project’s source code.
+- `mvn test`: Runs the unit tests.
+- `mvn package`: Packages the compiled code into a JAR file.
+- `mvn exec:java`: Runs the application.
+- `mvn site`: Generates the project documentation website.
 
 
 ## Deployment 

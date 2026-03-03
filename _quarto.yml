@@ -1,11 +1,14 @@
+var:
+  url-repo: https://github.com/ludo2ne/ENSAI-2A-Java   # to call this value : {{< meta var.url-repo >}}
 
 project:
   type: website
-  render:
-    - "**/*.qmd"
 
 website:
   title: "Java"
+  repo-url: "{{< meta var.url-repo >}}"
+  repo-branch: main
+  reader-mode: true
   navbar:
     background: "#447099"
     left:
@@ -41,15 +44,12 @@ website:
             text: "TP n°4"
     right:
       - icon: github
-        href: https://github.com/ludo2ne/ENSAI-2A-Java
+        href: "{{< meta var.url-repo >}}"
         target: "_blank"
   page-footer:
     right: |
       Website built with [Quarto](https://quarto.org/){.external target="_blank"} <br>
-      [Code source](https://github.com/ludo2ne/ENSAI-2A-Java){.external target="_blank"}
-  repo-url: https://github.com/ludo2ne/ENSAI-2A-Java
-  repo-branch: main
-  reader-mode: true
+      [Code source]({{< meta var.url-repo >}}){.external target="_blank"}
 
 format:
   html:

@@ -12,7 +12,10 @@ sudo apt-get install maven -y
 java --version
 mvn --version
 
-code-server --install-extension adamraichu.zip-viewer
-code-server --install-extension redhat.java
 code-server --install-extension vscjava.vscode-java-pack
-code-server --install-extension bierner.markdown-mermaid
+code-server --install-extension vmware.vscode-boot-dev-pack
+code-server --install-extension visualstudioexptteam.vscodeintellicode
+code-server --install-extension sonarsource.sonarlint-vscode
+
+code-server --install-extension charliermarsh.ruff
+code-server --uninstall-extension ms-python.flake8

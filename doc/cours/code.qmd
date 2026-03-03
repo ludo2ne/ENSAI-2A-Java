@@ -17,6 +17,11 @@ format:
     code-line-numbers: false
 from: markdown+emoji
 lightbox: true
+categories:
+  - Variables
+  - Control Structures
+  - Loops
+  - Functions
 ---
 
 
@@ -92,6 +97,29 @@ var i = 2F;                   // type inference -> float
   - immutable: Any modification creates a new string in memory
 :::
 
+### Primitive type vs Object {.smaller}
+
+|               | `int`               | `Integer`            |
+|---------------|---------------------|----------------------|
+| Nature        | Primitive           | Object (Wrapper)     |
+| Nullable      | ❌ No              | ✅ Yes               |
+| Performance   | ⭐ Very fast       | Slightly slower      |
+| Memory usage  | Low                 | Higher (object overhead) |
+| Typical uses  | Calculations, loops | Collections, APIs |
+
+
+:::{.notes}
+- `int` stores the value directly
+- `Integer` wraps an `int` inside an object
+- Required in collections (e.g., `ArrayList<Integer>`)
+
+```java
+int a = 5;
+Integer b = 5;   // Autoboxing
+int c = b;       // Unboxing
+```
+:::
+
 ### Boolean
 
 ```{.java}
@@ -151,6 +179,7 @@ String str3 = num1 + ""
 
 :::{.notes}
 - `\n`: carriage return
+- Keyboard shortcut
 :::
 
 ## Structures
@@ -168,6 +197,10 @@ if (number > 0) {
     System.out.println("Zero");
 }
 ```
+
+:::{.notes}
+:warning: Don't forget the brackets ()
+:::
 
 ### Ternary Operator
 
