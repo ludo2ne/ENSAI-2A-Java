@@ -78,8 +78,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b66d9f3da4d84aca26cc7cc1c94b0445.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d3daa1d1ef55350d6f5c3e6cec97cbbd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-db8412935377c476a6a34876e811a251.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-d075c25e60777822068c2219745b13b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -401,7 +401,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Java Project</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Maven</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
@@ -663,12 +666,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lifecycles" class="level3">
 <h3 class="anchored" data-anchor-id="lifecycles">Lifecycles</h3>
 <ul>
-<li><code>mvn clean</code>: Deletes the target directory</li>
-<li><code>mvn compile</code>: Compiles your Java code</li>
-<li><code>mvn test</code>: Runs your unit tests</li>
-<li><code>mvn package</code>: Creates a JAR file of your project</li>
-<li><code>mvn exec:java</code>: Run your program</li>
-<li><code>mvn site</code>: Creates a website for your project</li>
+<li><code>mvn clean</code>: Deletes the <em>target</em> directory.</li>
+<li><code>mvn compile</code>: Compiles the project’s source code.</li>
+<li><code>mvn test</code>: Runs the unit tests.</li>
+<li><code>mvn package</code>: Packages the compiled code into a JAR file.</li>
+<li><code>mvn exec:java</code>: Runs the application.</li>
+<li><code>mvn site</code>: Generates the project documentation website.</li>
 </ul>
 </section>
 </section>

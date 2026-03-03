@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/doc/cours/advanced.html",
+      "/doc/cours/spring.html",
+      "/doc/cours/collections.html",
+      "/doc/cours/intro.html",
+      "/doc/cours/junit.html",
+      "/doc/cours/code.html",
+      "/doc/cours/classes.html",
+      "/doc/cours/project.html"
+    ]
+  }
+]
