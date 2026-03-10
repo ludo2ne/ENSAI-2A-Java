@@ -1,6 +1,6 @@
 ---
 title: "Java - TP3"
-description: "Rated TP"
+description: "Multimedia player"
 author: "Ludovic Deneuville"
 format:
   html:
@@ -14,29 +14,7 @@ number-depth: 3
 
 ## Instructions
 
-- Groups of 1 or 2 students (from the same TP group)
-  - Edit the *README.md* (when it's created) file to enter your names
-  - Inter-group plagiarism will be severely punished
-- Due Date: **Wednesday 26 March at 10pm**
-  - 1 point deducted for each half-hour delay
-- Zip your project repository and load it on Moodle
-  - Don't include *target* folder
-
-Your code must be functional, with no compilation or runtime errors.
-
-Don't forget to include the javadoc and to comment your code if necessary.
-
-::: {.callout-important}
-- Everything you need is in the course and the practical exercises 
-- You are permitted to conduct internet searches to find information and documentation
-- The use of any LLM is [strictly prohibited]{.underline} during this exam
-  - As Olivier so rightly says: LLMs are good servants, but bad masters
-  - They can be useful tools, but they must not replace your own comprehension and programming skills
-
-If you are caught using an LLM, it will be considered cheating and you will receive a zero.
-:::
-
-
+:construction:
 
 ### Create a private repo
 

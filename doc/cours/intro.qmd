@@ -108,6 +108,22 @@ WORA: desktop, servers, smartphones
 - Strong Static Typing
 - Compile-Time Checks
 
+### Static Typing{.smaller}
+
+| Static Typing                    | Dynamic Typing                          |
+| -------------------------------- | --------------------------------------- |
+| Type checked **at compile time** | Type checked **at runtime**             |
+| Variable type is declared        | Variable type inferred during execution |
+| Errors detected earlier          | More flexible but errors appear later   |
+
+### Strong Typing{.smaller}
+
+| Strong Typing               | Weak Typing                     |
+| --------------------------- | ------------------------------- |
+| Types are strictly enforced | Implicit conversions are common |
+| Few automatic casts         | Many implicit conversions       |
+| Safer and more predictable  | More flexible but error-prone   |
+
 
 ## Compiler
 

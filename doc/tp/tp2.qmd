@@ -28,30 +28,31 @@ After each part, create a commit and push your code to the remote repository.
 
 ### Launch service VSCode Java
 
-- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} using this link.
+- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&version=2.5.2&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&networking.user.enabled=true&autoLaunch=true){target="_blank"}
 
-### Update your repo
 
-:::{.callout-warning title="if you haven't done TP1 using your account" collapse="true"}
+### Update your repository
+
+:::{.callout-warning title="If you haven't done TP1 using your account" collapse="true"}
 Follow the instructions in the [introduction to TP1](./tp1.qmd#introduction){target="_blank"}.
 :::
 
 ::: {.callout-important}
-During the first tutorial, you created a repository using template [ENSAI-2A-Java-TP repository](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"}, i.e. you created a copy of this repository on GitHub.
+During the first tutorial, you created a repository from the template [ENSAI-2A-Java-TP repository](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"}. This means you created your own copy of this repository on GitHub.
 
-If the original repository has been updated, so you need to synchronise your fork with the latest version of the repository.
+If the original repository has been updated since then, you need to synchronise your repository with the latest version.
 :::
-
 
 In the terminal:
 
-- [ ] Position yourself into the repo using `cd <my_repo>`
-- [ ] Add the original repository as a remote (call it *upstream*)
+- [ ] Go to your repository
+  - `cd <my_repo>`
+- [ ] Add the original repository as a remote (named *upstream*)
   - `git remote add upstream https://github.com/ludo2ne/ENSAI-2A-Java-TP.git`
-- [ ] Fetch the latest changes from upstream and merge the main branch
+- [ ] Fetch the latest changes from the original repository and merge the `main` branch
   - `git pull upstream main --allow-unrelated-histories --no-edit`
-- [ ] Resolve any conflicts (if necessary)
-- [ ] Push the updates to your fork
+- [ ] Resolve any conflicts if necessary
+- [ ] Push the updates to your repository
   - `git push origin main`
 
 
@@ -60,6 +61,7 @@ In the terminal:
 In VSCode :
 
 - [ ] File > Open Folder > tp2
+  - or using: `code-server ~/work/ENSAI-2A-Java-TP/tp2/`
 
 **tp2** must be the root folder in your explorer.
 
@@ -76,7 +78,6 @@ This time, we'll be working on a Maven project, so you'll be able to use the fol
   - Run *main* method of *Main* class
 - `mvn test`
   - Run unit tests
-
 
 
 ## Java class
@@ -146,10 +147,7 @@ public class Student {
      */
     @Override
     public String toString() {
-        return "Student(" +
-                "name='" + this.name + '\'' +
-                ", age=" + this.age +
-                ')';
+        return String.format("Student(name='%s', age=%d)", this.name, this.age);
     }
 
     /**
@@ -407,7 +405,7 @@ import java.net.URL;
                     if (author == null) {
                         author = new Author(authorName);
                         authors.put(authorName, author);
-                        System.out.println(author.toString());
+                        //System.out.println(String.format("Create %s", author));
                     }
                     Book book = new Book(isbn, title, author, year, pageCount);
 
@@ -423,6 +421,7 @@ import java.net.URL;
 ```
 :::
 
+- [ ] Fix the code, adding a new constructor for Author
 - [ ] Commit and push
 
 ### Load books from file

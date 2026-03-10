@@ -153,6 +153,20 @@ myString.equals("Java");     // Use equals to compare, not ==
 
 Others: *replace()*, *split()*
 
+### Format String
+
+- Prettier than concatenating 
+- creates a formatted string using placeholders
+
+```{.java}
+String name = "Tiphaine";
+int age = 5;
+String s = String.format("My name is %s and i'm %d years old", name, age);
+
+double price = 19.90;
+String s = String.format("Price: %.2f", price);
+```
+
 
 ### Type casting
 
