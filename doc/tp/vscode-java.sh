@@ -17,5 +17,10 @@ code-server --install-extension vmware.vscode-boot-dev-pack
 code-server --install-extension visualstudioexptteam.vscodeintellicode
 code-server --install-extension sonarsource.sonarlint-vscode
 
-code-server --install-extension charliermarsh.ruff
 code-server --uninstall-extension ms-python.flake8
+
+# Add branch name in prompt
+BASHRC="$HOME/.bashrc"
+sed -i "/PS1='.*01;32m.*\\\\u@\\\\h/c\\
+    PS1='\\\${debian_chroot:+(\\\$debian_chroot)}\\\[\\\033[01;32m\\\]\\\u@\\\h\\\[\\\033[00m\\\]:\\\[\\\033[01;34m\\\]\\\w\\\[\\\033[33m\\\]\\\$(__git_ps1 \" (%s)\")\\\[\\\033[00m\\\]\\\$ '" \
+"$BASHRC"
