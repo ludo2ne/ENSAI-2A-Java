@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Spring Boot Application">
+<meta name="description" content="Rated TP">
 
 <title>Java - TP4 – Java</title>
 <style>
@@ -21,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -107,9 +72,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -336,25 +298,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tp" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">TP</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Labs</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tp">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp1.html">
- <span class="dropdown-text">TP n°1</span></a>
+ <span class="dropdown-text">Lab 1</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp2.html">
- <span class="dropdown-text">TP n°2</span></a>
+ <span class="dropdown-text">Lab 2</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp3.html">
- <span class="dropdown-text">TP n°3</span></a>
+ <span class="dropdown-text">Lab 3</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp4.html">
- <span class="dropdown-text">TP n°4</span></a>
+ <span class="dropdown-text">Lab 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/tp/tp5.html">
+ <span class="dropdown-text">Lab 5</span></a>
   </li>  
     </ul>
   </li>
@@ -386,24 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#before-you-start" id="toc-before-you-start" class="nav-link" data-scroll-target="#before-you-start"><span class="header-section-number">1</span> Before you start</a>
-  <ul class="collapse">
-  <li><a href="#launch-service-vscode-java" id="toc-launch-service-vscode-java" class="nav-link" data-scroll-target="#launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</a></li>
-  <li><a href="#update-your-forked-repository" id="toc-update-your-forked-repository" class="nav-link" data-scroll-target="#update-your-forked-repository"><span class="header-section-number">1.2</span> Update your forked repository</a></li>
-  <li><a href="#clone-and-open-folder" id="toc-clone-and-open-folder" class="nav-link" data-scroll-target="#clone-and-open-folder"><span class="header-section-number">1.3</span> Clone and Open Folder</a></li>
-  <li><a href="#compile-and-run" id="toc-compile-and-run" class="nav-link" data-scroll-target="#compile-and-run"><span class="header-section-number">1.4</span> Compile and run</a></li>
-  </ul></li>
-  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">2</span> Exercice</a>
-  <ul class="collapse">
-  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure"><span class="header-section-number">2.1</span> Project structure</a></li>
-  <li><a href="#for-students-in-it-sections" id="toc-for-students-in-it-sections" class="nav-link" data-scroll-target="#for-students-in-it-sections"><span class="header-section-number">2.2</span> For students in IT sections</a></li>
-  <li><a href="#workflow-example" id="toc-workflow-example" class="nav-link" data-scroll-target="#workflow-example"><span class="header-section-number">2.3</span> Workflow example</a></li>
-  <li><a href="#api-rest" id="toc-api-rest" class="nav-link" data-scroll-target="#api-rest"><span class="header-section-number">2.4</span> API Rest</a></li>
-  <li><a href="#create-competitions" id="toc-create-competitions" class="nav-link" data-scroll-target="#create-competitions"><span class="header-section-number">2.5</span> Create competitions</a></li>
-  <li><a href="#binding-athletes-and-competitions" id="toc-binding-athletes-and-competitions" class="nav-link" data-scroll-target="#binding-athletes-and-competitions"><span class="header-section-number">2.6</span> Binding Athletes and Competitions</a></li>
-  <li><a href="#register-an-athlete" id="toc-register-an-athlete" class="nav-link" data-scroll-target="#register-an-athlete"><span class="header-section-number">2.7</span> Register an Athlete</a></li>
-  </ul></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions"><span class="header-section-number">1</span> Instructions</a></li>
   </ul>
 </nav>
 </nav>
@@ -422,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Spring Boot Application
+    Rated TP
   </div>
 </div>
 
@@ -445,523 +394,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="notes">
-<p>Ideas of Questions:</p>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<section id="instructions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">1</span> Instructions</h2>
 <ul>
-<li>Use Stream</li>
-<li>Check if age &gt;=0</li>
-<li>Use an Enum for gender</li>
-</ul>
-</div>
-<section id="objectives" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="objectives">Objectives</h2>
-<p>The aim is to develop a Spring Boot application:</p>
+<li>Groups of 1 or 2 students
 <ul>
-<li>using layered programming</li>
-<li>creating new functionalities</li>
-<li>coding some API endpoints</li>
-</ul>
-<p>The principle will be the same as what was done in IT project 2A.</p>
-</section>
-<section id="before-you-start" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="before-you-start"><span class="header-section-number">1</span> Before you start</h2>
-<p>When you’ve finished, don’t forget to delete your service.</p>
-<p>After each part, create a commit and push your code to the remote repository.</p>
-<section id="launch-service-vscode-java" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</h3>
-<p>We’re developing an API for public Internet access, which requires us to expose our application through a specific port (9000).</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Use this link to launch the <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&amp;version=2.2.7&amp;s3=region-ec97c721&amp;service.image.custom.enabled=true&amp;service.image.custom.version=«odysseu%2Fonyxia-vscode-java%3Aj21»&amp;networking.user.enabled=true&amp;networking.user.ports%5B0%5D=9000&amp;autoLaunch=true" target="_blank">VSCode-java</a> service (it’s not the same link as last time).</label></li>
-<li><label><input type="checkbox">During container startup, copy the link where your application will be exposed (port 9000)</label>
+<li>Inter-group plagiarism will be severely punished</li>
+</ul></li>
+<li>In the README file, indicate:
 <ul>
-<li>It looks like : <code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user&lt;optional: -9000&gt;.user.lab.sspcloud.fr/</code></li>
+<li>your full names</li>
+<li>for each question covered, a brief summary explaining your logic and including the methods updated or created</li>
+</ul></li>
+<li>Due Date: <strong>Friday 10 April at 5pm</strong>
+<ul>
+<li>1 point deducted for each half-hour delay</li>
+</ul></li>
+<li>Zip your project repository and load it on Moodle
+<ul>
+<li>Don’t include <em>target</em> folder</li>
 </ul></li>
 </ul>
-<div class="callout callout-style-default callout-warning callout-titled">
+<p>Your code must be functional, with no compilation or runtime errors.</p>
+<p>Don’t forget to include the javadoc and to comment your code if necessary.</p>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If your service authorises the opening of another port (ex: 5000) on the Internet, you will need to use the same port to launch your Spring Boot application (application.yml file).</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Custom your service">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Custom your service
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>I you meet any issue you can launch it manually:</p>
 <ul>
-<li>In menu <em>Service catalog</em>, Launch <em>VSCode-python</em></li>
-<li><em>Service</em> tab <span class="emoji" data-emoji="arrow_right">➡️</span> Use a custom image: <code>odysseu/onyxia-vscode-java:j21</code></li>
-<li><em>Networking detail</em> tab <span class="emoji" data-emoji="arrow_right">➡️</span> Enable a custom service port: <code>9000</code></li>
-<li>Optional: Save this configuration</li>
-<li>Launch</li>
-</ul>
-<hr>
-<p>The most important is to enable port 9000.</p>
-<p>I you meet any issue with the docker image you can:</p>
+<li>Everything you need is in the course and the practical exercises</li>
+<li>You are permitted to conduct internet searches to find information and documentation</li>
+<li>The use of any LLM is <u>strictly prohibited</u> during this exam
 <ul>
-<li>Update it, using a recent source image</li>
-<li>Run manually Java, Maven and VSCode extensions after having launched the service
-<ul>
-<li>Create the file below in folder <em>work</em></li>
-<li>Add execution rights: <code>chmod +x installjava.sh</code></li>
-<li>Run it: <code>./installjava.sh</code></li>
+<li>As Olivier R. so rightly says: LLMs are good servants, but bad masters</li>
+<li>They can be useful tools, but they must not replace your own comprehension and programming skills</li>
 </ul></li>
 </ul>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>installjava.sh</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="installjava.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># installjava.sh</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chmod +x installjava.sh</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_VERSION</span><span class="op">=</span>21</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_HOME</span><span class="op">=</span><span class="st">"/usr/lib/jvm/java-</span><span class="va">$JAVA_VERSION</span><span class="st">-openjdk-amd64"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"</span><span class="va">${JAVA_HOME}</span><span class="st">/bin:</span><span class="va">${PATH}</span><span class="st">"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install ca-certificates-java libbz2-dev openjdk-<span class="st">"</span><span class="va">$JAVA_VERSION</span><span class="st">"</span>-jdk openjdk-<span class="va">${JAVA_VERSION}</span>-jre-headless <span class="at">-y</span> <span class="at">--no-install-recommends</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install maven <span class="at">-y</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">--version</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> <span class="at">--version</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> adamraichu.zip-viewer</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> redhat.java</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> vscjava.vscode-java-pack</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> bierner.markdown-mermaid</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you are caught using an LLM, it will be considered cheating and you will receive a zero.</p>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="update-your-forked-repository" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="update-your-forked-repository"><span class="header-section-number">1.2</span> Update your forked repository</h3>
-<p>As you did in TP2, you need to update your fork of the <a href="https://github.com/ludo2ne/ENSAI-2A-Java-TP" target="_blank">ENSAI-2A-Java-TP</a> repository.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Login to <a href="https://github.com/" target="_blank">GitHub</a></label></li>
-<li><label><input type="checkbox">Open the fork of ENSAI-2A-Java-TP, you created at the first practical</label></li>
-<li><label><input type="checkbox">Click on the button <strong>Sync fork</strong></label></li>
-</ul>
-</section>
-<section id="clone-and-open-folder" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="clone-and-open-folder"><span class="header-section-number">1.3</span> Clone and Open Folder</h3>
-<p>In VSCode :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Open a terminal and clone your own repo</label></li>
-<li><label><input type="checkbox">File &gt; Open Folder &gt; tp4</label></li>
-</ul>
-<p><strong>tp4</strong> must be the root folder in your explorer.</p>
-</section>
-<section id="compile-and-run" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="compile-and-run"><span class="header-section-number">1.4</span> Compile and run</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">If necessary in the terminal, change directory to tp4</label></li>
-</ul>
-<p>Use this command to run your application:</p>
-<ul>
-<li><code>mvn spring-boot:run</code></li>
-<li><code>CTRL + C</code> to stop</li>
-</ul>
-<p>After launching the Spring Boot application, it will be deployed to something like:</p>
-<ul>
-<li><code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user&lt;optional: -9000&gt;.user.lab.sspcloud.fr/</code></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you meet that error: <em>Web server failed to start. Port 9000 was already in use.</em></p>
-<ul>
-<li><code>ps -aux | grep java</code></li>
-<li>kill processes (ask for help!)</li>
-</ul>
-</div>
-</div>
-<p>Sometimes <code>mvn clean</code> could be usefull.</p>
-</section>
-</section>
-<section id="exercice" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="exercice"><span class="header-section-number">2</span> Exercice</h2>
-<p>You’ll be working on an application that manages registrations for running races.</p>
-<p>Features already implemented:</p>
-<ul>
-<li>List of all Athletes</li>
-<li>Add an Athlete</li>
-<li>Delete an Athlete</li>
-</ul>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To make it easier to use, you’ll be using:</p>
-<ul>
-<li><a href="https://www.thymeleaf.org/" target="_blank">Thymeleaf</a> to provide an interface</li>
-<li>An embedded, in-memory H2 database</li>
-</ul>
-<p>However, bear in mind that in modern applications, Java is not used for GUIs. For example, the standard stack at INSEE is:</p>
-<ul>
-<li>database: PostgreSQL</li>
-<li>backend: Java (API that exposes endpoints)</li>
-<li>frontend: <a href="https://react.dev/" target="_blank">React JS</a> (uses API data for display)</li>
-</ul>
-</div>
-</div>
-<section id="project-structure" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="project-structure"><span class="header-section-number">2.1</span> Project structure</h3>
-<p>If you expand all the folders, you’ll notice that there are a lot of files.</p>
-<p>Let’s focus on a few key points:</p>
-<ul>
-<li><code>src/main/java/fr/ensai/running/</code>: the java classes of your Layered Spring Boot application
-<ul>
-<li>Layers: controller, service, repository, model…</li>
-<li><code>Application.java</code>: the Main class to run your application</li>
-</ul></li>
-<li><code>src/main/resources/</code>
-<ul>
-<li><code>templates/</code>: html pages</li>
-<li><code>application.yml</code>: Spring Boot properties of your application</li>
-<li><code>data.sql</code>: Used to create and pop your database</li>
-</ul></li>
-<li><code>pom.xml</code>: Maven config</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="To go further">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>To go further
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><code>/config</code>: To setup your app (security…)</li>
-<li><code>LoggerAspect.java</code>: Used to log before and after each method call</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="for-students-in-it-sections" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="for-students-in-it-sections"><span class="header-section-number">2.2</span> For students in IT sections</h3>
-<p>Let’s use a PostgreSQL database insted of an embedded H2:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">In the SPPCloud, create a service PostgreSQL</label></li>
-<li><label><input type="checkbox">Modify file <em>application.yml</em> to connect to this database</label>
-<ul>
-<li>search on internet for the necessary configuration</li>
-</ul></li>
-<li><label><input type="checkbox">Optional: create a service <em>CloudBeaver</em> if you want to execute queries</label>
-<ul>
-<li>If all goes well, CloudBeaver will automatically connect to your database</li>
-<li>Otherwise you need to create a new connection entering Host, Database, Username and Password</li>
-</ul></li>
-</ul>
-</section>
-<section id="workflow-example" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="workflow-example"><span class="header-section-number">2.3</span> Workflow example</h3>
-<ul>
-<li>You want to display all Athletes</li>
-<li>You click on button <em>Athletes</em> on the navigation bar
-<ul>
-<li>This takes you to the <code>/athlete</code> endpoint (check the <em>navbar.html</em> file if necessary)</li>
-</ul></li>
-<li>In the Controller, it match with method <code>findAllAthletes()</code>
-<ul>
-<li>This method calls method <code>findAll()</code> from the service
-<ul>
-<li>This method calls method <code>findAll()</code> from the repository
-<ul>
-<li>But if you check class <em>AthleteRepository.java</em>, there is no method <em>findAll()</em></li>
-<li>In fact, it’s a native method of <em>CrudRepository</em>, so it is not necessary to implement it</li>
-<li>This method retrieves all athletes from the database</li>
-</ul></li>
-</ul></li>
-<li>Once the data has been retrieved, the method returns the string ‘allAthletes’</li>
-<li>Which means that you will be redirected to the <em>allAthletes.html</em> page.</li>
-</ul>
-athlete</li>
-</ul>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">sequenceDiagram
-    participant IHM
-    participant AthleteController
-    participant AthleteService
-    participant CrudRepository
-
-    IHM-&gt;&gt;AthleteController: Request findAllAthletes()
-    AthleteController-&gt;&gt;AthleteService: Call findAll()
-    AthleteService-&gt;&gt;CrudRepository: Call findAll()
-    CrudRepository-&gt;&gt;CrudRepository: Execute findAll()
-    CrudRepository--&gt;&gt;AthleteService: Return list of athletes
-    AthleteService--&gt;&gt;AthleteController: Return list of athletes
-    AthleteController--&gt;&gt;IHM: Return allAthletes
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="api-rest" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="api-rest"><span class="header-section-number">2.4</span> API Rest</h3>
-<p>Before playing with the GUI, you’re going to create a few endpoints for your API.</p>
-<p>In file <em>ApiRestController.java</em>, add the following endpoints:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">GET an Athlete by id</label></li>
-<li><label><input type="checkbox">DELETE an Athlete by id</label></li>
-<li><label><input type="checkbox">CREATE an Athlete</label></li>
-</ul>
-<p>If you haven’t any http client installed (Insomnia, Bruno, Postman…) on your machine you can use these bash commands to test your endpoints:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST https://<span class="op">&lt;</span>your_url<span class="op">&gt;</span>.user.lab.sspcloud.fr/api/athlete <span class="dt">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> <span class="st">'{</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">           "firstName": "Floria",</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">           "lastName": "Guei",</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">           "age": 34,</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">           "gender": "Female"</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">         }'</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> DELETE https://<span class="op">&lt;</span>your_url<span class="op">&gt;</span>.user.lab.sspcloud.fr/api/athlete/1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The ApiRestController class is annotated with <span class="citation" data-cites="RestController">@RestController</span>, and is therefore used to create endpoints for a REST API.</p>
-<p>Next, we’re going to use simple Controllers to interact with the GUI.</p>
-<p>If you prefer, you can continue to develop REST API endpoints without using the GUI.</p>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Commit and push your code</label></li>
-</ul>
-</section>
-<section id="create-competitions" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="create-competitions"><span class="header-section-number">2.5</span> Create competitions</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The goal is to display all competitions.</p>
-</div>
-</div>
-<p>In your database there is a table called <code>competition</code> (loaded at start-up via the <em>data.sql</em> file).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> competition (</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    id_competition SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    designation    <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    city           <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    event_date     <span class="dt">DATE</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    distance       <span class="dt">FLOAT</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    max_athletes   <span class="dt">INTEGER</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul class="task-list">
-<li><label><input type="checkbox">Create a Model class for competitions</label>
-<ul>
-<li>To store dates, use <code>LocalDate</code> from <em>java.time.LocalDate</em></li>
-</ul></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled" title="Naming conventions">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Naming conventions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Please respect the naming conventions inherent in the languages (Java: camelCase, SQL: snake_case).</p>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Create an interface <em>CompetitionRepository</em> to access the data in the database</label></li>
-<li><label><input type="checkbox">Write a service class for competitions with methods allowing you to:</label>
-<ul>
-<li>list all competitions</li>
-<li>find a competition from its id</li>
-<li>delete a competition</li>
-</ul></li>
-<li><label><input type="checkbox">Code a controller to handle these endpoints:</label>
-<ul>
-<li><code>/competition</code>: display all competitions (allCompetitions.html)
-<ul>
-<li>In the Model, add an attribute named “competitions”</li>
-</ul></li>
-<li><code>/competition/delete/{id}</code>: to delete a competition using its id</li>
-</ul></li>
-</ul>
-</section>
-<section id="binding-athletes-and-competitions" class="level3" data-number="2.6">
-<h3 data-number="2.6" class="anchored" data-anchor-id="binding-athletes-and-competitions"><span class="header-section-number">2.6</span> Binding Athletes and Competitions</h3>
-<p>We have Athletes.</p>
-<p>We have competitions.</p>
-<p>Now we want to register athletes for competitions.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Paste those queries at the end of <em>data.sql</em></label></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="To be pasted at the end of data.sql">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>To be pasted at the end of data.sql
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">----------------------------------------------</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Registration</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">----------------------------------------------</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> registration;</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> registration (</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    id_registration       SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    id_athlete            BIGINT <span class="kw">REFERENCES</span> athlete(id_athlete),</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    id_competition        BIGINT <span class="kw">REFERENCES</span> competition(id_competition),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    registration_date     <span class="dt">DATE</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>);</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> registration (id_registration, id_athlete, id_competition, registration_date) <span class="kw">VALUES</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77770</span>, <span class="dv">99990</span>, <span class="dv">88880</span>, <span class="st">'2024-03-01'</span>),</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77771</span>, <span class="dv">99991</span>, <span class="dv">88881</span>, <span class="st">'2024-03-02'</span>),</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77772</span>, <span class="dv">99992</span>, <span class="dv">88882</span>, <span class="st">'2024-03-03'</span>),</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77773</span>, <span class="dv">99993</span>, <span class="dv">88883</span>, <span class="st">'2024-03-04'</span>),</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77774</span>, <span class="dv">99994</span>, <span class="dv">88884</span>, <span class="st">'2024-03-05'</span>),</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77775</span>, <span class="dv">99995</span>, <span class="dv">88880</span>, <span class="st">'2024-03-06'</span>),</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77776</span>, <span class="dv">99996</span>, <span class="dv">88881</span>, <span class="st">'2024-03-07'</span>),</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77777</span>, <span class="dv">99997</span>, <span class="dv">88882</span>, <span class="st">'2024-03-08'</span>),</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77778</span>, <span class="dv">99998</span>, <span class="dv">88883</span>, <span class="st">'2024-03-09'</span>),</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77779</span>, <span class="dv">99999</span>, <span class="dv">88884</span>, <span class="st">'2024-03-10'</span>),</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77780</span>, <span class="dv">99990</span>, <span class="dv">88881</span>, <span class="st">'2024-03-11'</span>),</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77781</span>, <span class="dv">99991</span>, <span class="dv">88882</span>, <span class="st">'2024-03-12'</span>),</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77782</span>, <span class="dv">99992</span>, <span class="dv">88883</span>, <span class="st">'2024-03-13'</span>),</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77783</span>, <span class="dv">99993</span>, <span class="dv">88884</span>, <span class="st">'2024-03-14'</span>),</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77784</span>, <span class="dv">99994</span>, <span class="dv">88880</span>, <span class="st">'2024-03-15'</span>),</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77785</span>, <span class="dv">99995</span>, <span class="dv">88882</span>, <span class="st">'2024-03-16'</span>),</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77786</span>, <span class="dv">99996</span>, <span class="dv">88883</span>, <span class="st">'2024-03-17'</span>),</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77787</span>, <span class="dv">99997</span>, <span class="dv">88884</span>, <span class="st">'2024-03-18'</span>),</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77788</span>, <span class="dv">99998</span>, <span class="dv">88880</span>, <span class="st">'2024-03-19'</span>),</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77789</span>, <span class="dv">99999</span>, <span class="dv">88881</span>, <span class="st">'2024-03-20'</span>),</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77790</span>, <span class="dv">99990</span>, <span class="dv">88882</span>, <span class="st">'2024-03-21'</span>),</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77791</span>, <span class="dv">99991</span>, <span class="dv">88883</span>, <span class="st">'2024-03-22'</span>),</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77792</span>, <span class="dv">99992</span>, <span class="dv">88884</span>, <span class="st">'2024-03-23'</span>),</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77793</span>, <span class="dv">99993</span>, <span class="dv">88880</span>, <span class="st">'2024-03-24'</span>),</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77794</span>, <span class="dv">99994</span>, <span class="dv">88881</span>, <span class="st">'2024-03-25'</span>),</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77795</span>, <span class="dv">99995</span>, <span class="dv">88883</span>, <span class="st">'2024-03-26'</span>),</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77796</span>, <span class="dv">99996</span>, <span class="dv">88884</span>, <span class="st">'2024-03-27'</span>),</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77797</span>, <span class="dv">99997</span>, <span class="dv">88880</span>, <span class="st">'2024-03-28'</span>),</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77798</span>, <span class="dv">99998</span>, <span class="dv">88881</span>, <span class="st">'2024-03-29'</span>),</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77799</span>, <span class="dv">99999</span>, <span class="dv">88882</span>, <span class="st">'2024-03-30'</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Code Model class Registration</label></li>
-<li><label><input type="checkbox">Create Repository interface</label></li>
-<li><label><input type="checkbox">Include a method to find a Registration from an Athlete and a Competition</label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can use <a href="https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html" target="_blank">Query creation from method names</a></p>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Add a method <em>findAthleteIdByCompetitionId(Long idCompetition)</em> using the custom query below</label></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> r.athlete.<span class="kw">id</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> Registration r</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> r.competition.<span class="kw">id</span> <span class="op">=</span> <span class="ch">:idCompetition</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Now let’s add some methods in <code>CompetitionService</code>:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Add a method <em>findRegisteredAthletes(Long idCompetition)</em> returning the list of athletes registered for a given competition</label></li>
-<li><label><input type="checkbox">Create a method <em>deleteRegistration(Long idCompetition, Long idAthlete)</em></label></li>
-</ul>
-<p>Try to delete a Competition. What’s wrong?</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Update method <em>CompetitionService.deleteById()</em></label>
-<ul>
-<li>to allow you to force deletion</li>
-</ul></li>
-<li><label><input type="checkbox">Bonus: you will meet the same issue if you try to delete an Athlete. Fix it</label></li>
-</ul>
-</section>
-<section id="register-an-athlete" class="level3" data-number="2.7">
-<h3 data-number="2.7" class="anchored" data-anchor-id="register-an-athlete"><span class="header-section-number">2.7</span> Register an Athlete</h3>
-<p>Difficulty : <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span></p>
-<p>On the screen listing the athletes in a competition:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Add a drop-down menu listing Athletes no registered in the current Competition</label></li>
-<li><label><input type="checkbox">Insert a button to register the selected Athlete</label></li>
-</ul>
-<p>In Java classes:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Create a controller method <em>registerAthleteCompetition(Long competitionId, Long athleteId)</em></label></li>
-<li><label><input type="checkbox">Create a service method</label>
-<ul>
-<li>to create the Registration</li>
-<li>call the suitable repository method</li>
-</ul></li>
-</ul>
-<p>If that was too easy, have fun creating other features.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

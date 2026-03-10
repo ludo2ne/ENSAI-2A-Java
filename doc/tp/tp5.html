@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Java - TP1">
+<meta name="description" content="Spring Boot Application">
 
-<title>Introduction to Java syntax – Java</title>
+<title>Java - TP5 – Java</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,6 +107,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -388,28 +391,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#git-setup" id="toc-git-setup" class="nav-link" data-scroll-target="#git-setup"><span class="header-section-number">1</span> Git setup</a>
+  <li><a href="#before-you-start" id="toc-before-you-start" class="nav-link" data-scroll-target="#before-you-start"><span class="header-section-number">1</span> Before you start</a>
   <ul class="collapse">
-  <li><a href="#is-your-token-still-active" id="toc-is-your-token-still-active" class="nav-link" data-scroll-target="#is-your-token-still-active"><span class="header-section-number">1.1</span> Is your token still active?</a></li>
-  <li><a href="#is-your-token-registered-on-sspcloud" id="toc-is-your-token-registered-on-sspcloud" class="nav-link" data-scroll-target="#is-your-token-registered-on-sspcloud"><span class="header-section-number">1.2</span> Is your token registered on SSPCloud?</a></li>
-  <li><a href="#create-your-remote-repository" id="toc-create-your-remote-repository" class="nav-link" data-scroll-target="#create-your-remote-repository"><span class="header-section-number">1.3</span> Create your remote repository</a></li>
+  <li><a href="#launch-service-vscode-java" id="toc-launch-service-vscode-java" class="nav-link" data-scroll-target="#launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</a></li>
+  <li><a href="#update-your-repository" id="toc-update-your-repository" class="nav-link" data-scroll-target="#update-your-repository"><span class="header-section-number">1.2</span> Update your repository</a></li>
+  <li><a href="#open-folder" id="toc-open-folder" class="nav-link" data-scroll-target="#open-folder"><span class="header-section-number">1.3</span> Open Folder</a></li>
+  <li><a href="#when-youve-finished" id="toc-when-youve-finished" class="nav-link" data-scroll-target="#when-youve-finished"><span class="header-section-number">1.4</span> When you’ve finished</a></li>
+  <li><a href="#compile-and-run" id="toc-compile-and-run" class="nav-link" data-scroll-target="#compile-and-run"><span class="header-section-number">1.5</span> Compile and run</a></li>
   </ul></li>
-  <li><a href="#launch-vscode-java" id="toc-launch-vscode-java" class="nav-link" data-scroll-target="#launch-vscode-java"><span class="header-section-number">2</span> Launch Vscode Java</a></li>
-  <li><a href="#compile-and-run" id="toc-compile-and-run" class="nav-link" data-scroll-target="#compile-and-run"><span class="header-section-number">3</span> Compile and Run</a>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">2</span> Exercice</a>
   <ul class="collapse">
-  <li><a href="#compile" id="toc-compile" class="nav-link" data-scroll-target="#compile"><span class="header-section-number">3.1</span> Compile</a></li>
-  <li><a href="#run" id="toc-run" class="nav-link" data-scroll-target="#run"><span class="header-section-number">3.2</span> Run</a></li>
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure"><span class="header-section-number">2.1</span> Project structure</a></li>
+  <li><a href="#for-students-in-it-sections" id="toc-for-students-in-it-sections" class="nav-link" data-scroll-target="#for-students-in-it-sections"><span class="header-section-number">2.2</span> For students in IT sections</a></li>
+  <li><a href="#workflow-example" id="toc-workflow-example" class="nav-link" data-scroll-target="#workflow-example"><span class="header-section-number">2.3</span> Workflow example</a></li>
+  <li><a href="#api-rest" id="toc-api-rest" class="nav-link" data-scroll-target="#api-rest"><span class="header-section-number">2.4</span> API Rest</a></li>
+  <li><a href="#create-competitions" id="toc-create-competitions" class="nav-link" data-scroll-target="#create-competitions"><span class="header-section-number">2.5</span> Create competitions</a></li>
+  <li><a href="#binding-athletes-and-competitions" id="toc-binding-athletes-and-competitions" class="nav-link" data-scroll-target="#binding-athletes-and-competitions"><span class="header-section-number">2.6</span> Binding Athletes and Competitions</a></li>
+  <li><a href="#register-an-athlete" id="toc-register-an-athlete" class="nav-link" data-scroll-target="#register-an-athlete"><span class="header-section-number">2.7</span> Register an Athlete</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a>
-  <ul class="collapse">
-  <li><a href="#brute-force" id="toc-brute-force" class="nav-link" data-scroll-target="#brute-force"><span class="header-section-number">4.1</span> Brute force</a></li>
-  <li><a href="#strong-password" id="toc-strong-password" class="nav-link" data-scroll-target="#strong-password"><span class="header-section-number">4.2</span> Strong password</a></li>
-  <li><a href="#check-password-list" id="toc-check-password-list" class="nav-link" data-scroll-target="#check-password-list"><span class="header-section-number">4.3</span> Check password list</a></li>
-  <li><a href="#generate-a-random-password" id="toc-generate-a-random-password" class="nav-link" data-scroll-target="#generate-a-random-password"><span class="header-section-number">4.4</span> Generate a Random Password</a></li>
-  <li><a href="#evaluate-a-password" id="toc-evaluate-a-password" class="nav-link" data-scroll-target="#evaluate-a-password"><span class="header-section-number">4.5</span> Evaluate a password</a></li>
-  <li><a href="#login-system" id="toc-login-system" class="nav-link" data-scroll-target="#login-system"><span class="header-section-number">4.6</span> Login System</a></li>
-  </ul></li>
-  <li><a href="#end-of-the-lab" id="toc-end-of-the-lab" class="nav-link" data-scroll-target="#end-of-the-lab">End of the Lab</a></li>
   </ul>
 </nav>
 </nav>
@@ -423,12 +422,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Java syntax</h1>
+<h1 class="title">Java - TP5</h1>
 </div>
 
 <div>
   <div class="description">
-    Java - TP1
+    Spring Boot Application
   </div>
 </div>
 
@@ -451,97 +450,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="notes">
+<p>Ideas of Questions:</p>
+<ul>
+<li>Use Stream</li>
+<li>Check if age &gt;=0</li>
+<li>Use an Enum for gender</li>
+</ul>
+</div>
 <section id="objectives" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="objectives">Objectives</h2>
-<p>In this first tutorial, we’re simply going to familiarize ourselves with Java syntax, without using object-oriented programming.</p>
-<p>This is why methods are defined as static. They are class methods. You don’t need to instantiate an object to call them.</p>
-<p>We’re going to do a few exercises on the subject of passwords.</p>
+<p>The aim is to develop a Spring Boot application:</p>
+<ul>
+<li>using layered programming</li>
+<li>creating new functionalities</li>
+<li>coding some API endpoints</li>
+</ul>
+<p>The principle will be the same as what was done in IT project 2A.</p>
 </section>
-<section id="git-setup" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="git-setup"><span class="header-section-number">1</span> Git setup</h2>
-<p>In all tutorials, we are going to code on SSPCloud datalab.</p>
+<section id="before-you-start" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="before-you-start"><span class="header-section-number">1</span> Before you start</h2>
+<p>When you’ve finished, don’t forget to delete your service.</p>
+<p>After each part, create a commit and push your code to the remote repository.</p>
+<section id="launch-service-vscode-java" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</h3>
+<p>We’re developing an API for public Internet access, which requires us to expose our application through a specific port (5000).</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Login to <a href="https://datalab.sspcloud.fr" target="_blank">SSPCloud</a></label></li>
-</ul>
-<p>On the datalab, your services have a <u><strong>limited lifespan</strong></u>.</p>
-<p>To save your programs, the best practice is to use a git repository. We will therefore create and use a token to communicate with GitHub.</p>
-<p>Using a token means <span class="unerline">you do not have to authenticate</span> yourself every time you exchange data between your datalab service and GitHub.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="How it works">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>How it works
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<li><label><input type="checkbox">Restart the service from the last lab or Launch a new service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&amp;version=2.5.2&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&amp;networking.user.enabled=true&amp;autoLaunch=true" target="_blank">VScode-Java</a></label></li>
+<li><label><input type="checkbox">During container startup, copy the link where your application will be exposed (port 5000)</label>
 <ul>
-<li>Create a classic token on GitHub
-<ul>
-<li><code>ghp_...</code></li>
+<li>It looks like : <code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user&lt;optional: -5000&gt;.user.lab.sspcloud.fr/</code></li>
 </ul></li>
-<li>Declare it on SSPCloud
-<ul>
-<li>This creates an environment variable containing the token value.</li>
-<li><code>export GIT_PERSONAL_ACCESS_TOKEN=ghp_...</code></li>
-</ul></li>
-<li>Use it when creating the clone
-<ul>
-<li><code>git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/....git</code></li>
-</ul></li>
-<li>You can now push and pull without authentication</li>
-</ul>
-</div>
-</div>
-<section id="is-your-token-still-active" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="is-your-token-still-active"><span class="header-section-number">1.1</span> Is your token still active?</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Login to <a href="https://github.com/" target="_blank">GitHub</a></label></li>
-<li><label><input type="checkbox">Go to settings <span class="emoji" data-emoji="arrow_right">➡️</span> Developer settings <span class="emoji" data-emoji="arrow_right">➡️</span> Personal access tokens <span class="emoji" data-emoji="arrow_right">➡️</span> Tokens (classic)</label>
-<ul>
-<li><a href="https://github.com/settings/tokens" target="_blank">Direct link</a></li>
-</ul></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="If not generate a new one">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>If not generate a new one
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul class="task-list">
-<li><label><input type="checkbox">Generate a <a href="https://github.com/settings/tokens/new" target="_blank">new classic token</a></label>
-<ul>
-<li>Fill in:
-<ul>
-<li>token name: Datalab GENES</li>
-<li>expiration date <span class="emoji" data-emoji="arrow_right">➡️</span> Custom <span class="emoji" data-emoji="arrow_right">➡️</span> 31 December</li>
-</ul></li>
-<li><span class="emoji" data-emoji="white_check_mark">✅</span> Tick repo and workflow boxes</li>
-<li>Click on <span class="green-button">Generate token</span></li>
-</ul></li>
-<li><label><input type="checkbox">Copy the token starting with <code>ghp_</code> and keep it safe for a few minutes</label></li>
-</ul>
-<p>This token will only be visible once. If you lose it or if it expires, you must generate a new one.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="is-your-token-registered-on-sspcloud" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="is-your-token-registered-on-sspcloud"><span class="header-section-number">1.2</span> Is your token registered on SSPCloud?</h3>
-<p>On the Datalab:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Go to <code>My Account</code> <span class="emoji" data-emoji="arrow_right">➡️</span> <code>Git</code> tab</label></li>
-</ul>
-<p>If you do not have a declared token:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Create one (see previous step) and declare it on the SSP Cloud</label></li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -553,146 +492,375 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you are uncertain or believe that the token declared on the datalab is no longer active, create a new one.</p>
+<p>If your service authorises the opening of another port (ex: 5000) on the Internet, you will need to use the same port to launch your Spring Boot application (application.yml file).</p>
 </div>
 </div>
 </section>
-<section id="create-your-remote-repository" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="create-your-remote-repository"><span class="header-section-number">1.3</span> Create your remote repository</h3>
+<section id="update-your-repository" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="update-your-repository"><span class="header-section-number">1.2</span> Update your repository</h3>
+<p>Perhaps the repository used as a template has been updated since the last practical session.</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Back to GitHub, go to: <a href="https://github.com/ludo2ne/ENSAI-2A-Java-TP" target="_blank">https://github.com/ludo2ne/ENSAI-2A-Java-TP</a></label></li>
-<li><label><input type="checkbox">Create a new repository <span class="green-button">Using this template</span></label>
+<li><label><input type="checkbox">Follow the commands given in Lab 2 to update your repository</label></li>
+</ul>
+</section>
+<section id="open-folder" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="open-folder"><span class="header-section-number">1.3</span> Open Folder</h3>
+<p>In VSCode :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">File &gt; Open Folder &gt; tp5</label>
 <ul>
-<li>name: <em>ENSAI-2A-Java-TP</em></li>
+<li>or using: <code>code-server ~/work/ENSAI-2A-Java-TP/tp5/</code></li>
 </ul></li>
 </ul>
+<p><strong>tp5</strong> must be the root folder in your explorer.</p>
 </section>
-</section>
-<section id="launch-vscode-java" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="launch-vscode-java"><span class="header-section-number">2</span> Launch Vscode Java</h2>
-<p>A service is available with Visual Studio Code and Java.</p>
+<section id="when-youve-finished" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="when-youve-finished"><span class="header-section-number">1.4</span> When you’ve finished</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Launch the service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&amp;version=2.5.2&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&amp;networking.user.enabled=true&amp;autoLaunch=true" target="_blank">VScode-Java</a></label></li>
+<li><label><input type="checkbox">Save your work using git</label></li>
+<li><label><input type="checkbox">Pause or Delete your service</label></li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
+</section>
+<section id="compile-and-run" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="compile-and-run"><span class="header-section-number">1.5</span> Compile and run</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">If necessary in the terminal, change directory to tp5</label></li>
+</ul>
+<p>Use this command to run your application:</p>
+<ul>
+<li><code>mvn spring-boot:run</code></li>
+<li><code>CTRL + C</code> to stop</li>
+</ul>
+<p>After launching the Spring Boot application, it will be deployed to something like:</p>
+<ul>
+<li><code>https://user-&lt;sspcloud_username&gt;-&lt;6digits_number&gt;-user&lt;optional: -5000&gt;.user.lab.sspcloud.fr/</code></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You won’t find this service in the basic catalog. You have to use the link above to launch it.</p>
-<p>It is a service built from vscode-python, on which Java is then installed via <a href="vscode-java.sh" target="_blank">this script</a>.</p>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Open the service</label></li>
-<li><label><input type="checkbox">Get your repository address on GitHub</label>
+<p>If you meet that error: <em>Web server failed to start. Port 5000 was already in use.</em></p>
 <ul>
-<li>Click on <span class="green-button">Code</span></li>
-<li>Copy <em>https</em> url to clipboard</li>
-</ul></li>
-<li><label><input type="checkbox">Clone your repository</label>
-<ul>
-<li>Don’t forget to insert the token</li>
-</ul></li>
-<li><label><input type="checkbox">Open Folder <em>ENSAI-2A-Java-TP</em></label>
-<ul>
-<li>In the menu (3 parallel bars top left) <span class="emoji" data-emoji="arrow_right">➡️</span> File</li>
-<li>Enter : <code>/home/onyxia/work/ENSAI-2A-Java-TP/tp1</code> <span class="emoji" data-emoji="arrow_right">➡️</span> OK</li>
-<li>Or with command: <code>code-server /home/onyxia/work/ENSAI-2A-Java-TP/tp1</code></li>
-</ul></li>
+<li><code>ps -aux | grep java</code></li>
+<li>kill processes (ask for help!)</li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Shortcuts">
+</div>
+</div>
+<p>Sometimes <code>mvn clean</code> could be usefull.</p>
+</section>
+</section>
+<section id="exercice" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercice"><span class="header-section-number">2</span> Exercice</h2>
+<p>You’ll be working on an application that manages registrations for running races.</p>
+<p>Features already implemented:</p>
+<ul>
+<li>List of all Athletes</li>
+<li>Add an Athlete</li>
+<li>Delete an Athlete</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Shortcuts
+Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>To make it easier to use, you’ll be using:</p>
 <ul>
-<li>SHIFT + ALT + A: Comment / Uncomment selected lines</li>
-<li>SHIFT + ALT + O: Auto import</li>
+<li><a href="https://www.thymeleaf.org/" target="_blank">Thymeleaf</a> to provide an interface</li>
+<li>An embedded, in-memory H2 database</li>
+</ul>
+<p>However, bear in mind that in modern applications, Java is not used for GUIs. For example, the standard stack at INSEE is:</p>
+<ul>
+<li>database: PostgreSQL</li>
+<li>backend: Java (API that exposes endpoints)</li>
+<li>frontend: <a href="https://react.dev/" target="_blank">React JS</a> (uses API data for display)</li>
 </ul>
 </div>
 </div>
-</section>
-<section id="compile-and-run" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="compile-and-run"><span class="header-section-number">3</span> Compile and Run</h2>
-<p>How to compile and run Java code?</p>
-<section id="compile" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="compile"><span class="header-section-number">3.1</span> Compile</h3>
+<section id="project-structure" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="project-structure"><span class="header-section-number">2.1</span> Project structure</h3>
+<p>If you expand all the folders, you’ll notice that there are a lot of files.</p>
+<p>Let’s focus on a few key points:</p>
 <ul>
-<li>a single Java file: <code>javac MyClass.java</code></li>
-<li>all Java files: <code>javac *.java</code></li>
-<li>specify output directory for <em>.class</em> files (recommended): <code>javac -d bin MyClass.java</code></li>
+<li><code>src/main/java/fr/ensai/running/</code>: the java classes of your Layered Spring Boot application
+<ul>
+<li>Layers: controller, service, repository, model…</li>
+<li><code>Application.java</code>: the Main class to run your application</li>
+</ul></li>
+<li><code>src/main/resources/</code>
+<ul>
+<li><code>templates/</code>: html pages</li>
+<li><code>application.yml</code>: Spring Boot properties of your application</li>
+<li><code>data.sql</code>: Used to create and pop your database</li>
+</ul></li>
+<li><code>pom.xml</code>: Maven config</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="To go further">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>To go further
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>/config</code>: To setup your app (security…)</li>
+<li><code>LoggerAspect.java</code>: Used to log before and after each method call</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="for-students-in-it-sections" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="for-students-in-it-sections"><span class="header-section-number">2.2</span> For students in IT sections</h3>
+<p>Let’s use a PostgreSQL database insted of an embedded H2:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">In the SPPCloud, create a service PostgreSQL</label></li>
+<li><label><input type="checkbox">Modify file <em>application.yml</em> to connect to this database</label>
+<ul>
+<li>search on internet for the necessary configuration</li>
+</ul></li>
+<li><label><input type="checkbox">Optional: create a service <em>CloudBeaver</em> if you want to execute queries</label>
+<ul>
+<li>If all goes well, CloudBeaver will automatically connect to your database</li>
+<li>Otherwise you need to create a new connection entering Host, Database, Username and Password</li>
+</ul></li>
 </ul>
 </section>
-<section id="run" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="run"><span class="header-section-number">3.2</span> Run</h3>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="workflow-example" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="workflow-example"><span class="header-section-number">2.3</span> Workflow example</h3>
+<ul>
+<li>You want to display all Athletes</li>
+<li>You click on button <em>Athletes</em> on the navigation bar
+<ul>
+<li>This takes you to the <code>/athlete</code> endpoint (check the <em>navbar.html</em> file if necessary)</li>
+</ul></li>
+<li>In the Controller, it match with method <code>findAllAthletes()</code>
+<ul>
+<li>This method calls method <code>findAll()</code> from the service
+<ul>
+<li>This method calls method <code>findAll()</code> from the repository
+<ul>
+<li>But if you check class <em>AthleteRepository.java</em>, there is no method <em>findAll()</em></li>
+<li>In fact, it’s a native method of <em>CrudRepository</em>, so it is not necessary to implement it</li>
+<li>This method retrieves all athletes from the database</li>
+</ul></li>
+</ul></li>
+<li>Once the data has been retrieved, the method returns the string ‘allAthletes’</li>
+<li>Which means that you will be redirected to the <em>allAthletes.html</em> page.</li>
+</ul>
+athlete</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    participant IHM
+    participant AthleteController
+    participant AthleteService
+    participant CrudRepository
+
+    IHM-&gt;&gt;AthleteController: Request findAllAthletes()
+    AthleteController-&gt;&gt;AthleteService: Call findAll()
+    AthleteService-&gt;&gt;CrudRepository: Call findAll()
+    CrudRepository-&gt;&gt;CrudRepository: Execute findAll()
+    CrudRepository--&gt;&gt;AthleteService: Return list of athletes
+    AthleteService--&gt;&gt;AthleteController: Return list of athletes
+    AthleteController--&gt;&gt;IHM: Return allAthletes
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="api-rest" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="api-rest"><span class="header-section-number">2.4</span> API Rest</h3>
+<p>Before playing with the GUI, you’re going to create a few endpoints for your API.</p>
+<p>In file <em>ApiRestController.java</em>, add the following endpoints:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">GET an Athlete by id</label></li>
+<li><label><input type="checkbox">DELETE an Athlete by id</label></li>
+<li><label><input type="checkbox">CREATE an Athlete</label></li>
+</ul>
+<p>If you haven’t any http client installed (Insomnia, Bruno, Postman…) on your machine you can use these bash commands to test your endpoints:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST https://<span class="op">&lt;</span>your_url<span class="op">&gt;</span>.user.lab.sspcloud.fr/api/athlete <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> <span class="st">'{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">           "firstName": "Floria",</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">           "lastName": "Guei",</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">           "age": 34,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">           "gender": "Female"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">         }'</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> DELETE https://<span class="op">&lt;</span>your_url<span class="op">&gt;</span>.user.lab.sspcloud.fr/api/athlete/1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To run a class, it must have a <em>main()</em> method.</p>
+<p>The ApiRestController class is annotated with <span class="citation" data-cites="RestController">@RestController</span>, and is therefore used to create endpoints for a REST API.</p>
+<p>Next, we’re going to use simple Controllers to interact with the GUI.</p>
+<p>If you prefer, you can continue to develop REST API endpoints without using the GUI.</p>
 </div>
 </div>
-<ul>
-<li><code>java MyClass</code></li>
-<li>when .class files are in the <em>bin/</em> directory: <code>java -cp bin MyClass</code></li>
+<ul class="task-list">
+<li><label><input type="checkbox">Commit and push your code</label></li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Static Methods">
+</section>
+<section id="create-competitions" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="create-competitions"><span class="header-section-number">2.5</span> Create competitions</h3>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Static Methods
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>As mentioned at the beginning, the aim of this tutorial is not OOP, but simply basic Java syntax.</p>
-<p>So all the methods defined here are static <span class="emoji" data-emoji="arrow_right">➡️</span> They are class methods <span class="emoji" data-emoji="arrow_right">➡️</span> They can be called without instantiating an object.</p>
+<p>The goal is to display all competitions.</p>
 </div>
 </div>
-</section>
-</section>
-<section id="exercices" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="exercices"><span class="header-section-number">4</span> Exercices</h2>
+<p>In your database there is a table called <code>competition</code> (loaded at start-up via the <em>data.sql</em> file).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> competition (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    id_competition SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    designation    <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    city           <span class="dt">VARCHAR</span>(<span class="dv">255</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    event_date     <span class="dt">DATE</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    distance       <span class="dt">FLOAT</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    max_athletes   <span class="dt">INTEGER</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul class="task-list">
-<li><label><input type="checkbox">Open a terminal</label>
+<li><label><input type="checkbox">Create a Model class for competitions</label>
 <ul>
-<li>Terminal &gt; New Terminal (or CTRL + ù)</li>
-</ul></li>
-<li><label><input type="checkbox">Go into the folder <code>src</code></label>
-<ul>
-<li>if you need help, check out <a href="https://ludo2ne.github.io/Git-tuto/doc/presentation.html#commandes-unix" target="_blank">Unix basic commands</a></li>
+<li>To store dates, use <code>LocalDate</code> from <em>java.time.LocalDate</em></li>
 </ul></li>
 </ul>
-<section id="brute-force" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="brute-force"><span class="header-section-number">4.1</span> Brute force</h3>
-<p>You will write a Java method that attempts to brute-force a hashed 6-digit numeric password.</p>
-<ul>
-<li>The method will iterate through all numbers from 000000 to 999999</li>
-<li>For each number, generate and compare hash with the given target hash</li>
-<li>If a match is found, return the original number else return null</li>
-</ul>
-<hr>
+<div class="callout callout-style-default callout-warning callout-titled" title="Naming conventions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Naming conventions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please respect the naming conventions inherent in the languages (Java: camelCase, SQL: snake_case).</p>
+</div>
+</div>
 <ul class="task-list">
-<li><label><input type="checkbox">Open File <em>Password.java</em></label></li>
-<li><label><input type="checkbox">Complete method <code>bruteForce6Digit()</code></label></li>
+<li><label><input type="checkbox">Create an interface <em>CompetitionRepository</em> to access the data in the database</label></li>
+<li><label><input type="checkbox">Write a service class for competitions with methods allowing you to:</label>
+<ul>
+<li>list all competitions</li>
+<li>find a competition from its id</li>
+<li>delete a competition</li>
+</ul></li>
+<li><label><input type="checkbox">Code a controller to handle these endpoints:</label>
+<ul>
+<li><code>/competition</code>: display all competitions (allCompetitions.html)
+<ul>
+<li>In the Model, add an attribute named “competitions”</li>
+</ul></li>
+<li><code>/competition/delete/{id}</code>: to delete a competition using its id</li>
+</ul></li>
+</ul>
+</section>
+<section id="binding-athletes-and-competitions" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="binding-athletes-and-competitions"><span class="header-section-number">2.6</span> Binding Athletes and Competitions</h3>
+<p>We have Athletes.</p>
+<p>We have competitions.</p>
+<p>Now we want to register athletes for competitions.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Paste those queries at the end of <em>data.sql</em></label></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="To be pasted at the end of data.sql">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>To be pasted at the end of data.sql
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">----------------------------------------------</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Registration</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">----------------------------------------------</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> registration;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> registration (</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    id_registration       SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    id_athlete            BIGINT <span class="kw">REFERENCES</span> athlete(id_athlete),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    id_competition        BIGINT <span class="kw">REFERENCES</span> competition(id_competition),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    registration_date     <span class="dt">DATE</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> registration (id_registration, id_athlete, id_competition, registration_date) <span class="kw">VALUES</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77770</span>, <span class="dv">99990</span>, <span class="dv">88880</span>, <span class="st">'2024-03-01'</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77771</span>, <span class="dv">99991</span>, <span class="dv">88881</span>, <span class="st">'2024-03-02'</span>),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77772</span>, <span class="dv">99992</span>, <span class="dv">88882</span>, <span class="st">'2024-03-03'</span>),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77773</span>, <span class="dv">99993</span>, <span class="dv">88883</span>, <span class="st">'2024-03-04'</span>),</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77774</span>, <span class="dv">99994</span>, <span class="dv">88884</span>, <span class="st">'2024-03-05'</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77775</span>, <span class="dv">99995</span>, <span class="dv">88880</span>, <span class="st">'2024-03-06'</span>),</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77776</span>, <span class="dv">99996</span>, <span class="dv">88881</span>, <span class="st">'2024-03-07'</span>),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77777</span>, <span class="dv">99997</span>, <span class="dv">88882</span>, <span class="st">'2024-03-08'</span>),</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77778</span>, <span class="dv">99998</span>, <span class="dv">88883</span>, <span class="st">'2024-03-09'</span>),</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77779</span>, <span class="dv">99999</span>, <span class="dv">88884</span>, <span class="st">'2024-03-10'</span>),</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77780</span>, <span class="dv">99990</span>, <span class="dv">88881</span>, <span class="st">'2024-03-11'</span>),</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77781</span>, <span class="dv">99991</span>, <span class="dv">88882</span>, <span class="st">'2024-03-12'</span>),</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77782</span>, <span class="dv">99992</span>, <span class="dv">88883</span>, <span class="st">'2024-03-13'</span>),</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77783</span>, <span class="dv">99993</span>, <span class="dv">88884</span>, <span class="st">'2024-03-14'</span>),</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77784</span>, <span class="dv">99994</span>, <span class="dv">88880</span>, <span class="st">'2024-03-15'</span>),</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77785</span>, <span class="dv">99995</span>, <span class="dv">88882</span>, <span class="st">'2024-03-16'</span>),</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77786</span>, <span class="dv">99996</span>, <span class="dv">88883</span>, <span class="st">'2024-03-17'</span>),</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77787</span>, <span class="dv">99997</span>, <span class="dv">88884</span>, <span class="st">'2024-03-18'</span>),</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77788</span>, <span class="dv">99998</span>, <span class="dv">88880</span>, <span class="st">'2024-03-19'</span>),</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77789</span>, <span class="dv">99999</span>, <span class="dv">88881</span>, <span class="st">'2024-03-20'</span>),</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77790</span>, <span class="dv">99990</span>, <span class="dv">88882</span>, <span class="st">'2024-03-21'</span>),</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77791</span>, <span class="dv">99991</span>, <span class="dv">88883</span>, <span class="st">'2024-03-22'</span>),</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77792</span>, <span class="dv">99992</span>, <span class="dv">88884</span>, <span class="st">'2024-03-23'</span>),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77793</span>, <span class="dv">99993</span>, <span class="dv">88880</span>, <span class="st">'2024-03-24'</span>),</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77794</span>, <span class="dv">99994</span>, <span class="dv">88881</span>, <span class="st">'2024-03-25'</span>),</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77795</span>, <span class="dv">99995</span>, <span class="dv">88883</span>, <span class="st">'2024-03-26'</span>),</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77796</span>, <span class="dv">99996</span>, <span class="dv">88884</span>, <span class="st">'2024-03-27'</span>),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77797</span>, <span class="dv">99997</span>, <span class="dv">88880</span>, <span class="st">'2024-03-28'</span>),</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77798</span>, <span class="dv">99998</span>, <span class="dv">88881</span>, <span class="st">'2024-03-29'</span>),</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>(<span class="dv">77799</span>, <span class="dv">99999</span>, <span class="dv">88882</span>, <span class="st">'2024-03-30'</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Code Model class Registration</label></li>
+<li><label><input type="checkbox">Create Repository interface</label></li>
+<li><label><input type="checkbox">Include a method to find a Registration from an Athlete and a Competition</label></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -704,206 +872,50 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>You can use <a href="https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html" target="_blank">Query creation from method names</a></p>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Add a method <em>findAthleteIdByCompetitionId(Long idCompetition)</em> using the custom query below</label></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> r.athlete.<span class="kw">id</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> Registration r</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> r.competition.<span class="kw">id</span> <span class="op">=</span> <span class="ch">:idCompetition</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now let’s add some methods in <code>CompetitionService</code>:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Add a method <em>findRegisteredAthletes(Long idCompetition)</em> returning the list of athletes registered for a given competition</label></li>
+<li><label><input type="checkbox">Create a method <em>deleteRegistration(Long idCompetition, Long idAthlete)</em></label></li>
+</ul>
+<p>Try to delete a Competition. What’s wrong?</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Update method <em>CompetitionService.deleteById()</em></label>
 <ul>
-<li>Use method <em>hashPassword()</em></li>
-<li><code>String.format("%06d", 123)</code><span class="emoji" data-emoji="arrow_right">➡️</span> “000123”</li>
-</ul>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Commit and Push your code</label></li>
-</ul>
-</section>
-<section id="strong-password" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="strong-password"><span class="header-section-number">4.2</span> Strong password</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Complete method <code>isStrongPassword()</code></label></li>
-</ul>
-<p>You will write a Java method to check if a password is strong. A password is strong if:</p>
-<ul>
-<li>✅ It has at least 12 characters</li>
-<li>✅ It contains at least one uppercase letter</li>
-<li>✅ It contains at least one lowercase letter</li>
-<li>✅ It contains at least one digit</li>
-<li>❌ It does not contain whitespace</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Usefull methods:</p>
-<ul>
-<li><code>Character.isUpperCase(&lt;char&gt;)</code></li>
-<li><code>Character.isDigit(&lt;char&gt;)</code></li>
-<li><code>Character.isWhitespace(&lt;char&gt;)</code></li>
-</ul>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Commit and Push your code</label></li>
-</ul>
-</section>
-<section id="check-password-list" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="check-password-list"><span class="header-section-number">4.3</span> Check password list</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Complete method <code>checkPasswordsList()</code></label></li>
-</ul>
-<p>You will write a method that takes a list of passwords (ArrayList<string>) and checks their strength.</string></p>
-<p>The method should return a HashMap where:</p>
-<ul>
-<li>The keys are the passwords</li>
-<li>The values are true if the password is strong, false otherwise</li>
-</ul>
-</section>
-<section id="generate-a-random-password" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="generate-a-random-password"><span class="header-section-number">4.4</span> Generate a Random Password</h3>
-<p><strong>Objective:</strong> Implement a method to generate a secure random password that includes at least:</p>
-<ul>
-<li>✅ 1 uppercase letter<br>
-</li>
-<li>✅ 1 lowercase letter<br>
-</li>
-<li>✅ 1 digit<br>
-</li>
-<li>✅ 1 special character</li>
-</ul>
-<ol type="1">
-<li>Ensure length is at least 4</li>
-<li>Create a list of characters</li>
-<li>Add at least one character from each group<br>
-</li>
-<li>Fill the remaining characters randomly from all groups</li>
-<li>Shuffle the password to mix character types <code>Collections.shuffle(&lt;myList&gt;)</code></li>
-<li>Convert the list into a <em>String</em> and return it</li>
-</ol>
-<ul class="task-list">
-<li><label><input type="checkbox">Complete method <code>generatePassword()</code></label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Generate random int between 0 and 20">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Generate random int between 0 and 20
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">security</span><span class="op">.</span><span class="im">SecureRandom</span><span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">SecureRandom</span> random <span class="op">=</span> <span class="kw">new</span> <span class="bu">SecureRandom</span><span class="op">();</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>random<span class="op">.</span><span class="fu">nextInt</span><span class="op">(</span><span class="dv">20</span><span class="op">));</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Bonus: Add the option to include or exclude a special character in the generated password</label></li>
-</ul>
-</section>
-<section id="evaluate-a-password" class="level3" data-number="4.5">
-<h3 data-number="4.5" class="anchored" data-anchor-id="evaluate-a-password"><span class="header-section-number">4.5</span> Evaluate a password</h3>
-<p><strong>Objective:</strong> Reads a password, compute a score and evaluates its strength.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Compute a score based on the password’s length and on the variety of characters it contains</label></li>
-</ul>
-<p>For the length, add two points each time the password exceeds a threshold: 8, 12, 16, 18 and 20 characters.</p>
-<p>Then check whether the password contains lowercase letters, uppercase letters, digits, and special characters. Count how many of these categories are present and add (number of categories) to the score.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Return a strength label</label></li>
-</ul>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Score</th>
-<th>Strength</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>&lt; 6</td>
-<td>Weak</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>Okay</td>
-</tr>
-<tr class="odd">
-<td>7–8</td>
-<td>Good</td>
-</tr>
-<tr class="even">
-<td>&gt; 8</td>
-<td>Strong</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="login-system" class="level3" data-number="4.6">
-<h3 data-number="4.6" class="anchored" data-anchor-id="login-system"><span class="header-section-number">4.6</span> Login System</h3>
-<p>Complete file <em>Login.java</em>:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Loads csv file <em>data/user_hashpwd.csv</em> containing usernames and hashed passwords</label></li>
-<li><label><input type="checkbox">Ask for a username</label></li>
-<li><label><input type="checkbox">If username exists, ask for password</label></li>
-<li><label><input type="checkbox">If login succeeds, print <strong>Login successful!</strong> and exit, else ask again username</label></li>
-</ul>
-<p>Bonus:</p>
-<ul>
-<li>After entering username, give 3 chances to input the correct password</li>
-<li>If all 3 attempts fail, restart username input</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Use a Scanner">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Use a Scanner
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Scanner</span> scanner <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Enter username: "</span><span class="op">);</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> username <span class="op">=</span> scanner<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>scanner<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</section>
-</section>
-<section id="end-of-the-lab" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="end-of-the-lab">End of the Lab</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul class="task-list">
-<li><label><input type="checkbox">Push your code to GitHub</label>
-<ul>
-<li>if your VSCode service dies, your code will not be lost</li>
-<li>on Datalabs, there is no guarantee of the lifespan of your services</li>
+<li>to allow you to force deletion</li>
 </ul></li>
-<li><label><input type="checkbox">Pause or delete your datalab services</label>
+<li><label><input type="checkbox">Bonus: you will meet the same issue if you try to delete an Athlete. Fix it</label></li>
+</ul>
+</section>
+<section id="register-an-athlete" class="level3" data-number="2.7">
+<h3 data-number="2.7" class="anchored" data-anchor-id="register-an-athlete"><span class="header-section-number">2.7</span> Register an Athlete</h3>
+<p>Difficulty : <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span></p>
+<p>On the screen listing the athletes in a competition:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Add a drop-down menu listing Athletes no registered in the current Competition</label></li>
+<li><label><input type="checkbox">Insert a button to register the selected Athlete</label></li>
+</ul>
+<p>In Java classes:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a controller method <em>registerAthleteCompetition(Long competitionId, Long athleteId)</em></label></li>
+<li><label><input type="checkbox">Create a service method</label>
 <ul>
-<li>to free up reserved resources</li>
+<li>to create the Registration</li>
+<li>call the suitable repository method</li>
 </ul></li>
 </ul>
-</div>
-</div>
+<p>If that was too easy, have fun creating other features.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
