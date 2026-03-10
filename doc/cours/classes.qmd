@@ -18,6 +18,7 @@ from: markdown+emoji
 lightbox: true
 categories:
   - OOP
+  - Constructors
   - Inheritance
   - Main
   - JavaDoc

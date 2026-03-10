@@ -32,16 +32,18 @@ website:
             text: "Advanced Java"
           - href: doc/cours/spring.qmd
             text: "Spring Boot"
-      - text: TP
+      - text: Labs
         menu: 
           - href: doc/tp/tp1.qmd
-            text: "TP n°1"
+            text: "Lab 1"
           - href: doc/tp/tp2.qmd
-            text: "TP n°2"
+            text: "Lab 2"
           - href: doc/tp/tp3.qmd
-            text: "TP n°3"
+            text: "Lab 3"
           - href: doc/tp/tp4.qmd
-            text: "TP n°4"
+            text: "Lab 4"
+          - href: doc/tp/tp5.qmd
+            text: "Lab 5"
     right:
       - icon: github
         href: "{{< meta var.url-repo >}}"

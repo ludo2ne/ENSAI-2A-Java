@@ -18,6 +18,7 @@ from: markdown+emoji
 lightbox: true
 categories:
   - Unit tests
+  - Mutation testing
 ---
 
 ## Unit tests with JUnit

@@ -1,0 +1,366 @@
+---
+title: "Java - TP5"
+description: "Spring Boot Application"
+author: "Ludovic Deneuville"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+lightbox: true
+---
+
+:::{.notes}
+Ideas of Questions:
+
+- Use Stream
+- Check if age >=0
+- Use an Enum for gender
+:::
+
+## Objectives {.unnumbered}
+
+The aim is to develop a Spring Boot application:
+
+- using layered programming
+- creating new functionalities
+- coding some API endpoints
+
+The principle will be the same as what was done in IT project 2A.
+
+## Before you start
+
+When you've finished, don't forget to delete your service.
+
+After each part, create a commit and push your code to the remote repository.
+
+### Launch service VSCode Java
+
+We're developing an API for public Internet access, which requires us to expose our application through a specific port (5000).
+
+- [ ] Restart the service from the last lab or Launch a new service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&version=2.5.2&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&networking.user.enabled=true&autoLaunch=true){target="_blank"}
+- [ ] During container startup, copy the link where your application will be exposed (port 5000)
+  - It looks like : `https://user-<sspcloud_username>-<6digits_number>-user<optional: -5000>.user.lab.sspcloud.fr/`
+
+::: {.callout-warning}
+If your service authorises the opening of another port (ex: 5000) on the Internet, you will need to use the same port to launch your Spring Boot application (application.yml file).
+:::
+
+
+### Update your repository
+
+Perhaps the repository used as a template has been updated since the last practical session.
+
+- [ ] Follow the commands given in Lab 2 to update your repository
+
+### Open Folder
+
+In VSCode :
+
+- [ ] File > Open Folder > tp5
+  - or using: `code-server ~/work/ENSAI-2A-Java-TP/tp5/`
+
+**tp5** must be the root folder in your explorer.
+
+
+### When you've finished
+
+- [ ] Save your work using git
+- [ ] Pause or Delete your service
+
+
+
+### Compile and run
+
+- [ ] If necessary in the terminal, change directory to tp5
+
+Use this command to run your application:
+
+- `mvn spring-boot:run`
+- `CTRL + C` to stop
+
+After launching the Spring Boot application, it will be deployed to something like:
+
+- `https://user-<sspcloud_username>-<6digits_number>-user<optional: -5000>.user.lab.sspcloud.fr/`
+
+
+::: {.callout-warning}
+If you meet that error: *Web server failed to start. Port 5000 was already in use.*
+
+- `ps -aux | grep java`
+- kill processes (ask for help!)
+:::
+
+Sometimes `mvn clean` could be usefull.
+
+## Exercice
+
+You'll be working on an application that manages registrations for running races.
+
+Features already implemented:
+
+- List of all Athletes
+- Add an Athlete
+- Delete an Athlete
+
+::: {.callout-caution}
+To make it easier to use, you'll be using:
+
+- [Thymeleaf](https://www.thymeleaf.org/){target="_blank"} to provide an interface
+- An embedded, in-memory H2 database
+
+However, bear in mind that in modern applications, Java is not used for GUIs. For example, the standard stack at INSEE is:
+
+- database: PostgreSQL
+- backend: Java (API that exposes endpoints)
+- frontend: [React JS](https://react.dev/){target="_blank"} (uses API data for display)
+:::
+
+### Project structure
+
+If you expand all the folders, you'll notice that there are a lot of files.
+
+Let's focus on a few key points:
+
+- `src/main/java/fr/ensai/running/`: the java classes of your Layered Spring Boot application
+  - Layers: controller, service, repository, model...
+  - `Application.java`: the Main class to run your application
+- `src/main/resources/`
+  - `templates/`: html pages
+  - `application.yml`:  Spring Boot properties of your application
+  - `data.sql`: Used to create and pop your database
+- `pom.xml`: Maven config
+
+::: {.callout-note collapse="true" title="To go further"}
+- `/config`: To setup your app (security...)
+- `LoggerAspect.java`: Used to log before and after each method call
+:::
+
+
+### For students in IT sections
+
+Let's use a PostgreSQL database insted of an embedded H2:
+
+- [ ] In the SPPCloud, create a service PostgreSQL
+- [ ] Modify file *application.yml* to connect to this database
+  - search on internet for the necessary configuration
+- [ ] Optional: create a service *CloudBeaver* if you want to execute queries
+  - If all goes well, CloudBeaver will automatically connect to your database
+  - Otherwise you need to create a new connection entering Host, Database, Username and Password
+
+
+### Workflow example
+
+- You want to display all Athletes
+- You click on button *Athletes* on the navigation bar
+  - This takes you to the `/athlete` endpoint (check the *navbar.html* file if necessary)
+- In the Controller, it match with method `findAllAthletes()`
+  - This method calls method `findAll()` from the service
+    - This method calls method `findAll()` from the repository
+      - But if you check class *AthleteRepository.java*, there is no method *findAll()*
+      - In fact, it's a native method of *CrudRepository*, so it is not necessary to implement it
+      - This method retrieves all athletes from the database
+  - Once the data has been retrieved, the method returns the string 'allAthletes'
+  - Which means that you will be redirected to the *allAthletes.html* page.
+
+
+  athlete
+
+```{mermaid}
+sequenceDiagram
+    participant IHM
+    participant AthleteController
+    participant AthleteService
+    participant CrudRepository
+
+    IHM->>AthleteController: Request findAllAthletes()
+    AthleteController->>AthleteService: Call findAll()
+    AthleteService->>CrudRepository: Call findAll()
+    CrudRepository->>CrudRepository: Execute findAll()
+    CrudRepository-->>AthleteService: Return list of athletes
+    AthleteService-->>AthleteController: Return list of athletes
+    AthleteController-->>IHM: Return allAthletes
+```
+
+### API Rest
+
+Before playing with the GUI, you're going to create a few endpoints for your API.
+
+In file *ApiRestController.java*, add the following endpoints:
+
+- [ ] GET an Athlete by id
+- [ ] DELETE an Athlete by id
+- [ ] CREATE an Athlete
+
+If you haven't any http client installed (Insomnia, Bruno, Postman...) on your machine you can use these bash commands to test your endpoints:
+
+```{.bash}
+curl -X POST https://<your_url>.user.lab.sspcloud.fr/api/athlete \
+     -H "Content-Type: application/json" \
+     -d '{
+           "firstName": "Floria",
+           "lastName": "Guei",
+           "age": 34,
+           "gender": "Female"
+         }'
+
+curl -X DELETE https://<your_url>.user.lab.sspcloud.fr/api/athlete/1
+```
+
+::: {.callout-caution}
+The ApiRestController class is annotated with @RestController, and is therefore used to create endpoints for a REST API.
+
+Next, we're going to use simple Controllers to interact with the GUI.
+
+If you prefer, you can continue to develop REST API endpoints without using the GUI.
+:::
+
+- [ ] Commit and push your code
+
+
+### Create competitions
+
+::: {.callout-note}
+The goal is to display all competitions.
+:::
+
+In your database there is a table called `competition` (loaded at start-up via the *data.sql* file).
+
+```{.sql}
+CREATE TABLE competition (
+    id_competition SERIAL PRIMARY KEY,
+    designation    VARCHAR(255),
+    city           VARCHAR(255),
+    event_date     DATE,
+    distance       FLOAT,
+    max_athletes   INTEGER
+);
+```
+
+- [ ] Create a Model class for competitions
+  - To store dates, use `LocalDate` from *java.time.LocalDate*
+
+::: {.callout-warning title="Naming conventions"}
+Please respect the naming conventions inherent in the languages (Java: camelCase, SQL: snake_case).
+:::
+
+- [ ] Create an interface *CompetitionRepository* to access the data in the database
+- [ ] Write a service class for competitions with methods allowing you to:
+  - list all competitions
+  - find a competition from its id
+  - delete a competition
+- [ ] Code a controller to handle these endpoints:
+  - `/competition`: display all competitions (allCompetitions.html)
+    - In the Model, add an attribute named "competitions"
+  - `/competition/delete/{id}`: to delete a competition using its id
+
+
+### Binding Athletes and Competitions
+
+We have Athletes.
+
+We have competitions.
+
+Now we want to register athletes for competitions.
+
+- [ ] Paste those queries at the end of *data.sql*
+
+
+::: {.callout-note title="To be pasted at the end of data.sql" collapse="true"}
+```{.sql}
+----------------------------------------------
+-- Registration
+----------------------------------------------
+
+DROP TABLE IF EXISTS registration;
+
+CREATE TABLE registration (
+    id_registration       SERIAL PRIMARY KEY,
+    id_athlete            BIGINT REFERENCES athlete(id_athlete),
+    id_competition        BIGINT REFERENCES competition(id_competition),
+    registration_date     DATE
+);
+
+INSERT INTO registration (id_registration, id_athlete, id_competition, registration_date) VALUES
+(77770, 99990, 88880, '2024-03-01'),
+(77771, 99991, 88881, '2024-03-02'),
+(77772, 99992, 88882, '2024-03-03'),
+(77773, 99993, 88883, '2024-03-04'),
+(77774, 99994, 88884, '2024-03-05'),
+(77775, 99995, 88880, '2024-03-06'),
+(77776, 99996, 88881, '2024-03-07'),
+(77777, 99997, 88882, '2024-03-08'),
+(77778, 99998, 88883, '2024-03-09'),
+(77779, 99999, 88884, '2024-03-10'),
+(77780, 99990, 88881, '2024-03-11'),
+(77781, 99991, 88882, '2024-03-12'),
+(77782, 99992, 88883, '2024-03-13'),
+(77783, 99993, 88884, '2024-03-14'),
+(77784, 99994, 88880, '2024-03-15'),
+(77785, 99995, 88882, '2024-03-16'),
+(77786, 99996, 88883, '2024-03-17'),
+(77787, 99997, 88884, '2024-03-18'),
+(77788, 99998, 88880, '2024-03-19'),
+(77789, 99999, 88881, '2024-03-20'),
+(77790, 99990, 88882, '2024-03-21'),
+(77791, 99991, 88883, '2024-03-22'),
+(77792, 99992, 88884, '2024-03-23'),
+(77793, 99993, 88880, '2024-03-24'),
+(77794, 99994, 88881, '2024-03-25'),
+(77795, 99995, 88883, '2024-03-26'),
+(77796, 99996, 88884, '2024-03-27'),
+(77797, 99997, 88880, '2024-03-28'),
+(77798, 99998, 88881, '2024-03-29'),
+(77799, 99999, 88882, '2024-03-30');
+```
+:::
+
+- [ ] Code Model class Registration
+- [ ] Create Repository interface
+- [ ] Include a method to find a Registration from an Athlete and a Competition
+
+::: {.callout-tip}
+You can use [Query creation from method names](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html){target="_blank"}
+:::
+
+- [ ] Add a method *findAthleteIdByCompetitionId(Long idCompetition)* using the custom query below
+
+```{.sql}
+SELECT r.athlete.id
+  FROM Registration r
+ WHERE r.competition.id = :idCompetition
+```
+
+Now let's add some methods in `CompetitionService`:
+
+- [ ] Add a method *findRegisteredAthletes(Long idCompetition)* returning the list of athletes registered for a given competition
+- [ ] Create a method *deleteRegistration(Long idCompetition, Long idAthlete)*
+
+Try to delete a Competition. What's wrong?
+
+- [ ] Update method *CompetitionService.deleteById()*
+  - to allow you to force deletion
+- [ ] Bonus: you will meet the same issue if you try to delete an Athlete. Fix it
+
+
+### Register an Athlete
+
+Difficulty : :star: :star: :star:
+
+On the screen listing the athletes in a competition:
+
+- [ ] Add a drop-down menu listing Athletes no registered in the current Competition
+- [ ] Insert a button to register the selected Athlete
+
+In Java classes:
+
+- [ ] Create a controller method *registerAthleteCompetition(Long competitionId, Long athleteId)*
+- [ ] Create a service method 
+  - to create the Registration 
+  - call the suitable repository method
+
+If that was too easy, have fun creating other features.
+

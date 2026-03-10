@@ -19,6 +19,13 @@ from: markdown+emoji
 lightbox: true
 mermaid:
   theme: neutral
+categories:
+  - Spring Boot
+  - Dependency Injection
+  - Annotations
+  - Lombok
+  - Data Mapping
+  - Hibernate
 ---
 
 
@@ -315,6 +322,7 @@ Zoom on Business Layer
 - On the GUI, you click on the book entitled 'Java'
 - The front office asks the back office for informations
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 sequenceDiagram
     participant Client
@@ -333,10 +341,8 @@ sequenceDiagram
     Controller-->>Client: HTTP 200 OK (Book JSON)
 
 ```
-
-:::{.notes}
-
 :::
+
 
 
 ### HTTP status codes {.smaller}

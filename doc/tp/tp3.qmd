@@ -12,190 +12,50 @@ number-sections: true
 number-depth: 3
 ---
 
+:::{.notes}
+Ideas of Questions:
+
+- About Stream
+- pitest
+- Interface?
+:::
+
 ## Instructions
 
-:construction:
+This lab will be covered in practical sessions 3 and 4.
 
-### Create a private repo
-
-- [ ] Login to [GitHub](https://github.com/){target="_blank"}
-- [ ] [Create a new repository](https://github.com/new){target="_blank"}
-  - **Repository name:** ENSAI-Java-TP3
-  - Private
-  - :white_check_mark: Add a README file
-  - **Add .gitignore:** Java
-  - **Licence:** Apache License 2.0 (or another)
 
 ### Launch service VSCode Java
 
-- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?version=1.11.26&autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=%C2%ABodysseu%2Fonyxia-vscode-java%3Aj21%C2%BB){target="_blank"} using this link.
-- [ ] Clone your repository (https)
-- [ ] Open Folder `home/onyxia/work/ENSAI-Java-TP3`
+- [ ] Restart the service from the last lab or Launch a new service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&version=2.5.2&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&networking.user.enabled=true&autoLaunch=true){target="_blank"}
 
-::: {.callout-caution}
-Service interruptions are possible. To prevent data loss, back up your code regularly with Git.
+### Update your repository
 
-After each part, create a commit and push your code to the remote repository.
-:::
+Perhaps the repository used as a template has been updated since the last practical session.
+
+- [ ] Follow the commands given in Lab 2 to update your repository
+
+### Open Folder
+
+In VSCode :
+
+- [ ] File > Open Folder > tp3
+  - or using: `code-server ~/work/ENSAI-2A-Java-TP/tp3/`
+
+**tp3** must be the root folder in your explorer.
+
 
 ### When you've finished
 
 - [ ] Save your work using git
-- [ ] Delete your service
-
+- [ ] Pause or Delete your service
 
 
 ## Subject
 
-
 This exercise involves designing and implementing a media management system in Java. You'll create classes for media types (songs, podcasts), playlists, and a media player. Focus on object-oriented principles, defining attributes, methods, and relationships. The goal is a functional system for managing and playing media.
 
-Given files : 
-
-- Song.java
-- pom.xml
-
-:::{.callout-note title="Given files (click here to expand)" collapse="true"}
-```{.java filename="Song.java"}
-package fr.ensai.mediaplayer;
-
-/**
- * Represents a song with essential attributes.
- */
-public class Song {
-    private String singer;
-    private String title;
-    private int year;
-    private int duration;
-    private String lyrics;
-    private String author;
-    private String composer;
-
-    /**
-     * Constructs a new Song object.
-     *
-     * @param title    The title of the song.
-     * @param singer   The singer of the song.
-     * @param title    The title of the song.
-     * @param year     The year the song was released.
-     * @param duration The duration of the song in seconds.
-     * @param lyrics   The lyrics of the song.
-     * @param author   The author of the song.
-     * @param composer The composer of the song.
-     */
-    public Song(String title, String singer, int year, int duration, String lyrics, String author, String composer) {
-        this.title = title;
-        this.singer = singer;
-        this.year = year;
-        this.duration = duration;
-        this.lyrics = lyrics;
-        this.author = author;
-        this.composer = composer;
-    }
-
-    /**
-     * String representation of the Song.
-     */
-    @Override
-    public String toString() {
-        return "Song " + this.title + " by " + this.singer;
-    }
-    
-    /**
-     * Indicates whether some other object is "equal to" this one. Two Song
-     * objects are considered equal if they have the same title, singer, and year.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || this.getClass() != o.getClass())
-            return false;
-        Song otherSong = (Song) o;
-        return this.year == otherSong.year &&
-                Objects.equals(this.title, otherSong.title) &&
-                Objects.equals(this.singer, otherSong.singer);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.title, this.singer, this.year);
-    }
-
-}
-```
-
----
-
-
-```{.xml filename="pom.mxl"}
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>fr.ensai</groupId>
-    <artifactId>mediaplayer</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-    </properties>
-
-    <dependencies>
-        <!-- JUnit for testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.1</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.1</version>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
-
-    <build>
-        <plugins>
-            <!-- Compiler Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>21</source>
-                    <target>21</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <mainClass>fr.ensai.mediaplayer.Main</mainClass>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
-:::
-
-
----
+Given files: `Song.java` and `pom.xml`
 
 - [ ] Create the arborscence of a Maven project
 
@@ -217,9 +77,9 @@ class Artist {
 }
 ```
 
-In the toString() method, concat "Artist" with firstName and lastName.
+In the *toString()* method, concat "Artist" with firstName and lastName.
 
-- [ ] Create Artist class
+- [ ] Create `Artist` class
 - [ ] Refactor Song class updating attributes types
   - We'll assume that the songs have a single singer, a single author, a single composer
 - [ ] In Song class, create method *play()*, 
@@ -262,6 +122,7 @@ class Podcast {
 - [ ] Implement class `Podcast`
   - Use OOP to avoid code duplication
 - [ ] Create method *play()*, printing subtitles
+  - Bonus: You will notice that this method is very similar to Song's. Isn't there a better way?
 - [ ] Implement the *toString()* method in the same way as for songs
 
 

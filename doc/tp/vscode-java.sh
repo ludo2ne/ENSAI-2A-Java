@@ -1,23 +1,36 @@
 # vscode-java.sh
 # chmod +x vscode-java.sh
 
-export JAVA_VERSION=21
-export JAVA_HOME="/usr/lib/jvm/java-$JAVA_VERSION-openjdk-amd64"
-export PATH="${JAVA_HOME}/bin:${PATH}"
+JAVA_VERSION=21
+sudo apt-get update -y
+sudo apt-get install -y --no-install-recommends \
+  ca-certificates-java \
+  openjdk-${JAVA_VERSION}-jdk \
+  maven
 
-sudo apt-get update
-sudo apt-get install ca-certificates-java libbz2-dev openjdk-"$JAVA_VERSION"-jdk openjdk-${JAVA_VERSION}-jre-headless -y --no-install-recommends
-sudo apt-get install maven -y
+export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+export PATH="$JAVA_HOME/bin:$PATH"
 
 java --version
 mvn --version
 
+# Java extensions install
 code-server --install-extension vscjava.vscode-java-pack
 code-server --install-extension vmware.vscode-boot-dev-pack
 code-server --install-extension visualstudioexptteam.vscodeintellicode
 code-server --install-extension sonarsource.sonarlint-vscode
 
+# Python extensions uninstall
 code-server --uninstall-extension ms-python.flake8
+code-server --uninstall-extension charliermarsh.ruff
+code-server --uninstall-extension ms-python.debugpy
+code-server --uninstall-extension ms-python.python
+code-server --uninstall-extension ms-python.vscode-python-envs
+code-server --uninstall-extension ms-toolsai.jupyter
+code-server --uninstall-extension ms-toolsai.jupyter-keymap
+code-server --uninstall-extension ms-toolsai.jupyter-renderers
+code-server --uninstall-extension ms-toolsai.vscode-jupyter-cell-tags
+code-server --uninstall-extension ms-toolsai.vscode-jupyter-slideshow
 
 # Add branch name in prompt
 BASHRC="$HOME/.bashrc"

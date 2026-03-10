@@ -21,6 +21,7 @@ lightbox: true
 categories:
   - Exceptions
   - Stream
+  - MapReduce
   - Enum
   - Interface
 ---

@@ -22,14 +22,13 @@ number-depth: 3
 
 ## Before you start
 
-When you've finished, don't forget to delete your service.
+When you've finished, don't forget to pause or delete your service.
 
 After each part, create a commit and push your code to the remote repository.
 
 ### Launch service VSCode Java
 
-- [ ] Launch the service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&version=2.5.2&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&networking.user.enabled=true&autoLaunch=true){target="_blank"}
-
+- [ ] Restart the service from the last lab or Launch a new service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&version=2.5.2&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&networking.user.enabled=true&autoLaunch=true){target="_blank"}
 
 ### Update your repository
 
@@ -409,7 +408,7 @@ import java.net.URL;
                     }
                     Book book = new Book(isbn, title, author, year, pageCount);
 
-                    this.addIem(book);
+                    this.addBook(book);
                 }
             }
         } catch (

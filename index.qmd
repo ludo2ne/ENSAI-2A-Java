@@ -32,8 +32,9 @@ listing:
 
 - [TP1](doc/tp/tp1.qmd) : Discover Java syntax
 - [TP2](doc/tp/tp2.qmd) : Maven project, OOP, Unit Tests
-- [TP3](doc/tp/tp3.qmd) : Rated TP
-- [TP4](doc/tp/tp4.qmd) : A Spring Boot project
+- [TP3](doc/tp/tp3.qmd) : Former rated TP
+- [TP4](doc/tp/tp4.qmd) : Rated TP
+- [TP5](doc/tp/tp5.qmd) : A Spring Boot project
 
 Dedicated repository: [ENSAI-2A-Java-TP](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"}
 
@@ -41,6 +42,7 @@ Dedicated repository: [ENSAI-2A-Java-TP](https://github.com/ludo2ne/ENSAI-2A-Jav
 ## Bibliography
 
 - [Java Tutorial, w3schools](https://www.w3schools.com/java/default.asp){target="_blank"}
+- [Koor Java](https://koor.fr/Java/Tutorial/Index.wp){target="_blank"}
 - <https://www.baeldung.com/get-started-with-java-series>{target="_blank"}
 
 

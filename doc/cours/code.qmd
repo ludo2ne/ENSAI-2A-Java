@@ -139,19 +139,39 @@ isJavaFun && !false || true;
 ### String
 
 ```{.java}
-String myString = "Java";
+String s = "Java";
 String fullName = "Alain" + " " + "Philippe";   // concat
 
-myString.length();
-myString.charAt(0);          // Get character at index 0
-myString.contains("va");
-myString.toLowerCase();      // also toUpperCase
-myString.endsWith("Java");   // also startsWith
+s.length();
+s.charAt(0);          // Get character at index 0
+s.contains("va");
+s.toLowerCase();      // also toUpperCase
+s.endsWith("Java");   // also startsWith
 
-myString.equals("Java");     // Use equals to compare, not ==
+s.equals("Java");     // Use equals to compare, not ==
+
+String textBlock = """
+        First line
+        Second line
+        """;
 ```
 
 Others: *replace()*, *split()*
+
+:::{.notes}
+- String objects are immutable
+    - :arrow_right: their content can never be modified after creation
+
+When an operation appears to modify a string, Java actually creates a new object.
+
+```{.java}
+String s = "hello";
+
+s.toUpperCase();      // dont modify s
+s = s.toUpperCase();  // creates a new String and affect it to variable s
+
+```
+:::
 
 ### Format String
 
