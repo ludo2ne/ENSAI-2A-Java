@@ -12,37 +12,47 @@ listing:
 ---
 
 
-## Class
+## Class/Lab
 
-6h
+six 3-hour sessions
+
+### Session 1
 
 - Introduction (why Java)
 - Java syntax (variables, structures, loops, etc.)
 - Containers (ArrayList, HashMap)
+- Lab 1 (Discover Java syntax)
+
+### Session 2
+
 - OOP (Classes, Objects, Inheritance, Polymorphism, etc.)
 - Java Project (Tree structure, Packages, Maven)
+- Lab 2
+
+### Session 3
+
 - Unit Tests (JUnit)
+- Lab 3 (1/2)
+
+### Session 4
+
 - Advanced (Interface, Enum, Stream)
+- Lab 3 (2/2)
+
+### Session 5
+
+- Lab 4 (rated)
+
+### Session 6
+
 - Spring Boot, Hibernate
-
-
-## TP
-
-4x3h
-
-- [TP1](doc/tp/tp1.qmd) : Discover Java syntax
-- [TP2](doc/tp/tp2.qmd) : Maven project, OOP, Unit Tests
-- [TP3](doc/tp/tp3.qmd) : Former rated TP
-- [TP4](doc/tp/tp4.qmd) : Rated TP
-- [TP5](doc/tp/tp5.qmd) : A Spring Boot project
-
-Dedicated repository: [ENSAI-2A-Java-TP](https://github.com/ludo2ne/ENSAI-2A-Java-TP){target="_blank"}
+- Lab 5 (A Spring Boot project)
 
 
 ## Bibliography
 
+- <https://dev.java/learn/>{target="_blank"}
 - [Java Tutorial, w3schools](https://www.w3schools.com/java/default.asp){target="_blank"}
-- [Koor Java](https://koor.fr/Java/Tutorial/Index.wp){target="_blank"}
 - <https://www.baeldung.com/get-started-with-java-series>{target="_blank"}
 
 
@@ -50,6 +60,7 @@ Dedicated repository: [ENSAI-2A-Java-TP](https://github.com/ludo2ne/ENSAI-2A-Jav
 
 - <https://gayerie.dev/docs/java/index.html>
 - <https://gayerie.dev/docs/spring/index.html>
+- [Koor Java](https://koor.fr/Java/Tutorial/Index.wp){target="_blank"}
 - [Développons en Java, Jean-Michel DOUDOUX](https://www.jmdoudoux.fr/accueil_java.htm){target="_blank"}
 - [Apprenez à programmer en Java, Zeste de savoir](https://zestedesavoir.com/tutoriels/646/apprenez-a-programmer-en-java/557_java-oriente-objet/){target="_blank"}
 - <https://blog.paumard.org/cours/java/>{target="_blank"}

@@ -18,15 +18,19 @@ from: markdown+emoji
 lightbox: true
 categories:
   - Unit tests
+  - Mocking
   - Mutation testing
 ---
 
 ## Unit tests with JUnit
 
-<https://junit.org/junit5/>{target="_blank"}
+<https://junit.org>{target="_blank"}
 
 :::{.notes}
 A popular open-source testing framework for Java
+
+- JUnit5 for a long time
+- JUnit6 since 2025.10 
 :::
 
 ### Reminder: Unit Testing
@@ -34,13 +38,14 @@ A popular open-source testing framework for Java
 - Testing individual units of code
 - Verifying that each unit behaves as expected
 - Essential for detecting bugs
-- Avoid regressions (Prevents new changes from breaking existing code)
+- Avoid regressions 
+  - :arrow_right_hook: Prevents new changes from breaking existing code
 
 ## Test classes
 
 - One-to-One Relationship
-- Each class you write should have a corresponding test class
-- Book.java :arrow_right: BookTest.java
+- Each class should have a corresponding test class
+- Book.java :left_right_arrow: BookTest.java
   - placed in the same package as the class being tested
   - but in the `src/test/java` directory
 
@@ -76,9 +81,6 @@ public class Fraction {
 ### Test class
 
 ```{.java filename="FractionTest.java"}
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 public class FractionTest {
 
     @Test
@@ -123,11 +125,117 @@ public class FractionTest {
 - Allows you to isolate the unit under test from external factors
 - See Mockito frameworks
 
+### Method to test
+
+```{.java filename="Fraction.java"}
+@AllArgsConstructor
+public class Fraction {
+    private int numerator;
+    private int denominator;
+    private MathService mathService;
+
+    public Fraction simplify() {
+        int gcd = this.mathService.pgcd(numerator, denominator);
+        return new Fraction(
+                this.numerator / gcd,
+                this.denominator / gcd,
+                this.mathService);
+    }
+}
+```
+
+### Test with mockito
+
+```{.java filename="FractionTest.java"}
+class FractionTest {
+    @Test
+    void simplifyMockingPgcdMethodCall() {
+
+        // GIVEN
+        MathService mathService = mock(MathService.class);
+        when(mathService.pgcd(6, 8)).thenReturn(2);
+        Fraction f = new Fraction(6, 8, mathService);
+
+        // WHEN
+        Fraction result = f.simplify();
+
+        // THEN
+        assertEquals(3, result.getNumerator());
+        assertEquals(4, result.getDenominator());
+        verify(mathService).pgcd(6, 8); // Verify it was called one time
+    }
+}
+```
+
+:::{.notes}
+1. Create mock
+2. Inject into the class
+3. When method is called, return directly the result
+:::
+
 ## Mutation Testing
+
+### Is it a good test ?
+
+```{.java filename="FractionTest.java"}
+public class FractionTest {
+    @Test
+    void invert_OK() {
+        // GIVEN
+        Fraction f = new Fraction(2, 3);
+
+        // WHEN
+        Fraction result = f.invert();
+
+        // THEN
+        assertNotNull(result);
+    }
+```
+
+::: {.incremental}
+- :white_check_mark: executes the method
+- :white_check_mark: passes
+- :white_check_mark: gives 100% coverage
+:::
+
+:::{.notes}
+But does it check the behavior?
+:::
+
+### Introduce a mutation
+
+Let's introduce a mutation in the code:
+
+```{.java filename="Fraction.java"}
+public class Fraction {
+    ...
+
+    public Fraction invert() {
+        if (numerator == 0)
+            throw new ArithmeticException("Cannot invert a fraction with a zero numerator.");
+
+        return new Fraction(numerator, denominator); 
+        // instead of return new Fraction(denominator, numerator);
+    }
+}
+```
+
+### Does the test still pass?
+
+:::{.fragment}
+- Yes: mutant survived
+- With the first version, the mutant would have been killed
+
+Code Coverage ≠ Test quality
+:::
+
+### Pitest
 
 - Evaluate the effectiveness of your tests
 - Introduces small changes (mutations) to your code
+  - Replace `+` with `-` or `>` with `>=`
 - Checks if your tests can detect these changes
+  - Each your tests to fail
 
 <https://pitest.org/>{target="_blank"}
 
@@ -137,11 +245,4 @@ public class FractionTest {
 - If your tests fail then the mutation is killed
 - if your tests pass then the mutation lived
 - The quality of your tests can be gauged from the percentage of mutations killed
-
-
-Replace :
-
-- `+` with `-`
-- `>` with `>=`
-- ...
 :::

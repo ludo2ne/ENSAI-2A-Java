@@ -19,6 +19,8 @@ from: markdown+emoji
 lightbox: true
 categories:
   - Variables
+  - Conventions
+  - Print
   - Control Structures
   - Loops
   - Functions

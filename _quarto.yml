@@ -35,15 +35,15 @@ website:
       - text: Labs
         menu: 
           - href: doc/tp/tp1.qmd
-            text: "Lab 1"
+            text: "Lab 1: Password"
           - href: doc/tp/tp2.qmd
-            text: "Lab 2"
+            text: "Lab 2: Library"
           - href: doc/tp/tp3.qmd
-            text: "Lab 3"
+            text: "Lab 3: Media Player"
           - href: doc/tp/tp4.qmd
-            text: "Lab 4"
+            text: "Lab 4: Rated"
           - href: doc/tp/tp5.qmd
-            text: "Lab 5"
+            text: "Lab 5: Spring Boot App"
     right:
       - icon: github
         href: "{{< meta var.url-repo >}}"

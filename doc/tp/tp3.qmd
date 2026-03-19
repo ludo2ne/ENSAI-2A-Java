@@ -59,6 +59,9 @@ Given files: `Song.java` and `pom.xml`
 
 - [ ] Create the arborscence of a Maven project
 
+::: {.callout-tip}
+`mkdir -p folder/subfolder/subsubfolder` to create multiple nested directories with one command.
+:::
 
 ## Questions
 
@@ -70,10 +73,10 @@ In the Song class, we want to replace the String types for attributes singer, au
 classDiagram
 
 class Artist {
-     - -firstName: String
-     - -lastName: String
-     - -nationality: String
-     + toString(): String
+     -firstName: String
+     -lastName: String
+     -nationality: String
+     +toString(): String
 }
 ```
 
@@ -103,19 +106,19 @@ try {
 
 ### Podcast
 
-In your player you will also read Podcasts :
+In your media player you will also read Podcasts :
 
 ```{mermaid}
 classDiagram
 
 class Podcast {
-    - -title: String
-    - -host: String
-    - -topic: String
-    - -duration: int
-    - -year: int
-    - -subtitles: String
-    + play()
+    -title: String
+    -host: String
+    -topic: String
+    -duration: int
+    -year: int
+    -subtitles: String
+    +play()
 }
 ```
 
@@ -144,13 +147,13 @@ We now want to be able to create playlists with these songs and podcasts.
 classDiagram
 
 class Playlist {
-    - -name: String
-    - -mediaList: List~Media~
-    - -totalDuration: int
-    + addMedia(Media media)
-    + removeMedia(Media media): bool
-    + removeMedia(int index)
-    + play(boolean random)
+    -name: String
+    -mediaList: List~Media~
+    -totalDuration: int
+    +addMedia(Media media)
+    +removeMedia(Media media): bool
+    +removeMedia(int index)
+    +play(boolean random)
 }
 ```
 
