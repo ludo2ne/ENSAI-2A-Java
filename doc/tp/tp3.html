@@ -342,23 +342,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp1.html">
- <span class="dropdown-text">Lab 1</span></a>
+ <span class="dropdown-text">Lab 1: Password</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp2.html">
- <span class="dropdown-text">Lab 2</span></a>
+ <span class="dropdown-text">Lab 2: Library</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp3.html">
- <span class="dropdown-text">Lab 3</span></a>
+ <span class="dropdown-text">Lab 3: Media Player</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp4.html">
- <span class="dropdown-text">Lab 4</span></a>
+ <span class="dropdown-text">Lab 4: Rated</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/tp/tp5.html">
- <span class="dropdown-text">Lab 5</span></a>
+ <span class="dropdown-text">Lab 5: Spring Boot App</span></a>
   </li>  
     </ul>
   </li>
@@ -497,6 +497,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul class="task-list">
 <li><label><input type="checkbox">Create the arborscence of a Maven project</label></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>mkdir -p folder/subfolder/subsubfolder</code> to create multiple nested directories with one command.</p>
+</div>
+</div>
 </section>
 <section id="questions" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="questions"><span class="header-section-number">3</span> Questions</h2>
@@ -511,10 +524,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="mermaid mermaid-js">classDiagram
 
 class Artist {
-     - -firstName: String
-     - -lastName: String
-     - -nationality: String
-     + toString(): String
+     -firstName: String
+     -lastName: String
+     -nationality: String
+     +toString(): String
 }
 </pre>
 </div>
@@ -553,7 +566,7 @@ class Artist {
 </section>
 <section id="podcast" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="podcast"><span class="header-section-number">3.2</span> Podcast</h3>
-<p>In your player you will also read Podcasts :</p>
+<p>In your media player you will also read Podcasts :</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -562,13 +575,13 @@ class Artist {
 <pre class="mermaid mermaid-js">classDiagram
 
 class Podcast {
-    - -title: String
-    - -host: String
-    - -topic: String
-    - -duration: int
-    - -year: int
-    - -subtitles: String
-    + play()
+    -title: String
+    -host: String
+    -topic: String
+    -duration: int
+    -year: int
+    -subtitles: String
+    +play()
 }
 </pre>
 </div>
@@ -609,13 +622,13 @@ class Podcast {
 <pre class="mermaid mermaid-js">classDiagram
 
 class Playlist {
-    - -name: String
-    - -mediaList: List~Media~
-    - -totalDuration: int
-    + addMedia(Media media)
-    + removeMedia(Media media): bool
-    + removeMedia(int index)
-    + play(boolean random)
+    -name: String
+    -mediaList: List~Media~
+    -totalDuration: int
+    +addMedia(Media media)
+    +removeMedia(Media media): bool
+    +removeMedia(int index)
+    +play(boolean random)
 }
 </pre>
 </div>

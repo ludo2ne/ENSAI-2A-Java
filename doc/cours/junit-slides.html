@@ -208,9 +208,13 @@ Ludovic Deneuville
 <section>
 <section id="unit-tests-with-junit" class="title-slide slide level2 center">
 <h2>Unit tests with JUnit</h2>
-<p><a href="https://junit.org/junit5/" target="_blank">https://junit.org/junit5/</a></p>
+<p><a href="https://junit.org" target="_blank">https://junit.org</a></p>
 <aside class="notes">
 <p>A popular open-source testing framework for Java</p>
+<ul>
+<li>JUnit5 for a long time</li>
+<li>JUnit6 since 2025.10</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -229,15 +233,18 @@ Ludovic Deneuville
 <li>Testing individual units of code</li>
 <li>Verifying that each unit behaves as expected</li>
 <li>Essential for detecting bugs</li>
-<li>Avoid regressions (Prevents new changes from breaking existing code)</li>
+<li>Avoid regressions
+<ul>
+<li><span class="emoji" data-emoji="arrow_right_hook">↪️</span> Prevents new changes from breaking existing code</li>
+</ul></li>
 </ul>
 </section></section>
 <section id="test-classes" class="title-slide slide level2 center">
 <h2>Test classes</h2>
 <ul>
 <li>One-to-One Relationship</li>
-<li>Each class you write should have a corresponding test class</li>
-<li>Book.java <span class="emoji" data-emoji="arrow_right">➡️</span> BookTest.java
+<li>Each class should have a corresponding test class</li>
+<li>Book.java <span class="emoji" data-emoji="left_right_arrow">↔︎️</span> BookTest.java
 <ul>
 <li>placed in the same package as the class being tested</li>
 <li>but in the <code>src/test/java</code> directory</li>
@@ -297,30 +304,27 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>FractionTest.java</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="FractionTest.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">junit</span><span class="op">.</span><span class="im">jupiter</span><span class="op">.</span><span class="im">api</span><span class="op">.</span><span class="im">Test</span><span class="op">;</span></span>
-<span id="cb2-2"><a></a><span class="kw">import</span> <span class="kw">static</span><span class="im"> org</span><span class="op">.</span><span class="im">junit</span><span class="op">.</span><span class="im">jupiter</span><span class="op">.</span><span class="im">api</span><span class="op">.</span><span class="im">Assertions</span><span class="op">.*;</span></span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a>    <span class="at">@Test</span></span>
-<span id="cb2-7"><a></a>    <span class="dt">void</span> <span class="fu">testInvertValid</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-8"><a></a>        <span class="co">// GIVEN</span></span>
-<span id="cb2-9"><a></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="FractionTest.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a>    <span class="at">@Test</span></span>
+<span id="cb2-4"><a></a>    <span class="dt">void</span> <span class="fu">testInvertValid</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-5"><a></a>        <span class="co">// GIVEN</span></span>
+<span id="cb2-6"><a></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb2-7"><a></a></span>
+<span id="cb2-8"><a></a>        <span class="co">// WHEN</span></span>
+<span id="cb2-9"><a></a>        Fraction inverted <span class="op">=</span> fraction<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
 <span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a>        <span class="co">// WHEN</span></span>
-<span id="cb2-12"><a></a>        Fraction inverted <span class="op">=</span> fraction<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
-<span id="cb2-13"><a></a></span>
-<span id="cb2-14"><a></a>        <span class="co">// THEN</span></span>
-<span id="cb2-15"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
-<span id="cb2-16"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
-<span id="cb2-17"><a></a>    <span class="op">}</span></span>
-<span id="cb2-18"><a></a></span>
-<span id="cb2-19"><a></a>    <span class="at">@Test</span></span>
-<span id="cb2-20"><a></a>    <span class="dt">void</span> <span class="fu">testInvertZeroNumerator</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-21"><a></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
-<span id="cb2-22"><a></a>        <span class="fu">assertThrows</span><span class="op">(</span><span class="bu">ArithmeticException</span><span class="op">.</span><span class="fu">class</span><span class="op">,</span> fraction<span class="op">::</span>invert<span class="op">);</span></span>
-<span id="cb2-23"><a></a>    <span class="op">}</span></span>
-<span id="cb2-24"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-11"><a></a>        <span class="co">// THEN</span></span>
+<span id="cb2-12"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
+<span id="cb2-13"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
+<span id="cb2-14"><a></a>    <span class="op">}</span></span>
+<span id="cb2-15"><a></a></span>
+<span id="cb2-16"><a></a>    <span class="at">@Test</span></span>
+<span id="cb2-17"><a></a>    <span class="dt">void</span> <span class="fu">testInvertZeroNumerator</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-18"><a></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb2-19"><a></a>        <span class="fu">assertThrows</span><span class="op">(</span><span class="bu">ArithmeticException</span><span class="op">.</span><span class="fu">class</span><span class="op">,</span> fraction<span class="op">::</span>invert<span class="op">);</span></span>
+<span id="cb2-20"><a></a>    <span class="op">}</span></span>
+<span id="cb2-21"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section id="assertions" class="title-slide slide level2 center">
@@ -344,6 +348,7 @@ Ludovic Deneuville
 </ul>
 </section>
 
+<section>
 <section id="mocking" class="title-slide slide level2 center">
 <h2>Mocking</h2>
 <ul>
@@ -352,13 +357,156 @@ Ludovic Deneuville
 <li>See Mockito frameworks</li>
 </ul>
 </section>
-
+<section id="method-to-test" class="slide level3">
+<h3>Method to test</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Fraction.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="Fraction.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a></a><span class="at">@AllArgsConstructor</span></span>
+<span id="cb3-2"><a></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb3-3"><a></a>    <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
+<span id="cb3-4"><a></a>    <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
+<span id="cb3-5"><a></a>    <span class="kw">private</span> MathService mathService<span class="op">;</span></span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a>    <span class="kw">public</span> Fraction <span class="fu">simplify</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-8"><a></a>        <span class="dt">int</span> gcd <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">mathService</span><span class="op">.</span><span class="fu">pgcd</span><span class="op">(</span>numerator<span class="op">,</span> denominator<span class="op">);</span></span>
+<span id="cb3-9"><a></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span></span>
+<span id="cb3-10"><a></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">numerator</span> <span class="op">/</span> gcd<span class="op">,</span></span>
+<span id="cb3-11"><a></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">denominator</span> <span class="op">/</span> gcd<span class="op">,</span></span>
+<span id="cb3-12"><a></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">mathService</span><span class="op">);</span></span>
+<span id="cb3-13"><a></a>    <span class="op">}</span></span>
+<span id="cb3-14"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="test-with-mockito" class="slide level3">
+<h3>Test with mockito</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>FractionTest.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="FractionTest.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a></a><span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb4-2"><a></a>    <span class="at">@Test</span></span>
+<span id="cb4-3"><a></a>    <span class="dt">void</span> <span class="fu">simplifyMockingPgcdMethodCall</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-4"><a></a></span>
+<span id="cb4-5"><a></a>        <span class="co">// GIVEN</span></span>
+<span id="cb4-6"><a></a>        MathService mathService <span class="op">=</span> <span class="fu">mock</span><span class="op">(</span>MathService<span class="op">.</span><span class="fu">class</span><span class="op">);</span></span>
+<span id="cb4-7"><a></a>        <span class="fu">when</span><span class="op">(</span>mathService<span class="op">.</span><span class="fu">pgcd</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">)).</span><span class="fu">thenReturn</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb4-8"><a></a>        Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> mathService<span class="op">);</span></span>
+<span id="cb4-9"><a></a></span>
+<span id="cb4-10"><a></a>        <span class="co">// WHEN</span></span>
+<span id="cb4-11"><a></a>        Fraction result <span class="op">=</span> f<span class="op">.</span><span class="fu">simplify</span><span class="op">();</span></span>
+<span id="cb4-12"><a></a></span>
+<span id="cb4-13"><a></a>        <span class="co">// THEN</span></span>
+<span id="cb4-14"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
+<span id="cb4-15"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">4</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
+<span id="cb4-16"><a></a>        <span class="fu">verify</span><span class="op">(</span>mathService<span class="op">).</span><span class="fu">pgcd</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">);</span> <span class="co">// Verify it was called one time</span></span>
+<span id="cb4-17"><a></a>    <span class="op">}</span></span>
+<span id="cb4-18"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<aside class="notes">
+<ol type="1">
+<li>Create mock</li>
+<li>Inject into the class</li>
+<li>When method is called, return directly the result</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
 <section id="mutation-testing" class="title-slide slide level2 center">
 <h2>Mutation Testing</h2>
+
+</section>
+<section id="is-it-a-good-test" class="slide level3">
+<h3>Is it a good test ?</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>FractionTest.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="FractionTest.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb5-2"><a></a>    <span class="at">@Test</span></span>
+<span id="cb5-3"><a></a>    <span class="dt">void</span> <span class="fu">invert_OK</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb5-4"><a></a>        <span class="co">// GIVEN</span></span>
+<span id="cb5-5"><a></a>        Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a>        <span class="co">// WHEN</span></span>
+<span id="cb5-8"><a></a>        Fraction result <span class="op">=</span> f<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a>        <span class="co">// THEN</span></span>
+<span id="cb5-11"><a></a>        <span class="fu">assertNotNull</span><span class="op">(</span>result<span class="op">);</span></span>
+<span id="cb5-12"><a></a>    <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li class="fragment"><span class="emoji" data-emoji="white_check_mark">✅</span> executes the method</li>
+<li class="fragment"><span class="emoji" data-emoji="white_check_mark">✅</span> passes</li>
+<li class="fragment"><span class="emoji" data-emoji="white_check_mark">✅</span> gives 100% coverage</li>
+</ul>
+<aside class="notes">
+<p>But does it check the behavior?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="introduce-a-mutation" class="slide level3">
+<h3>Introduce a mutation</h3>
+<p>Let’s introduce a mutation in the code:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Fraction.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="Fraction.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb6-2"><a></a>    <span class="kw">...</span></span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a>    <span class="kw">public</span> Fraction <span class="fu">invert</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-5"><a></a>        <span class="cf">if</span> <span class="op">(</span>numerator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb6-6"><a></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Cannot invert a fraction with a zero numerator."</span><span class="op">);</span></span>
+<span id="cb6-7"><a></a></span>
+<span id="cb6-8"><a></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span>numerator<span class="op">,</span> denominator<span class="op">);</span> </span>
+<span id="cb6-9"><a></a>        <span class="co">// instead of return new Fraction(denominator, numerator);</span></span>
+<span id="cb6-10"><a></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="does-the-test-still-pass" class="slide level3">
+<h3>Does the test still pass?</h3>
+<div class="fragment">
+<ul>
+<li>Yes: mutant survived</li>
+<li>With the first version, the mutant would have been killed</li>
+</ul>
+<p>Code Coverage ≠ Test quality</p>
+</div>
+</section>
+<section id="pitest" class="slide level3">
+<h3>Pitest</h3>
 <ul>
 <li>Evaluate the effectiveness of your tests</li>
-<li>Introduces small changes (mutations) to your code</li>
-<li>Checks if your tests can detect these changes</li>
+<li>Introduces small changes (mutations) to your code
+<ul>
+<li>Replace <code>+</code> with <code>-</code> or <code>&gt;</code> with <code>&gt;=</code></li>
+</ul></li>
+<li>Checks if your tests can detect these changes
+<ul>
+<li>Each your tests to fail</li>
+</ul></li>
 </ul>
 <p><a href="https://pitest.org/" target="_blank">https://pitest.org/</a></p>
 <aside class="notes">
@@ -368,12 +516,6 @@ Ludovic Deneuville
 <li>If your tests fail then the mutation is killed</li>
 <li>if your tests pass then the mutation lived</li>
 <li>The quality of your tests can be gauged from the percentage of mutations killed</li>
-</ul>
-<p>Replace :</p>
-<ul>
-<li><code>+</code> with <code>-</code></li>
-<li><code>&gt;</code> with <code>&gt;=</code></li>
-<li>…</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -388,7 +530,7 @@ Ludovic Deneuville
       }</style></aside>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

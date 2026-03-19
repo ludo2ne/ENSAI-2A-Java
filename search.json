@@ -81,14 +81,14 @@
     "href": "doc/tp/tp3.html#subject",
     "title": "Java - TP3",
     "section": "2 Subject",
-    "text": "2 Subject\nThis exercise involves designing and implementing a media management system in Java. You’ll create classes for media types (songs, podcasts), playlists, and a media player. Focus on object-oriented principles, defining attributes, methods, and relationships. The goal is a functional system for managing and playing media.\nGiven files: Song.java and pom.xml\n\nCreate the arborscence of a Maven project"
+    "text": "2 Subject\nThis exercise involves designing and implementing a media management system in Java. You’ll create classes for media types (songs, podcasts), playlists, and a media player. Focus on object-oriented principles, defining attributes, methods, and relationships. The goal is a functional system for managing and playing media.\nGiven files: Song.java and pom.xml\n\nCreate the arborscence of a Maven project\n\n\n\n\n\n\n\nTip\n\n\n\nmkdir -p folder/subfolder/subsubfolder to create multiple nested directories with one command."
   },
   {
     "objectID": "doc/tp/tp3.html#questions",
     "href": "doc/tp/tp3.html#questions",
     "title": "Java - TP3",
     "section": "3 Questions",
-    "text": "3 Questions\n\n3.1 Artist\nIn the Song class, we want to replace the String types for attributes singer, author, and composer with instances of an Artist class.\n\n\n\n\n\nclassDiagram\n\nclass Artist {\n     - -firstName: String\n     - -lastName: String\n     - -nationality: String\n     + toString(): String\n}\n\n\n\n\n\n\nIn the toString() method, concat “Artist” with firstName and lastName.\n\nCreate Artist class\nRefactor Song class updating attributes types\n\nWe’ll assume that the songs have a single singer, a single author, a single composer\n\nIn Song class, create method play(),\n\nthis method will print each word of lyrics\nuse the code below to add a brief delay between each word\n\n\ntry {\n    Thread.sleep(100);\n} catch (InterruptedException e) {\n    Thread.currentThread().interrupt();\n    System.err.println(\"Thread was interrupted\");\n}\n\nCreate a class Main with a main method\nIn the main() method, create an instance of Song and play it\n\nuse a real Song, singer and lyrics\nyou are allowed to leave author and composer blank\nfor the lyrics, you can limit them to a few hundred words\n\n\n\n\n3.2 Podcast\nIn your player you will also read Podcasts :\n\n\n\n\n\nclassDiagram\n\nclass Podcast {\n    - -title: String\n    - -host: String\n    - -topic: String\n    - -duration: int\n    - -year: int\n    - -subtitles: String\n    + play()\n}\n\n\n\n\n\n\n\nImplement class Podcast\n\nUse OOP to avoid code duplication\n\nCreate method play(), printing subtitles\n\nBonus: You will notice that this method is very similar to Song’s. Isn’t there a better way?\n\nImplement the toString() method in the same way as for songs\n\n\n\n3.3 Pop, Rock, Electro\nWe want to add a new attribute to the Song to store the musical genres it is associated with.\n\nCreate a structure to store musical genres\nAdd 10 values of your choice\nModify the Song class to add a list of musical genres to each song\nDon’t forget to update the main() method\n\n\n\n3.4 Playlist\nWe now want to be able to create playlists with these songs and podcasts.\n\n\n\n\n\nclassDiagram\n\nclass Playlist {\n    - -name: String\n    - -mediaList: List~Media~\n    - -totalDuration: int\n    + addMedia(Media media)\n    + removeMedia(Media media): bool\n    + removeMedia(int index)\n    + play(boolean random)\n}\n\n\n\n\n\n\n\nCreate a Playlist class with a name, a list of media and total duration\nDevelop the addMedia() method to add a media at the end of the playlist\nCreate the removeMedia(Media media) method\n\nit deletes occurences of a media if it exists in the playlist\n\nCreate unit tests with Junit for these last two methods\nInstanciate the removeMedia(Int i) method to delete a media by index\nDevelop a method for playing the playlist\n\nInclude a parameter to play the tracks randomly\n\nAdd the option of copying the playlist\n\n\n\n3.5 Create some objects\nIn the main method:\n\nCreate a new song (in addition to the one created at the beginning), as well as a Podcast\nInstantiate a playlist named p1 and add these three media to it\nCopy your playlist and name it p2\nRemove a song from p1\nPrint the total duration of p1 and p2\nPlay p2"
+    "text": "3 Questions\n\n3.1 Artist\nIn the Song class, we want to replace the String types for attributes singer, author, and composer with instances of an Artist class.\n\n\n\n\n\nclassDiagram\n\nclass Artist {\n     -firstName: String\n     -lastName: String\n     -nationality: String\n     +toString(): String\n}\n\n\n\n\n\n\nIn the toString() method, concat “Artist” with firstName and lastName.\n\nCreate Artist class\nRefactor Song class updating attributes types\n\nWe’ll assume that the songs have a single singer, a single author, a single composer\n\nIn Song class, create method play(),\n\nthis method will print each word of lyrics\nuse the code below to add a brief delay between each word\n\n\ntry {\n    Thread.sleep(100);\n} catch (InterruptedException e) {\n    Thread.currentThread().interrupt();\n    System.err.println(\"Thread was interrupted\");\n}\n\nCreate a class Main with a main method\nIn the main() method, create an instance of Song and play it\n\nuse a real Song, singer and lyrics\nyou are allowed to leave author and composer blank\nfor the lyrics, you can limit them to a few hundred words\n\n\n\n\n3.2 Podcast\nIn your media player you will also read Podcasts :\n\n\n\n\n\nclassDiagram\n\nclass Podcast {\n    -title: String\n    -host: String\n    -topic: String\n    -duration: int\n    -year: int\n    -subtitles: String\n    +play()\n}\n\n\n\n\n\n\n\nImplement class Podcast\n\nUse OOP to avoid code duplication\n\nCreate method play(), printing subtitles\n\nBonus: You will notice that this method is very similar to Song’s. Isn’t there a better way?\n\nImplement the toString() method in the same way as for songs\n\n\n\n3.3 Pop, Rock, Electro\nWe want to add a new attribute to the Song to store the musical genres it is associated with.\n\nCreate a structure to store musical genres\nAdd 10 values of your choice\nModify the Song class to add a list of musical genres to each song\nDon’t forget to update the main() method\n\n\n\n3.4 Playlist\nWe now want to be able to create playlists with these songs and podcasts.\n\n\n\n\n\nclassDiagram\n\nclass Playlist {\n    -name: String\n    -mediaList: List~Media~\n    -totalDuration: int\n    +addMedia(Media media)\n    +removeMedia(Media media): bool\n    +removeMedia(int index)\n    +play(boolean random)\n}\n\n\n\n\n\n\n\nCreate a Playlist class with a name, a list of media and total duration\nDevelop the addMedia() method to add a media at the end of the playlist\nCreate the removeMedia(Media media) method\n\nit deletes occurences of a media if it exists in the playlist\n\nCreate unit tests with Junit for these last two methods\nInstanciate the removeMedia(Int i) method to delete a media by index\nDevelop a method for playing the playlist\n\nInclude a parameter to play the tracks randomly\n\nAdd the option of copying the playlist\n\n\n\n3.5 Create some objects\nIn the main method:\n\nCreate a new song (in addition to the one created at the beginning), as well as a Podcast\nInstantiate a playlist named p1 and add these three media to it\nCopy your playlist and name it p2\nRemove a song from p1\nPrint the total duration of p1 and p2\nPlay p2"
   },
   {
     "objectID": "doc/cours/code.html",
@@ -214,28 +214,28 @@
     "href": "doc/cours/junit.html",
     "title": "JUnit",
     "section": "",
-    "text": "https://junit.org/junit5/\n\nA popular open-source testing framework for Java\n\n\n\n\nTesting individual units of code\nVerifying that each unit behaves as expected\nEssential for detecting bugs\nAvoid regressions (Prevents new changes from breaking existing code)"
+    "text": "https://junit.org\n\nA popular open-source testing framework for Java\n\nJUnit5 for a long time\nJUnit6 since 2025.10\n\n\n\n\n\nTesting individual units of code\nVerifying that each unit behaves as expected\nEssential for detecting bugs\nAvoid regressions\n\n↪️ Prevents new changes from breaking existing code"
   },
   {
     "objectID": "doc/cours/junit.html#unit-tests-with-junit",
     "href": "doc/cours/junit.html#unit-tests-with-junit",
     "title": "JUnit",
     "section": "",
-    "text": "https://junit.org/junit5/\n\nA popular open-source testing framework for Java\n\n\n\n\nTesting individual units of code\nVerifying that each unit behaves as expected\nEssential for detecting bugs\nAvoid regressions (Prevents new changes from breaking existing code)"
+    "text": "https://junit.org\n\nA popular open-source testing framework for Java\n\nJUnit5 for a long time\nJUnit6 since 2025.10\n\n\n\n\n\nTesting individual units of code\nVerifying that each unit behaves as expected\nEssential for detecting bugs\nAvoid regressions\n\n↪️ Prevents new changes from breaking existing code"
   },
   {
     "objectID": "doc/cours/junit.html#test-classes",
     "href": "doc/cours/junit.html#test-classes",
     "title": "JUnit",
     "section": "Test classes",
-    "text": "Test classes\n\nOne-to-One Relationship\nEach class you write should have a corresponding test class\nBook.java ➡️ BookTest.java\n\nplaced in the same package as the class being tested\nbut in the src/test/java directory"
+    "text": "Test classes\n\nOne-to-One Relationship\nEach class should have a corresponding test class\nBook.java ↔︎️ BookTest.java\n\nplaced in the same package as the class being tested\nbut in the src/test/java directory"
   },
   {
     "objectID": "doc/cours/junit.html#example",
     "href": "doc/cours/junit.html#example",
     "title": "JUnit",
     "section": "Example",
-    "text": "Example\n\nClass Fraction\n\n\nFraction.java\n\npublic class Fraction {\n    @Getter private int numerator;\n    @Getter private int denominator;\n\n    public Fraction(int numerator, int denominator) {\n        if (denominator == 0)\n            throw new IllegalArgumentException(\"Denominator cannot be zero.\");\n        this.numerator = numerator;\n        this.denominator = denominator;\n    }\n\n    public Fraction invert() {\n        if (numerator == 0)\n            throw new ArithmeticException(\"Cannot invert a fraction with a zero numerator.\");\n        return new Fraction(denominator, numerator);\n    }\n}\n\n\n\n@Getter : using Lombok\nCreate method getAttribute()\n\n\n\n\nTest class\n\n\nFractionTest.java\n\nimport org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FractionTest {\n\n    @Test\n    void testInvertValid() {\n        // GIVEN\n        Fraction fraction = new Fraction(2, 3);\n\n        // WHEN\n        Fraction inverted = fraction.invert();\n\n        // THEN\n        assertEquals(3, inverted.getNumerator());\n        assertEquals(2, inverted.getDenominator());\n    }\n\n    @Test\n    void testInvertZeroNumerator() {\n        Fraction fraction = new Fraction(0, 5);\n        assertThrows(ArithmeticException.class, fraction::invert);\n    }\n}"
+    "text": "Example\n\nClass Fraction\n\n\nFraction.java\n\npublic class Fraction {\n    @Getter private int numerator;\n    @Getter private int denominator;\n\n    public Fraction(int numerator, int denominator) {\n        if (denominator == 0)\n            throw new IllegalArgumentException(\"Denominator cannot be zero.\");\n        this.numerator = numerator;\n        this.denominator = denominator;\n    }\n\n    public Fraction invert() {\n        if (numerator == 0)\n            throw new ArithmeticException(\"Cannot invert a fraction with a zero numerator.\");\n        return new Fraction(denominator, numerator);\n    }\n}\n\n\n\n@Getter : using Lombok\nCreate method getAttribute()\n\n\n\n\nTest class\n\n\nFractionTest.java\n\npublic class FractionTest {\n\n    @Test\n    void testInvertValid() {\n        // GIVEN\n        Fraction fraction = new Fraction(2, 3);\n\n        // WHEN\n        Fraction inverted = fraction.invert();\n\n        // THEN\n        assertEquals(3, inverted.getNumerator());\n        assertEquals(2, inverted.getDenominator());\n    }\n\n    @Test\n    void testInvertZeroNumerator() {\n        Fraction fraction = new Fraction(0, 5);\n        assertThrows(ArithmeticException.class, fraction::invert);\n    }\n}"
   },
   {
     "objectID": "doc/cours/junit.html#assertions",
@@ -256,28 +256,28 @@
     "href": "doc/cours/junit.html#mocking",
     "title": "JUnit",
     "section": "Mocking",
-    "text": "Mocking\n\nReplacing real dependencies with controlled substitutes during unit testing\nAllows you to isolate the unit under test from external factors\nSee Mockito frameworks"
+    "text": "Mocking\n\nReplacing real dependencies with controlled substitutes during unit testing\nAllows you to isolate the unit under test from external factors\nSee Mockito frameworks\n\n\nMethod to test\n\n\nFraction.java\n\n@AllArgsConstructor\npublic class Fraction {\n    private int numerator;\n    private int denominator;\n    private MathService mathService;\n\n    public Fraction simplify() {\n        int gcd = this.mathService.pgcd(numerator, denominator);\n        return new Fraction(\n                this.numerator / gcd,\n                this.denominator / gcd,\n                this.mathService);\n    }\n}\n\n\n\nTest with mockito\n\n\nFractionTest.java\n\nclass FractionTest {\n    @Test\n    void simplifyMockingPgcdMethodCall() {\n\n        // GIVEN\n        MathService mathService = mock(MathService.class);\n        when(mathService.pgcd(6, 8)).thenReturn(2);\n        Fraction f = new Fraction(6, 8, mathService);\n\n        // WHEN\n        Fraction result = f.simplify();\n\n        // THEN\n        assertEquals(3, result.getNumerator());\n        assertEquals(4, result.getDenominator());\n        verify(mathService).pgcd(6, 8); // Verify it was called one time\n    }\n}\n\n\n\nCreate mock\nInject into the class\nWhen method is called, return directly the result"
   },
   {
     "objectID": "doc/cours/junit.html#mutation-testing",
     "href": "doc/cours/junit.html#mutation-testing",
     "title": "JUnit",
     "section": "Mutation Testing",
-    "text": "Mutation Testing\n\nEvaluate the effectiveness of your tests\nIntroduces small changes (mutations) to your code\nChecks if your tests can detect these changes\n\nhttps://pitest.org/\n\n\nMutations are automatically seeded into your code,\nthen your tests are run.\nIf your tests fail then the mutation is killed\nif your tests pass then the mutation lived\nThe quality of your tests can be gauged from the percentage of mutations killed\n\nReplace :\n\n+ with -\n&gt; with &gt;=\n…"
+    "text": "Mutation Testing\n\nIs it a good test ?\n\n\nFractionTest.java\n\npublic class FractionTest {\n    @Test\n    void invert_OK() {\n        // GIVEN\n        Fraction f = new Fraction(2, 3);\n\n        // WHEN\n        Fraction result = f.invert();\n\n        // THEN\n        assertNotNull(result);\n    }\n\n\n\n✅ executes the method\n✅ passes\n✅ gives 100% coverage\n\n\n\nBut does it check the behavior?\n\n\n\nIntroduce a mutation\nLet’s introduce a mutation in the code:\n\n\nFraction.java\n\npublic class Fraction {\n    ...\n\n    public Fraction invert() {\n        if (numerator == 0)\n            throw new ArithmeticException(\"Cannot invert a fraction with a zero numerator.\");\n\n        return new Fraction(numerator, denominator); \n        // instead of return new Fraction(denominator, numerator);\n    }\n}\n\n\n\nDoes the test still pass?\n\n\nYes: mutant survived\nWith the first version, the mutant would have been killed\n\nCode Coverage ≠ Test quality\n\n\n\nPitest\n\nEvaluate the effectiveness of your tests\nIntroduces small changes (mutations) to your code\n\nReplace + with - or &gt; with &gt;=\n\nChecks if your tests can detect these changes\n\nEach your tests to fail\n\n\nhttps://pitest.org/\n\n\nMutations are automatically seeded into your code,\nthen your tests are run.\nIf your tests fail then the mutation is killed\nif your tests pass then the mutation lived\nThe quality of your tests can be gauged from the percentage of mutations killed"
   },
   {
     "objectID": "doc/cours/junit-slides.html#unit-tests-with-junit",
     "href": "doc/cours/junit-slides.html#unit-tests-with-junit",
     "title": "JUnit",
     "section": "Unit tests with JUnit",
-    "text": "Unit tests with JUnit\nhttps://junit.org/junit5/\n\nA popular open-source testing framework for Java"
+    "text": "Unit tests with JUnit\nhttps://junit.org\n\nA popular open-source testing framework for Java\n\nJUnit5 for a long time\nJUnit6 since 2025.10"
   },
   {
     "objectID": "doc/cours/junit-slides.html#test-classes",
     "href": "doc/cours/junit-slides.html#test-classes",
     "title": "JUnit",
     "section": "Test classes",
-    "text": "Test classes\n\nOne-to-One Relationship\nEach class you write should have a corresponding test class\nBook.java ➡️ BookTest.java\n\nplaced in the same package as the class being tested\nbut in the src/test/java directory"
+    "text": "Test classes\n\nOne-to-One Relationship\nEach class should have a corresponding test class\nBook.java ↔︎️ BookTest.java\n\nplaced in the same package as the class being tested\nbut in the src/test/java directory"
   },
   {
     "objectID": "doc/cours/junit-slides.html#example",
@@ -312,7 +312,7 @@
     "href": "doc/cours/junit-slides.html#mutation-testing",
     "title": "JUnit",
     "section": "Mutation Testing",
-    "text": "Mutation Testing\n\nEvaluate the effectiveness of your tests\nIntroduces small changes (mutations) to your code\nChecks if your tests can detect these changes\n\nhttps://pitest.org/\n\n\nMutations are automatically seeded into your code,\nthen your tests are run.\nIf your tests fail then the mutation is killed\nif your tests pass then the mutation lived\nThe quality of your tests can be gauged from the percentage of mutations killed\n\nReplace :\n\n+ with -\n&gt; with &gt;=\n…"
+    "text": "Mutation Testing"
   },
   {
     "objectID": "doc/cours/advanced.html",
@@ -571,28 +571,21 @@
     "href": "index.html",
     "title": "Java",
     "section": "",
-    "text": "6h\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nUnit Tests (JUnit)\nAdvanced (Interface, Enum, Stream)\nSpring Boot, Hibernate"
+    "text": "six 3-hour sessions\n\n\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nLab 1 (Discover Java syntax)\n\n\n\n\n\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nLab 2\n\n\n\n\n\nUnit Tests (JUnit)\nLab 3 (1/2)\n\n\n\n\n\nAdvanced (Interface, Enum, Stream)\nLab 3 (2/2)\n\n\n\n\n\nLab 4 (rated)\n\n\n\n\n\nSpring Boot, Hibernate\nLab 5 (A Spring Boot project)"
   },
   {
-    "objectID": "index.html#class",
-    "href": "index.html#class",
+    "objectID": "index.html#classlab",
+    "href": "index.html#classlab",
     "title": "Java",
     "section": "",
-    "text": "6h\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nUnit Tests (JUnit)\nAdvanced (Interface, Enum, Stream)\nSpring Boot, Hibernate"
-  },
-  {
-    "objectID": "index.html#tp",
-    "href": "index.html#tp",
-    "title": "Java",
-    "section": "TP",
-    "text": "TP\n4x3h\n\nTP1 : Discover Java syntax\nTP2 : Maven project, OOP, Unit Tests\nTP3 : Former rated TP\nTP4 : Rated TP\nTP5 : A Spring Boot project\n\nDedicated repository: ENSAI-2A-Java-TP"
+    "text": "six 3-hour sessions\n\n\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nLab 1 (Discover Java syntax)\n\n\n\n\n\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nLab 2\n\n\n\n\n\nUnit Tests (JUnit)\nLab 3 (1/2)\n\n\n\n\n\nAdvanced (Interface, Enum, Stream)\nLab 3 (2/2)\n\n\n\n\n\nLab 4 (rated)\n\n\n\n\n\nSpring Boot, Hibernate\nLab 5 (A Spring Boot project)"
   },
   {
     "objectID": "index.html#bibliography",
     "href": "index.html#bibliography",
     "title": "Java",
     "section": "Bibliography",
-    "text": "Bibliography\n\nJava Tutorial, w3schools\nKoor Java\nhttps://www.baeldung.com/get-started-with-java-series\n\n\nFR\n\nhttps://gayerie.dev/docs/java/index.html\nhttps://gayerie.dev/docs/spring/index.html\nDéveloppons en Java, Jean-Michel DOUDOUX\nApprenez à programmer en Java, Zeste de savoir\nhttps://blog.paumard.org/cours/java/"
+    "text": "Bibliography\n\nhttps://dev.java/learn/\nJava Tutorial, w3schools\nhttps://www.baeldung.com/get-started-with-java-series\n\n\nFR\n\nhttps://gayerie.dev/docs/java/index.html\nhttps://gayerie.dev/docs/spring/index.html\nKoor Java\nDéveloppons en Java, Jean-Michel DOUDOUX\nApprenez à programmer en Java, Zeste de savoir\nhttps://blog.paumard.org/cours/java/"
   },
   {
     "objectID": "doc/cours/intro-slides.html#introduction-to-java",
