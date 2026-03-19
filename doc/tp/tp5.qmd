@@ -169,6 +169,7 @@ Let's use a PostgreSQL database insted of an embedded H2:
 
   athlete
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 sequenceDiagram
     participant IHM
@@ -184,6 +185,7 @@ sequenceDiagram
     AthleteService-->>AthleteController: Return list of athletes
     AthleteController-->>IHM: Return allAthletes
 ```
+:::
 
 ### API Rest
 

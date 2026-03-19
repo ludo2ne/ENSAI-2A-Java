@@ -24,13 +24,26 @@ categories:
 
 ## Unit tests with JUnit
 
+
+A popular open-source testing framework for Java:
+
+- JUnit5 for a long time
+- JUnit6 since 2025.10
+
 <https://junit.org>{target="_blank"}
 
 :::{.notes}
-A popular open-source testing framework for Java
+Regarding updating dependencies:
 
-- JUnit5 for a long time
-- JUnit6 since 2025.10 
+- A good practice to carry out regularly
+- Fixes security vulnerabilities
+- Watch out for regressions and compatibility issues with other libraries
+- Don't rush to install the latest version
+
+Dependabot:
+
+- monitors your project’s dependencies.
+- It suggests pull requests when a dependency has a new version, especially if it’s a security update.
 :::
 
 ### Reminder: Unit Testing

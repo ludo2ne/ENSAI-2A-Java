@@ -272,6 +272,7 @@ Steps :
 
 At the end of the tp, your code must implement this class diagram :
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 classDiagram
     class Library {
@@ -334,6 +335,7 @@ classDiagram
     Item <|-- Book : extends
     Book  -- Author : written by
 ```
+:::
 
 ::: {.callout-note}
 - In Java, it's conventional to declare all attributes as private.

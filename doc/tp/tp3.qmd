@@ -69,6 +69,7 @@ Given files: `Song.java` and `pom.xml`
 
 In the Song class, we want to replace the String types for attributes singer, author, and composer with instances of an Artist class.
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 classDiagram
 
@@ -79,6 +80,7 @@ class Artist {
      +toString(): String
 }
 ```
+:::
 
 In the *toString()* method, concat "Artist" with firstName and lastName.
 
@@ -108,6 +110,7 @@ try {
 
 In your media player you will also read Podcasts :
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 classDiagram
 
@@ -121,6 +124,7 @@ class Podcast {
     +play()
 }
 ```
+:::
 
 - [ ] Implement class `Podcast`
   - Use OOP to avoid code duplication
@@ -143,6 +147,7 @@ We want to add a new attribute to the Song to store the musical genres it is ass
 
 We now want to be able to create playlists with these songs and podcasts.
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 classDiagram
 
@@ -156,6 +161,7 @@ class Playlist {
     +play(boolean random)
 }
 ```
+:::
 
 - [ ] Create a `Playlist` class with a *name*, a *list of media* and *total duration*
 - [ ] Develop the *addMedia()* method to add a media at the end of the playlist

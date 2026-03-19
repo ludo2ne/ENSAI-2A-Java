@@ -1,52 +1,10 @@
 # ENSAI-2A-Java
 
-Enseignements ENSAI de 2e année en Python.
+Enseignements ENSAI de 2e année en Java.
 
 ## :construction:  Todo
 
 - [ ] maj <https://ensai.fr/cpt_matiere/programmation-orientee-objet-avec-java/>
-- [ ] add schedule in slides
-- [ ] questions about pitest in TP
-- [ ] TP repo as template
-
-### CM
-
-English !
-
-This course is based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt.
-
-https://www.benjamin-girault.com/
-https://sites.google.com/site/romaricgaudel/
-https://github.com/olevitt
-
-https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java
-
-- CM1
-  - Intro
-  - Code
-  - Collections
-- CM2
-  - OOP
-  - Java Project
-    - https://www.geeksforgeeks.org/apache-maven/
-    - https://openclassrooms.com/fr/courses/4503526-organisez-et-packagez-une-application-java-avec-apache-maven
-  - JUnit
-- CM3
-  - Stream
-  - Exception, Enum, Interface
-- CM4
-  - Spring, Hibernate, Lombok, Annotations
-
-
-### TP
-
-- 1. First steps (write code to solve issues about pwd)
-- 2. Classes, inheritage, doc
-  - ajouter UML à chaque étape
-  - Enoncé Loads books from a CSV(addItem -> addBook, appel constructeur Author 1 seul paramètre, supp print)
-- 3. Rated
-- 4. Spring Boot
-
 
 ## :rocket: Publier les pages
 

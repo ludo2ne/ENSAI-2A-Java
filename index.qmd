@@ -14,7 +14,7 @@ listing:
 
 ## Class/Lab
 
-six 3-hour sessions
+6 three-hour sessions.
 
 ### Session 1
 

@@ -14,8 +14,6 @@ format:
     slide-level: 3
     controls: true
     output-file: advanced-slides.html
-mermaid:
-  theme: forest
 from: markdown+emoji
 lightbox: true
 categories:
@@ -38,6 +36,124 @@ Advices for Rated TP:
 - Use clear, meaningful names for variables and methods 
 - well-indented code, easy to read
 :::
+
+
+## Enum
+
+### What are Enums?
+
+- Defines a set of named constants
+- Represents a fixed and predefined set of possible values
+- Examples: Day of week, colors, playing cards
+
+### Declare a basic Enum
+
+```{.java filename="Grade.java"}
+public enum Grade {
+    EXCELLENT,
+    VERY_GOOD,
+    GOOD,
+    AVERAGE,
+    INSUFFICIENT
+}
+```
+
+:::{.notes}
+- These are the constant values of the enum
+:::
+
+### Use an Enum
+
+```{.java}
+Grade grade = Grade.VERY_GOOD;
+
+switch (grade) {
+    case EXCELLENT:
+        System.out.println("Excellent!");
+        break;
+    case VERY_GOOD:
+        System.out.println("Very good!");
+        break;
+        
+    ...
+}
+```
+
+:::{.notes}
+- Enums are implicitly:
+  - static (no need to create an instance)
+  - final (no modification allowed)
+:::
+
+
+### Adding Behavior to Enum
+
+- Enums are More Than Just Constants
+- They are special classes
+  - They can have methods and attributes
+
+---
+
+```{.java filename="Grade.java"}
+public enum Grade {
+    EXCELLENT(90), VERY_GOOD(80), GOOD(70), AVERAGE(60), INSUFFICIENT(50);
+
+    @Getter
+    private final int minimumScore;
+
+    private Grade(int minimumScore) {
+        this.minimumScore = minimumScore;
+    }
+
+    public String getFeedback() {
+        switch (this) {
+            case EXCELLENT: return "Outstanding!";
+            case VERY_GOOD: return "Well done!";
+            case GOOD: return "Satisfactory.";
+            case AVERAGE: return "Needs more effort.";
+            case INSUFFICIENT: return "Requires significant improvement.";
+            default: return "Unknown grade.";
+        }
+    }
+}
+```
+
+:::{.notes}
+- constructor is private
+  - we cannot access it from outside the class
+  - we can use enum constants to call the constructor
+- compiler error if constructor is public
+:::
+
+
+### Enum methods
+
+
+```{.java}
+Grade studentGrade = Grade.VERY_GOOD;
+
+System.out.println("Grade: " + studentGrade);
+System.out.println("Minimum Score: " + studentGrade.getMinimumScore());
+System.out.println("Feedback: " + studentGrade.getFeedback());
+
+// Iterate
+for (Grade g : Grade.values()) {
+    System.out.println(g);
+}
+```
+
+### Enums: Pros and Cons {.smaller}
+
+- :white_check_mark: **Readability**: Makes code easier to understand by using descriptive names for values
+- :white_check_mark: **Type Safety**: Avoids errors related to typos or invalid values
+- :white_check_mark: **Maintainability**: Easier to modify and add new values (for dev)
+- :x: **Limited Extensibility**: Difficult to add or modify values at runtime
+- :x: **Reduced Flexibility**: Restricts values to a predefined set
+
+:::{.notes}
+- :white_check_mark: Compile-Time Validation: Catches enum-related issues early during compilation.
+:::
+
 
 ## Exception
 
@@ -522,121 +638,6 @@ double meanSumOfSquaresAvg = values.stream()
   - map() specialization
 :::
 
-## Enum
-
-### What are Enums?
-
-- Defines a set of named constants
-- Represents a fixed and predefined set of possible values
-- Examples: Day of week, colors, playing cards
-
-### Declare a basic Enum
-
-```{.java filename="Grade.java"}
-public enum Grade {
-    EXCELLENT,
-    VERY_GOOD,
-    GOOD,
-    AVERAGE,
-    INSUFFICIENT
-}
-```
-
-:::{.notes}
-- These are the constant values of the enum
-:::
-
-### Use an Enum
-
-```{.java}
-Grade grade = Grade.VERY_GOOD;
-
-switch (grade) {
-    case EXCELLENT:
-        System.out.println("Excellent!");
-        break;
-    case VERY_GOOD:
-        System.out.println("Very good!");
-        break;
-        
-    ...
-}
-```
-
-:::{.notes}
-- Enums are implicitly:
-  - static (no need to create an instance)
-  - final (no modification allowed)
-:::
-
-
-### Adding Behavior to Enum
-
-- Enums are More Than Just Constants
-- They are special classes
-  - They can have methods and attributes
-
----
-
-```{.java filename="Grade.java"}
-public enum Grade {
-    EXCELLENT(90), VERY_GOOD(80), GOOD(70), AVERAGE(60), INSUFFICIENT(50);
-
-    @Getter
-    private final int minimumScore;
-
-    private Grade(int minimumScore) {
-        this.minimumScore = minimumScore;
-    }
-
-    public String getFeedback() {
-        switch (this) {
-            case EXCELLENT: return "Outstanding!";
-            case VERY_GOOD: return "Well done!";
-            case GOOD: return "Satisfactory.";
-            case AVERAGE: return "Needs more effort.";
-            case INSUFFICIENT: return "Requires significant improvement.";
-            default: return "Unknown grade.";
-        }
-    }
-}
-```
-
-:::{.notes}
-- constructor is private
-  - we cannot access it from outside the class
-  - we can use enum constants to call the constructor
-- compiler error if constructor is public
-:::
-
-
-### Enum methods
-
-
-```{.java}
-Grade studentGrade = Grade.VERY_GOOD;
-
-System.out.println("Grade: " + studentGrade);
-System.out.println("Minimum Score: " + studentGrade.getMinimumScore());
-System.out.println("Feedback: " + studentGrade.getFeedback());
-
-// Iterate
-for (Grade g : Grade.values()) {
-    System.out.println(g);
-}
-```
-
-### Enums: Pros and Cons {.smaller}
-
-- :white_check_mark: **Readability**: Makes code easier to understand by using descriptive names for values
-- :white_check_mark: **Type Safety**: Avoids errors related to typos or invalid values
-- :white_check_mark: **Maintainability**: Easier to modify and add new values (for dev)
-- :x: **Limited Extensibility**: Difficult to add or modify values at runtime
-- :x: **Reduced Flexibility**: Restricts values to a predefined set
-
-:::{.notes}
-- :white_check_mark: Compile-Time Validation: Catches enum-related issues early during compilation.
-:::
 
 
 ## Interface
@@ -646,6 +647,7 @@ for (Grade g : Grade.values()) {
 - Fighter: Primarily focused on combat.
 - Doctor: Primarily focused on healing.
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 classDiagram
 
@@ -669,7 +671,7 @@ class Doctor {
 Person <|-- Fighter
 Person <|-- Doctor
 ```
-
+:::
 
 :::{.notes}
 - **Python:** Allows multiple inheritance.
@@ -683,6 +685,7 @@ Person <|-- Doctor
 
 ---
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 classDiagram
 
@@ -709,6 +712,7 @@ Fighter <|-- ArmyDoctor
 Doctor <|-- ArmyDoctor
 Person <|-- Doctor
 ```
+:::
 
 ### Defining Abilities as Contracts
 
@@ -830,6 +834,7 @@ public class ArmyDoctor extends Person implements Healer, Combatant {
 
 ### UML
 
+:::{style="background-color: #d7e5ecff;"}
 ```{mermaid}
 classDiagram
 
@@ -873,7 +878,7 @@ ArmyDoctor ..|> Combatant
 ArmyDoctor ..|> Healer
 Doctor ..|> Healer
 ```
-
+:::
 
 ## Upcasting and Downcasting
 

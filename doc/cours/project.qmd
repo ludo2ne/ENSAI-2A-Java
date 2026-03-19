@@ -222,6 +222,8 @@ Alternative: Gradle
 - Maven downloads and manages these dependencies automatically
 - Example: JUnit, database connectors, logging frameworks
 
+<https://mvnrepository.com/>{target="_blank"}
+
 ### Plugins
 
 - Extend Maven's functionality
