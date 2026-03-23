@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Java - TP3 – Java</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,17 +72,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-db8412935377c476a6a34876e811a251.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d075c25e60777822068c2219745b13b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8ec1fb2740a17410fc6227cc0b93a09a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-6fba50ad7caf29492cb2a43abebf4864.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,6 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<meta name="mermaid-theme" content="neutral">
 <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -405,7 +408,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pop-rock-electro" id="toc-pop-rock-electro" class="nav-link" data-scroll-target="#pop-rock-electro"><span class="header-section-number">3.3</span> Pop, Rock, Electro</a></li>
   <li><a href="#playlist" id="toc-playlist" class="nav-link" data-scroll-target="#playlist"><span class="header-section-number">3.4</span> Playlist</a></li>
   <li><a href="#create-some-objects" id="toc-create-some-objects" class="nav-link" data-scroll-target="#create-some-objects"><span class="header-section-number">3.5</span> Create some objects</a></li>
+  <li><a href="#feed-a-playlist" id="toc-feed-a-playlist" class="nav-link" data-scroll-target="#feed-a-playlist"><span class="header-section-number">3.6</span> Feed a playlist</a></li>
   </ul></li>
+  <li><a href="#end-of-the-tp" id="toc-end-of-the-tp" class="nav-link" data-scroll-target="#end-of-the-tp">End of the TP</a></li>
   </ul>
 </nav>
 </nav>
@@ -669,9 +674,121 @@ class Playlist {
 <li><label><input type="checkbox">Print the total duration of <em>p1</em> and <em>p2</em></label></li>
 <li><label><input type="checkbox">Play <em>p2</em></label></li>
 </ul>
-
-
 </section>
+<section id="feed-a-playlist" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="feed-a-playlist"><span class="header-section-number">3.6</span> Feed a playlist</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Goal">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Goal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The next step is to be able to add a set of media files to a playlist.</p>
+<p>A JSON file is provided; the aim is to add all medias from this file into a playlist.</p>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Is it a good idea to create a <em>loadJsonFile()</em> method in the Playlist class?</label>
+<ul>
+<li><span class="emoji" data-emoji="bulb">💡</span> Check SOLID principles</li>
+</ul></li>
+</ul>
+<p>You’ll need a tool to read JSON:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Add dependency <em>org.json</em> in file <em>pom.xml</em></label></li>
+</ul>
+<p>Spoiler alert to the previous question, the answer was no:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a class <code>MediaJsonLoader</code> with a method called <em>load()</em> returning a list of Medias</label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>MediaJsonLoader.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="MediaJsonLoader.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">mediaplayer</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">InputStream</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">json</span><span class="op">.</span><span class="im">JSONArray</span><span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">json</span><span class="op">.</span><span class="im">JSONObject</span><span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MediaJsonLoader <span class="op">{</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Media</span><span class="op">&gt;</span> <span class="fu">load</span><span class="op">(</span><span class="bu">String</span> filename<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">InputStream</span> is <span class="op">=</span> MediaJsonLoader<span class="op">.</span><span class="fu">class</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">getClassLoader</span><span class="op">()</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">getResourceAsStream</span><span class="op">(</span>filename<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>is <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span><span class="st">"File not found in resources: "</span> <span class="op">+</span> filename<span class="op">);</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> content <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span>is<span class="op">.</span><span class="fu">readAllBytes</span><span class="op">(),</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">);</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            JSONArray array <span class="op">=</span> <span class="kw">new</span> <span class="fu">JSONArray</span><span class="op">(</span>content<span class="op">);</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Code Here</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="co">// examples of use</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>            JSONObject json <span class="op">=</span> array<span class="op">.</span><span class="fu">getJSONObject</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> title <span class="op">=</span> json<span class="op">.</span><span class="fu">getString</span><span class="op">(</span><span class="st">"title"</span><span class="op">);</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> year <span class="op">=</span> json<span class="op">.</span><span class="fu">getInt</span><span class="op">(</span><span class="st">"year"</span><span class="op">);</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> lyrics <span class="op">=</span> json<span class="op">.</span><span class="fu">optString</span><span class="op">(</span><span class="st">"lyrics"</span><span class="op">);</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span><span class="st">"Error reading file: "</span> <span class="op">+</span> filename<span class="op">,</span> e<span class="op">);</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s use it in the main method:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Load file <em>medias.json</em></label></li>
+<li><label><input type="checkbox">Use fields to create songs and podcasts</label>
+<ul>
+<li>Bonus1: Manage singers: <code>JSONObject singerJson = json.getJSONObject("singer");</code></li>
+<li>Bonus2: Manage musical genres: <code>JSONArray genresJson = json.optJSONArray("genres");</code></li>
+</ul></li>
+<li><label><input type="checkbox">Add all medias to a playlist</label>
+<ul>
+<li>Perhaps it would be a good idea to have a suitable method</li>
+</ul></li>
+<li><label><input type="checkbox">Play it</label></li>
+</ul>
+<p>Let’s continue to keep separate responsibilities.</p>
+<p>The creation of a Media object should not be handled within the class <code>MediaJsonLoader</code>.</p>
+<p>You’ll need a class that can create either a song or a podcast from a JSON file.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create class <code>MediaFactory</code> and method <em>create()</em></label></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MediaFactory <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="bu">Media</span> <span class="fu">create</span><span class="op">(</span>JSONObject json<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// </span><span class="al">TODO</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Refactor class <code>MediaJsonLoader</code> to use the factory</label></li>
+</ul>
+</section>
+</section>
+<section id="end-of-the-tp" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="end-of-the-tp">End of the TP</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Commit and push</label></li>
+<li><label><input type="checkbox">Pause or delete your service</label></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
