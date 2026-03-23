@@ -16,6 +16,11 @@ format:
     output-file: intro-slides.html
 from: markdown+emoji
 lightbox: true
+categories:
+  - Java
+  - Compile
+  - JVM
+  - JDK
 ---
 
 

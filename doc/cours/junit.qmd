@@ -54,6 +54,12 @@ Dependabot:
 - Avoid regressions 
   - :arrow_right_hook: Prevents new changes from breaking existing code
 
+:::{.notes}
+Detect regressions when upgrading dependencies
+
+3 steps of a test?
+:::
+
 ## Test classes
 
 - One-to-One Relationship
@@ -137,6 +143,12 @@ public class FractionTest {
 - Replacing real dependencies with controlled substitutes during unit testing
 - Allows you to isolate the unit under test from external factors
 - See Mockito frameworks
+
+:::{.notes}
+- Unit Test: isolate components
+- Integration testing: Do my components work together?
+- Functional testing: Does my application do what the user expects?
+:::
 
 ### Method to test
 

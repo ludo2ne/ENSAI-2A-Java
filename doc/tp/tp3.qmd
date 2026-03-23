@@ -10,6 +10,8 @@ format:
 from: markdown+emoji
 number-sections: true
 number-depth: 3
+mermaid:
+  theme: neutral
 ---
 
 :::{.notes}
@@ -174,7 +176,6 @@ class Playlist {
 - [ ] Add the option of copying the playlist
 
 
-
 ### Create some objects
 
 In the main method:
@@ -187,6 +188,100 @@ In the main method:
 - [ ] Play *p2*
 
 
+### Feed a playlist
+
+::: {.callout-tip title="Goal"}
+The next step is to be able to add a set of media files to a playlist.
+
+A JSON file is provided; the aim is to add all medias from this file into a playlist.
+:::
+
+- [ ] Is it a good idea to create a *loadJsonFile()* method in the Playlist class?
+  - :bulb: Check SOLID principles
+
+You'll need a tool to read JSON:
+
+- [ ] Add dependency *org.json* in file *pom.xml*
+
+Spoiler alert to the previous question, the answer was no:
+
+- [ ] Create a class `MediaJsonLoader` with a method called *load()* returning a list of Medias
+
+```{.java filename="MediaJsonLoader.java"}
+package fr.ensai.mediaplayer;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class MediaJsonLoader {
+
+    public static List<Media> load(String filename) {
+
+        try (InputStream is = MediaJsonLoader.class
+                .getClassLoader()
+                .getResourceAsStream(filename)) {
+
+            if (is == null) {
+                throw new RuntimeException("File not found in resources: " + filename);
+            }
+
+            String content = new String(is.readAllBytes(), StandardCharsets.UTF_8);
+            JSONArray array = new JSONArray(content);
+
+            // Code Here
+
+            // examples of use
+            int i = 0;
+            JSONObject json = array.getJSONObject(i);
+            String title = json.getString("title");
+            int year = json.getInt("year");
+            String lyrics = json.optString("lyrics");
+
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading file: " + filename, e);
+        }
+
+        return null;
+    }
+}
+```
+
+Let's use it in the main method:
+
+- [ ] Load file *medias.json*
+- [ ] Use fields to create songs and podcasts
+  - Bonus1: Manage singers: `JSONObject singerJson = json.getJSONObject("singer");`
+  - Bonus2: Manage musical genres: `JSONArray genresJson = json.optJSONArray("genres");`
+- [ ] Add all medias to a playlist
+  - Perhaps it would be a good idea to have a suitable method
+- [ ] Play it
 
 
+Let's continue to keep separate responsibilities.
+
+The creation of a Media object should not be handled within the class `MediaJsonLoader`.
+
+You'll need a class that can create either a song or a podcast from a JSON file.
+
+- [ ] Create class `MediaFactory` and method *create()*
+
+```{.java}
+public class MediaFactory {
+    public static Media create(JSONObject json) {
+        // TODO
+    }
+}
+```
+
+- [ ] Refactor class `MediaJsonLoader` to use the factory
+
+## End of the TP{.unnumbered}
+
+- [ ] Commit and push
+- [ ] Pause or delete your service
 

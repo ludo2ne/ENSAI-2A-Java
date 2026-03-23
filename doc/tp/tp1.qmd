@@ -172,6 +172,10 @@ You will write a Java method that attempts to brute-force a hashed 6-digit numer
 
 ### Strong password
 
+:::{.notes}
+TODO : pwd is not in a big list (optimise it)
+:::
+
 - [ ] Complete method `isStrongPassword()`
 
 You will write a Java method to check if a password is strong. A password is strong if:
