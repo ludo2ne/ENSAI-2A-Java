@@ -9,7 +9,7 @@
 <meta name="author" content="Ludovic Deneuville">
 <meta name="description" content="Slides">
 
-<title>Collections – Java</title>
+<title>Java Project – Java</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -301,35 +301,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
         <li>
-    <a class="dropdown-item" href="../../doc/cours/intro.html">
+    <a class="dropdown-item" href="../../doc/cours/01-intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/code.html">
+    <a class="dropdown-item" href="../../doc/cours/02-syntax.html">
  <span class="dropdown-text">Java Syntax</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/collections.html">
+    <a class="dropdown-item" href="../../doc/cours/03-collections.html">
  <span class="dropdown-text">Collections</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/classes.html">
+    <a class="dropdown-item" href="../../doc/cours/04-classes.html">
  <span class="dropdown-text">Classes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/project.html">
+    <a class="dropdown-item" href="../../doc/cours/05-project.html">
  <span class="dropdown-text">Java Project</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/junit.html">
+    <a class="dropdown-item" href="../../doc/cours/06-junit.html">
  <span class="dropdown-text">JUnit</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/advanced.html">
+    <a class="dropdown-item" href="../../doc/cours/07-advanced.html">
  <span class="dropdown-text">Advanced Java</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/spring.html">
+    <a class="dropdown-item" href="../../doc/cours/08-spring.html">
  <span class="dropdown-text">Spring Boot</span></a>
   </li>  
     </ul>
@@ -389,13 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#collections-in-java" id="toc-collections-in-java" class="nav-link active" data-scroll-target="#collections-in-java">Collections in Java</a></li>
-  <li><a href="#arraylist" id="toc-arraylist" class="nav-link" data-scroll-target="#arraylist">ArrayList</a></li>
-  <li><a href="#hashmap" id="toc-hashmap" class="nav-link" data-scroll-target="#hashmap">HashMap</a></li>
-  <li><a href="#hashset" id="toc-hashset" class="nav-link" data-scroll-target="#hashset">HashSet</a></li>
-  <li><a href="#choosing-between-list-set-and-map" id="toc-choosing-between-list-set-and-map" class="nav-link" data-scroll-target="#choosing-between-list-set-and-map">Choosing Between List, Set, and Map</a></li>
+  <li><a href="#tree-structure" id="toc-tree-structure" class="nav-link active" data-scroll-target="#tree-structure">Tree structure</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#maven" id="toc-maven" class="nav-link" data-scroll-target="#maven">Maven</a></li>
+  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment">Deployment</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="collections-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="05-project-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -407,17 +406,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Collections</h1>
+<h1 class="title">Java Project</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">ArrayList</div>
-    <div class="quarto-category">HashMap</div>
-    <div class="quarto-category">HashSet</div>
+    <div class="quarto-category">Tree structure</div>
+    <div class="quarto-category">Maven</div>
+    <div class="quarto-category">Deployment</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <a href="collections-slides.html">Slides</a>
+    <a href="05-project-slides.html">Slides</a>
   </div>
 </div>
 
@@ -440,228 +439,328 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="collections-in-java" class="level2">
-<h2 class="anchored" data-anchor-id="collections-in-java">Collections in Java</h2>
-<p>Three main types to store and manage data:</p>
+<section id="tree-structure" class="level2">
+<h2 class="anchored" data-anchor-id="tree-structure">Tree structure</h2>
+<section id="why-organize-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="why-organize-your-project">Why Organize Your Project?</h3>
 <ul>
-<li>List</li>
-<li>Map</li>
-<li>Set</li>
+<li><strong>Maintainability</strong>: Easier to find and modify code</li>
+<li><strong>Readability</strong>: Improves understanding for developers</li>
+<li><strong>Collaboration</strong>: Essential for team projects</li>
+<li><strong>Build Process</strong>: Tools (Maven/Gradle) rely on it</li>
 </ul>
-<p>Each serves a different purpose.</p>
 </section>
-<section id="arraylist" class="level2">
-<h2 class="anchored" data-anchor-id="arraylist">ArrayList</h2>
+<section id="the-standard-structure" class="level3">
+<h3 class="anchored" data-anchor-id="the-standard-structure">The Standard Structure</h3>
 <ul>
-<li>Ordered</li>
-<li>Allow duplicates</li>
-<li>Fast for reading, slow for searching</li>
-<li>Slow for inserting/deleting in the middle</li>
+<li><strong>src</strong>: The root directory for source code.</li>
+<li><strong>main</strong>: Contains the application’s core code.</li>
+<li><strong>test</strong>: Contains code for testing the application.</li>
+<li><strong>resources</strong>: Non-Code Files (config files, images, text files…)</li>
+<li><strong>target</strong>: Output directory for compiled code</li>
 </ul>
+<hr>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>library-project/</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>├── pom.xml</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>└── src/</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>|   ├── main/</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>|   │   ├── java/</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>|   │   │   └── fr/</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>|   │   │       └── ensai/</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>|   │   │           └── library/</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>|   │   │               ├── Book.java</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>|   │   │               └── Author.java</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>|   │   └── resources/</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>|   │       └── books.csv</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>|   └── test/</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>|       └── java/</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>|           └── fr/</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>|               └── ensai/</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>|                   └── library/</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>|                       └── BookTest.java</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>└── target/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="notes">
-<p>LinkedList (Fast for inserting/deleting, slower for accessing elements)</p>
-</div>
-<section id="create-an-arraylist" class="level3">
-<h3 class="anchored" data-anchor-id="create-an-arraylist">Create an ArrayList</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> numbers <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> colors <span class="op">=</span> <span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"Blue"</span><span class="op">,</span> <span class="st">"Green"</span><span class="op">,</span> <span class="st">"Yellow"</span><span class="op">);</span>    <span class="co">// Immutable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="notes">
+<p>bottom level <em>library</em> divided :</p>
 <ul>
-<li><code>ArrayList&lt;&gt;()</code>: constructor</li>
-<li><code>List&lt;String&gt; colors = new ArrayList&lt;&gt;(Arrays.asList("Blue", "Green", "Yellow"));</code></li>
-<li>other ways</li>
-<li>possible to create list of objects</li>
+<li>service</li>
+<li>dao</li>
+<li>business_object</li>
 </ul>
-</div>
-</section>
-<section id="play-with-values" class="level3">
-<h3 class="anchored" data-anchor-id="play-with-values">Play with values</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>names<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"Alba"</span><span class="op">);</span>                         <span class="co">// add at the end</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>names<span class="op">.</span><span class="fu">addAll</span><span class="op">(</span><span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">"Lisa"</span><span class="op">,</span> <span class="st">"Stan"</span><span class="op">));</span>     <span class="co">// add multiple</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>names<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="st">"Martin"</span><span class="op">);</span>                    <span class="co">// add at a specific index</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>names<span class="op">.</span><span class="fu">set</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="st">"Johannes"</span><span class="op">)</span>                   <span class="co">// replace</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>names<span class="op">.</span><span class="fu">remove</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span>                           <span class="co">// remove by index</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>names<span class="op">.</span><span class="fu">remove</span><span class="op">(</span><span class="st">"Stan"</span><span class="op">);</span>                      <span class="co">// remove by value (first occurence)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="other-methods" class="level3">
-<h3 class="anchored" data-anchor-id="other-methods">Other methods</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sizeList <span class="op">=</span> names<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> valueSecondIndex <span class="op">=</span> names<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span>          <span class="co">// get a value by index</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> containsJo <span class="op">=</span> names<span class="op">.</span><span class="fu">contains</span><span class="op">(</span><span class="st">"Jo"</span><span class="op">);</span>      <span class="co">// contain a value?</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Empty List? "</span> <span class="op">+</span> names<span class="op">.</span><span class="fu">isEmpty</span><span class="op">());</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="browse-a-list" class="level3">
-<h3 class="anchored" data-anchor-id="browse-a-list">Browse a List</h3>
-<p>By index</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> names<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>By value</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> name <span class="op">:</span> names<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="usefull-methods" class="level3">
-<h3 class="anchored" data-anchor-id="usefull-methods">Usefull methods</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Collections</span><span class="op">;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Collections</span><span class="op">.</span><span class="fu">sort</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span>T<span class="op">&gt;</span> list<span class="op">);</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Collections</span><span class="op">.</span><span class="fu">reverse</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span>T<span class="op">&gt;</span> list<span class="op">);</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Collections</span><span class="op">.</span><span class="fu">shuffle</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span>T<span class="op">&gt;</span> list<span class="op">);</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">Collections</span><span class="op">.</span><span class="fu">replaceAll</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span>T<span class="op">&gt;</span> list<span class="op">,</span> T oldVal<span class="op">,</span> T newVal<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="notes">
-<ul>
-<li><code>&lt;T&gt;</code>: This is the type parameter</li>
-<li>Those methods modifie the original list in place</li>
-</ul>
+<p>test : Mirrors the main structure</p>
 </div>
 </section>
 </section>
-<section id="hashmap" class="level2">
-<h2 class="anchored" data-anchor-id="hashmap">HashMap</h2>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <ul>
-<li><code>HashMap&lt;K, V&gt;</code></li>
-<li>associate a key (K) with a value (V)</li>
-<li>Unordered</li>
-<li>Fast access</li>
+<li>A way to organize Java classes and interfaces into namespaces</li>
+<li>Used to group related classes together</li>
+<li>Help to prevent naming conflicts</li>
 </ul>
 <div class="notes">
 <ul>
-<li>like python dict</li>
-<li>others:
+<li>Similar to folders or directories in a file system</li>
+</ul>
+</div>
+<section id="package-naming-conventions" class="level3">
+<h3 class="anchored" data-anchor-id="package-naming-conventions">Package Naming Conventions</h3>
 <ul>
-<li>TreeMap: Sorted by key</li>
-<li>LinkedHashMap: Maintains insertion order</li>
+<li>Named in lowercase</li>
+<li>Reverse domain name notation</li>
+<li>Examples:
+<ul>
+<li>fr.ensai.library</li>
+<li>com.myorg.myapp.service</li>
 </ul></li>
 </ul>
-</div>
-<section id="create-and-pop-a-hashmap" class="level3">
-<h3 class="anchored" data-anchor-id="create-and-pop-a-hashmap">Create and pop a HashMap</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">HashMap</span><span class="op">;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">HashMap</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> fruitStore <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>fruitStore<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">"Apple"</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>fruitStore<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">"Banana"</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>fruitStore<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">"Orange"</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>fruitStore<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">"Apple"</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span>         <span class="co">// update</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>fruitStore<span class="op">.</span><span class="fu">remove</span><span class="op">(</span><span class="st">"Banana"</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="notes">
-<p>replace (don’t create key if not exists):</p>
+<p>service, dao…</p>
+</div>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">library</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Book</span><span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="importing-packages" class="level3">
+<h3 class="anchored" data-anchor-id="importing-packages">Importing Packages</h3>
 <ul>
-<li>map.replace(key, value);</li>
-<li>map.replace(key, oldValue, newValue) only if oldValue is correct</li>
+<li>To use classes from other packages</li>
+<li><code>import fr.ensai.library.dao;</code></li>
+</ul>
+<div class="notes">
+<ul>
+<li>No need to import classes from the same package</li>
+<li>Avoid import fr.ensai.library.*</li>
 </ul>
 </div>
 </section>
-<section id="hashmap-methods" class="level3">
-<h3 class="anchored" data-anchor-id="hashmap-methods">HashMap methods</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> nbElements <span class="op">=</span> fruitStore<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> hasBanana <span class="op">=</span> fruitStore<span class="op">.</span><span class="fu">containsKey</span><span class="op">(</span><span class="st">"Banana"</span><span class="op">);</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> hasFive <span class="op">=</span> fruitStore<span class="op">.</span><span class="fu">containsValue</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> nbApple <span class="op">=</span> fruitStore<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">"Apple"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="iterate-over-a-hashmap" class="level3">
-<h3 class="anchored" data-anchor-id="iterate-over-a-hashmap">Iterate over a HashMap</h3>
-<p>By keys</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> key <span class="op">:</span> fruitStore<span class="op">.</span><span class="fu">keySet</span><span class="op">())</span> <span class="op">{</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>key <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> fruitStore<span class="op">.</span><span class="fu">get</span><span class="op">(</span>key<span class="op">));</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><br> By values</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="bu">Integer</span> value <span class="op">:</span> fruitStore<span class="op">.</span><span class="fu">values</span><span class="op">())</span> <span class="op">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>value<span class="op">);</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-<p>Both keys and values</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="bu">Map</span><span class="op">.</span><span class="fu">Entry</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> entry <span class="op">:</span> fruitStore<span class="op">.</span><span class="fu">entrySet</span><span class="op">())</span> <span class="op">{</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>entry<span class="op">.</span><span class="fu">getKey</span><span class="op">()</span> <span class="op">+</span> <span class="st">" : "</span> <span class="op">+</span> entry<span class="op">.</span><span class="fu">getValue</span><span class="op">());</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><br> Using Iterator with entrySet</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Iterator</span><span class="op">&lt;</span><span class="bu">Map</span><span class="op">.</span><span class="fu">Entry</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;&gt;</span> iterator <span class="op">=</span> fruitStore<span class="op">.</span><span class="fu">entrySet</span><span class="op">().</span><span class="fu">iterator</span><span class="op">();</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>iterator<span class="op">.</span><span class="fu">hasNext</span><span class="op">())</span> <span class="op">{</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">.</span><span class="fu">Entry</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">&gt;</span> entry <span class="op">=</span> iterator<span class="op">.</span><span class="fu">next</span><span class="op">();</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>entry<span class="op">.</span><span class="fu">getKey</span><span class="op">()</span> <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> entry<span class="op">.</span><span class="fu">getValue</span><span class="op">());</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="hashset" class="level2">
-<h2 class="anchored" data-anchor-id="hashset">HashSet</h2>
+<section id="maven" class="level2">
+<h2 class="anchored" data-anchor-id="maven">Maven</h2>
+<section id="what-is-maven" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-maven">What is Maven?</h3>
 <ul>
-<li>No duplicates</li>
-<li>Unordered</li>
+<li>A powerful build automation tool for Java projects</li>
+<li>Helps manage dependencies
+<ul>
+<li>Download from <a href="https://mvnrepository.com/repos/central" data-tagret="_blank">Maven Central repo</a></li>
+</ul></li>
+<li>Provides a standardized build lifecycle</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">HashSet</span><span class="op">;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">HashSet</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> colors <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashSet</span><span class="op">&lt;&gt;();</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>colors<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"Blue"</span><span class="op">);</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>colors<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"Green"</span><span class="op">);</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="dt">boolean</span> containPink <span class="op">=</span> colors<span class="op">.</span><span class="fu">contains</span><span class="op">(</span><span class="st">"Pink"</span><span class="op">);</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>colors<span class="op">.</span><span class="fu">remove</span><span class="op">(</span><span class="st">"Green"</span><span class="op">);</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Size of set: "</span> <span class="op">+</span> colors<span class="op">.</span><span class="fu">size</span><span class="op">());</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> color <span class="op">:</span> colors<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>color<span class="op">);</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="notes">
+<ul>
+<li>dependencies: external libraries your project needs</li>
+<li>lifecycle: compile, test, package</li>
+</ul>
+<p><strong>essential just to manage dependencies</strong></p>
+<p>Alternative: Gradle</p>
+</div>
 </section>
-<section id="choosing-between-list-set-and-map" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="choosing-between-list-set-and-map">Choosing Between List, Set, and Map</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>ArrayList</th>
-<th>HashSet</th>
-<th>HashMap</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Allows Duplicates?</td>
-<td>✅</td>
-<td>❌</td>
-<td>❌ (Keys)</td>
-</tr>
-<tr class="even">
-<td>Maintains Order?</td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr class="odd">
-<td>Key-Value Storage?</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="even">
-<td>Fast Lookup?</td>
-<td>❌ O(n)</td>
-<td>✅ O(1)</td>
-<td>✅ O(1)</td>
-</tr>
-</tbody>
-</table>
-<p>👉 <strong>Use a List</strong> when order matters and duplicates are allowed.</p>
-<p>👉 <strong>Use a Set</strong> when uniqueness is required.</p>
-<p>👉 <strong>Use a Map</strong> when you need key-value storage.</p>
+<section id="why-use-maven" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-maven">Why Use Maven?</h3>
+<ul>
+<li>Simplifies dependency management: No more manual downloads</li>
+<li>Ensures consistent builds: Everyone uses the same process</li>
+<li>Promotes best practices: Encourages a well-defined project structure</li>
+</ul>
+<div class="notes">
+<ul>
+<li>withoud maven : <code>java -cp &lt;all_dependencies&gt; Main</code></li>
+</ul>
+</div>
+</section>
+<section id="pom" class="level3">
+<h3 class="anchored" data-anchor-id="pom">POM</h3>
+<ul>
+<li>Project Object Model</li>
+<li>a configuration file: pom.xml</li>
+<li>describes your project and its dependencies</li>
+</ul>
+</section>
+<section id="pom.xml" class="level3">
+<h3 class="anchored" data-anchor-id="pom.xml">pom.xml</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>pom.xml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="pom.xml"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">project</span> <span class="ot">xmlns=</span><span class="st">"http://maven.apache.org/POM/4.0.0"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>         <span class="ot">xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>         <span class="ot">xsi:schemaLocation=</span><span class="st">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">modelVersion</span>&gt;4.0.0&lt;/<span class="kw">modelVersion</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;fr.ensai&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;library&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">version</span>&gt;1.0-SNAPSHOT&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">properties</span>&gt;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">maven.compiler.source</span>&gt;21&lt;/<span class="kw">maven.compiler.source</span>&gt;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">maven.compiler.target</span>&gt;21&lt;/<span class="kw">maven.compiler.target</span>&gt;</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">properties</span>&gt;</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">dependencies</span>&gt;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- JUnit for testing --&gt;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.junit.jupiter&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;junit-jupiter-api&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;5.9.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">scope</span>&gt;test&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.junit.jupiter&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;junit-jupiter-engine&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;5.9.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">scope</span>&gt;test&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">dependencies</span>&gt;</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">build</span>&gt;</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">plugins</span>&gt;</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">groupId</span>&gt;org.apache.maven.plugins&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">artifactId</span>&gt;maven-compiler-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">version</span>&gt;3.8.1&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">source</span>&gt;21&lt;/<span class="kw">source</span>&gt;</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">target</span>&gt;21&lt;/<span class="kw">target</span>&gt;</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">configuration</span>&gt;</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">plugins</span>&gt;</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">build</span>&gt;</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">project</span>&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="artifacts" class="level3">
+<h3 class="anchored" data-anchor-id="artifacts">Artifacts</h3>
+<ul>
+<li>Packaged component with unique ID: groupId, artifactId, version.</li>
+<li>Versioning: Essential to identify artifacts
+<ul>
+<li>Major.Minor.Bugfix</li>
+<li>Development: <em>-SNAPSHOT</em> versions</li>
+</ul></li>
+</ul>
+<div class="notes">
+<ul>
+<li>maven.compiler.source: Java source version compatibility for the compiler</li>
+<li>maven.compiler.target: Determines the Java Runtime Environment (JRE) versions on which the compiled code can run</li>
+</ul>
+</div>
+</section>
+<section id="dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="dependencies">Dependencies</h3>
+<ul>
+<li>External libraries your project relies on</li>
+<li>Maven downloads and manages these dependencies automatically</li>
+<li>Example: JUnit, database connectors, logging frameworks</li>
+</ul>
+<p><a href="https://mvnrepository.com/" target="_blank">https://mvnrepository.com/</a></p>
+</section>
+<section id="plugins" class="level3">
+<h3 class="anchored" data-anchor-id="plugins">Plugins</h3>
+<ul>
+<li>Extend Maven’s functionality</li>
+<li>Examples:
+<ul>
+<li>maven-compiler-plugin,</li>
+<li>maven-surefire-plugin (for testing)</li>
+</ul></li>
+<li>Help with tasks like compiling code, running tests, creating JAR files</li>
+</ul>
+</section>
+<section id="lifecycles" class="level3">
+<h3 class="anchored" data-anchor-id="lifecycles">Lifecycles</h3>
+<ul>
+<li><code>mvn clean</code>: Deletes the <em>target</em> directory.</li>
+<li><code>mvn compile</code>: Compiles the project’s source code.</li>
+<li><code>mvn test</code>: Runs the unit tests.</li>
+<li><code>mvn package</code>: Packages the compiled code into a JAR file.</li>
+<li><code>mvn exec:java</code>: Runs the application.</li>
+<li><code>mvn site</code>: Generates the project documentation website.</li>
+</ul>
+</section>
+</section>
+<section id="deployment" class="level2">
+<h2 class="anchored" data-anchor-id="deployment">Deployment</h2>
+<section id="packaging-for-deployment" class="level3">
+<h3 class="anchored" data-anchor-id="packaging-for-deployment">Packaging for deployment</h3>
+<ul>
+<li>Creation of a JAR file (for API)</li>
+<li>Or a WAR file (for web applications)
+<ul>
+<li>Use a Tomcat server</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="JAR file">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>JAR file
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A package file format used to aggregate many Java class files and associated resources into a single file</li>
+<li>Based on the ZIP file format</li>
+</ul>
+</div>
+</div>
+<div class="notes">
+<ul>
+<li>WAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).</li>
+<li>JAR: simply run it <code>java -jar my-api.jar</code> on a server or using Docker</li>
+<li>Use Docker</li>
+<li>Backend (Business logic)</li>
+</ul>
+<p>Java Application history</p>
+<ul>
+<li>monolith struts</li>
+<li>back Java / front JS</li>
+<li>Archi 3-tiers</li>
+</ul>
+</div>
+</section>
+<section id="deployment-history" class="level3">
+<h3 class="anchored" data-anchor-id="deployment-history">Deployment history</h3>
+<ul>
+<li>Monolith</li>
+<li>Virtualisation</li>
+<li>Containerization</li>
+<li>Orchestration</li>
+</ul>
+<div class="notes">
+<ul>
+<li>Monolith
+<ul>
+<li>one physical server: one app</li>
+<li>Underutilized server resources</li>
+</ul></li>
+<li>Virtualisation
+<ul>
+<li>Application isolation</li>
+<li>Issue: compatibility</li>
+</ul></li>
+<li>Containerization
+<ul>
+<li>Portability</li>
+</ul></li>
+<li>Orchestration
+<ul>
+<li>Automated container management</li>
+</ul></li>
+</ul>
+<p>Before: Filezilla, integrator, it work on my machine<br>
+Now: CICD, git, devops</p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

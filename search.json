@@ -112,435 +112,435 @@
     "text": "1 Instructions\n\nGroups of 1 or 2 students\n\nInter-group plagiarism will be severely punished\n\nIn the README file, indicate:\n\nyour full names\nfor each question covered, a brief summary explaining your logic and including the methods updated or created\n\nDue Date: Friday 10 April at 5pm\n\n1 point deducted for each half-hour delay\n\nZip your project repository and load it on Moodle\n\nDon’t include target folder\n\n\nYour code must be functional, with no compilation or runtime errors.\nDon’t forget to include the javadoc and to comment your code if necessary.\n\n\n\n\n\n\nImportant\n\n\n\n\nEverything you need is in the course and the practical exercises\nYou are permitted to conduct internet searches to find information and documentation\nThe use of any LLM is strictly prohibited during this exam\n\nAs Olivier R. so rightly says: LLMs are good servants, but bad masters\nThey can be useful tools, but they must not replace your own comprehension and programming skills\n\n\nIf you are caught using an LLM, it will be considered cheating and you will receive a zero."
   },
   {
-    "objectID": "doc/cours/classes.html",
-    "href": "doc/cours/classes.html",
+    "objectID": "doc/cours/07-advanced.html",
+    "href": "doc/cours/07-advanced.html",
+    "title": "Advanced Java",
+    "section": "",
+    "text": "Advices for Rated TP:\n\nJavadoc\nComment if necessary\nPascalCase (Class, Method, Variables)\nUse clear, meaningful names for variables and methods\nwell-indented code, easy to read"
+  },
+  {
+    "objectID": "doc/cours/07-advanced.html#reminder",
+    "href": "doc/cours/07-advanced.html#reminder",
+    "title": "Advanced Java",
+    "section": "",
+    "text": "Advices for Rated TP:\n\nJavadoc\nComment if necessary\nPascalCase (Class, Method, Variables)\nUse clear, meaningful names for variables and methods\nwell-indented code, easy to read"
+  },
+  {
+    "objectID": "doc/cours/07-advanced.html#enum",
+    "href": "doc/cours/07-advanced.html#enum",
+    "title": "Advanced Java",
+    "section": "Enum",
+    "text": "Enum\n\nWhat are Enums?\n\nDefines a set of named constants\nRepresents a fixed and predefined set of possible values\nExamples: Day of week, colors, playing cards\n\n\n\nDeclare a basic Enum\n\n\nGrade.java\n\npublic enum Grade {\n    EXCELLENT,\n    VERY_GOOD,\n    GOOD,\n    AVERAGE,\n    INSUFFICIENT\n}\n\n\n\nThese are the constant values of the enum\n\n\n\n\nUse an Enum\nGrade grade = Grade.VERY_GOOD;\n\nswitch (grade) {\n    case EXCELLENT:\n        System.out.println(\"Excellent!\");\n        break;\n    case VERY_GOOD:\n        System.out.println(\"Very good!\");\n        break;\n        \n    ...\n}\n\n\nEnums are implicitly:\n\nstatic (no need to create an instance)\nfinal (no modification allowed)\n\n\n\n\n\nAdding Behavior to Enum\n\nEnums are More Than Just Constants\nThey are special classes\n\nThey can have methods and attributes\n\n\n\n\n\nGrade.java\n\npublic enum Grade {\n    EXCELLENT(90), VERY_GOOD(80), GOOD(70), AVERAGE(60), INSUFFICIENT(50);\n\n    @Getter\n    private final int minimumScore;\n\n    private Grade(int minimumScore) {\n        this.minimumScore = minimumScore;\n    }\n\n    public String getFeedback() {\n        switch (this) {\n            case EXCELLENT: return \"Outstanding!\";\n            case VERY_GOOD: return \"Well done!\";\n            case GOOD: return \"Satisfactory.\";\n            case AVERAGE: return \"Needs more effort.\";\n            case INSUFFICIENT: return \"Requires significant improvement.\";\n            default: return \"Unknown grade.\";\n        }\n    }\n}\n\n\n\nconstructor is private\n\nwe cannot access it from outside the class\nwe can use enum constants to call the constructor\n\ncompiler error if constructor is public\n\n\n\n\nEnum methods\nGrade studentGrade = Grade.VERY_GOOD;\n\nSystem.out.println(\"Grade: \" + studentGrade);\nSystem.out.println(\"Minimum Score: \" + studentGrade.getMinimumScore());\nSystem.out.println(\"Feedback: \" + studentGrade.getFeedback());\n\n// Iterate\nfor (Grade g : Grade.values()) {\n    System.out.println(g);\n}\n\n\nEnums: Pros and Cons\n\n✅ Readability: Makes code easier to understand by using descriptive names for values\n✅ Type Safety: Avoids errors related to typos or invalid values\n✅ Maintainability: Easier to modify and add new values (for dev)\n❌ Limited Extensibility: Difficult to add or modify values at runtime\n❌ Reduced Flexibility: Restricts values to a predefined set\n\n\n\n✅ Compile-Time Validation: Catches enum-related issues early during compilation."
+  },
+  {
+    "objectID": "doc/cours/07-advanced.html#exception",
+    "href": "doc/cours/07-advanced.html#exception",
+    "title": "Advanced Java",
+    "section": "Exception",
+    "text": "Exception\n\nWhat are Exceptions?\n\nEvents that disrupt the normal flow of program execution\nIndicate errors or unexpected conditions that occur during runtime\n\n\n\n\n\n\n\nTip\n\n\n\nExceptions are your friends.\n\n\n\nWhat to do if you leave the road.\n\nReminder\nExceptions are your friend\nError (OutOfMemoryError, StackOverflowError)\n\n\n\n\nNullPointerException\npublic class HowToRaiseNullPointerException {\n\n    public static void printLength(String text){\n        System.out.println(text.length());\n    }\n\n    public static void main(String[] args) {\n        String myText = null;\n        printLength(myText); // will throw a NullPointerException.\n    }\n}\n\n\n\n\n\n\nTipHow to Prevent\n\n\n\nAlways check if an object reference is null before using it.\n\n\n\n\nArithmeticException\npublic class HowToRaiseArithmeticException {\n    public static void main(String[] args) {\n        int numerator = 10;\n        int denominator = 0;\n        int result = numerator / denominator; // Will throw ArithmeticException\n        System.out.println(\"The division result is: \" + result);\n    }\n}\n\n\nEncountering Exceptions\nWhen the 🚋 leaves the tracks, you must decide how to react:\n\n❌ Stop everything\n\nThe journey ends immediately (program crashes)\n\n🔧 Have a Plan B\n\nYou handle the situation locally (try/catch)\n\n📞 Escalate the situation\n\nYou let someone else handle it to higher level\n\n\n\n\npropagate the exception\nresolve the exception\n\n\n\n\nWhy Should We Raise Exceptions?\n\nTo controll error management\nTo preventing unexpected program crashes\nTo alter the normal execution flow when an error occurs\nTo prevent the system from entering an unstable or inconsistent state\n\n\nWe are also allowed to raise exceptions.\nTo control the execution.\nUseful for debugging, it give more details.\n\n\n\nExample\n\n\nBankAccount.java\n\npackage fr.ensai.bank.domain;\n\n@AllArgsConstructor\nclass BankAccount {\n    private double balance;\n    private double transferLimit;\n\n    /**\n     * Transfers a specified amount from this account to another account.\n     * The amount cannot exceed the available balance or the transfer limit.\n     *\n     * @param recipient the account to which the amount will be transferred\n     * @param amount the amount to be transferred\n     */\n    public void transfer(BankAccount recipient, double amount) {\n        this.balance -= amount;\n        recipient.balance += amount;\n    }\n}\n\n\nThis code can lead to an incoherent state\n\nrecipient: OtherBankAccount\n@AllArgsConstructor: Lombok\nrecipient.balance += amount;: valid code, no need of a setter inside\nOther solution: return boolean instead of void\n\nFalse if the transfert cannot be done\n\n\n\n\n\nThrow an Exception\n\n\nBankAccount.java\n\n/**\n * Transfers a specified amount from this account to another account.\n *\n * @param recipient the account to which the amount will be transferred\n * @param amount the amount to be transferred\n * @throws IllegalArgumentException if the amount exceeds the available balance or the transfer limit\n */\npublic void transfer(BankAccount recipient, double amount)\n        throws IllegalArgumentException {       \n    if (amount &gt; this.balance)\n        throw new IllegalArgumentException(\n            \"Insufficient balance for the transfer. Attempted: \" + amount + \", Available: \" + this.balance);\n    if (amount &gt; this.transferLimit)\n        throw new IllegalArgumentException(\n            \"Transfer amount exceeds the transfer limit. Attempted: \" + amount + \", Limit: \" + this.transferLimit);\n    this.balance -= amount;\n    recipient.balance += amount;\n}\n\n\n\nIf amount &lt; 0 ?\nthrows: method can throw this exception\nthrow: raise\n\n\n\n\nDefine Custom Exceptions\n\n\nInsufficientBalanceException.java\n\npackage fr.ensai.bank.exception;\n\npublic class InsufficientBalanceException extends Exception {\n    public InsufficientBalanceException(String message) {\n        super(message);\n    }\n}\n\n\n\n\nTransferLimitExceededException.java\n\npackage fr.ensai.bank.exception;\n\npublic class TransferLimitExceededException extends Exception {\n    public TransferLimitExceededException(String message) {\n        super(message);\n    }\n}\n\n\nUsefull for business errors\n\nInherit class Exception\n\npublic class Exception extends Throwable\n\nas a class\nyou can specify message\n\n\n\n\nUse Custom Exceptions\n\n\nBankAccount.java\n\nimport fr.ensai.bank.exception.InsufficientBalanceException;\nimport fr.ensai.bank.exception.TransferLimitExceededException;\n\npublic class BankAccount {\n\n    ...\n\n    public void transfer(BankAccount recipient, double amount)\n            throws InsufficientBalanceException, TransferLimitExceededException {\n        if (amount &gt; this.balance)\n            throw new InsufficientBalanceException(\n                \"Insufficient balance for the transfer. Attempted: \" + amount + \", Available: \" + this.balance);\n        if (amount &gt; this.transferLimit)\n            throw new TransferLimitExceededException(\n                \"Transfer amount exceeds the transfer limit. Attempted: \" + amount + \", Limit: \" + this.transferLimit);\n        this.balance -= amount;\n        recipient.balance += amount;\n    }\n}\n\n\npackage exception\n\n\n\nException Handling\n\n\nBank.java\n\npublic class Bank {\n    public void makeTransfert(BankAccount sender, BankAccount receiver, amount) {\n        try {\n            sender.transfer(receiver, 250.0);\n        } catch (InsufficientBalanceException e) {\n            System.out.println(\"Transfer failed: \" + e.getMessage());\n        } catch (TransferLimitExceededException e) {\n            System.out.println(\"Transfer failed: \" + e.getMessage());\n        } finally {\n            System.out.println(\"Account 1 balance: \" + sender.getBalance());\n            System.out.println(\"Account 2 balance: \" + receiver.getBalance());\n        }\n    }\n}\n\n\n\nYou can have multiple catch blocks to handle different types of exceptions\n\nThe order of catch blocks matters (most specific to most general).\nsimpliest way: catch (Exception e)\n\nFinally: block always executes, regardless of whether an exception occurred or not.\n\nUsed for cleanup code (e.g., closing resources).\nWithout finally, code after catch blocks is only executed if no unhandled exception occurs.\n\n\n\n\n\nTypes of Exception\n\n\n\n\n\n\n\n\n\nException\nDescription\nChecked at Compilation\n\n\n\n\nClassNotFoundException\nTrying to access a class whose definition is not found.\nYes\n\n\nFileNotFoundException\nFile is not accessible or does not open.\nYes\n\n\nIOException\nInput-output operation failed or was interrupted.\nYes\n\n\nNoSuchFieldException\nA class does not contain the specified field.\nYes\n\n\nNoSuchMethodException\nAccessing a method that is not found.\nYes\n\n\nNullPointerException\nReferring to the members of a null object.\nNo\n\n\nNumberFormatException\nA method could not convert a string into a numeric format.\nNo\n\n\nArithmeticException\nAn exceptional condition has occurred in an arithmetic operation.\nNo\n\n\nArrayIndexOutOfBoundsException\nAn array has been accessed with an illegal index.\nNo\n\n\nRuntimeException\nRepresents an exception that occurs during runtime.\nNo\n\n\nIllegalArgumentException\nA method receives an argument that does not fit the given condition.\nNo\n\n\n\n\nsee Types of Exception in Java with Examples\n\n\nRuntimException (not checked at compilation)"
+  },
+  {
+    "objectID": "doc/cours/07-advanced.html#stream",
+    "href": "doc/cours/07-advanced.html#stream",
+    "title": "Advanced Java",
+    "section": "Stream",
+    "text": "Stream\n\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-8-streams\n\n\n\nJava Streams\n\nIntroduced in Java 8\nDeclarative style\nConcise and readable code\nEfficient data processing\nSupport for parallel processing\n\n\n\nHow it works\n\nTakes input from the Collections, Arrays, or I/O channels\nProvide a result as per the pipelined methods\nIntermediate operation is lazily executed and returns a stream\nTerminal operations mark the end of the stream and return the result\n\n\n\nA first example\nLong sumOdds = Stream\n    .iterate(0L, i -&gt; i + 1L)        // Generate an infinite stream of Longs starting from 0, incrementing by 1\n    .limit(10)                       // Limit the stream to the first 10 elements\n    .filter(i -&gt; (i % 2) == 0)       // Filter the stream to keep only even numbers\n    .map(i -&gt; i + 1)                 // Transform each element by adding 1\n    .sorted()                        // Sort the stream\n    .reduce(0L, Long::sum);          // Reduce the stream to a single Long by summing all elements\n\n\nLazy evaluation:\n\n!= eager\nComputation on the elements of the stream is only performed when it’s necessary\ndon’t generate all natural number\nlimit 10\n\n\nIntermediate operations are not executed until a terminal operation is invoked.\nThis approach can optimize performance, especially for large datasets, by reducing the number of iterations and computations.\n\n\n\nKey Concepts\n\nSource (List, Array…)\nIntermediate Operations (filter, map…)\nTerminal Operation (reduce, collect, forEach…)\nLazy evaluation\n\n\n\nLazy evaluation: very important concept\n\nLike dplyr\n\n\n\n\n\nCreate a Stream\nimport java.util.stream.Collectors;\nimport java.util.stream.Stream;\n\nArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;(List.of(\"a\", \"b\", \"c\", \"d\"));\nMap&lt;String, Integer&gt; map = Map.of(\"a\", 1, \"b\", 2, \"c\", 3);\nString text = \"I am your father\";\n\n// Creates a stream from an arrayList\nStream&lt;String&gt; arrayListStream = arrayList.stream();\n\n// Creates a stream from the map's entry set\nStream&lt;Map.Entry&lt;String, Integer&gt;&gt; mapEntryStream = map.entrySet().stream();\n\n// Extract list of words from a text an store it in a List\nList&lt;String&gt; wordsList = Stream.of(text.split(\" \")).collect(Collectors.toList());\n\n\nIntermediate Operations\n\nThey return a new stream.\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nfilter(predicate)\nSelects matching elements.\nstream.filter(x -&gt; x &gt; 10)\n\n\nmap(function)\nTransforms elements.\nstream.map(String::toUpperCase)\n\n\nflatMap(function)\nTransforms to streams, then flattens.\nstream.flatMap(List::stream)\n\n\ndistinct()\nRemoves duplicates.\nstream.distinct()\n\n\nsorted()\nSorts elements.\nstream.sorted()\n\n\nsorted(comparator)\nSorts elements (using comparator).\nstream.sorted(Comparator.reverseOrder())\n\n\npeek(consumer)\nPerforms action on each element.\nstream.peek(System.out::println)\n\n\nlimit(maxSize)\nTruncates to maxSize elements.\nstream.limit(10)\n\n\nskip(n)\nDiscards first n elements.\nstream.skip(5)\n\n\n\n\n\n\nLambda functions\nmethod reference (String::toUpperCase)\nIntermediate operations return a new modified stream\n\n\n\n\nTerminal Operations\n\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nforEach(action)\nPerforms an action on each element.\nstream.forEach(System.out::println)\n\n\ncollect(collector)\nAccumulates elements into a result container.\nstream.collect(Collectors.toList())\n\n\nreduce(identity, accumulator)\nReduces elements to a single value.\nstream.reduce(0, Integer::sum)\n\n\ncount()\nReturns the number of elements.\nstream.count()\n\n\nanyMatch(predicate)\nChecks if any element matches.\nstream.anyMatch(x -&gt; x &gt; 10)\n\n\nallMatch(predicate)\nChecks if all elements match.\nstream.allMatch(x -&gt; x &gt; 0)\n\n\nnoneMatch(predicate)\nChecks if no elements match.\nstream.noneMatch(x -&gt; x &lt; 0)\n\n\nfindFirst()\nReturns the first element.\nstream.findFirst()\n\n\nmin(comparator)\nReturns the minimum element.\nstream.min(Comparator.naturalOrder())\n\n\n\n\n\n\nan attempt to reuse the same reference after calling the terminal operation will trigger the IllegalStateException\nJava 8 streams can’t be reused\n\n\n\n\nParallel Streams\n\nprocessed in parallel for improved performance\nUse parallelStream()\nSuitable for CPU-intensive operations on large datasets\n\n\n\nMapReduce\n\nA programming model for processing and generating large datasets\nDesigned for distributed computing on clusters of machines.\nBreaks down complex tasks into simpler, parallel operations\n\n\n\nInvented by Google in the 2000s\nIf memory space is not enought to load the full data set\nhttps://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks\n\n\n\n\nMapReduce workflow\n\nSplit: Input data is divided into smaller chunks\nMap: Each chunk is processed by a Map function\nReduce: Values are aggregated by a Reduce function\n\n\n\nMapReduce principle\nList&lt;Integer&gt; values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);\nList&lt;Integer&gt; valuesSquares = new ArrayList&lt;&gt;();\n\nFunction&lt;Integer, Integer&gt; square = n -&gt; n * n;\n\nfor (int n : values) {\n    valuesSquares.add(square.apply(n));\n}\n\nint sumOfSquares = 0;\nfor (int v : valuesSquares) {\n    sumOfSquares += v * v;\n}\n\ndouble meanSumOfSquares = sumOfSquares / valuesSquares.size();\n\n\ncompute squares (map)\nsum squares (reduce)\nfinal step (O(1))\n\n\n\n\nManual implementation\npublic List&lt;Double&gt; manualMap(List&lt;Double&gt; list, DoubleUnaryOperator function) {\n    List&lt;Double&gt; result = new ArrayList&lt;&gt;();\n    for (double element : list) {\n        result.add(function.applyAsDouble(element));\n    }\n    return result;\n}\n\npublic double manualReduce(List&lt;Double&gt; list, double identity, DoubleBinaryOperator accumulator) {\n    double result = identity;\n    for (double element : list) {\n        result = accumulator.applyAsDouble(result, element);\n    }\n    return result;\n}\n\n\nDoubleUnaryOperator (sqrt, power…)\n\nInterface with one method\napplyAsDouble(Double d) -&gt; double\n\nDoubleBinaryOperator (add, mult…)\n\napplyAsDouble(Double d1, Double d2) -&gt; double\n\n\n\n\n\nMapReduce using streams\nList&lt;Integer&gt; values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);\n\ndouble sumOfSquares = values.stream()\n    .map(n -&gt; n * n)\n    .reduce(0, (a, b) -&gt; a + b);\n\ndouble meanSumOfSquares = sumOfSquares / values.size();\n\ndouble meanSumOfSquaresAvg = values.stream()\n    .mapToInt(n -&gt; n * n)\n    .average();\n\n\nmapToInt() -&gt; IntStream\n\nmap() specialization"
+  },
+  {
+    "objectID": "doc/cours/07-advanced.html#interface",
+    "href": "doc/cours/07-advanced.html#interface",
+    "title": "Advanced Java",
+    "section": "Interface",
+    "text": "Interface\n\nBack to Inheritance\n\nFighter: Primarily focused on combat.\nDoctor: Primarily focused on healing.\n\n\n\n\n\n\n\nclassDiagram\n\nclass Person {\n    - name: String\n    - health: int\n    + takeDamage(int amount)\n    + receiveHealing(int amount)\n}\n\nclass Fighter {\n    - attackPower: int\n    + fight(Person target)\n}\n\nclass Doctor {\n    - healingPower: int\n    + heal(Person patient)\n}\n\nPerson &lt;|-- Fighter\nPerson &lt;|-- Doctor\n\n\n\n\n\n\n\n\n\nPython: Allows multiple inheritance.\nExample: A Square could be considered both a Rectangle and a Rhombus.\n\n\n\n\nIntroducing a New Character\n\nArmyDoctor: A special character that can both heal and combat.\nJava does not support multiple inheritance directly\n\n\n\n\n\n\n\n\nclassDiagram\n\nclass Person {\n    - name: String\n    - health: int\n    + takeDamage(int amount)\n    + receiveHealing(int amount)\n}\n\nclass Fighter {\n    - attackPower: int\n    + fight(Person target)\n}\n\n\nclass Doctor {\n    - healingPower: int\n    + heal(Person patient)\n}\n\nPerson &lt;|-- Fighter\nFighter &lt;|-- ArmyDoctor\nDoctor &lt;|-- ArmyDoctor\nPerson &lt;|-- Doctor\n\n\n\n\n\n\n\n\n\nDefining Abilities as Contracts\nInstead of focusing solely on fixed “classes,” let’s think about abilities.\nWe can define contracts for different types of actions:\n\nThe ability to combat\nThe ability to heal\n\nThis approach provides flexibility in how we define our game characters.\n\n\nWhat is a Java Interface?\n\nA Java Interface acts as a blueprint\nIt specifies a particular set of abilities or behaviors\nIt defines a contract that any class can choose to implement.\n\n\n\nCreate an Interface\n\n\nCombatant.java\n\npublic interface Combatant {\n    /**\n     * Represents the ability to engage in combat.\n     */\n    void fight(Person p);\n}\n\n\n\n\nHealer.java\n\npublic interface Healer {\n    /**\n     * Represents the ability to provide healing to a Person.\n     */\n    void heal(Person p);\n}\n\n\n\nAll methods are public abstract\ndefault method\n\ndefault void heal(Person p) { ...}) -&gt; no longer abstract\n\nstatic method:\n\ncalled using interface name without instanciation\n\nprivate method:\n\nto factorize code inside (no access from outside)\n\nattribute (constants) are implicitly public, static and final\n\n\n\n\nParent class\n\n\nPerson.java\n\npublic class Person {\n    private String name;\n    private int health;\n\n    public Person(String name, int health) {\n        this.name = name;\n        this.health = health;\n    }\n\n    public void takeDamage(int amount) {\n        this.health -= amount;\n    }\n\n    public void receiveHealing(int amount) {\n        this.health += amount;\n    }\n}\n\n\n\nImplementing the Interfaces\n\n\nDoctor.java\n\npublic class Doctor extends Person implements Healer {\n    private int healingPower;\n\n    public Doctor(String name, int health, int healingPower) {\n        super(name, health);\n        this.healingPower = healingPower;\n    }\n\n    @Override\n    public void heal(Person patient) {\n        patient.receiveHealing(this.healingPower);\n    }\n}\n\n\n\nMultiple Interfaces\n\n\nArmyDoctor.java\n\npublic class ArmyDoctor extends Person implements Healer, Combatant {\n    private int healingPower;\n    private int combatSkill;\n\n    public ArmyDoctor(String name, int health, int healingPower, int combatSkill) {\n        super(name, health);\n        this.healingPower = healingPower;\n        this.combatSkill = combatSkill;\n    }\n\n    @Override\n    public void heal(Person patient) {\n        patient.receiveHealing(this.healingPower * 0.5);\n    }\n\n    @Override\n    public void fight(Person target) {\n        target.takeDamage(this.combatSkill * 0.2);\n    }\n}\n\n\n\nUML\n\n\n\n\n\n\nclassDiagram\n\nclass Person {\n    - name: String\n    - health: int\n    + takeDamage(int amount)\n    + receiveHealing(int amount)\n}\n\nclass Fighter {\n    - attackPower: int\n}\n\nclass ArmyDoctor {\n    - healingPower: int\n    - combatSkill: int\n}\n\nclass Doctor {\n    - healingPower: int\n}\n\n\nclass Combatant {\n    &lt;&lt;interface&gt;&gt;\n    + fight(Person target)\n}\n\nclass Healer {\n    &lt;&lt;interface&gt;&gt;\n    + heal(Person patient)\n}\n\nPerson &lt;|-- Fighter\nPerson &lt;|-- Doctor\nPerson &lt;|-- ArmyDoctor\n\nFighter ..|&gt; Combatant\nArmyDoctor ..|&gt; Combatant\nArmyDoctor ..|&gt; Healer\nDoctor ..|&gt; Healer"
+  },
+  {
+    "objectID": "doc/cours/07-advanced.html#upcasting-and-downcasting",
+    "href": "doc/cours/07-advanced.html#upcasting-and-downcasting",
+    "title": "Advanced Java",
+    "section": "Upcasting and Downcasting",
+    "text": "Upcasting and Downcasting\n\nUpcasting\nConvert an object:\n\nof a more specific type\nto a more general type\n\n\nspecific type: a subclass or a class that implements an interface\n\n\nDoes this code compile and run?\nDoctor d = new Doctor(...);\n\nPerson p = (Person) d;\nd.takeDamage(5);\n\nDoctor d = new Doctor(...);\n\nPerson p = (Person) d;\np.heal(anotherPerson);\n\n\nCompiles and runs\nCompile error\n\n\n\n\nDowncasting\nConverting an object of:\n\na more general type\nto a more specific type\n\n\nDoes this code compile and run?\nPerson p = new Doctor(...);\n\nDoctor d = (Doctor) p;\nd.heal(anotherPerson);\n\nPerson p = new Doctor(...);\n\nFighter f = (Fighter) p;\np.takeDamage(5);\n\n\nCompiles and runs\nCompile error java.lang.ClassCastException\n\n\n\n\nDowncasting with instanceof\nPerson p = new Doctor(...);\n\nif (p instanceof Doctor d) {\n    d.heal(anotherPerson);\n} else {\n    System.out.println(p + \" is not a Doctor.\");\n}\n\nif (p instanceof Doctor d)\n\n// equivalent since Java 16\n\nif (p instanceof Doctor){\n    Doctor d = (Doctor) p;\n}"
+  },
+  {
+    "objectID": "doc/cours/07-advanced.html#to-go-further",
+    "href": "doc/cours/07-advanced.html#to-go-further",
+    "title": "Advanced Java",
+    "section": "To go further",
+    "text": "To go further\n\nOptional\nGenericity\nAnnotations\n\n\n\nOptional: deal with null value\n\n    public static &lt;T&gt; void printArray(T[] array) {\n        for (T element : array) {\n            System.out.print(element + \" \");\n        }\n        System.out.println();\n    }"
+  },
+  {
+    "objectID": "doc/cours/07-advanced-slides.html#reminder",
+    "href": "doc/cours/07-advanced-slides.html#reminder",
+    "title": "Advanced Java",
+    "section": "Reminder",
+    "text": "Reminder\n\nAdvices for Rated TP:\n\nJavadoc\nComment if necessary\nPascalCase (Class, Method, Variables)\nUse clear, meaningful names for variables and methods\nwell-indented code, easy to read"
+  },
+  {
+    "objectID": "doc/cours/07-advanced-slides.html#enum",
+    "href": "doc/cours/07-advanced-slides.html#enum",
+    "title": "Advanced Java",
+    "section": "Enum",
+    "text": "Enum"
+  },
+  {
+    "objectID": "doc/cours/07-advanced-slides.html#exception",
+    "href": "doc/cours/07-advanced-slides.html#exception",
+    "title": "Advanced Java",
+    "section": "Exception",
+    "text": "Exception"
+  },
+  {
+    "objectID": "doc/cours/07-advanced-slides.html#stream",
+    "href": "doc/cours/07-advanced-slides.html#stream",
+    "title": "Advanced Java",
+    "section": "Stream",
+    "text": "Stream\n\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-8-streams"
+  },
+  {
+    "objectID": "doc/cours/07-advanced-slides.html#interface",
+    "href": "doc/cours/07-advanced-slides.html#interface",
+    "title": "Advanced Java",
+    "section": "Interface",
+    "text": "Interface"
+  },
+  {
+    "objectID": "doc/cours/07-advanced-slides.html#upcasting-and-downcasting",
+    "href": "doc/cours/07-advanced-slides.html#upcasting-and-downcasting",
+    "title": "Advanced Java",
+    "section": "Upcasting and Downcasting",
+    "text": "Upcasting and Downcasting"
+  },
+  {
+    "objectID": "doc/cours/07-advanced-slides.html#to-go-further",
+    "href": "doc/cours/07-advanced-slides.html#to-go-further",
+    "title": "Advanced Java",
+    "section": "To go further",
+    "text": "To go further\n\nOptional\nGenericity\nAnnotations\n\n\n\nOptional: deal with null value\n\n    public static &lt;T&gt; void printArray(T[] array) {\n        for (T element : array) {\n            System.out.print(element + \" \");\n        }\n        System.out.println();\n    }"
+  },
+  {
+    "objectID": "doc/cours/04-classes.html",
+    "href": "doc/cours/04-classes.html",
     "title": "Java Classes",
     "section": "",
     "text": "Encapsulation\nInheritance\nPolymorphism\n\n\n\n\nEncapsulation: Bundling data and methods together\nInheritance: Deriving new classes from existing ones\nPolymorphism: One interface, multiple behaviors\n\n\nWhy OOP ?\n\nCode reusability\nModularity and maintainability\nReal-world modeling"
   },
   {
-    "objectID": "doc/cours/classes.html#oop-principles",
-    "href": "doc/cours/classes.html#oop-principles",
+    "objectID": "doc/cours/04-classes.html#oop-principles",
+    "href": "doc/cours/04-classes.html#oop-principles",
     "title": "Java Classes",
     "section": "",
     "text": "Encapsulation\nInheritance\nPolymorphism\n\n\n\n\nEncapsulation: Bundling data and methods together\nInheritance: Deriving new classes from existing ones\nPolymorphism: One interface, multiple behaviors\n\n\nWhy OOP ?\n\nCode reusability\nModularity and maintainability\nReal-world modeling"
   },
   {
-    "objectID": "doc/cours/classes.html#encapsulation",
-    "href": "doc/cours/classes.html#encapsulation",
+    "objectID": "doc/cours/04-classes.html#encapsulation",
+    "href": "doc/cours/04-classes.html#encapsulation",
     "title": "Java Classes",
     "section": "Encapsulation",
     "text": "Encapsulation\n\nAttributes: Fields\n\ndefine the state of an object\n\nMethods: Behaviors\n\ndefine the actions an object can perform\n\n\n\n\nin relation to other classes\nHiding internal details and exposing only necessary information"
   },
   {
-    "objectID": "doc/cours/classes.html#a-class",
-    "href": "doc/cours/classes.html#a-class",
+    "objectID": "doc/cours/04-classes.html#a-class",
+    "href": "doc/cours/04-classes.html#a-class",
     "title": "Java Classes",
     "section": "A class 🚲",
     "text": "A class 🚲\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n    // Method\n    public void accelerate(int increment) {\n        if (increment &gt; 0) {\n            this.speed += increment;\n        }\n    }\n\n    // Getter\n    public int getSpeed() {\n        return this.speed;\n    }\n}\n\n\ndetails after"
   },
   {
-    "objectID": "doc/cours/classes.html#attributes",
-    "href": "doc/cours/classes.html#attributes",
+    "objectID": "doc/cours/04-classes.html#attributes",
+    "href": "doc/cours/04-classes.html#attributes",
     "title": "Java Classes",
     "section": "Attributes",
     "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color = \"yellow\";    // default value if not specified by the constructor\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n}\n\n\nstatic: class attribute\n\n\n\nusually private attributes\nsetters and getters next\n\n\n\nReminder: Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
   },
   {
-    "objectID": "doc/cours/classes.html#constructor",
-    "href": "doc/cours/classes.html#constructor",
+    "objectID": "doc/cours/04-classes.html#constructor",
+    "href": "doc/cours/04-classes.html#constructor",
     "title": "Java Classes",
     "section": "Constructor",
     "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n}\n\n\nthis : Refers to the current object\n\n\n\nName of a Contructor: same as class name\nGenerally public\nPrivate Contructor ?\n\nSingleton Pattern (public static SingletonClass getInstance())\nUninstantiable Classes: class that simply contains static methods\nPrivate Constructor called by Public Constructor\n\n\n\n\nCreate a Bike Object\nBike greenBike = new Bike(\"Green\", true);\n\nBike: type of the variable\ngreenBike: name of the variable\nnew: Memory allocation\nBike(…): constructor call\n\n\n\nJava only uses positional arguments\nYou can create several constructors ≠ Python\n\n\n\n\nDefault Constructor\n\nIf no constructor is provided\n\nBike myBike = new Bike();\n\nwith default values\n\ncolor: null\npannierRacks: false\n\n\n\n\nError if another constructor is provided\n\n\n\n\nCreate a copy\nBike greenBike = new Bike(\"Green\", true);\nBike otherBike = greenBike;\n\n\notherBike is it a copy of greenBike?\nNo, it refer to the same Bike object\nHow to create a copy?\n\n\n\n// Copy constructor\npublic Bike(Bike other) {\n      ...  \n}\n\nBike greenBike = new Bike(\"Green\", 25, true);\nBike copiedBike = new Bike(greenBike);"
   },
   {
-    "objectID": "doc/cours/classes.html#call-a-method",
-    "href": "doc/cours/classes.html#call-a-method",
+    "objectID": "doc/cours/04-classes.html#call-a-method",
+    "href": "doc/cours/04-classes.html#call-a-method",
     "title": "Java Classes",
     "section": "Call a method",
     "text": "Call a method\n// Create a Bike object calling the constructor\nBike greenBike = new Bike(\"Green\", true);\n\n// Call methods\ngreenBike.accelerate(5);\nSystem.out.println(greenBike.getSpeed());\n\n\naccelerate(int) -&gt; void\ngetSpeed() -&gt; int"
   },
   {
-    "objectID": "doc/cours/classes.html#main-method",
-    "href": "doc/cours/classes.html#main-method",
+    "objectID": "doc/cours/04-classes.html#main-method",
+    "href": "doc/cours/04-classes.html#main-method",
     "title": "Java Classes",
     "section": "Main method",
     "text": "Main method\n\nEntry point\nGenerally in a class called Main\n\npublic static void main(String[] args) {\n    // Program logic here\n}\n\n\npublic: Makes the method accessible from anywhere (required for JVM to call it)\nstatic: Allows calling the method without creating an instance of the class.\nvoid: The method does not return any value.\nmain: The method name that JVM looks for to start execution.\nString[]: args Array of command-line arguments passed when running the program\n\n\n\nUsing args\n\nString[] args: arguments passed when running the program\n\n\n\nMain.java\n\npublic static void main(String[] args) {\n    int limit = Integer.parseInt(args[0]);\n\n    for (int i = 0; i &lt;= limit; i++) {\n        System.out.println(i);\n    }\n}\n\n\njavac Main.java\njava Main 8"
   },
   {
-    "objectID": "doc/cours/classes.html#inheritance",
-    "href": "doc/cours/classes.html#inheritance",
+    "objectID": "doc/cours/04-classes.html#inheritance",
+    "href": "doc/cours/04-classes.html#inheritance",
     "title": "Java Classes",
     "section": "Inheritance",
     "text": "Inheritance\n\nParent class\n\n\nVehicle.java\n\npublic class Vehicle {\n    protected String color;\n    protected int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n}\n\n\n\nSubclass\n\nextends: inherit\nsuper(): constructor of the parent class\nsuper.foo(): method foo() of the parent class\nsuper does not allow access to the private attributes of the parent class\n\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n}\n\n\n\nMultiple-inheritance is forbidden in Java\nUse Interfaces\n\nDeclare methods to be implemented.\n\n\n\n\n\nAbstract\n\nabstract classes: cannot be instantiated\nabstract methods: Declared without implementation, must be overridden by subclasses\n\n\n\nVehicle.java\n\npublic abstract class Vehicle {\n    protected String color;\n    protected int speed;\n\n    public Vehicle(String color) {\n        this.color = color;\n        this.speed = 0;\n    }\n\n    public abstract void honk();  // abstract method to be implemented in subsclasses\n\n    public void accelerate(int increment) {\n        this.speed += increment;\n    }\n}\n\n\nQuestions:\n\nIs it possible to create a final abstract class?\nPrivate abstract method?\n\n\n\n\nOverride method\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = pannierRacks;\n    }\n\n    @Override\n    public abstract void honk(){\n        System.out.println(\"Dring\")\n    }\n\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n\n\nYou must override abstract methods\nYou can override other methods\nOverride final method?"
   },
   {
-    "objectID": "doc/cours/classes.html#polymorphism",
-    "href": "doc/cours/classes.html#polymorphism",
+    "objectID": "doc/cours/04-classes.html#polymorphism",
+    "href": "doc/cours/04-classes.html#polymorphism",
     "title": "Java Classes",
     "section": "Polymorphism",
     "text": "Polymorphism\n\nSubstitution\n\n\nMain.java\n\nBike bike1 = new Bike();\nBike bike2 = new Bike();\nScooter scooter1 = new Scooter();\nScooter scooter2 = new Scooter();\n\nList&lt;Vehicle&gt; vehicles = List.of(bike1, bike2, scooter1, scooter2);\n\n// Accelerate all vehicles\nfor (Vehicle vehicle : vehicles) {\n    vehicle.accelerate(10);\n}\n\n\nsubclass provides a specific implementation of a method that is already defined in its superclass\n\n\n\nOverloading\n\n\nBike.java\n\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    ...\n\n    public void accelerate(int increment) {\n        this.speed += increment;\n    }\n    \n    public void accelerate() {\n        this.speed += 5;\n    }\n        \n    public void accelerate(double increment) {\n        this.speed += increment.intValue();\n    }\n\n\nclass has multiple methods with the same name but different parameters"
   },
   {
-    "objectID": "doc/cours/classes.html#javadoc",
-    "href": "doc/cours/classes.html#javadoc",
+    "objectID": "doc/cours/04-classes.html#javadoc",
+    "href": "doc/cours/04-classes.html#javadoc",
     "title": "Java Classes",
     "section": "JavaDoc",
     "text": "JavaDoc\n\nClarity: Provides clear and consistent documentation\nMaintainability: Makes it easier to understand and maintain code\nAccessibility: Generates HTML documentation that can be easily shared and viewed\n\nJavadoc comments are enclosed in /** and */.\nPlaced immediately before the element being documented (class, method, field, etc.)\n\nExample\n\n\nBike.java\n\n/**\n * Represents a Bike, a type of Vehicle.\n */\npublic class Bike extends Vehicle {\n    private boolean pannierRacks;\n\n    /**\n     * Constructs a Bike with the given color\n     */\n    public Bike(String color) {\n        super(color);\n        this.pannierRacks = false;\n    }\n\n    /**\n     * Produces the sound of a bike's honk (dring).\n     */\n    @Override\n    public void honk() {\n        System.out.println(\"Dring\");\n    }\n\n    /**\n     * Accelerates the bike by the given increment, plus an additional 2 units.\n     *\n     * @param increment The amount to increase the speed by.\n     */\n    @Override\n    public void accelerate(int increment) {\n        this.speed += increment + 2;\n    }\n\n    /**\n     * Checks if the bike has pannier racks.\n     *\n     * @return true if the bike has pannier racks, false otherwise.\n     */\n    public boolean hasPannierRacks() {\n        return pannierRacks;\n    }\n\n\nTags\n\n@author: Author of the class.\n@version: Version of the class.\n@param: Description of a method parameter.\n@return: Description of a method’s return value.\n@throws: Description of an exception that a method might throw.\n@see: Cross-reference to other classes or methods.\n@deprecated: Indicates that a method or class is deprecated."
   },
   {
-    "objectID": "doc/cours/classes-slides.html#oop-principles",
-    "href": "doc/cours/classes-slides.html#oop-principles",
+    "objectID": "doc/cours/04-classes-slides.html#oop-principles",
+    "href": "doc/cours/04-classes-slides.html#oop-principles",
     "title": "Java Classes",
     "section": "OOP Principles",
     "text": "OOP Principles\n\n\nEncapsulation\nInheritance\nPolymorphism\n\n\n\n\nEncapsulation: Bundling data and methods together\nInheritance: Deriving new classes from existing ones\nPolymorphism: One interface, multiple behaviors\n\n\nWhy OOP ?\n\nCode reusability\nModularity and maintainability\nReal-world modeling"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#encapsulation",
-    "href": "doc/cours/classes-slides.html#encapsulation",
+    "objectID": "doc/cours/04-classes-slides.html#encapsulation",
+    "href": "doc/cours/04-classes-slides.html#encapsulation",
     "title": "Java Classes",
     "section": "Encapsulation",
     "text": "Encapsulation\n\nAttributes: Fields\n\ndefine the state of an object\n\nMethods: Behaviors\n\ndefine the actions an object can perform\n\n\n\n\nin relation to other classes\nHiding internal details and exposing only necessary information"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#a-class",
-    "href": "doc/cours/classes-slides.html#a-class",
+    "objectID": "doc/cours/04-classes-slides.html#a-class",
+    "href": "doc/cours/04-classes-slides.html#a-class",
     "title": "Java Classes",
     "section": "A class 🚲",
     "text": "A class 🚲\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color;\n    private int speed;\n    private boolean pannierRacks;\n\n    // Constructor\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n\n    // Method\n    public void accelerate(int increment) {\n        if (increment &gt; 0) {\n            this.speed += increment;\n        }\n    }\n\n    // Getter\n    public int getSpeed() {\n        return this.speed;\n    }\n}\n\n\ndetails after"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#attributes",
-    "href": "doc/cours/classes-slides.html#attributes",
+    "objectID": "doc/cours/04-classes-slides.html#attributes",
+    "href": "doc/cours/04-classes-slides.html#attributes",
     "title": "Java Classes",
     "section": "Attributes",
     "text": "Attributes\n\n\nBike.java\n\npublic class Bike {\n    // Attributes\n    private String color = \"yellow\";    // default value if not specified by the constructor\n    private int speed;\n    private boolean pannierRacks;\n\n    private static int nbBikes = 0;\n}\n\n\nstatic: class attribute\n\n\n\nusually private attributes\nsetters and getters next"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#constructor",
-    "href": "doc/cours/classes-slides.html#constructor",
+    "objectID": "doc/cours/04-classes-slides.html#constructor",
+    "href": "doc/cours/04-classes-slides.html#constructor",
     "title": "Java Classes",
     "section": "Constructor",
     "text": "Constructor\n\n\nBike.java\n\npublic class Bike {\n    public Bike(String color, boolean pannierRacks) {\n        this.color = color;\n        this.speed = 0;\n        this.pannierRacks = pannierRacks;\n    }\n}\n\n\nthis : Refers to the current object\n\n\n\nName of a Contructor: same as class name\nGenerally public\nPrivate Contructor ?\n\nSingleton Pattern (public static SingletonClass getInstance())\nUninstantiable Classes: class that simply contains static methods\nPrivate Constructor called by Public Constructor"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#call-a-method",
-    "href": "doc/cours/classes-slides.html#call-a-method",
+    "objectID": "doc/cours/04-classes-slides.html#call-a-method",
+    "href": "doc/cours/04-classes-slides.html#call-a-method",
     "title": "Java Classes",
     "section": "Call a method",
     "text": "Call a method\n// Create a Bike object calling the constructor\nBike greenBike = new Bike(\"Green\", true);\n\n// Call methods\ngreenBike.accelerate(5);\nSystem.out.println(greenBike.getSpeed());\n\n\naccelerate(int) -&gt; void\ngetSpeed() -&gt; int"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#main-method",
-    "href": "doc/cours/classes-slides.html#main-method",
+    "objectID": "doc/cours/04-classes-slides.html#main-method",
+    "href": "doc/cours/04-classes-slides.html#main-method",
     "title": "Java Classes",
     "section": "Main method",
     "text": "Main method\n\nEntry point\nGenerally in a class called Main\n\npublic static void main(String[] args) {\n    // Program logic here\n}\n\n\npublic: Makes the method accessible from anywhere (required for JVM to call it)\nstatic: Allows calling the method without creating an instance of the class.\nvoid: The method does not return any value.\nmain: The method name that JVM looks for to start execution.\nString[]: args Array of command-line arguments passed when running the program"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#inheritance",
-    "href": "doc/cours/classes-slides.html#inheritance",
+    "objectID": "doc/cours/04-classes-slides.html#inheritance",
+    "href": "doc/cours/04-classes-slides.html#inheritance",
     "title": "Java Classes",
     "section": "Inheritance",
     "text": "Inheritance"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#polymorphism",
-    "href": "doc/cours/classes-slides.html#polymorphism",
+    "objectID": "doc/cours/04-classes-slides.html#polymorphism",
+    "href": "doc/cours/04-classes-slides.html#polymorphism",
     "title": "Java Classes",
     "section": "Polymorphism",
     "text": "Polymorphism"
   },
   {
-    "objectID": "doc/cours/classes-slides.html#javadoc",
-    "href": "doc/cours/classes-slides.html#javadoc",
+    "objectID": "doc/cours/04-classes-slides.html#javadoc",
+    "href": "doc/cours/04-classes-slides.html#javadoc",
     "title": "Java Classes",
     "section": "JavaDoc",
     "text": "JavaDoc\n\nClarity: Provides clear and consistent documentation\nMaintainability: Makes it easier to understand and maintain code\nAccessibility: Generates HTML documentation that can be easily shared and viewed\n\nJavadoc comments are enclosed in /** and */.\nPlaced immediately before the element being documented (class, method, field, etc.)"
   },
   {
-    "objectID": "doc/cours/project.html",
-    "href": "doc/cours/project.html",
-    "title": "Java Project",
+    "objectID": "doc/cours/03-collections.html",
+    "href": "doc/cours/03-collections.html",
+    "title": "Collections",
     "section": "",
-    "text": "Maintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\n\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
+    "text": "Three main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
   },
   {
-    "objectID": "doc/cours/project.html#tree-structure",
-    "href": "doc/cours/project.html#tree-structure",
-    "title": "Java Project",
+    "objectID": "doc/cours/03-collections.html#collections-in-java",
+    "href": "doc/cours/03-collections.html#collections-in-java",
+    "title": "Collections",
     "section": "",
-    "text": "Maintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\n\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
+    "text": "Three main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
   },
   {
-    "objectID": "doc/cours/project.html#packages",
-    "href": "doc/cours/project.html#packages",
-    "title": "Java Project",
-    "section": "Packages",
-    "text": "Packages\n\nA way to organize Java classes and interfaces into namespaces\nUsed to group related classes together\nHelp to prevent naming conflicts\n\n\n\nSimilar to folders or directories in a file system\n\n\n\nPackage Naming Conventions\n\nNamed in lowercase\nReverse domain name notation\nExamples:\n\nfr.ensai.library\ncom.myorg.myapp.service\n\n\n\nservice, dao…\n\n\n\nExample\npackage fr.ensai.library;\n\npublic class Book{\n    ...\n}\n\n\nImporting Packages\n\nTo use classes from other packages\nimport fr.ensai.library.dao;\n\n\n\nNo need to import classes from the same package\nAvoid import fr.ensai.library.*"
+    "objectID": "doc/cours/03-collections.html#arraylist",
+    "href": "doc/cours/03-collections.html#arraylist",
+    "title": "Collections",
+    "section": "ArrayList",
+    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading, slow for searching\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)\n\n\nCreate an ArrayList\nimport java.util.ArrayList;\nimport java.util.List;\n\nList&lt;String&gt; names = new ArrayList&lt;&gt;();\nList&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();\n\nList&lt;String&gt; colors = List.of(\"Blue\", \"Green\", \"Yellow\");    // Immutable\n\n\nArrayList&lt;&gt;(): constructor\nList&lt;String&gt; colors = new ArrayList&lt;&gt;(Arrays.asList(\"Blue\", \"Green\", \"Yellow\"));\nother ways\npossible to create list of objects\n\n\n\n\nPlay with values\nnames.add(\"Alba\");                         // add at the end\nnames.addAll(List.of(\"Lisa\", \"Stan\"));     // add multiple\nnames.add(1, \"Martin\");                    // add at a specific index\n\nnames.set(1, \"Johannes\")                   // replace\n\nnames.remove(3);                           // remove by index\nnames.remove(\"Stan\");                      // remove by value (first occurence)\n\n\nOther methods\nint sizeList = names.size();\nString valueSecondIndex = names.get(2)          // get a value by index\nboolean containsJo = names.contains(\"Jo\");      // contain a value?\n\nSystem.out.println(\"Empty List? \" + names.isEmpty());\n\n\nBrowse a List\nBy index\nfor (int i = 0; i &lt; names.size(); i++) {\n    System.out.println(names.get(i));\n}\nBy value\nfor (String name : names) {\n    System.out.println(name);\n}\n\n\nUsefull methods\nimport java.util.Collections;\n\nCollections.sort(List&lt;T&gt; list);\nCollections.reverse(List&lt;T&gt; list);\nCollections.shuffle(List&lt;T&gt; list);\nCollections.replaceAll(List&lt;T&gt; list, T oldVal, T newVal)\n\n\n&lt;T&gt;: This is the type parameter\nThose methods modifie the original list in place"
   },
   {
-    "objectID": "doc/cours/project.html#maven",
-    "href": "doc/cours/project.html#maven",
-    "title": "Java Project",
-    "section": "Maven",
-    "text": "Maven\n\nWhat is Maven?\n\nA powerful build automation tool for Java projects\nHelps manage dependencies\n\nDownload from Maven Central repo\n\nProvides a standardized build lifecycle\n\n\n\ndependencies: external libraries your project needs\nlifecycle: compile, test, package\n\nessential just to manage dependencies\nAlternative: Gradle\n\n\n\nWhy Use Maven?\n\nSimplifies dependency management: No more manual downloads\nEnsures consistent builds: Everyone uses the same process\nPromotes best practices: Encourages a well-defined project structure\n\n\n\nwithoud maven : java -cp &lt;all_dependencies&gt; Main\n\n\n\n\nPOM\n\nProject Object Model\na configuration file: pom.xml\ndescribes your project and its dependencies\n\n\n\npom.xml\n\n\npom.xml\n\n&lt;project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\"&gt;\n    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\n\n    &lt;groupId&gt;fr.ensai&lt;/groupId&gt;\n    &lt;artifactId&gt;library&lt;/artifactId&gt;\n    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;\n\n    &lt;properties&gt;\n        &lt;maven.compiler.source&gt;21&lt;/maven.compiler.source&gt;\n        &lt;maven.compiler.target&gt;21&lt;/maven.compiler.target&gt;\n    &lt;/properties&gt;\n\n    &lt;dependencies&gt;\n        &lt;!-- JUnit for testing --&gt;\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n    &lt;/dependencies&gt;\n\n    &lt;build&gt;\n        &lt;plugins&gt;\n            &lt;plugin&gt;\n                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;\n                &lt;version&gt;3.8.1&lt;/version&gt;\n                &lt;configuration&gt;\n                    &lt;source&gt;21&lt;/source&gt;\n                    &lt;target&gt;21&lt;/target&gt;\n                &lt;/configuration&gt;\n            &lt;/plugin&gt;\n        &lt;/plugins&gt;\n    &lt;/build&gt;\n&lt;/project&gt;\n\n\n\nArtifacts\n\nPackaged component with unique ID: groupId, artifactId, version.\nVersioning: Essential to identify artifacts\n\nMajor.Minor.Bugfix\nDevelopment: -SNAPSHOT versions\n\n\n\n\nmaven.compiler.source: Java source version compatibility for the compiler\nmaven.compiler.target: Determines the Java Runtime Environment (JRE) versions on which the compiled code can run\n\n\n\n\nDependencies\n\nExternal libraries your project relies on\nMaven downloads and manages these dependencies automatically\nExample: JUnit, database connectors, logging frameworks\n\nhttps://mvnrepository.com/\n\n\nPlugins\n\nExtend Maven’s functionality\nExamples:\n\nmaven-compiler-plugin,\nmaven-surefire-plugin (for testing)\n\nHelp with tasks like compiling code, running tests, creating JAR files\n\n\n\nLifecycles\n\nmvn clean: Deletes the target directory.\nmvn compile: Compiles the project’s source code.\nmvn test: Runs the unit tests.\nmvn package: Packages the compiled code into a JAR file.\nmvn exec:java: Runs the application.\nmvn site: Generates the project documentation website."
+    "objectID": "doc/cours/03-collections.html#hashmap",
+    "href": "doc/cours/03-collections.html#hashmap",
+    "title": "Collections",
+    "section": "HashMap",
+    "text": "HashMap\n\nHashMap&lt;K, V&gt;\nassociate a key (K) with a value (V)\nUnordered\nFast access\n\n\n\nlike python dict\nothers:\n\nTreeMap: Sorted by key\nLinkedHashMap: Maintains insertion order\n\n\n\n\nCreate and pop a HashMap\nimport java.util.HashMap;\n\nHashMap&lt;String, Integer&gt; fruitStore = new HashMap&lt;&gt;();\n\nfruitStore.put(\"Apple\", 5);\nfruitStore.put(\"Banana\", 3);\nfruitStore.put(\"Orange\", 10);\n\nfruitStore.put(\"Apple\", 5);         // update\n\nfruitStore.remove(\"Banana\");\n\nreplace (don’t create key if not exists):\n\nmap.replace(key, value);\nmap.replace(key, oldValue, newValue) only if oldValue is correct\n\n\n\n\nHashMap methods\nint nbElements = fruitStore.size();\n\nboolean hasBanana = fruitStore.containsKey(\"Banana\");\nboolean hasFive = fruitStore.containsValue(5);\n\nint nbApple = fruitStore.get(\"Apple\")\n\n\nIterate over a HashMap\nBy keys\nfor (String key : fruitStore.keySet()) {\n    System.out.println(key + \": \" + fruitStore.get(key));\n}\n By values\nfor (Integer value : fruitStore.values()) {\n    System.out.println(value);\n}\n\nBoth keys and values\nfor (Map.Entry&lt;String, Integer&gt; entry : fruitStore.entrySet()) {\n    System.out.println(entry.getKey() + \" : \" + entry.getValue());\n}\n Using Iterator with entrySet\nIterator&lt;Map.Entry&lt;String, Integer&gt;&gt; iterator = fruitStore.entrySet().iterator();\n\nwhile (iterator.hasNext()) {\n    Map.Entry&lt;String, Integer&gt; entry = iterator.next();\n    System.out.println(entry.getKey() + \": \" + entry.getValue());\n}"
   },
   {
-    "objectID": "doc/cours/project.html#deployment",
-    "href": "doc/cours/project.html#deployment",
-    "title": "Java Project",
-    "section": "Deployment",
-    "text": "Deployment\n\nPackaging for deployment\n\nCreation of a JAR file (for API)\nOr a WAR file (for web applications)\n\nUse a Tomcat server\n\n\n\n\n\n\n\n\nNoteJAR file\n\n\n\n\nA package file format used to aggregate many Java class files and associated resources into a single file\nBased on the ZIP file format\n\n\n\n\n\nWAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).\nJAR: simply run it java -jar my-api.jar on a server or using Docker\nUse Docker\nBackend (Business logic)\n\nJava Application history\n\nmonolith struts\nback Java / front JS\nArchi 3-tiers\n\n\n\n\nDeployment history\n\nMonolith\nVirtualisation\nContainerization\nOrchestration\n\n\n\nMonolith\n\none physical server: one app\nUnderutilized server resources\n\nVirtualisation\n\nApplication isolation\nIssue: compatibility\n\nContainerization\n\nPortability\n\nOrchestration\n\nAutomated container management\n\n\nBefore: Filezilla, integrator, it work on my machine\nNow: CICD, git, devops"
+    "objectID": "doc/cours/03-collections.html#hashset",
+    "href": "doc/cours/03-collections.html#hashset",
+    "title": "Collections",
+    "section": "HashSet",
+    "text": "HashSet\n\nNo duplicates\nUnordered\n\nimport java.util.HashSet;\n\nHashSet&lt;String&gt; colors = new HashSet&lt;&gt;();\n\ncolors.add(\"Blue\");\ncolors.add(\"Green\");\n\nboolean containPink = colors.contains(\"Pink\");\ncolors.remove(\"Green\");\n\nSystem.out.println(\"Size of set: \" + colors.size());\n\nfor (String color : colors) {\n    System.out.println(color);\n}"
   },
   {
-    "objectID": "doc/cours/project-slides.html#tree-structure",
-    "href": "doc/cours/project-slides.html#tree-structure",
-    "title": "Java Project",
-    "section": "Tree structure",
-    "text": "Tree structure"
+    "objectID": "doc/cours/03-collections.html#choosing-between-list-set-and-map",
+    "href": "doc/cours/03-collections.html#choosing-between-list-set-and-map",
+    "title": "Collections",
+    "section": "Choosing Between List, Set, and Map",
+    "text": "Choosing Between List, Set, and Map\n\n\n\nFeature\nArrayList\nHashSet\nHashMap\n\n\n\n\nAllows Duplicates?\n✅\n❌\n❌ (Keys)\n\n\nMaintains Order?\n✅\n❌\n❌\n\n\nKey-Value Storage?\n❌\n❌\n✅\n\n\nFast Lookup?\n❌ O(n)\n✅ O(1)\n✅ O(1)\n\n\n\n👉 Use a List when order matters and duplicates are allowed.\n👉 Use a Set when uniqueness is required.\n👉 Use a Map when you need key-value storage."
   },
   {
-    "objectID": "doc/cours/project-slides.html#packages",
-    "href": "doc/cours/project-slides.html#packages",
-    "title": "Java Project",
-    "section": "Packages",
-    "text": "Packages\n\nA way to organize Java classes and interfaces into namespaces\nUsed to group related classes together\nHelp to prevent naming conflicts\n\n\n\nSimilar to folders or directories in a file system"
+    "objectID": "doc/cours/03-collections-slides.html#collections-in-java",
+    "href": "doc/cours/03-collections-slides.html#collections-in-java",
+    "title": "Collections",
+    "section": "Collections in Java",
+    "text": "Collections in Java\nThree main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
   },
   {
-    "objectID": "doc/cours/project-slides.html#maven",
-    "href": "doc/cours/project-slides.html#maven",
-    "title": "Java Project",
-    "section": "Maven",
-    "text": "Maven"
+    "objectID": "doc/cours/03-collections-slides.html#arraylist",
+    "href": "doc/cours/03-collections-slides.html#arraylist",
+    "title": "Collections",
+    "section": "ArrayList",
+    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading, slow for searching\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)"
   },
   {
-    "objectID": "doc/cours/project-slides.html#deployment",
-    "href": "doc/cours/project-slides.html#deployment",
-    "title": "Java Project",
-    "section": "Deployment",
-    "text": "Deployment"
+    "objectID": "doc/cours/03-collections-slides.html#hashmap",
+    "href": "doc/cours/03-collections-slides.html#hashmap",
+    "title": "Collections",
+    "section": "HashMap",
+    "text": "HashMap\n\nHashMap&lt;K, V&gt;\nassociate a key (K) with a value (V)\nUnordered\nFast access\n\n\n\nlike python dict\nothers:\n\nTreeMap: Sorted by key\nLinkedHashMap: Maintains insertion order"
   },
   {
-    "objectID": "doc/cours/code.html",
-    "href": "doc/cours/code.html",
-    "title": "Java Basics",
-    "section": "",
-    "text": "Important\n\n\n\nIn Java, all executable code must be inside a class.\n\n\n\n\nNot anymore !"
+    "objectID": "doc/cours/03-collections-slides.html#hashset",
+    "href": "doc/cours/03-collections-slides.html#hashset",
+    "title": "Collections",
+    "section": "HashSet",
+    "text": "HashSet\n\nNo duplicates\nUnordered\n\nimport java.util.HashSet;\n\nHashSet&lt;String&gt; colors = new HashSet&lt;&gt;();\n\ncolors.add(\"Blue\");\ncolors.add(\"Green\");\n\nboolean containPink = colors.contains(\"Pink\");\ncolors.remove(\"Green\");\n\nSystem.out.println(\"Size of set: \" + colors.size());\n\nfor (String color : colors) {\n    System.out.println(color);\n}"
   },
   {
-    "objectID": "doc/cours/code.html#first-of-all",
-    "href": "doc/cours/code.html#first-of-all",
-    "title": "Java Basics",
-    "section": "",
-    "text": "Important\n\n\n\nIn Java, all executable code must be inside a class.\n\n\n\n\nNot anymore !"
+    "objectID": "doc/cours/03-collections-slides.html#choosing-between-list-set-and-map",
+    "href": "doc/cours/03-collections-slides.html#choosing-between-list-set-and-map",
+    "title": "Collections",
+    "section": "Choosing Between List, Set, and Map",
+    "text": "Choosing Between List, Set, and Map\n\n\n\nFeature\nArrayList\nHashSet\nHashMap\n\n\n\n\nAllows Duplicates?\n✅\n❌\n❌ (Keys)\n\n\nMaintains Order?\n✅\n❌\n❌\n\n\nKey-Value Storage?\n❌\n❌\n✅\n\n\nFast Lookup?\n❌ O(n)\n✅ O(1)\n✅ O(1)\n\n\n\n👉 Use a List when order matters and duplicates are allowed.\n👉 Use a Set when uniqueness is required.\n👉 Use a Map when you need key-value storage."
   },
   {
-    "objectID": "doc/cours/code.html#hello-world",
-    "href": "doc/cours/code.html#hello-world",
-    "title": "Java Basics",
-    "section": "Hello World",
-    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files\nmain method"
-  },
-  {
-    "objectID": "doc/cours/code.html#syntax",
-    "href": "doc/cours/code.html#syntax",
-    "title": "Java Basics",
-    "section": "Syntax",
-    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n// one line\n/* multi-lines */\n\n\n\nNaming Conventions\n\nClasses: PascalCase\nVariables, Methods: camelCase\nConstants: UPPERCASE_WITH_UNDERSCORES\nPackages: lowercase, dot-separated\n\npackage com.example.utils;"
-  },
-  {
-    "objectID": "doc/cours/code.html#variables-and-data-types",
-    "href": "doc/cours/code.html#variables-and-data-types",
-    "title": "Java Basics",
-    "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2F;                   // type inference -&gt; float\n\n\nstrong typing, immutable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nPrimitive type vs Object\n\n\n\n\nint\nInteger\n\n\n\n\nNature\nPrimitive\nObject (Wrapper)\n\n\nNullable\n❌ No\n✅ Yes\n\n\nPerformance\n⭐ Very fast\nSlightly slower\n\n\nMemory usage\nLow\nHigher (object overhead)\n\n\nTypical uses\nCalculations, loops\nCollections, APIs\n\n\n\n\n\nint stores the value directly\nInteger wraps an int inside an object\nRequired in collections (e.g., ArrayList&lt;Integer&gt;)\n\nint a = 5;\nInteger b = 5;   // Autoboxing\nint c = b;       // Unboxing\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\nisJavaFun && !false || true;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString s = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\ns.length();\ns.charAt(0);          // Get character at index 0\ns.contains(\"va\");\ns.toLowerCase();      // also toUpperCase\ns.endsWith(\"Java\");   // also startsWith\n\ns.equals(\"Java\");     // Use equals to compare, not ==\n\nString textBlock = \"\"\"\n        First line\n        Second line\n        \"\"\";\nOthers: replace(), split()\n\n\nString objects are immutable\n\n➡️ their content can never be modified after creation\n\n\nWhen an operation appears to modify a string, Java actually creates a new object.\nString s = \"hello\";\n\ns.toUpperCase();      // dont modify s\ns = s.toUpperCase();  // creates a new String and affect it to variable s\n\n\n\nFormat String\n\nPrettier than concatenating\ncreates a formatted string using placeholders\n\nString name = \"Tiphaine\";\nint age = 5;\nString s = String.format(\"My name is %s and i'm %d years old\", name, age);\n\ndouble price = 19.90;\nString s = String.format(\"Price: %.2f\", price);\n\n\nType casting\ndouble num1 = 9.78;\nint num2 = (int) num1;                   // Casting Narrowing\n\nString str1 = \"123\";\nint num1 = Integer.parseInt(str1);       // String to int\n\nString str2 = String.valueOf(num1);      // int to String\nString str3 = num1 + \"\"\ntoString() for Object types"
-  },
-  {
-    "objectID": "doc/cours/code.html#print",
-    "href": "doc/cours/code.html#print",
-    "title": "Java Basics",
-    "section": "Print",
-    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream\n\n\n\n\\n: carriage return\nKeyboard shortcut"
-  },
-  {
-    "objectID": "doc/cours/code.html#structures",
-    "href": "doc/cours/code.html#structures",
-    "title": "Java Basics",
-    "section": "Structures",
-    "text": "Structures\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n⚠️ Don’t forget the brackets ()\n\n\n\nTernary Operator\n\nShorter alternative to if-else\n\nString status = (number &gt; 0) ? \"Positive\" : \"Negative\";\n\n\nSwitch\nString fruit = \"lemon\";\n\nswitch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; System.out.println(\"Red fruit\");\n    case \"banana\", \"lemon\" -&gt; System.out.println(\"Yellow fruit\");\n    default -&gt; System.out.println(\"Unknown fruit\");\n}\n\n\nswitch can return a value\n\nString color = switch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; \"Red fruit\";\n    case \"banana\", \"lemon\" -&gt; \"Yellow fruit\";\n    default -&gt; \"Unknown fruit\";\n};\n\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization: i = 0\ncondition: i &lt; 5\nupdate: i++\n\n\n\ncondition: checked before entering\nupdate: after each iteration\n\n\n\ncasimir.java\n\nint i = 0;\nfor ( ; ; ) {\n    if ( i &lt; 5)\n        break;\n    System.out.println(\"Iteration: \" + i);\n    i++;\n}\n\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num: numbers) {\n    System.out.println(num);\n}\n\nfirst and last time I’m going to talk about arrays\n\n\n\nWhile\nint i = 10;\nwhile (i &gt;= 0) {\n    System.out.println(i);\n    i--;\n}\n\ndo-while to check after each iteration\ndo { ...\n} while { ... }\n\n\n\nbreak / continue\nfor (int i = 0; i &lt; 10; i++) {\n    if (i == 2)\n        continue;\n    else if (i == 4)\n        break;\n    System.out.println(\"Iteration: \" + i);\n}\n\n\nIteration: 0\nIteration: 1\nIteration: 3\n\n\nbreak: exit a single loop"
-  },
-  {
-    "objectID": "doc/cours/code.html#function",
-    "href": "doc/cours/code.html#function",
-    "title": "Java Basics",
-    "section": "Function",
-    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)\n\n\n\nreminder: we are still in a class\nMethod name : camelCase\n\n\n\nVoid\n\nIndicate that a method does not return any value\n\npublic void printIsOdd(int n) {\n    System.out.println(n % 2 != 0);\n}\n\n\nAccess Modifiers\nMethods and Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
-  },
-  {
-    "objectID": "doc/cours/code.html#various",
-    "href": "doc/cours/code.html#various",
-    "title": "Java Basics",
-    "section": "Various",
-    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\nMath.sqrt(3);\nMath.max(8, 5);\nMath.pow(2, 10);   // 1024\n\n\n++i\n+= works with Strings\n`%: modulo"
-  },
-  {
-    "objectID": "doc/cours/code-slides.html#first-of-all",
-    "href": "doc/cours/code-slides.html#first-of-all",
-    "title": "Java Basics",
-    "section": "First of all",
-    "text": "First of all\n\n\n\n\n\n\nImportant\n\n\nIn Java, all executable code must be inside a class.\n\n\n\n\n\nNot anymore !"
-  },
-  {
-    "objectID": "doc/cours/code-slides.html#hello-world",
-    "href": "doc/cours/code-slides.html#hello-world",
-    "title": "Java Basics",
-    "section": "Hello World",
-    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files\nmain method"
-  },
-  {
-    "objectID": "doc/cours/code-slides.html#syntax",
-    "href": "doc/cours/code-slides.html#syntax",
-    "title": "Java Basics",
-    "section": "Syntax",
-    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n// one line\n/* multi-lines */"
-  },
-  {
-    "objectID": "doc/cours/code-slides.html#variables-and-data-types",
-    "href": "doc/cours/code-slides.html#variables-and-data-types",
-    "title": "Java Basics",
-    "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2F;                   // type inference -&gt; float\n\n\nstrong typing, immutable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
-  },
-  {
-    "objectID": "doc/cours/code-slides.html#print",
-    "href": "doc/cours/code-slides.html#print",
-    "title": "Java Basics",
-    "section": "Print",
-    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream\n\n\n\n\\n: carriage return\nKeyboard shortcut"
-  },
-  {
-    "objectID": "doc/cours/code-slides.html#structures",
-    "href": "doc/cours/code-slides.html#structures",
-    "title": "Java Basics",
-    "section": "Structures",
-    "text": "Structures"
-  },
-  {
-    "objectID": "doc/cours/code-slides.html#function",
-    "href": "doc/cours/code-slides.html#function",
-    "title": "Java Basics",
-    "section": "Function",
-    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)\n\n\n\nreminder: we are still in a class\nMethod name : camelCase"
-  },
-  {
-    "objectID": "doc/cours/code-slides.html#various",
-    "href": "doc/cours/code-slides.html#various",
-    "title": "Java Basics",
-    "section": "Various",
-    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\nMath.sqrt(3);\nMath.max(8, 5);\nMath.pow(2, 10);   // 1024\n\n\n++i\n+= works with Strings\n`%: modulo"
-  },
-  {
-    "objectID": "doc/cours/junit.html",
-    "href": "doc/cours/junit.html",
+    "objectID": "doc/cours/06-junit.html",
+    "href": "doc/cours/06-junit.html",
     "title": "JUnit",
     "section": "",
     "text": "A popular open-source testing framework for Java:\n\nJUnit5 for a long time\nJUnit6 since 2025.10\n\nhttps://junit.org\n\nRegarding updating dependencies:\n\nA good practice to carry out regularly\nFixes security vulnerabilities\nWatch out for regressions and compatibility issues with other libraries\nDon’t rush to install the latest version\n\nDependabot:\n\nmonitors your project’s dependencies.\nIt suggests pull requests when a dependency has a new version, especially if it’s a security update.\n\n\n\n\n\nTesting individual units of code\nVerifying that each unit behaves as expected\nEssential for detecting bugs\nAvoid regressions\n\n↪️ Prevents new changes from breaking existing code\n\n\n\nDetect regressions when upgrading dependencies\n3 steps of a test?"
   },
   {
-    "objectID": "doc/cours/junit.html#unit-tests-with-junit",
-    "href": "doc/cours/junit.html#unit-tests-with-junit",
+    "objectID": "doc/cours/06-junit.html#unit-tests-with-junit",
+    "href": "doc/cours/06-junit.html#unit-tests-with-junit",
     "title": "JUnit",
     "section": "",
     "text": "A popular open-source testing framework for Java:\n\nJUnit5 for a long time\nJUnit6 since 2025.10\n\nhttps://junit.org\n\nRegarding updating dependencies:\n\nA good practice to carry out regularly\nFixes security vulnerabilities\nWatch out for regressions and compatibility issues with other libraries\nDon’t rush to install the latest version\n\nDependabot:\n\nmonitors your project’s dependencies.\nIt suggests pull requests when a dependency has a new version, especially if it’s a security update.\n\n\n\n\n\nTesting individual units of code\nVerifying that each unit behaves as expected\nEssential for detecting bugs\nAvoid regressions\n\n↪️ Prevents new changes from breaking existing code\n\n\n\nDetect regressions when upgrading dependencies\n3 steps of a test?"
   },
   {
-    "objectID": "doc/cours/junit.html#test-classes",
-    "href": "doc/cours/junit.html#test-classes",
+    "objectID": "doc/cours/06-junit.html#test-classes",
+    "href": "doc/cours/06-junit.html#test-classes",
     "title": "JUnit",
     "section": "Test classes",
     "text": "Test classes\n\nOne-to-One Relationship\nEach class should have a corresponding test class\nBook.java ↔︎️ BookTest.java\n\nplaced in the same package as the class being tested\nbut in the src/test/java directory"
   },
   {
-    "objectID": "doc/cours/junit.html#example",
-    "href": "doc/cours/junit.html#example",
+    "objectID": "doc/cours/06-junit.html#example",
+    "href": "doc/cours/06-junit.html#example",
     "title": "JUnit",
     "section": "Example",
     "text": "Example\n\nClass Fraction\n\n\nFraction.java\n\npublic class Fraction {\n    @Getter private int numerator;\n    @Getter private int denominator;\n\n    public Fraction(int numerator, int denominator) {\n        if (denominator == 0)\n            throw new IllegalArgumentException(\"Denominator cannot be zero.\");\n        this.numerator = numerator;\n        this.denominator = denominator;\n    }\n\n    public Fraction invert() {\n        if (numerator == 0)\n            throw new ArithmeticException(\"Cannot invert a fraction with a zero numerator.\");\n        return new Fraction(denominator, numerator);\n    }\n}\n\n\n\n@Getter : using Lombok\nCreate method getAttribute()\n\n\n\n\nTest class\n\n\nFractionTest.java\n\npublic class FractionTest {\n\n    @Test\n    void testInvertValid() {\n        // GIVEN\n        Fraction fraction = new Fraction(2, 3);\n\n        // WHEN\n        Fraction inverted = fraction.invert();\n\n        // THEN\n        assertEquals(3, inverted.getNumerator());\n        assertEquals(2, inverted.getDenominator());\n    }\n\n    @Test\n    void testInvertZeroNumerator() {\n        Fraction fraction = new Fraction(0, 5);\n        assertThrows(ArithmeticException.class, fraction::invert);\n    }\n}"
   },
   {
-    "objectID": "doc/cours/junit.html#assertions",
-    "href": "doc/cours/junit.html#assertions",
+    "objectID": "doc/cours/06-junit.html#assertions",
+    "href": "doc/cours/06-junit.html#assertions",
     "title": "JUnit",
     "section": "Assertions",
     "text": "Assertions\n\nassertEquals(expected, actual)\nassertTrue(condition) / assertFalse(condition)\nassertNull(object) / assertNotNull(object)\nassertThrows(expectedType, executable)"
   },
   {
-    "objectID": "doc/cours/junit.html#annotations",
-    "href": "doc/cours/junit.html#annotations",
+    "objectID": "doc/cours/06-junit.html#annotations",
+    "href": "doc/cours/06-junit.html#annotations",
     "title": "JUnit",
     "section": "Annotations",
     "text": "Annotations\n\n@Test: Marks a method as a test case\n@BeforeEach: Executes before each test method\n@AfterEach: Executes after each test method\n@BeforeAll: Executes once before all test methods\n@AfterAll: Executes once after all test methods"
   },
   {
-    "objectID": "doc/cours/junit.html#mocking",
-    "href": "doc/cours/junit.html#mocking",
+    "objectID": "doc/cours/06-junit.html#mocking",
+    "href": "doc/cours/06-junit.html#mocking",
     "title": "JUnit",
     "section": "Mocking",
     "text": "Mocking\n\nReplacing real dependencies with controlled substitutes during unit testing\nAllows you to isolate the unit under test from external factors\nSee Mockito frameworks\n\n\n\nUnit Test: isolate components\nIntegration testing: Do my components work together?\nFunctional testing: Does my application do what the user expects?\n\n\n\nMethod to test\n\n\nFraction.java\n\n@AllArgsConstructor\npublic class Fraction {\n    private int numerator;\n    private int denominator;\n    private MathService mathService;\n\n    public Fraction simplify() {\n        int gcd = this.mathService.pgcd(numerator, denominator);\n        return new Fraction(\n                this.numerator / gcd,\n                this.denominator / gcd,\n                this.mathService);\n    }\n}\n\n\n\nTest with mockito\n\n\nFractionTest.java\n\nclass FractionTest {\n    @Test\n    void simplifyMockingPgcdMethodCall() {\n\n        // GIVEN\n        MathService mathService = mock(MathService.class);\n        when(mathService.pgcd(6, 8)).thenReturn(2);\n        Fraction f = new Fraction(6, 8, mathService);\n\n        // WHEN\n        Fraction result = f.simplify();\n\n        // THEN\n        assertEquals(3, result.getNumerator());\n        assertEquals(4, result.getDenominator());\n        verify(mathService).pgcd(6, 8); // Verify it was called one time\n    }\n}\n\n\n\nCreate mock\nInject into the class\nWhen method is called, return directly the result"
   },
   {
-    "objectID": "doc/cours/junit.html#mutation-testing",
-    "href": "doc/cours/junit.html#mutation-testing",
+    "objectID": "doc/cours/06-junit.html#mutation-testing",
+    "href": "doc/cours/06-junit.html#mutation-testing",
     "title": "JUnit",
     "section": "Mutation Testing",
     "text": "Mutation Testing\n\nIs it a good test ?\n\n\nFractionTest.java\n\npublic class FractionTest {\n    @Test\n    void invert_OK() {\n        // GIVEN\n        Fraction f = new Fraction(2, 3);\n\n        // WHEN\n        Fraction result = f.invert();\n\n        // THEN\n        assertNotNull(result);\n    }\n\n\n\n✅ executes the method\n✅ passes\n✅ gives 100% coverage\n\n\n\nBut does it check the behavior?\n\n\n\nIntroduce a mutation\nLet’s introduce a mutation in the code:\n\n\nFraction.java\n\npublic class Fraction {\n    ...\n\n    public Fraction invert() {\n        if (numerator == 0)\n            throw new ArithmeticException(\"Cannot invert a fraction with a zero numerator.\");\n\n        return new Fraction(numerator, denominator); \n        // instead of return new Fraction(denominator, numerator);\n    }\n}\n\n\n\nDoes the test still pass?\n\n\nYes: mutant survived\nWith the first version, the mutant would have been killed\n\nCode Coverage ≠ Test quality\n\n\n\nPitest\n\nEvaluate the effectiveness of your tests\nIntroduces small changes (mutations) to your code\n\nReplace + with - or &gt; with &gt;=\n\nChecks if your tests can detect these changes\n\nEach your tests to fail\n\n\nhttps://pitest.org/\n\n\nMutations are automatically seeded into your code,\nthen your tests are run.\nIf your tests fail then the mutation is killed\nif your tests pass then the mutation lived\nThe quality of your tests can be gauged from the percentage of mutations killed"
   },
   {
-    "objectID": "doc/cours/junit-slides.html#unit-tests-with-junit",
-    "href": "doc/cours/junit-slides.html#unit-tests-with-junit",
+    "objectID": "doc/cours/06-junit-slides.html#unit-tests-with-junit",
+    "href": "doc/cours/06-junit-slides.html#unit-tests-with-junit",
     "title": "JUnit",
     "section": "Unit tests with JUnit",
     "text": "Unit tests with JUnit\nA popular open-source testing framework for Java:\n\nJUnit5 for a long time\nJUnit6 since 2025.10\n\nhttps://junit.org\n\nRegarding updating dependencies:\n\nA good practice to carry out regularly\nFixes security vulnerabilities\nWatch out for regressions and compatibility issues with other libraries\nDon’t rush to install the latest version\n\nDependabot:\n\nmonitors your project’s dependencies.\nIt suggests pull requests when a dependency has a new version, especially if it’s a security update."
   },
   {
-    "objectID": "doc/cours/junit-slides.html#test-classes",
-    "href": "doc/cours/junit-slides.html#test-classes",
+    "objectID": "doc/cours/06-junit-slides.html#test-classes",
+    "href": "doc/cours/06-junit-slides.html#test-classes",
     "title": "JUnit",
     "section": "Test classes",
     "text": "Test classes\n\nOne-to-One Relationship\nEach class should have a corresponding test class\nBook.java ↔︎️ BookTest.java\n\nplaced in the same package as the class being tested\nbut in the src/test/java directory"
   },
   {
-    "objectID": "doc/cours/junit-slides.html#example",
-    "href": "doc/cours/junit-slides.html#example",
+    "objectID": "doc/cours/06-junit-slides.html#example",
+    "href": "doc/cours/06-junit-slides.html#example",
     "title": "JUnit",
     "section": "Example",
     "text": "Example"
   },
   {
-    "objectID": "doc/cours/junit-slides.html#assertions",
-    "href": "doc/cours/junit-slides.html#assertions",
+    "objectID": "doc/cours/06-junit-slides.html#assertions",
+    "href": "doc/cours/06-junit-slides.html#assertions",
     "title": "JUnit",
     "section": "Assertions",
     "text": "Assertions\n\nassertEquals(expected, actual)\nassertTrue(condition) / assertFalse(condition)\nassertNull(object) / assertNotNull(object)\nassertThrows(expectedType, executable)"
   },
   {
-    "objectID": "doc/cours/junit-slides.html#annotations",
-    "href": "doc/cours/junit-slides.html#annotations",
+    "objectID": "doc/cours/06-junit-slides.html#annotations",
+    "href": "doc/cours/06-junit-slides.html#annotations",
     "title": "JUnit",
     "section": "Annotations",
     "text": "Annotations\n\n@Test: Marks a method as a test case\n@BeforeEach: Executes before each test method\n@AfterEach: Executes after each test method\n@BeforeAll: Executes once before all test methods\n@AfterAll: Executes once after all test methods"
   },
   {
-    "objectID": "doc/cours/junit-slides.html#mocking",
-    "href": "doc/cours/junit-slides.html#mocking",
+    "objectID": "doc/cours/06-junit-slides.html#mocking",
+    "href": "doc/cours/06-junit-slides.html#mocking",
     "title": "JUnit",
     "section": "Mocking",
     "text": "Mocking\n\nReplacing real dependencies with controlled substitutes during unit testing\nAllows you to isolate the unit under test from external factors\nSee Mockito frameworks\n\n\n\nUnit Test: isolate components\nIntegration testing: Do my components work together?\nFunctional testing: Does my application do what the user expects?"
   },
   {
-    "objectID": "doc/cours/junit-slides.html#mutation-testing",
-    "href": "doc/cours/junit-slides.html#mutation-testing",
+    "objectID": "doc/cours/06-junit-slides.html#mutation-testing",
+    "href": "doc/cours/06-junit-slides.html#mutation-testing",
     "title": "JUnit",
     "section": "Mutation Testing",
     "text": "Mutation Testing"
@@ -550,14 +550,21 @@
     "href": "index.html",
     "title": "Java",
     "section": "",
-    "text": "6 three-hour sessions.\n\n\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nLab 1 (Discover Java syntax)\n\n\n\n\n\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nLab 2\n\n\n\n\n\nUnit Tests (JUnit)\nLab 3 (1/2)\n\n\n\n\n\nAdvanced (Interface, Enum, Stream)\nLab 3 (2/2)\n\n\n\n\n\nLab 4 (rated)\n\n\n\n\n\nSpring Boot, Hibernate\nLab 5 (A Spring Boot project)"
+    "text": "Title\n\n\n\nCategories\n\n\n\n\n\n\n\n\nIntroduction\n\n\nJava, Compile, JVM, JDK\n\n\n\n\n\n\nJava Syntax\n\n\nVariables, Conventions, Print, Control Structures, Loops, Functions\n\n\n\n\n\n\nCollections\n\n\nArrayList, HashMap, HashSet\n\n\n\n\n\n\nJava Classes\n\n\nOOP, Constructors, Inheritance, Main, JavaDoc\n\n\n\n\n\n\nJava Project\n\n\nTree structure, Maven, Deployment\n\n\n\n\n\n\nJUnit\n\n\nUnit tests, Mocking, Mutation testing\n\n\n\n\n\n\nAdvanced Java\n\n\nExceptions, Stream, MapReduce, Enum, Interface, Casting\n\n\n\n\n\n\nAn API with Spring Boot\n\n\nSpring Boot, Dependency Injection, Annotations, Lombok, Data Mapping, Hibernate\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#lessons",
+    "href": "index.html#lessons",
+    "title": "Java",
+    "section": "",
+    "text": "Title\n\n\n\nCategories\n\n\n\n\n\n\n\n\nIntroduction\n\n\nJava, Compile, JVM, JDK\n\n\n\n\n\n\nJava Syntax\n\n\nVariables, Conventions, Print, Control Structures, Loops, Functions\n\n\n\n\n\n\nCollections\n\n\nArrayList, HashMap, HashSet\n\n\n\n\n\n\nJava Classes\n\n\nOOP, Constructors, Inheritance, Main, JavaDoc\n\n\n\n\n\n\nJava Project\n\n\nTree structure, Maven, Deployment\n\n\n\n\n\n\nJUnit\n\n\nUnit tests, Mocking, Mutation testing\n\n\n\n\n\n\nAdvanced Java\n\n\nExceptions, Stream, MapReduce, Enum, Interface, Casting\n\n\n\n\n\n\nAn API with Spring Boot\n\n\nSpring Boot, Dependency Injection, Annotations, Lombok, Data Mapping, Hibernate\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#classlab",
     "href": "index.html#classlab",
     "title": "Java",
-    "section": "",
-    "text": "6 three-hour sessions.\n\n\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nLab 1 (Discover Java syntax)\n\n\n\n\n\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nLab 2\n\n\n\n\n\nUnit Tests (JUnit)\nLab 3 (1/2)\n\n\n\n\n\nAdvanced (Interface, Enum, Stream)\nLab 3 (2/2)\n\n\n\n\n\nLab 4 (rated)\n\n\n\n\n\nSpring Boot, Hibernate\nLab 5 (A Spring Boot project)"
+    "section": "Class/Lab",
+    "text": "Class/Lab\n6 three-hour sessions.\n\nSession 1\n\nIntroduction (why Java)\nJava syntax (variables, structures, loops, etc.)\nContainers (ArrayList, HashMap)\nLab 1 (Discover Java syntax)\n\n\n\nSession 2\n\nOOP (Classes, Objects, Inheritance, Polymorphism, etc.)\nJava Project (Tree structure, Packages, Maven)\nLab 2\n\n\n\nSession 3\n\nUnit Tests (JUnit)\nLab 3 (1/2)\n\n\n\nSession 4\n\nAdvanced (Interface, Enum, Stream)\nLab 3 (2/2)\n\n\n\nSession 5\n\nLab 4 (rated)\n\n\n\nSession 6\n\nSpring Boot, Hibernate\nLab 5 (A Spring Boot project)"
   },
   {
     "objectID": "index.html#bibliography",
@@ -567,452 +574,452 @@
     "text": "Bibliography\n\nhttps://dev.java/learn/\nJava Tutorial, w3schools\nhttps://www.baeldung.com/get-started-with-java-series\n\n\nFR\n\nhttps://gayerie.dev/docs/java/index.html\nhttps://gayerie.dev/docs/spring/index.html\nKoor Java\nDéveloppons en Java, Jean-Michel DOUDOUX\nApprenez à programmer en Java, Zeste de savoir\nhttps://blog.paumard.org/cours/java/"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#introduction-to-java",
-    "href": "doc/cours/intro-slides.html#introduction-to-java",
+    "objectID": "doc/cours/02-syntax-slides.html#first-of-all",
+    "href": "doc/cours/02-syntax-slides.html#first-of-all",
+    "title": "Java Syntax",
+    "section": "First of all",
+    "text": "First of all\n\n\n\n\n\n\nImportant\n\n\nIn Java, all executable code must be inside a class.\n\n\n\n\n\nNot anymore !"
+  },
+  {
+    "objectID": "doc/cours/02-syntax-slides.html#hello-world",
+    "href": "doc/cours/02-syntax-slides.html#hello-world",
+    "title": "Java Syntax",
+    "section": "Hello World",
+    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files\nmain method"
+  },
+  {
+    "objectID": "doc/cours/02-syntax-slides.html#syntax",
+    "href": "doc/cours/02-syntax-slides.html#syntax",
+    "title": "Java Syntax",
+    "section": "Syntax",
+    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n// one line\n/* multi-lines */"
+  },
+  {
+    "objectID": "doc/cours/02-syntax-slides.html#variables-and-data-types",
+    "href": "doc/cours/02-syntax-slides.html#variables-and-data-types",
+    "title": "Java Syntax",
+    "section": "Variables and Data Types",
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2F;                   // type inference -&gt; float\n\n\nstrong typing, immutable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory"
+  },
+  {
+    "objectID": "doc/cours/02-syntax-slides.html#print",
+    "href": "doc/cours/02-syntax-slides.html#print",
+    "title": "Java Syntax",
+    "section": "Print",
+    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream\n\n\n\n\\n: carriage return\nKeyboard shortcut"
+  },
+  {
+    "objectID": "doc/cours/02-syntax-slides.html#structures",
+    "href": "doc/cours/02-syntax-slides.html#structures",
+    "title": "Java Syntax",
+    "section": "Structures",
+    "text": "Structures"
+  },
+  {
+    "objectID": "doc/cours/02-syntax-slides.html#function",
+    "href": "doc/cours/02-syntax-slides.html#function",
+    "title": "Java Syntax",
+    "section": "Function",
+    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)\n\n\n\nreminder: we are still in a class\nMethod name : camelCase"
+  },
+  {
+    "objectID": "doc/cours/02-syntax-slides.html#various",
+    "href": "doc/cours/02-syntax-slides.html#various",
+    "title": "Java Syntax",
+    "section": "Various",
+    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\nMath.sqrt(3);\nMath.max(8, 5);\nMath.pow(2, 10);   // 1024\n\n\n++i\n+= works with Strings\n`%: modulo"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html",
+    "href": "doc/cours/02-syntax.html",
+    "title": "Java Syntax",
+    "section": "",
+    "text": "Important\n\n\n\nIn Java, all executable code must be inside a class.\n\n\n\n\nNot anymore !"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html#first-of-all",
+    "href": "doc/cours/02-syntax.html#first-of-all",
+    "title": "Java Syntax",
+    "section": "",
+    "text": "Important\n\n\n\nIn Java, all executable code must be inside a class.\n\n\n\n\nNot anymore !"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html#hello-world",
+    "href": "doc/cours/02-syntax.html#hello-world",
+    "title": "Java Syntax",
+    "section": "Hello World",
+    "text": "Hello World\n\n\nHelloWord.java\n\nclass HelloWorld {\n    public static void main(String[] args) { \n        String message = \"Hello World!\";\n        System.out.println(message);\n    }\n}\n\n\ncompile: javac HelloWord.java\n\ncreate file HelloWord.class\n\nrun: java HelloWord\nexit: CTRL + C\n\n\n\nyou only write .java files\nmain method"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html#syntax",
+    "href": "doc/cours/02-syntax.html#syntax",
+    "title": "Java Syntax",
+    "section": "Syntax",
+    "text": "Syntax\n\nA Line of code ends with a semicolon ;\nBlocs are delimited with curly braces: { }\nComments\n\n// one line\n/* multi-lines */\n\n\n\nNaming Conventions\n\nClasses: PascalCase\nVariables, Methods: camelCase\nConstants: UPPERCASE_WITH_UNDERSCORES\nPackages: lowercase, dot-separated\n\npackage com.example.utils;"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html#variables-and-data-types",
+    "href": "doc/cours/02-syntax.html#variables-and-data-types",
+    "title": "Java Syntax",
+    "section": "Variables and Data Types",
+    "text": "Variables and Data Types\nint age = 25;\nfinal double PI = 3.14;        // final : Immutable\n\nboolean isJavaFun = true;\n\nchar grade = 'A';             // single quote\nString name = \"Léa\";          // double quote\n\nvar i = 2F;                   // type inference -&gt; float\n\n\nstrong typing, immutable type\nprimitive, object\nString\n\nnot a primitive data type\nString is a Class\nimmutable: Any modification creates a new string in memory\n\n\n\n\nPrimitive type vs Object\n\n\n\n\nint\nInteger\n\n\n\n\nNature\nPrimitive\nObject (Wrapper)\n\n\nNullable\n❌ No\n✅ Yes\n\n\nPerformance\n⭐ Very fast\nSlightly slower\n\n\nMemory usage\nLow\nHigher (object overhead)\n\n\nTypical uses\nCalculations, loops\nCollections, APIs\n\n\n\n\n\nint stores the value directly\nInteger wraps an int inside an object\nRequired in collections (e.g., ArrayList&lt;Integer&gt;)\n\nint a = 5;\nInteger b = 5;   // Autoboxing\nint c = b;       // Unboxing\n\n\n\nBoolean\nboolean isJavaFun = true;\nboolean hasBrother = false;\n\nboolean isFast = 20 &gt; 15;\n\nisJavaFun && !false || true;\n\n\nlowercase booleans\nNo need for == true\n\n\n\n\nString\nString s = \"Java\";\nString fullName = \"Alain\" + \" \" + \"Philippe\";   // concat\n\ns.length();\ns.charAt(0);          // Get character at index 0\ns.contains(\"va\");\ns.toLowerCase();      // also toUpperCase\ns.endsWith(\"Java\");   // also startsWith\n\ns.equals(\"Java\");     // Use equals to compare, not ==\n\nString textBlock = \"\"\"\n        First line\n        Second line\n        \"\"\";\nOthers: replace(), split()\n\n\nString objects are immutable\n\n➡️ their content can never be modified after creation\n\n\nWhen an operation appears to modify a string, Java actually creates a new object.\nString s = \"hello\";\n\ns.toUpperCase();      // dont modify s\ns = s.toUpperCase();  // creates a new String and affect it to variable s\n\n\n\nFormat String\n\nPrettier than concatenating\ncreates a formatted string using placeholders\n\nString name = \"Tiphaine\";\nint age = 5;\nString s = String.format(\"My name is %s and i'm %d years old\", name, age);\n\ndouble price = 19.90;\nString s = String.format(\"Price: %.2f\", price);\n\n\nType casting\ndouble num1 = 9.78;\nint num2 = (int) num1;                   // Casting Narrowing\n\nString str1 = \"123\";\nint num1 = Integer.parseInt(str1);       // String to int\n\nString str2 = String.valueOf(num1);      // int to String\nString str3 = num1 + \"\"\ntoString() for Object types"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html#print",
+    "href": "doc/cours/02-syntax.html#print",
+    "title": "Java Syntax",
+    "section": "Print",
+    "text": "Print\n\nSystem.out.print(\"Hello\");\nSystem.out.println(\"Hello\");\n\nadds a new line\n\nSystem.out ➡️ Standard output stream\n\n\n\n\\n: carriage return\nKeyboard shortcut"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html#structures",
+    "href": "doc/cours/02-syntax.html#structures",
+    "title": "Java Syntax",
+    "section": "Structures",
+    "text": "Structures\n\nif-else\nint number = 10;\n\nif (number &gt; 0) {\n    System.out.println(\"Positive number\");\n} else if (number &lt; 0) {\n    System.out.println(\"Negative number\");\n} else {\n    System.out.println(\"Zero\");\n}\n\n⚠️ Don’t forget the brackets ()\n\n\n\nTernary Operator\n\nShorter alternative to if-else\n\nString status = (number &gt; 0) ? \"Positive\" : \"Negative\";\n\n\nSwitch\nString fruit = \"lemon\";\n\nswitch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; System.out.println(\"Red fruit\");\n    case \"banana\", \"lemon\" -&gt; System.out.println(\"Yellow fruit\");\n    default -&gt; System.out.println(\"Unknown fruit\");\n}\n\n\nswitch can return a value\n\nString color = switch (fruit) {\n    case \"cherry\", \"strawberry\" -&gt; \"Red fruit\";\n    case \"banana\", \"lemon\" -&gt; \"Yellow fruit\";\n    default -&gt; \"Unknown fruit\";\n};\n\n\n\nFor\nfor (int i = 0; i &lt; 5; i++) {\n    System.out.println(\"Iteration: \" + i);\n}\n\ninitialization: i = 0\ncondition: i &lt; 5\nupdate: i++\n\n\n\ncondition: checked before entering\nupdate: after each iteration\n\n\n\ncasimir.java\n\nint i = 0;\nfor ( ; ; ) {\n    if ( i &lt; 5)\n        break;\n    System.out.println(\"Iteration: \" + i);\n    i++;\n}\n\n\n\n\nFor each\n\nIterating through arrays, lists\n\nint[] numbers = {1, 2, 3, 4};\n\nfor (int num: numbers) {\n    System.out.println(num);\n}\n\nfirst and last time I’m going to talk about arrays\n\n\n\nWhile\nint i = 10;\nwhile (i &gt;= 0) {\n    System.out.println(i);\n    i--;\n}\n\ndo-while to check after each iteration\ndo { ...\n} while { ... }\n\n\n\nbreak / continue\nfor (int i = 0; i &lt; 10; i++) {\n    if (i == 2)\n        continue;\n    else if (i == 4)\n        break;\n    System.out.println(\"Iteration: \" + i);\n}\n\n\nIteration: 0\nIteration: 1\nIteration: 3\n\n\nbreak: exit a single loop"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html#function",
+    "href": "doc/cours/02-syntax.html#function",
+    "title": "Java Syntax",
+    "section": "Function",
+    "text": "Function\npublic int add(int a, int b) {\n    return a + b;\n}\n\nAccess modifier: public\nReturn type: int\nMethod name: add\nParameters: (int a, int b)\n\n\n\nreminder: we are still in a class\nMethod name : camelCase\n\n\n\nVoid\n\nIndicate that a method does not return any value\n\npublic void printIsOdd(int n) {\n    System.out.println(n % 2 != 0);\n}\n\n\nAccess Modifiers\nMethods and Attributes Accessiblility\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
+  },
+  {
+    "objectID": "doc/cours/02-syntax.html#various",
+    "href": "doc/cours/02-syntax.html#various",
+    "title": "Java Syntax",
+    "section": "Various",
+    "text": "Various\nint i = 0;\n\ni++;                // increment by 1\ni += 3;             // i = i + 3 \n\nMath.sqrt(3);\nMath.max(8, 5);\nMath.pow(2, 10);   // 1024\n\n\n++i\n+= works with Strings\n`%: modulo"
+  },
+  {
+    "objectID": "doc/cours/01-intro-slides.html#introduction-to-java",
+    "href": "doc/cours/01-intro-slides.html#introduction-to-java",
     "title": "Introduction",
     "section": "Introduction to Java",
     "text": "Introduction to Java\n\n6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nclass based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#objectives",
-    "href": "doc/cours/intro-slides.html#objectives",
+    "objectID": "doc/cours/01-intro-slides.html#objectives",
+    "href": "doc/cours/01-intro-slides.html#objectives",
     "title": "Introduction",
     "section": "Objectives",
     "text": "Objectives\n\nLearn the basic syntax of Java\nUnderstand key OOP concepts\nLearn how to use collections\nBest practices"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#tp",
-    "href": "doc/cours/intro-slides.html#tp",
+    "objectID": "doc/cours/01-intro-slides.html#tp",
+    "href": "doc/cours/01-intro-slides.html#tp",
     "title": "Introduction",
     "section": "TP",
     "text": "TP\n\n4 x 3h\nDatalab SSPCloud\nFollow instructions precisely\nDon’t use GenAI"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#evaluation",
-    "href": "doc/cours/intro-slides.html#evaluation",
+    "objectID": "doc/cours/01-intro-slides.html#evaluation",
+    "href": "doc/cours/01-intro-slides.html#evaluation",
     "title": "Introduction",
     "section": "Evaluation",
     "text": "Evaluation\n\nGraded TP\n\n2 students max per group\nto be completed at home\n\nTable-top exam\n\nduration: 1h30\na handwritten A4 sheet allowed"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#why-java",
-    "href": "doc/cours/intro-slides.html#why-java",
+    "objectID": "doc/cours/01-intro-slides.html#why-java",
+    "href": "doc/cours/01-intro-slides.html#why-java",
     "title": "Introduction",
     "section": "Why Java",
     "text": "Why Java"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#compiler",
-    "href": "doc/cours/intro-slides.html#compiler",
+    "objectID": "doc/cours/01-intro-slides.html#compiler",
+    "href": "doc/cours/01-intro-slides.html#compiler",
     "title": "Introduction",
     "section": "Compiler",
     "text": "Compiler\n\nTransform java code into bytecode\nDetects syntax and type errors\nOptimization\njavac MyClass.java ➡️ create file MyClass.class"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#jvm",
-    "href": "doc/cours/intro-slides.html#jvm",
+    "objectID": "doc/cours/01-intro-slides.html#jvm",
+    "href": "doc/cours/01-intro-slides.html#jvm",
     "title": "Introduction",
     "section": "JVM",
     "text": "JVM\n\n\n\n\n\n\n\nDefinition\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\n\n\njava MyClass ➡️ run main method"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#java-vs-python",
-    "href": "doc/cours/intro-slides.html#java-vs-python",
+    "objectID": "doc/cours/01-intro-slides.html#java-vs-python",
+    "href": "doc/cours/01-intro-slides.html#java-vs-python",
     "title": "Introduction",
     "section": "Java Vs Python",
     "text": "Java Vs Python\n\n\n\n\n\n\n\n\n\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping: int x = 10; vs x = 10\nInterpreted: exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)"
   },
   {
-    "objectID": "doc/cours/intro-slides.html#resources",
-    "href": "doc/cours/intro-slides.html#resources",
+    "objectID": "doc/cours/01-intro-slides.html#resources",
+    "href": "doc/cours/01-intro-slides.html#resources",
     "title": "Introduction",
     "section": "Resources",
     "text": "Resources\n\nhttps://www.baeldung.com/get-started-with-java-series\nhttps://www.w3schools.com/java/\nhttps://www.jmdoudoux.fr/accueil_java.htm"
   },
   {
-    "objectID": "doc/cours/intro.html",
-    "href": "doc/cours/intro.html",
+    "objectID": "doc/cours/01-intro.html",
+    "href": "doc/cours/01-intro.html",
     "title": "Introduction",
     "section": "",
     "text": "6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nclass based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
   },
   {
-    "objectID": "doc/cours/intro.html#introduction-to-java",
-    "href": "doc/cours/intro.html#introduction-to-java",
+    "objectID": "doc/cours/01-intro.html#introduction-to-java",
+    "href": "doc/cours/01-intro.html#introduction-to-java",
     "title": "Introduction",
     "section": "",
     "text": "6h CM\n12h TP\nludovic.deneuville@ensai.fr\noffice 161\nclass based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt"
   },
   {
-    "objectID": "doc/cours/intro.html#objectives",
-    "href": "doc/cours/intro.html#objectives",
+    "objectID": "doc/cours/01-intro.html#objectives",
+    "href": "doc/cours/01-intro.html#objectives",
     "title": "Introduction",
     "section": "Objectives",
     "text": "Objectives\n\nLearn the basic syntax of Java\nUnderstand key OOP concepts\nLearn how to use collections\nBest practices"
   },
   {
-    "objectID": "doc/cours/intro.html#tp",
-    "href": "doc/cours/intro.html#tp",
+    "objectID": "doc/cours/01-intro.html#tp",
+    "href": "doc/cours/01-intro.html#tp",
     "title": "Introduction",
     "section": "TP",
     "text": "TP\n\n4 x 3h\nDatalab SSPCloud\nFollow instructions precisely\nDon’t use GenAI"
   },
   {
-    "objectID": "doc/cours/intro.html#evaluation",
-    "href": "doc/cours/intro.html#evaluation",
+    "objectID": "doc/cours/01-intro.html#evaluation",
+    "href": "doc/cours/01-intro.html#evaluation",
     "title": "Introduction",
     "section": "Evaluation",
     "text": "Evaluation\n\nGraded TP\n\n2 students max per group\nto be completed at home\n\nTable-top exam\n\nduration: 1h30\na handwritten A4 sheet allowed"
   },
   {
-    "objectID": "doc/cours/intro.html#why-java",
-    "href": "doc/cours/intro.html#why-java",
+    "objectID": "doc/cours/01-intro.html#why-java",
+    "href": "doc/cours/01-intro.html#why-java",
     "title": "Introduction",
     "section": "Why Java",
     "text": "Why Java\n\nHistory / Version\n\nCreated in 1991\n\nby James Gosling and Mike Sheridan (Sun Microsystems)\n\nJava 8 (2014) : Lambda, Stream, Optional\nJava 17 (2021)\nJava 21 (2023)\nJava 25 (sept. 2025)\n\nhttps://www.java.com/\n\n\nFacebook story (Sun Microsystems)\nLTS\n2009 Oracle\n2017 Java 9 -&gt; Modules\n2018 Java 11\nJava 17 : Sealed Classes, Refactor JDK\n\n\n\n\nPopular / Mature\n\nWidely used in all sectors\nBack-end, Mobile, Big Data\nHeavily object-oriented\n\n\n\nEnterprise Applications\nBackend Development (Spring Boot)\nMobile Development (via Kotlin & Android SDK)\nBig Data & Machine Learning\n\n\n\n\nPortability\n\nCompiled to bytecode\nRuns on any machine with a JVM\n“Write Once, Run Anywhere”\n\n\nWORA: desktop, servers, smartphones\n\n\n\nRobust / Secure\n\nAutomatic memory management\nStrong Static Typing\nCompile-Time Checks\n\n\n\nStatic Typing\n\n\n\n\n\n\n\nStatic Typing\nDynamic Typing\n\n\n\n\nType checked at compile time\nType checked at runtime\n\n\nVariable type is declared\nVariable type inferred during execution\n\n\nErrors detected earlier\nMore flexible but errors appear later\n\n\n\n\n\nStrong Typing\n\n\n\nStrong Typing\nWeak Typing\n\n\n\n\nTypes are strictly enforced\nImplicit conversions are common\n\n\nFew automatic casts\nMany implicit conversions\n\n\nSafer and more predictable\nMore flexible but error-prone"
   },
   {
-    "objectID": "doc/cours/intro.html#compiler",
-    "href": "doc/cours/intro.html#compiler",
+    "objectID": "doc/cours/01-intro.html#compiler",
+    "href": "doc/cours/01-intro.html#compiler",
     "title": "Introduction",
     "section": "Compiler",
     "text": "Compiler\n\nTransform java code into bytecode\nDetects syntax and type errors\nOptimization\njavac MyClass.java ➡️ create file MyClass.class"
   },
   {
-    "objectID": "doc/cours/intro.html#jvm",
-    "href": "doc/cours/intro.html#jvm",
+    "objectID": "doc/cours/01-intro.html#jvm",
+    "href": "doc/cours/01-intro.html#jvm",
     "title": "Introduction",
     "section": "JVM",
     "text": "JVM\n\n\n\n\n\n\nNoteDefinition\n\n\n\nThe Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.\nThe JVM :\n\nExecutes bytecode\nInteracts with OS\nManages Memory (Garbage Collection)\n\n\n\n\njava MyClass ➡️ run main method\n\n\nJVM, JDK, JRE\n\nJRE: Java Runtime Environment\nJDK: Java Development Kit\n\n\n\n\nComponent\nPurpose\n\n\n\n\nJVM\nRuns Java bytecode\n\n\nJRE\nContains JVM + libraries to run Java apps\n\n\nJDK\nIncludes JRE + compiler + dev tools\n\n\n\nhttps://openjdk.org/projects/jdk/\n\n\nJRE: java.util, java.io…, $java\n\nto execute java app\n\nJDK: $javac, new libraries\n\nto dev java app"
   },
   {
-    "objectID": "doc/cours/intro.html#java-vs-python",
-    "href": "doc/cours/intro.html#java-vs-python",
+    "objectID": "doc/cours/01-intro.html#java-vs-python",
+    "href": "doc/cours/01-intro.html#java-vs-python",
     "title": "Introduction",
     "section": "Java Vs Python",
     "text": "Java Vs Python\n\n\n\n\n\n\n\n\n\nJava\nPython\n\n\n\n\nTyping\nStrongly typed, static\nStrongly typed, dynamic\n\n\nCompilation\nCompiled into bytecode\nInterpreted\n\n\nPerformance\nVery fast\nSlower\n\n\nSyntax\nVerbose, requires {}\nConcise, uses indentation\n\n\nParadigm\nObject-oriented\nMulti-paradigm\n\n\nEcosystem\nHuge (Spring, Hibernate…)\nLarge (Django, Flask, Pandas…)\n\n\n\n\n\nTyping: int x = 10; vs x = 10\nInterpreted: exécution à la volée\nMulti-paradigm (objet, fonctionnel, impératif)\n\n\n\nHigh-level languages\n\nHuman-readable syntax\nHardware abstraction\nFaster, easier development\nIndirect performance (VM/runtime)\n\n\n\nLow-level languages\n\nClose to hardware\nFine control over memory/resources\nMaximum performance\nHigher complexity\n\n\n\nHigh/Low-level\n\n\n\nLevel\nPriority\nTypical Uses\n\n\n\n\nHigh\nProductivity\nWeb, data, scripting\n\n\nMid\nBalance\nEnterprise, backend\n\n\nLow\nControl & speed\nOS, embedded, real-time\n\n\n\n\n\nHigh : Python\nMid : Java\nLow : Rust\nVery Low : C, Assembly"
   },
   {
-    "objectID": "doc/cours/intro.html#resources",
-    "href": "doc/cours/intro.html#resources",
+    "objectID": "doc/cours/01-intro.html#resources",
+    "href": "doc/cours/01-intro.html#resources",
     "title": "Introduction",
     "section": "Resources",
     "text": "Resources\n\nhttps://www.baeldung.com/get-started-with-java-series\nhttps://www.w3schools.com/java/\nhttps://www.jmdoudoux.fr/accueil_java.htm\n\n\nPractice java language\n\nhttps://codingbat.com/java\nhttps://adventofcode.com/"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#spring",
-    "href": "doc/cours/spring-slides.html#spring",
+    "objectID": "doc/cours/05-project-slides.html#tree-structure",
+    "href": "doc/cours/05-project-slides.html#tree-structure",
+    "title": "Java Project",
+    "section": "Tree structure",
+    "text": "Tree structure"
+  },
+  {
+    "objectID": "doc/cours/05-project-slides.html#packages",
+    "href": "doc/cours/05-project-slides.html#packages",
+    "title": "Java Project",
+    "section": "Packages",
+    "text": "Packages\n\nA way to organize Java classes and interfaces into namespaces\nUsed to group related classes together\nHelp to prevent naming conflicts\n\n\n\nSimilar to folders or directories in a file system"
+  },
+  {
+    "objectID": "doc/cours/05-project-slides.html#maven",
+    "href": "doc/cours/05-project-slides.html#maven",
+    "title": "Java Project",
+    "section": "Maven",
+    "text": "Maven"
+  },
+  {
+    "objectID": "doc/cours/05-project-slides.html#deployment",
+    "href": "doc/cours/05-project-slides.html#deployment",
+    "title": "Java Project",
+    "section": "Deployment",
+    "text": "Deployment"
+  },
+  {
+    "objectID": "doc/cours/05-project.html",
+    "href": "doc/cours/05-project.html",
+    "title": "Java Project",
+    "section": "",
+    "text": "Maintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\n\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
+  },
+  {
+    "objectID": "doc/cours/05-project.html#tree-structure",
+    "href": "doc/cours/05-project.html#tree-structure",
+    "title": "Java Project",
+    "section": "",
+    "text": "Maintainability: Easier to find and modify code\nReadability: Improves understanding for developers\nCollaboration: Essential for team projects\nBuild Process: Tools (Maven/Gradle) rely on it\n\n\n\n\n\nsrc: The root directory for source code.\nmain: Contains the application’s core code.\ntest: Contains code for testing the application.\nresources: Non-Code Files (config files, images, text files…)\ntarget: Output directory for compiled code\n\n\nlibrary-project/\n├── pom.xml\n└── src/\n|   ├── main/\n|   │   ├── java/\n|   │   │   └── fr/\n|   │   │       └── ensai/\n|   │   │           └── library/\n|   │   │               ├── Book.java\n|   │   │               └── Author.java\n|   │   └── resources/\n|   │       └── books.csv\n|   └── test/\n|       └── java/\n|           └── fr/\n|               └── ensai/\n|                   └── library/\n|                       └── BookTest.java\n└── target/\n\nbottom level library divided :\n\nservice\ndao\nbusiness_object\n\ntest : Mirrors the main structure"
+  },
+  {
+    "objectID": "doc/cours/05-project.html#packages",
+    "href": "doc/cours/05-project.html#packages",
+    "title": "Java Project",
+    "section": "Packages",
+    "text": "Packages\n\nA way to organize Java classes and interfaces into namespaces\nUsed to group related classes together\nHelp to prevent naming conflicts\n\n\n\nSimilar to folders or directories in a file system\n\n\n\nPackage Naming Conventions\n\nNamed in lowercase\nReverse domain name notation\nExamples:\n\nfr.ensai.library\ncom.myorg.myapp.service\n\n\n\nservice, dao…\n\n\n\nExample\npackage fr.ensai.library;\n\npublic class Book{\n    ...\n}\n\n\nImporting Packages\n\nTo use classes from other packages\nimport fr.ensai.library.dao;\n\n\n\nNo need to import classes from the same package\nAvoid import fr.ensai.library.*"
+  },
+  {
+    "objectID": "doc/cours/05-project.html#maven",
+    "href": "doc/cours/05-project.html#maven",
+    "title": "Java Project",
+    "section": "Maven",
+    "text": "Maven\n\nWhat is Maven?\n\nA powerful build automation tool for Java projects\nHelps manage dependencies\n\nDownload from Maven Central repo\n\nProvides a standardized build lifecycle\n\n\n\ndependencies: external libraries your project needs\nlifecycle: compile, test, package\n\nessential just to manage dependencies\nAlternative: Gradle\n\n\n\nWhy Use Maven?\n\nSimplifies dependency management: No more manual downloads\nEnsures consistent builds: Everyone uses the same process\nPromotes best practices: Encourages a well-defined project structure\n\n\n\nwithoud maven : java -cp &lt;all_dependencies&gt; Main\n\n\n\n\nPOM\n\nProject Object Model\na configuration file: pom.xml\ndescribes your project and its dependencies\n\n\n\npom.xml\n\n\npom.xml\n\n&lt;project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\"&gt;\n    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\n\n    &lt;groupId&gt;fr.ensai&lt;/groupId&gt;\n    &lt;artifactId&gt;library&lt;/artifactId&gt;\n    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;\n\n    &lt;properties&gt;\n        &lt;maven.compiler.source&gt;21&lt;/maven.compiler.source&gt;\n        &lt;maven.compiler.target&gt;21&lt;/maven.compiler.target&gt;\n    &lt;/properties&gt;\n\n    &lt;dependencies&gt;\n        &lt;!-- JUnit for testing --&gt;\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;\n            &lt;version&gt;5.9.1&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n    &lt;/dependencies&gt;\n\n    &lt;build&gt;\n        &lt;plugins&gt;\n            &lt;plugin&gt;\n                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;\n                &lt;version&gt;3.8.1&lt;/version&gt;\n                &lt;configuration&gt;\n                    &lt;source&gt;21&lt;/source&gt;\n                    &lt;target&gt;21&lt;/target&gt;\n                &lt;/configuration&gt;\n            &lt;/plugin&gt;\n        &lt;/plugins&gt;\n    &lt;/build&gt;\n&lt;/project&gt;\n\n\n\nArtifacts\n\nPackaged component with unique ID: groupId, artifactId, version.\nVersioning: Essential to identify artifacts\n\nMajor.Minor.Bugfix\nDevelopment: -SNAPSHOT versions\n\n\n\n\nmaven.compiler.source: Java source version compatibility for the compiler\nmaven.compiler.target: Determines the Java Runtime Environment (JRE) versions on which the compiled code can run\n\n\n\n\nDependencies\n\nExternal libraries your project relies on\nMaven downloads and manages these dependencies automatically\nExample: JUnit, database connectors, logging frameworks\n\nhttps://mvnrepository.com/\n\n\nPlugins\n\nExtend Maven’s functionality\nExamples:\n\nmaven-compiler-plugin,\nmaven-surefire-plugin (for testing)\n\nHelp with tasks like compiling code, running tests, creating JAR files\n\n\n\nLifecycles\n\nmvn clean: Deletes the target directory.\nmvn compile: Compiles the project’s source code.\nmvn test: Runs the unit tests.\nmvn package: Packages the compiled code into a JAR file.\nmvn exec:java: Runs the application.\nmvn site: Generates the project documentation website."
+  },
+  {
+    "objectID": "doc/cours/05-project.html#deployment",
+    "href": "doc/cours/05-project.html#deployment",
+    "title": "Java Project",
+    "section": "Deployment",
+    "text": "Deployment\n\nPackaging for deployment\n\nCreation of a JAR file (for API)\nOr a WAR file (for web applications)\n\nUse a Tomcat server\n\n\n\n\n\n\n\n\nNoteJAR file\n\n\n\n\nA package file format used to aggregate many Java class files and associated resources into a single file\nBased on the ZIP file format\n\n\n\n\n\nWAR: Designed for deployment on a Java web server (e.g., Tomcat, Jetty, WildFly).\nJAR: simply run it java -jar my-api.jar on a server or using Docker\nUse Docker\nBackend (Business logic)\n\nJava Application history\n\nmonolith struts\nback Java / front JS\nArchi 3-tiers\n\n\n\n\nDeployment history\n\nMonolith\nVirtualisation\nContainerization\nOrchestration\n\n\n\nMonolith\n\none physical server: one app\nUnderutilized server resources\n\nVirtualisation\n\nApplication isolation\nIssue: compatibility\n\nContainerization\n\nPortability\n\nOrchestration\n\nAutomated container management\n\n\nBefore: Filezilla, integrator, it work on my machine\nNow: CICD, git, devops"
+  },
+  {
+    "objectID": "doc/cours/08-spring-slides.html#spring",
+    "href": "doc/cours/08-spring-slides.html#spring",
     "title": "An API with Spring Boot",
     "section": "Spring",
     "text": "Spring\n\nProgram:\n\nAnnotations\nLayered Architecture\nSpring Boot\nData mapping\nHow to create an API\n\n🚧\n\nhttps://rules.sonarsource.com/java/\nAPi Java https://ensai-school.github.io/software-engineering-2021-2022/\n\nhttps://www.geeksforgeeks.org/introduction-to-spring-framework/ https://www.geeksforgeeks.org/spring/ https://www.geeksforgeeks.org/introduction-to-spring-boot/ https://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/overview.html\nhttps://gayerie.dev/docs/spring/index.html"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#annotations",
-    "href": "doc/cours/spring-slides.html#annotations",
+    "objectID": "doc/cours/08-spring-slides.html#annotations",
+    "href": "doc/cours/08-spring-slides.html#annotations",
     "title": "An API with Spring Boot",
     "section": "Annotations",
     "text": "Annotations"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#layers",
-    "href": "doc/cours/spring-slides.html#layers",
+    "objectID": "doc/cours/08-spring-slides.html#layers",
+    "href": "doc/cours/08-spring-slides.html#layers",
     "title": "An API with Spring Boot",
     "section": "Layers",
     "text": "Layers"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#spring-boot",
-    "href": "doc/cours/spring-slides.html#spring-boot",
+    "objectID": "doc/cours/08-spring-slides.html#spring-boot",
+    "href": "doc/cours/08-spring-slides.html#spring-boot",
     "title": "An API with Spring Boot",
     "section": "Spring Boot",
     "text": "Spring Boot"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#properties",
-    "href": "doc/cours/spring-slides.html#properties",
+    "objectID": "doc/cours/08-spring-slides.html#properties",
+    "href": "doc/cours/08-spring-slides.html#properties",
     "title": "An API with Spring Boot",
     "section": "Properties",
     "text": "Properties\n\n\nold: application.properties\nnew: yaml"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#data-mapping",
-    "href": "doc/cours/spring-slides.html#data-mapping",
+    "objectID": "doc/cours/08-spring-slides.html#data-mapping",
+    "href": "doc/cours/08-spring-slides.html#data-mapping",
     "title": "An API with Spring Boot",
     "section": "Data Mapping",
     "text": "Data Mapping\n\nStep 3: deal with data\n\nI would remind you that the aim is to send the data up to the GUI\nWe want to get data from database to our app"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#repository",
-    "href": "doc/cours/spring-slides.html#repository",
+    "objectID": "doc/cours/08-spring-slides.html#repository",
+    "href": "doc/cours/08-spring-slides.html#repository",
     "title": "An API with Spring Boot",
     "section": "Repository",
     "text": "Repository"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#controller",
-    "href": "doc/cours/spring-slides.html#controller",
+    "objectID": "doc/cours/08-spring-slides.html#controller",
+    "href": "doc/cours/08-spring-slides.html#controller",
     "title": "An API with Spring Boot",
     "section": "Controller",
     "text": "Controller"
   },
   {
-    "objectID": "doc/cours/spring-slides.html#run-application",
-    "href": "doc/cours/spring-slides.html#run-application",
+    "objectID": "doc/cours/08-spring-slides.html#run-application",
+    "href": "doc/cours/08-spring-slides.html#run-application",
     "title": "An API with Spring Boot",
     "section": "Run application",
     "text": "Run application"
   },
   {
-    "objectID": "doc/cours/spring.html",
-    "href": "doc/cours/spring.html",
+    "objectID": "doc/cours/08-spring.html",
+    "href": "doc/cours/08-spring.html",
     "title": "An API with Spring Boot",
     "section": "",
     "text": "Program:\n\nAnnotations\nLayered Architecture\nSpring Boot\nData mapping\nHow to create an API\n\n🚧\n\nhttps://rules.sonarsource.com/java/\nAPi Java https://ensai-school.github.io/software-engineering-2021-2022/\n\nhttps://www.geeksforgeeks.org/introduction-to-spring-framework/ https://www.geeksforgeeks.org/spring/ https://www.geeksforgeeks.org/introduction-to-spring-boot/ https://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/overview.html\nhttps://gayerie.dev/docs/spring/index.html\n\n\n\n\nOpen-source, lightweight framework\nSimplifies Java development\nLoosely coupled components\nPromotes good design practices\nMakes integration with other systems seamless\n\n\n\nimproving:\n\nmaintainability\ntestability\nflexibility\n\n\nBuilding a Java application without Spring is like trying to build a house without power tools.\nAlternatives: JEE (old), Quarkus, Micronaut\nLike Django or Flask for Python\n\n\n\n\n\nSpring MVC: to build web applications\nSpring Security: authentication, authorization…\nSpring Data: simplifies database access\nSpring Batch: handling large-scale batch processing\n\n\n\nWith Spring, you’re stepping into a realm where much of the ‘magic’ happens behind the scenes\nmany functionalities are implicitly handled\nSpring’s power lies in its ability to handle a lot of the boilerplate code\nyou define your beans and dependencies, and Spring wires them together seamlessly\n\n\n\n\n\n\nInversion of Control (IoC)\nDependency Injection (DI)\nAspect-Oriented Programming (AOP)\n\n\n\nIoc\n\ncontrol flow of a program is inverted\nReduces the dependencies between components\nmaking the codebase more modular\nPromotes loose coupling\n\nAOP: A module that encapsulates cross-cutting functionality\n\nWrapper for log, security\n\n\n\n\n\n\n\n\nBread.java\n\npublic class Bread {\n    private boolean isToasted;\n\n    public void toast(){\n        this.isToasted = true;\n    }\n}\n\n\n\n\nSandwich.java\n\npublic class Sandwich {\n    private Bread bread;\n    private ArrayList&lt;String&gt; ingredients;\n\n    public Sandwich(Bread bread) {\n        this.bread = bread;\n    }\n}\n\n\n\nCreate a Bread object\nCreate the sandwich object\n\n\nBread bread = new Bread();\nSandwich sandwich = new Sandwich(bread);\n\n\n\n\n\nBread.java\n\n@Component\npublic class Bread {\n    private boolean isToasted;\n\n    public void toast(){\n        this.isToasted = true;\n    }\n}\n\n\n\n\nSandwich.java\n\npublic class Sandwich {\n    @Autowired\n    private Bread bread;\n    \n    private ArrayList&lt;String&gt; ingredients;\n}\n\n\n\nhttps://www.baeldung.com/spring-bean\n\n\n\n\n\n\nSpring scans @Component classes\nIt automatically creates and injects a Bread instance into Sandwich\nThe @Autowired annotation tells Spring to resolve and inject the dependency\nComponent subclasses: @Service, @Repository, @Controller\n\n\n\nComponent: Bean\n\n\n\n\n\n\nNo args constructor\nManaged by the Spring IoC container\nScope (Singleton, Prototype)\nLifecycle (creation, usage, destruction)\n\n\n\nNoArgs: allows Spring to create the bean instance without having to worry about the parameters\nPrototype: new instance when called"
   },
   {
-    "objectID": "doc/cours/spring.html#spring",
-    "href": "doc/cours/spring.html#spring",
+    "objectID": "doc/cours/08-spring.html#spring",
+    "href": "doc/cours/08-spring.html#spring",
     "title": "An API with Spring Boot",
     "section": "",
     "text": "Program:\n\nAnnotations\nLayered Architecture\nSpring Boot\nData mapping\nHow to create an API\n\n🚧\n\nhttps://rules.sonarsource.com/java/\nAPi Java https://ensai-school.github.io/software-engineering-2021-2022/\n\nhttps://www.geeksforgeeks.org/introduction-to-spring-framework/ https://www.geeksforgeeks.org/spring/ https://www.geeksforgeeks.org/introduction-to-spring-boot/ https://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/overview.html\nhttps://gayerie.dev/docs/spring/index.html\n\n\n\n\nOpen-source, lightweight framework\nSimplifies Java development\nLoosely coupled components\nPromotes good design practices\nMakes integration with other systems seamless\n\n\n\nimproving:\n\nmaintainability\ntestability\nflexibility\n\n\nBuilding a Java application without Spring is like trying to build a house without power tools.\nAlternatives: JEE (old), Quarkus, Micronaut\nLike Django or Flask for Python\n\n\n\n\n\nSpring MVC: to build web applications\nSpring Security: authentication, authorization…\nSpring Data: simplifies database access\nSpring Batch: handling large-scale batch processing\n\n\n\nWith Spring, you’re stepping into a realm where much of the ‘magic’ happens behind the scenes\nmany functionalities are implicitly handled\nSpring’s power lies in its ability to handle a lot of the boilerplate code\nyou define your beans and dependencies, and Spring wires them together seamlessly\n\n\n\n\n\n\nInversion of Control (IoC)\nDependency Injection (DI)\nAspect-Oriented Programming (AOP)\n\n\n\nIoc\n\ncontrol flow of a program is inverted\nReduces the dependencies between components\nmaking the codebase more modular\nPromotes loose coupling\n\nAOP: A module that encapsulates cross-cutting functionality\n\nWrapper for log, security\n\n\n\n\n\n\n\n\nBread.java\n\npublic class Bread {\n    private boolean isToasted;\n\n    public void toast(){\n        this.isToasted = true;\n    }\n}\n\n\n\n\nSandwich.java\n\npublic class Sandwich {\n    private Bread bread;\n    private ArrayList&lt;String&gt; ingredients;\n\n    public Sandwich(Bread bread) {\n        this.bread = bread;\n    }\n}\n\n\n\nCreate a Bread object\nCreate the sandwich object\n\n\nBread bread = new Bread();\nSandwich sandwich = new Sandwich(bread);\n\n\n\n\n\nBread.java\n\n@Component\npublic class Bread {\n    private boolean isToasted;\n\n    public void toast(){\n        this.isToasted = true;\n    }\n}\n\n\n\n\nSandwich.java\n\npublic class Sandwich {\n    @Autowired\n    private Bread bread;\n    \n    private ArrayList&lt;String&gt; ingredients;\n}\n\n\n\nhttps://www.baeldung.com/spring-bean\n\n\n\n\n\n\nSpring scans @Component classes\nIt automatically creates and injects a Bread instance into Sandwich\nThe @Autowired annotation tells Spring to resolve and inject the dependency\nComponent subclasses: @Service, @Repository, @Controller\n\n\n\nComponent: Bean\n\n\n\n\n\n\nNo args constructor\nManaged by the Spring IoC container\nScope (Singleton, Prototype)\nLifecycle (creation, usage, destruction)\n\n\n\nNoArgs: allows Spring to create the bean instance without having to worry about the parameters\nPrototype: new instance when called"
   },
   {
-    "objectID": "doc/cours/spring.html#annotations",
-    "href": "doc/cours/spring.html#annotations",
+    "objectID": "doc/cours/08-spring.html#annotations",
+    "href": "doc/cours/08-spring.html#annotations",
     "title": "An API with Spring Boot",
     "section": "Annotations",
     "text": "Annotations\n\nWhat is Annotation?\n\nPreceded by an @\nAssigns extra metadata\nModify or examine behavior\nHeavily used in Spring\n\n\n\nApplied to class, method, interface, attribute\nUse for:\n\ndocumentation (Override, Deprecated)\nConfig\nRuntime processing\n\nPossible to create your own\n\n\n\n\nLombok\n\nJava library\nReduce boilerplate\nCleaner and more readable code\nhttps://projectlombok.org/\n\n\n\nIsland of Indonesia: Lombok, Java\nboilerplate: repetitive code\n\n\n\n\nLombok Annotations\nAuto-generates:\n\n@Getter and @Setter\n@AllArgsConstructor\n@NoArgsConstructor\n\n\nimport lombok.AllArgsConstructor;\nimport lombok.Getter;\nimport lombok.Setter;\n\n@AllArgsConstructor\n@Getter\npublic class Book {\n    private String title;\n\n    @Setter\n    private String author;\n}\n\n\nGetter and Setter: Class or Attribute level"
   },
   {
-    "objectID": "doc/cours/spring.html#layers",
-    "href": "doc/cours/spring.html#layers",
+    "objectID": "doc/cours/08-spring.html#layers",
+    "href": "doc/cours/08-spring.html#layers",
     "title": "An API with Spring Boot",
     "section": "Layers",
     "text": "Layers\n\nReminder\n\nController: API\nService: Business Logic\nRepository: Data Access Object\nModel: Entities\n\n\n\nController:\n\nHandles incoming HTTP requests from the client\nProcesses the request and sends a response\n\nRepository: CRUD\nentities (business_objects):\n\nMaps to tables in the database using JPA/Spring Data\nJPA: Java Persistence API\n\n\n\n\n\n\n3-tier architecture:\n\nclassic software design pattern that separates an application into three logical layers\nPresentation Tier (UI)\nApplication Tier (Business Logic)\nData Tier (Data Storage)\n\nKey Benefits: maintainability scalability, security (layer separation), code reusability\n\n\nZoom on Business Layer\n\n\n\nWorkflow\n\nA client sends an HTTPS request\nThe request is received by the Controller\nIf needed, the Controller calls the Service Layer\nThe Service Layer executes the business logic and interacts with the Repository Layer to perform data operations\nThe Repository Layer retrieves or modifies data in the database using JPA\nThe response is sent back to the client\n\n\n\n\nSequence diagram\n\nOn the GUI, you click on the book entitled ‘Java’\nThe front office asks the back office for informations\n\n\n\n\n\n\n\nsequenceDiagram\n    participant Client\n    participant Controller\n    participant Service\n    participant Repository\n    participant Database\n\n    Client-&gt;&gt;Controller: GET /books?title=Java\n    Controller-&gt;&gt;Service: getBookByTitle(\"Java\")\n    Service-&gt;&gt;Repository: findByTitle(\"Java\")\n    Repository-&gt;&gt;Database: SELECT * FROM books WHERE title=\"Java\"\n    Database--&gt;&gt;Repository: Returns book data\n    Repository--&gt;&gt;Service: Returns Book entity\n    Service--&gt;&gt;Controller: Returns Book DTO\n    Controller--&gt;&gt;Client: HTTP 200 OK (Book JSON)\n\n\n\n\n\n\n\n\n\n\nHTTP status codes\n\n\n\n\n\n\n\n\nHTTP Status Code\nDescription\n\n\n\n\n200 OK\nThe request was successful.\n\n\n400 Bad Request\nThe server could not understand the request due to invalid syntax.\n\n\n401 Unauthorized\nAuthentication is required, and the client should authenticate itself.\n\n\n403 Forbidden\nThe client does not have access rights to the content.\n\n\n404 Not Found\nThe server can not find the requested resource.\n\n\n500 Internal Server Error\nThe server encountered an unexpected error.\n\n\n501 Not Implemented\nThe server does not support requested functionality.\n\n\n502 Bad Gateway\nThe server received an invalid response from the upstream server.\n\n\n503 Service Unavailable\nThe server is not ready to handle the request.\n\n\n\n\n\n\nClient side: The problem is with your device or browser.\nServer side: The problem is with the website you are trying to use."
   },
   {
-    "objectID": "doc/cours/spring.html#spring-boot",
-    "href": "doc/cours/spring.html#spring-boot",
+    "objectID": "doc/cours/08-spring.html#spring-boot",
+    "href": "doc/cours/08-spring.html#spring-boot",
     "title": "An API with Spring Boot",
     "section": "Spring Boot",
     "text": "Spring Boot\n\nWhy use Spring Boot?\n\nIncludes all Spring features\nSimplify configuration\nAllows developers to focus on business logic\nQuick development of production-ready applications\nOptimisation of dependency management\n\n\n\nFeatures\n\nAuto-Configuration\nCreat REST APIs is easy\nEmbedded Tomcat Server\n\n\nEmbedded Tomcat Server:\n\nallows you to run and test your application quickly\nSelf-Contained Applications: Spring Boot packages your application and the Tomcat server into a single executable JAR\nReduced Configuration\n\n\n\n\nStarters\nDependencies:\n\nspring-boot-starter-core\nspring-boot-starter-data-jpa\nspring-boot-starter-test\nspring-boot-starter-web\n\n\n\nCreate a project\n\nhttps://start.spring.io/\nGenerate a zip\n\nincluding project tree\nincluding pom with selected dependencies\n\n\n\nStep 1: create project, select dependencies"
   },
   {
-    "objectID": "doc/cours/spring.html#properties",
-    "href": "doc/cours/spring.html#properties",
+    "objectID": "doc/cours/08-spring.html#properties",
+    "href": "doc/cours/08-spring.html#properties",
     "title": "An API with Spring Boot",
     "section": "Properties",
     "text": "Properties\n\n\nold: application.properties\nnew: yaml\n\n\n\napplication.yml\nserver:\n  port: 9000\n\nspring:\n  application:\n    name: running\n  datasource:\n    driver-class-name: org.h2.Driver\n    url: jdbc:h2:mem:bootapp;DB_CLOSE_DELAY=-1\n    username: sa\n    password: password\n\nlogging:\n  level:\n    root: ERROR\n    fr:\n      ensai: INFO\n    org:\n      springframework:\n        boot:\n          web:\n            embedded:\n              tomcat: INFO\n\nStep 2: custom properties, setup\n\nLike python .env\nPort (80: http, 443: https, 22: SSH, 21: FTP)\nDatabase connection\nLog setup\nLet’s talk about YAML\n\n\n\n\nYAML\n\nYAML Ain’t Markup Language\nText format\nIndentation-based syntax\nEasily readable by humans\n\n\n\nrecursive acronym\nJSON: efficient for machine-to-machine communication\nYAML: configuration files (human readability)\n\n\n\n\nYAML Strucure\n\nKey-Value pairs\nindentation: 2 spaces\n\nRequired\nYAML Lint to validate\n\nCASE sensitive\n\n\n\ntext values: facultatives quotes\nspaces: no tabs\n\n\n\n\nYAML Examples\nperson:\n  name: Charlotte         # str\n  city: \"Amiens\"          # str\n  age: 25                 # int\n  height: 1.70            # float\n  student: false          # bool\n  birth_date: 1990-05-15  # date\n\nhobbies: \n  - chess\n  - hiking\n  - landart\n\nMore about YAML\nhttps://quickref.me/yaml.html\n\n\n\ndict\nlist\n\nother syntax: hobbies: [\"chess\", \"hiking\", \"landart\"]"
   },
   {
-    "objectID": "doc/cours/spring.html#data-mapping",
-    "href": "doc/cours/spring.html#data-mapping",
+    "objectID": "doc/cours/08-spring.html#data-mapping",
+    "href": "doc/cours/08-spring.html#data-mapping",
     "title": "An API with Spring Boot",
     "section": "Data Mapping",
     "text": "Data Mapping\n\nStep 3: deal with data\n\nI would remind you that the aim is to send the data up to the GUI\nWe want to get data from database to our app\n\n\n\n\nWhy is it usefull?\n\nFacilitates interaction between Java objects and database tables\nensure accurate data transfer between layers, databases\nObject-Relational Mapping (ORM)\n\n\n\nSQLAlchemy in Python\nIt was forbidden in IT Project\n\n\n\n\nDatabase side\nCREATE TABLE user (\n    id_user      SERIAL PRIMARY KEY,\n    firstname    VARCHAR(255),\n    birth_date   DATE,\n    gender       VARCHAR(10)\n);\n\n\nJava class\npublic class User {\n    private Long id;\n    private String name;\n    private LocalDate birthDate;\n    private String gender;\n\nMany similarities\nA few differences:\n\nUser instead of user\nbirthDate vs birth_date\nid vs id_user\n\n\n\n\nHibernate\n\nSimplify data interactions with relational databases\nMaps Java classes to database tables\nProvides database independence\nGenerates SQL queries for CRUD operations\n\n\n\ninluded via spring-boot-starter-data-jpa\nJPA: Java Persistence API\nthe default JPA implementation is Hibernate\n\n\n\n\nEntity Bean\n@Entity\n@Table(name = \"user\")\npublic class User {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.SEQUENCE)\n    @Column(name = \"id_user\")\n    private Long id;\n\n    private String name;\n\n    @Column(name = \"birth_date\")\n    private LocalDate birthDate;\n\n    @Column(name = \"gender\", length = 10)\n    private String gender;\n}\n\nMapping\n\n@Table(name = \"user\"): no need if same names\n@Column(name = \"birth_date\"): no need if same names\n@Id marks the id field as the primary key of the entity\n\nMapping is done, now let’s transfert data\n\n\n\nEntity annotations\n\n\n\n\n\n\n\nAnnotation\nDescription\n\n\n\n\n@Entity\nMarks the class as a JPA entity.\n\n\n@Table(name=\"tbname\")\nSpecifies the database table name.\n\n\n@Id\nMarks a field as the primary key.\n\n\n@GeneratedValue( .. )\nDefines the auto-increment strategy for the PK.\n\n\n@Column(name=\"colname\", ...)\nMaps a field to a database column and allows configuration.\n\n\n@Enumerated(EnumType.STRING)\nMaps an enum to a database column.\n\n\n@Transient\nMarks a field as non-persistent (ignored by JPA).\n\n\n\n\n@Column(name=\"col_name\", nullable=false, unique=true, length=255)\n\n\n\nEntity relationships\n\n\n\n\n\n\n\nAnnotation\nDescription\n\n\n\n\n@JoinColumn(name=\"FK_column\")\nSpecifies the foreign key column for relationships.\n\n\n@ManyToOne\nDefines a many-to-one relationship between entities.\n\n\n@OneToMany(mappedBy=\"fieldName\")\nDefines a one-to-many relationship.\n\n\n@ManyToMany\nDefines a many-to-many relationship.\n\n\n@OneToOne\nDefines a one-to-one relationship.\n\n\n\n\n\nManyToOne\n\nUsers and ClubsUser classClub class\n\n\nConsidering that:\n\na user has a club\na club can have several users\n\nWhere is the foreign key?\n\n\n\n\nUser.java\n\n@Entity\n@Table(name = \"user\")\npublic class User {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.SEQUENCE)\n    @Column(name = \"id_user\")\n    private Long id;\n\n    @Column(name = \"name\")\n    private String name;\n    \n    @ManyToOne\n    @JoinColumn(name = \"id_club\")\n    private Club club;\n}\n\n\n\n\n\nClub.java\n\n@Entity\n@Table(name = \"club\")\npublic class Club {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.SEQUENCE)\n    @Column(name = \"id_club\")\n    private Long id;\n\n    @Column(name = \"name\", nullable = false)\n    private String name;\n\n    @OneToMany(mappedBy = \"club\")\n    private List&lt;User&gt; users = new ArrayList&lt;&gt;();\n}\n\n\n\n\n\nDatabase reminder:\n\nPK, FK\nAssociation table\n.., 1..*\n\nmappedBy = ‘club’ indicates that the relationship is managed by the club attribute in the User class\n\n\n\nManyToMany\n\nTo be used if the association table is basic\nOtherwise create an entity for the association table with ManyToOne"
   },
   {
-    "objectID": "doc/cours/spring.html#repository",
-    "href": "doc/cours/spring.html#repository",
+    "objectID": "doc/cours/08-spring.html#repository",
+    "href": "doc/cours/08-spring.html#repository",
     "title": "An API with Spring Boot",
     "section": "Repository",
     "text": "Repository\n\nA basic DAO\nimport org.springframework.data.jpa.repository.JpaRepository;\nimport org.springframework.stereotype.Repository;\n\n@Repository\npublic interface UserRepository extends JpaRepository&lt;User, Long&gt; {\n}\n\n\nThat’s all!\nAll CRUD methods are available\nNo need to implement the code\nJpaRepository extends CrudRepository\n\n\n\n\nBasic methods\nMethods included automatically without having to implement them:\n\nsave(Entity e)\nfindById(Long id)\nfindAll()\ncount()\ndelete(Entity e)\n\n\n\nSave: INSERT or UPDATE\nexistsById(), …\n\n\n\n\nNative SQL Query\nimport org.springframework.data.jpa.repository.JpaRepository;\nimport org.springframework.data.jpa.repository.Query;\nimport org.springframework.data.repository.query.Param;\nimport org.springframework.stereotype.Repository;\nimport java.util.List;\n\n@Repository\npublic interface UserRepository extends JpaRepository&lt;User, Long&gt; {\n\n    @Query(value = \"\"\"\n        SELECT * \n        FROM user u \n        WHERE u.name = :name\n    \"\"\", nativeQuery = true)\n    List&lt;User&gt; findByNameNative(@Param(\"name\") String name);\n}\n\n\nJPQL\n\nJava Persistence Query Language\nMethod name ➡️ Auto-generate the Query\n\nimport org.springframework.data.jpa.repository.JpaRepository;\nimport org.springframework.stereotype.Repository;\n\n@Repository\npublic interface UserRepository extends JpaRepository&lt;User, Long&gt; {\n    List&lt;User&gt; findByGenderOrderByNameDesc(String gender);\n}\n\n\nNo need to implement the code\nThe method name is enought\nhttps://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html#jpa.query-methods.query-creation"
   },
   {
-    "objectID": "doc/cours/spring.html#controller",
-    "href": "doc/cours/spring.html#controller",
+    "objectID": "doc/cours/08-spring.html#controller",
+    "href": "doc/cours/08-spring.html#controller",
     "title": "An API with Spring Boot",
     "section": "Controller",
     "text": "Controller\n\nAPI Rest\n\n\nApiRestController.java\n\n@RestController\n@RequestMapping(\"/api\")\npublic class ApiRestController {\n\n    @Autowired\n    private UserService userService;\n\n    /**\n     * Get all users\n     */\n    @GetMapping(\"/users\")\n    public List&lt;User&gt; getAllUsers() {\n\n        return userService.findAll();\n    }\n}\n\n\n\n@RestController\n\nhandles RESTful web requests\nmethods in this class will return data directly (JSON)\n\n@RequestMapping(\"/api\"): Specifies the base URL\n@GetMapping(\"/users\"): Maps getAllUsers() method to endpoint /api/users\n\n\n\nUse a PATH Parameter\n\n\nApiRestController.java\n\n    @GetMapping(\"/users/{id_user}\")\n    public ResponseEntity&lt;User&gt; getUserById(@PathVariable Long id_user) {\n        User user = userService.findById(id_user);\n        if (user == null) {\n            return ResponseEntity.notFound().build();\n        }\n        return ResponseEntity.ok(user);\n    }\n\nResponseEntity:\n\nRepresents an entire HTTP response\n\n\nResponseEntity (not mandatory but):\n\nIt allows you to customize every aspect of the HTTP response\nYou can easily handle various response scenarios (200, 404…)\nYou can add custom headers to the response, which can be useful for caching, authentication\n\nAlternative to PATH Param: Query Parameters\n\n/products?category=electronics&sort=price&page=2\n\n\n\n\nCreate, Update, Delete\n\n\nApiRestController.java\n\n    @PostMapping(\"/users\")\n    public ResponseEntity&lt;User&gt; createUser(@RequestBody User user) {\n        User createdUser = userService.save(user);\n        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);\n    }\n\n    @PutMapping(\"/users/{id}\")\n    public ResponseEntity&lt;User&gt; updateUser(@PathVariable Long id, @RequestBody User user) {\n        User existingUser = userService.findById(id);\n        if (existingUser == null) {\n            return ResponseEntity.notFound().build();\n        }\n        user.setId(id);\n        User updatedUser = userService.save(user);\n        return ResponseEntity.ok(updatedUser);\n    }\n\n    @DeleteMapping(\"/users/{id}\")\n    public ResponseEntity&lt;Void&gt; deleteUser(@PathVariable Long id) {\n        User existingUser = userService.findById(id);\n        if (existingUser == null) {\n            return ResponseEntity.notFound().build();\n        }\n        userService.deleteById(id);\n        return ResponseEntity.noContent().build();\n    }\n\n\n\n@RequestBody: JSON, Not part of the URL; sent in the HTTP request’s body\n@RequestHeader(\"Authorization\")\n\nKey-value pairs in the HTTP request’s header\nAuthorization: Bearer &lt;token&gt;"
   },
   {
-    "objectID": "doc/cours/spring.html#run-application",
-    "href": "doc/cours/spring.html#run-application",
+    "objectID": "doc/cours/08-spring.html#run-application",
+    "href": "doc/cours/08-spring.html#run-application",
     "title": "An API with Spring Boot",
     "section": "Run application",
     "text": "Run application\n\nMain\n\n\nApplication.java\n\n@SpringBootApplication\npublic class Application {\n    public static void main(String[] args) {\n        SpringApplication.run(Application.class, args);\n    }\n}\n\n\n\nMain method simply running the application"
-  },
-  {
-    "objectID": "doc/cours/collections-slides.html#collections-in-java",
-    "href": "doc/cours/collections-slides.html#collections-in-java",
-    "title": "Collections",
-    "section": "Collections in Java",
-    "text": "Collections in Java\nThree main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
-  },
-  {
-    "objectID": "doc/cours/collections-slides.html#arraylist",
-    "href": "doc/cours/collections-slides.html#arraylist",
-    "title": "Collections",
-    "section": "ArrayList",
-    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading, slow for searching\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)"
-  },
-  {
-    "objectID": "doc/cours/collections-slides.html#hashmap",
-    "href": "doc/cours/collections-slides.html#hashmap",
-    "title": "Collections",
-    "section": "HashMap",
-    "text": "HashMap\n\nHashMap&lt;K, V&gt;\nassociate a key (K) with a value (V)\nUnordered\nFast access\n\n\n\nlike python dict\nothers:\n\nTreeMap: Sorted by key\nLinkedHashMap: Maintains insertion order"
-  },
-  {
-    "objectID": "doc/cours/collections-slides.html#hashset",
-    "href": "doc/cours/collections-slides.html#hashset",
-    "title": "Collections",
-    "section": "HashSet",
-    "text": "HashSet\n\nNo duplicates\nUnordered\n\nimport java.util.HashSet;\n\nHashSet&lt;String&gt; colors = new HashSet&lt;&gt;();\n\ncolors.add(\"Blue\");\ncolors.add(\"Green\");\n\nboolean containPink = colors.contains(\"Pink\");\ncolors.remove(\"Green\");\n\nSystem.out.println(\"Size of set: \" + colors.size());\n\nfor (String color : colors) {\n    System.out.println(color);\n}"
-  },
-  {
-    "objectID": "doc/cours/collections-slides.html#choosing-between-list-set-and-map",
-    "href": "doc/cours/collections-slides.html#choosing-between-list-set-and-map",
-    "title": "Collections",
-    "section": "Choosing Between List, Set, and Map",
-    "text": "Choosing Between List, Set, and Map\n\n\n\nFeature\nArrayList\nHashSet\nHashMap\n\n\n\n\nAllows Duplicates?\n✅\n❌\n❌ (Keys)\n\n\nMaintains Order?\n✅\n❌\n❌\n\n\nKey-Value Storage?\n❌\n❌\n✅\n\n\nFast Lookup?\n❌ O(n)\n✅ O(1)\n✅ O(1)\n\n\n\n👉 Use a List when order matters and duplicates are allowed.\n👉 Use a Set when uniqueness is required.\n👉 Use a Map when you need key-value storage."
-  },
-  {
-    "objectID": "doc/cours/collections.html",
-    "href": "doc/cours/collections.html",
-    "title": "Collections",
-    "section": "",
-    "text": "Three main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
-  },
-  {
-    "objectID": "doc/cours/collections.html#collections-in-java",
-    "href": "doc/cours/collections.html#collections-in-java",
-    "title": "Collections",
-    "section": "",
-    "text": "Three main types to store and manage data:\n\nList\nMap\nSet\n\nEach serves a different purpose."
-  },
-  {
-    "objectID": "doc/cours/collections.html#arraylist",
-    "href": "doc/cours/collections.html#arraylist",
-    "title": "Collections",
-    "section": "ArrayList",
-    "text": "ArrayList\n\nOrdered\nAllow duplicates\nFast for reading, slow for searching\nSlow for inserting/deleting in the middle\n\n\nLinkedList (Fast for inserting/deleting, slower for accessing elements)\n\n\nCreate an ArrayList\nimport java.util.ArrayList;\nimport java.util.List;\n\nList&lt;String&gt; names = new ArrayList&lt;&gt;();\nList&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();\n\nList&lt;String&gt; colors = List.of(\"Blue\", \"Green\", \"Yellow\");    // Immutable\n\n\nArrayList&lt;&gt;(): constructor\nList&lt;String&gt; colors = new ArrayList&lt;&gt;(Arrays.asList(\"Blue\", \"Green\", \"Yellow\"));\nother ways\npossible to create list of objects\n\n\n\n\nPlay with values\nnames.add(\"Alba\");                         // add at the end\nnames.addAll(List.of(\"Lisa\", \"Stan\"));     // add multiple\nnames.add(1, \"Martin\");                    // add at a specific index\n\nnames.set(1, \"Johannes\")                   // replace\n\nnames.remove(3);                           // remove by index\nnames.remove(\"Stan\");                      // remove by value (first occurence)\n\n\nOther methods\nint sizeList = names.size();\nString valueSecondIndex = names.get(2)          // get a value by index\nboolean containsJo = names.contains(\"Jo\");      // contain a value?\n\nSystem.out.println(\"Empty List? \" + names.isEmpty());\n\n\nBrowse a List\nBy index\nfor (int i = 0; i &lt; names.size(); i++) {\n    System.out.println(names.get(i));\n}\nBy value\nfor (String name : names) {\n    System.out.println(name);\n}\n\n\nUsefull methods\nimport java.util.Collections;\n\nCollections.sort(List&lt;T&gt; list);\nCollections.reverse(List&lt;T&gt; list);\nCollections.shuffle(List&lt;T&gt; list);\nCollections.replaceAll(List&lt;T&gt; list, T oldVal, T newVal)\n\n\n&lt;T&gt;: This is the type parameter\nThose methods modifie the original list in place"
-  },
-  {
-    "objectID": "doc/cours/collections.html#hashmap",
-    "href": "doc/cours/collections.html#hashmap",
-    "title": "Collections",
-    "section": "HashMap",
-    "text": "HashMap\n\nHashMap&lt;K, V&gt;\nassociate a key (K) with a value (V)\nUnordered\nFast access\n\n\n\nlike python dict\nothers:\n\nTreeMap: Sorted by key\nLinkedHashMap: Maintains insertion order\n\n\n\n\nCreate and pop a HashMap\nimport java.util.HashMap;\n\nHashMap&lt;String, Integer&gt; fruitStore = new HashMap&lt;&gt;();\n\nfruitStore.put(\"Apple\", 5);\nfruitStore.put(\"Banana\", 3);\nfruitStore.put(\"Orange\", 10);\n\nfruitStore.put(\"Apple\", 5);         // update\n\nfruitStore.remove(\"Banana\");\n\nreplace (don’t create key if not exists):\n\nmap.replace(key, value);\nmap.replace(key, oldValue, newValue) only if oldValue is correct\n\n\n\n\nHashMap methods\nint nbElements = fruitStore.size();\n\nboolean hasBanana = fruitStore.containsKey(\"Banana\");\nboolean hasFive = fruitStore.containsValue(5);\n\nint nbApple = fruitStore.get(\"Apple\")\n\n\nIterate over a HashMap\nBy keys\nfor (String key : fruitStore.keySet()) {\n    System.out.println(key + \": \" + fruitStore.get(key));\n}\n By values\nfor (Integer value : fruitStore.values()) {\n    System.out.println(value);\n}\n\nBoth keys and values\nfor (Map.Entry&lt;String, Integer&gt; entry : fruitStore.entrySet()) {\n    System.out.println(entry.getKey() + \" : \" + entry.getValue());\n}\n Using Iterator with entrySet\nIterator&lt;Map.Entry&lt;String, Integer&gt;&gt; iterator = fruitStore.entrySet().iterator();\n\nwhile (iterator.hasNext()) {\n    Map.Entry&lt;String, Integer&gt; entry = iterator.next();\n    System.out.println(entry.getKey() + \": \" + entry.getValue());\n}"
-  },
-  {
-    "objectID": "doc/cours/collections.html#hashset",
-    "href": "doc/cours/collections.html#hashset",
-    "title": "Collections",
-    "section": "HashSet",
-    "text": "HashSet\n\nNo duplicates\nUnordered\n\nimport java.util.HashSet;\n\nHashSet&lt;String&gt; colors = new HashSet&lt;&gt;();\n\ncolors.add(\"Blue\");\ncolors.add(\"Green\");\n\nboolean containPink = colors.contains(\"Pink\");\ncolors.remove(\"Green\");\n\nSystem.out.println(\"Size of set: \" + colors.size());\n\nfor (String color : colors) {\n    System.out.println(color);\n}"
-  },
-  {
-    "objectID": "doc/cours/collections.html#choosing-between-list-set-and-map",
-    "href": "doc/cours/collections.html#choosing-between-list-set-and-map",
-    "title": "Collections",
-    "section": "Choosing Between List, Set, and Map",
-    "text": "Choosing Between List, Set, and Map\n\n\n\nFeature\nArrayList\nHashSet\nHashMap\n\n\n\n\nAllows Duplicates?\n✅\n❌\n❌ (Keys)\n\n\nMaintains Order?\n✅\n❌\n❌\n\n\nKey-Value Storage?\n❌\n❌\n✅\n\n\nFast Lookup?\n❌ O(n)\n✅ O(1)\n✅ O(1)\n\n\n\n👉 Use a List when order matters and duplicates are allowed.\n👉 Use a Set when uniqueness is required.\n👉 Use a Map when you need key-value storage."
-  },
-  {
-    "objectID": "doc/cours/advanced-slides.html#reminder",
-    "href": "doc/cours/advanced-slides.html#reminder",
-    "title": "Advanced Java",
-    "section": "Reminder",
-    "text": "Reminder\n\nAdvices for Rated TP:\n\nJavadoc\nComment if necessary\nPascalCase (Class, Method, Variables)\nUse clear, meaningful names for variables and methods\nwell-indented code, easy to read"
-  },
-  {
-    "objectID": "doc/cours/advanced-slides.html#enum",
-    "href": "doc/cours/advanced-slides.html#enum",
-    "title": "Advanced Java",
-    "section": "Enum",
-    "text": "Enum"
-  },
-  {
-    "objectID": "doc/cours/advanced-slides.html#exception",
-    "href": "doc/cours/advanced-slides.html#exception",
-    "title": "Advanced Java",
-    "section": "Exception",
-    "text": "Exception"
-  },
-  {
-    "objectID": "doc/cours/advanced-slides.html#stream",
-    "href": "doc/cours/advanced-slides.html#stream",
-    "title": "Advanced Java",
-    "section": "Stream",
-    "text": "Stream\n\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-8-streams"
-  },
-  {
-    "objectID": "doc/cours/advanced-slides.html#interface",
-    "href": "doc/cours/advanced-slides.html#interface",
-    "title": "Advanced Java",
-    "section": "Interface",
-    "text": "Interface"
-  },
-  {
-    "objectID": "doc/cours/advanced-slides.html#upcasting-and-downcasting",
-    "href": "doc/cours/advanced-slides.html#upcasting-and-downcasting",
-    "title": "Advanced Java",
-    "section": "Upcasting and Downcasting",
-    "text": "Upcasting and Downcasting"
-  },
-  {
-    "objectID": "doc/cours/advanced-slides.html#to-go-further",
-    "href": "doc/cours/advanced-slides.html#to-go-further",
-    "title": "Advanced Java",
-    "section": "To go further",
-    "text": "To go further\n\nOptional\nGenericity\nAnnotations\n\n\n\nOptional: deal with null value\n\n    public static &lt;T&gt; void printArray(T[] array) {\n        for (T element : array) {\n            System.out.print(element + \" \");\n        }\n        System.out.println();\n    }"
-  },
-  {
-    "objectID": "doc/cours/advanced.html",
-    "href": "doc/cours/advanced.html",
-    "title": "Advanced Java",
-    "section": "",
-    "text": "Advices for Rated TP:\n\nJavadoc\nComment if necessary\nPascalCase (Class, Method, Variables)\nUse clear, meaningful names for variables and methods\nwell-indented code, easy to read"
-  },
-  {
-    "objectID": "doc/cours/advanced.html#reminder",
-    "href": "doc/cours/advanced.html#reminder",
-    "title": "Advanced Java",
-    "section": "",
-    "text": "Advices for Rated TP:\n\nJavadoc\nComment if necessary\nPascalCase (Class, Method, Variables)\nUse clear, meaningful names for variables and methods\nwell-indented code, easy to read"
-  },
-  {
-    "objectID": "doc/cours/advanced.html#enum",
-    "href": "doc/cours/advanced.html#enum",
-    "title": "Advanced Java",
-    "section": "Enum",
-    "text": "Enum\n\nWhat are Enums?\n\nDefines a set of named constants\nRepresents a fixed and predefined set of possible values\nExamples: Day of week, colors, playing cards\n\n\n\nDeclare a basic Enum\n\n\nGrade.java\n\npublic enum Grade {\n    EXCELLENT,\n    VERY_GOOD,\n    GOOD,\n    AVERAGE,\n    INSUFFICIENT\n}\n\n\n\nThese are the constant values of the enum\n\n\n\n\nUse an Enum\nGrade grade = Grade.VERY_GOOD;\n\nswitch (grade) {\n    case EXCELLENT:\n        System.out.println(\"Excellent!\");\n        break;\n    case VERY_GOOD:\n        System.out.println(\"Very good!\");\n        break;\n        \n    ...\n}\n\n\nEnums are implicitly:\n\nstatic (no need to create an instance)\nfinal (no modification allowed)\n\n\n\n\n\nAdding Behavior to Enum\n\nEnums are More Than Just Constants\nThey are special classes\n\nThey can have methods and attributes\n\n\n\n\n\nGrade.java\n\npublic enum Grade {\n    EXCELLENT(90), VERY_GOOD(80), GOOD(70), AVERAGE(60), INSUFFICIENT(50);\n\n    @Getter\n    private final int minimumScore;\n\n    private Grade(int minimumScore) {\n        this.minimumScore = minimumScore;\n    }\n\n    public String getFeedback() {\n        switch (this) {\n            case EXCELLENT: return \"Outstanding!\";\n            case VERY_GOOD: return \"Well done!\";\n            case GOOD: return \"Satisfactory.\";\n            case AVERAGE: return \"Needs more effort.\";\n            case INSUFFICIENT: return \"Requires significant improvement.\";\n            default: return \"Unknown grade.\";\n        }\n    }\n}\n\n\n\nconstructor is private\n\nwe cannot access it from outside the class\nwe can use enum constants to call the constructor\n\ncompiler error if constructor is public\n\n\n\n\nEnum methods\nGrade studentGrade = Grade.VERY_GOOD;\n\nSystem.out.println(\"Grade: \" + studentGrade);\nSystem.out.println(\"Minimum Score: \" + studentGrade.getMinimumScore());\nSystem.out.println(\"Feedback: \" + studentGrade.getFeedback());\n\n// Iterate\nfor (Grade g : Grade.values()) {\n    System.out.println(g);\n}\n\n\nEnums: Pros and Cons\n\n✅ Readability: Makes code easier to understand by using descriptive names for values\n✅ Type Safety: Avoids errors related to typos or invalid values\n✅ Maintainability: Easier to modify and add new values (for dev)\n❌ Limited Extensibility: Difficult to add or modify values at runtime\n❌ Reduced Flexibility: Restricts values to a predefined set\n\n\n\n✅ Compile-Time Validation: Catches enum-related issues early during compilation."
-  },
-  {
-    "objectID": "doc/cours/advanced.html#exception",
-    "href": "doc/cours/advanced.html#exception",
-    "title": "Advanced Java",
-    "section": "Exception",
-    "text": "Exception\n\nWhat are Exceptions?\n\nEvents that disrupt the normal flow of program execution\nIndicate errors or unexpected conditions that occur during runtime\n\n\n\n\n\n\n\nTip\n\n\n\nExceptions are your friends.\n\n\n\nWhat to do if you leave the road.\n\nReminder\nExceptions are your friend\nError (OutOfMemoryError, StackOverflowError)\n\n\n\n\nNullPointerException\npublic class HowToRaiseNullPointerException {\n\n    public static void printLength(String text){\n        System.out.println(text.length());\n    }\n\n    public static void main(String[] args) {\n        String myText = null;\n        printLength(myText); // will throw a NullPointerException.\n    }\n}\n\n\n\n\n\n\nTipHow to Prevent\n\n\n\nAlways check if an object reference is null before using it.\n\n\n\n\nArithmeticException\npublic class HowToRaiseArithmeticException {\n    public static void main(String[] args) {\n        int numerator = 10;\n        int denominator = 0;\n        int result = numerator / denominator; // Will throw ArithmeticException\n        System.out.println(\"The division result is: \" + result);\n    }\n}\n\n\nEncountering Exceptions\nWhen the 🚋 leaves the tracks, you must decide how to react:\n\n❌ Stop everything\n\nThe journey ends immediately (program crashes)\n\n🔧 Have a Plan B\n\nYou handle the situation locally (try/catch)\n\n📞 Escalate the situation\n\nYou let someone else handle it to higher level\n\n\n\n\npropagate the exception\nresolve the exception\n\n\n\n\nWhy Should We Raise Exceptions?\n\nTo controll error management\nTo preventing unexpected program crashes\nTo alter the normal execution flow when an error occurs\nTo prevent the system from entering an unstable or inconsistent state\n\n\nWe are also allowed to raise exceptions.\nTo control the execution.\nUseful for debugging, it give more details.\n\n\n\nExample\n\n\nBankAccount.java\n\npackage fr.ensai.bank.domain;\n\n@AllArgsConstructor\nclass BankAccount {\n    private double balance;\n    private double transferLimit;\n\n    /**\n     * Transfers a specified amount from this account to another account.\n     * The amount cannot exceed the available balance or the transfer limit.\n     *\n     * @param recipient the account to which the amount will be transferred\n     * @param amount the amount to be transferred\n     */\n    public void transfer(BankAccount recipient, double amount) {\n        this.balance -= amount;\n        recipient.balance += amount;\n    }\n}\n\n\nThis code can lead to an incoherent state\n\nrecipient: OtherBankAccount\n@AllArgsConstructor: Lombok\nrecipient.balance += amount;: valid code, no need of a setter inside\nOther solution: return boolean instead of void\n\nFalse if the transfert cannot be done\n\n\n\n\n\nThrow an Exception\n\n\nBankAccount.java\n\n/**\n * Transfers a specified amount from this account to another account.\n *\n * @param recipient the account to which the amount will be transferred\n * @param amount the amount to be transferred\n * @throws IllegalArgumentException if the amount exceeds the available balance or the transfer limit\n */\npublic void transfer(BankAccount recipient, double amount)\n        throws IllegalArgumentException {       \n    if (amount &gt; this.balance)\n        throw new IllegalArgumentException(\n            \"Insufficient balance for the transfer. Attempted: \" + amount + \", Available: \" + this.balance);\n    if (amount &gt; this.transferLimit)\n        throw new IllegalArgumentException(\n            \"Transfer amount exceeds the transfer limit. Attempted: \" + amount + \", Limit: \" + this.transferLimit);\n    this.balance -= amount;\n    recipient.balance += amount;\n}\n\n\n\nIf amount &lt; 0 ?\nthrows: method can throw this exception\nthrow: raise\n\n\n\n\nDefine Custom Exceptions\n\n\nInsufficientBalanceException.java\n\npackage fr.ensai.bank.exception;\n\npublic class InsufficientBalanceException extends Exception {\n    public InsufficientBalanceException(String message) {\n        super(message);\n    }\n}\n\n\n\n\nTransferLimitExceededException.java\n\npackage fr.ensai.bank.exception;\n\npublic class TransferLimitExceededException extends Exception {\n    public TransferLimitExceededException(String message) {\n        super(message);\n    }\n}\n\n\nUsefull for business errors\n\nInherit class Exception\n\npublic class Exception extends Throwable\n\nas a class\nyou can specify message\n\n\n\n\nUse Custom Exceptions\n\n\nBankAccount.java\n\nimport fr.ensai.bank.exception.InsufficientBalanceException;\nimport fr.ensai.bank.exception.TransferLimitExceededException;\n\npublic class Bank {\n\n    ...\n\n    public void transfer(BankAccount recipient, double amount)\n            throws InsufficientBalanceException, TransferLimitExceededException {\n        if (amount &gt; this.balance)\n            throw new InsufficientBalanceException(\n                \"Insufficient balance for the transfer. Attempted: \" + amount + \", Available: \" + this.balance);\n        if (amount &gt; this.transferLimit)\n            throw new TransferLimitExceededException(\n                \"Transfer amount exceeds the transfer limit. Attempted: \" + amount + \", Limit: \" + this.transferLimit);\n        this.balance -= amount;\n        recipient.balance += amount;\n    }\n}\n\n\npackage exception\n\n\n\nException Handling\n\n\nBank.java\n\npublic class Bank {\n    public void makeTransfert(BankAccount sender, BankAccount receiver, amount) {\n        try {\n            sender.transfer(receiver, 250.0);\n        } catch (InsufficientBalanceException e) {\n            System.out.println(\"Transfer failed: \" + e.getMessage());\n        } catch (TransferLimitExceededException e) {\n            System.out.println(\"Transfer failed: \" + e.getMessage());\n        } finally {\n            System.out.println(\"Account 1 balance: \" + sender.getBalance());\n            System.out.println(\"Account 2 balance: \" + receiver.getBalance());\n        }\n    }\n}\n\n\n\nYou can have multiple catch blocks to handle different types of exceptions\n\nThe order of catch blocks matters (most specific to most general).\nsimpliest way: catch (Exception e)\n\nFinally: block always executes, regardless of whether an exception occurred or not.\n\nUsed for cleanup code (e.g., closing resources).\nWithout finally, code after catch blocks is only executed if no unhandled exception occurs.\n\n\n\n\n\nTypes of Exception\n\n\n\n\n\n\n\n\n\nException\nDescription\nChecked at Compilation\n\n\n\n\nClassNotFoundException\nTrying to access a class whose definition is not found.\nYes\n\n\nFileNotFoundException\nFile is not accessible or does not open.\nYes\n\n\nIOException\nInput-output operation failed or was interrupted.\nYes\n\n\nNoSuchFieldException\nA class does not contain the specified field.\nYes\n\n\nNoSuchMethodException\nAccessing a method that is not found.\nYes\n\n\nNullPointerException\nReferring to the members of a null object.\nNo\n\n\nNumberFormatException\nA method could not convert a string into a numeric format.\nNo\n\n\nArithmeticException\nAn exceptional condition has occurred in an arithmetic operation.\nNo\n\n\nArrayIndexOutOfBoundsException\nAn array has been accessed with an illegal index.\nNo\n\n\nRuntimeException\nRepresents an exception that occurs during runtime.\nNo\n\n\nIllegalArgumentException\nA method receives an argument that does not fit the given condition.\nNo\n\n\n\n\nsee Types of Exception in Java with Examples\n\n\nRuntimException (not checked at compilation)"
-  },
-  {
-    "objectID": "doc/cours/advanced.html#stream",
-    "href": "doc/cours/advanced.html#stream",
-    "title": "Advanced Java",
-    "section": "Stream",
-    "text": "Stream\n\n\nhttps://www.geeksforgeeks.org/java-8-stream-tutorial/\nhttps://www.baeldung.com/java-8-streams\n\n\n\nJava Streams\n\nIntroduced in Java 8\nDeclarative style\nConcise and readable code\nEfficient data processing\nSupport for parallel processing\n\n\n\nHow it works\n\nTakes input from the Collections, Arrays, or I/O channels\nProvide a result as per the pipelined methods\nIntermediate operation is lazily executed and returns a stream\nTerminal operations mark the end of the stream and return the result\n\n\n\nA first example\nLong sumOdds = Stream\n    .iterate(0L, i -&gt; i + 1L)        // Generate an infinite stream of Longs starting from 0, incrementing by 1\n    .limit(10)                       // Limit the stream to the first 10 elements\n    .filter(i -&gt; (i % 2) == 0)       // Filter the stream to keep only even numbers\n    .map(i -&gt; i + 1)                 // Transform each element by adding 1\n    .sorted()                        // Sort the stream\n    .reduce(0L, Long::sum);          // Reduce the stream to a single Long by summing all elements\n\n\nLazy evaluation:\n\n!= eager\nComputation on the elements of the stream is only performed when it’s necessary\ndon’t generate all natural number\nlimit 10\n\n\nIntermediate operations are not executed until a terminal operation is invoked.\nThis approach can optimize performance, especially for large datasets, by reducing the number of iterations and computations.\n\n\n\nKey Concepts\n\nSource (List, Array…)\nIntermediate Operations (filter, map…)\nTerminal Operation (reduce, collect, forEach…)\nLazy evaluation\n\n\n\nLazy evaluation: very important concept\n\nLike dplyr\n\n\n\n\n\nCreate a Stream\nimport java.util.stream.Collectors;\nimport java.util.stream.Stream;\n\nArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;(List.of(\"a\", \"b\", \"c\", \"d\"));\nMap&lt;String, Integer&gt; map = Map.of(\"a\", 1, \"b\", 2, \"c\", 3);\nString text = \"I am your father\";\n\n// Creates a stream from an arrayList\nStream&lt;String&gt; arrayListStream = arrayList.stream();\n\n// Creates a stream from the map's entry set\nStream&lt;Map.Entry&lt;String, Integer&gt;&gt; mapEntryStream = map.entrySet().stream();\n\n// Extract list of words from a text an store it in a List\nList&lt;String&gt; wordsList = Stream.of(text.split(\" \")).collect(Collectors.toList());\n\n\nIntermediate Operations\n\nThey return a new stream.\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nfilter(predicate)\nSelects matching elements.\nstream.filter(x -&gt; x &gt; 10)\n\n\nmap(function)\nTransforms elements.\nstream.map(String::toUpperCase)\n\n\nflatMap(function)\nTransforms to streams, then flattens.\nstream.flatMap(List::stream)\n\n\ndistinct()\nRemoves duplicates.\nstream.distinct()\n\n\nsorted()\nSorts elements.\nstream.sorted()\n\n\nsorted(comparator)\nSorts elements (using comparator).\nstream.sorted(Comparator.reverseOrder())\n\n\npeek(consumer)\nPerforms action on each element.\nstream.peek(System.out::println)\n\n\nlimit(maxSize)\nTruncates to maxSize elements.\nstream.limit(10)\n\n\nskip(n)\nDiscards first n elements.\nstream.skip(5)\n\n\n\n\n\n\nLambda functions\nmethod reference (String::toUpperCase)\nIntermediate operations return a new modified stream\n\n\n\n\nTerminal Operations\n\n\n\n\n\n\n\n\n\nOperation\nDescription\nExample\n\n\n\n\nforEach(action)\nPerforms an action on each element.\nstream.forEach(System.out::println)\n\n\ncollect(collector)\nAccumulates elements into a result container.\nstream.collect(Collectors.toList())\n\n\nreduce(identity, accumulator)\nReduces elements to a single value.\nstream.reduce(0, Integer::sum)\n\n\ncount()\nReturns the number of elements.\nstream.count()\n\n\nanyMatch(predicate)\nChecks if any element matches.\nstream.anyMatch(x -&gt; x &gt; 10)\n\n\nallMatch(predicate)\nChecks if all elements match.\nstream.allMatch(x -&gt; x &gt; 0)\n\n\nnoneMatch(predicate)\nChecks if no elements match.\nstream.noneMatch(x -&gt; x &lt; 0)\n\n\nfindFirst()\nReturns the first element.\nstream.findFirst()\n\n\nmin(comparator)\nReturns the minimum element.\nstream.min(Comparator.naturalOrder())\n\n\n\n\n\n\nan attempt to reuse the same reference after calling the terminal operation will trigger the IllegalStateException\nJava 8 streams can’t be reused\n\n\n\n\nParallel Streams\n\nprocessed in parallel for improved performance\nUse parallelStream()\nSuitable for CPU-intensive operations on large datasets\n\n\n\nMapReduce\n\nA programming model for processing and generating large datasets\nDesigned for distributed computing on clusters of machines.\nBreaks down complex tasks into simpler, parallel operations\n\n\n\nInvented by Google in the 2000s\nIf memory space is not enought to load the full data set\nhttps://ludo2ne.github.io/ENSAI-2A-Big-Data/docs/lab/lab2/lab2.html#how-to-distribute-elementary-statistical-tasks\n\n\n\n\nMapReduce workflow\n\nSplit: Input data is divided into smaller chunks\nMap: Each chunk is processed by a Map function\nReduce: Values are aggregated by a Reduce function\n\n\n\nMapReduce principle\nList&lt;Integer&gt; values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);\nList&lt;Integer&gt; valuesSquares = new ArrayList&lt;&gt;();\n\nFunction&lt;Integer, Integer&gt; square = n -&gt; n * n;\n\nfor (int n : values) {\n    valuesSquares.add(square.apply(n));\n}\n\nint sumOfSquares = 0;\nfor (int v : valuesSquares) {\n    sumOfSquares += v * v;\n}\n\ndouble meanSumOfSquares = sumOfSquares / valuesSquares.size();\n\n\ncompute squares (map)\nsum squares (reduce)\nfinal step (O(1))\n\n\n\n\nManual implementation\npublic List&lt;Double&gt; manualMap(List&lt;Double&gt; list, DoubleUnaryOperator function) {\n    List&lt;Double&gt; result = new ArrayList&lt;&gt;();\n    for (double element : list) {\n        result.add(function.applyAsDouble(element));\n    }\n    return result;\n}\n\npublic double manualReduce(List&lt;Double&gt; list, double identity, DoubleBinaryOperator accumulator) {\n    double result = identity;\n    for (double element : list) {\n        result = accumulator.applyAsDouble(result, element);\n    }\n    return result;\n}\n\n\nDoubleUnaryOperator (sqrt, power…)\n\nInterface with one method\napplyAsDouble(Double d) -&gt; double\n\nDoubleBinaryOperator (add, mult…)\n\napplyAsDouble(Double d1, Double d2) -&gt; double\n\n\n\n\n\nMapReduce using streams\nList&lt;Integer&gt; values = Arrays.asList(1, 2, 5, 10, 3, 4, 6, 8, 9);\n\ndouble sumOfSquares = values.stream()\n    .map(n -&gt; n * n)\n    .reduce(0, (a, b) -&gt; a + b);\n\ndouble meanSumOfSquares = sumOfSquares / values.size();\n\ndouble meanSumOfSquaresAvg = values.stream()\n    .mapToInt(n -&gt; n * n)\n    .average();\n\n\nmapToInt() -&gt; IntStream\n\nmap() specialization"
-  },
-  {
-    "objectID": "doc/cours/advanced.html#interface",
-    "href": "doc/cours/advanced.html#interface",
-    "title": "Advanced Java",
-    "section": "Interface",
-    "text": "Interface\n\nBack to Inheritance\n\nFighter: Primarily focused on combat.\nDoctor: Primarily focused on healing.\n\n\n\n\n\n\n\nclassDiagram\n\nclass Person {\n    - name: String\n    - health: int\n    + takeDamage(int amount)\n    + receiveHealing(int amount)\n}\n\nclass Fighter {\n    - attackPower: int\n    + fight(Person target)\n}\n\nclass Doctor {\n    - healingPower: int\n    + heal(Person patient)\n}\n\nPerson &lt;|-- Fighter\nPerson &lt;|-- Doctor\n\n\n\n\n\n\n\n\n\nPython: Allows multiple inheritance.\nExample: A Square could be considered both a Rectangle and a Rhombus.\n\n\n\n\nIntroducing a New Character\n\nArmyDoctor: A special character that can both heal and combat.\nJava does not support multiple inheritance directly\n\n\n\n\n\n\n\n\nclassDiagram\n\nclass Person {\n    - name: String\n    - health: int\n    + takeDamage(int amount)\n    + receiveHealing(int amount)\n}\n\nclass Fighter {\n    - attackPower: int\n    + fight(Person target)\n}\n\n\nclass Doctor {\n    - healingPower: int\n    + heal(Person patient)\n}\n\nPerson &lt;|-- Fighter\nFighter &lt;|-- ArmyDoctor\nDoctor &lt;|-- ArmyDoctor\nPerson &lt;|-- Doctor\n\n\n\n\n\n\n\n\n\nDefining Abilities as Contracts\nInstead of focusing solely on fixed “classes,” let’s think about abilities.\nWe can define contracts for different types of actions:\n\nThe ability to combat\nThe ability to heal\n\nThis approach provides flexibility in how we define our game characters.\n\n\nWhat is a Java Interface?\n\nA Java Interface acts as a blueprint\nIt specifies a particular set of abilities or behaviors\nIt defines a contract that any class can choose to implement.\n\n\n\nCreate an Interface\n\n\nCombatant.java\n\npublic interface Combatant {\n    /**\n     * Represents the ability to engage in combat.\n     */\n    void fight(Person p);\n}\n\n\n\n\nHealer.java\n\npublic interface Healer {\n    /**\n     * Represents the ability to provide healing to a Person.\n     */\n    void heal(Person p);\n}\n\n\n\nAll methods are public abstract\ndefault method\n\ndefault void heal(Person p) { ...}) -&gt; no longer abstract\n\nstatic method:\n\ncalled using interface name without instanciation\n\nprivate method:\n\nto factorize code inside (no access from outside)\n\nattribute (constants) are implicitly public, static and final\n\n\n\n\nParent class\n\n\nPerson.java\n\npublic class Person {\n    private String name;\n    private int health;\n\n    public Person(String name, int health) {\n        this.name = name;\n        this.health = health;\n    }\n\n    public void takeDamage(int amount) {\n        this.health -= amount;\n    }\n\n    public void receiveHealing(int amount) {\n        this.health += amount;\n    }\n}\n\n\n\nImplementing the Interfaces\n\n\nDoctor.java\n\npublic class Doctor extends Person implements Healer {\n    private int healingPower;\n\n    public Doctor(String name, int health, int healingPower) {\n        super(name, health);\n        this.healingPower = healingPower;\n    }\n\n    @Override\n    public void heal(Person patient) {\n        patient.receiveHealing(this.healingPower);\n    }\n}\n\n\n\nMultiple Interfaces\n\n\nArmyDoctor.java\n\npublic class ArmyDoctor extends Person implements Healer, Combatant {\n    private int healingPower;\n    private int combatSkill;\n\n    public ArmyDoctor(String name, int health, int healingPower, int combatSkill) {\n        super(name, health);\n        this.healingPower = healingPower;\n        this.combatSkill = combatSkill;\n    }\n\n    @Override\n    public void heal(Person patient) {\n        patient.receiveHealing(this.healingPower * 0.5);\n    }\n\n    @Override\n    public void fight(Person target) {\n        target.takeDamage(this.combatSkill * 0.2);\n    }\n}\n\n\n\nUML\n\n\n\n\n\n\nclassDiagram\n\nclass Person {\n    - name: String\n    - health: int\n    + takeDamage(int amount)\n    + receiveHealing(int amount)\n}\n\nclass Fighter {\n    - attackPower: int\n}\n\nclass ArmyDoctor {\n    - healingPower: int\n    - combatSkill: int\n}\n\nclass Doctor {\n    - healingPower: int\n}\n\n\nclass Combatant {\n    &lt;&lt;interface&gt;&gt;\n    + fight(Person target)\n}\n\nclass Healer {\n    &lt;&lt;interface&gt;&gt;\n    + heal(Person patient)\n}\n\nPerson &lt;|-- Fighter\nPerson &lt;|-- Doctor\nPerson &lt;|-- ArmyDoctor\n\nFighter ..|&gt; Combatant\nArmyDoctor ..|&gt; Combatant\nArmyDoctor ..|&gt; Healer\nDoctor ..|&gt; Healer"
-  },
-  {
-    "objectID": "doc/cours/advanced.html#upcasting-and-downcasting",
-    "href": "doc/cours/advanced.html#upcasting-and-downcasting",
-    "title": "Advanced Java",
-    "section": "Upcasting and Downcasting",
-    "text": "Upcasting and Downcasting\n\nUpcasting\nConvert an object:\n\nof a more specific type\nto a more general type\n\n\nspecific type: a subclass or a class that implements an interface\n\n\nDoes this code compile and run?\nDoctor d = new Doctor(...);\n\nPerson p = (Person) d;\nd.takeDamage(5);\n\nDoctor d = new Doctor(...);\n\nPerson p = (Person) d;\np.heal(anotherPerson);\n\n\nCompiles and runs\nCompile error\n\n\n\n\nDowncasting\nConverting an object of:\n\na more general type\nto a more specific type\n\n\nDoes this code compile and run?\nPerson p = new Doctor(...);\n\nDoctor d = (Doctor) p;\nd.heal(anotherPerson);\n\nPerson p = new Doctor(...);\n\nFighter f = (Fighter) p;\np.takeDamage(5);\n\n\nCompiles and runs\nCompile error java.lang.ClassCastException\n\n\n\n\nDowncasting with instanceof\nPerson p = new Doctor(...);\n\nif (p instanceof Doctor d) {\n    d.heal(anotherPerson);\n} else {\n    System.out.println(p + \" is not a Doctor.\");\n}\n\nif (p instanceof Doctor d)\n\n// equivalent since Java 16\n\nif (p instanceof Doctor){\n    Doctor d = (Doctor) p;\n}"
-  },
-  {
-    "objectID": "doc/cours/advanced.html#to-go-further",
-    "href": "doc/cours/advanced.html#to-go-further",
-    "title": "Advanced Java",
-    "section": "To go further",
-    "text": "To go further\n\nOptional\nGenericity\nAnnotations\n\n\n\nOptional: deal with null value\n\n    public static &lt;T&gt; void printArray(T[] array) {\n        for (T element : array) {\n            System.out.print(element + \" \");\n        }\n        System.out.println();\n    }"
   },
   {
     "objectID": "doc/tp/tp3.html",

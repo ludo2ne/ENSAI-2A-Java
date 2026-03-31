@@ -2,14 +2,14 @@
   {
     "listing": "/index.html",
     "items": [
-      "/doc/cours/advanced.html",
-      "/doc/cours/spring.html",
-      "/doc/cours/collections.html",
-      "/doc/cours/intro.html",
-      "/doc/cours/junit.html",
-      "/doc/cours/code.html",
-      "/doc/cours/classes.html",
-      "/doc/cours/project.html"
+      "/doc/cours/01-intro.html",
+      "/doc/cours/02-syntax.html",
+      "/doc/cours/03-collections.html",
+      "/doc/cours/04-classes.html",
+      "/doc/cours/05-project.html",
+      "/doc/cours/06-junit.html",
+      "/doc/cours/07-advanced.html",
+      "/doc/cours/08-spring.html"
     ]
   }
 ]

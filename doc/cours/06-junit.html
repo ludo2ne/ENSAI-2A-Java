@@ -9,7 +9,7 @@
 <meta name="author" content="Ludovic Deneuville">
 <meta name="description" content="Slides">
 
-<title>Introduction – Java</title>
+<title>JUnit – Java</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -266,35 +301,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
         <li>
-    <a class="dropdown-item" href="../../doc/cours/intro.html">
+    <a class="dropdown-item" href="../../doc/cours/01-intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/code.html">
+    <a class="dropdown-item" href="../../doc/cours/02-syntax.html">
  <span class="dropdown-text">Java Syntax</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/collections.html">
+    <a class="dropdown-item" href="../../doc/cours/03-collections.html">
  <span class="dropdown-text">Collections</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/classes.html">
+    <a class="dropdown-item" href="../../doc/cours/04-classes.html">
  <span class="dropdown-text">Classes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/project.html">
+    <a class="dropdown-item" href="../../doc/cours/05-project.html">
  <span class="dropdown-text">Java Project</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/junit.html">
+    <a class="dropdown-item" href="../../doc/cours/06-junit.html">
  <span class="dropdown-text">JUnit</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/advanced.html">
+    <a class="dropdown-item" href="../../doc/cours/07-advanced.html">
  <span class="dropdown-text">Advanced Java</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/cours/spring.html">
+    <a class="dropdown-item" href="../../doc/cours/08-spring.html">
  <span class="dropdown-text">Spring Boot</span></a>
   </li>  
     </ul>
@@ -354,17 +389,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#introduction-to-java" id="toc-introduction-to-java" class="nav-link active" data-scroll-target="#introduction-to-java">Introduction to Java</a></li>
-  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#tp" id="toc-tp" class="nav-link" data-scroll-target="#tp">TP</a></li>
-  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
-  <li><a href="#why-java" id="toc-why-java" class="nav-link" data-scroll-target="#why-java">Why Java</a></li>
-  <li><a href="#compiler" id="toc-compiler" class="nav-link" data-scroll-target="#compiler">Compiler</a></li>
-  <li><a href="#jvm" id="toc-jvm" class="nav-link" data-scroll-target="#jvm">JVM</a></li>
-  <li><a href="#java-vs-python" id="toc-java-vs-python" class="nav-link" data-scroll-target="#java-vs-python">Java Vs Python</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#unit-tests-with-junit" id="toc-unit-tests-with-junit" class="nav-link active" data-scroll-target="#unit-tests-with-junit">Unit tests with JUnit</a></li>
+  <li><a href="#test-classes" id="toc-test-classes" class="nav-link" data-scroll-target="#test-classes">Test classes</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#assertions" id="toc-assertions" class="nav-link" data-scroll-target="#assertions">Assertions</a></li>
+  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations">Annotations</a></li>
+  <li><a href="#mocking" id="toc-mocking" class="nav-link" data-scroll-target="#mocking">Mocking</a></li>
+  <li><a href="#mutation-testing" id="toc-mutation-testing" class="nav-link" data-scroll-target="#mutation-testing">Mutation Testing</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="intro-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="06-junit-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -376,18 +409,17 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">JUnit</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Java</div>
-    <div class="quarto-category">Compile</div>
-    <div class="quarto-category">JVM</div>
-    <div class="quarto-category">JDK</div>
+    <div class="quarto-category">Unit tests</div>
+    <div class="quarto-category">Mocking</div>
+    <div class="quarto-category">Mutation testing</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <a href="intro-slides.html">Slides</a>
+    <a href="06-junit-slides.html">Slides</a>
   </div>
 </div>
 
@@ -410,365 +442,294 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction-to-java" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-java">Introduction to Java</h2>
+<section id="unit-tests-with-junit" class="level2">
+<h2 class="anchored" data-anchor-id="unit-tests-with-junit">Unit tests with JUnit</h2>
+<p>A popular open-source testing framework for Java:</p>
 <ul>
-<li>6h CM</li>
-<li>12h TP</li>
-<li><code>ludovic.deneuville@ensai.fr</code></li>
-<li>office 161</li>
-<li>class based on those by Ikko Yamane, Benjamin Girault, Romaric Gaudel, Samuel Toubon and Olivier Levitt</li>
+<li>JUnit5 for a long time</li>
+<li>JUnit6 since 2025.10</li>
 </ul>
-</section>
-<section id="objectives" class="level2">
-<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<p><a href="https://junit.org" target="_blank">https://junit.org</a></p>
+<div class="notes">
+<p>Regarding updating dependencies:</p>
 <ul>
-<li>Learn the basic syntax of Java</li>
-<li>Understand key OOP concepts</li>
-<li>Learn how to use collections</li>
-<li>Best practices</li>
+<li>A good practice to carry out regularly</li>
+<li>Fixes security vulnerabilities</li>
+<li>Watch out for regressions and compatibility issues with other libraries</li>
+<li>Don’t rush to install the latest version</li>
 </ul>
-</section>
-<section id="tp" class="level2">
-<h2 class="anchored" data-anchor-id="tp">TP</h2>
+<p>Dependabot:</p>
 <ul>
-<li>4 x 3h</li>
-<li>Datalab <a href="https://datalab.sspcloud.fr/" target="_blank">SSPCloud</a></li>
-<li>Follow instructions precisely</li>
-<li>Don’t use GenAI</li>
+<li>monitors your project’s dependencies.</li>
+<li>It suggests pull requests when a dependency has a new version, especially if it’s a security update.</li>
 </ul>
-</section>
-<section id="evaluation" class="level2">
-<h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
+</div>
+<section id="reminder-unit-testing" class="level3">
+<h3 class="anchored" data-anchor-id="reminder-unit-testing">Reminder: Unit Testing</h3>
 <ul>
-<li>Graded TP
+<li>Testing individual units of code</li>
+<li>Verifying that each unit behaves as expected</li>
+<li>Essential for detecting bugs</li>
+<li>Avoid regressions
 <ul>
-<li>2 students max per group</li>
-<li>to be completed at home</li>
-</ul></li>
-<li>Table-top exam
-<ul>
-<li>duration: 1h30</li>
-<li>a handwritten A4 sheet allowed</li>
+<li><span class="emoji" data-emoji="arrow_right_hook">↪️</span> Prevents new changes from breaking existing code</li>
 </ul></li>
 </ul>
-</section>
-<section id="why-java" class="level2">
-<h2 class="anchored" data-anchor-id="why-java">Why Java</h2>
-<section id="history-version" class="level3">
-<h3 class="anchored" data-anchor-id="history-version">History / Version</h3>
-<ul>
-<li>Created in 1991
-<ul>
-<li>by James Gosling and Mike Sheridan (Sun Microsystems)</li>
-</ul></li>
-<li>Java 8 (2014) : Lambda, Stream, Optional</li>
-<li>Java 17 (2021)</li>
-<li>Java 21 (2023)</li>
-<li>Java 25 (sept. 2025)</li>
-</ul>
-<p><a href="https://www.java.com/" target="_blank">https://www.java.com/</a></p>
 <div class="notes">
-<ul>
-<li>Facebook story (Sun Microsystems)</li>
-<li>LTS</li>
-<li>2009 Oracle</li>
-<li>2017 Java 9 -&gt; Modules</li>
-<li>2018 Java 11</li>
-<li>Java 17 : Sealed Classes, Refactor JDK</li>
-</ul>
+<p>Detect regressions when upgrading dependencies</p>
+<p>3 steps of a test?</p>
 </div>
 </section>
-<section id="popular-mature" class="level3">
-<h3 class="anchored" data-anchor-id="popular-mature">Popular / Mature</h3>
-<ul>
-<li>Widely used in all sectors</li>
-<li>Back-end, Mobile, Big Data</li>
-<li>Heavily object-oriented</li>
-</ul>
-<div class="notes">
-<ul>
-<li>Enterprise Applications</li>
-<li>Backend Development (Spring Boot)</li>
-<li>Mobile Development (via Kotlin &amp; Android SDK)</li>
-<li>Big Data &amp; Machine Learning</li>
-</ul>
-</div>
 </section>
-<section id="portability" class="level3">
-<h3 class="anchored" data-anchor-id="portability">Portability</h3>
+<section id="test-classes" class="level2">
+<h2 class="anchored" data-anchor-id="test-classes">Test classes</h2>
 <ul>
-<li>Compiled to bytecode</li>
-<li>Runs on any machine with a JVM</li>
-<li>“Write Once, Run Anywhere”</li>
-</ul>
-<div class="notes">
-<p>WORA: desktop, servers, smartphones</p>
-</div>
-</section>
-<section id="robust-secure" class="level3">
-<h3 class="anchored" data-anchor-id="robust-secure">Robust / Secure</h3>
+<li>One-to-One Relationship</li>
+<li>Each class should have a corresponding test class</li>
+<li>Book.java <span class="emoji" data-emoji="left_right_arrow">↔︎️</span> BookTest.java
 <ul>
-<li>Automatic memory management</li>
-<li>Strong Static Typing</li>
-<li>Compile-Time Checks</li>
-</ul>
-</section>
-<section id="static-typing" class="level3 smaller">
-<h3 class="smaller anchored" data-anchor-id="static-typing">Static Typing</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 45%">
-<col style="width: 54%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Static Typing</th>
-<th>Dynamic Typing</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Type checked <strong>at compile time</strong></td>
-<td>Type checked <strong>at runtime</strong></td>
-</tr>
-<tr class="even">
-<td>Variable type is declared</td>
-<td>Variable type inferred during execution</td>
-</tr>
-<tr class="odd">
-<td>Errors detected earlier</td>
-<td>More flexible but errors appear later</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="strong-typing" class="level3 smaller">
-<h3 class="smaller anchored" data-anchor-id="strong-typing">Strong Typing</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Strong Typing</th>
-<th>Weak Typing</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Types are strictly enforced</td>
-<td>Implicit conversions are common</td>
-</tr>
-<tr class="even">
-<td>Few automatic casts</td>
-<td>Many implicit conversions</td>
-</tr>
-<tr class="odd">
-<td>Safer and more predictable</td>
-<td>More flexible but error-prone</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="compiler" class="level2">
-<h2 class="anchored" data-anchor-id="compiler">Compiler</h2>
-<ul>
-<li>Transform java code into bytecode</li>
-<li>Detects syntax and type errors</li>
-<li>Optimization</li>
-<li><span class="terminal">javac MyClass.java</span> <span class="emoji" data-emoji="arrow_right">➡️</span> create file <em>MyClass.class</em></li>
-</ul>
-</section>
-<section id="jvm" class="level2">
-<h2 class="anchored" data-anchor-id="jvm">JVM</h2>
-<div class="callout callout-style-default callout-note callout-titled" title="Definition">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Definition
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The Java Virtual Machine (JVM) is the runtime environment for Java programs. It acts as an interpreter between Java code and the operating system.</p>
-<p>The JVM :</p>
-<ul>
-<li>Executes bytecode</li>
-<li>Interacts with OS</li>
-<li>Manages Memory (Garbage Collection)</li>
-</ul>
-</div>
-</div>
-<ul>
-<li><span class="terminal">java MyClass</span> <span class="emoji" data-emoji="arrow_right">➡️</span> run <em>main</em> method</li>
-</ul>
-<section id="jvm-jdk-jre" class="level3">
-<h3 class="anchored" data-anchor-id="jvm-jdk-jre">JVM, JDK, JRE</h3>
-<ul>
-<li>JRE: Java Runtime Environment</li>
-<li>JDK: Java Development Kit</li>
-</ul>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>JVM</strong></td>
-<td>Runs Java bytecode</td>
-</tr>
-<tr class="even">
-<td><strong>JRE</strong></td>
-<td>Contains JVM + libraries to run Java apps</td>
-</tr>
-<tr class="odd">
-<td><strong>JDK</strong></td>
-<td>Includes JRE + compiler + dev tools</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://openjdk.org/projects/jdk/" target="_blank">https://openjdk.org/projects/jdk/</a></p>
-<div class="notes">
-<ul>
-<li>JRE: java.util, java.io…, $java
-<ul>
-<li>to execute java app</li>
-</ul></li>
-<li>JDK: $javac, new libraries
-<ul>
-<li>to dev java app</li>
+<li>placed in the same package as the class being tested</li>
+<li>but in the <code>src/test/java</code> directory</li>
 </ul></li>
 </ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<section id="class-fraction" class="level3">
+<h3 class="anchored" data-anchor-id="class-fraction">Class Fraction</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Fraction.java</strong></pre>
 </div>
-</section>
-</section>
-<section id="java-vs-python" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="java-vs-python">Java Vs Python</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 38%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Java</strong></th>
-<th><strong>Python</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Typing</strong></td>
-<td>Strongly typed, static</td>
-<td>Strongly typed, dynamic</td>
-</tr>
-<tr class="even">
-<td><strong>Compilation</strong></td>
-<td>Compiled into bytecode</td>
-<td>Interpreted</td>
-</tr>
-<tr class="odd">
-<td><strong>Performance</strong></td>
-<td>Very fast</td>
-<td>Slower</td>
-</tr>
-<tr class="even">
-<td><strong>Syntax</strong></td>
-<td>Verbose, requires <code>{}</code></td>
-<td>Concise, uses indentation</td>
-</tr>
-<tr class="odd">
-<td><strong>Paradigm</strong></td>
-<td>Object-oriented</td>
-<td>Multi-paradigm</td>
-</tr>
-<tr class="even">
-<td><strong>Ecosystem</strong></td>
-<td>Huge (Spring, Hibernate…)</td>
-<td>Large (Django, Flask, Pandas…)</td>
-</tr>
-</tbody>
-</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="Fraction.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Getter</span> <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Getter</span> <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dt">int</span> numerator<span class="op">,</span> <span class="dt">int</span> denominator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>denominator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">"Denominator cannot be zero."</span><span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">numerator</span> <span class="op">=</span> numerator<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">denominator</span> <span class="op">=</span> denominator<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Fraction <span class="fu">invert</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>numerator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Cannot invert a fraction with a zero numerator."</span><span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span>denominator<span class="op">,</span> numerator<span class="op">);</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="notes">
 <ul>
-<li>Typing: <code>int x = 10;</code> vs <code>x = 10</code></li>
-<li>Interpreted: exécution à la volée</li>
-<li>Multi-paradigm (objet, fonctionnel, impératif)</li>
+<li><span class="citation" data-cites="Getter">@Getter</span> : using Lombok</li>
+<li>Create method getAttribute()</li>
 </ul>
 </div>
-<section id="high-level-languages" class="level3">
-<h3 class="anchored" data-anchor-id="high-level-languages">High-level languages</h3>
+</section>
+<section id="test-class" class="level3">
+<h3 class="anchored" data-anchor-id="test-class">Test class</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>FractionTest.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="FractionTest.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">testInvertValid</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">// GIVEN</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// WHEN</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        Fraction inverted <span class="op">=</span> fraction<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// THEN</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">testInvertZeroNumerator</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertThrows</span><span class="op">(</span><span class="bu">ArithmeticException</span><span class="op">.</span><span class="fu">class</span><span class="op">,</span> fraction<span class="op">::</span>invert<span class="op">);</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="assertions" class="level2">
+<h2 class="anchored" data-anchor-id="assertions">Assertions</h2>
 <ul>
-<li>Human-readable syntax</li>
-<li>Hardware abstraction</li>
-<li>Faster, easier development</li>
-<li>Indirect performance (VM/runtime)</li>
+<li>assertEquals(expected, actual)</li>
+<li>assertTrue(condition) / assertFalse(condition)</li>
+<li>assertNull(object) / assertNotNull(object)</li>
+<li>assertThrows(expectedType, executable)</li>
 </ul>
 </section>
-<section id="low-level-languages" class="level3">
-<h3 class="anchored" data-anchor-id="low-level-languages">Low-level languages</h3>
+<section id="annotations" class="level2">
+<h2 class="anchored" data-anchor-id="annotations">Annotations</h2>
 <ul>
-<li>Close to hardware</li>
-<li>Fine control over memory/resources</li>
-<li>Maximum performance</li>
-<li>Higher complexity</li>
+<li><code>@Test</code>: Marks a method as a test case</li>
+<li><code>@BeforeEach</code>: Executes before each test method</li>
+<li><code>@AfterEach</code>: Executes after each test method</li>
+<li><code>@BeforeAll</code>: Executes once before all test methods</li>
+<li><code>@AfterAll</code>: Executes once after all test methods</li>
 </ul>
 </section>
-<section id="highlow-level" class="level3">
-<h3 class="anchored" data-anchor-id="highlow-level">High/Low-level</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Level</th>
-<th>Priority</th>
-<th>Typical Uses</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>High</td>
-<td>Productivity</td>
-<td>Web, data, scripting</td>
-</tr>
-<tr class="even">
-<td>Mid</td>
-<td>Balance</td>
-<td>Enterprise, backend</td>
-</tr>
-<tr class="odd">
-<td>Low</td>
-<td>Control &amp; speed</td>
-<td>OS, embedded, real-time</td>
-</tr>
-</tbody>
-</table>
+<section id="mocking" class="level2">
+<h2 class="anchored" data-anchor-id="mocking">Mocking</h2>
+<ul>
+<li>Replacing real dependencies with controlled substitutes during unit testing</li>
+<li>Allows you to isolate the unit under test from external factors</li>
+<li>See Mockito frameworks</li>
+</ul>
 <div class="notes">
 <ul>
-<li>High : Python</li>
-<li>Mid : Java</li>
-<li>Low : Rust</li>
-<li>Very Low : C, Assembly</li>
+<li>Unit Test: isolate components</li>
+<li>Integration testing: Do my components work together?</li>
+<li>Functional testing: Does my application do what the user expects?</li>
 </ul>
+</div>
+<section id="method-to-test" class="level3">
+<h3 class="anchored" data-anchor-id="method-to-test">Method to test</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Fraction.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="Fraction.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@AllArgsConstructor</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> MathService mathService<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Fraction <span class="fu">simplify</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> gcd <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">mathService</span><span class="op">.</span><span class="fu">pgcd</span><span class="op">(</span>numerator<span class="op">,</span> denominator<span class="op">);</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">numerator</span> <span class="op">/</span> gcd<span class="op">,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">denominator</span> <span class="op">/</span> gcd<span class="op">,</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">mathService</span><span class="op">);</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="test-with-mockito" class="level3">
+<h3 class="anchored" data-anchor-id="test-with-mockito">Test with mockito</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>FractionTest.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="FractionTest.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">simplifyMockingPgcdMethodCall</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">// GIVEN</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        MathService mathService <span class="op">=</span> <span class="fu">mock</span><span class="op">(</span>MathService<span class="op">.</span><span class="fu">class</span><span class="op">);</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">when</span><span class="op">(</span>mathService<span class="op">.</span><span class="fu">pgcd</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">)).</span><span class="fu">thenReturn</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> mathService<span class="op">);</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// WHEN</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        Fraction result <span class="op">=</span> f<span class="op">.</span><span class="fu">simplify</span><span class="op">();</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">// THEN</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">4</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">verify</span><span class="op">(</span>mathService<span class="op">).</span><span class="fu">pgcd</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">);</span> <span class="co">// Verify it was called one time</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="notes">
+<ol type="1">
+<li>Create mock</li>
+<li>Inject into the class</li>
+<li>When method is called, return directly the result</li>
+</ol>
 </div>
 </section>
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<ul>
-<li><a href="https://www.baeldung.com/get-started-with-java-series" target="_blank">https://www.baeldung.com/get-started-with-java-series</a></li>
-<li><a href="https://www.w3schools.com/java/" target="_blank">https://www.w3schools.com/java/</a></li>
-<li><a href="https://www.jmdoudoux.fr/accueil_java.htm" target="_blank">https://www.jmdoudoux.fr/accueil_java.htm</a></li>
+<section id="mutation-testing" class="level2">
+<h2 class="anchored" data-anchor-id="mutation-testing">Mutation Testing</h2>
+<section id="is-it-a-good-test" class="level3">
+<h3 class="anchored" data-anchor-id="is-it-a-good-test">Is it a good test ?</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>FractionTest.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="FractionTest.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">invert_OK</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">// GIVEN</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// WHEN</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        Fraction result <span class="op">=</span> f<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// THEN</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertNotNull</span><span class="op">(</span>result<span class="op">);</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> executes the method</li>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> passes</li>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> gives 100% coverage</li>
 </ul>
-<section id="practice-java-language" class="level3">
-<h3 class="anchored" data-anchor-id="practice-java-language">Practice java language</h3>
+</div>
+<div class="notes">
+<p>But does it check the behavior?</p>
+</div>
+</section>
+<section id="introduce-a-mutation" class="level3">
+<h3 class="anchored" data-anchor-id="introduce-a-mutation">Introduce a mutation</h3>
+<p>Let’s introduce a mutation in the code:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Fraction.java</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="Fraction.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Fraction <span class="fu">invert</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>numerator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Cannot invert a fraction with a zero numerator."</span><span class="op">);</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span>numerator<span class="op">,</span> denominator<span class="op">);</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// instead of return new Fraction(denominator, numerator);</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="does-the-test-still-pass" class="level3">
+<h3 class="anchored" data-anchor-id="does-the-test-still-pass">Does the test still pass?</h3>
+<div class="fragment">
 <ul>
-<li><a href="https://codingbat.com/java" target="_blank">https://codingbat.com/java</a></li>
-<li><a href="https://adventofcode.com/" target="_blank">https://adventofcode.com/</a></li>
+<li>Yes: mutant survived</li>
+<li>With the first version, the mutant would have been killed</li>
 </ul>
+<p>Code Coverage ≠ Test quality</p>
+</div>
+</section>
+<section id="pitest" class="level3">
+<h3 class="anchored" data-anchor-id="pitest">Pitest</h3>
+<ul>
+<li>Evaluate the effectiveness of your tests</li>
+<li>Introduces small changes (mutations) to your code
+<ul>
+<li>Replace <code>+</code> with <code>-</code> or <code>&gt;</code> with <code>&gt;=</code></li>
+</ul></li>
+<li>Checks if your tests can detect these changes
+<ul>
+<li>Each your tests to fail</li>
+</ul></li>
+</ul>
+<p><a href="https://pitest.org/" target="_blank">https://pitest.org/</a></p>
+<div class="notes">
+<ul>
+<li>Mutations are automatically seeded into your code,</li>
+<li>then your tests are run.</li>
+<li>If your tests fail then the mutation is killed</li>
+<li>if your tests pass then the mutation lived</li>
+<li>The quality of your tests can be gauged from the percentage of mutations killed</li>
+</ul>
+</div>
 
 
 </section>
