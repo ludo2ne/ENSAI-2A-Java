@@ -434,6 +434,7 @@ Ludovic Deneuville
 </div>
 </div>
 <aside class="notes">
+<p>What to do if you leave the road.</p>
 <ul>
 <li>Reminder</li>
 <li>Exceptions are your friend</li>
@@ -453,7 +454,7 @@ Ludovic Deneuville
 </section>
 <section id="nullpointerexception" class="slide level3">
 <h3>NullPointerException</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a><span class="kw">public</span> <span class="kw">class</span> NullPointerExceptionExample <span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a><span class="kw">public</span> <span class="kw">class</span> HowToRaiseNullPointerException <span class="op">{</span></span>
 <span id="cb5-2"><a></a></span>
 <span id="cb5-3"><a></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printLength</span><span class="op">(</span><span class="bu">String</span> text<span class="op">){</span></span>
 <span id="cb5-4"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>text<span class="op">.</span><span class="fu">length</span><span class="op">());</span></span>
@@ -482,7 +483,7 @@ Ludovic Deneuville
 </section>
 <section id="arithmeticexception" class="slide level3">
 <h3>ArithmeticException</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a></a><span class="kw">public</span> <span class="kw">class</span> ArithmeticExceptionExample <span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a></a><span class="kw">public</span> <span class="kw">class</span> HowToRaiseArithmeticException <span class="op">{</span></span>
 <span id="cb6-2"><a></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb6-3"><a></a>        <span class="dt">int</span> numerator <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
 <span id="cb6-4"><a></a>        <span class="dt">int</span> denominator <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
@@ -490,6 +491,40 @@ Ludovic Deneuville
 <span id="cb6-6"><a></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The division result is: "</span> <span class="op">+</span> result<span class="op">);</span></span>
 <span id="cb6-7"><a></a>    <span class="op">}</span></span>
 <span id="cb6-8"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="encountering-exceptions" class="slide level3">
+<h3>Encountering Exceptions</h3>
+<p>When the <span class="emoji" data-emoji="train">🚋</span> leaves the tracks, you must decide how to react:</p>
+<ul>
+<li>❌ <strong>Stop everything</strong>
+<ul>
+<li>The journey ends immediately (program crashes)</li>
+</ul></li>
+<li>🔧 <strong>Have a Plan B</strong>
+<ul>
+<li>You handle the situation locally (try/catch)</li>
+</ul></li>
+<li>📞 <strong>Escalate the situation</strong>
+<ul>
+<li>You let someone else handle it to higher level</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>propagate the exception</li>
+<li>resolve the exception</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="why-should-we-raise-exceptions" class="slide level3">
 <h3>Why Should We Raise Exceptions?</h3>
@@ -502,6 +537,7 @@ Ludovic Deneuville
 <aside class="notes">
 <p>We are also allowed to raise exceptions.</p>
 <p>To control the execution.</p>
+<p>Useful for debugging, it give more details.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -634,6 +670,7 @@ Ludovic Deneuville
 <span id="cb10-7"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside class="notes">
+<p>Usefull for business errors</p>
 <ul>
 <li>Inherit class Exception
 <ul>
@@ -739,14 +776,6 @@ Ludovic Deneuville
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="encountering-exceptions" class="slide level3">
-<h3>Encountering Exceptions</h3>
-<p>When an exception occurs in your code, you have two primary options:</p>
-<ul>
-<li>propagate the exception</li>
-<li>resolve the exception</li>
-</ul>
 </section>
 <section id="types-of-exception" class="slide level3 smaller">
 <h3>Types of Exception</h3>
