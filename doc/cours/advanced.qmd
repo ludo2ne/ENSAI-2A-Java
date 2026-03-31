@@ -22,6 +22,7 @@ categories:
   - MapReduce
   - Enum
   - Interface
+  - Casting
 ---
 
 
@@ -167,6 +168,8 @@ Exceptions are your friends.
 :::
 
 :::{.notes}
+What to do if you leave the road.
+
 - Reminder
 - Exceptions are your friend
 - Error (OutOfMemoryError, StackOverflowError)
@@ -175,7 +178,7 @@ Exceptions are your friends.
 ### NullPointerException
 
 ```{.java}
-public class NullPointerExceptionExample {
+public class HowToRaiseNullPointerException {
 
     public static void printLength(String text){
         System.out.println(text.length());
@@ -196,7 +199,7 @@ Always check if an object reference is null before using it.
 ### ArithmeticException
 
 ```{.java}
-public class ArithmeticExceptionExample {
+public class HowToRaiseArithmeticException {
     public static void main(String[] args) {
         int numerator = 10;
         int denominator = 0;
@@ -206,6 +209,22 @@ public class ArithmeticExceptionExample {
 }
 ```
 
+
+### Encountering Exceptions
+
+When the :train: leaves the tracks, you must decide how to react:
+
+- ❌ **Stop everything**
+  - The journey ends immediately (program crashes)
+- 🔧 **Have a Plan B**
+  - You handle the situation locally (try/catch)
+- 📞 **Escalate the situation**
+  - You let someone else handle it to higher level
+
+:::{.notes}
+- propagate the exception
+- resolve the exception
+:::
 
 ### Why Should We Raise Exceptions?
 
@@ -218,6 +237,8 @@ public class ArithmeticExceptionExample {
 We are also allowed to raise exceptions.
 
 To control the execution.
+
+Useful for debugging, it give more details. 
 :::
 
 ### Example
@@ -308,6 +329,8 @@ public class TransferLimitExceededException extends Exception {
 ```
 
 :::{.notes}
+Usefull for business errors
+
 - Inherit class Exception
   - `public class Exception extends Throwable`
 - as a class
@@ -370,12 +393,6 @@ public class Bank {
   - Without finally, code after catch blocks is only executed if no unhandled exception occurs.
 :::
 
-### Encountering Exceptions
-
-When an exception occurs in your code, you have two primary options:
-
-- propagate the exception
-- resolve the exception
 
 ### Types of Exception {.smaller}
 
