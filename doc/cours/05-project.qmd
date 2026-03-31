@@ -1,6 +1,6 @@
 ---
 title: "Java Project"
-description: "[Slides](project-slides.html)"
+description: "[Slides](05-project-slides.html)"
 author: "Ludovic Deneuville"
 format: 
   html:
@@ -9,11 +9,11 @@ format:
     toc-depth: 2
   revealjs:
     theme: moon
-    footer: "[Home](../../index.html) --- [Java Project](project.html)"
+    footer: "[Home](../../index.html) --- [Java Project](05-project.html)"
     slide-number: c/t                    ## collapsed/total
     slide-level: 3
     controls: true
-    output-file: project-slides.html
+    output-file: 05-project-slides.html
 from: markdown+emoji
 lightbox: true
 categories:

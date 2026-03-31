@@ -5,11 +5,21 @@ author: "Ludovic Deneuville"
 format: html
 from: markdown+emoji
 listing:
+  id: lessons-listing
   type: table
   fields: [title, categories]
   contents: 
     - doc/cours/*.qmd
+  sort: "filename"
+  sort-ui: false
+  filter-ui: false
 ---
+
+## Lessons
+
+::: {#lessons-listing}
+:::
+
 
 
 ## Class/Lab

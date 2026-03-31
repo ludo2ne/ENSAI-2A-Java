@@ -1,17 +1,16 @@
 /* css styles for slides */
 
-
 .terminal {
-  background-color: #1e1e1e; /* Fond sombre comme un terminal */
-  color: #33ff33; /* Texte vert façon terminal */
-  font-family: "Courier New", monospace; /* Police monospace */
+  background-color: #1e1e1e;
+  color: #33ff33;
+  font-family: "Courier New", monospace;
   padding: 10px;
-  border-radius: 5px; /* Coins arrondis */
+  border-radius: 5px;
   white-space: pre-wrap; /* Préserve les espaces et les sauts de ligne */
   font-size: 25px;
 }
 
 .terminal::before {
-  content: "$ "; /* Ajoute un prompt de terminal */
-  color: #ffcc00; /* Couleur jaune pour le prompt */
+  content: "$ ";
+  color: #ffcc00;
 }

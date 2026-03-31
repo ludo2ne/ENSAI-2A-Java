@@ -16,21 +16,21 @@ website:
         text: Home
       - text: Lessons
         menu: 
-          - href: doc/cours/intro.qmd
+          - href: doc/cours/01-intro.qmd
             text: "Introduction"
-          - href: doc/cours/code.qmd
+          - href: doc/cours/02-syntax.qmd
             text: "Java Syntax"
-          - href: doc/cours/collections.qmd
+          - href: doc/cours/03-collections.qmd
             text: "Collections"
-          - href: doc/cours/classes.qmd
+          - href: doc/cours/04-classes.qmd
             text: "Classes"
-          - href: doc/cours/project.qmd
+          - href: doc/cours/05-project.qmd
             text: "Java Project"
-          - href: doc/cours/junit.qmd
+          - href: doc/cours/06-junit.qmd
             text: "JUnit"
-          - href: doc/cours/advanced.qmd
+          - href: doc/cours/07-advanced.qmd
             text: "Advanced Java"
-          - href: doc/cours/spring.qmd
+          - href: doc/cours/08-spring.qmd
             text: "Spring Boot"
       - text: Labs
         menu: 

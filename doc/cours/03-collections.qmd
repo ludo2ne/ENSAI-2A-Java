@@ -1,6 +1,6 @@
 ---
 title: "Collections"
-description: "[Slides](collections-slides.html)"
+description: "[Slides](03-collections-slides.html)"
 author: "Ludovic Deneuville"
 format: 
   html:
@@ -9,11 +9,11 @@ format:
     toc-depth: 2
   revealjs:
     theme: moon
-    footer: "[Home](../../index.html) --- [Collections](collections.html)"
+    footer: "[Home](../../index.html) --- [Collections](03-collections.html)"
     slide-number: c/t                    ## collapsed/total
     slide-level: 3
     controls: true
-    output-file: collections-slides.html
+    output-file: 03-collections-slides.html
     code-line-numbers: false
 from: markdown+emoji
 lightbox: true

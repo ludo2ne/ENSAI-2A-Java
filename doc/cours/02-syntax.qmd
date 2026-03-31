@@ -1,6 +1,6 @@
 ---
-title: "Java Basics"
-description: "[Slides](code-slides.html)"
+title: "Java Syntax"
+description: "[Slides](02-syntax-slides.html)"
 author: "Ludovic Deneuville"
 format: 
   html:
@@ -9,11 +9,11 @@ format:
     toc-depth: 2
   revealjs:
     theme: moon
-    footer: "[Home](../../index.html) --- [Java Basics](code.html)"
+    footer: "[Home](../../index.html) --- [Java Basics](02-syntax.html)"
     slide-number: c/t                    ## collapsed/total
     slide-level: 3
     controls: true
-    output-file: code-slides.html
+    output-file: 02-syntax-slides.html
     code-line-numbers: false
 from: markdown+emoji
 lightbox: true
