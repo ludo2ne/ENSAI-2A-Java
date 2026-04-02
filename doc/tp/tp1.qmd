@@ -1,13 +1,9 @@
 ---
 title: "Introduction to Java syntax"
 description: "Java - TP1"
-author: "Ludovic Deneuville"
 format:
   html:
-    toc: true
-    toc-location: left
     toc-expand: 3
-from: markdown+emoji
 number-sections: true
 number-depth: 3
 ---

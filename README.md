@@ -1,24 +1,21 @@
 # ENSAI-2A-Java
 
-Enseignements ENSAI de 2e année en Java.
+Second-year ENSAI Java courses.
 
-## :construction:  Todo
+## :rocket: Publish the website
 
-- [ ] maj <https://ensai.fr/cpt_matiere/programmation-orientee-objet-avec-java/>
+The site is built with [Quarto](https://quarto.org/) ([Tutorial](https://ludo2ne.github.io/Quarto-tuto/))
 
-## :rocket: Publier les pages
+The documentation content is located in the *doc* folder.
 
-Site construit avec [Quarto](https://quarto.org/) ([Tutoriel](https://ludo2ne.github.io/Quarto-tuto/))
+To generate the pages:
 
-Le contenu du site documentaire se trouve dans le dossier *doc*.
+- locally: `quarto render` (pages are generated in the *_site* folder)
+- on [GitHub](https://ludo2ne.github.io/ENSAI-1A-Python/): see the `.github/workflows/publish.yml` file
 
-Pour générer les pages :
+## License
 
-- en local : `quarto render doc` (les pages sont créées dans le dossier *doc/_site*)
-- sur [GitHub](https://ludo2ne.github.io/ENSAI-1A-Python/) : voir fichier `.github/workflows/publish.yml`
+This project is licensed under the
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Licence
-
-Ce projet est sous licence [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-
-Vous êtes libre de partager et modifier ce travail à des fins non commerciales, à condition de me créditer et de redistribuer sous la même licence.
+You are free to share and adapt this work for non-commercial purposes, provided that you give appropriate credit and redistribute it under the same license.

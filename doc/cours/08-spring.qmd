@@ -1,22 +1,11 @@
 ---
 title: "An API with Spring Boot"
 description: "[Slides](08-spring-slides.html)"
-author: "Ludovic Deneuville"
 format: 
-  html:
-    toc: true
-    toc-location: left
-    toc-depth: 2
+  html: default
   revealjs:
-    theme: moon
     footer: "[Home](../../index.html) --- [Spring](08-spring.html)"
-    slide-number: c/t                    ## collapsed/total
-    slide-level: 3
-    controls: true
     output-file: 08-spring-slides.html
-    code-line-numbers: false
-from: markdown+emoji
-lightbox: true
 mermaid:
   theme: neutral
 categories:

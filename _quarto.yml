@@ -4,13 +4,15 @@ var:
 project:
   type: website
 
+author: "Ludovic Deneuville"
+
 website:
   title: "Java"
   repo-url: "{{< meta var.url-repo >}}"
   repo-branch: main
   reader-mode: true
   navbar:
-    background: "#447099"
+    background: "#C26521"
     left:
       - href: index.qmd
         text: Home
@@ -56,8 +58,19 @@ website:
 format:
   html:
     theme: 
-      dark: solar
       light: cosmo
+      dark: solar
+    toc: true
+    toc-location: left
+    toc-depth: 2
     css: styles.css
   revealjs:
+    theme: moon
+    slide-number: c/t
+    slide-level: 3
+    controls: true
+    code-line-numbers: false
     css: styles-reveal.css
+
+from: markdown+emoji
+lightbox: true

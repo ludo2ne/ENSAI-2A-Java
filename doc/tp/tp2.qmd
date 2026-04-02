@@ -1,13 +1,9 @@
 ---
 title: "Java - TP2"
 description: "Object Oriented Programming"
-author: "Ludovic Deneuville"
 format:
   html:
-    toc: true
-    toc-location: left
     toc-expand: 3
-from: markdown+emoji
 number-sections: true
 number-depth: 3
 ---

@@ -1,21 +1,11 @@
 ---
 title: "Java Classes"
 description: "[Slides](04-classes-slides.html)"
-author: "Ludovic Deneuville"
 format: 
-  html:
-    toc: true
-    toc-location: left
-    toc-depth: 2
+  html: default
   revealjs:
-    theme: moon
-    footer: "[Home](../../index.html) --- [Classes](04-classes.html)"
-    slide-number: c/t                    ## collapsed/total
-    slide-level: 3
-    controls: true
+    footer: "[Home](../../index.html) --- [Java Classes](04-classes.html)"
     output-file: 04-classes-slides.html
-from: markdown+emoji
-lightbox: true
 categories:
   - OOP
   - Constructors

@@ -1,9 +1,7 @@
 ---
 title: "Java"
 description: "An introduction to Java"
-author: "Ludovic Deneuville"
 format: html
-from: markdown+emoji
 listing:
   id: lessons-listing
   type: table

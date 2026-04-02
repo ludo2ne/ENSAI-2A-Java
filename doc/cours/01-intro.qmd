@@ -1,21 +1,11 @@
 ---
 title: "Introduction"
 description: "[Slides](01-intro-slides.html)"
-author: "Ludovic Deneuville"
-format: 
-  html:
-    toc: true
-    toc-location: left
-    toc-depth: 2
+format:
+  html: default
   revealjs:
-    theme: moon
     footer: "[Home](../../index.html) --- [Introduction](01-intro.html)"
-    slide-number: c/t                    ## collapsed/total
-    slide-level: 3
-    controls: true
-    output-file: 01-intro-slides.html
-from: markdown+emoji
-lightbox: true
+    output-file: "01-intro-slides.html"
 categories:
   - Java
   - Compile
