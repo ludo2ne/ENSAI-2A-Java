@@ -292,23 +292,23 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Fraction.java</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="Fraction.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
-<span id="cb1-2"><a></a>    <span class="at">@Getter</span> <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
-<span id="cb1-3"><a></a>    <span class="at">@Getter</span> <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a>    <span class="kw">public</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dt">int</span> numerator<span class="op">,</span> <span class="dt">int</span> denominator<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-6"><a></a>        <span class="cf">if</span> <span class="op">(</span>denominator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb1-7"><a></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">"Denominator cannot be zero."</span><span class="op">);</span></span>
-<span id="cb1-8"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">numerator</span> <span class="op">=</span> numerator<span class="op">;</span></span>
-<span id="cb1-9"><a></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">denominator</span> <span class="op">=</span> denominator<span class="op">;</span></span>
-<span id="cb1-10"><a></a>    <span class="op">}</span></span>
-<span id="cb1-11"><a></a></span>
-<span id="cb1-12"><a></a>    <span class="kw">public</span> Fraction <span class="fu">invert</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-13"><a></a>        <span class="cf">if</span> <span class="op">(</span>numerator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb1-14"><a></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Cannot invert a fraction with a zero numerator."</span><span class="op">);</span></span>
-<span id="cb1-15"><a></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span>denominator<span class="op">,</span> numerator<span class="op">);</span></span>
-<span id="cb1-16"><a></a>    <span class="op">}</span></span>
-<span id="cb1-17"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="Fraction.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">@Getter</span> <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">@Getter</span> <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dt">int</span> numerator<span class="op">,</span> <span class="dt">int</span> denominator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>denominator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">"Denominator cannot be zero."</span><span class="op">);</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">numerator</span> <span class="op">=</span> numerator<span class="op">;</span></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">denominator</span> <span class="op">=</span> denominator<span class="op">;</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Fraction <span class="fu">invert</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>numerator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Cannot invert a fraction with a zero numerator."</span><span class="op">);</span></span>
+<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span>denominator<span class="op">,</span> numerator<span class="op">);</span></span>
+<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside class="notes">
 <ul>
@@ -333,27 +333,27 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>FractionTest.java</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="FractionTest.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>    <span class="at">@Test</span></span>
-<span id="cb2-4"><a></a>    <span class="dt">void</span> <span class="fu">testInvertValid</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-5"><a></a>        <span class="co">// GIVEN</span></span>
-<span id="cb2-6"><a></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a>        <span class="co">// WHEN</span></span>
-<span id="cb2-9"><a></a>        Fraction inverted <span class="op">=</span> fraction<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a>        <span class="co">// THEN</span></span>
-<span id="cb2-12"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
-<span id="cb2-13"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
-<span id="cb2-14"><a></a>    <span class="op">}</span></span>
-<span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a>    <span class="at">@Test</span></span>
-<span id="cb2-17"><a></a>    <span class="dt">void</span> <span class="fu">testInvertZeroNumerator</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-18"><a></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
-<span id="cb2-19"><a></a>        <span class="fu">assertThrows</span><span class="op">(</span><span class="bu">ArithmeticException</span><span class="op">.</span><span class="fu">class</span><span class="op">,</span> fraction<span class="op">::</span>invert<span class="op">);</span></span>
-<span id="cb2-20"><a></a>    <span class="op">}</span></span>
-<span id="cb2-21"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="FractionTest.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">testInvertValid</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// GIVEN</span></span>
+<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// WHEN</span></span>
+<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a>        Fraction inverted <span class="op">=</span> fraction<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
+<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// THEN</span></span>
+<span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
+<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> inverted<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
+<span id="cb2-14"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-15"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb2-17"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">testInvertZeroNumerator</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-18"><a aria-hidden="true" tabindex="-1"></a>        Fraction fraction <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb2-19"><a aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertThrows</span><span class="op">(</span><span class="bu">ArithmeticException</span><span class="op">.</span><span class="fu">class</span><span class="op">,</span> fraction<span class="op">::</span>invert<span class="op">);</span></span>
+<span id="cb2-20"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-21"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section id="assertions" class="title-slide slide level2 center">
@@ -409,20 +409,20 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Fraction.java</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="Fraction.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a></a><span class="at">@AllArgsConstructor</span></span>
-<span id="cb3-2"><a></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
-<span id="cb3-3"><a></a>    <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
-<span id="cb3-4"><a></a>    <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
-<span id="cb3-5"><a></a>    <span class="kw">private</span> MathService mathService<span class="op">;</span></span>
-<span id="cb3-6"><a></a></span>
-<span id="cb3-7"><a></a>    <span class="kw">public</span> Fraction <span class="fu">simplify</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-8"><a></a>        <span class="dt">int</span> gcd <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">mathService</span><span class="op">.</span><span class="fu">pgcd</span><span class="op">(</span>numerator<span class="op">,</span> denominator<span class="op">);</span></span>
-<span id="cb3-9"><a></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span></span>
-<span id="cb3-10"><a></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">numerator</span> <span class="op">/</span> gcd<span class="op">,</span></span>
-<span id="cb3-11"><a></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">denominator</span> <span class="op">/</span> gcd<span class="op">,</span></span>
-<span id="cb3-12"><a></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">mathService</span><span class="op">);</span></span>
-<span id="cb3-13"><a></a>    <span class="op">}</span></span>
-<span id="cb3-14"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="Fraction.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="at">@AllArgsConstructor</span></span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> MathService mathService<span class="op">;</span></span>
+<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Fraction <span class="fu">simplify</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> gcd <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">mathService</span><span class="op">.</span><span class="fu">pgcd</span><span class="op">(</span>numerator<span class="op">,</span> denominator<span class="op">);</span></span>
+<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span></span>
+<span id="cb3-10"><a aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">numerator</span> <span class="op">/</span> gcd<span class="op">,</span></span>
+<span id="cb3-11"><a aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">denominator</span> <span class="op">/</span> gcd<span class="op">,</span></span>
+<span id="cb3-12"><a aria-hidden="true" tabindex="-1"></a>                <span class="kw">this</span><span class="op">.</span><span class="fu">mathService</span><span class="op">);</span></span>
+<span id="cb3-13"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-14"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="test-with-mockito" class="slide level3">
@@ -431,24 +431,24 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>FractionTest.java</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="FractionTest.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a></a><span class="kw">class</span> FractionTest <span class="op">{</span></span>
-<span id="cb4-2"><a></a>    <span class="at">@Test</span></span>
-<span id="cb4-3"><a></a>    <span class="dt">void</span> <span class="fu">simplifyMockingPgcdMethodCall</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a>        <span class="co">// GIVEN</span></span>
-<span id="cb4-6"><a></a>        MathService mathService <span class="op">=</span> <span class="fu">mock</span><span class="op">(</span>MathService<span class="op">.</span><span class="fu">class</span><span class="op">);</span></span>
-<span id="cb4-7"><a></a>        <span class="fu">when</span><span class="op">(</span>mathService<span class="op">.</span><span class="fu">pgcd</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">)).</span><span class="fu">thenReturn</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
-<span id="cb4-8"><a></a>        Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> mathService<span class="op">);</span></span>
-<span id="cb4-9"><a></a></span>
-<span id="cb4-10"><a></a>        <span class="co">// WHEN</span></span>
-<span id="cb4-11"><a></a>        Fraction result <span class="op">=</span> f<span class="op">.</span><span class="fu">simplify</span><span class="op">();</span></span>
-<span id="cb4-12"><a></a></span>
-<span id="cb4-13"><a></a>        <span class="co">// THEN</span></span>
-<span id="cb4-14"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
-<span id="cb4-15"><a></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">4</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
-<span id="cb4-16"><a></a>        <span class="fu">verify</span><span class="op">(</span>mathService<span class="op">).</span><span class="fu">pgcd</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">);</span> <span class="co">// Verify it was called one time</span></span>
-<span id="cb4-17"><a></a>    <span class="op">}</span></span>
-<span id="cb4-18"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="FractionTest.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">simplifyMockingPgcdMethodCall</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// GIVEN</span></span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a>        MathService mathService <span class="op">=</span> <span class="fu">mock</span><span class="op">(</span>MathService<span class="op">.</span><span class="fu">class</span><span class="op">);</span></span>
+<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a>        <span class="fu">when</span><span class="op">(</span>mathService<span class="op">.</span><span class="fu">pgcd</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">)).</span><span class="fu">thenReturn</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a>        Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> mathService<span class="op">);</span></span>
+<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// WHEN</span></span>
+<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a>        Fraction result <span class="op">=</span> f<span class="op">.</span><span class="fu">simplify</span><span class="op">();</span></span>
+<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// THEN</span></span>
+<span id="cb4-14"><a aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getNumerator</span><span class="op">());</span></span>
+<span id="cb4-15"><a aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertEquals</span><span class="op">(</span><span class="dv">4</span><span class="op">,</span> result<span class="op">.</span><span class="fu">getDenominator</span><span class="op">());</span></span>
+<span id="cb4-16"><a aria-hidden="true" tabindex="-1"></a>        <span class="fu">verify</span><span class="op">(</span>mathService<span class="op">).</span><span class="fu">pgcd</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">8</span><span class="op">);</span> <span class="co">// Verify it was called one time</span></span>
+<span id="cb4-17"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-18"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside class="notes">
 <ol type="1">
@@ -479,18 +479,18 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>FractionTest.java</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="FractionTest.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
-<span id="cb5-2"><a></a>    <span class="at">@Test</span></span>
-<span id="cb5-3"><a></a>    <span class="dt">void</span> <span class="fu">invert_OK</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb5-4"><a></a>        <span class="co">// GIVEN</span></span>
-<span id="cb5-5"><a></a>        Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a>        <span class="co">// WHEN</span></span>
-<span id="cb5-8"><a></a>        Fraction result <span class="op">=</span> f<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
-<span id="cb5-9"><a></a></span>
-<span id="cb5-10"><a></a>        <span class="co">// THEN</span></span>
-<span id="cb5-11"><a></a>        <span class="fu">assertNotNull</span><span class="op">(</span>result<span class="op">);</span></span>
-<span id="cb5-12"><a></a>    <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="FractionTest.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> FractionTest <span class="op">{</span></span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">invert_OK</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// GIVEN</span></span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a>        Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// WHEN</span></span>
+<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a>        Fraction result <span class="op">=</span> f<span class="op">.</span><span class="fu">invert</span><span class="op">();</span></span>
+<span id="cb5-9"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// THEN</span></span>
+<span id="cb5-11"><a aria-hidden="true" tabindex="-1"></a>        <span class="fu">assertNotNull</span><span class="op">(</span>result<span class="op">);</span></span>
+<span id="cb5-12"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment"><span class="emoji" data-emoji="white_check_mark">✅</span> executes the method</li>
@@ -518,17 +518,17 @@ Ludovic Deneuville
 <div class="code-with-filename-file">
 <pre><strong>Fraction.java</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="Fraction.java"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
-<span id="cb6-2"><a></a>    <span class="kw">...</span></span>
-<span id="cb6-3"><a></a></span>
-<span id="cb6-4"><a></a>    <span class="kw">public</span> Fraction <span class="fu">invert</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb6-5"><a></a>        <span class="cf">if</span> <span class="op">(</span>numerator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb6-6"><a></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Cannot invert a fraction with a zero numerator."</span><span class="op">);</span></span>
-<span id="cb6-7"><a></a></span>
-<span id="cb6-8"><a></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span>numerator<span class="op">,</span> denominator<span class="op">);</span> </span>
-<span id="cb6-9"><a></a>        <span class="co">// instead of return new Fraction(denominator, numerator);</span></span>
-<span id="cb6-10"><a></a>    <span class="op">}</span></span>
-<span id="cb6-11"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="Fraction.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Fraction <span class="fu">invert</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>numerator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">ArithmeticException</span><span class="op">(</span><span class="st">"Cannot invert a fraction with a zero numerator."</span><span class="op">);</span></span>
+<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span>numerator<span class="op">,</span> denominator<span class="op">);</span> </span>
+<span id="cb6-9"><a aria-hidden="true" tabindex="-1"></a>        <span class="co">// instead of return new Fraction(denominator, numerator);</span></span>
+<span id="cb6-10"><a aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="does-the-test-still-pass" class="slide level3">
