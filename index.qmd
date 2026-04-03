@@ -1,7 +1,9 @@
 ---
 title: "Java"
 description: "An introduction to Java"
-format: html
+format: 
+  html:
+    toc: false
 listing:
   id: lessons-listing
   type: table

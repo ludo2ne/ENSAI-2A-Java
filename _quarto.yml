@@ -4,7 +4,7 @@ var:
 project:
   type: website
 
-author: "Ludovic Deneuville"
+author: Ludovic Deneuville
 
 website:
   title: "Java"
@@ -47,6 +47,10 @@ website:
           - href: doc/tp/tp5.qmd
             text: "Lab 5: Spring Boot App"
     right:
+      - text: Exams
+        menu: 
+          - href: doc/exam/java-2025.qmd
+            text: "Exam 2024-2025"
       - icon: github
         href: "{{< meta var.url-repo >}}"
         target: "_blank"
