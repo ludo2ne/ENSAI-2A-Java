@@ -20,6 +20,7 @@ jobs:
       - name: Install TinyTeX
         run: |
           quarto install tinytex
+          pip install jupyter
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

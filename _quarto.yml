@@ -51,6 +51,8 @@ website:
         menu: 
           - href: doc/exam/java-2025.qmd
             text: "Exam 2024-2025"
+          - href: doc/exam/java-2025-correction.qmd
+            text: "Exam 2024-2025 - Correction"
       - icon: github
         href: "{{< meta var.url-repo >}}"
         target: "_blank"
