@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Multimedia player">
+<meta name="dcterms.date" content="2025-04-24">
 
-<title>Java - TP3 – Java</title>
+<title>OOP With Java - Final Exam – Java</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -111,10 +111,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="neutral">
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -408,16 +404,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions"><span class="header-section-number">1</span> Instructions</a></li>
-  <li><a href="#subject" id="toc-subject" class="nav-link" data-scroll-target="#subject"><span class="header-section-number">2</span> Subject</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">3</span> Questions</a></li>
-  <li><a href="#end-of-the-tp" id="toc-end-of-the-tp" class="nav-link" data-scroll-target="#end-of-the-tp">End of the TP</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#course-questions-2-points" id="toc-course-questions-2-points" class="nav-link" data-scroll-target="#course-questions-2-points"><span class="header-section-number">1</span> Course questions (2 points)</a></li>
+  <li><a href="#mcq-10-points" id="toc-mcq-10-points" class="nav-link" data-scroll-target="#mcq-10-points"><span class="header-section-number">2</span> MCQ (10 points)</a></li>
+  <li><a href="#java-basics-4-points" id="toc-java-basics-4-points" class="nav-link" data-scroll-target="#java-basics-4-points"><span class="header-section-number">3</span> Java Basics (4 points)</a></li>
+  <li><a href="#java-code-4-points" id="toc-java-code-4-points" class="nav-link" data-scroll-target="#java-code-4-points"><span class="header-section-number">4</span> Java Code (4 points)</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="java-2025.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -429,14 +426,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Java - TP3</h1>
+<h1 class="title">OOP With Java - Final Exam</h1>
+<p class="subtitle lead">ENSAI 2A UE8</p>
 </div>
 
-<div>
-  <div class="description">
-    Multimedia player
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -448,6 +441,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 24, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -457,341 +456,264 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="notes">
-<p>Ideas of Questions:</p>
+<section id="instructions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="instructions">Instructions</h2>
 <ul>
-<li>About Stream</li>
-<li>pitest</li>
-<li>Interface?</li>
+<li>Paper-based exam</li>
+<li>Duration: 1h30</li>
+<li>1 handwritten A4 sheet (front and back) allowed</li>
+<li>No calculator</li>
 </ul>
-</div>
-<section id="instructions" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">1</span> Instructions</h2>
-<p>This lab will be covered in practical sessions 3 and 4.</p>
-<section id="launch-service-vscode-java" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="launch-service-vscode-java"><span class="header-section-number">1.1</span> Launch service VSCode Java</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Restart the service from the last lab or Launch a new service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&amp;version=2.5.2&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&amp;networking.user.enabled=true&amp;autoLaunch=true" target="_blank">VScode-Java</a></label></li>
-</ul>
-</section>
-<section id="update-your-repository" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="update-your-repository"><span class="header-section-number">1.2</span> Update your repository</h3>
-<p>Perhaps the repository used as a template has been updated since the last practical session.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Follow the commands given in Lab 2 to update your repository</label></li>
-</ul>
-</section>
-<section id="open-folder" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="open-folder"><span class="header-section-number">1.3</span> Open Folder</h3>
-<p>In VSCode :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder &gt; tp3</label>
-<ul>
-<li>or using: <code>code-server ~/work/ENSAI-2A-Java-TP/tp3/</code></li>
-</ul></li>
-</ul>
-<p><strong>tp3</strong> must be the root folder in your explorer.</p>
-</section>
-<section id="when-youve-finished" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="when-youve-finished"><span class="header-section-number">1.4</span> When you’ve finished</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Save your work using git</label></li>
-<li><label><input type="checkbox">Pause or Delete your service</label></li>
-</ul>
-</section>
-</section>
-<section id="subject" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="subject"><span class="header-section-number">2</span> Subject</h2>
-<p>This exercise involves designing and implementing a media management system in Java. You’ll create classes for media types (songs, podcasts), playlists, and a media player. Focus on object-oriented principles, defining attributes, methods, and relationships. The goal is a functional system for managing and playing media.</p>
-<p>Given files: <code>Song.java</code> and <code>pom.xml</code></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Create the arborscence of a Maven project</label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-important callout-titled" title="Before you start">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+<span class="screen-reader-only">Important</span>Before you start
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>mkdir -p folder/subfolder/subsubfolder</code> to create multiple nested directories with one command.</p>
-</div>
-</div>
-</section>
-<section id="questions" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="questions"><span class="header-section-number">3</span> Questions</h2>
-<section id="artist" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="artist"><span class="header-section-number">3.1</span> Artist</h3>
-<p>In the Song class, we want to replace the String types for attributes singer, author, and composer with instances of an Artist class.</p>
-<div style="background-color: #d7e5ecff;">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">classDiagram
-
-class Artist {
-     -firstName: String
-     -lastName: String
-     -nationality: String
-     +toString(): String
-}
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-<p>In the <em>toString()</em> method, concat “Artist” with firstName and lastName.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Create <code>Artist</code> class</label></li>
-<li><label><input type="checkbox">Refactor Song class updating attributes types</label>
+<p>The subject is composed of multiple pages.</p>
 <ul>
-<li>We’ll assume that the songs have a single singer, a single author, a single composer</li>
-</ul></li>
-<li><label><input type="checkbox">In Song class, create method <em>play()</em>,</label>
-<ul>
-<li>this method will print each word of lyrics</li>
-<li>use the code below to add a brief delay between each word</li>
-</ul></li>
+<li>You can answer in English or French.</li>
+<li>The exercises can be addressed in the order of your choice.</li>
+<li>If you get stuck on a question, quickly move on to the next one.</li>
+<li>Unless otherwise stated, the questions expect <u>short answers</u>.</li>
+<li>Strictly follow instructions. If unclear, write your assumptions.</li>
+<li>Respect good coding and language practices.</li>
+<li>Answer the <strong>MCQ</strong> by copying the question number and chosen answers; no justification required.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Thread</span><span class="op">.</span><span class="fu">sleep</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">InterruptedException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Thread</span><span class="op">.</span><span class="fu">currentThread</span><span class="op">().</span><span class="fu">interrupt</span><span class="op">();</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">err</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Thread was interrupted"</span><span class="op">);</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul class="task-list">
-<li><label><input type="checkbox">Create a class <em>Main</em> with a <em>main</em> method</label></li>
-<li><label><input type="checkbox">In the <em>main()</em> method, create an instance of Song and play it</label>
-<ul>
-<li>use a real Song, singer and lyrics</li>
-<li>you are allowed to leave author and composer blank</li>
-<li>for the lyrics, you can limit them to a few hundred words</li>
-</ul></li>
-</ul>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
 </section>
-<section id="podcast" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="podcast"><span class="header-section-number">3.2</span> Podcast</h3>
-<p>In your media player you will also read Podcasts :</p>
-<div style="background-color: #d7e5ecff;">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">classDiagram
-
-class Podcast {
-    -title: String
-    -host: String
-    -topic: String
-    -duration: int
-    -year: int
-    -subtitles: String
-    +play()
-}
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Implement class <code>Podcast</code></label>
-<ul>
-<li>Use OOP to avoid code duplication</li>
-</ul></li>
-<li><label><input type="checkbox">Create method <em>play()</em>, printing subtitles</label>
-<ul>
-<li>Bonus: You will notice that this method is very similar to Song’s. Isn’t there a better way?</li>
-</ul></li>
-<li><label><input type="checkbox">Implement the <em>toString()</em> method in the same way as for songs</label></li>
-</ul>
-</section>
-<section id="pop-rock-electro" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="pop-rock-electro"><span class="header-section-number">3.3</span> Pop, Rock, Electro</h3>
-<p>We want to add a new attribute to the Song to store the musical genres it is associated with.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Create a structure to store musical genres</label></li>
-<li><label><input type="checkbox">Add 10 values of your choice</label></li>
-<li><label><input type="checkbox">Modify the Song class to add a list of musical genres to each song</label></li>
-<li><label><input type="checkbox">Don’t forget to update the <em>main()</em> method</label></li>
-</ul>
-</section>
-<section id="playlist" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="playlist"><span class="header-section-number">3.4</span> Playlist</h3>
-<p>We now want to be able to create playlists with these songs and podcasts.</p>
-<div style="background-color: #d7e5ecff;">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">classDiagram
-
-class Playlist {
-    -name: String
-    -mediaList: List~Media~
-    -totalDuration: int
-    +addMedia(Media media)
-    +removeMedia(Media media): bool
-    +removeMedia(int index)
-    +play(boolean random)
-}
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Create a <code>Playlist</code> class with a <em>name</em>, a <em>list of media</em> and <em>total duration</em></label></li>
-<li><label><input type="checkbox">Develop the <em>addMedia()</em> method to add a media at the end of the playlist</label></li>
-<li><label><input type="checkbox">Create the <em>removeMedia(Media media)</em> method</label>
-<ul>
-<li>it deletes occurences of a media if it exists in the playlist</li>
-</ul></li>
-<li><label><input type="checkbox">Create unit tests with Junit for these last two methods</label></li>
-<li><label><input type="checkbox">Instanciate the <em>removeMedia(Int i)</em> method to delete a media by index</label></li>
-<li><label><input type="checkbox">Develop a method for playing the playlist</label>
-<ul>
-<li>Include a parameter to play the tracks randomly</li>
-</ul></li>
-<li><label><input type="checkbox">Add the option of copying the playlist</label></li>
-</ul>
-</section>
-<section id="create-some-objects" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="create-some-objects"><span class="header-section-number">3.5</span> Create some objects</h3>
-<p>In the main method:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Create a new song (in addition to the one created at the beginning), as well as a Podcast</label></li>
-<li><label><input type="checkbox">Instantiate a playlist named <em>p1</em> and add these three media to it</label></li>
-<li><label><input type="checkbox">Copy your playlist and name it <em>p2</em></label></li>
-<li><label><input type="checkbox">Remove a song from <em>p1</em></label></li>
-<li><label><input type="checkbox">Print the total duration of <em>p1</em> and <em>p2</em></label></li>
-<li><label><input type="checkbox">Play <em>p2</em></label></li>
-</ul>
-</section>
-<section id="feed-a-playlist" class="level3" data-number="3.6">
-<h3 data-number="3.6" class="anchored" data-anchor-id="feed-a-playlist"><span class="header-section-number">3.6</span> Feed a playlist</h3>
-<div class="callout callout-style-default callout-tip callout-titled" title="Goal">
+<section id="course-questions-2-points" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="course-questions-2-points"><span class="header-section-number">1</span> Course questions (2 points)</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Instructions">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Goal
+<span class="screen-reader-only">Note</span>Instructions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The next step is to be able to add a set of media files to a playlist.</p>
-<p>A JSON file is provided; the aim is to add all medias from this file into a playlist.</p>
+<p>Give short answers to the following questions:</p>
 </div>
 </div>
-<ul class="task-list">
-<li><label><input type="checkbox">Is it a good idea to create a <em>loadJsonFile()</em> method in the Playlist class?</label>
-<ul>
-<li><span class="emoji" data-emoji="bulb">💡</span> Check SOLID principles</li>
-</ul></li>
-</ul>
-<p>You’ll need a tool to read JSON:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Add dependency <em>org.json</em> in file <em>pom.xml</em></label></li>
-</ul>
-<p>Spoiler alert to the previous question, the answer was no:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Create a class <code>MediaJsonLoader</code> with a method called <em>load()</em> returning a list of Medias</label></li>
-</ul>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>MediaJsonLoader.java</strong></pre>
+<ol type="a">
+<li>What is a constructor?</li>
+<li>What commands did you use to compile and run your Java code?</li>
+<li>Explain what is brute force?</li>
+<li>What is a mutation test?</li>
+<li>What is mapReduce and what are its stages?</li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="mcq-10-points" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="mcq-10-points"><span class="header-section-number">2</span> MCQ (10 points)</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Instructions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="MediaJsonLoader.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> fr</span><span class="op">.</span><span class="im">ensai</span><span class="op">.</span><span class="im">mediaplayer</span><span class="op">;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">InputStream</span><span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">nio</span><span class="op">.</span><span class="im">charset</span><span class="op">.</span><span class="im">StandardCharsets</span><span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">json</span><span class="op">.</span><span class="im">JSONArray</span><span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">json</span><span class="op">.</span><span class="im">JSONObject</span><span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MediaJsonLoader <span class="op">{</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Media</span><span class="op">&gt;</span> <span class="fu">load</span><span class="op">(</span><span class="bu">String</span> filename<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">(</span><span class="bu">InputStream</span> is <span class="op">=</span> MediaJsonLoader<span class="op">.</span><span class="fu">class</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">getClassLoader</span><span class="op">()</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">getResourceAsStream</span><span class="op">(</span>filename<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>is <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span><span class="st">"File not found in resources: "</span> <span class="op">+</span> filename<span class="op">);</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> content <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span>is<span class="op">.</span><span class="fu">readAllBytes</span><span class="op">(),</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">);</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            JSONArray array <span class="op">=</span> <span class="kw">new</span> <span class="fu">JSONArray</span><span class="op">(</span>content<span class="op">);</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Code Here</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="co">// examples of use</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>            JSONObject json <span class="op">=</span> array<span class="op">.</span><span class="fu">getJSONObject</span><span class="op">(</span>i<span class="op">);</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> title <span class="op">=</span> json<span class="op">.</span><span class="fu">getString</span><span class="op">(</span><span class="st">"title"</span><span class="op">);</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> year <span class="op">=</span> json<span class="op">.</span><span class="fu">getInt</span><span class="op">(</span><span class="st">"year"</span><span class="op">);</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="bu">String</span> lyrics <span class="op">=</span> json<span class="op">.</span><span class="fu">optString</span><span class="op">(</span><span class="st">"lyrics"</span><span class="op">);</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span><span class="st">"Error reading file: "</span> <span class="op">+</span> filename<span class="op">,</span> e<span class="op">);</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Instructions
 </div>
-<p>Let’s use it in the main method:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Load file <em>medias.json</em></label></li>
-<li><label><input type="checkbox">Use fields to create songs and podcasts</label>
-<ul>
-<li>Bonus1: Manage singers: <code>JSONObject singerJson = json.getJSONObject("singer");</code></li>
-<li>Bonus2: Manage musical genres: <code>JSONArray genresJson = json.optJSONArray("genres");</code></li>
-</ul></li>
-<li><label><input type="checkbox">Add all medias to a playlist</label>
-<ul>
-<li>Perhaps it would be a good idea to have a suitable method</li>
-</ul></li>
-<li><label><input type="checkbox">Play it</label></li>
-</ul>
-<p>Let’s continue to keep separate responsibilities.</p>
-<p>The creation of a Media object should not be handled within the class <code>MediaJsonLoader</code>.</p>
-<p>You’ll need a class that can create either a song or a podcast from a JSON file.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Create class <code>MediaFactory</code> and method <em>create()</em></label></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MediaFactory <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="bu">Media</span> <span class="fu">create</span><span class="op">(</span>JSONObject json<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// </span><span class="al">TODO</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul class="task-list">
-<li><label><input type="checkbox">Refactor class <code>MediaJsonLoader</code> to use the factory</label></li>
-</ul>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each question can have one or more correct answers (at least one answer is correct).</p>
+<p>Correct answer: 1 point. Partially correct answer: ratio. If there is a wrong answer: 0.</p>
+</div>
+</div>
+<section id="what-will-happen-if-you-try-to-use-a-local-variable-without-initializing-it" class="level3">
+<h3 class="anchored" data-anchor-id="what-will-happen-if-you-try-to-use-a-local-variable-without-initializing-it">What will happen if you try to use a local variable without initializing it?</h3>
+<ol type="a">
+<li>It will be assigned a default value of 0.</li>
+<li>It will be assigned a default value of null.</li>
+<li>It will cause a compilation error.</li>
+<li>The compiler will automatically initialize it for you.</li>
+</ol>
+</section>
+<section id="what-can-be-said-about-javas-type-system" class="level3">
+<h3 class="anchored" data-anchor-id="what-can-be-said-about-javas-type-system">What can be said about Java’s type system?</h3>
+<ol type="a">
+<li>Java uses strong typing, as a variable cannot change its type once declared.</li>
+<li>Java uses dynamic typing, like Python.</li>
+<li>Java uses static typing, as types are checked at compile-time.</li>
+<li>Java allows changing the type of a variable at runtime.</li>
+</ol>
+</section>
+<section id="which-characteristics-describe-java-as-a-programming-language" class="level3">
+<h3 class="anchored" data-anchor-id="which-characteristics-describe-java-as-a-programming-language">Which characteristics describe Java as a programming language?</h3>
+<ol type="a">
+<li>Java is portable because it can run on any machine with a JVM installed.</li>
+<li>Java is compiled to bytecode, allowing it to be run on different platforms.</li>
+<li>Java follows the “Write Once, Run Anywhere” principle.</li>
+<li>Java does not have automatic memory management, which must be handled by developers.</li>
+</ol>
+</section>
+<section id="what-are-the-valid-signatures-of-a-main-method-in-java" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-valid-signatures-of-a-main-method-in-java">What are the valid signatures of a <code>main</code> method in Java?</h3>
+<ol type="a">
+<li><code>public void main(String[] args)</code></li>
+<li><code>public static void main(String[] args)</code></li>
+<li><code>static public main(String args[])</code></li>
+<li><code>void main(String[] args)</code></li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="using-the-class-below-what-code-is-used-to-create-a-person-object" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-class-below-what-code-is-used-to-create-a-person-object">Using the class below, what code is used to create a Person object?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Person <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> age<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">boolean</span> isStudent <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> age<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">age</span> <span class="op">=</span> age<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="a">
+<li><code>Person p = Person ("Lisa", 30, false);</code></li>
+<li><code>Person p = Person ("Lisa", 30);</code></li>
+<li><code>Person p = new Person ("Lisa" , 30);</code></li>
+<li><code>p = new Person ("Lisa", 30, true);</code></li>
+</ol>
+</section>
+<section id="which-data-structure-is-most-suitable-for-storing-the-days-of-the-week" class="level3">
+<h3 class="anchored" data-anchor-id="which-data-structure-is-most-suitable-for-storing-the-days-of-the-week">Which data structure is most suitable for storing the days of the week?</h3>
+<p><em>single answer</em></p>
+<ol type="a">
+<li>Enum</li>
+<li>Set<string></string></li>
+<li>ArrayList<string></string></li>
+<li>Map&lt;Integer, String&gt;</li>
+</ol>
+</section>
+<section id="what-does-lazy-evaluation-mean-in-programming" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-lazy-evaluation-mean-in-programming">What does lazy evaluation mean in programming?</h3>
+<ol type="a">
+<li>Evaluating expressions only when their values are needed.</li>
+<li>Storing intermediate results to avoid recalculating them.</li>
+<li>Always evaluating all expressions at the start of the program.</li>
+<li>Automatically optimizing code to make it run faster.</li>
+</ol>
+</section>
+<section id="which-file-is-essential-for-any-maven-project" class="level3">
+<h3 class="anchored" data-anchor-id="which-file-is-essential-for-any-maven-project">Which file is essential for any Maven project?</h3>
+<ol type="a">
+<li>build.xml</li>
+<li>application.yml</li>
+<li>pom.xml</li>
+<li>config.xml</li>
+</ol>
+</section>
+<section id="which-statements-are-true-about-apache-maven" class="level3">
+<h3 class="anchored" data-anchor-id="which-statements-are-true-about-apache-maven">Which statements are true about Apache Maven?</h3>
+<ol type="a">
+<li>It simplifies dependency management by automatically downloading required libraries.</li>
+<li>It enforces a standardized project structure.</li>
+<li>It is primarily a code editor with built-in compilation features.</li>
+<li>It provides a standardized build lifecycle.</li>
+<li>It requires manual configuration of every dependency.</li>
+</ol>
+</section>
+<section id="which-layer-does-this-mysteryclass-belong-to" class="level3">
+<h3 class="anchored" data-anchor-id="which-layer-does-this-mysteryclass-belong-to">Which layer does this MysteryClass belong to?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MysteryClass <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> AthleteService athleteService<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">"/api/athletes"</span><span class="op">)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> ResponseEntity<span class="op">&lt;</span><span class="bu">List</span><span class="op">&lt;</span>Athlete<span class="op">&gt;&gt;</span> <span class="fu">getAllAthletes</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Athlete<span class="op">&gt;</span> athletes <span class="op">=</span> athleteService<span class="op">.</span><span class="fu">findAll</span><span class="op">();</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ResponseEntity<span class="op">.</span><span class="fu">ok</span><span class="op">(</span>athletes<span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="a">
+<li>Controller</li>
+<li>Repository</li>
+<li>Model</li>
+<li>Service</li>
+</ol>
+</section>
+<section id="which-are-key-features-of-the-spring-framework" class="level3">
+<h3 class="anchored" data-anchor-id="which-are-key-features-of-the-spring-framework">Which are key features of the Spring Framework?</h3>
+<ol type="a">
+<li>Dependency Injection</li>
+<li>Inversion of Control</li>
+<li>Aspect-Oriented Programming</li>
+<li>Garbage Collection</li>
+</ol>
+<div style="page-break-after: always;"></div>
 </section>
 </section>
-<section id="end-of-the-tp" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="end-of-the-tp">End of the TP</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Commit and push</label></li>
-<li><label><input type="checkbox">Pause or delete your service</label></li>
-</ul>
+<section id="java-basics-4-points" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="java-basics-4-points"><span class="header-section-number">3</span> Java Basics (4 points)</h2>
+<ol type="a">
+<li><p>Write a function <code>isPositive</code> in Java that takes an integer and returns true if positive or zero, false otherwise.</p></li>
+<li><p>Write a Java function that prints multiplication tables from 1×1 to 9×9 in this format:</p></li>
+</ol>
+<pre class="{text}"><code>1 x 1 = 1
+1 x 2 = 2
+...
+1 x 9 = 9
+-----------
+2 x 1 = 2
+...
+9 x 9 = 81</code></pre>
+<ol start="3" type="a">
+<li>What will the code below display?</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    i<span class="op">++;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="4" type="a">
+<li>Give a short example of code using a Lombok annotation and explain its usefulness.</li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="java-code-4-points" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="java-code-4-points"><span class="header-section-number">4</span> Java Code (4 points)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filenmae="Fraction.java"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Fraction <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dt">int</span> numerator<span class="op">,</span> <span class="dt">int</span> denominator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>denominator <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">"Denominator cannot be zero."</span><span class="op">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">numerator</span> <span class="op">=</span> numerator<span class="op">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">denominator</span> <span class="op">=</span> denominator<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="a">
+<li>Can the code below work outside the Fraction class? If not, suggest a solution.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Fraction f <span class="op">=</span> <span class="kw">new</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>f<span class="op">.</span><span class="fu">denominator</span><span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="a">
+<li><p>Override the <code>toString</code> method so it returns the fraction in the format “numerator/denominator”.</p></li>
+<li><p>Add a public method <code>inverse</code> that returns a new Fraction with the numerator and denominator swapped. Write JavaDoc.</p></li>
+<li><p>Write unit tests for <code>inverse</code> using JUnit.</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>To check exceptions: <code>assertThrows(ExpectedException.class, () -&gt; {&lt;Code&gt;});</code></p>
+</blockquote>
+<ol start="5" type="a">
+<li>Give git commands to push your code to the remote repository.</li>
+</ol>
 
 
 </section>
