@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Rated TP">
+<meta name="description" content="Rated TP - Elevator Game">
 
 <title>Java - TP4 – Java</title>
 <style>
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -41,14 +76,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3171589eec3a5f262157db2f605a7d24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-9a920b6ca1b876927ca58b8be680e14e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-3171589eec3a5f262157db2f605a7d24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-39ea247a2559adfad9df8feb137efc39.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-2c66dede0fd7991caf6b44f8fae8e212.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-39ea247a2559adfad9df8feb137efc39.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -373,7 +408,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions"><span class="header-section-number">1</span> Instructions</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#subject" id="toc-subject" class="nav-link" data-scroll-target="#subject"><span class="header-section-number">1</span> Subject</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">2</span> Questions</a></li>
   </ul>
 </nav>
 </nav>
@@ -392,7 +429,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Rated TP
+    Rated TP - Elevator Game
   </div>
 </div>
 
@@ -415,24 +452,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-<section id="instructions" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">1</span> Instructions</h2>
+<section id="instructions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="instructions">Instructions</h2>
 <ul>
 <li>Groups of 1 or 2 students
 <ul>
 <li>Inter-group plagiarism will be severely punished</li>
 </ul></li>
-<li>In the README file, indicate:
-<ul>
-<li>your full names</li>
-<li>for each question covered, a brief summary explaining your logic and including the methods updated or created</li>
-</ul></li>
 <li>Due Date: <strong>Friday 10 April at 5pm</strong>
 <ul>
 <li>1 point deducted for each half-hour delay</li>
 </ul></li>
-<li>Zip your project repository and load it on Moodle
+<li>In a README file, indicate:
+<ul>
+<li>your full names</li>
+<li>list the questions that have been completed or not. Feel free to add comments</li>
+</ul></li>
+<li>Zip folder <code>tp4</code> and load it on Moodle
 <ul>
 <li>Don’t include <em>target</em> folder</li>
 </ul></li>
@@ -461,8 +497,159 @@ Important
 <p>If you are caught using an LLM, it will be considered cheating and you will receive a zero.</p>
 </div>
 </div>
+<section id="launch-service-vscode-java" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="launch-service-vscode-java">Launch service VSCode Java</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Restart the service from the last lab or Launch a new service <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&amp;version=2.5.2&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&amp;networking.user.enabled=true&amp;autoLaunch=true" target="_blank">VScode-Java</a></label></li>
+</ul>
+</section>
+<section id="update-your-repository" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="update-your-repository">Update your repository</h3>
+<p>Perhaps the repository used as a template has been updated since the last practical session.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Follow the commands given in Lab 2 to update your repository</label></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Service interruptions are possible. To prevent data loss, back up your code regularly with Git.</p>
+<p>After each part, create a commit and push your code to the remote repository.</p>
+</div>
+</div>
+</section>
+<section id="when-youve-finished" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="when-youve-finished">When you’ve finished</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Save your work using git</label></li>
+<li><label><input type="checkbox">Delete your service</label></li>
+</ul>
+</section>
+</section>
+<section id="subject" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="subject"><span class="header-section-number">1</span> Subject</h2>
+<p>In this project, you will model and simulate the operation of elevators in a small hotel. The goal is to design a simple object-oriented system where people appear on different floors, request an elevator, travel to their destination, and exit when they arrive.</p>
+<p>This topic is inspired by <a href="https://play.elevatorsaga.com/" target="_blank">Elevator Saga</a>.</p>
+</section>
+<section id="questions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="questions"><span class="header-section-number">2</span> Questions</h2>
+<section id="simulation-setup" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="simulation-setup"><span class="header-section-number">2.1</span> Simulation setup</h3>
+<p>The Main class is used to run the simulation. Here, you define the hotel, its floors, and the elevators, then run the simulation.</p>
+<p>Each step, people may arrive on each floor to call an elevator.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Set the probability that a person will arrive on the ground floor at each step to 0.65</label></li>
+</ul>
+<p>It’s annoying to have to enter one by one elevators and floors. It would be easier just to specify the number you want.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Make sure that the number of floors and elevators can be easily configured</label></li>
+</ul>
+<p>In the <code>Person</code> class, a value depends on the number of elevators.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Ensure that this value is retrieved from elsewhere and do not hard-code it</label></li>
+</ul>
+<p>In the <code>Elevator</code> class:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Add the <em>isFull()</em> method</label></li>
+<li><label><input type="checkbox">Use it in another method of the same class</label></li>
+</ul>
+</section>
+<section id="request-an-elevator" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="request-an-elevator"><span class="header-section-number">2.2</span> Request an elevator</h3>
+<p>When someone reaches a floor, they press the button to call an elevator.</p>
+<p>For now, all these calls are sent to the first elevator.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Implement new rules:</label>
+<ul>
+<li>if an elevator is already on its way to that floor, do nothing</li>
+<li>otherwise, find the least busy elevator and add the floor to the end of its destinations list</li>
+</ul></li>
+<li><label><input type="checkbox">Update the JavaDoc (to be done for each question if necessary)</label></li>
+</ul>
+</section>
+<section id="target-floor" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="target-floor"><span class="header-section-number">2.3</span> Target Floor</h3>
+<p>On each floor, people may arrive randomly.</p>
+<p>You may have noticed in the simulation that some people arrive on floor <em>n</em> and want to go to floor <em>n</em>.</p>
+<p>Perhaps, like children, they find it fun to take the elevator, but to make the simulation more realistic:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Ensure that people choose a target floor at random from among <u>the other floors</u> in the hotel.</label></li>
+</ul>
+</section>
+<section id="unit-test" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="unit-test"><span class="header-section-number">2.4</span> Unit test</h3>
+<p>Let’s write some unit tests with JUnit (no need for Mockito).</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Explain why it is complicated to test the <em>isFull()</em> method of the <em>Elevator</em> class.</label></li>
+<li><label><input type="checkbox">Add an appropriate method and code unit tests for method <em>isFull()</em></label></li>
+<li><label><input type="checkbox">Create an run unit tests for method <em>Elevator.addDestination()</em></label></li>
+</ul>
+</section>
+<section id="crazy-elevator" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="crazy-elevator"><span class="header-section-number">2.5</span> Crazy Elevator</h3>
+<p>It wasn’t specified yet, but we are in a haunted hotel where the elevators sometimes go crazy.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a class <em>CrazyElevator</em></label></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Behaviour">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Behaviour
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>At each step, a crazy elevator can, with equal probability:</p>
+<ul>
+<li>remain stationary</li>
+<li>skip its next destination and go directly to the next one</li>
+<li>go to the next floor as a normal elevator</li>
+</ul>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Update the appropriate method</label></li>
+</ul>
+<p>Half the time, a crazyElevator may decide not to unload its passengers.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Update the appropriate method</label></li>
+</ul>
+<p>If it is full, it will send all its passengers into another dimension.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Update the appropriate method</label></li>
+<li><label><input type="checkbox">Add a crazy elevator in the hotel</label></li>
+</ul>
+</section>
+<section id="elevator-direction" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="elevator-direction"><span class="header-section-number">2.6</span> Elevator Direction</h3>
+<p>We would like to know at all times whether the elevator is going up, down or is idle (inactive).</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Add attribute direction to each Elevator and each Person</label>
+<ul>
+<li>choose the appropriate type</li>
+</ul></li>
+<li><label><input type="checkbox">Find the appropriate method for updating the direction</label></li>
+<li><label><input type="checkbox">Bonus: in class <code>Hotel</code>, update the display to show an arrow symbol next to Elevator.</label></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>+-------+--------------------------+--------------------------+----------------------+</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>| Floor | Elevator1 ↑              | Elevator2 ↓              | waitingPersons       |</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>+-------+--------------------------+--------------------------+----------------------+</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>|     3 |                          |                          |                      |</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>|     2 |                          |                          | g3                   |</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>|     1 |                          | [        ]               |                      |</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>|     0 | [e2      ]               |                          | f2                   |</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>+-------+--------------------------+--------------------------+----------------------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/tp/tp1.html</loc>
-    <lastmod>2026-04-03T14:00:14.878Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/tp/tp2.html</loc>
-    <lastmod>2026-04-03T14:00:14.878Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/tp/tp4.html</loc>
-    <lastmod>2026-04-03T14:00:14.878Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/exam/java-2025.html</loc>
-    <lastmod>2026-04-03T14:00:14.878Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/07-advanced.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/07-advanced-slides.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/04-classes.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/04-classes-slides.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/03-collections.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/03-collections-slides.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/06-junit.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/06-junit-slides.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/index.html</loc>
-    <lastmod>2026-04-03T14:00:14.878Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/02-syntax-slides.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/02-syntax.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/01-intro-slides.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/01-intro.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/05-project-slides.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/05-project.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/08-spring.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/08-spring-slides.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
   </url>
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/08-spring.html</loc>
-    <lastmod>2026-04-03T14:00:14.872Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/06-junit.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
   </url>
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/exam/java-2025-correction.html</loc>
-    <lastmod>2026-04-03T14:00:14.876Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/06-junit-slides.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/01-intro.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/01-intro-slides.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/02-syntax.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/02-syntax-slides.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/exam/java-2025.html</loc>
+    <lastmod>2026-04-10T07:43:21.483Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/tp/tp4.html</loc>
+    <lastmod>2026-04-10T07:43:21.483Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/tp/tp3.html</loc>
-    <lastmod>2026-04-03T14:00:14.878Z</lastmod>
+    <lastmod>2026-04-10T07:43:21.483Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/tp/tp1.html</loc>
+    <lastmod>2026-04-10T07:43:21.483Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/index.html</loc>
+    <lastmod>2026-04-10T07:43:21.483Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/tp/tp2.html</loc>
+    <lastmod>2026-04-10T07:43:21.483Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/tp/tp5.html</loc>
-    <lastmod>2026-04-03T14:00:14.878Z</lastmod>
+    <lastmod>2026-04-10T07:43:21.483Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/exam/java-2025-correction.html</loc>
+    <lastmod>2026-04-10T07:43:21.482Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/07-advanced-slides.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/07-advanced.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/03-collections-slides.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/03-collections.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/04-classes-slides.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/04-classes.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/05-project-slides.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-2A-Java/doc/cours/05-project.html</loc>
+    <lastmod>2026-04-10T07:43:21.478Z</lastmod>
   </url>
 </urlset>
