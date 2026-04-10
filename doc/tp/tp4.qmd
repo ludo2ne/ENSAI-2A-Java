@@ -1,6 +1,6 @@
 ---
 title: "Java - TP4"
-description: "Rated TP"
+description: "Rated TP - Elevator Game"
 format:
   html:
     toc-expand: 3
@@ -8,18 +8,17 @@ number-sections: true
 number-depth: 3
 ---
 
-:construction:
 
-## Instructions
+## Instructions {.unnumbered}
 
 - Groups of 1 or 2 students
   - Inter-group plagiarism will be severely punished
-- In the README file, indicate:
-  - your full names
-  - for each question covered, a brief summary explaining your logic and including the methods updated or created
 - Due Date: **Friday 10 April at 5pm**
   - 1 point deducted for each half-hour delay
-- Zip your project repository and load it on Moodle
+- In a README file, indicate:
+  - your full names
+  - list the questions that have been completed or not. Feel free to add comments
+- Zip folder `tp4` and load it on Moodle
   - Don't include *target* folder
 
 Your code must be functional, with no compilation or runtime errors.
@@ -35,3 +34,136 @@ Don't forget to include the javadoc and to comment your code if necessary.
 
 If you are caught using an LLM, it will be considered cheating and you will receive a zero.
 :::
+
+
+### Launch service VSCode Java {.unnumbered}
+
+- [ ] Restart the service from the last lab or Launch a new service [VScode-Java](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-java&version=2.5.2&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fludo2ne%2FENSAI-2A-Java%2Frefs%2Fheads%2Fmain%2Fdoc%2Ftp%2Fvscode-java.sh»&networking.user.enabled=true&autoLaunch=true){target="_blank"}
+
+### Update your repository {.unnumbered}
+
+Perhaps the repository used as a template has been updated since the last practical session.
+
+- [ ] Follow the commands given in Lab 2 to update your repository
+
+::: {.callout-caution}
+Service interruptions are possible. To prevent data loss, back up your code regularly with Git.
+
+After each part, create a commit and push your code to the remote repository.
+:::
+
+### When you've finished {.unnumbered}
+
+- [ ] Save your work using git
+- [ ] Delete your service
+
+
+## Subject
+
+In this project, you will model and simulate the operation of elevators in a small hotel.
+The goal is to design a simple object-oriented system where people appear on different floors, request an elevator, travel to their destination, and exit when they arrive.
+
+This topic is inspired by [Elevator Saga](https://play.elevatorsaga.com/){target="_blank"}.
+
+
+## Questions
+
+### Simulation setup
+
+The Main class is used to run the simulation. Here, you define the hotel, its floors, and the elevators, then run the simulation.
+
+Each step, people may arrive on each floor to call an elevator.
+
+- [ ] Set the probability that a person will arrive on the ground floor at each step to 0.65
+
+It's annoying to have to enter one by one elevators and floors. It would be easier just to specify the number you want.
+
+- [ ] Make sure that the number of floors and elevators can be easily configured
+
+In the `Person` class, a value depends on the number of elevators. 
+
+- [ ] Ensure that this value is retrieved from elsewhere and do not hard-code it
+
+In the `Elevator` class:
+
+- [ ] Add the *isFull()* method
+- [ ] Use it in another method of the same class
+
+
+### Request an elevator
+
+When someone reaches a floor, they press the button to call an elevator.
+
+For now, all these calls are sent to the first elevator.
+
+- [ ] Implement new rules:
+  - if an elevator is already on its way to that floor, do nothing
+  - otherwise, find the least busy elevator and add the floor to the end of its destinations list 
+- [ ] Update the JavaDoc (to be done for each question if necessary)
+
+
+### Target Floor
+
+On each floor, people may arrive randomly.
+
+You may have noticed in the simulation that some people arrive on floor *n* and want to go to floor *n*. 
+
+Perhaps, like children, they find it fun to take the elevator, but to make the simulation more realistic:
+
+- [ ] Ensure that people choose a target floor at random from among [the other floors]{.underline} in the hotel.
+
+
+### Unit test
+
+Let's write some unit tests with JUnit (no need for Mockito).
+
+- [ ] Explain why it is complicated to test the *isFull()* method of the *Elevator* class.
+- [ ] Add an appropriate method and code unit tests for method *isFull()*
+- [ ] Create an run unit tests for method *Elevator.addDestination()*
+
+
+### Crazy Elevator
+
+It wasn't specified yet, but we are in a haunted hotel where the elevators sometimes go crazy.
+
+- [ ] Create a class *CrazyElevator*
+
+::: {.callout-note title="Behaviour"}
+At each step, a crazy elevator can, with equal probability:
+
+- remain stationary
+- skip its next destination and go directly to the next one
+- go to the next floor as a normal elevator
+:::
+
+- [ ] Update the appropriate method
+
+Half the time, a crazyElevator may decide not to unload its passengers.
+
+- [ ] Update the appropriate method
+
+If it is full, it will send all its passengers into another dimension.
+
+- [ ] Update the appropriate method
+- [ ] Add a crazy elevator in the hotel
+
+
+### Elevator Direction
+
+We would like to know at all times whether the elevator is going up, down or is idle (inactive).
+
+- [ ] Add attribute direction to each Elevator and each Person
+  - choose the appropriate type
+- [ ] Find the appropriate method for updating the direction
+- [ ] Bonus: in class `Hotel`, update the display to show an arrow symbol next to Elevator. 
+
+```{.txt}
++-------+--------------------------+--------------------------+----------------------+
+| Floor | Elevator1 ↑              | Elevator2 ↓              | waitingPersons       |
++-------+--------------------------+--------------------------+----------------------+
+|     3 |                          |                          |                      |
+|     2 |                          |                          | g3                   |
+|     1 |                          | [        ]               |                      |
+|     0 | [e2      ]               |                          | f2                   |
++-------+--------------------------+--------------------------+----------------------+
+```
