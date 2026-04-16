@@ -80,7 +80,7 @@ It's annoying to have to enter one by one elevators and floors. It would be easi
 
 - [ ] Make sure that the number of floors and elevators can be easily configured
 
-In the `Person` class, a value depends on the number of elevators. 
+In the `Person` class, a value depends on the number of floors. 
 
 - [ ] Ensure that this value is retrieved from elsewhere and do not hard-code it
 

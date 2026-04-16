@@ -70,7 +70,7 @@ In VSCode :
 
 ### Compile and run
 
-- [ ] If necessary in the terminal, change directory to tp5
+- [ ] If necessary in the terminal, change current directory to tp5
 
 Use this command to run your application:
 
@@ -79,7 +79,7 @@ Use this command to run your application:
 
 After launching the Spring Boot application, it will be deployed to something like:
 
-- `https://user-<sspcloud_username>-<6digits_number>-user<optional: -5000>.user.lab.sspcloud.fr/`
+- `https://user-<sspcloud_username>-<6digits_number>-user.user.lab.sspcloud.fr/`
 
 
 ::: {.callout-warning}

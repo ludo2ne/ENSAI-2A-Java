@@ -73,6 +73,7 @@ Like Django or Flask for Python
 - **Spring Security**: authentication, authorization...
 - **Spring Data**: simplifies database access
 - **Spring Batch**: handling large-scale batch processing
+- **Spring Boot**
 
 
 :::{.notes}
@@ -178,6 +179,7 @@ public class Sandwich {
 
 ### Bean principles
 
+- Stateless
 - No args constructor
 - Managed by the Spring IoC container
 - Scope (Singleton, Prototype)
@@ -185,7 +187,9 @@ public class Sandwich {
 
 
 :::{.notes}
+- Stateless: not a mutable business object
 - NoArgs: allows Spring to create the bean instance without having to worry about the parameters
+- Singleton : default scope -> All beans are singleton
 - Prototype: new instance when called
 :::
 
@@ -359,6 +363,15 @@ sequenceDiagram
 - Server side: The problem is with the website you are trying to use.
 :::
 
+### :pizza: status codes {.smaller}
+
+- 200 OK: Your pizza order was accepted and delivered successfully
+- 400 Bad Request: You ordered something invalid (e.g., "a pizza in PDF format")
+- 401 Unauthorized: You must log in before ordering pizza
+- 403 Forbidden: You are logged in, but you're not allowed to order (e.g., kitchen is staff-only)
+- 404 Not Found: You ordered a pizza that doesn't exist on the menu
+- 500 Internal Server Error: The kitchen messed up while preparing your pizza
+
 
 ## Spring Boot
 
@@ -459,8 +472,10 @@ Step 2: custom properties, setup
 
 :::{.notes}
 - recursive acronym
+  - basically means: "We definitely don’t want to be XML.""
 - JSON: efficient for machine-to-machine communication
 - YAML: configuration files (human readability)
+- extension: .yml or .yaml
 :::
 
 ### YAML Strucure
@@ -480,7 +495,7 @@ Step 2: custom properties, setup
 
 ```{.yml}
 person:
-  name: Charlotte         # str
+  name: Anne Charlotte    # str
   city: "Amiens"          # str
   age: 25                 # int
   height: 1.70            # float
@@ -504,6 +519,7 @@ hobbies:
 - dict
 - list
   - other syntax: `hobbies: ["chess", "hiking", "landart"]`
+- quotes: often optional unless the string contains special characters
 :::
 
 ## Data Mapping
@@ -722,6 +738,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 - All CRUD methods are available
 - No need to implement the code
 - JpaRepository extends CrudRepository
+
+Dependancy Injection: 
+  - Spring automatically creates an implementation of the Repository interface
+  - and injects a proxy instead.
 :::
 
 ### Basic methods
