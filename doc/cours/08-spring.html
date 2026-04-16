@@ -522,6 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Spring Security</strong>: authentication, authorization…</li>
 <li><strong>Spring Data</strong>: simplifies database access</li>
 <li><strong>Spring Batch</strong>: handling large-scale batch processing</li>
+<li><strong>Spring Boot</strong></li>
 </ul>
 <div class="notes">
 <ul>
@@ -642,6 +643,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="bean-principles" class="level3">
 <h3 class="anchored" data-anchor-id="bean-principles">Bean principles</h3>
 <ul>
+<li>Stateless</li>
 <li>No args constructor</li>
 <li>Managed by the Spring IoC container</li>
 <li>Scope (Singleton, Prototype)</li>
@@ -649,7 +651,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="notes">
 <ul>
+<li>Stateless: not a mutable business object</li>
 <li>NoArgs: allows Spring to create the bean instance without having to worry about the parameters</li>
+<li>Singleton : default scope -&gt; All beans are singleton</li>
 <li>Prototype: new instance when called</li>
 </ul>
 </div>
@@ -871,6 +875,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </div>
 </section>
+<section id="status-codes" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="status-codes"><span class="emoji" data-emoji="pizza">🍕</span> status codes</h3>
+<ul>
+<li>200 OK: Your pizza order was accepted and delivered successfully</li>
+<li>400 Bad Request: You ordered something invalid (e.g., “a pizza in PDF format”)</li>
+<li>401 Unauthorized: You must log in before ordering pizza</li>
+<li>403 Forbidden: You are logged in, but you’re not allowed to order (e.g., kitchen is staff-only)</li>
+<li>404 Not Found: You ordered a pizza that doesn’t exist on the menu</li>
+<li>500 Internal Server Error: The kitchen messed up while preparing your pizza</li>
+</ul>
+</section>
 </section>
 <section id="spring-boot" class="level2">
 <h2 class="anchored" data-anchor-id="spring-boot">Spring Boot</h2>
@@ -979,9 +994,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="notes">
 <ul>
-<li>recursive acronym</li>
+<li>recursive acronym
+<ul>
+<li>basically means: “We definitely don’t want to be XML.””</li>
+</ul></li>
 <li>JSON: efficient for machine-to-machine communication</li>
 <li>YAML: configuration files (human readability)</li>
+<li>extension: .yml or .yaml</li>
 </ul>
 </div>
 </section>
@@ -1006,7 +1025,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="yaml-examples" class="level3">
 <h3 class="anchored" data-anchor-id="yaml-examples">YAML Examples</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">person</span><span class="kw">:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Charlotte</span><span class="co">         # str</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Anne Charlotte</span><span class="co">    # str</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">city</span><span class="kw">:</span><span class="at"> </span><span class="st">"Amiens"</span><span class="co">          # str</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">25</span><span class="co">                 # int</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.70</span><span class="co">            # float</span></span>
@@ -1028,6 +1047,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>other syntax: <code>hobbies: ["chess", "hiking", "landart"]</code></li>
 </ul></li>
+<li>quotes: often optional unless the string contains special characters</li>
 </ul>
 </div>
 </section>
@@ -1307,6 +1327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>No need to implement the code</li>
 <li>JpaRepository extends CrudRepository</li>
 </ul>
+<p>Dependancy Injection: - Spring automatically creates an implementation of the Repository interface - and injects a proxy instead.</p>
 </div>
 </section>
 <section id="basic-methods" class="level3">
